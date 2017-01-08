@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="darksimplicity">
+  <meta name="generator" content="Hugo 0.18.1" />
+  
+  
+  <base href="https://jeqo.github.io/">
+  <title>Running Oracle BPM 12c on AWS using Vagrant and Chef</title>
+  <link rel="stylesheet" href="/css/style.min.css">
+
+</head>
+<body>
+  <div class="wrap">
+    <div class="navbar">
+        <ul class="navbar-list" style="float:right">
+          
+        </ul>
+    </div>
+    <div class="navbar">
+        
+        <ul class="navbar-list" style="float:right">
+            
+            <li class="navbar-item"><a class="navbar-link" href="https://jeqo.github.io/es/post/2014-12-11-run-bpm-12c-aws/">es</a></li>
+            
+        </ul>
+        
+    </div>
+    <div class="header"><span style="font-size: 34px;">
+      <a href="https://jeqo.github.io/">@jeqo</a></span>
+      <span style="font-size:12px;">&nbsp;&nbsp;|&nbsp;&nbsp;<i>back-end development, integration, devops, etc.</i> </span></div>
+
+<div class="empty">&nbsp;</div>
+  <div class="post-title">
+    <a class="post-title-link" href="https://jeqo.github.io/post/2014-12-11-run-bpm-12c-aws/">Running Oracle BPM 12c on AWS using Vagrant and Chef</a>
+  </div>
+      <div class="tags">tags:</br>
+        <a class="tag-link" href="/tags/oracle">oracle </a><a class="tag-link" href="/tags/fmw">fmw </a><a class="tag-link" href="/tags/bpm">bpm </a><a class="tag-link" href="/tags/chef">chef </a><a class="tag-link" href="/tags/vagrant">vagrant </a>
+    </div>
+    <div class="content-full"><p>In this post, I will show how to create an AWS EC2 Instance with an Oracle BPM 12c Quickstart Domain created. And I will use previous post for related tasks.</p>
+
+<p></p>
+
+<p>Lets see how to achieve this and make this process reusable. These are the steps:</p>
+
+<ul>
+<li>Create an AWS EC2 instance (with Vagrant)</li>
+<li>Connect to an NFS instance to get the installer (with Chef)</li>
+<li>Install Oracle BPM 12c Quickstart and create a Domain (with Chef)</li>
+</ul>
+
+<p>GitHub repository: <a href="https://github.com/jeqo/oracle-bpm-12c-aws">Here</a></p>
+
+<h2 id="create-an-aws-ec2-instance">Create an AWS EC2 instance</h2>
+
+<p>I&rsquo;ve created a Red Hat instance using Vagrant. This instance should be connected to my NFS instance that has all the Oracle&rsquo;s installers (to create an NFS instance on AWS EC2: <a href="http://jeqo.github.io/blog/devops/create-nfs-instance-aws/">go here</a>).</p>
+
+<p>This is the NFS instance:</p>
+
+<p><img src="/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0836.png" alt="NFS instance" title="NFS Instance" /></p>
+
+<p>And the &ldquo;/data&rdquo; directory is shared. It includes Oracle XE and Oracle FMW installers:</p>
+
+<p><img src="/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0841.png" alt="NFS directories" title="NFS directories" /></p>
+
+<h3 id="vagrant-configuration">Vagrant configuration</h3>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">VAGRANTFILE_API_VERSION</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;2&quot;</span>
+
+<span style="color: #66d9ef">Vagrant</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">configure(</span><span style="color: #66d9ef">VAGRANTFILE_API_VERSION</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">do</span> <span style="color: #f92672">|</span><span style="color: #f8f8f2">config</span><span style="color: #f92672">|</span>
+	<span style="color: #75715e"># Load properties files</span>
+	<span style="color: #f8f8f2">box_props</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">YAML</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">load_file(</span><span style="color: #e6db74">&quot;box.properties&quot;</span><span style="color: #f8f8f2">)</span>
+	<span style="color: #f8f8f2">aws_props</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">YAML</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">load_file(</span><span style="color: #e6db74">&quot;aws.properties&quot;</span><span style="color: #f8f8f2">)</span>
+
+	<span style="color: #75715e"># Basic metadata</span>
+	<span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">box</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;#{</span><span style="color: #f8f8f2">box_props</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;box&#39;</span><span style="color: #f92672">][</span><span style="color: #e6db74">&#39;name&#39;</span><span style="color: #f92672">]</span><span style="color: #e6db74">}&quot;</span>
+	<span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">box_url</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;file://#{</span><span style="color: #f8f8f2">box_props</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;box&#39;</span><span style="color: #f92672">][</span><span style="color: #e6db74">&#39;base_location&#39;</span><span style="color: #f92672">]</span><span style="color: #e6db74">}&quot;</span>
+
+	<span style="color: #75715e"># AWS Configuration</span>
+	<span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">provider</span> <span style="color: #e6db74">:aws</span> <span style="color: #66d9ef">do</span> <span style="color: #f92672">|</span><span style="color: #f8f8f2">aws,</span> <span style="color: #f8f8f2">override</span><span style="color: #f92672">|</span>
+		<span style="color: #f8f8f2">aws</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">access_key_id</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;#{</span><span style="color: #f8f8f2">aws_props</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;keys&#39;</span><span style="color: #f92672">][</span><span style="color: #e6db74">&#39;access_key_id&#39;</span><span style="color: #f92672">]</span><span style="color: #e6db74">}&quot;</span>
+		<span style="color: #f8f8f2">aws</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">secret_access_key</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;#{</span><span style="color: #f8f8f2">aws_props</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;keys&#39;</span><span style="color: #f92672">][</span><span style="color: #e6db74">&#39;secret_access_key&#39;</span><span style="color: #f92672">]</span><span style="color: #e6db74">}&quot;</span>
+		<span style="color: #f8f8f2">aws</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">keypair_name</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;jeqo&quot;</span>
+
+		<span style="color: #f8f8f2">aws</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">instance_type</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;m3.medium&quot;</span>
+		<span style="color: #f8f8f2">aws</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">region</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;sa-east-1&quot;</span>
+		<span style="color: #f8f8f2">aws</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">availability_zone</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;sa-east-1a&quot;</span>
+		<span style="color: #f8f8f2">aws</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">ami</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;ami-0511a418&quot;</span>
+
+		<span style="color: #f8f8f2">override</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">ssh</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">username</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;ec2-user&quot;</span>
+		<span style="color: #f8f8f2">override</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">ssh</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">private_key_path</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;#{</span><span style="color: #f8f8f2">aws_props</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;keys&#39;</span><span style="color: #f92672">][</span><span style="color: #e6db74">&#39;key_pair_location&#39;</span><span style="color: #f92672">]</span><span style="color: #e6db74">}&quot;</span>
+
+		<span style="color: #f8f8f2">aws</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">tags</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
+		  <span style="color: #e6db74">&#39;Name&#39;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #f8f8f2">box_props</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;box&#39;</span><span style="color: #f92672">][</span><span style="color: #e6db74">&#39;name&#39;</span><span style="color: #f92672">]</span>
+		<span style="color: #f8f8f2">}</span>
+
+		<span style="color: #f8f8f2">aws</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">block_device_mapping</span> <span style="color: #f92672">=</span> <span style="color: #f92672">[</span><span style="color: #f8f8f2">{</span>
+			<span style="color: #e6db74">&#39;DeviceName&#39;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&#39;/dev/sda1&#39;</span><span style="color: #f8f8f2">,</span>
+			<span style="color: #e6db74">&#39;Ebs.VolumeSize&#39;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #f8f8f2">box_props</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;box&#39;</span><span style="color: #f92672">][</span><span style="color: #e6db74">&#39;disk_size&#39;</span><span style="color: #f92672">]</span>
+		<span style="color: #f8f8f2">}</span><span style="color: #f92672">]</span>
+
+		<span style="color: #f8f8f2">aws</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">security_groups</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;jeqo-group&quot;</span>
+
+		<span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">ssh</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">pty</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">true</span>
+	<span style="color: #66d9ef">end</span>
+
+	<span style="color: #75715e"># Install Chef Client</span>
+	<span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">omnibus</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">chef_version</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">:latest</span>
+
+	<span style="color: #75715e"># Increase Swap size</span>
+	<span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">provision</span> <span style="color: #e6db74">&quot;shell&quot;</span> <span style="color: #66d9ef">do</span> <span style="color: #f92672">|</span><span style="color: #f8f8f2">s</span><span style="color: #f92672">|</span>
+		<span style="color: #f8f8f2">s</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">path</span>	<span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;increase_swap.sh&quot;</span>
+		<span style="color: #f8f8f2">s</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">args</span>   <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;&#39;#{</span><span style="color: #f8f8f2">box_props</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;box&#39;</span><span style="color: #f92672">][</span><span style="color: #e6db74">&#39;additional_swap&#39;</span><span style="color: #f92672">]</span><span style="color: #e6db74">}&#39;&quot;</span>
+	<span style="color: #66d9ef">end</span>
+
+	<span style="color: #75715e"># Run Provisioning with Chef</span>
+	<span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">provision</span> <span style="color: #e6db74">&quot;chef_client&quot;</span> <span style="color: #66d9ef">do</span> <span style="color: #f92672">|</span><span style="color: #f8f8f2">chef</span><span style="color: #f92672">|</span>
+		<span style="color: #f8f8f2">chef</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">chef_server_url</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;https://api.opscode.com/organizations/jeqo&quot;</span>
+		<span style="color: #f8f8f2">chef</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">validation_client_name</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;jeqo-validator&quot;</span>
+		<span style="color: #f8f8f2">chef</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">validation_key_path</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;#{</span><span style="color: #f8f8f2">box_props</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;chef&#39;</span><span style="color: #f92672">][</span><span style="color: #e6db74">&#39;repo_location&#39;</span><span style="color: #f92672">]</span><span style="color: #e6db74">}/.chef/jeqo-validator.pem&quot;</span>
+		<span style="color: #f8f8f2">chef</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">node_name</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;#{</span><span style="color: #f8f8f2">box_props</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;box&#39;</span><span style="color: #f92672">][</span><span style="color: #e6db74">&#39;name&#39;</span><span style="color: #f92672">]</span><span style="color: #e6db74">}&quot;</span>
+		<span style="color: #f8f8f2">chef</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">add_role</span> <span style="color: #e6db74">&quot;nfs-client&quot;</span>
+		<span style="color: #f8f8f2">chef</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">add_role</span> <span style="color: #e6db74">&quot;oracle_db-xe&quot;</span>
+		<span style="color: #f8f8f2">chef</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">add_role</span> <span style="color: #e6db74">&quot;demo-bpm_bam-12c&quot;</span>
+		<span style="color: #f8f8f2">chef</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">json</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
+			<span style="color: #e6db74">&quot;nfs-client&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #f8f8f2">{</span>
+				<span style="color: #e6db74">&quot;server-host&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;127.0.0.1&quot;</span>
+			<span style="color: #f8f8f2">},</span>
+			<span style="color: #e6db74">&quot;oracle-xe&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #f8f8f2">{</span>
+				<span style="color: #e6db74">&quot;url&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;file:///data/oracle-xe/oracle-xe-11.2.0-1.0.x86_64.rpm&quot;</span>
+			<span style="color: #f8f8f2">},</span>
+			<span style="color: #e6db74">&quot;bpm_qs-12c&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #f8f8f2">{</span>
+				<span style="color: #e6db74">&quot;url&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;file:///data/oracle-fmw/bpm_qs-12c/fmw_12.1.3.0.0_bpmqs_Disk1_1of1.zip&quot;</span>
+			<span style="color: #f8f8f2">}</span>
+		<span style="color: #f8f8f2">}</span>
+	<span style="color: #66d9ef">end</span>
+<span style="color: #66d9ef">end</span>
+</pre></div>
+
+
+<p>Running this file with:</p>
+
+<p><div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>vagrant up --provider<span style="color: #f92672">=</span>aws
+</pre></div>
+</p>
+
+<p>You will create a new instance on AWS EC2.</p>
+
+<h2 id="connect-to-an-nfs-instance">Connect to an NFS instance</h2>
+
+<p>The first recipe that will be executed is:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">...</span>
+  <span style="color: #f8f8f2">chef</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">add_role</span> <span style="color: #e6db74">&quot;nfs-client&quot;</span>
+<span style="color: #f92672">...</span>
+</pre></div>
+
+
+<p>This call the following Chef role:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">{</span>
+  <span style="color: #f92672">&quot;name&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;nfs-client&quot;</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #f92672">&quot;description&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;Role applied to the system that should be an NFS client tools.&quot;</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #f92672">&quot;json_class&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;Chef::Role&quot;</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #f92672">&quot;default_attributes&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #f92672">&quot;nfs-client&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #f92672">&quot;server-host&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;localhost&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f92672">&quot;local-directory&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;/data&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f92672">&quot;remote-directory&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;/data&quot;</span>
+    <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">},</span>
+  <span style="color: #f92672">&quot;run_list&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">[</span>
+    <span style="color: #e6db74">&quot;recipe[nfs-utils::nfs-client]&quot;</span>
+  <span style="color: #f8f8f2">]</span>
+<span style="color: #f8f8f2">}</span>
+</pre></div>
+
+
+<p>To update the server-host from your Vagrant configuration, add these lines:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">...</span>
+<span style="color: #f8f8f2">chef</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">json</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #e6db74">&quot;nfs-client&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #e6db74">&quot;server-host&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;123.1.1.12&quot;</span>
+  <span style="color: #f8f8f2">},</span>
+  <span style="color: #f92672">...</span>
+</pre></div>
+
+
+<p>And when your instance started, a new directory &ldquo;/data&rdquo; will sync the NFS shared directories.</p>
+
+<h2 id="install-oracle-bpm-12c-quickstart">Install Oracle BPM 12c Quickstart</h2>
+
+<p>To install BPM, you can download my shared <a href="https://supermarket.chef.io/cookbooks/oracle-fmw">&ldquo;oracle-fmw&rdquo; cookbook</a> from Chef Supermarket. It is explained in <a href="http://jeqo.github.io/blog/devops/chef-cookbook-oracle-fmw-12c/">this post</a>.</p>
+
+<p>Vagrant configuration calls this Chef role:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">{</span>
+  <span style="color: #f92672">&quot;name&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;demo-bpm_bam-12c&quot;</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #f92672">&quot;json_class&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;Chef::Role&quot;</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #f92672">&quot;default_attributes&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #f92672">&quot;domain-12c&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #f92672">&quot;name&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;demo-bpm_bam-domain&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f92672">&quot;mode&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;Compact&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f92672">&quot;apps&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">[</span>
+        <span style="color: #f8f8f2">{</span><span style="color: #f92672">&quot;name&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;SOA&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">&quot;enabled&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">},</span>
+        <span style="color: #f8f8f2">{</span><span style="color: #f92672">&quot;name&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;BPM&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">&quot;enabled&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">},</span>
+        <span style="color: #f8f8f2">{</span><span style="color: #f92672">&quot;name&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;BAM&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">&quot;enabled&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">},</span>
+        <span style="color: #f8f8f2">{</span><span style="color: #f92672">&quot;name&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;OSB&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f92672">&quot;enabled&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">}</span>
+      <span style="color: #f8f8f2">],</span>
+      <span style="color: #f92672">&quot;machines&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">[</span>
+      <span style="color: #f8f8f2">],</span>
+      <span style="color: #f92672">&quot;admin_server&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #f92672">&quot;base_name&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;AdminServer&quot;</span><span style="color: #f8f8f2">,</span>
+        <span style="color: #f92672">&quot;new_name&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;bpm_bpm-server&quot;</span><span style="color: #f8f8f2">,</span>
+        <span style="color: #f92672">&quot;port&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;7001&quot;</span>
+      <span style="color: #f8f8f2">},</span>
+      <span style="color: #f92672">&quot;managed_servers&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">[</span>
+      <span style="color: #f8f8f2">],</span>
+      <span style="color: #f92672">&quot;db_repo_host&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;localhost&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f92672">&quot;db_repo_port&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;1521&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f92672">&quot;db_repo_sid&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;xe&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f92672">&quot;db_repo_prefix&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;DEMO&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f92672">&quot;db_repo_password&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;welcome1&quot;</span>
+    <span style="color: #f8f8f2">},</span>
+    <span style="color: #f92672">&quot;rcu-12c&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #f92672">&quot;db_schema_prefix&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;DEMO&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f92672">&quot;db_dba_user&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;SYS&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f92672">&quot;db_dba_role&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;SYSDBA&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f92672">&quot;db_dba_password&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;welcome1&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f92672">&quot;db_schemas_password&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;welcome1&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f92672">&quot;db_hostname&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;localhost&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f92672">&quot;db_port&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;1521&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f92672">&quot;db_service&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;xe&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f92672">&quot;components&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">[</span>
+        <span style="color: #e6db74">&quot;SOAINFRA&quot;</span><span style="color: #f8f8f2">,</span>
+        <span style="color: #e6db74">&quot;OPSS&quot;</span><span style="color: #f8f8f2">,</span>
+        <span style="color: #e6db74">&quot;IAU&quot;</span><span style="color: #f8f8f2">,</span>
+        <span style="color: #e6db74">&quot;MDS&quot;</span><span style="color: #f8f8f2">,</span>
+        <span style="color: #e6db74">&quot;WLS&quot;</span><span style="color: #f8f8f2">,</span>
+        <span style="color: #e6db74">&quot;UCSUMS&quot;</span><span style="color: #f8f8f2">,</span>
+        <span style="color: #e6db74">&quot;IAU_APPEND&quot;</span><span style="color: #f8f8f2">,</span>
+        <span style="color: #e6db74">&quot;IAU_VIEWER&quot;</span>
+      <span style="color: #f8f8f2">]</span>
+    <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">},</span>
+  <span style="color: #f92672">&quot;run_list&quot;</span> <span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">[</span>
+    <span style="color: #e6db74">&quot;recipe[oracle-fmw::install-bpm_qs-12c]&quot;</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #e6db74">&quot;recipe[oracle-fmw::create-rcu_repository-12c]&quot;</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #e6db74">&quot;recipe[oracle-fmw::create-domain-12c]&quot;</span>
+  <span style="color: #f8f8f2">]</span>
+<span style="color: #f8f8f2">}</span>
+</pre></div>
+
+
+<p>This includes will run three recipes: &ldquo;install-bpm_qs-12c&rdquo; , &ldquo;create-rcu_repository-12c&rdquo;, &ldquo;create-domain-12c&rdquo;. And includes Domain information (&ldquo;domain-12c&rdquo;), and RCU info (&ldquo;rcu-12c&rdquo;).</p>
+
+<p>These process takes 30 min. approx. And now we can login with &ldquo;oracle-fmw&rdquo; user (password: welcome1), and start the server:</p>
+
+<p><img src="/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0930.png" alt="Start server" title="Stating WebLogic Server" /></p>
+
+<p><img src="/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0931.png" alt="Server started" title="WebLogic Server with BPM started" /></p>
+
+<p>That&rsquo;s it.</p><div id="disqus_thread"></div>
+<script type="text/javascript">
+
+    (function() {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = '';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+        <div class="navbar">
+        <ul class="navbar-list" style="float:right">
+          <li class="navbar-item"><a class="navbar-link" href="

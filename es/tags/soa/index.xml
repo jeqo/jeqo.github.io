@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Soa on @jeqo </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://jeqo.github.io/es/tags/soa/index.xml</link>
+    <language>en-us</language>
+    
+    <copyright>&amp;copy Copyright 2017. Jorge Quilcate.</copyright>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Imagen de Oracle SOA Suite 12c en Docker</title>
+      <link>https://jeqo.github.io/es/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</link>
+      <pubDate>Fri, 04 Sep 2015 00:00:00 UTC</pubDate>
+      
+      <guid>https://jeqo.github.io/es/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</guid>
+      <description>
+
+&lt;p&gt;Luego de encontrar algunas limitaciones en la construcción de una imagen en
+Docker con Oracle SOA Suite 12c instalado usando Dockerfiles (como acceso
+a volumenes, tamaño de filesystem por defecto), he investigado como
+mejorar este proceso, y he encontrado &lt;a href=&#34;https://packer.io/&#34;&gt;Packer&lt;/a&gt;
+(del mismo equipo que creo Vagrant, Hashicorp).&lt;/p&gt;
+
+&lt;p&gt;Para obtener mayor información sobre porqué utilizar Packer en vez de
+Dockerfiles, &lt;a href=&#34;http://mmckeen.net/blog/2013/12/27/advanced-docker-provisioning-with-packer/&#34;&gt;ir aquí&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;También he movido el directory &lt;a href=&#34;https://github.com/jeqo/oracle-docker/tree/master/OracleSOA&#34;&gt;OracleSOA&lt;/a&gt;
+que cree sobre el repositorio de Oracle Docker &lt;a href=&#34;https://github.com/oracle/docker&#34;&gt;oracle-docker&lt;/a&gt;
+hacia un repositorio independiente: &lt;a href=&#34;https://github.com/jeqo/oracle-soa-12c-docker&#34;&gt;github.com/jeqo/oracle-soa-12c-docker&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;mejoras&#34;&gt;Mejoras&lt;/h2&gt;
+
+&lt;p&gt;Basicamente, los scripts de Dockerfile fueron transformados en shell scripts
+y son invocados desde Packer en la etapa de provisionamiento&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;  &amp;quot;provisioners&amp;quot;: [
+    {
+      &amp;quot;type&amp;quot;: &amp;quot;shell&amp;quot;,
+      &amp;quot;scripts&amp;quot;: [
+        &amp;quot;scripts/create-user.sh&amp;quot;
+      ]
+    },
+    {
+      &amp;quot;type&amp;quot;: &amp;quot;file&amp;quot;,
+      &amp;quot;source&amp;quot;: &amp;quot;./files/&amp;quot;,
+      &amp;quot;destination&amp;quot;: &amp;quot;/u01/&amp;quot;
+    },
+    {
+      &amp;quot;type&amp;quot;: &amp;quot;shell&amp;quot;,
+      &amp;quot;scripts&amp;quot;: [
+        &amp;quot;scripts/install-java.sh&amp;quot;
+      ],
+      &amp;quot;environment_vars&amp;quot;: [
+        &amp;quot;JAVA_RPM=/data/{{user `java_rpm`}}&amp;quot;
+      ]
+    },
+    {
+      &amp;quot;type&amp;quot;: &amp;quot;shell&amp;quot;,
+      &amp;quot;scripts&amp;quot;: [
+        &amp;quot;scripts/install-soa.sh&amp;quot;
+      ],
+      &amp;quot;environment_vars&amp;quot;: [
+        &amp;quot;SOA_ZIP=/data/{{user `soa_zip`}}&amp;quot;,
+        &amp;quot;SOA_PKG={{user `soa_pkg`}}&amp;quot;,
+        &amp;quot;SOA_PKG2={{user `soa_pkg2`}}&amp;quot;,
+        &amp;quot;JAVA_HOME=/usr/java/default&amp;quot;,
+        &amp;quot;MW_HOME=/u01/oracle/soa&amp;quot;
+      ]
+    }
+  ]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Luego del provisionamiento exitoso, se procesa la imagen para
+guardarla en Docker Hub:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;  &amp;quot;post-processors&amp;quot;: [
+    [
+      {
+        &amp;quot;type&amp;quot;: &amp;quot;docker-tag&amp;quot;,
+        &amp;quot;repository&amp;quot;: &amp;quot;jeqo/oracle-soa-12c&amp;quot;,
+        &amp;quot;tag&amp;quot;: &amp;quot;12.1.3-dev&amp;quot;
+      },
+      &amp;quot;docker-push&amp;quot;
+    ]
+  ]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Realmente la configuración en JSON es bastante simple y concreta.&lt;/p&gt;
+
+&lt;p&gt;Una vez que la imagen esta cargada en Docker Hub, se puede utilizar
+la herramienta preferida: Docker, Dockerfiles, o Vagrant, para crear un
+dominio sobre la imagen creada. &lt;a href=&#34;https://github.com/jeqo/oracle-soa-12c-docker/tree/master/samples/12c-domain&#34;&gt;Ejemplo&lt;/a&gt;
+explicado en mi &lt;a href=&#34;http://jeqo.github.io/blog/devops/docker-image-oracle-soa-es/&#34;&gt;post anterior&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Oracle Fusion Middleware Chef Cookbook - Nueva versión!</title>
+      <link>https://jeqo.github.io/es/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</link>
+      <pubDate>Tue, 21 Jul 2015 00:00:00 UTC</pubDate>
+      
+      <guid>https://jeqo.github.io/es/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</guid>
+      <description>&lt;p&gt;Ayer cargué una nueva versión (0.2.0) de mi Oracle Fusion Middleware Cookbook
+compartido en &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;Chef Supermarket&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Este nuevo release incluye:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Soporte para la instalación de Oracle SOA Suite 12c Quickstart&lt;/li&gt;
+&lt;li&gt;Soporte para la instalación y creación de dominios con Oracle SOA/OSB Suite 11g&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Pueden encontrar ejemplos de uso en este repositorio: &lt;a href=&#34;https://github.com/jeqo/chef-repo&#34;&gt;https://github.com/jeqo/chef-repo&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Oracle SOA Suite 12c sobre Docker</title>
+      <link>https://jeqo.github.io/es/post/2015-04-01-docker-image-oracle-soa/</link>
+      <pubDate>Wed, 01 Apr 2015 00:00:00 UTC</pubDate>
+      
+      <guid>https://jeqo.github.io/es/post/2015-04-01-docker-image-oracle-soa/</guid>
+      <description>
+
+&lt;p&gt;Buenas noticias llegaron desde Oracle hace un par de semanas: &lt;a href=&#34;https://blogs.oracle.com/WebLogicServer/entry/oracle_weblogic_server_now_running&#34;&gt;Oracle WebLogic Server es ahora soportado en  Docker!&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;es&#34;&gt;&lt;p&gt;I&amp;#39;m glad we announced support for &lt;a href=&#34;https://twitter.com/OracleWebLogic&#34;&gt;@OracleWebLogic&lt;/a&gt; on &lt;a href=&#34;https://twitter.com/docker&#34;&gt;@Docker&lt;/a&gt; last week, not today :-) &lt;a href=&#34;https://t.co/6E9UxrgY3n&#34;&gt;https://t.co/6E9UxrgY3n&lt;/a&gt;&lt;/p&gt;&amp;mdash; Bruno Borges  (@brunoborges) &lt;a href=&#34;https://twitter.com/brunoborges/status/583252433343758336&#34;&gt;abril 1, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Esto es muy emocionante. &lt;strong&gt;Docker&lt;/strong&gt; es una nueva tecnología que propone una nueva forma de virtualización
+a través de contenedores (OS, Configurations, Platform, Application) Para &lt;a href=&#34;https://www.docker.com/whatisdocker/&#34;&gt;más información acerca de Docker&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Bueno, WebLogic sobre Docker es genial, pero me he propuesto ir unos pasos más adelante y &lt;em&gt;Dockerize&lt;/em&gt; los
+productos de &lt;strong&gt;SOA&lt;/strong&gt; y &lt;strong&gt;BPM&lt;/strong&gt;  (como &lt;a href=&#34;https://guidoschmutz.wordpress.com/2015/03/29/installing-oracle-stream-explorer-in-a-docker-image/&#34;&gt;Guido Schmitz hizo con  Oracle Stream Explorer&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;es&#34;&gt;&lt;p&gt;Just published my latest blog “Providing Oracle Stream Explorer environment using Docker”. &lt;a href=&#34;https://twitter.com/hashtag/oracle?src=hash&#34;&gt;#oracle&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/StreamExplorer?src=hash&#34;&gt;#StreamExplorer&lt;/a&gt; &lt;a href=&#34;http://t.co/WNFGCmFVca&#34;&gt;http://t.co/WNFGCmFVca&lt;/a&gt;&lt;/p&gt;&amp;mdash; gschmutz (@gschmutz) &lt;a href=&#34;https://twitter.com/gschmutz/status/582232826772357120&#34;&gt;marzo 29, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;He utilizado el &lt;a href=&#34;http://github.com/oracle/docker&#34;&gt;repositorio de Oracle&lt;/a&gt; como base para crear una
+imagen con Oracle SOA Suite 12c instalado, y una configuración para utilizar esa imagen en la
+creación de otro contenedor con un dominio listo para ejecutar.&lt;/p&gt;
+
+&lt;h2 id=&#34;obtener-el-repositorio&#34;&gt;Obtener el repositorio&lt;/h2&gt;
+
+&lt;p&gt;Para probar esta entrada del blog, debe tener instalado &lt;a href=&#34;https://docs.docker.com/&#34;&gt;Docker en su máquina&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;El repositorio se encuentra ubicado en: &lt;a href=&#34;http://github.com/jeqo/oracle-docker&#34;&gt;http://github.com/jeqo/oracle-docker&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Mi contribución está en la carpeta &lt;a href=&#34;https://github.com/jeqo/oracle-docker/tree/master/OracleSOA&#34;&gt;&amp;lsquo;OracleSOA&amp;rsquo;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;creación-de-la-imagen-con-oracle-soa-suite-12c&#34;&gt;Creación de la imagen con Oracle SOA Suite 12c&lt;/h2&gt;
+
+&lt;p&gt;Primero se deben &lt;a href=&#34;http://www.oracle.com/technetwork/middleware/soasuite/downloads/index.html&#34;&gt;descargar los instaladores de Oracle SOA Suite 12c Quick Start&lt;/a&gt;,
+y colocarlos en la carpeta OracleSOA/dockerfiles/12.1.3. De la misma forma
+ &lt;a href=&#34;http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html&#34;&gt;descargar Java Development Kit 7&lt;/a&gt;,
+ y colocarlo en el mismo folder.&lt;/p&gt;
+
+&lt;p&gt;Abrir un terminal en el directorio &lt;em&gt;OracleSOA&lt;/em&gt;, ir a dockerfiles, y ejecutar el script &lt;em&gt;buildDockerImage.sh&lt;/em&gt; con el argumento &lt;em&gt;-d&lt;/em&gt; que indica que es la versión de desarrollo:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sh buildDockerImage.sh -d
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Esta ejecución crear una imagen llamada: &lt;strong&gt;oracle/soa:12.1.3-dev&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;dockerize-un-dominio-con-soa-suite&#34;&gt;Dockerize un dominio con SOA Suite&lt;/h2&gt;
+
+&lt;p&gt;Ahora que tenemos una imagen Docker con SOA instalado, podemos reutilizarla para
+crear dominios con WLST.&lt;/p&gt;
+
+&lt;p&gt;Existe un ejemplo de este procedimiento en &lt;em&gt;OracleSOA/samples&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Para ejecutarlo, ir a &lt;em&gt;OracleSOA/samples/12c-domain&lt;/em&gt; y correr el siguiente comando:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker build -t mysoa .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Esto debe crear un imagen &lt;em&gt;mysoa&lt;/em&gt; que contiene un Compact Domain instalado en: &lt;em&gt;/u01/oracle/work/domains/soa-domain&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Eso es todo! Para crear un contenedor desde la imagen, ejecutar:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -i -t mysoa
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;siguientes-pasos&#34;&gt;Siguientes pasos&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;BPM sobre Docker&lt;/li&gt;
+&lt;li&gt;Publicar imagenes en Docker Hub Registry&lt;/li&gt;
+&lt;li&gt;Dominios Extendidos sobre Docker: Usar una base de datos Oracle Database para instalar Oracle SOA/BPM Schemas&lt;/li&gt;
+&lt;li&gt;SOA/BPM Cluster sobre Docker containers&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

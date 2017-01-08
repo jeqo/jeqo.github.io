@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="darksimplicity">
+  <meta name="generator" content="Hugo 0.18.1" />
+  
+  
+  <base href="https://jeqo.github.io/">
+  <title>Oracle</title>
+  <link rel="stylesheet" href="/css/style.min.css">
+
+</head>
+<body>
+  <div class="wrap">
+    <div class="navbar">
+        <ul class="navbar-list" style="float:right">
+          
+        </ul>
+    </div>
+    <div class="navbar">
+        
+        <ul class="navbar-list" style="float:right">
+            
+            <li class="navbar-item"><a class="navbar-link" href="https://jeqo.github.io/tags/oracle/">en</a></li>
+            
+        </ul>
+        
+    </div>
+    <div class="header"><span style="font-size: 34px;">
+      <a href="https://jeqo.github.io/">@jeqo</a></span>
+      <span style="font-size:12px;">&nbsp;&nbsp;|&nbsp;&nbsp;<i>desarrollo de &#39;back-end&#39;, integración, &#39;devops&#39;, etc.</i> </span></div>
+
+
+<div class="empty">&nbsp;</div>
+  <div class="post-title">
+    <a class="post-title-link" href="https://jeqo.github.io/es/post/2015-09-04-oracle-soa-12c-packer-docker-hub/">Imagen de Oracle SOA Suite 12c en Docker</a>
+  </div>
+      <div class="tags">tags:</br>
+        <a class="tag-link" href="/es/tags/oracle">oracle </a><a class="tag-link" href="/es/tags/soa">soa </a><a class="tag-link" href="/es/tags/docker">docker </a><a class="tag-link" href="/es/tags/packer">packer </a>
+    </div>
+    <div class="content-tags"><p>Luego de encontrar algunas limitaciones en la construcción de una imagen en Docker con Oracle SOA Suite 12c instalado usando Dockerfiles (como acceso a volumenes, tamaño de filesystem por defecto), he investigado como mejorar este proceso, y he encontrado Packer (del mismo equipo que creo Vagrant, Hashicorp).
+Para obtener mayor información sobre porqué utilizar Packer en vez de Dockerfiles, ir aquí.
+También he movido el directory OracleSOA que cree sobre el repositorio de Oracle Docker oracle-docker hacia un repositorio independiente: github.</p></div>
+<div class="empty">&nbsp;</div>
+  <div class="post-title">
+    <a class="post-title-link" href="https://jeqo.github.io/es/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/">Oracle Fusion Middleware Chef Cookbook - Nueva versión!</a>
+  </div>
+      <div class="tags">tags:</br>
+        <a class="tag-link" href="/es/tags/oracle">oracle </a><a class="tag-link" href="/es/tags/soa">soa </a><a class="tag-link" href="/es/tags/chef">chef </a>
+    </div>
+    <div class="content-tags"><p>Ayer cargué una nueva versión (0.2.0) de mi Oracle Fusion Middleware Cookbook compartido en Chef Supermarket
+Este nuevo release incluye:
+ Soporte para la instalación de Oracle SOA Suite 12c Quickstart Soporte para la instalación y creación de dominios con Oracle SOA/OSB Suite 11g  Pueden encontrar ejemplos de uso en este repositorio: https://github.com/jeqo/chef-repo</p></div>
+<div class="empty">&nbsp;</div>
+  <div class="post-title">
+    <a class="post-title-link" href="https://jeqo.github.io/es/post/2015-04-01-docker-image-oracle-soa/">Oracle SOA Suite 12c sobre Docker</a>
+  </div>
+      <div class="tags">tags:</br>
+        <a class="tag-link" href="/es/tags/oracle">oracle </a><a class="tag-link" href="/es/tags/soa">soa </a><a class="tag-link" href="/es/tags/docker">docker </a>
+    </div>
+    <div class="content-tags"><p>Buenas noticias llegaron desde Oracle hace un par de semanas: Oracle WebLogic Server es ahora soportado en Docker!.
+I&#39;m glad we announced support for @OracleWebLogic on @Docker last week, not today :-) https://t.co/6E9UxrgY3n
+&mdash; Bruno Borges (@brunoborges) abril 1, 2015 
+Esto es muy emocionante. Docker es una nueva tecnología que propone una nueva forma de virtualización a través de contenedores (OS, Configurations, Platform, Application) Para más información acerca de Docker</p></div>
+<div class="empty">&nbsp;</div>
+  <div class="post-title">
+    <a class="post-title-link" href="https://jeqo.github.io/es/post/2014-12-11-run-bpm-12c-aws/">Oracle BPM 12c sobre AWS EC2 usando Vagrant y Chef</a>
+  </div>
+      <div class="tags">tags:</br>
+        <a class="tag-link" href="/es/tags/oracle">oracle </a><a class="tag-link" href="/es/tags/fmw">fmw </a><a class="tag-link" href="/es/tags/bpm">bpm </a><a class="tag-link" href="/es/tags/chef">chef </a><a class="tag-link" href="/es/tags/vagrant">vagrant </a>
+    </div>
+    <div class="content-tags"><p>En esta entrada mostraré el procedimiento que utilicé para crear instancias en Amazon Web Service EC2, con Oracle BPM 12c instalado y un dominio provisionado.
+Este procedimiento se realizo en los siguientes pasos:
+ Crear una instancia en AWS EC2 (con Vagrant) Conectarse a una instancia NFS para obtener instaladores (con Chef) Instalar Oracle BPM 12c Quickstart y crear Dominio (con Chef)  GitHub: https://github.com/jeqo/oracle-bpm-12c-aws
+Crear una instancia en AWS EC2 He creado una instancia Red Hat usando Vagrant.</p></div>
+<div class="empty">&nbsp;</div>
+  <div class="post-title">
+    <a class="post-title-link" href="https://jeqo.github.io/es/post/2014-12-09-chef-cookbook-oracle-fmw-12c/">Chef Cookbook para Oracle Fusion Middleware 12c</a>
+  </div>
+      <div class="tags">tags:</br>
+        <a class="tag-link" href="/es/tags/oracle">oracle </a><a class="tag-link" href="/es/tags/fmw">fmw </a><a class="tag-link" href="/es/tags/bpm">bpm </a><a class="tag-link" href="/es/tags/chef">chef </a>
+    </div>
+    <div class="content-tags"><p>Las herramientas de provisionamiento de software han cambiado la forma de crear ambientes: Cuánto tiempo que se toma para instalar Sistema Operativo, base de datos, configurar la plataforma, desplegar aplicaciones? Pueden ser días, hasta semanas. Ahora que se pueden transladar estos pasos en código, este proceso se ve transformado en horas, hasta minutos.
+En esta entrada voy a mostrar como provisionar un Dominio WebLogic con Oracle SOA Suite 12c, utilizando un Chef cookbook que he compartido en Chef Supermarket.</p></div>
+    <div class="navbar">
+        <ul class="navbar-list" style="float:right">
+          <li class="navbar-item"><a class="navbar-link" href="

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Chef on @jeqo </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://jeqo.github.io/es/tags/chef/index.xml</link>
+    <language>en-us</language>
+    
+    <copyright>&amp;copy Copyright 2017. Jorge Quilcate.</copyright>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Oracle Fusion Middleware Chef Cookbook - Nueva versión!</title>
+      <link>https://jeqo.github.io/es/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</link>
+      <pubDate>Tue, 21 Jul 2015 00:00:00 UTC</pubDate>
+      
+      <guid>https://jeqo.github.io/es/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</guid>
+      <description>&lt;p&gt;Ayer cargué una nueva versión (0.2.0) de mi Oracle Fusion Middleware Cookbook
+compartido en &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;Chef Supermarket&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Este nuevo release incluye:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Soporte para la instalación de Oracle SOA Suite 12c Quickstart&lt;/li&gt;
+&lt;li&gt;Soporte para la instalación y creación de dominios con Oracle SOA/OSB Suite 11g&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Pueden encontrar ejemplos de uso en este repositorio: &lt;a href=&#34;https://github.com/jeqo/chef-repo&#34;&gt;https://github.com/jeqo/chef-repo&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Oracle BPM 12c sobre AWS EC2 usando Vagrant y Chef</title>
+      <link>https://jeqo.github.io/es/post/2014-12-11-run-bpm-12c-aws/</link>
+      <pubDate>Thu, 11 Dec 2014 00:00:00 UTC</pubDate>
+      
+      <guid>https://jeqo.github.io/es/post/2014-12-11-run-bpm-12c-aws/</guid>
+      <description>
+
+&lt;p&gt;En esta entrada mostraré el procedimiento que utilicé para crear
+instancias en Amazon Web Service EC2, con Oracle BPM 12c instalado y
+un dominio provisionado.&lt;/p&gt;
+
+&lt;p&gt;Este procedimiento se realizo en los siguientes pasos:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Crear una instancia en AWS EC2 (con Vagrant)&lt;/li&gt;
+&lt;li&gt;Conectarse a una instancia NFS para obtener instaladores (con Chef)&lt;/li&gt;
+&lt;li&gt;Instalar Oracle BPM 12c Quickstart y crear Dominio (con Chef)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;GitHub: &lt;a href=&#34;https://github.com/jeqo/oracle-bpm-12c-aws&#34;&gt;https://github.com/jeqo/oracle-bpm-12c-aws&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;crear-una-instancia-en-aws-ec2&#34;&gt;Crear una instancia en AWS EC2&lt;/h2&gt;
+
+&lt;p&gt;He creado una instancia Red Hat usando Vagrant. Esta instancia debe estar conectada
+a una instancia NFS que tiene los instaladores de Oracle (esta fue creada
+  en esta &lt;a href=&#34;http://jeqo.github.io/blog/devops/create-nfs-instance-aws-es/&#34;&gt;entrada&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Esta es la instancia NFS:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;images/2014-12-11-run-bpm-12c-aws/2014-12-11_0836.png&#34; alt=&#34;Instancia NFS&#34; title=&#34;NFS Instance&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Y el directorio &amp;ldquo;/data&amp;rdquo; esta compartido. Incluye los instaladores de Oracle DB XE 11g y BPM 12c:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;images/2014-12-11-run-bpm-12c-aws/2014-12-11_0841.png&#34; alt=&#34;Directorios NFS&#34; title=&#34;NFS directories&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;configuración-en-vagrant&#34;&gt;Configuración en Vagrant&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gist.github.com/jeqo/62b74a9ed65d575d91b4&#34;&gt;Gist&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;{% gist 62b74a9ed65d575d91b4 Vagrantfile &amp;gt;}}&lt;/p&gt;
+
+&lt;p&gt;Ejecutar el siguiente comando:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;vagrant up --provider=aws
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;conectarse-a-la-instancia-nfs&#34;&gt;Conectarse a la instancia NFS&lt;/h3&gt;
+
+&lt;p&gt;Esta es la primera receta Chef que será ejecutada:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;...
+  chef.add_role &amp;quot;nfs-client&amp;quot;
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Utilizando el rol Chef:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+  &amp;quot;name&amp;quot; : &amp;quot;nfs-client&amp;quot;,
+  &amp;quot;description&amp;quot; : &amp;quot;Role applied to the system that should be an NFS client tools.&amp;quot;,
+  &amp;quot;json_class&amp;quot; : &amp;quot;Chef::Role&amp;quot;,
+  &amp;quot;default_attributes&amp;quot; : {
+    &amp;quot;nfs-client&amp;quot; : {
+      &amp;quot;server-host&amp;quot; : &amp;quot;localhost&amp;quot;,
+      &amp;quot;local-directory&amp;quot; : &amp;quot;/data&amp;quot;,
+      &amp;quot;remote-directory&amp;quot; : &amp;quot;/data&amp;quot;
+    }
+  },
+  &amp;quot;run_list&amp;quot; : [
+    &amp;quot;recipe[nfs-utils::nfs-client]&amp;quot;
+  ]
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Para actualizar el server-host desde su configuración de Vagrant, agregar las
+siguientes líneas:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;...
+chef.json = {
+  &amp;quot;nfs-client&amp;quot; =&amp;gt; {
+    &amp;quot;server-host&amp;quot; =&amp;gt; &amp;quot;123.1.1.12&amp;quot;
+  },
+  ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Y cuando la instancia sea creada, un nuevo directorio &amp;ldquo;/data&amp;rdquo; se sincronizará.&lt;/p&gt;
+
+&lt;h2 id=&#34;instalación-de-oracle-bpm-12c-quickstart&#34;&gt;Instalación de Oracle BPM 12c Quickstart&lt;/h2&gt;
+
+&lt;p&gt;Para instalar BPM, se debe utilizar el &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;cookbook &amp;ldquo;oracle-fmw&amp;rdquo;&lt;/a&gt;
+compartido en Chef Supermarket. Este esta explicador en &lt;a href=&#34;http://jeqo.github.io/blog/devops/chef-cookbook-oracle-fmw-12c-es/&#34;&gt;esta entrada&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;La configuración de Vagrant invoca el provisionamiento con Chef:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+  &amp;quot;name&amp;quot; : &amp;quot;demo-bpm_bam-12c&amp;quot;,
+  &amp;quot;json_class&amp;quot; : &amp;quot;Chef::Role&amp;quot;,
+  &amp;quot;default_attributes&amp;quot; : {
+    &amp;quot;domain-12c&amp;quot;: {
+      &amp;quot;name&amp;quot;: &amp;quot;demo-bpm_bam-domain&amp;quot;,
+      &amp;quot;mode&amp;quot;: &amp;quot;Compact&amp;quot;,
+      &amp;quot;apps&amp;quot;: [
+        {&amp;quot;name&amp;quot; : &amp;quot;SOA&amp;quot;, &amp;quot;enabled&amp;quot; : true},
+        {&amp;quot;name&amp;quot; : &amp;quot;BPM&amp;quot;, &amp;quot;enabled&amp;quot; : true},
+        {&amp;quot;name&amp;quot; : &amp;quot;BAM&amp;quot;, &amp;quot;enabled&amp;quot; : true},
+        {&amp;quot;name&amp;quot; : &amp;quot;OSB&amp;quot;, &amp;quot;enabled&amp;quot; : false}
+      ],
+      &amp;quot;machines&amp;quot;: [
+      ],
+      &amp;quot;admin_server&amp;quot;: {
+        &amp;quot;base_name&amp;quot; : &amp;quot;AdminServer&amp;quot;,
+        &amp;quot;new_name&amp;quot; : &amp;quot;bpm_bpm-server&amp;quot;,
+        &amp;quot;port&amp;quot; : &amp;quot;7001&amp;quot;
+      },
+      &amp;quot;managed_servers&amp;quot;: [
+      ],
+      &amp;quot;db_repo_host&amp;quot;: &amp;quot;localhost&amp;quot;,
+      &amp;quot;db_repo_port&amp;quot;: &amp;quot;1521&amp;quot;,
+      &amp;quot;db_repo_sid&amp;quot;: &amp;quot;xe&amp;quot;,
+      &amp;quot;db_repo_prefix&amp;quot;: &amp;quot;DEMO&amp;quot;,
+      &amp;quot;db_repo_password&amp;quot;: &amp;quot;welcome1&amp;quot;
+    },
+    &amp;quot;rcu-12c&amp;quot;: {
+      &amp;quot;db_schema_prefix&amp;quot;: &amp;quot;DEMO&amp;quot;,
+      &amp;quot;db_dba_user&amp;quot;: &amp;quot;SYS&amp;quot;,
+      &amp;quot;db_dba_role&amp;quot;: &amp;quot;SYSDBA&amp;quot;,
+      &amp;quot;db_dba_password&amp;quot;: &amp;quot;welcome1&amp;quot;,
+      &amp;quot;db_schemas_password&amp;quot;: &amp;quot;welcome1&amp;quot;,
+      &amp;quot;db_hostname&amp;quot;: &amp;quot;localhost&amp;quot;,
+      &amp;quot;db_port&amp;quot;: &amp;quot;1521&amp;quot;,
+      &amp;quot;db_service&amp;quot;: &amp;quot;xe&amp;quot;,
+      &amp;quot;components&amp;quot;: [
+        &amp;quot;SOAINFRA&amp;quot;,
+        &amp;quot;OPSS&amp;quot;,
+        &amp;quot;IAU&amp;quot;,
+        &amp;quot;MDS&amp;quot;,
+        &amp;quot;WLS&amp;quot;,
+        &amp;quot;UCSUMS&amp;quot;,
+        &amp;quot;IAU_APPEND&amp;quot;,
+        &amp;quot;IAU_VIEWER&amp;quot;
+      ]
+    }
+  },
+  &amp;quot;run_list&amp;quot; : [
+    &amp;quot;recipe[oracle-fmw::install-bpm_qs-12c]&amp;quot;,
+    &amp;quot;recipe[oracle-fmw::create-rcu_repository-12c]&amp;quot;,
+    &amp;quot;recipe[oracle-fmw::create-domain-12c]&amp;quot;
+  ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Incluye la llamada a 3 recetas: &amp;ldquo;install-bpm_qs-12c&amp;rdquo; , &amp;ldquo;create-rcu_repository-12c&amp;rdquo;,
+&amp;ldquo;create-domain-12c&amp;rdquo;, incluyendo la información del dominio (&amp;ldquo;domain-12c&amp;rdquo;), y RCU (&amp;ldquo;rcu-12c&amp;rdquo;).&lt;/p&gt;
+
+&lt;p&gt;Este proceso toma cerca de 30 min. aprox.&lt;/p&gt;
+
+&lt;p&gt;Una vez finalizado, debe poder acceder con el usuario de sistema operativo &amp;ldquo;oracle-fmw&amp;rdquo; (password: welcome1), e iniciar el servidor:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;images/2014-12-11-run-bpm-12c-aws/2014-12-11_0930.png&#34; alt=&#34;Start server&#34; title=&#34;Stating WebLogic Server&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;raw/gh-pages/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0931.png&#34; alt=&#34;Server started&#34; title=&#34;WebLogic Server with BPM started&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Eso es todo :).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Chef Cookbook para Oracle Fusion Middleware 12c</title>
+      <link>https://jeqo.github.io/es/post/2014-12-09-chef-cookbook-oracle-fmw-12c/</link>
+      <pubDate>Tue, 09 Dec 2014 00:00:00 UTC</pubDate>
+      
+      <guid>https://jeqo.github.io/es/post/2014-12-09-chef-cookbook-oracle-fmw-12c/</guid>
+      <description>
+
+&lt;p&gt;Las herramientas de provisionamiento de software han cambiado la forma de
+crear ambientes: Cuánto tiempo que se toma para instalar Sistema Operativo,
+base de datos, configurar la plataforma, desplegar aplicaciones? Pueden
+ser días, hasta semanas. Ahora que se pueden transladar estos pasos en código,
+este proceso se ve transformado en horas, hasta minutos.&lt;/p&gt;
+
+&lt;p&gt;En esta entrada voy a mostrar como provisionar un Dominio WebLogic con Oracle
+SOA Suite 12c, utilizando un &lt;em&gt;Chef cookbook&lt;/em&gt; que he compartido en &lt;a href=&#34;http://supermarket.chef.io&#34;&gt;Chef Supermarket&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;provisionamiento-con-chef&#34;&gt;Provisionamiento con Chef&lt;/h2&gt;
+
+&lt;p&gt;Chef es una herramienta para configurar software, basada en Ruby. Para mayor información
+sobre como iniciar con Chef, &lt;a href=&#34;http://learn.chef.io/&#34;&gt;ir aquí&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;chef-cookbooks-y-recipes&#34;&gt;Chef Cookbooks y Recipes&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Chef Cookbooks&lt;/strong&gt; son grupos de &lt;strong&gt;Recipes&lt;/strong&gt; (o recetas), y una &lt;strong&gt;Recipe&lt;/strong&gt; es una
+ secuencia de instrucciones llamadas &lt;strong&gt;Resources&lt;/strong&gt; (o recursos).
+ &lt;em&gt;Directory, Execute, Service, Package&lt;/em&gt; son algunos recursos disponibles.&lt;/p&gt;
+
+&lt;p&gt;Por ejemplo: Si uno quiere instalar un servidor HTTP Server, primero se debe instalar el recurso &lt;em&gt;Package&lt;/em&gt;, y luego iniciar el recurso &lt;em&gt;Service&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;oracle-fusion-middleware-cookbook&#34;&gt;Oracle Fusion Middleware Cookbook&lt;/h2&gt;
+
+&lt;p&gt;He compartido este &amp;ldquo;Chef cookbook&amp;rdquo;: &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;oracle-fmw&lt;/a&gt;.
+La idea es tener un grupo de recetas para configurar ambientes con diferentes productos
+de Oracle Fusion Middleware como: SOA, BPM, BAM, OSB, etc.&lt;/p&gt;
+
+&lt;p&gt;En este primer release se incluyen las siguientes recetas:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;prepare-infrastructure-12c&lt;/strong&gt;: Crear los usuarios y grupos de Sistema Operativo, instala paquetes base
+para la ejecución de futuros scripts de FMW.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;install-bpm_qs-12c&lt;/strong&gt;: Instala Oracle BPM 12c, que incluye los siguientes productos en la versión 12.1.3: JDeveloper, Oracle SOA, Oracle OSB, Oracle BAM, Oracle BAM and others.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;create-rcu_repository-12c&lt;/strong&gt;: Crea repositorios en base de datos con RCU.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;create-domain-12c&lt;/strong&gt;: Crea un Dominio WebLogic con estos productos: SOA, BAM, BPM, OSB.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;En una siguiente entrada mostraré como utilizar este &amp;ldquo;cookbook&amp;rdquo;. Mientras tanto puede descargar, usar y compartir mejoras en &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;Chef Supermarket&lt;/a&gt; y &lt;a href=&#34;https://github.com/jeqo/oracle-fmw&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Crear una instancia NFS en AWS usando Vagrant y Chef</title>
+      <link>https://jeqo.github.io/es/post/2014-11-30-create-nfs-instance-aws/</link>
+      <pubDate>Sun, 30 Nov 2014 00:00:00 UTC</pubDate>
+      
+      <guid>https://jeqo.github.io/es/post/2014-11-30-create-nfs-instance-aws/</guid>
+      <description>
+
+&lt;p&gt;Estuve probando la creación de instancias en AWS EC2 para instalar productos de Oracle
+Fusion Middleware, y encontré una restricción: Cómo descargar los instaladores si
+quiero reutilizarlos en varias instancias? Cómo evitar un consumo alto
+de ancho de banda? Y cómo hacer este procedimiento repetitivo?&lt;/p&gt;
+
+&lt;p&gt;Entre varias soluciones, en este momento decidi aplicar : &lt;a href=&#34;https://theredblacktree.wordpress.com/2013/05/23/how-to-setup-a-amazon-aws-ec2-nfs-share/&#34;&gt;How to setup an Amazon AWS EC2 NFS Share&lt;/a&gt;.
+Pero para hacerla reutilizable cree una configuración en Vagrant y Chef para provisionar
+una instancia en AWS con NFS configurado: &lt;a href=&#34;https://github.com/jeqo/vagrant-aws-chef-nfs&#34;&gt;Git repository&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;qué-pasos-seguí&#34;&gt;Qué pasos seguí?&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Instalar Vagrant (vagrant-aws y vagrant-omnibus) y Chef SDK&lt;/li&gt;
+&lt;li&gt;Crear una cuenta para crear un &lt;a href=&#34;https://manage.opscode.com/&#34;&gt;Chef Server&lt;/a&gt; y cargar los &amp;ldquo;cookbooks&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Tener una &lt;a href=&#34;http://aws.amazon.com/&#34;&gt;AWS account&lt;/a&gt; para crear instancias de forma remota.&lt;/li&gt;
+&lt;li&gt;Crear una configuración en Vagrant para tener una instancia con NFS&lt;/li&gt;
+&lt;li&gt;Probar.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Este video muestra como utilizar la configuración del repositorio en GitHub:&lt;/p&gt;
+
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/gqhY82kdHh4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

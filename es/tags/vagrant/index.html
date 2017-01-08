@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="darksimplicity">
+  <meta name="generator" content="Hugo 0.18.1" />
+  
+  
+  <base href="https://jeqo.github.io/">
+  <title>Vagrant</title>
+  <link rel="stylesheet" href="/css/style.min.css">
+
+</head>
+<body>
+  <div class="wrap">
+    <div class="navbar">
+        <ul class="navbar-list" style="float:right">
+          
+        </ul>
+    </div>
+    <div class="navbar">
+        
+        <ul class="navbar-list" style="float:right">
+            
+            <li class="navbar-item"><a class="navbar-link" href="https://jeqo.github.io/tags/vagrant/">en</a></li>
+            
+        </ul>
+        
+    </div>
+    <div class="header"><span style="font-size: 34px;">
+      <a href="https://jeqo.github.io/">@jeqo</a></span>
+      <span style="font-size:12px;">&nbsp;&nbsp;|&nbsp;&nbsp;<i>desarrollo de &#39;back-end&#39;, integración, &#39;devops&#39;, etc.</i> </span></div>
+
+
+<div class="empty">&nbsp;</div>
+  <div class="post-title">
+    <a class="post-title-link" href="https://jeqo.github.io/es/post/2014-12-11-run-bpm-12c-aws/">Oracle BPM 12c sobre AWS EC2 usando Vagrant y Chef</a>
+  </div>
+      <div class="tags">tags:</br>
+        <a class="tag-link" href="/es/tags/oracle">oracle </a><a class="tag-link" href="/es/tags/fmw">fmw </a><a class="tag-link" href="/es/tags/bpm">bpm </a><a class="tag-link" href="/es/tags/chef">chef </a><a class="tag-link" href="/es/tags/vagrant">vagrant </a>
+    </div>
+    <div class="content-tags"><p>En esta entrada mostraré el procedimiento que utilicé para crear instancias en Amazon Web Service EC2, con Oracle BPM 12c instalado y un dominio provisionado.
+Este procedimiento se realizo en los siguientes pasos:
+ Crear una instancia en AWS EC2 (con Vagrant) Conectarse a una instancia NFS para obtener instaladores (con Chef) Instalar Oracle BPM 12c Quickstart y crear Dominio (con Chef)  GitHub: https://github.com/jeqo/oracle-bpm-12c-aws
+Crear una instancia en AWS EC2 He creado una instancia Red Hat usando Vagrant.</p></div>
+<div class="empty">&nbsp;</div>
+  <div class="post-title">
+    <a class="post-title-link" href="https://jeqo.github.io/es/post/2014-11-30-create-nfs-instance-aws/">Crear una instancia NFS en AWS usando Vagrant y Chef</a>
+  </div>
+      <div class="tags">tags:</br>
+        <a class="tag-link" href="/es/tags/nfs">nfs </a><a class="tag-link" href="/es/tags/aws">aws </a><a class="tag-link" href="/es/tags/vagrant">vagrant </a><a class="tag-link" href="/es/tags/chef">chef </a>
+    </div>
+    <div class="content-tags"><p>Estuve probando la creación de instancias en AWS EC2 para instalar productos de Oracle Fusion Middleware, y encontré una restricción: Cómo descargar los instaladores si quiero reutilizarlos en varias instancias? Cómo evitar un consumo alto de ancho de banda? Y cómo hacer este procedimiento repetitivo?
+Entre varias soluciones, en este momento decidi aplicar : How to setup an Amazon AWS EC2 NFS Share. Pero para hacerla reutilizable cree una configuración en Vagrant y Chef para provisionar una instancia en AWS con NFS configurado: Git repository</p></div>
+    <div class="navbar">
+        <ul class="navbar-list" style="float:right">
+          <li class="navbar-item"><a class="navbar-link" href="

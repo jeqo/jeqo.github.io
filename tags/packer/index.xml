@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Packer on @jeqo </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://jeqo.github.io/tags/packer/index.xml</link>
+    <language>en-us</language>
+    
+    <copyright>&amp;copy Copyright 2017. Jorge Quilcate.</copyright>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Oracle SOA Suite 12c Docker Image</title>
+      <link>https://jeqo.github.io/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</link>
+      <pubDate>Fri, 04 Sep 2015 00:00:00 UTC</pubDate>
+      
+      <guid>https://jeqo.github.io/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</guid>
+      <description>&lt;p&gt;After find some limitations on building SOA Docker image using Dockerfile
+(as volume access, default size image) I researched on how to improve
+building process and I found &lt;a href=&#34;https://packer.io/&#34;&gt;Packer&lt;/a&gt;
+(from the same guy that creates Vagrant).&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;To check why using Packer instead of Dockerfiles, &lt;a href=&#34;http://mmckeen.net/blog/2013/12/27/advanced-docker-provisioning-with-packer/&#34;&gt;go here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I also moved &lt;a href=&#34;https://github.com/jeqo/oracle-docker/tree/master/OracleSOA&#34;&gt;OracleSOA directory&lt;/a&gt;
+from my forked &lt;a href=&#34;https://github.com/oracle/docker&#34;&gt;oracle-docker repository&lt;/a&gt; to
+an independent repository: &lt;a href=&#34;https://github.com/jeqo/oracle-soa-12c-docker&#34;&gt;github.com/jeqo/oracle-soa-12c-docker&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;improvements&#34;&gt;Improvements&lt;/h2&gt;
+
+&lt;p&gt;Basically Dockerfile scripts were moved to shell scripts and are called
+from Packer.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;provisioners&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #960050; background-color: #1e0010&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;scripts/create-user.sh&amp;quot;&lt;/span&gt;
+      &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;file&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;source&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;./files/&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;destination&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;/u01/&amp;quot;&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;scripts/install-java.sh&amp;quot;&lt;/span&gt;
+      &lt;span style=&#34;color: #f8f8f2&#34;&gt;],&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;environment_vars&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;JAVA_RPM=/data/{{user `java_rpm`}}&amp;quot;&lt;/span&gt;
+      &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;scripts/install-soa.sh&amp;quot;&lt;/span&gt;
+      &lt;span style=&#34;color: #f8f8f2&#34;&gt;],&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;environment_vars&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;SOA_ZIP=/data/{{user `soa_zip`}}&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;SOA_PKG={{user `soa_pkg`}}&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;SOA_PKG2={{user `soa_pkg2`}}&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;JAVA_HOME=/usr/java/default&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;MW_HOME=/u01/oracle/soa&amp;quot;&lt;/span&gt;
+      &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;After provisioning, you can save your image, and if
+you want push it to Docker Hub:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;post-processors&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #960050; background-color: #1e0010&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
+      &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;docker-tag&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;repository&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;jeqo/oracle-soa-12c&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;tag&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;12.1.3-dev&amp;quot;&lt;/span&gt;
+      &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
+      &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;docker-push&amp;quot;&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
+  &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Very simple and straightforward JSON configuration.&lt;/p&gt;
+
+&lt;p&gt;Now you have a Docker image with SOA installer, ready
+to create your domain as &lt;a href=&#34;https://github.com/jeqo/oracle-soa-12c-docker/tree/master/samples/12c-domain&#34;&gt;this sample&lt;/a&gt; explained
+on &lt;a href=&#34;http://jeqo.github.io/blog/devops/docker-image-oracle-soa/&#34;&gt;my previous post&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

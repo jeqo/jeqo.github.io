@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Database on @jeqo </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://jeqo.github.io/tags/database/index.xml</link>
+    <language>en-us</language>
+    
+    <copyright>&amp;copy Copyright 2017. Jorge Quilcate.</copyright>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Speed up your Oracle Database provisioning with Docker and Ansible</title>
+      <link>https://jeqo.github.io/post/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</link>
+      <pubDate>Thu, 26 May 2016 00:00:00 UTC</pubDate>
+      
+      <guid>https://jeqo.github.io/post/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</guid>
+      <description>&lt;p&gt;Warming up before &lt;a href=&#34;http://www.amis-conference.com/Program&#34;&gt;AMIS 25th Conference&lt;/a&gt;
+event where I will be presenting with my friend
+and colleague Arturo Viveros (@gugalnikov)
+&lt;a href=&#34;http://www.amis-conference.com/Session-Catalog#session1168&#34;&gt;about Oracle SOA Suite provisioning&lt;/a&gt;,
+I want to share some practices that help us to provide Oracle Database instances
+between developers and improve our productivity.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Since I started working with Oracle technologies, almost 7 years ago, provide
+Oracle Database instances has been always a &lt;em&gt;not so easy&lt;/em&gt; process. It demands
+configuring the operating system with the right packages and kernel params,
+then prepare user and groups, and after that install the Database engine.
+Once you have your engine installed, you can start creating database instances.&lt;/p&gt;
+
+&lt;p&gt;Now that you have a running Database instance, you are able to
+start your database development: creating schemas, running SQL scripts,
+and connect your applications to store data.&lt;/p&gt;
+
+&lt;p&gt;So, should I repeat this process on each developer workstation?&lt;/p&gt;
+
+&lt;p&gt;There are several options to improve this process: share one database between
+all developers, creating and share a VM image between developers, or
+actually use an automation tool like Vagrant and Packer to create images,
+or just provide the installation automated a tool like Puppet/Chef.&lt;/p&gt;
+
+&lt;p&gt;I will share how we are doing it now in a current project using Docker
+as Container platform, and Ansible as our automation tool.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s get started&amp;hellip;&lt;/p&gt;
+
+&lt;h1 id=&#34;defining-the-process&#34;&gt;Defining the process&lt;/h1&gt;
+
+&lt;p&gt;After several months working with automation tools, I understand a key principle
+about automate provisioning: &lt;strong&gt;&amp;ldquo;divide and conquer&amp;rdquo;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Because provision some type of systems is not always a simple process as:
+&lt;em&gt;download, unzip and run&lt;/em&gt;, in some cases you need to define your
+provisioning process in steps, so you can define this steps as checkpoints,
+and don&amp;rsquo;t get bored re-running process from scratch. I mean: from configuring
+your OS for running Oracle Database to actually run your SQL scripts is a
+long way right? Even if you automate it or do it manually.&lt;/p&gt;
+
+&lt;p&gt;In this case, as I explained before, we have 3 major steps:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Prepare your OS and install database software&lt;/li&gt;
+&lt;li&gt;Create database instance&lt;/li&gt;
+&lt;li&gt;Run scripts&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And each step will become a checkpoint, i.e. a Docker image.&lt;/p&gt;
+
+&lt;p&gt;I won&amp;rsquo;t go into every detail about installing Oracle Database, because there
+are plenty information about this. At Sysco, we have developed several
+Ansible roles to automate installation and configuration of Oracle software:
+&lt;a href=&#34;http://github.com/sysco-middleware&#34;&gt;http://github.com/sysco-middleware&lt;/a&gt;. Therefore, I will cover only how do we
+separate this process into steps using Docker and Ansible.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If you need to check more about how Docker integrates with Ansible,
+take a lot to my previous post:
+&lt;a href=&#34;http://jeqo.github.io/blog/devops/ansible-agentless-provisioning/&#34;&gt;http://jeqo.github.io/blog/devops/ansible-agentless-provisioning/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;step-1-install-oracle-database&#34;&gt;Step 1: Install Oracle Database&lt;/h1&gt;
+
+&lt;p&gt;Go to the first repository called: docker-image-oracle-database
+&lt;a href=&#34;http://github.com/sysco-middleware/docker-image-oracle-database&#34;&gt;http://github.com/sysco-middleware/docker-image-oracle-database&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is how we create an image with Oracle Database 11g (or 12c) installed
+using Ansible:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;hosts&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;127.0.0.1&lt;/span&gt; &lt;span style=&#34;color: #75715e&#34;&gt;# &amp;gt;&amp;gt;&amp;gt; (1)&lt;/span&gt;
+  &lt;span style=&#34;color: #ae81ff&#34;&gt;connection&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;local&lt;/span&gt;
+  &lt;span style=&#34;color: #ae81ff&#34;&gt;vars_files&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;vars/main.yml&lt;/span&gt;
+  &lt;span style=&#34;color: #ae81ff&#34;&gt;tasks&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;create container&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;docker&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
+        &lt;span style=&#34;color: #ae81ff&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;tmp-oracle-database&lt;/span&gt;
+        &lt;span style=&#34;color: #ae81ff&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;{{&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;base_image&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}}&amp;quot;&lt;/span&gt;
+        &lt;span style=&#34;color: #ae81ff&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;sleep infinity&lt;/span&gt;
+        &lt;span style=&#34;color: #ae81ff&#34;&gt;volumes&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
+          &lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;/installers/oracle/db/11.2/database/11.2.0.4:/srv/files&amp;quot;&lt;/span&gt;
+        &lt;span style=&#34;color: #ae81ff&#34;&gt;state&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;started&lt;/span&gt;
+
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;add_host&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
+        &lt;span style=&#34;color: #ae81ff&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;tmp-oracle-database&lt;/span&gt;
+        &lt;span style=&#34;color: #ae81ff&#34;&gt;groups&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;docker&lt;/span&gt;
+        &lt;span style=&#34;color: #ae81ff&#34;&gt;ansible_connection&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;docker&lt;/span&gt;
+
+&lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;hosts&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;tmp-oracle-database&lt;/span&gt; &lt;span style=&#34;color: #75715e&#34;&gt;# &amp;gt;&amp;gt;&amp;gt; (2)&lt;/span&gt;
+  &lt;span style=&#34;color: #ae81ff&#34;&gt;connection&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;docker&lt;/span&gt;
+  &lt;span style=&#34;color: #ae81ff&#34;&gt;roles&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;role&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;sysco-middleware.oracle-database&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;oracle_database_version&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;11g&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;oracle_database_edition&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;SE&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;oracle_database_installer&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;/srv/files/database/runInstaller&lt;/span&gt;
+
+&lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;hosts&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;127.0.0.1&lt;/span&gt; &lt;span style=&#34;color: #75715e&#34;&gt;# &amp;gt;&amp;gt;&amp;gt; (3)&lt;/span&gt;
+  &lt;span style=&#34;color: #ae81ff&#34;&gt;connection&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;local&lt;/span&gt;
+  &lt;span style=&#34;color: #ae81ff&#34;&gt;vars_files&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;vars/main.yml&lt;/span&gt;
+  &lt;span style=&#34;color: #ae81ff&#34;&gt;tasks&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;docker commit&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;docker&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;commit&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;tmp-oracle-database&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;{{&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;image_name&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}}:{{&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;item&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}}&amp;quot;&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;with_items&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;{{&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;tags&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}}&amp;quot;&lt;/span&gt;
+
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;docker kill&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;docker&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;kill&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;tmp-oracle-database&amp;quot;&lt;/span&gt;
+
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;docker rm&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;docker&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;rm&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;tmp-oracle-database&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We have 3 main steps here:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;First we create the containers using a variable that contains the base
+image: &amp;ldquo;syscomiddleware/oraclelinux:6.7&amp;rdquo; that is based in Oracle Linux official
+image, with some packages installed. And then we add the running docker container
+as an Ansible host.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Second, we connect to the running docker container, and run our
+Oracle Database role (&lt;a href=&#34;https://github.com/sysco-middleware/ansible-role-oracle-database&#34;&gt;https://github.com/sysco-middleware/ansible-role-oracle-database&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Finally, after installing Oracle database software, I create a checkpoint:
+commit container as an image, kill and remove running container, and
+optionally (and if you have a private repository) push your image.
+(check this issue about sharing
+Oracle software inside container images:
+&lt;a href=&#34;https://github.com/oracle/docker-images/issues/97)&#34;&gt;https://github.com/oracle/docker-images/issues/97)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To run this process you just need:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ ansible-playbook main.yml
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To check that our &amp;ldquo;oracle-database&amp;rdquo; image is created successfully, just run&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker images
+REPOSITORY                        TAG                    IMAGE ID            CREATED             SIZE
+syscomiddleware/oracle-database   oraclelinux-11.2.0.4   15eb5554debd        &lt;span style=&#34;color: #ae81ff&#34;&gt;2&lt;/span&gt; hours ago         6.301 GB
+syscomiddleware/oracle-database   latest                 ab59ccd81cba        &lt;span style=&#34;color: #ae81ff&#34;&gt;2&lt;/span&gt; hours ago         6.301 GB 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The main goal here is that we have a checkpoint that represents a container
+with Database engine installed. This is a unique image that can be reused to
+move forward.&lt;/p&gt;
+
+&lt;h1 id=&#34;step-2-create-database-instance&#34;&gt;Step 2: Create database instance&lt;/h1&gt;
+
+&lt;p&gt;Once we have the Oracle Database image, we won&amp;rsquo;t have to reinstall it again! :)
+&amp;hellip;as far as we keep using Docker and at least until we find out how to
+improve the installation process.&lt;/p&gt;
+
+&lt;p&gt;So, we can move forward from this point up to the next stage: create a database
+instance.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s go and checkout this repository:
+&lt;a href=&#34;https://github.com/sysco-middleware/docker-image-oracle-database-instance&#34;&gt;https://github.com/sysco-middleware/docker-image-oracle-database-instance&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here we follow the same approach as previous step: prepare temporal containers,
+run Ansible roles and commit image.&lt;/p&gt;
+
+&lt;p&gt;You can check the main.yml file here: &lt;a href=&#34;https://github.com/sysco-middleware/docker-image-oracle-database-instance/blob/master/main.yml&#34;&gt;https://github.com/sysco-middleware/docker-image-oracle-database-instance/blob/master/main.yml&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;And as you see, we are using another Ansible role called &amp;ldquo;oracle-database-instance&amp;rdquo;
+that is used to create an instance and prepare listener:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;hosts&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;tmp-oracle-db-instance&lt;/span&gt;
+  &lt;span style=&#34;color: #ae81ff&#34;&gt;connection&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;docker&lt;/span&gt;
+  &lt;span style=&#34;color: #ae81ff&#34;&gt;roles&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;role&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;sysco-middleware.oracle-database-instance&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;oracle_database_version&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;11g&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;oracle_database_sid&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;orcl&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;oracle_database_global_name&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;orcl&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;oracle_database_template_name&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;General_Purpose.dbc&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;oracle_database_admin_password&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;welcome1&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;oracle_database_auto_memory_mgnt&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;TRUE&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;oracle_database_memory_percentage&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;80&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;oracle_database_memory_total&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;1024&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;oracle_database_type&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;MULTIPURPOSE&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;oracle_database_listener_name&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;LISTENER&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;oracle_database_listener_port&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;1521&lt;/span&gt;
+      &lt;span style=&#34;color: #ae81ff&#34;&gt;oracle_database_init_params&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;JAVA_JIT_ENABLED=FALSE&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;After running this Ansible playbook, we will have a new image called:
+&lt;em&gt;oracle-database-instance&lt;/em&gt; tagged with its corresponding OS and version.&lt;/p&gt;
+
+&lt;p&gt;But this process is a little bit different from previous case:
+As you can see in this main.yml file, there is an additional step:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;build image&lt;/span&gt;
+  &lt;span style=&#34;color: #ae81ff&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;docker&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;build&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;-t&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;{{&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;image_name&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}}&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;docker&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is an important step, because it involves the usage of Dockerfile to
+prepare a Docker image.&lt;/p&gt;
+
+&lt;p&gt;To give a small background about this: Docker is prepared to isolate
+process and files, and by convention you should run only 1 process by
+container. To define this process, you will use a Dockerfile to specify
+which command should be run, and this process should persist over time, because
+if it ends, your container will be stopped.&lt;/p&gt;
+
+&lt;p&gt;In our case, we need to start our database instance. And to do this we will use a
+Dockerfile. But, as you know, we don&amp;rsquo;t have a out-of-the-box script that starts
+the instance and keep this process alive and printing logging messages.
+But we can create something similar:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;$ORACLE_HOME&lt;/span&gt;/network/admin/listener.ora
+
+cp &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;${&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}.tmpl&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;$LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+sed -i &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;s/%hostname%/&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;$HOSTNAME&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;/g&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;${&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+sed -i &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;s/%port%/1521/g&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;${&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+bin/lsnrctl start &lt;span style=&#34;color: #f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+bin/dbstart &lt;span style=&#34;color: #f8f8f2&#34;&gt;$ORACLE_HOME&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;Thanks to GitHub user &amp;ldquo;wnameless&amp;rdquo; that share how to do this in its Docke Image
+for Oracle XE: &lt;a href=&#34;https://github.com/wnameless/docker-oracle-xe-11g&#34;&gt;https://github.com/wnameless/docker-oracle-xe-11g&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Here, we not only start and read a log file, but update our listener file. Why?
+Because, also by convention, every time a container starts, container&amp;rsquo;s hostname
+gets updated.
+So, to keep our database instance consistent, we have to update our listener.ora accordingly.&lt;/p&gt;
+
+&lt;p&gt;Here is our Dockerfile:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;tmp&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;oracle&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;db&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;instance&lt;/span&gt;
+
+&lt;span style=&#34;color: #a6e22e&#34;&gt;MAINTAINER&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;Jorge&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;Quilcate&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;jorge&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;quilcate&lt;/span&gt;&lt;span style=&#34;color: #960050; background-color: #1e0010&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;sysco&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;no&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span style=&#34;color: #a6e22e&#34;&gt;USER&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;oracle&lt;/span&gt;
+
+&lt;span style=&#34;color: #a6e22e&#34;&gt;ENV&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;ORACLE_HOME&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;home&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;oracle&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;product&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;oracle_home&lt;/span&gt;
+&lt;span style=&#34;color: #a6e22e&#34;&gt;ENV&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;ORACLE_SID&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;orcl&lt;/span&gt;
+
+&lt;span style=&#34;color: #a6e22e&#34;&gt;WORKDIR&lt;/span&gt; &lt;span style=&#34;color: #960050; background-color: #1e0010&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;ORACLE_HOME&lt;/span&gt;
+
+&lt;span style=&#34;color: #a6e22e&#34;&gt;ADD&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;listener&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;ora&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;tmpl&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;network&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;admin&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;listener&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;ora&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;tmpl&lt;/span&gt;
+&lt;span style=&#34;color: #a6e22e&#34;&gt;ADD&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;startup&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;sh&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;
+
+&lt;span style=&#34;color: #a6e22e&#34;&gt;CMD&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;sh&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;startup&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;sh&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;tail&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;f&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;startup&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;log&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;As you can see, I start the process and tail the startup log file to keep our
+container running.&lt;/p&gt;
+
+&lt;p&gt;And each time we want to run this image, this process will be executed, unless
+you override it in your &lt;em&gt;&amp;ldquo;docker run&amp;rdquo;&lt;/em&gt; command.&lt;/p&gt;
+
+&lt;p&gt;You can test this image by running:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker run -it syscomiddleware/oracle-database-instance:oraclelinux-11.2.0.4 
+LSNRCTL &lt;span style=&#34;color: #66d9ef&#34;&gt;for&lt;/span&gt; Linux: Version 11.2.0.4.0 - Production on 25-MAY-2016 17:00:37
+
+Copyright &lt;span style=&#34;color: #f92672&#34;&gt;(&lt;/span&gt;c&lt;span style=&#34;color: #f92672&#34;&gt;)&lt;/span&gt; 1991, 2013, Oracle.  All rights reserved.
+
+Starting /home/oracle/product/oracle_home/bin/tnslsnr: please wait...
+
+TNSLSNR &lt;span style=&#34;color: #66d9ef&#34;&gt;for&lt;/span&gt; Linux: Version 11.2.0.4.0 - Production
+System parameter file is /home/oracle/product/oracle_home/network/admin/listener.ora
+Log messages written to /home/oracle/product/diag/tnslsnr/02b9ae1e3ab1/listener/alert/log.xml
+Listening on: &lt;span style=&#34;color: #f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;ipc&lt;span style=&#34;color: #f92672&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;KEY&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;EXTPROC1521&lt;span style=&#34;color: #f92672&#34;&gt;)))&lt;/span&gt;
+Listening on: &lt;span style=&#34;color: #f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #f92672&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #f92672&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;1521&lt;span style=&#34;color: #f92672&#34;&gt;)))&lt;/span&gt;
+
+Connecting to &lt;span style=&#34;color: #f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;IPC&lt;span style=&#34;color: #f92672&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;KEY&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;EXTPROC1521&lt;span style=&#34;color: #f92672&#34;&gt;)))&lt;/span&gt;
+STATUS of the LISTENER
+------------------------
+Alias                     LISTENER
+Version                   TNSLSNR &lt;span style=&#34;color: #66d9ef&#34;&gt;for&lt;/span&gt; Linux: Version 11.2.0.4.0 - Production
+Start Date                25-MAY-2016 17:00:42
+Uptime                    &lt;span style=&#34;color: #ae81ff&#34;&gt;0&lt;/span&gt; days &lt;span style=&#34;color: #ae81ff&#34;&gt;0&lt;/span&gt; hr. &lt;span style=&#34;color: #ae81ff&#34;&gt;0&lt;/span&gt; min. &lt;span style=&#34;color: #ae81ff&#34;&gt;3&lt;/span&gt; sec
+Trace Level               off
+Security                  ON: Local OS Authentication
+SNMP                      OFF
+Listener Parameter File   /home/oracle/product/oracle_home/network/admin/listener.ora
+Listener Log File         /home/oracle/product/diag/tnslsnr/02b9ae1e3ab1/listener/alert/log.xml
+Listening Endpoints Summary...
+  &lt;span style=&#34;color: #f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;ipc&lt;span style=&#34;color: #f92672&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;KEY&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;EXTPROC1521&lt;span style=&#34;color: #f92672&#34;&gt;)))&lt;/span&gt;
+  &lt;span style=&#34;color: #f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #f92672&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #f92672&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;1521&lt;span style=&#34;color: #f92672&#34;&gt;)))&lt;/span&gt;
+The listener supports no services
+The &lt;span style=&#34;color: #f8f8f2&#34;&gt;command&lt;/span&gt; completed successfully
+Processing Database instance &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;orcl&amp;quot;&lt;/span&gt;: log file /home/oracle/product/oracle_home/startup.log
+Total System Global Area  &lt;span style=&#34;color: #ae81ff&#34;&gt;801701888&lt;/span&gt; bytes
+Fixed Size		    &lt;span style=&#34;color: #ae81ff&#34;&gt;2257520&lt;/span&gt; bytes
+Variable Size		  &lt;span style=&#34;color: #ae81ff&#34;&gt;276827536&lt;/span&gt; bytes
+Database Buffers	  &lt;span style=&#34;color: #ae81ff&#34;&gt;515899392&lt;/span&gt; bytes
+Redo Buffers		    &lt;span style=&#34;color: #ae81ff&#34;&gt;6717440&lt;/span&gt; bytes
+Database mounted.
+Database opened.
+SQL&amp;gt; Disconnected from Oracle Database 11g Release 11.2.0.4.0 - 64bit Production
+
+bin/dbstart: Database instance &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;orcl&amp;quot;&lt;/span&gt; warm started.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;From other terminal you can check container name and inspect for its IP address:
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker ps
+CONTAINER ID        IMAGE                                      COMMAND                  CREATED              STATUS              PORTS               NAMES
+21713e2f2c59        syscomiddleware/oracle-database-instance   &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;/bin/sh -c &amp;#39;sh start&amp;quot;&lt;/span&gt;   About a minute ago   Up About a minute                       adoring_yalow
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s take a minute to understand the process: We will have images by steps
+from our provisioning process, and each step can be tagged by version and OS
+(and any other relevant information). This will create a group of images that
+will be reusable, and if we have issues, we can identify and solve specific
+tasks, instead of re-run everything from scratch.&lt;/p&gt;
+
+&lt;p&gt;As learning any other technology, this will take some time at the beginning
+of the process, but as we understand and collaborate to improve this images,
+it will worth our effort.&lt;/p&gt;
+
+&lt;p&gt;First, you can see that a container name is assigned randomly: &amp;ldquo;adoring_yalow&amp;rdquo;&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker inspect adoring_yalow
+...
+&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Networks&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #f92672&#34;&gt;{&lt;/span&gt;
+                &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;bridge&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #f92672&#34;&gt;{&lt;/span&gt;
+                    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;IPAMConfig&amp;quot;&lt;/span&gt;: null,
+                    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Links&amp;quot;&lt;/span&gt;: null,
+                    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Aliases&amp;quot;&lt;/span&gt;: null,
+                    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;NetworkID&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;c72c01d764b3aa7f30ffa220ed91a15aa1bb2f7c3396008601cc0137512612cb&amp;quot;&lt;/span&gt;,
+                    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;EndpointID&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;ea1e3277916bcebaa6fbba42ab6cdea6ebd597a2ce20c274b415f4ad89f05bee&amp;quot;&lt;/span&gt;,
+                    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Gateway&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;172.17.0.1&amp;quot;&lt;/span&gt;,
+                    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;IPAddress&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;172.17.0.2&amp;quot;&lt;/span&gt;,
+                    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;IPPrefixLen&amp;quot;&lt;/span&gt;: 16,
+                    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;IPv6Gateway&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;,
+                    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;GlobalIPv6Address&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;,
+                    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;GlobalIPv6PrefixLen&amp;quot;&lt;/span&gt;: 0,
+                    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;MacAddress&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;02:42:ac:11:00:02&amp;quot;&lt;/span&gt;
+                &lt;span style=&#34;color: #f92672&#34;&gt;}&lt;/span&gt;
+            &lt;span style=&#34;color: #f92672&#34;&gt;}&lt;/span&gt;
+...
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And test to connect from your favorite IDE using a JDBC URL like:&lt;/p&gt;
+
+&lt;p&gt;jdbc:oracle:thin:@172.17.0.2:1521:orcl&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2016-05-24-speed-up-oracle-database-provisioning-ansible-docker/jdbc-test.png&#34; alt=&#34;NetBeans JDBC Connection&#34; title=&#34;NetBeans JDBC Connection&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;step-3-run-sql-scripts&#34;&gt;Step 3: Run SQL scripts&lt;/h1&gt;
+
+&lt;p&gt;This is a more &amp;ldquo;custom&amp;rdquo; step as you can use now use this images for different
+purposes (e.g: create a schema, run SQL scripts, add more configurations, or
+if you are working with Fusion Middleware products, you can create RCU schemas).&lt;/p&gt;
+
+&lt;p&gt;Depending on your use-case it will be easier, or more efective, to use
+Dockerfile than Ansible playbooks.&lt;/p&gt;
+
+&lt;p&gt;In this case, I will show you how to create an schema to start your Java
+application development, for instance.&lt;/p&gt;
+
+&lt;p&gt;I will recommend you to use Docker Compose (&lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;https://docs.docker.com/compose/&lt;/a&gt;)
+just to simplify the execution of Docker command, and link containers together.&lt;/p&gt;
+
+&lt;p&gt;I have created a repository (&lt;a href=&#34;https://github.com/jeqo/post-oracle-database-docker&#34;&gt;https://github.com/jeqo/post-oracle-database-docker&lt;/a&gt;)
+to host this sample.&lt;/p&gt;
+
+&lt;p&gt;You can check that there is a directory called &amp;ldquo;sample&amp;rdquo; that will be assumed as
+the &lt;em&gt;project name&lt;/em&gt; by Docker Compose.&lt;/p&gt;
+
+&lt;p&gt;Inside is a file called &amp;ldquo;docker-compose.yml&amp;rdquo; that defines &lt;em&gt;container services&lt;/em&gt;:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #ae81ff&#34;&gt;version&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color: #ae81ff&#34;&gt;services&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
+  &lt;span style=&#34;color: #ae81ff&#34;&gt;db&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
+    &lt;span style=&#34;color: #ae81ff&#34;&gt;build&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;db&lt;/span&gt;
+    &lt;span style=&#34;color: #ae81ff&#34;&gt;ports&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
+      &lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;10521:1521&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In this case, it defines a service (a container), that will be built from
+a Dockerfile inside a &amp;ldquo;db&amp;rdquo; directory, and will forward its 1521 port
+to your hosts port 10521, so you can use it from a local application.&lt;/p&gt;
+
+&lt;p&gt;This Dockerfile contains instructions to create an schema called &amp;ldquo;test&amp;rdquo;.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;syscomiddleware&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;oracle&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;database&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;instance&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;oraclelinux&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #ae81ff&#34;&gt;11.2.0.4&lt;/span&gt;
+
+&lt;span style=&#34;color: #a6e22e&#34;&gt;MAINTAINER&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;Jorge&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;Quilcate&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;jorge&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;quilcate&lt;/span&gt;&lt;span style=&#34;color: #960050; background-color: #1e0010&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;sysco&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;no&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span style=&#34;color: #a6e22e&#34;&gt;ADD&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;create&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;schema&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;sql&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;
+
+&lt;span style=&#34;color: #a6e22e&#34;&gt;RUN&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;sh&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;startup&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;sh&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; \
+    &lt;span style=&#34;color: #a6e22e&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;!&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;grep&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;bin/dbstart: Database instance \&amp;quot;orcl\&amp;quot; warm started.&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;startup&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;sleep&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;done&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; \
+    &lt;span style=&#34;color: #a6e22e&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;exit&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;bin&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;sqlplus&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;system&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;welcome1&lt;/span&gt; &lt;span style=&#34;color: #960050; background-color: #1e0010&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;create&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;schema&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;sql&lt;/span&gt;
+
+&lt;span style=&#34;color: #a6e22e&#34;&gt;CMD&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;sh&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;startup&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;sh&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; \
+    &lt;span style=&#34;color: #a6e22e&#34;&gt;tail&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;f&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;startup&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #a6e22e&#34;&gt;log&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then, just execute &amp;ldquo;docker-compose up -d&amp;rdquo; and this container will be built and
+started.&lt;/p&gt;
+
+&lt;p&gt;To check its execution, run &amp;ldquo;docker-compose logs -f&amp;rdquo; and that&amp;rsquo;s it.&lt;/p&gt;
+
+&lt;p&gt;You can customize your Docker Compose file, or just start building more layers on
+top of the database instance image.&lt;/p&gt;
+
+&lt;p&gt;At AMIS25, we will show how to use this instance to build a SOA Suite database
+and then provide customs SOA Suite Domains, but also show different experiences
+with different &amp;ldquo;DevOps&amp;rdquo; technologies. Hope to see you there!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Ansible on @jeqo </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://jeqo.github.io/es/tags/ansible/index.xml</link>
+    <language>en-us</language>
+    
+    <copyright>&amp;copy Copyright 2017. Jorge Quilcate.</copyright>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Ansible - Provisionamiento sin agentes</title>
+      <link>https://jeqo.github.io/es/post/2016-03-30-ansible-agentless-provisioning/</link>
+      <pubDate>Wed, 30 Mar 2016 00:00:00 UTC</pubDate>
+      
+      <guid>https://jeqo.github.io/es/post/2016-03-30-ansible-agentless-provisioning/</guid>
+      <description>
+
+&lt;p&gt;Ansible es una herramienta de automatización reconocida por ser sencilla
+y potente a la vez. Según mi experiencia, puedo decir que esto se debe
+principalmente al lenguaje que utiliza: YAML, y a tener una arquitectura
+sin agentes o &amp;ldquo;agentless&amp;rdquo;.&lt;/p&gt;
+
+&lt;h2 id=&#34;yaml-y-los-componentes-de-ansible&#34;&gt;YAML y los componentes de Ansible&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;YAML is a human friendly data serialization standard for all programming
+  languages&amp;rdquo; (Source: &lt;a href=&#34;http://yaml.org/&#34;&gt;http://yaml.org/&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Esto signifíca que es verdaderamente fácil de entender y comenzar a trabajar
+con YAML. Por ejemplo:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;- hosts: webserver
+  tasks:
+    - package: apache
+        state: latest
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Este &lt;strong&gt;&amp;ldquo;playbook&amp;rdquo;&lt;/strong&gt; dice que el host &lt;em&gt;webserver&lt;/em&gt; que tiene 1 tarea: instalar
+el paquete más actual de Apache, usando el &lt;strong&gt;&amp;ldquo;module&amp;rdquo;&lt;/strong&gt; &lt;em&gt;package&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Bastante sencillo no?&lt;/p&gt;
+
+&lt;p&gt;Para revisar que tan potente puede ser Ansible, se puede revisar el índice
+de Modules:
+&lt;a href=&#34;http://docs.ansible.com/ansible/modules_by_category.html&#34;&gt;http://docs.ansible.com/ansible/modules_by_category.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Para lograr reusabilidad: estas tareas pueden ser agrupadas como &lt;strong&gt;&amp;ldquo;roles&amp;rdquo;&lt;/strong&gt;,
+que son una compilación de tareas que buscan cumplir un objetivo común.
+Por ejemplo: un rol Java para instalar JDK en tu nodo.&lt;/p&gt;
+
+&lt;p&gt;Estos son los componentes principales de Ansible: Playbooks, Modules, and Roles.&lt;/p&gt;
+
+&lt;h2 id=&#34;arquitectura-agentless&#34;&gt;Arquitectura &amp;ldquo;Agentless&amp;rdquo;&lt;/h2&gt;
+
+&lt;p&gt;Esto significa que no necesitas un &amp;ldquo;ansible-client&amp;rdquo; en tus nodos para ejecutar
+tareas. Tu solo necesitarías un &amp;ldquo;master&amp;rdquo; que diga que tareas ejecutar en tus
+nodos. Esto es muy importante comparado con otras herramientas, donde necesitas
+un &amp;ldquo;***-client&amp;rdquo; para poder interpretar y ejecutar los comandos:
+&lt;a href=&#34;https://www.ansible.com/benefits-of-agentless-architecture&#34;&gt;https://www.ansible.com/benefits-of-agentless-architecture&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Es verdad que no necesitas un cliente con Ansible, pero requires de algunos
+paquetes. Pero estos paquetes son SSH y otros relacionados a Python, que son
+bastante comunes:
+&lt;a href=&#34;http://docs.ansible.com/ansible/intro_installation.html#managed-node-requirements&#34;&gt;http://docs.ansible.com/ansible/intro_installation.html#managed-node-requirements&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Ansible también mantiene un enfoque &amp;ldquo;push&amp;rdquo;, donde el &amp;ldquo;master&amp;rdquo; envía comandos a
+los nodos. Esto también diferente a otras herramientas que están basadas en un
+enfoque &amp;ldquo;push&amp;rdquo;, donde los nodos piden los comandos a un &amp;ldquo;master&amp;rdquo;. Aunque este
+enfoque es opcional con Ansible:
+&lt;a href=&#34;http://docs.ansible.com/ansible/playbooks_intro.html#ansible-pull&#34;&gt;http://docs.ansible.com/ansible/playbooks_intro.html#ansible-pull&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Por último, hay una funcionalidad que quiero mencionar: Tipo de Conexión.
+Por defecto, Ansible se basa en SSH para ejecutar comandos en los nodos, pero
+hay casos en los que SSH no es una opción o no se necesita: por ejemplo para
+ejecutar comandos localmente, o en Windows, o en Docker.&lt;/p&gt;
+
+&lt;p&gt;En estos casos, la opción de tipo de conexión permite que tus &amp;ldquo;playbook&amp;rdquo; se
+ejecuten usando WinRM si tu nodo es Windows, o ejecutarlos localmente, o
+utilizar comandos Docker Exec.&lt;/p&gt;
+
+&lt;p&gt;Vamos a ver un poco de código:&lt;/p&gt;
+
+&lt;p&gt;He implementedo un role de Ansible para instalar Java hace algún tiempo:
+&lt;a href=&#34;https://github.com/jeqo/ansible-role-java&#34;&gt;https://github.com/jeqo/ansible-role-java&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Solo para explicar que hace, vemos el archivo de tareas principal:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;---
+  - debug:
+      msg: &amp;quot;This Java Provider will be installed: {{ java_provider }}&amp;quot;
+
+  - include: install-{{ java_provider }}.yml
+
+  - include: set-java-home.yml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Primero muestra un mensaje con el tipo de proveedor:
+variable &amp;ldquo;java_provider&amp;rdquo; y luego definir la variable de entorno: JAVA_HOME.&lt;/p&gt;
+
+&lt;p&gt;Este rol también tiene una carpeta de pruebas &amp;ldquo;tests&amp;rdquo;, con un &amp;ldquo;playbook&amp;rdquo; con
+algunas pruebas:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;- name: test install openjdk jdk 8 on centos 7
+  hosts: test01
+  roles:
+    - role: java
+      java_provider: openjdk
+      java_version: 8
+      java_type: jdk
+- name: test install openjdk jre 8 on centos 7
+  hosts: test02
+  roles:
+    - role: java
+      java_provider: openjdk
+      java_version: 8
+      java_type: jre
+# more tests...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Y para ejecutar las pruebas utilizo Vagrant y VirtualBox:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Vagrant.configure(2) do |config|
+
+  config.vm.provision &amp;quot;ansible&amp;quot; do |ansible|
+    ansible.playbook = &amp;quot;test.yml&amp;quot;
+    ansible.galaxy_role_file = &amp;quot;roles.yml&amp;quot;
+  end
+
+  config.vm.define &amp;quot;test01&amp;quot; do |node|
+    node.vm.box = &amp;quot;jeqo/ansible-centos7&amp;quot;
+  end
+
+  config.vm.define &amp;quot;test02&amp;quot; do |node|
+    node.vm.box = &amp;quot;jeqo/ansible-centos7&amp;quot;
+  end
+
+  # more test nodes...
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ejecutemos la prueba de instalación de OpenJDK 8 en Centos:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vagrant up test01
+...
+
+PLAY [test install openjdk jdk 8 on centos 7] **********************************
+
+TASK [setup] *******************************************************************
+ok: [test01]
+
+TASK [java : debug] ************************************************************
+ok: [test01] =&amp;gt; {
+    &amp;quot;msg&amp;quot;: &amp;quot;This Java Provider will be installed: openjdk&amp;quot;
+}
+
+TASK [java : include] **********************************************************
+included: /home/jeqo/dev/jeqo/ansible-role-java/tests/roles/java/tasks/install-openjdk.yml for test01
+
+TASK [java : set_fact] *********************************************************
+skipping: [test01]
+
+TASK [java : set_fact] *********************************************************
+ok: [test01]
+
+TASK [java : set_fact] *********************************************************
+skipping: [test01]
+
+TASK [java : set_fact] *********************************************************
+ok: [test01]
+
+TASK [java : install openjdk (debian)] *****************************************
+skipping: [test01]
+
+TASK [java : install openjdk (redhat)] *****************************************
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pero que pasa si quiero ejecutar este rol en Docker? Necesito configurar
+SSH para hacerlo utilizando el modo de conexión por defecto. Esto es
+considerado un anti-patrón:
+&lt;a href=&#34;https://jpetazzo.github.io/2014/06/23/docker-ssh-considered-evil/&#34;&gt;https://jpetazzo.github.io/2014/06/23/docker-ssh-considered-evil/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Pero, desde la versión 2.0 de Ansible que tiene el tipo de conexión Docker
+incluido en la instalación. Así que hice algunas pruebas:
+&lt;a href=&#34;https://github.com/jeqo/poc-ansible-docker&#34;&gt;https://github.com/jeqo/poc-ansible-docker&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;En este repositorio tengo un &amp;ldquo;playbook&amp;rdquo; que crea el contenedor:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;- hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: my container
+      docker:
+        name: poccontainer
+        image: centos
+        command: sleep infinity
+        state: started
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Aquí utilizo el tipo de tipo de conexión local para ejecutar comandos
+localmente.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+a5e49bd032be        centos              &amp;quot;sleep infinity&amp;quot;    About an hour ago   Up About an hour                        poccontainer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Una vez que tenga el contenedor en ejecución, se puede ejecutar
+el provisionamiento:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;- hosts: poccontainer
+  connection: docker
+  pre_tasks:
+    - package: name=sudo
+    - command: &amp;quot;sed -i -e \&amp;quot;s/Defaults    requiretty.*/ #Defaults    requiretty/g\&amp;quot; /etc/sudoers&amp;quot;
+  roles:
+    - role: java
+      java_provider: openjdk
+      java_type: jdk
+      java_version: 8
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Las &amp;ldquo;pre-tasks&amp;rdquo; se necesitan para configurar el paquete &amp;ldquo;sudo&amp;rdquo; y poder
+configurar &amp;ldquo;tty&amp;rdquo; en el contenedos. Esto se requiere cuando ejecutar un
+&amp;ldquo;playbook&amp;rdquo; con el parámetro: &amp;ldquo;become&amp;rdquo;, que ejecuta un comando como &amp;ldquo;sudo&amp;rdquo;.
+Luego se ejecuta el rol como en cualquier nodo:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ ansible-playbook provisioning.yml -vvvv
+Using /home/jeqo/dev/jeqo/poc-ansible-docker/ansible.cfg as config file
+Loaded callback default of &lt;span style=&#34;color: #f8f8f2&#34;&gt;type&lt;/span&gt; stdout, v2.0
+&lt;span style=&#34;color: #ae81ff&#34;&gt;2&lt;/span&gt; plays in provisioning.yml
+
+PLAY ***************************************************************************
+
+TASK &lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;setup&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt; *******************************************************************
+ESTABLISH DOCKER CONNECTION FOR USER: None
+&amp;lt;poccontainer&amp;gt; EXEC &lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;/usr/bin/docker&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;exec&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;-i&amp;#39;&lt;/span&gt;, u&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;poccontainer&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;/bin/sh&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;-c&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;/bin/sh -c \&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;umask&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;22&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; 
+mkdir -p &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;` echo &lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;$HOME&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; 
+&lt;span style=&#34;color: #f8f8f2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;` echo &lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;$HOME&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #ae81ff&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;]&lt;/span&gt;
+&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;lt;poccontainer&amp;gt; PUT /tmp/tmpNCOaxi TO /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup&lt;/span&gt;
+&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;lt;poccontainer&amp;gt; EXEC [&amp;#39;&lt;/span&gt;/usr/bin/docker&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;exec&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-i&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;poccontainer&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;/bin/sh&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-c&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;/bin/sh -c &lt;span style=&#34;color: #ae81ff&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;LANG&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;en_US.UTF-8 
+&lt;span style=&#34;color: #f8f8f2&#34;&gt;LC_ALL&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;en_US.UTF-8 &lt;span style=&#34;color: #f8f8f2&#34;&gt;LC_MESSAGES&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;en_US.UTF-8 /usr/bin/python /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup&lt;span style=&#34;color: #f8f8f2&#34;&gt;;&lt;/span&gt; 
+rm -rf &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&amp;quot;&lt;/span&gt; &amp;gt; /dev/null 2&amp;gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;&amp;amp;&lt;/span&gt;1&lt;span style=&#34;color: #ae81ff&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #960050; background-color: #1e0010&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;
+ok: &lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;poccontainer&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id=&#34;conclusiones&#34;&gt;Conclusiones&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Estos ejemplos muestran cual versátil es Ansible, usando roles y tipos de
+conexión. Pero hay más plataformas donde Ansible puede ser utilizada, como AWS:
+&lt;a href=&#34;https://aws.amazon.com/blogs/apn/getting-started-with-ansible-and-dynamic-amazon-ec2-inventory-management/&#34;&gt;https://aws.amazon.com/blogs/apn/getting-started-with-ansible-and-dynamic-amazon-ec2-inventory-management/&lt;/a&gt;
+y otras plataformas en la nube:
+&lt;a href=&#34;http://docs.ansible.com/ansible/list_of_cloud_modules.html&#34;&gt;http://docs.ansible.com/ansible/list_of_cloud_modules.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Una posible pregunta puede ser: ¿Puede Ansible reemplazar los Dockerfile?
+Puede ser, depende de ti. Los Dockerfile son bastante sencillos y solo
+funcionan en Docker. Los Dockerfile también tiene una característica interesante
+que crea una imagen en cada paso de ejecución, lo que hace que la distribución
+de imágenes sea más sencilla. Esto falta aún en Ansible, donde los comandos
+se ejecutan sobre un contenedor en ejecución. En Ansible también está faltando
+las opciones de &amp;ldquo;commit&amp;rdquo; y &amp;ldquo;push&amp;rdquo; en Docker, pero esto se puede reemplazar
+facilmente así:&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;- hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: commit
+      command: docker commit poccontainer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Sin embargo, Ansible también tiene un módulo para ejecutar Dockerfiles:
+&lt;a href=&#34;http://docs.ansible.com/ansible/docker_image_module.html&#34;&gt;http://docs.ansible.com/ansible/docker_image_module.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Espero que esto les ayude a utilizar Ansible y Docker.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="darksimplicity">
+  <meta name="generator" content="Hugo 0.18.1" />
+  
+  
+  <base href="https://jeqo.github.io/">
+  <title>Integrar Java EE 7 y Kafka usando Avro y RxJava</title>
+  <link rel="stylesheet" href="/css/style.min.css">
+
+</head>
+<body>
+  <div class="wrap">
+    <div class="navbar">
+        <ul class="navbar-list" style="float:right">
+          
+        </ul>
+    </div>
+    <div class="navbar">
+        
+        <ul class="navbar-list" style="float:right">
+            
+            <li class="navbar-item"><a class="navbar-link" href="https://jeqo.github.io/post/2015-07-31-java-ee-rxjava-kafka-avro/">en</a></li>
+            
+        </ul>
+        
+    </div>
+    <div class="header"><span style="font-size: 34px;">
+      <a href="https://jeqo.github.io/">@jeqo</a></span>
+      <span style="font-size:12px;">&nbsp;&nbsp;|&nbsp;&nbsp;<i>desarrollo de &#39;back-end&#39;, integración, &#39;devops&#39;, etc.</i> </span></div>
+
+<div class="empty">&nbsp;</div>
+  <div class="post-title">
+    <a class="post-title-link" href="https://jeqo.github.io/es/post/2015-07-31-java-ee-rxjava-kafka-avro/">Integrar Java EE 7 y Kafka usando Avro y RxJava</a>
+  </div>
+      <div class="tags">tags:</br>
+        <a class="tag-link" href="/es/tags/java-ee">java ee </a><a class="tag-link" href="/es/tags/kafka">kafka </a><a class="tag-link" href="/es/tags/avro">avro </a><a class="tag-link" href="/es/tags/rx">rx </a>
+    </div>
+    <div class="content-full">
+
+<p>Hace poco decidi probar una rápida implementación entre aplicaciones
+Java EE y RxJava/Kafka/Avro, para publicar/subscribirse a &ldquo;topic messages&rdquo;.</p>
+
+<p>Puedes ir directamente al <a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro">código</a>,
+o revisar el enfoque que apliqué:</p>
+
+<h2 id="tl-dr">TL;DR</h2>
+
+<p>He estado realizando alguna pruebas de concepto con <a href="http://kafka.apache.org/">Kafka</a>
+seducido por los beneficios que propone (rapidez, escalabilidad, y funcionar como
+una fuente de eventos durable) para implementar una propagación de eventos
+usando el patrón &ldquo;Publish/Subscribe&rdquo;.</p>
+
+<p>En estos momentos que estoy escribiendo esta entrada del blog, me he dado cuenta
+que las APIs para acceder a Kafka están en constante evolución y volviéndose
+más simples de utilizar, y no ha sido fácil encontrar un ejemplo con la versión
+actual. Estoy utilizando el <strong>release 0.8.2.1</strong>.</p>
+
+<p>Logré encontrar este tutorial sobre como utilizar las APIs para <em>publicar</em>
+y <em>suscribirse</em> a mensajes: <a href="https://github.com/mdkhanga/my-blog-code">https://github.com/mdkhanga/my-blog-code</a></p>
+
+<p>Kafka soporta 2 tipos de mensajes : <em>Strings</em> and <em>byte[]</em>. Luego de hacer
+algunas pruebas con String, requería enviar POJOs como mensajes. Y encontré
+otro proyecto de Apache: <a href="https://avro.apache.org">Avro</a>.</p>
+
+<p>Utilizando los tutoriales de Avro (<a href="https://avro.apache.org/docs/current/gettingstartedjava.html">https://avro.apache.org/docs/current/gettingstartedjava.html</a>)
+y otras fuentes: (<a href="https://github.com/wpm/AvroExample">https://github.com/wpm/AvroExample</a>)
+Encontre como Serializar/Deserializar POJO de una forma eficiente, sin necesidad
+de persistir archivos en disco, solo manteniendolos como ByteStreams.</p>
+
+<p>En este punto tengo Eventos, definidos por <a href="https://avro.apache.org/docs/current/spec.html#schema_record">esquemas de Avro</a>,
+y APIs de Kafka listo para publicar y suscribirse a &ldquo;topics&rdquo;.</p>
+
+<p>Finalmente, quiero agregar esta características a mi aplicación Java EE 7.</p>
+
+<p>Primero, usando CDI, fue sencillo inyectar un &ldquo;Producer&rdquo; y publicar mensajes,
+pero cuando se necesita consumir mensajes, el enfoque cambia. Ya no se trata
+de enviar mensajes, pero consumir un &ldquo;stream&rdquo; de eventos. Así llegue a encontrarme
+con <a href="https://github.com/ReactiveX/RxJava">RxJava</a> que aplica conceptos como
+<a href="http://reactivex.io/documentation/observable.html"><strong>Observables</strong></a> y <strong>Subscribers</strong>
+que cubre mis requerimientos: cada Kafka topic será un stream &ldquo;observable&rdquo; y
+cada Consumer se suscribirá a este &ldquo;observable&rdquo;. Revisemos el código:</p>
+
+<h2 id="sample-java-ee-app">Sample Java EE App</h2>
+
+<p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.1">Tag: v0.0.1</a></p>
+
+<p>El primer paso fue tener un par de operaciones REST, implementados con JAX-RS:</p>
+
+<ul>
+<li>Clients Resource: List (GET) and Add (POST) Clients</li>
+<li>Events Resource: List (GET) Client Added Events</li>
+</ul>
+
+<pre><code class="language-java">@Path(&quot;clients&quot;)
+public class ClientsResource {
+
+    static List&lt;String&gt; clients = new ArrayList&lt;&gt;();
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List&lt;String&gt; getClients() {
+        return clients;
+    }
+
+    @POST
+    public void addClient(String client) {
+        clients.add(client);
+    }
+}
+</code></pre>
+
+<p>Luego de tener mi recurso &ldquo;Clients&rdquo; implementado, mi requerimiento es
+propagar el evento &ldquo;ClientAddedEvent&rdquo; y listarlo en el recurso Events.</p>
+
+<h2 id="serialización-y-deserialización-de-eventos">Serialización y Deserialización de Eventos</h2>
+
+<p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.2">Tag: v0.0.2</a></p>
+
+<pre><code class="language-java">public void test() {
+    ClientAddedEvent event = ClientAddedEvent.newBuilder()
+            .setName(&quot;jeqo&quot;)
+            .setCreated(new Date().getTime())
+            .build();
+    byte[] eventSerialized = serializer.serialize(event);
+    ClientAddedEvent eventDeserialized = deserializer.deserialize(eventSerialized);
+    assertEquals(event, eventDeserialized);
+}
+</code></pre>
+
+<p>El event ClientAddedEvent es definido usando el formato Avro JSON:</p>
+
+<pre><code class="language-json">{
+    &quot;namespace&quot;: &quot;com.jeqo.samples.eventsource.event&quot;,
+    &quot;type&quot;: &quot;record&quot;,
+    &quot;name&quot;: &quot;ClientAddedEvent&quot;,
+    &quot;fields&quot;: [
+        {&quot;name&quot;: &quot;name&quot;, &quot;type&quot;: &quot;string&quot;},
+        {&quot;name&quot;: &quot;created&quot;, &quot;type&quot;: &quot;long&quot;}
+    ]
+}
+</code></pre>
+
+<p>Agregando el siguiente plugin de Maven, la clase  <em>ClientAddedEvent</em> se
+creará cada vez que el proyecto sea construido:</p>
+
+<pre><code class="language-xml">&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.avro&lt;/groupId&gt;
+            &lt;artifactId&gt;avro-maven-plugin&lt;/artifactId&gt;
+            &lt;version&gt;1.7.7&lt;/version&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;phase&gt;generate-sources&lt;/phase&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;schema&lt;/goal&gt;
+                    &lt;/goals&gt;
+                    &lt;configuration&gt;
+                        &lt;sourceDirectory&gt;${project.basedir}/src/main/avro/&lt;/sourceDirectory&gt;
+                        &lt;outputDirectory&gt;${project.basedir}/src/main/java/&lt;/outputDirectory&gt;
+                    &lt;/configuration&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre>
+
+<p>Para serializar Avro records, de POJO a Byte Array:</p>
+
+<pre><code class="language-java">public class EventSerializer&lt;T extends SpecificRecordBase&gt; {
+
+    public byte[] serialize(T record) {
+        try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+            Encoder encoder = EncoderFactory.get().binaryEncoder(out, null);
+            new SpecificDatumWriter&lt;&gt;(record.getSchema()).write(record, encoder);
+            encoder.flush();
+            return out.toByteArray();
+        } catch (IOException ex) {
+            throw new RuntimeException(&quot;Error serializing event&quot;, ex);
+        }
+    }
+}
+</code></pre>
+
+<p>y viceversa:</p>
+
+<pre><code class="language-java">public class EventDeserializer&lt;T extends SpecificRecordBase&gt; {
+
+    private final Class&lt;T&gt; type;
+
+    public EventDeserializer(Class&lt;T&gt; type) {
+        this.type = type;
+    }
+
+    public T deserialize(byte[] recordSerialized) {
+        try {
+            return new SpecificDatumReader&lt;&gt;(type).read(
+                    null,
+                    DecoderFactory.get()
+                    .binaryDecoder(recordSerialized, null)
+            );
+        } catch (IOException ex) {
+            throw new RuntimeException(&quot;Error deserializing event&quot;, ex);
+        }
+    }
+}
+</code></pre>
+
+<h2 id="publicando-y-consumiendo-eventos-desde-kafka-rxjava">Publicando y consumiendo eventos desde Kafka/RxJava</h2>
+
+<p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.3">Tag: v0.0.3</a></p>
+
+<p>Primero, definamos un par de interfaces, EventServer:</p>
+
+<pre><code class="language-java">public interface EventServer&lt;T&gt; {
+
+    public Observable&lt;T&gt; consume();
+}
+</code></pre>
+
+<p>y EventProducer:</p>
+
+<pre><code class="language-java">public interface EventProducer&lt;T&gt; {
+
+    public void publish(T message);
+}
+</code></pre>
+
+<p>Luego, implementemos estas interfaces con Kafka APIs.</p>
+
+<p>Para publicar mensajes:</p>
+
+<pre><code class="language-java">@Override
+public void publish(T message) {
+    // Produce a new Kafka record
+    ProducerRecord&lt;String, byte[]&gt; data = new ProducerRecord&lt;&gt;(
+            message.getClass().getSimpleName(),
+            serializer.serialize(message)
+    );
+
+    // Publish this new record, waiting for acknowledge from Kafka
+    Future&lt;RecordMetadata&gt; rs = producerProvider.producer()
+            .send(data, (RecordMetadata recordMetadata, Exception e) -&gt; {
+                LOGGER.log(Level.INFO, &quot;Received ack for partition={0} offset = {1}&quot;, new Object[]{recordMetadata.partition(), recordMetadata.offset()});
+            });
+
+    try {
+        RecordMetadata rm = rs.get();
+
+        LOGGER.log(Level.INFO, &quot;Kafka Record Metadata: partition = {0} offset ={1}&quot;, new Object[]{rm.partition(), rm.offset()});
+
+    } catch (InterruptedException | ExecutionException e) {
+        System.out.println(e);
+    }
+}
+</code></pre>
+
+<p>y en KafkaEventServer, para instanciar un RxJava observable:</p>
+
+<pre><code class="language-java">@Override
+public Observable&lt;T&gt; consume() {
+    return Observable.create(subscriber -&gt; {
+        try {
+            LOGGER.log(Level.INFO, &quot;Preparing Server for Event {0}&quot;, type.getName());
+            // It will observe one Topic
+            Map&lt;String, Integer&gt; topicCountMap = new HashMap&lt;&gt;();
+            topicCountMap.put(type.getSimpleName(), 1);
+
+            // consumerProvider will instantiate a consumer that will create a KafkaStream
+            Map&lt;String, List&lt;KafkaStream&lt;byte[], byte[]&gt;&gt;&gt; consumerMap
+                    = consumerProvider.consumer()
+                    .createMessageStreams(topicCountMap);
+
+            // then I will ask for the Stream from my topic, defined by Avro Record Class name
+            List&lt;KafkaStream&lt;byte[], byte[]&gt;&gt; streams = consumerMap
+                    .get(type.getSimpleName());
+
+            KafkaStream&lt;byte[], byte[]&gt; stream = streams.get(0);
+
+            ConsumerIterator&lt;byte[], byte[]&gt; it = stream.iterator();
+
+            // on each message published on topic, I will let the subscriber receive the new message
+            while (it.hasNext()) {
+                subscriber.onNext(
+                        deserializer.deserialize(it.next().message())
+                );
+            }
+        } catch (Exception ex) {
+            subscriber.onError(ex);
+        }
+    });
+}
+</code></pre>
+
+<p>Se puede validar la clase *Provider para observar como se genera la conexión
+con Kafka, tanto para el Publisher como para el Subscriber.</p>
+
+<p>En el tag v0.0.3 se puede ejecutar cada clase (KafkaEventServer and KafkaEventProducer)
+para validar que el servidor Kafka esta trabajando correctamente.</p>
+
+<h2 id="uniendo-todo">Uniendo todo</h2>
+
+<p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.1.0">Tag: v0.1.0</a></p>
+
+<p>Finalmente, vamos a integrar la aplicación Java EE interacción con la nuestra
+fuente de eventos (Kafka):</p>
+
+<pre><code class="language-java">@ApplicationScoped
+public class ClientAddedEventProducer extends KafkaEventProducer&lt;ClientAddedEvent&gt; {
+
+}
+</code></pre>
+
+<p>La anotación @ApplicationScoped de CDI indica que esta clase se instanciará como
+<em>&ldquo;singleton&rdquo;</em> y podrá ser inyectada:</p>
+
+<pre><code class="language-java">public class ClientsResource {
+
+    @Inject
+    ClientAddedEventProducer eventProducer;
+
+    //code
+
+    @POST
+    public void addClient(String client) {
+        clients.add(client);
+        //Publishing events
+        eventProducer.publish(
+                ClientAddedEvent.newBuilder()
+                .setName(client)
+                .setCreated(new Date().getTime())
+                .build()
+        );
+    }
+}
+</code></pre>
+
+<p>Luego para instanciar el <em>Subscriber</em> (Creo que es la parte más importante:
+como <strong>reaccionar</strong> a eventos? ):</p>
+
+<pre><code class="language-java">// Extending Subscriber RxJava class to listen Observables
+@ApplicationScoped
+public class ClientAddedEventSubscriber extends Subscriber&lt;ClientAddedEvent&gt; {
+
+    static final Logger LOGGER = Logger.getLogger(ClientAddedEventSubscriber.class.getName());
+
+    // This will add a new thread to our pool, to subscribe to our Observable
+    @Resource(name = &quot;DefaultManagedExecutorService&quot;)
+    private ManagedExecutorService executor;
+
+    @Inject
+    private KafkaConsumerProvider consumerProvider;
+
+    private Subscription subscription;
+
+    // Run this on server startup, using CDI annotations
+    public void init(@Observes @Initialized(ApplicationScoped.class) Object init) {
+        LOGGER.log(Level.INFO, &quot;Starting subscription&quot;);
+        subscription = new KafkaEventServer&lt;&gt;(
+                ClientAddedEvent.class,
+                consumerProvider,
+                executor
+        ).consume().subscribe(this);
+    }
+
+    public void destroy(@Observes @Destroyed(ApplicationScoped.class) Object init) {
+        subscription.unsubscribe();
+    }
+
+    @Override
+    public void onCompleted() {
+        throw new UnsupportedOperationException(&quot;Not supported yet.&quot;);
+    }
+
+    @Override
+    public void onError(Throwable e) {
+        throw new UnsupportedOperationException(&quot;Not supported yet.&quot;);
+    }
+
+    @Override
+    public void onNext(ClientAddedEvent t) {
+        LOGGER.log(Level.INFO, &quot;Event received {0}&quot;, t);
+        // How we will react to events:
+        EventsResource.events.add(
+                &quot;Client Added: &quot; + t.getName() + &quot; at &quot; + new Date(t.getCreated())
+        );
+    }
+
+}
+</code></pre>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+    (function() {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = '';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+        <div class="navbar">
+        <ul class="navbar-list" style="float:right">
+          <li class="navbar-item"><a class="navbar-link" href="

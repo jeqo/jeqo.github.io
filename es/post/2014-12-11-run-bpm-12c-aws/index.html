@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="darksimplicity">
+  <meta name="generator" content="Hugo 0.18.1" />
+  
+  
+  <base href="https://jeqo.github.io/">
+  <title>Oracle BPM 12c sobre AWS EC2 usando Vagrant y Chef</title>
+  <link rel="stylesheet" href="/css/style.min.css">
+
+</head>
+<body>
+  <div class="wrap">
+    <div class="navbar">
+        <ul class="navbar-list" style="float:right">
+          
+        </ul>
+    </div>
+    <div class="navbar">
+        
+        <ul class="navbar-list" style="float:right">
+            
+            <li class="navbar-item"><a class="navbar-link" href="https://jeqo.github.io/post/2014-12-11-run-bpm-12c-aws/">en</a></li>
+            
+        </ul>
+        
+    </div>
+    <div class="header"><span style="font-size: 34px;">
+      <a href="https://jeqo.github.io/">@jeqo</a></span>
+      <span style="font-size:12px;">&nbsp;&nbsp;|&nbsp;&nbsp;<i>desarrollo de &#39;back-end&#39;, integración, &#39;devops&#39;, etc.</i> </span></div>
+
+<div class="empty">&nbsp;</div>
+  <div class="post-title">
+    <a class="post-title-link" href="https://jeqo.github.io/es/post/2014-12-11-run-bpm-12c-aws/">Oracle BPM 12c sobre AWS EC2 usando Vagrant y Chef</a>
+  </div>
+      <div class="tags">tags:</br>
+        <a class="tag-link" href="/es/tags/oracle">oracle </a><a class="tag-link" href="/es/tags/fmw">fmw </a><a class="tag-link" href="/es/tags/bpm">bpm </a><a class="tag-link" href="/es/tags/chef">chef </a><a class="tag-link" href="/es/tags/vagrant">vagrant </a>
+    </div>
+    <div class="content-full">
+
+<p>En esta entrada mostraré el procedimiento que utilicé para crear
+instancias en Amazon Web Service EC2, con Oracle BPM 12c instalado y
+un dominio provisionado.</p>
+
+<p>Este procedimiento se realizo en los siguientes pasos:</p>
+
+<ul>
+<li>Crear una instancia en AWS EC2 (con Vagrant)</li>
+<li>Conectarse a una instancia NFS para obtener instaladores (con Chef)</li>
+<li>Instalar Oracle BPM 12c Quickstart y crear Dominio (con Chef)</li>
+</ul>
+
+<p>GitHub: <a href="https://github.com/jeqo/oracle-bpm-12c-aws">https://github.com/jeqo/oracle-bpm-12c-aws</a></p>
+
+<h2 id="crear-una-instancia-en-aws-ec2">Crear una instancia en AWS EC2</h2>
+
+<p>He creado una instancia Red Hat usando Vagrant. Esta instancia debe estar conectada
+a una instancia NFS que tiene los instaladores de Oracle (esta fue creada
+  en esta <a href="http://jeqo.github.io/blog/devops/create-nfs-instance-aws-es/">entrada</a>).</p>
+
+<p>Esta es la instancia NFS:</p>
+
+<p><img src="images/2014-12-11-run-bpm-12c-aws/2014-12-11_0836.png" alt="Instancia NFS" title="NFS Instance" /></p>
+
+<p>Y el directorio &ldquo;/data&rdquo; esta compartido. Incluye los instaladores de Oracle DB XE 11g y BPM 12c:</p>
+
+<p><img src="images/2014-12-11-run-bpm-12c-aws/2014-12-11_0841.png" alt="Directorios NFS" title="NFS directories" /></p>
+
+<h3 id="configuración-en-vagrant">Configuración en Vagrant</h3>
+
+<p><a href="https://gist.github.com/jeqo/62b74a9ed65d575d91b4">Gist</a></p>
+
+<p>{% gist 62b74a9ed65d575d91b4 Vagrantfile &gt;}}</p>
+
+<p>Ejecutar el siguiente comando:</p>
+
+<pre><code class="language-bash">vagrant up --provider=aws
+</code></pre>
+
+<h3 id="conectarse-a-la-instancia-nfs">Conectarse a la instancia NFS</h3>
+
+<p>Esta es la primera receta Chef que será ejecutada:</p>
+
+<pre><code class="language-ruby">...
+  chef.add_role &quot;nfs-client&quot;
+...
+</code></pre>
+
+<p>Utilizando el rol Chef:</p>
+
+<pre><code class="language-json">{
+  &quot;name&quot; : &quot;nfs-client&quot;,
+  &quot;description&quot; : &quot;Role applied to the system that should be an NFS client tools.&quot;,
+  &quot;json_class&quot; : &quot;Chef::Role&quot;,
+  &quot;default_attributes&quot; : {
+    &quot;nfs-client&quot; : {
+      &quot;server-host&quot; : &quot;localhost&quot;,
+      &quot;local-directory&quot; : &quot;/data&quot;,
+      &quot;remote-directory&quot; : &quot;/data&quot;
+    }
+  },
+  &quot;run_list&quot; : [
+    &quot;recipe[nfs-utils::nfs-client]&quot;
+  ]
+}
+
+</code></pre>
+
+<p>Para actualizar el server-host desde su configuración de Vagrant, agregar las
+siguientes líneas:</p>
+
+<pre><code class="language-ruby">...
+chef.json = {
+  &quot;nfs-client&quot; =&gt; {
+    &quot;server-host&quot; =&gt; &quot;123.1.1.12&quot;
+  },
+  ...
+</code></pre>
+
+<p>Y cuando la instancia sea creada, un nuevo directorio &ldquo;/data&rdquo; se sincronizará.</p>
+
+<h2 id="instalación-de-oracle-bpm-12c-quickstart">Instalación de Oracle BPM 12c Quickstart</h2>
+
+<p>Para instalar BPM, se debe utilizar el <a href="https://supermarket.chef.io/cookbooks/oracle-fmw">cookbook &ldquo;oracle-fmw&rdquo;</a>
+compartido en Chef Supermarket. Este esta explicador en <a href="http://jeqo.github.io/blog/devops/chef-cookbook-oracle-fmw-12c-es/">esta entrada</a>.</p>
+
+<p>La configuración de Vagrant invoca el provisionamiento con Chef:</p>
+
+<pre><code class="language-json">{
+  &quot;name&quot; : &quot;demo-bpm_bam-12c&quot;,
+  &quot;json_class&quot; : &quot;Chef::Role&quot;,
+  &quot;default_attributes&quot; : {
+    &quot;domain-12c&quot;: {
+      &quot;name&quot;: &quot;demo-bpm_bam-domain&quot;,
+      &quot;mode&quot;: &quot;Compact&quot;,
+      &quot;apps&quot;: [
+        {&quot;name&quot; : &quot;SOA&quot;, &quot;enabled&quot; : true},
+        {&quot;name&quot; : &quot;BPM&quot;, &quot;enabled&quot; : true},
+        {&quot;name&quot; : &quot;BAM&quot;, &quot;enabled&quot; : true},
+        {&quot;name&quot; : &quot;OSB&quot;, &quot;enabled&quot; : false}
+      ],
+      &quot;machines&quot;: [
+      ],
+      &quot;admin_server&quot;: {
+        &quot;base_name&quot; : &quot;AdminServer&quot;,
+        &quot;new_name&quot; : &quot;bpm_bpm-server&quot;,
+        &quot;port&quot; : &quot;7001&quot;
+      },
+      &quot;managed_servers&quot;: [
+      ],
+      &quot;db_repo_host&quot;: &quot;localhost&quot;,
+      &quot;db_repo_port&quot;: &quot;1521&quot;,
+      &quot;db_repo_sid&quot;: &quot;xe&quot;,
+      &quot;db_repo_prefix&quot;: &quot;DEMO&quot;,
+      &quot;db_repo_password&quot;: &quot;welcome1&quot;
+    },
+    &quot;rcu-12c&quot;: {
+      &quot;db_schema_prefix&quot;: &quot;DEMO&quot;,
+      &quot;db_dba_user&quot;: &quot;SYS&quot;,
+      &quot;db_dba_role&quot;: &quot;SYSDBA&quot;,
+      &quot;db_dba_password&quot;: &quot;welcome1&quot;,
+      &quot;db_schemas_password&quot;: &quot;welcome1&quot;,
+      &quot;db_hostname&quot;: &quot;localhost&quot;,
+      &quot;db_port&quot;: &quot;1521&quot;,
+      &quot;db_service&quot;: &quot;xe&quot;,
+      &quot;components&quot;: [
+        &quot;SOAINFRA&quot;,
+        &quot;OPSS&quot;,
+        &quot;IAU&quot;,
+        &quot;MDS&quot;,
+        &quot;WLS&quot;,
+        &quot;UCSUMS&quot;,
+        &quot;IAU_APPEND&quot;,
+        &quot;IAU_VIEWER&quot;
+      ]
+    }
+  },
+  &quot;run_list&quot; : [
+    &quot;recipe[oracle-fmw::install-bpm_qs-12c]&quot;,
+    &quot;recipe[oracle-fmw::create-rcu_repository-12c]&quot;,
+    &quot;recipe[oracle-fmw::create-domain-12c]&quot;
+  ]
+}
+</code></pre>
+
+<p>Incluye la llamada a 3 recetas: &ldquo;install-bpm_qs-12c&rdquo; , &ldquo;create-rcu_repository-12c&rdquo;,
+&ldquo;create-domain-12c&rdquo;, incluyendo la información del dominio (&ldquo;domain-12c&rdquo;), y RCU (&ldquo;rcu-12c&rdquo;).</p>
+
+<p>Este proceso toma cerca de 30 min. aprox.</p>
+
+<p>Una vez finalizado, debe poder acceder con el usuario de sistema operativo &ldquo;oracle-fmw&rdquo; (password: welcome1), e iniciar el servidor:</p>
+
+<p><img src="images/2014-12-11-run-bpm-12c-aws/2014-12-11_0930.png" alt="Start server" title="Stating WebLogic Server" /></p>
+
+<p><img src="raw/gh-pages/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0931.png" alt="Server started" title="WebLogic Server with BPM started" /></p>
+
+<p>Eso es todo :).</p>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+    (function() {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = '';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+        <div class="navbar">
+        <ul class="navbar-list" style="float:right">
+          <li class="navbar-item"><a class="navbar-link" href="

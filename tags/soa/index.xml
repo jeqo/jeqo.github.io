@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Soa on @jeqo </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>https://jeqo.github.io/tags/soa/index.xml</link>
+    <language>en-us</language>
+    
+    <copyright>&amp;copy Copyright 2017. Jorge Quilcate.</copyright>
+    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Oracle SOA Suite 12c Docker Image</title>
+      <link>https://jeqo.github.io/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</link>
+      <pubDate>Fri, 04 Sep 2015 00:00:00 UTC</pubDate>
+      
+      <guid>https://jeqo.github.io/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</guid>
+      <description>&lt;p&gt;After find some limitations on building SOA Docker image using Dockerfile
+(as volume access, default size image) I researched on how to improve
+building process and I found &lt;a href=&#34;https://packer.io/&#34;&gt;Packer&lt;/a&gt;
+(from the same guy that creates Vagrant).&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;To check why using Packer instead of Dockerfiles, &lt;a href=&#34;http://mmckeen.net/blog/2013/12/27/advanced-docker-provisioning-with-packer/&#34;&gt;go here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I also moved &lt;a href=&#34;https://github.com/jeqo/oracle-docker/tree/master/OracleSOA&#34;&gt;OracleSOA directory&lt;/a&gt;
+from my forked &lt;a href=&#34;https://github.com/oracle/docker&#34;&gt;oracle-docker repository&lt;/a&gt; to
+an independent repository: &lt;a href=&#34;https://github.com/jeqo/oracle-soa-12c-docker&#34;&gt;github.com/jeqo/oracle-soa-12c-docker&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;improvements&#34;&gt;Improvements&lt;/h2&gt;
+
+&lt;p&gt;Basically Dockerfile scripts were moved to shell scripts and are called
+from Packer.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;provisioners&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #960050; background-color: #1e0010&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;scripts/create-user.sh&amp;quot;&lt;/span&gt;
+      &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;file&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;source&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;./files/&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;destination&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;/u01/&amp;quot;&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;scripts/install-java.sh&amp;quot;&lt;/span&gt;
+      &lt;span style=&#34;color: #f8f8f2&#34;&gt;],&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;environment_vars&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;JAVA_RPM=/data/{{user `java_rpm`}}&amp;quot;&lt;/span&gt;
+      &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;scripts/install-soa.sh&amp;quot;&lt;/span&gt;
+      &lt;span style=&#34;color: #f8f8f2&#34;&gt;],&lt;/span&gt;
+      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;environment_vars&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;SOA_ZIP=/data/{{user `soa_zip`}}&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;SOA_PKG={{user `soa_pkg`}}&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;SOA_PKG2={{user `soa_pkg2`}}&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;JAVA_HOME=/usr/java/default&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;MW_HOME=/u01/oracle/soa&amp;quot;&lt;/span&gt;
+      &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;After provisioning, you can save your image, and if
+you want push it to Docker Hub:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;post-processors&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #960050; background-color: #1e0010&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
+      &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;docker-tag&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;repository&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;jeqo/oracle-soa-12c&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;tag&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;12.1.3-dev&amp;quot;&lt;/span&gt;
+      &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
+      &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;docker-push&amp;quot;&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
+  &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Very simple and straightforward JSON configuration.&lt;/p&gt;
+
+&lt;p&gt;Now you have a Docker image with SOA installer, ready
+to create your domain as &lt;a href=&#34;https://github.com/jeqo/oracle-soa-12c-docker/tree/master/samples/12c-domain&#34;&gt;this sample&lt;/a&gt; explained
+on &lt;a href=&#34;http://jeqo.github.io/blog/devops/docker-image-oracle-soa/&#34;&gt;my previous post&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Oracle Fusion Middleware Chef Cookbook - New Release!</title>
+      <link>https://jeqo.github.io/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</link>
+      <pubDate>Tue, 21 Jul 2015 00:00:00 UTC</pubDate>
+      
+      <guid>https://jeqo.github.io/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</guid>
+      <description>&lt;p&gt;Yesterday, I released a new version (0.2.0) of my Oracle Fusion Middleware Cookbook
+hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;Chef Supermarket&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;This new release includes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Support for Oracle SOA Suite 12c Quickstart installation&lt;/li&gt;
+&lt;li&gt;Support for Oracle SOA/OSB Suite 11g installation and domain creation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can found usage examples on my Chef repository on GitHub: &lt;a href=&#34;https://github.com/jeqo/chef-repo&#34;&gt;https://github.com/jeqo/chef-repo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Looking forward for your comments, and happy cooking!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Docker image for Oracle SOA Suite 12c</title>
+      <link>https://jeqo.github.io/post/2015-04-01-docker-image-oracle-soa/</link>
+      <pubDate>Wed, 01 Apr 2015 00:00:00 UTC</pubDate>
+      
+      <guid>https://jeqo.github.io/post/2015-04-01-docker-image-oracle-soa/</guid>
+      <description>&lt;p&gt;Cool news came from Oracle a couple of weeks ago: &lt;a href=&#34;https://blogs.oracle.com/WebLogicServer/entry/oracle_weblogic_server_now_running&#34;&gt;Oracle WebLogic Server is now supported on Docker!&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;es&#34;&gt;&lt;p&gt;I&amp;#39;m glad we announced support for &lt;a href=&#34;https://twitter.com/OracleWebLogic&#34;&gt;@OracleWebLogic&lt;/a&gt; on &lt;a href=&#34;https://twitter.com/docker&#34;&gt;@Docker&lt;/a&gt; last week, not today :-) &lt;a href=&#34;https://t.co/6E9UxrgY3n&#34;&gt;https://t.co/6E9UxrgY3n&lt;/a&gt;&lt;/p&gt;&amp;mdash; Bruno Borges  (@brunoborges) &lt;a href=&#34;https://twitter.com/brunoborges/status/583252433343758336&#34;&gt;abril 1, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;This is very cool. &lt;strong&gt;Docker&lt;/strong&gt; is a disruptive platform that ship everything inside a container (OS, Configurations, Platform, Application) and let you run it (almost) everywhere! To &lt;a href=&#34;https://www.docker.com/whatisdocker/&#34;&gt;learn more about Docker&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So, WebLogic on Docker is great, but I&amp;rsquo;d like to go further and &lt;em&gt;Dockerize&lt;/em&gt; &lt;strong&gt;SOA&lt;/strong&gt; and &lt;strong&gt;BPM&lt;/strong&gt; products (as &lt;a href=&#34;https://guidoschmutz.wordpress.com/2015/03/29/installing-oracle-stream-explorer-in-a-docker-image/&#34;&gt;Guido Schmitz made with Oracle Stream Explorer&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;es&#34;&gt;&lt;p&gt;Just published my latest blog “Providing Oracle Stream Explorer environment using Docker”. &lt;a href=&#34;https://twitter.com/hashtag/oracle?src=hash&#34;&gt;#oracle&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/StreamExplorer?src=hash&#34;&gt;#StreamExplorer&lt;/a&gt; &lt;a href=&#34;http://t.co/WNFGCmFVca&#34;&gt;http://t.co/WNFGCmFVca&lt;/a&gt;&lt;/p&gt;&amp;mdash; gschmutz (@gschmutz) &lt;a href=&#34;https://twitter.com/gschmutz/status/582232826772357120&#34;&gt;marzo 29, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;I used &lt;a href=&#34;http://github.com/oracle/docker&#34;&gt;Oracle&amp;rsquo;s Docker repository&lt;/a&gt; as a base to create a Oracle SOA Suite 12c image (with the product installed - no domain included), and a sample Docker configuration to create a Docker image with a domain with SOA and OSB.&lt;/p&gt;
+
+&lt;h2 id=&#34;get-the-repository&#34;&gt;Get the repository&lt;/h2&gt;
+
+&lt;p&gt;To try this post you should have &lt;a href=&#34;https://docs.docker.com/&#34;&gt;a machine with Docker installed&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To get started you can download the repository: &lt;a href=&#34;http://github.com/jeqo/oracle-docker&#34;&gt;http://github.com/jeqo/oracle-docker&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The repository includes images for MySQL, WebLogic and Coherence. These images comes from Oracle repository.&lt;/p&gt;
+
+&lt;p&gt;My contribution is into the &lt;a href=&#34;https://github.com/jeqo/oracle-docker/tree/master/OracleSOA&#34;&gt;&amp;lsquo;OracleSOA&amp;rsquo; directory&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Feel free to fork and create &amp;ldquo;pull-requests&amp;rdquo;!&lt;/p&gt;
+
+&lt;h2 id=&#34;creating-the-soa-suite-12c-image&#34;&gt;Creating the SOA Suite 12c image&lt;/h2&gt;
+
+&lt;p&gt;Now you should &lt;a href=&#34;http://www.oracle.com/technetwork/middleware/soasuite/downloads/index.html&#34;&gt;download Oracle SOA Suite 12c Quick Start installer&lt;/a&gt;, and put it into OracleSOA/dockerfiles/12.1.3. Also, you should &lt;a href=&#34;http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html&#34;&gt;download Java Development Kit 7&lt;/a&gt;, and put it in the same folder.&lt;/p&gt;
+
+&lt;p&gt;Open a terminal into &lt;em&gt;OracleSOA&lt;/em&gt; directory, go to dockerfiles, run the script &lt;em&gt;buildDockerImage.sh&lt;/em&gt; with the &lt;em&gt;-d&lt;/em&gt; argument because we are installing the Quick Start version of SOA Suite 12c:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;sh buildDockerImage.sh -d
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This creates a Docker image called: &lt;strong&gt;oracle/soa:12.1.3-dev&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;dockerize-a-soa-suite-domain&#34;&gt;Dockerize a SOA Suite Domain&lt;/h2&gt;
+
+&lt;p&gt;So, now we have a Docker image with Oracle SOA Suite 12c installed. What we can do now is create a domain with WLST.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s what I did, and I add it to the &lt;em&gt;OracleSOA/samples&lt;/em&gt; directory.&lt;/p&gt;
+
+&lt;p&gt;To run it, go to the &lt;em&gt;OracleSOA/samples/12c-domain&lt;/em&gt; and run the following commands:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;docker build -t mysoa .
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And this should create an image called &lt;em&gt;mysoa&lt;/em&gt; that contains a Compact Domain into this directory: &lt;em&gt;/u01/oracle/work/domains/soa-domain&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s it! When you want to run a SOA Suite 12c Domain, just run:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;docker run -i -t mysoa
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id=&#34;next-steps&#34;&gt;Next steps&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;BPM on Docker&lt;/li&gt;
+&lt;li&gt;Publish images on Docker Hub Registry&lt;/li&gt;
+&lt;li&gt;Extended Domain on Docker: Use an external Oracle Database for Oracle SOA/BPM Schemas&lt;/li&gt;
+&lt;li&gt;SOA/BPM Cluster on Docker containers&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Book Review - Applied SOA Patterns on the Oracle Platform</title>
+      <link>https://jeqo.github.io/post/2014-11-28-review-soa-patterns-oracle-platform/</link>
+      <pubDate>Fri, 28 Nov 2014 00:00:00 UTC</pubDate>
+      
+      <guid>https://jeqo.github.io/post/2014-11-28-review-soa-patterns-oracle-platform/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve had the opportunity to present a review of this book &lt;a href=&#34;https://www.packtpub.com/application-development/applied-soa-patterns-oracle-platform&#34;&gt;Applied SOA Patterns on the Oracle Platform&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Once I started to read the chapters, I found it quite interesting because of these:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Great introduction to SOA  principles, and Oracle SOA Suite evolution&lt;/li&gt;
+&lt;li&gt;Align AIA Concepts with SOA patterns&lt;/li&gt;
+&lt;li&gt;A key topic for SOA success: Service Repository&lt;/li&gt;
+&lt;li&gt;An extensive and complete description of Security and Error Handling&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It looks like a really long book (572 pages), and it is. But this is justified because it takes a great approach from concepts to examples combined with experiences and source code. This could help you to feel more confident about your SOA design decisions.&lt;/p&gt;
+
+&lt;h2 id=&#34;must-read-parts&#34;&gt;&amp;ldquo;Must Read&amp;rdquo; parts&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 1 - SOA Frameworks&lt;/strong&gt;: I think these frameworks are quite important to apply on SOA design, for example: &lt;em&gt;Object and XML Modeling&lt;/em&gt;, if they are not designed well, could generate an implementation hell: huge and heavy data types, rare and indescribable names. Also gives an introduction to AIA that can give you a easy-to-learn guide about SOA layers, components, and common terms (Application Business Connector Services, Enterprise Business Flows and Services, and so on).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 2 - Oracle SOA Roadmap&lt;/strong&gt;: Owesome timeline about SOA Suite and related technologies. First time I found this information really well summarized. In general, this chapter makes a great technical specification about Oracle SOA Foundation: artifacts, technologies, code examples, specifications.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 3 - Oracle Enterprise Business Flow SOA Patterns&lt;/strong&gt;: Great distinction between BPEL and Mediator use cases, and I share the idea that telecommunications is a great industry to take examples about service orchestration.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 4&lt;/strong&gt;: This chapter contains really well explained tutorial: Implementing a basic Proxy on OSB is one of them, a Oracle E-Business Suite case turning a Message Broker into a Service Broker applying &amp;ldquo;Receive-Transform-Deliver&amp;rdquo; implementation pattern, and great examples about &amp;ldquo;VETRO&amp;rdquo; (or &amp;ldquo;VETO&amp;rdquo;) pattern on OSB: &lt;em&gt;Validate, Enrich, Transform and Operate&lt;/em&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 5&lt;/strong&gt;: A great &amp;ldquo;Getting-started&amp;rdquo; with SOA Governance using Oracle Enterprise Repository. &lt;em&gt;&amp;ldquo;Open standards for the SOA Taxonomy&amp;rdquo;, &amp;ldquo;Entity Types&amp;rdquo;&lt;/em&gt;, and &lt;em&gt;&amp;ldquo;Creating a lightweight taxonomy for dynamic service invocations&amp;rdquo;&lt;/em&gt; are definitely &lt;em&gt;must read&lt;/em&gt; parts: they include Service Discovery taxonomy, Entity relationships and how they impact in your architecture.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 6&lt;/strong&gt;: There is a note, on &amp;ldquo;Optimizing the Adapter Framework&amp;rdquo;, about SOAP and REST that you could find very interested, and I&amp;rsquo;m agree with it: &amp;ldquo;SOAP versus REST is a pointless discussion&amp;rdquo;. This is followed by a technical description of how to use different technologies like REST, JSON, EJB, DB Adapter, PL-SQL and Oracle XDK. &lt;em&gt;&amp;ldquo;After all, it doesn&amp;rsquo;t matter if it is modern or not, all that matters is if it works according to our principles or not. The color of the cat does not matter, as long as it catches the mice.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 7&lt;/strong&gt;:  &lt;em&gt;&amp;ldquo;Initial Analysis&amp;rdquo;&lt;/em&gt; including common SOA vulnerabilities and risks, and &lt;em&gt;&amp;ldquo;Risk mitigation design rules&amp;rdquo;&lt;/em&gt;, are all recommendations well explained and quite important in SOA projects.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 8&lt;/strong&gt; - Error-handling design rules is also a &amp;ldquo;must-read&amp;rdquo;: 15 rules related with OSB, BPEL, Enterprise Manager,  to follow and apply a right exception handling on your project. Follower by a technical approach first with JMX and SOA Composites.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 9&lt;/strong&gt;: This chapter includes an nice summary about Event Processing followed by a practitioner approach to implement CEP with Oracle Event Processing. Also includes 3 more important topics: High Availability with Coherence (How to integrated with OSB and CEP),  Monitoring Business Services with Oracle BAM ( How to use it from BPEL, JMS and Web Service API), and finally SOA as a Cloud Foundation (that&amp;rsquo;s where 12&amp;rdquo;c&amp;rdquo; comes from).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In conclusion you will find in this book a bunch of real experience aligned with SOA patterns and a mix of principles, frameworks, technical issues and product mapping. I believe you will find it very useful. You can find it &lt;a href=&#34;http://bit.ly/1uqK9dq&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;For me, this book will be my new handbook for comming SOA projects (with &lt;a href=&#34;http://www.oracle.com/technetwork/topics/entarch/itso-165161.html&#34;&gt;IT Strategies from Oracle&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;If you have comments about this book, please share! :)&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="darksimplicity">
+  <meta name="generator" content="Hugo 0.18.1" />
+  
+  
+  <base href="https://jeqo.github.io/">
+  <title>Vagrant and Chef Quickstart</title>
+  <link rel="stylesheet" href="/css/style.min.css">
+
+</head>
+<body>
+  <div class="wrap">
+    <div class="navbar">
+        <ul class="navbar-list" style="float:right">
+          
+        </ul>
+    </div>
+    <div class="navbar">
+        
+    </div>
+    <div class="header"><span style="font-size: 34px;">
+      <a href="https://jeqo.github.io/">@jeqo</a></span>
+      <span style="font-size:12px;">&nbsp;&nbsp;|&nbsp;&nbsp;<i>back-end development, integration, devops, etc.</i> </span></div>
+
+<div class="empty">&nbsp;</div>
+  <div class="post-title">
+    <a class="post-title-link" href="https://jeqo.github.io/post/2014-11-26-vagrant-quickstart/">Vagrant and Chef Quickstart</a>
+  </div>
+      <div class="tags">tags:</br>
+        <a class="tag-link" href="/tags/vagrant">vagrant </a><a class="tag-link" href="/tags/virtualbox">virtualbox </a>
+    </div>
+    <div class="content-full"><p>I have some months working with Vagrant and I think it&rsquo;s owesome! Integration with almost all kind of virtualization platforms: VirtalBox, VMware, Docker, AWS EC2, Hyper-V and so on. Also it&rsquo;s able to use differente Provisioners: Chef, Puppet, bash, Docker, Ansible. I really like it.</p>
+
+<p></p>
+
+<p>So, when I start working with Vagrant I choose VirtualBox as my virtualization platform and Chef as my provisioner, and when trying different configurations I start finding some tips to share:</p>
+
+<ol>
+<li>First step: Should I create my base box? or should I use a base box already created?</li>
+<li>Can I increase my disk space? how?</li>
+<li>Can I increase my swap memory? how?</li>
+</ol>
+
+<p>So, I decide to create a post to start creating Vagrant boxes and resolve this issues. Let&rsquo;s start:</p>
+
+<blockquote>
+<p>First of all, install <a href="https://www.vagrantup.com/downloads.html">Vagrant</a></p>
+</blockquote>
+
+<h2 id="create-a-vagrant-box">Create a Vagrant Box</h2>
+
+<p>If you read Vagrant documentation, you will find everything is based in a <strong>box</strong>. What&rsquo;s a box? In my opinion, a box is an abstraction from a base virtual environment: It has an OS installed, some basic configuration, and packaged to be reused. And what&rsquo;s a <strong>base box</strong>? A base box is a template to create boxes. For instance: A VirtualBox <em>base box</em> is a VirtualBox VM with an OS installed, a disk space defined, and a basic configuration, and a <em>box</em> is a Virtual Machine up and running. An Amazon Web Service EC2 <em>box</em> is an instance and a <em>base box</em> is a <a href="https://github.com/mitchellh/vagrant-aws/tree/master/example_box">file containing an AMI id</a>, that is a Virtual Machine template from AWS.</p>
+
+<p>Now that I know what is a box, how can I created? You can created by yourself: creating a simple VM, installing a base OS, and running a Vagrant command to create a &ldquo;base box&rdquo;. The process to do this depends on what virtualization platform you are using, for example: on VirtualBox you can do <a href="https://docs.vagrantup.com/v2/virtualbox/boxes.html">this</a> (official documentation) or a <a href="http://www.skoblenick.com/vagrant/creating-a-custom-box-from-scratch/">more detailed way</a>.</p>
+
+<p>This process is easy, but what if you want to use a cloud base box to be sure that anyone will change a package or configuration? There are two sites that I found where you can search, use directly or download base boxes:</p>
+
+<ul>
+<li><a href="http://www.vagrantbox.es/">Vagrantbox.es</a></li>
+<li><a href="https://vagrantcloud.com/">Vagrant Cloud</a> the Vagrant&rsquo;s official site</li>
+</ul>
+
+<p>Now you can search an specific distribution and use it whenever you want.</p>
+
+<p>Ok, I have a base box, how can I use it to create a new box? The basic artifact you need is a Vagrant file:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>mkdir vagrant-box
+vagrant init
+</pre></div>
+
+
+<p>Running this creates a <em>Vagrantfile</em> that contains the information to create a new box.</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">VAGRANTFILE_API_VERSION</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;2&quot;</span>
+
+<span style="color: #66d9ef">Vagrant</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">configure(</span><span style="color: #66d9ef">VAGRANTFILE_API_VERSION</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">do</span> <span style="color: #f92672">|</span><span style="color: #f8f8f2">config</span><span style="color: #f92672">|</span>
+  <span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">box</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;base&quot;</span>
+<span style="color: #66d9ef">end</span>
+</pre></div>
+
+
+<p>This <em>ruby</em> script starts a <em>method</em> where you have a variable <em>config</em> from <em>Vagrant.configure(&ldquo;2&rdquo;)</em>. This variable is what you use to start defining your <em>box</em> properties.</p>
+
+<blockquote>
+<p>First important command: <strong>vagrant init</strong></p>
+</blockquote>
+
+<p>This is not enough to create a box. You need two more attributes:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">...</span>
+  <span style="color: #75715e"># URL or path to base box file</span>
+  <span style="color: #75715e"># config.vm.box_url = &quot;https://storage.us2.oraclecloud.com/v1/istoilis-istoilis/vagrant/oel65-64.box&quot;</span>
+  <span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">box_url</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;file://c:/boxes/oel65-64.box&quot;</span>
+<span style="color: #f92672">...</span>
+</pre></div>
+
+
+<p>With this you can execute <em>vagrant up</em> to run the script. This will create a VM on VirtualBox with the same configuration as <em>base box</em>.</p>
+
+<blockquote>
+<p>Second important command: <strong>vagrant up [&ndash;provider=virtualbox]</strong></p>
+</blockquote>
+
+<p>You can validate a new VM is created from VirtualBox. Depending on your base box you will have certain ammount of RAM memory, disk space and cpu&rsquo;s.</p>
+
+<p>Great! so if you only want to clone your VM, this is enough.</p>
+
+<h2 id="customize-a-vagrant-box">Customize a Vagrant Box</h2>
+
+<p>What if I want to change my VM name? What if I want more memory? What if I want to create two instances?</p>
+
+<p>All these customizations are possible from <em>Vagrantfile</em>.</p>
+
+<p>Let&rsquo;s start changing VM resources:</p>
+
+<p>As this is a virtualization platform specific requirement, you have to make these changes on an embedded method:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">...</span>
+  <span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">provider</span> <span style="color: #e6db74">:virtualbox</span> <span style="color: #66d9ef">do</span> <span style="color: #f92672">|</span><span style="color: #f8f8f2">vb</span><span style="color: #f92672">|</span>
+    <span style="color: #f8f8f2">vb</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">customize</span> <span style="color: #f92672">[</span><span style="color: #e6db74">&quot;modifyvm&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">:id</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;--memory&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;2048&quot;</span><span style="color: #f92672">]</span>
+    <span style="color: #f8f8f2">vb</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">customize</span> <span style="color: #f92672">[</span><span style="color: #e6db74">&quot;modifyvm&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">:id</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;--name&quot;</span>  <span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;basemachine&quot;</span><span style="color: #f92672">]</span>
+    <span style="color: #f8f8f2">vb</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">customize</span> <span style="color: #f92672">[</span><span style="color: #e6db74">&quot;modifyvm&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">:id</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;--cpus&quot;</span>  <span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">2</span><span style="color: #f92672">]</span>
+    <span style="color: #f8f8f2">vb</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">customize</span> <span style="color: #f92672">[</span><span style="color: #e6db74">&quot;modifyvm&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">:id</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;--chipset&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;ich9&quot;</span><span style="color: #f92672">]</span>
+  <span style="color: #66d9ef">end</span>
+<span style="color: #f92672">...</span>
+</pre></div>
+
+
+<p>In VirtualBox, these are the most important parameters: RAM memory (in MB), VM name, CPUs number, and chipset.</p>
+
+<p>Ok, let&rsquo;s try it&hellip; wait, I already have a Vagrant box started</p>
+
+<blockquote>
+<p>Third important command: <strong>vagrant destroy</strong></p>
+</blockquote>
+
+<p>For me, this is the greatest benefit of using Vagrant, you can destroy you box and you don&rsquo;t care! Well,
+you care if it&rsquo;s a box in production, but when you are creating your environment you can destroy and
+recreate over and over again, fast and easy.</p>
+
+<p>Run: <em>vagrant destroy</em>, and <em>vagrant up</em> again.</p>
+
+<p>Now you know how to create and parametrize your Vagrant Box on VirtualBox.</p>
+
+<p>Two more important parameters:</p>
+
+<ul>
+<li><strong>Network</strong>: By default your box use a NAT network that VirtualBox creates out-of-the-box. But, what if you (obviously) want to connect to your box? You need to use the &ldquo;Host-only&rdquo; network:</li>
+</ul>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">...</span>
+  <span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">network</span> <span style="color: #e6db74">:private_network</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">ip</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;192.168.56.XYZ&quot;</span>
+<span style="color: #f92672">...</span>
+</pre></div>
+
+
+<blockquote>
+<p>Normally this is the network IP: 192.168.56.1, so your VMs use this IP as gateway.</p>
+</blockquote>
+
+<ul>
+<li><strong>Shared Directories</strong>: Using VirtualBox utility to create shared directories is annoying! With Vagrant is as easy as add thit to your script:</li>
+</ul>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">...</span>
+  <span style="color: #75715e"># Mount c:\data directory to /data directory on box. mount_options is optional</span>
+  <span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">synced_folder</span> <span style="color: #e6db74">&quot;/data&quot;</span> <span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;/data&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">:mount_options</span> <span style="color: #f92672">=&gt;</span> <span style="color: #f92672">[</span><span style="color: #e6db74">&quot;dmode=777&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;fmode=777&quot;</span><span style="color: #f92672">]</span>
+<span style="color: #f92672">...</span>
+</pre></div>
+
+
+<p>Some other parameters:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">...</span>
+  <span style="color: #75715e"># Hostname</span>
+  <span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">hostname</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;basemachine&quot;</span>
+<span style="color: #f92672">...</span>
+</pre></div>
+
+
+<p>For more information: <a href="https://docs.vagrantup.com/v2/vagrantfile/index.html">Vagrant Docs</a></p>
+
+<h2 id="resolving-some-common-issues">Resolving some common issues</h2>
+
+<p>Excellent! you can create and parametrized Vagrant boxes. If your base box have enough disk and swap size, perfect!
+But, what if your base box have 10GB as disk space and your swap space is 512MB or less?</p>
+
+<p>Well these issues took me a couple of days to resolve, so this is how to handle it:</p>
+
+<h3 id="increase-disk-space">Increase Disk space</h3>
+
+<p>Normally (sadly), cloud base box comes with VMDK disks formats. If you are lucky and your disk format is VDI,
+you can solve this directly <a href="http://derekmolloy.ie/resize-a-virtualbox-disk/">like this</a>. But, VMDK can&rsquo;t be expanded,
+so you need to add another disk to your VM. If making this manually is hard, can you imaging doing this from Vagrant?
+Well, now that I solved is not that difficult:</p>
+
+<ol>
+<li>Create an script called <em>&ldquo;bootstrap.sh&rdquo;</em> on your working directory, and add these lines:</li>
+</ol>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>pvcreate /dev/sdb
+vgextend VolGroup /dev/sdb
+lvextend /dev/VolGroup/lv_root /dev/sdb
+resize2fs /dev/VolGroup/lv_root
+</pre></div>
+
+
+<blockquote>
+<p>VolGroup and lv_root can change on different distributions. But it works for me on Ubuntu also.</p>
+</blockquote>
+
+<p>And then add this code to your <em>Vagrantfile</em>:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">...</span>
+  <span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">provider</span> <span style="color: #e6db74">:virtualbox</span> <span style="color: #66d9ef">do</span> <span style="color: #f92672">|</span><span style="color: #f8f8f2">vb</span><span style="color: #f92672">|</span>
+  <span style="color: #f92672">...</span>
+  <span style="color: #75715e"># Validate this should be run it once</span>
+  <span style="color: #66d9ef">if</span> <span style="color: #66d9ef">ARGV</span><span style="color: #f92672">[</span><span style="color: #ae81ff">0</span><span style="color: #f92672">]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&quot;up&quot;</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f92672">!</span> <span style="color: #66d9ef">File</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">exist?(</span><span style="color: #e6db74">&quot;./disk1.vdi&quot;</span><span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">vb</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">customize</span> <span style="color: #f92672">[</span>
+      <span style="color: #e6db74">&#39;createhd&#39;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #e6db74">&#39;--filename&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;./disk1.vdi&quot;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #e6db74">&#39;--format&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;VDI&#39;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #75715e"># 100GB</span>
+      <span style="color: #e6db74">&#39;--size&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">100</span> <span style="color: #f92672">*</span> <span style="color: #ae81ff">1024</span>
+    <span style="color: #f92672">]</span>
+
+    <span style="color: #f8f8f2">vb</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">customize</span> <span style="color: #f92672">[</span>
+      <span style="color: #e6db74">&#39;storageattach&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">:id</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #e6db74">&#39;--storagectl&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;SATA Controller&#39;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #e6db74">&#39;--port&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;--device&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #e6db74">&#39;--type&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;hdd&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;--medium&#39;</span><span style="color: #f8f8f2">,</span>
+      <span style="color: #f8f8f2">file_to_disk</span>
+    <span style="color: #f92672">]</span>
+  <span style="color: #66d9ef">end</span>
+
+  <span style="color: #66d9ef">if</span> <span style="color: #66d9ef">ARGV</span><span style="color: #f92672">[</span><span style="color: #ae81ff">0</span><span style="color: #f92672">]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&quot;up&quot;</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f92672">!</span> <span style="color: #66d9ef">File</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">exist?(</span><span style="color: #e6db74">&quot;./disk1.vdi&quot;</span><span style="color: #f8f8f2">)</span>
+    <span style="color: #75715e"># Run script to map new disk</span>
+    <span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">provision</span> <span style="color: #e6db74">&quot;shell&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">path</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;bootstrap.sh&quot;</span>
+    <span style="color: #75715e"># Run script to increase swap memory</span>
+    <span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">provision</span> <span style="color: #e6db74">&quot;shell&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">path</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;increase_swap.sh&quot;</span>
+  <span style="color: #66d9ef">end</span>
+<span style="color: #f92672">...</span>
+</pre></div>
+
+
+<p>This creates a VDI disk file with 100GB of capacity. And is attached to your OS.</p>
+
+<blockquote>
+<p>This problem is solved when you create cloud Vagrant boxes, like AWS EC2 instances with Vagrant :D</p>
+</blockquote>
+
+<h3 id="increase-swap-memory">Increase Swap Memory</h3>
+
+<p>As I install Oracle Fusion Middleware products, they require some amount of swap memory, but <em>base box</em> comes with a small amount of swap.</p>
+
+<p>To resolve this, add this script called <em>&ldquo;increase_swap.sh&rdquo;</em> on your working directory:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e">#!/bin/sh</span>
+
+<span style="color: #75715e"># size of swapfile in megabytes</span>
+<span style="color: #f8f8f2">swapsize</span><span style="color: #f92672">=</span>8000
+
+<span style="color: #75715e"># does the swap file already exist?</span>
+grep -q <span style="color: #e6db74">&quot;swapfile&quot;</span> /etc/fstab
+
+<span style="color: #75715e"># if not then create it</span>
+<span style="color: #66d9ef">if</span> <span style="color: #f92672">[</span> <span style="color: #f8f8f2">$?</span> -ne <span style="color: #ae81ff">0</span> <span style="color: #f92672">]</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
+  <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&#39;swapfile not found. Adding swapfile.&#39;</span>
+  fallocate -l <span style="color: #e6db74">${</span><span style="color: #f8f8f2">swapsize</span><span style="color: #e6db74">}</span>M /swapfile
+  chmod <span style="color: #ae81ff">600</span> /swapfile
+  mkswap /swapfile
+  swapon /swapfile
+  <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&#39;/swapfile none swap defaults 0 0&#39;</span> &gt;&gt; /etc/fstab
+<span style="color: #66d9ef">else</span>
+  <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&#39;swapfile found. No changes made.&#39;</span>
+<span style="color: #66d9ef">fi</span>
+
+<span style="color: #75715e"># output results to terminal</span>
+df -h
+cat /proc/swaps
+cat /proc/meminfo <span style="color: #f8f8f2">|</span> grep Swap
+</pre></div>
+
+
+<p>If you destroy and up your box now, you will have a new box with 8GB of swap memory added and 100GB of additional disk space.</p>
+
+<h2 id="additional-tricks">Additional tricks</h2>
+
+<h3 id="get-started-with-chef-provisioning">Get Started with Chef (Provisioning!)</h3>
+
+<p>What if you want to install some package or service? You can do this with a bash (as we increase memory and disk) but is not flexible and can take a lot of effort. At this days provisioning is a trend and products as Docker, Puppet and Chef are getting very popular, so I will use Chef to show you how to install Apache and start HTTP service:</p>
+
+<blockquote>
+<p>To learn more about chef: <a href="http://learn.getchef.com">Learn Chef</a></p>
+</blockquote>
+
+<p>Create the following directories and create a file:</p>
+
+<p>chef/cookbooks/http/recipes/install-httpd.rb</p>
+
+<p>Chef base artifacts are Cookbooks that group common Recipes. For example you can create a Cookbook called &ldquo;java&rdquo; and add recipes to install different versions.</p>
+
+<p>Add this code to the file:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">package</span> <span style="color: #e6db74">&quot;httpd&quot;</span> <span style="color: #66d9ef">do</span>
+  <span style="color: #f8f8f2">action</span> <span style="color: #e6db74">:install</span>
+<span style="color: #66d9ef">end</span>
+
+<span style="color: #f8f8f2">service</span> <span style="color: #e6db74">&quot;httpd&quot;</span> <span style="color: #66d9ef">do</span>
+  <span style="color: #f8f8f2">action</span> <span style="color: #f92672">[</span> <span style="color: #e6db74">:start</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">:enable</span> <span style="color: #f92672">]</span>
+<span style="color: #66d9ef">end</span>
+</pre></div>
+
+
+<p>This recipe <em>install</em> &ldquo;httpd&rdquo; package and ensure service &ldquo;httpd&rdquo; is <em>started</em> and will be started when the machine is restarted.</p>
+
+<p>To call this simple recipe from Vagrant you need to add this to your file:</p>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">...</span>
+  <span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">provision</span> <span style="color: #e6db74">&quot;chef_solo&quot;</span> <span style="color: #66d9ef">do</span> <span style="color: #f92672">|</span><span style="color: #f8f8f2">chef</span><span style="color: #f92672">|</span>
+    <span style="color: #f8f8f2">chef</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">cookbooks_path</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;../chef/cookbooks&quot;</span>
+    <span style="color: #f8f8f2">chef</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">add_recipe</span> <span style="color: #e6db74">&quot;http::install-httpd&quot;</span>
+  <span style="color: #66d9ef">end</span>
+<span style="color: #f92672">...</span>
+</pre></div>
+
+
+<blockquote>
+<p><em>chef-solo</em> is when you use your client independently, and <em>chef-client</em> is when you use a Chef Server</p>
+</blockquote>
+
+<p>Now if you destroy and re-create your Vagrant box again you could test that your HTTP server is up and running</p>
+
+<p><a href="http://ip or host">http://ip or hostname</a></p>
+
+<h3 id="properties-file">Properties file</h3>
+
+<p>The last trick I want to share is how to create a properties file for your Vagrant configuration.</p>
+
+<p>What if you want to repeat this process to create another box? You can parametrized your Vagrantfile with a properties file.</p>
+
+<p>To do this:</p>
+
+<ul>
+<li>Create a file like this one called &ldquo;vagrant.rb&rdquo;:</li>
+</ul>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #ae81ff">box</span><span style="color: #f8f8f2">:</span>
+  <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;base-machine&quot;</span>
+  <span style="color: #ae81ff">disk_path</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;./disk1.vdi&quot;</span>
+  <span style="color: #ae81ff">url</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;file://c:/boxes/oel65-64.box&quot;</span>
+  <span style="color: #ae81ff">ip</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;192.168.56.20&quot;</span>
+  <span style="color: #ae81ff">shared_directory</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;/data&quot;</span>
+  <span style="color: #ae81ff">disk_size</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">40</span>
+  <span style="color: #ae81ff">ram_memory</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">2048</span>
+  <span style="color: #ae81ff">cpus</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">2</span>
+  <span style="color: #ae81ff">swap_memory</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">4096</span>
+<span style="color: #ae81ff">chef</span><span style="color: #f8f8f2">:</span>
+  <span style="color: #ae81ff">repo_location</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;C:/dev/jeqo/chef-repo&quot;</span>
+</pre></div>
+
+
+<ul>
+<li>Add the &ldquo;yaml&rdquo; library:</li>
+</ul>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>  <span style="color: #f8f8f2">require</span> <span style="color: #e6db74">&quot;yaml&quot;</span>
+</pre></div>
+
+
+<ul>
+<li>Then read and use properties:</li>
+</ul>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">...</span>
+  <span style="color: #f8f8f2">props</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">YAML</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">load_file(</span><span style="color: #e6db74">&quot;vagrant.rb&quot;</span><span style="color: #f8f8f2">)</span>
+
+  <span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">box</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;#{</span><span style="color: #f8f8f2">props</span><span style="color: #f92672">[</span><span style="color: #e6db74">&#39;box&#39;</span><span style="color: #f92672">][</span><span style="color: #e6db74">&#39;name&#39;</span><span style="color: #f92672">]</span><span style="color: #e6db74">}&quot;</span>
+<span style="color: #f92672">...</span>
+</pre></div>
+
+
+<p>Well, it&rsquo;s a long but (i hope) an easy post. I hope you enjoyed :)</p>
+
+<p>Here is the <a href="https://github.com/jeqo/vagrant-quickstart">Git repository</a></p>
+
+<p>Feel free to send your comments and question!</p>
+
+<blockquote>
+<p>Disclosure: I&rsquo;m not a Ruby developer (yet), so if I&rsquo;m using a wrong term about ruby code sorry :)  I just trying to describe the source code, that I think is enough for Vagrant files.</p>
+</blockquote>
+
+<h4 id="resources">Resources</h4>
+
+<ul>
+<li><p>Vagrant Docs: <a href="https://docs.vagrantup.com/v2/">https://docs.vagrantup.com/v2/</a></p></li>
+
+<li><p>Increase Swap: <a href="http://programmaticponderings.wordpress.com/2013/12/19/scripting-linux-swap-space/">http://programmaticponderings.wordpress.com/2013/12/19/scripting-linux-swap-space/</a></p></li>
+
+<li><p>Add a new disk to VirtualBox VM with Vagrant: <a href="https://gist.github.com/leifg/4713995">https://gist.github.com/leifg/4713995</a></p></li>
+
+<li><p>Getting started with Chef: <a href="https://learn.getchef.com">https://learn.getchef.com</a></p></li>
+
+<li><p>VirtualBox API documentation: <a href="https://www.virtualbox.org/manual/ch08.html">https://www.virtualbox.org/manual/ch08.html</a></p></li>
+</ul><div id="disqus_thread"></div>
+<script type="text/javascript">
+
+    (function() {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = '';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+        <div class="navbar">
+        <ul class="navbar-list" style="float:right">
+          <li class="navbar-item"><a class="navbar-link" href="

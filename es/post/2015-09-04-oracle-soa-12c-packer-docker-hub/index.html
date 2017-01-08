@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="darksimplicity">
+  <meta name="generator" content="Hugo 0.18.1" />
+  
+  
+  <base href="https://jeqo.github.io/">
+  <title>Imagen de Oracle SOA Suite 12c en Docker</title>
+  <link rel="stylesheet" href="/css/style.min.css">
+
+</head>
+<body>
+  <div class="wrap">
+    <div class="navbar">
+        <ul class="navbar-list" style="float:right">
+          
+        </ul>
+    </div>
+    <div class="navbar">
+        
+        <ul class="navbar-list" style="float:right">
+            
+            <li class="navbar-item"><a class="navbar-link" href="https://jeqo.github.io/post/2015-09-04-oracle-soa-12c-packer-docker-hub/">en</a></li>
+            
+        </ul>
+        
+    </div>
+    <div class="header"><span style="font-size: 34px;">
+      <a href="https://jeqo.github.io/">@jeqo</a></span>
+      <span style="font-size:12px;">&nbsp;&nbsp;|&nbsp;&nbsp;<i>desarrollo de &#39;back-end&#39;, integración, &#39;devops&#39;, etc.</i> </span></div>
+
+<div class="empty">&nbsp;</div>
+  <div class="post-title">
+    <a class="post-title-link" href="https://jeqo.github.io/es/post/2015-09-04-oracle-soa-12c-packer-docker-hub/">Imagen de Oracle SOA Suite 12c en Docker</a>
+  </div>
+      <div class="tags">tags:</br>
+        <a class="tag-link" href="/es/tags/oracle">oracle </a><a class="tag-link" href="/es/tags/soa">soa </a><a class="tag-link" href="/es/tags/docker">docker </a><a class="tag-link" href="/es/tags/packer">packer </a>
+    </div>
+    <div class="content-full">
+
+<p>Luego de encontrar algunas limitaciones en la construcción de una imagen en
+Docker con Oracle SOA Suite 12c instalado usando Dockerfiles (como acceso
+a volumenes, tamaño de filesystem por defecto), he investigado como
+mejorar este proceso, y he encontrado <a href="https://packer.io/">Packer</a>
+(del mismo equipo que creo Vagrant, Hashicorp).</p>
+
+<p>Para obtener mayor información sobre porqué utilizar Packer en vez de
+Dockerfiles, <a href="http://mmckeen.net/blog/2013/12/27/advanced-docker-provisioning-with-packer/">ir aquí</a>.</p>
+
+<p>También he movido el directory <a href="https://github.com/jeqo/oracle-docker/tree/master/OracleSOA">OracleSOA</a>
+que cree sobre el repositorio de Oracle Docker <a href="https://github.com/oracle/docker">oracle-docker</a>
+hacia un repositorio independiente: <a href="https://github.com/jeqo/oracle-soa-12c-docker">github.com/jeqo/oracle-soa-12c-docker</a>.</p>
+
+<h2 id="mejoras">Mejoras</h2>
+
+<p>Basicamente, los scripts de Dockerfile fueron transformados en shell scripts
+y son invocados desde Packer en la etapa de provisionamiento</p>
+
+<pre><code class="language-json">  &quot;provisioners&quot;: [
+    {
+      &quot;type&quot;: &quot;shell&quot;,
+      &quot;scripts&quot;: [
+        &quot;scripts/create-user.sh&quot;
+      ]
+    },
+    {
+      &quot;type&quot;: &quot;file&quot;,
+      &quot;source&quot;: &quot;./files/&quot;,
+      &quot;destination&quot;: &quot;/u01/&quot;
+    },
+    {
+      &quot;type&quot;: &quot;shell&quot;,
+      &quot;scripts&quot;: [
+        &quot;scripts/install-java.sh&quot;
+      ],
+      &quot;environment_vars&quot;: [
+        &quot;JAVA_RPM=/data/{{user `java_rpm`}}&quot;
+      ]
+    },
+    {
+      &quot;type&quot;: &quot;shell&quot;,
+      &quot;scripts&quot;: [
+        &quot;scripts/install-soa.sh&quot;
+      ],
+      &quot;environment_vars&quot;: [
+        &quot;SOA_ZIP=/data/{{user `soa_zip`}}&quot;,
+        &quot;SOA_PKG={{user `soa_pkg`}}&quot;,
+        &quot;SOA_PKG2={{user `soa_pkg2`}}&quot;,
+        &quot;JAVA_HOME=/usr/java/default&quot;,
+        &quot;MW_HOME=/u01/oracle/soa&quot;
+      ]
+    }
+  ]
+</code></pre>
+
+<p>Luego del provisionamiento exitoso, se procesa la imagen para
+guardarla en Docker Hub:</p>
+
+<pre><code class="language-json">  &quot;post-processors&quot;: [
+    [
+      {
+        &quot;type&quot;: &quot;docker-tag&quot;,
+        &quot;repository&quot;: &quot;jeqo/oracle-soa-12c&quot;,
+        &quot;tag&quot;: &quot;12.1.3-dev&quot;
+      },
+      &quot;docker-push&quot;
+    ]
+  ]
+</code></pre>
+
+<p>Realmente la configuración en JSON es bastante simple y concreta.</p>
+
+<p>Una vez que la imagen esta cargada en Docker Hub, se puede utilizar
+la herramienta preferida: Docker, Dockerfiles, o Vagrant, para crear un
+dominio sobre la imagen creada. <a href="https://github.com/jeqo/oracle-soa-12c-docker/tree/master/samples/12c-domain">Ejemplo</a>
+explicado en mi <a href="http://jeqo.github.io/blog/devops/docker-image-oracle-soa-es/">post anterior</a>.</p>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+    (function() {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = '';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+        <div class="navbar">
+        <ul class="navbar-list" style="float:right">
+          <li class="navbar-item"><a class="navbar-link" href="
