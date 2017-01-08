@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-      <title>Oracle on @jeqo </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://jeqo.github.io/tags/oracle/index.xml</link>
-    <language>en-us</language>
-    
-    <copyright>&amp;copy Copyright 2017. Jorge Quilcate.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
-    
-    <item>
-      <title>Speed up your Oracle Database provisioning with Docker and Ansible</title>
-      <link>https://jeqo.github.io/post/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</link>
-      <pubDate>Thu, 26 May 2016 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/post/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</guid>
-      <description>&lt;p&gt;Warming up before &lt;a href=&#34;http://www.amis-conference.com/Program&#34;&gt;AMIS 25th Conference&lt;/a&gt;
+<rss version="2.0">
+    <channel>
+        <title>Jorge Quilcate Otoya on @jeqo</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://jeqo.github.io/tags/oracle/index.xml</link>
+        <language>en-us</language>
+        <author>Jorge Quilcate Otoya</author>
+        
+        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        
+        <item>
+            <title>Speed up your Oracle Database provisioning with Docker and Ansible</title>
+            <link>https://jeqo.github.io/post/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</link>
+            <pubDate>Thu, 26 May 2016 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</guid>
+            <description>&lt;p&gt;Warming up before &lt;a href=&#34;http://www.amis-conference.com/Program&#34;&gt;AMIS 25th Conference&lt;/a&gt;
 event where I will be presenting with my friend
 and colleague Arturo Viveros (@gugalnikov)
 &lt;a href=&#34;http://www.amis-conference.com/Session-Catalog#session1168&#34;&gt;about Oracle SOA Suite provisioning&lt;/a&gt;,
@@ -437,15 +437,15 @@ top of the database instance image.&lt;/p&gt;
 &lt;p&gt;At AMIS25, we will show how to use this instance to build a SOA Suite database
 and then provide customs SOA Suite Domains, but also show different experiences
 with different &amp;ldquo;DevOps&amp;rdquo; technologies. Hope to see you there!&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Oracle SOA Suite 12c Docker Image</title>
-      <link>https://jeqo.github.io/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</link>
-      <pubDate>Fri, 04 Sep 2015 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</guid>
-      <description>&lt;p&gt;After find some limitations on building SOA Docker image using Dockerfile
+        </item>
+        
+        <item>
+            <title>Oracle SOA Suite 12c Docker Image</title>
+            <link>https://jeqo.github.io/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</link>
+            <pubDate>Fri, 04 Sep 2015 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</guid>
+            <description>&lt;p&gt;After find some limitations on building SOA Docker image using Dockerfile
 (as volume access, default size image) I researched on how to improve
 building process and I found &lt;a href=&#34;https://packer.io/&#34;&gt;Packer&lt;/a&gt;
 (from the same guy that creates Vagrant).&lt;/p&gt;
@@ -522,15 +522,15 @@ you want push it to Docker Hub:&lt;/p&gt;
 &lt;p&gt;Now you have a Docker image with SOA installer, ready
 to create your domain as &lt;a href=&#34;https://github.com/jeqo/oracle-soa-12c-docker/tree/master/samples/12c-domain&#34;&gt;this sample&lt;/a&gt; explained
 on &lt;a href=&#34;http://jeqo.github.io/blog/devops/docker-image-oracle-soa/&#34;&gt;my previous post&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Oracle Fusion Middleware Chef Cookbook - New Release!</title>
-      <link>https://jeqo.github.io/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</link>
-      <pubDate>Tue, 21 Jul 2015 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</guid>
-      <description>&lt;p&gt;Yesterday, I released a new version (0.2.0) of my Oracle Fusion Middleware Cookbook
+        </item>
+        
+        <item>
+            <title>Oracle Fusion Middleware Chef Cookbook - New Release!</title>
+            <link>https://jeqo.github.io/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</link>
+            <pubDate>Tue, 21 Jul 2015 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</guid>
+            <description>&lt;p&gt;Yesterday, I released a new version (0.2.0) of my Oracle Fusion Middleware Cookbook
 hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;Chef Supermarket&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
@@ -545,15 +545,15 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 &lt;p&gt;You can found usage examples on my Chef repository on GitHub: &lt;a href=&#34;https://github.com/jeqo/chef-repo&#34;&gt;https://github.com/jeqo/chef-repo&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Looking forward for your comments, and happy cooking!&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Docker image for Oracle SOA Suite 12c</title>
-      <link>https://jeqo.github.io/post/2015-04-01-docker-image-oracle-soa/</link>
-      <pubDate>Wed, 01 Apr 2015 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/post/2015-04-01-docker-image-oracle-soa/</guid>
-      <description>&lt;p&gt;Cool news came from Oracle a couple of weeks ago: &lt;a href=&#34;https://blogs.oracle.com/WebLogicServer/entry/oracle_weblogic_server_now_running&#34;&gt;Oracle WebLogic Server is now supported on Docker!&lt;/a&gt;.&lt;/p&gt;
+        </item>
+        
+        <item>
+            <title>Docker image for Oracle SOA Suite 12c</title>
+            <link>https://jeqo.github.io/post/2015-04-01-docker-image-oracle-soa/</link>
+            <pubDate>Wed, 01 Apr 2015 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2015-04-01-docker-image-oracle-soa/</guid>
+            <description>&lt;p&gt;Cool news came from Oracle a couple of weeks ago: &lt;a href=&#34;https://blogs.oracle.com/WebLogicServer/entry/oracle_weblogic_server_now_running&#34;&gt;Oracle WebLogic Server is now supported on Docker!&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -621,15 +621,15 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 &lt;li&gt;Extended Domain on Docker: Use an external Oracle Database for Oracle SOA/BPM Schemas&lt;/li&gt;
 &lt;li&gt;SOA/BPM Cluster on Docker containers&lt;/li&gt;
 &lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>Running Oracle BPM 12c on AWS using Vagrant and Chef</title>
-      <link>https://jeqo.github.io/post/2014-12-11-run-bpm-12c-aws/</link>
-      <pubDate>Thu, 11 Dec 2014 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/post/2014-12-11-run-bpm-12c-aws/</guid>
-      <description>&lt;p&gt;In this post, I will show how to create an AWS EC2 Instance with an Oracle BPM 12c Quickstart Domain created. And I will use previous post for related tasks.&lt;/p&gt;
+        </item>
+        
+        <item>
+            <title>Running Oracle BPM 12c on AWS using Vagrant and Chef</title>
+            <link>https://jeqo.github.io/post/2014-12-11-run-bpm-12c-aws/</link>
+            <pubDate>Thu, 11 Dec 2014 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2014-12-11-run-bpm-12c-aws/</guid>
+            <description>&lt;p&gt;In this post, I will show how to create an AWS EC2 Instance with an Oracle BPM 12c Quickstart Domain created. And I will use previous post for related tasks.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -854,15 +854,15 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 &lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0931.png&#34; alt=&#34;Server started&#34; title=&#34;WebLogic Server with BPM started&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;That&amp;rsquo;s it.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Chef Cookbook for Oracle Fusion Middleware 12c</title>
-      <link>https://jeqo.github.io/post/2014-12-09-chef-cookbook-oracle-fmw-12c/</link>
-      <pubDate>Tue, 09 Dec 2014 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/post/2014-12-09-chef-cookbook-oracle-fmw-12c/</guid>
-      <description>&lt;p&gt;Provisioning tools have change the way we create software environments: How much time we spend installing OS, databases, configuring platforms, applications? Now you can translate this steps into code, getting the software development benefits and challenges into infrastructure: versioning, reuse, continuous improvement.&lt;/p&gt;
+        </item>
+        
+        <item>
+            <title>Chef Cookbook for Oracle Fusion Middleware 12c</title>
+            <link>https://jeqo.github.io/post/2014-12-09-chef-cookbook-oracle-fmw-12c/</link>
+            <pubDate>Tue, 09 Dec 2014 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2014-12-09-chef-cookbook-oracle-fmw-12c/</guid>
+            <description>&lt;p&gt;Provisioning tools have change the way we create software environments: How much time we spend installing OS, databases, configuring platforms, applications? Now you can translate this steps into code, getting the software development benefits and challenges into infrastructure: versioning, reuse, continuous improvement.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -892,15 +892,15 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 &lt;/ul&gt;
 
 &lt;p&gt;In a following post I will show you how to use this cookbook. In the mind time you can download it, use it and improve it from &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;Chef Supermarket&lt;/a&gt; and &lt;a href=&#34;https://github.com/jeqo/oracle-fmw&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Book Review - Applied SOA Patterns on the Oracle Platform</title>
-      <link>https://jeqo.github.io/post/2014-11-28-review-soa-patterns-oracle-platform/</link>
-      <pubDate>Fri, 28 Nov 2014 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/post/2014-11-28-review-soa-patterns-oracle-platform/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve had the opportunity to present a review of this book &lt;a href=&#34;https://www.packtpub.com/application-development/applied-soa-patterns-oracle-platform&#34;&gt;Applied SOA Patterns on the Oracle Platform&lt;/a&gt;.&lt;/p&gt;
+        </item>
+        
+        <item>
+            <title>Book Review - Applied SOA Patterns on the Oracle Platform</title>
+            <link>https://jeqo.github.io/post/2014-11-28-review-soa-patterns-oracle-platform/</link>
+            <pubDate>Fri, 28 Nov 2014 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2014-11-28-review-soa-patterns-oracle-platform/</guid>
+            <description>&lt;p&gt;I&amp;rsquo;ve had the opportunity to present a review of this book &lt;a href=&#34;https://www.packtpub.com/application-development/applied-soa-patterns-oracle-platform&#34;&gt;Applied SOA Patterns on the Oracle Platform&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -942,7 +942,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 &lt;p&gt;For me, this book will be my new handbook for comming SOA projects (with &lt;a href=&#34;http://www.oracle.com/technetwork/topics/entarch/itso-165161.html&#34;&gt;IT Strategies from Oracle&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;If you have comments about this book, please share! :)&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+        </item>
+        
+    </channel>
 </rss>

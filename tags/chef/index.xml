@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-      <title>Chef on @jeqo </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://jeqo.github.io/tags/chef/index.xml</link>
-    <language>en-us</language>
-    
-    <copyright>&amp;copy Copyright 2017. Jorge Quilcate.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
-    
-    <item>
-      <title>Oracle Fusion Middleware Chef Cookbook - New Release!</title>
-      <link>https://jeqo.github.io/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</link>
-      <pubDate>Tue, 21 Jul 2015 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</guid>
-      <description>&lt;p&gt;Yesterday, I released a new version (0.2.0) of my Oracle Fusion Middleware Cookbook
+<rss version="2.0">
+    <channel>
+        <title>Jorge Quilcate Otoya on @jeqo</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://jeqo.github.io/tags/chef/index.xml</link>
+        <language>en-us</language>
+        <author>Jorge Quilcate Otoya</author>
+        
+        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        
+        <item>
+            <title>Oracle Fusion Middleware Chef Cookbook - New Release!</title>
+            <link>https://jeqo.github.io/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</link>
+            <pubDate>Tue, 21 Jul 2015 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</guid>
+            <description>&lt;p&gt;Yesterday, I released a new version (0.2.0) of my Oracle Fusion Middleware Cookbook
 hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;Chef Supermarket&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
@@ -30,15 +30,15 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 &lt;p&gt;You can found usage examples on my Chef repository on GitHub: &lt;a href=&#34;https://github.com/jeqo/chef-repo&#34;&gt;https://github.com/jeqo/chef-repo&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Looking forward for your comments, and happy cooking!&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Running Oracle BPM 12c on AWS using Vagrant and Chef</title>
-      <link>https://jeqo.github.io/post/2014-12-11-run-bpm-12c-aws/</link>
-      <pubDate>Thu, 11 Dec 2014 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/post/2014-12-11-run-bpm-12c-aws/</guid>
-      <description>&lt;p&gt;In this post, I will show how to create an AWS EC2 Instance with an Oracle BPM 12c Quickstart Domain created. And I will use previous post for related tasks.&lt;/p&gt;
+        </item>
+        
+        <item>
+            <title>Running Oracle BPM 12c on AWS using Vagrant and Chef</title>
+            <link>https://jeqo.github.io/post/2014-12-11-run-bpm-12c-aws/</link>
+            <pubDate>Thu, 11 Dec 2014 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2014-12-11-run-bpm-12c-aws/</guid>
+            <description>&lt;p&gt;In this post, I will show how to create an AWS EC2 Instance with an Oracle BPM 12c Quickstart Domain created. And I will use previous post for related tasks.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -263,15 +263,15 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 &lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0931.png&#34; alt=&#34;Server started&#34; title=&#34;WebLogic Server with BPM started&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;That&amp;rsquo;s it.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Chef Cookbook for Oracle Fusion Middleware 12c</title>
-      <link>https://jeqo.github.io/post/2014-12-09-chef-cookbook-oracle-fmw-12c/</link>
-      <pubDate>Tue, 09 Dec 2014 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/post/2014-12-09-chef-cookbook-oracle-fmw-12c/</guid>
-      <description>&lt;p&gt;Provisioning tools have change the way we create software environments: How much time we spend installing OS, databases, configuring platforms, applications? Now you can translate this steps into code, getting the software development benefits and challenges into infrastructure: versioning, reuse, continuous improvement.&lt;/p&gt;
+        </item>
+        
+        <item>
+            <title>Chef Cookbook for Oracle Fusion Middleware 12c</title>
+            <link>https://jeqo.github.io/post/2014-12-09-chef-cookbook-oracle-fmw-12c/</link>
+            <pubDate>Tue, 09 Dec 2014 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2014-12-09-chef-cookbook-oracle-fmw-12c/</guid>
+            <description>&lt;p&gt;Provisioning tools have change the way we create software environments: How much time we spend installing OS, databases, configuring platforms, applications? Now you can translate this steps into code, getting the software development benefits and challenges into infrastructure: versioning, reuse, continuous improvement.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -301,15 +301,15 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 &lt;/ul&gt;
 
 &lt;p&gt;In a following post I will show you how to use this cookbook. In the mind time you can download it, use it and improve it from &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;Chef Supermarket&lt;/a&gt; and &lt;a href=&#34;https://github.com/jeqo/oracle-fmw&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Create a NFS instance on AWS using Vagrant and Chef</title>
-      <link>https://jeqo.github.io/post/2014-11-30-create-nfs-instance-aws/</link>
-      <pubDate>Sun, 30 Nov 2014 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/post/2014-11-30-create-nfs-instance-aws/</guid>
-      <description>&lt;p&gt;I was creating AWS EC2 instances to install Oracle Fusion Middleware products, and I found an issue: How to download Oracle&amp;rsquo;s installers if I want to use installers on several instances? This could consume a lot of network bandwith and I want to make this process repeatable, so I don&amp;rsquo;t want to wait 1 hour each installation only downloading files.&lt;/p&gt;
+        </item>
+        
+        <item>
+            <title>Create a NFS instance on AWS using Vagrant and Chef</title>
+            <link>https://jeqo.github.io/post/2014-11-30-create-nfs-instance-aws/</link>
+            <pubDate>Sun, 30 Nov 2014 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2014-11-30-create-nfs-instance-aws/</guid>
+            <description>&lt;p&gt;I was creating AWS EC2 instances to install Oracle Fusion Middleware products, and I found an issue: How to download Oracle&amp;rsquo;s installers if I want to use installers on several instances? This could consume a lot of network bandwith and I want to make this process repeatable, so I don&amp;rsquo;t want to wait 1 hour each installation only downloading files.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -330,7 +330,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/gqhY82kdHh4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
 
 &lt;p&gt;I hope you find it useful. Feel free to share your comments!&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+        </item>
+        
+    </channel>
 </rss>

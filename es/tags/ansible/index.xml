@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-      <title>Ansible on @jeqo </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://jeqo.github.io/es/tags/ansible/index.xml</link>
-    <language>en-us</language>
-    
-    <copyright>&amp;copy Copyright 2017. Jorge Quilcate.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
-    
-    <item>
-      <title>Ansible - Provisionamiento sin agentes</title>
-      <link>https://jeqo.github.io/es/post/2016-03-30-ansible-agentless-provisioning/</link>
-      <pubDate>Wed, 30 Mar 2016 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/es/post/2016-03-30-ansible-agentless-provisioning/</guid>
-      <description>
+<rss version="2.0">
+    <channel>
+        <title>Jorge Quilcate Otoya on @jeqo</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://jeqo.github.io/es/tags/ansible/index.xml</link>
+        <language>en-us</language>
+        <author>Jorge Quilcate Otoya</author>
+        
+        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        
+        <item>
+            <title>Ansible - Provisionamiento sin agentes</title>
+            <link>https://jeqo.github.io/es/post/2016-03-30-ansible-agentless-provisioning/</link>
+            <pubDate>Wed, 30 Mar 2016 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/es/post/2016-03-30-ansible-agentless-provisioning/</guid>
+            <description>
 
 &lt;p&gt;Ansible es una herramienta de automatización reconocida por ser sencilla
 y potente a la vez. Según mi experiencia, puedo decir que esto se debe
@@ -279,7 +279,7 @@ facilmente así:&lt;/p&gt;&lt;/li&gt;
 
 &lt;p&gt;Espero que esto les ayude a utilizar Ansible y Docker.&lt;/p&gt;
 </description>
-    </item>
-    
-  </channel>
+        </item>
+        
+    </channel>
 </rss>

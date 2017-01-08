@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-      <title>Bpm on @jeqo </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://jeqo.github.io/tags/bpm/index.xml</link>
-    <language>en-us</language>
-    
-    <copyright>&amp;copy Copyright 2017. Jorge Quilcate.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
-    
-    <item>
-      <title>Running Oracle BPM 12c on AWS using Vagrant and Chef</title>
-      <link>https://jeqo.github.io/post/2014-12-11-run-bpm-12c-aws/</link>
-      <pubDate>Thu, 11 Dec 2014 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/post/2014-12-11-run-bpm-12c-aws/</guid>
-      <description>&lt;p&gt;In this post, I will show how to create an AWS EC2 Instance with an Oracle BPM 12c Quickstart Domain created. And I will use previous post for related tasks.&lt;/p&gt;
+<rss version="2.0">
+    <channel>
+        <title>Jorge Quilcate Otoya on @jeqo</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://jeqo.github.io/tags/bpm/index.xml</link>
+        <language>en-us</language>
+        <author>Jorge Quilcate Otoya</author>
+        
+        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        
+        <item>
+            <title>Running Oracle BPM 12c on AWS using Vagrant and Chef</title>
+            <link>https://jeqo.github.io/post/2014-12-11-run-bpm-12c-aws/</link>
+            <pubDate>Thu, 11 Dec 2014 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2014-12-11-run-bpm-12c-aws/</guid>
+            <description>&lt;p&gt;In this post, I will show how to create an AWS EC2 Instance with an Oracle BPM 12c Quickstart Domain created. And I will use previous post for related tasks.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -240,15 +240,15 @@
 &lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0931.png&#34; alt=&#34;Server started&#34; title=&#34;WebLogic Server with BPM started&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;That&amp;rsquo;s it.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Chef Cookbook for Oracle Fusion Middleware 12c</title>
-      <link>https://jeqo.github.io/post/2014-12-09-chef-cookbook-oracle-fmw-12c/</link>
-      <pubDate>Tue, 09 Dec 2014 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/post/2014-12-09-chef-cookbook-oracle-fmw-12c/</guid>
-      <description>&lt;p&gt;Provisioning tools have change the way we create software environments: How much time we spend installing OS, databases, configuring platforms, applications? Now you can translate this steps into code, getting the software development benefits and challenges into infrastructure: versioning, reuse, continuous improvement.&lt;/p&gt;
+        </item>
+        
+        <item>
+            <title>Chef Cookbook for Oracle Fusion Middleware 12c</title>
+            <link>https://jeqo.github.io/post/2014-12-09-chef-cookbook-oracle-fmw-12c/</link>
+            <pubDate>Tue, 09 Dec 2014 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2014-12-09-chef-cookbook-oracle-fmw-12c/</guid>
+            <description>&lt;p&gt;Provisioning tools have change the way we create software environments: How much time we spend installing OS, databases, configuring platforms, applications? Now you can translate this steps into code, getting the software development benefits and challenges into infrastructure: versioning, reuse, continuous improvement.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -278,7 +278,7 @@
 &lt;/ul&gt;
 
 &lt;p&gt;In a following post I will show you how to use this cookbook. In the mind time you can download it, use it and improve it from &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;Chef Supermarket&lt;/a&gt; and &lt;a href=&#34;https://github.com/jeqo/oracle-fmw&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+        </item>
+        
+    </channel>
 </rss>

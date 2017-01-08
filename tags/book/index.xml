@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-      <title>Book on @jeqo </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://jeqo.github.io/tags/book/index.xml</link>
-    <language>en-us</language>
-    
-    <copyright>&amp;copy Copyright 2017. Jorge Quilcate.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
-    
-    <item>
-      <title>Book Review - Applied SOA Patterns on the Oracle Platform</title>
-      <link>https://jeqo.github.io/post/2014-11-28-review-soa-patterns-oracle-platform/</link>
-      <pubDate>Fri, 28 Nov 2014 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/post/2014-11-28-review-soa-patterns-oracle-platform/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve had the opportunity to present a review of this book &lt;a href=&#34;https://www.packtpub.com/application-development/applied-soa-patterns-oracle-platform&#34;&gt;Applied SOA Patterns on the Oracle Platform&lt;/a&gt;.&lt;/p&gt;
+<rss version="2.0">
+    <channel>
+        <title>Jorge Quilcate Otoya on @jeqo</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://jeqo.github.io/tags/book/index.xml</link>
+        <language>en-us</language>
+        <author>Jorge Quilcate Otoya</author>
+        
+        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        
+        <item>
+            <title>Book Review - Applied SOA Patterns on the Oracle Platform</title>
+            <link>https://jeqo.github.io/post/2014-11-28-review-soa-patterns-oracle-platform/</link>
+            <pubDate>Fri, 28 Nov 2014 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2014-11-28-review-soa-patterns-oracle-platform/</guid>
+            <description>&lt;p&gt;I&amp;rsquo;ve had the opportunity to present a review of this book &lt;a href=&#34;https://www.packtpub.com/application-development/applied-soa-patterns-oracle-platform&#34;&gt;Applied SOA Patterns on the Oracle Platform&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -57,7 +57,7 @@
 &lt;p&gt;For me, this book will be my new handbook for comming SOA projects (with &lt;a href=&#34;http://www.oracle.com/technetwork/topics/entarch/itso-165161.html&#34;&gt;IT Strategies from Oracle&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;If you have comments about this book, please share! :)&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+        </item>
+        
+    </channel>
 </rss>

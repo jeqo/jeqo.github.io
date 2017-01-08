@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-      <title>Soa on @jeqo </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://jeqo.github.io/es/tags/soa/index.xml</link>
-    <language>en-us</language>
-    
-    <copyright>&amp;copy Copyright 2017. Jorge Quilcate.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
-    
-    <item>
-      <title>Imagen de Oracle SOA Suite 12c en Docker</title>
-      <link>https://jeqo.github.io/es/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</link>
-      <pubDate>Fri, 04 Sep 2015 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/es/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</guid>
-      <description>
+<rss version="2.0">
+    <channel>
+        <title>Jorge Quilcate Otoya on @jeqo</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://jeqo.github.io/es/tags/soa/index.xml</link>
+        <language>en-us</language>
+        <author>Jorge Quilcate Otoya</author>
+        
+        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        
+        <item>
+            <title>Imagen de Oracle SOA Suite 12c en Docker</title>
+            <link>https://jeqo.github.io/es/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</link>
+            <pubDate>Fri, 04 Sep 2015 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/es/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</guid>
+            <description>
 
 &lt;p&gt;Luego de encontrar algunas limitaciones en la construcción de una imagen en
 Docker con Oracle SOA Suite 12c instalado usando Dockerfiles (como acceso
@@ -94,15 +94,15 @@ la herramienta preferida: Docker, Dockerfiles, o Vagrant, para crear un
 dominio sobre la imagen creada. &lt;a href=&#34;https://github.com/jeqo/oracle-soa-12c-docker/tree/master/samples/12c-domain&#34;&gt;Ejemplo&lt;/a&gt;
 explicado en mi &lt;a href=&#34;http://jeqo.github.io/blog/devops/docker-image-oracle-soa-es/&#34;&gt;post anterior&lt;/a&gt;.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Oracle Fusion Middleware Chef Cookbook - Nueva versión!</title>
-      <link>https://jeqo.github.io/es/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</link>
-      <pubDate>Tue, 21 Jul 2015 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/es/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</guid>
-      <description>&lt;p&gt;Ayer cargué una nueva versión (0.2.0) de mi Oracle Fusion Middleware Cookbook
+        </item>
+        
+        <item>
+            <title>Oracle Fusion Middleware Chef Cookbook - Nueva versión!</title>
+            <link>https://jeqo.github.io/es/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</link>
+            <pubDate>Tue, 21 Jul 2015 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/es/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</guid>
+            <description>&lt;p&gt;Ayer cargué una nueva versión (0.2.0) de mi Oracle Fusion Middleware Cookbook
 compartido en &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;Chef Supermarket&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Este nuevo release incluye:&lt;/p&gt;
@@ -114,15 +114,15 @@ compartido en &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#
 
 &lt;p&gt;Pueden encontrar ejemplos de uso en este repositorio: &lt;a href=&#34;https://github.com/jeqo/chef-repo&#34;&gt;https://github.com/jeqo/chef-repo&lt;/a&gt;&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Oracle SOA Suite 12c sobre Docker</title>
-      <link>https://jeqo.github.io/es/post/2015-04-01-docker-image-oracle-soa/</link>
-      <pubDate>Wed, 01 Apr 2015 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/es/post/2015-04-01-docker-image-oracle-soa/</guid>
-      <description>
+        </item>
+        
+        <item>
+            <title>Oracle SOA Suite 12c sobre Docker</title>
+            <link>https://jeqo.github.io/es/post/2015-04-01-docker-image-oracle-soa/</link>
+            <pubDate>Wed, 01 Apr 2015 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/es/post/2015-04-01-docker-image-oracle-soa/</guid>
+            <description>
 
 &lt;p&gt;Buenas noticias llegaron desde Oracle hace un par de semanas: &lt;a href=&#34;https://blogs.oracle.com/WebLogicServer/entry/oracle_weblogic_server_now_running&#34;&gt;Oracle WebLogic Server es ahora soportado en  Docker!&lt;/a&gt;.&lt;/p&gt;
 
@@ -192,7 +192,7 @@ crear dominios con WLST.&lt;/p&gt;
 &lt;li&gt;SOA/BPM Cluster sobre Docker containers&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-    </item>
-    
-  </channel>
+        </item>
+        
+    </channel>
 </rss>

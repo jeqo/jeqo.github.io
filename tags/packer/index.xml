@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-      <title>Packer on @jeqo </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://jeqo.github.io/tags/packer/index.xml</link>
-    <language>en-us</language>
-    
-    <copyright>&amp;copy Copyright 2017. Jorge Quilcate.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
-    
-    <item>
-      <title>Oracle SOA Suite 12c Docker Image</title>
-      <link>https://jeqo.github.io/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</link>
-      <pubDate>Fri, 04 Sep 2015 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</guid>
-      <description>&lt;p&gt;After find some limitations on building SOA Docker image using Dockerfile
+<rss version="2.0">
+    <channel>
+        <title>Jorge Quilcate Otoya on @jeqo</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://jeqo.github.io/tags/packer/index.xml</link>
+        <language>en-us</language>
+        <author>Jorge Quilcate Otoya</author>
+        
+        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        
+        <item>
+            <title>Oracle SOA Suite 12c Docker Image</title>
+            <link>https://jeqo.github.io/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</link>
+            <pubDate>Fri, 04 Sep 2015 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2015-09-04-oracle-soa-12c-packer-docker-hub/</guid>
+            <description>&lt;p&gt;After find some limitations on building SOA Docker image using Dockerfile
 (as volume access, default size image) I researched on how to improve
 building process and I found &lt;a href=&#34;https://packer.io/&#34;&gt;Packer&lt;/a&gt;
 (from the same guy that creates Vagrant).&lt;/p&gt;
@@ -92,7 +92,7 @@ you want push it to Docker Hub:&lt;/p&gt;
 &lt;p&gt;Now you have a Docker image with SOA installer, ready
 to create your domain as &lt;a href=&#34;https://github.com/jeqo/oracle-soa-12c-docker/tree/master/samples/12c-domain&#34;&gt;this sample&lt;/a&gt; explained
 on &lt;a href=&#34;http://jeqo.github.io/blog/devops/docker-image-oracle-soa/&#34;&gt;my previous post&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+        </item>
+        
+    </channel>
 </rss>

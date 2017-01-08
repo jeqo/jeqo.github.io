@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-      <title>Kafka on @jeqo </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://jeqo.github.io/es/tags/kafka/index.xml</link>
-    <language>en-us</language>
-    
-    <copyright>&amp;copy Copyright 2017. Jorge Quilcate.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
-    
-    <item>
-      <title>Integrar Java EE 7 y Kafka usando Avro y RxJava</title>
-      <link>https://jeqo.github.io/es/post/2015-07-31-java-ee-rxjava-kafka-avro/</link>
-      <pubDate>Fri, 31 Jul 2015 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/es/post/2015-07-31-java-ee-rxjava-kafka-avro/</guid>
-      <description>
+<rss version="2.0">
+    <channel>
+        <title>Jorge Quilcate Otoya on @jeqo</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://jeqo.github.io/es/tags/kafka/index.xml</link>
+        <language>en-us</language>
+        <author>Jorge Quilcate Otoya</author>
+        
+        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        
+        <item>
+            <title>Integrar Java EE 7 y Kafka usando Avro y RxJava</title>
+            <link>https://jeqo.github.io/es/post/2015-07-31-java-ee-rxjava-kafka-avro/</link>
+            <pubDate>Fri, 31 Jul 2015 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/es/post/2015-07-31-java-ee-rxjava-kafka-avro/</guid>
+            <description>
 
 &lt;p&gt;Hace poco decidi probar una rápida implementación entre aplicaciones
 Java EE y RxJava/Kafka/Avro, para publicar/subscribirse a &amp;ldquo;topic messages&amp;rdquo;.&lt;/p&gt;
@@ -370,7 +370,7 @@ public class ClientAddedEventSubscriber extends Subscriber&amp;lt;ClientAddedEve
 }
 &lt;/code&gt;&lt;/pre&gt;
 </description>
-    </item>
-    
-  </channel>
+        </item>
+        
+    </channel>
 </rss>

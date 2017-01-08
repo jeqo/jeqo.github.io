@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-      <title>Aws on @jeqo </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://jeqo.github.io/es/tags/aws/index.xml</link>
-    <language>en-us</language>
-    
-    <copyright>&amp;copy Copyright 2017. Jorge Quilcate.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
-    
-    <item>
-      <title>Crear una instancia NFS en AWS usando Vagrant y Chef</title>
-      <link>https://jeqo.github.io/es/post/2014-11-30-create-nfs-instance-aws/</link>
-      <pubDate>Sun, 30 Nov 2014 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/es/post/2014-11-30-create-nfs-instance-aws/</guid>
-      <description>
+<rss version="2.0">
+    <channel>
+        <title>Jorge Quilcate Otoya on @jeqo</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://jeqo.github.io/es/tags/aws/index.xml</link>
+        <language>en-us</language>
+        <author>Jorge Quilcate Otoya</author>
+        
+        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        
+        <item>
+            <title>Crear una instancia NFS en AWS usando Vagrant y Chef</title>
+            <link>https://jeqo.github.io/es/post/2014-11-30-create-nfs-instance-aws/</link>
+            <pubDate>Sun, 30 Nov 2014 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/es/post/2014-11-30-create-nfs-instance-aws/</guid>
+            <description>
 
 &lt;p&gt;Estuve probando la creación de instancias en AWS EC2 para instalar productos de Oracle
 Fusion Middleware, y encontré una restricción: Cómo descargar los instaladores si
@@ -40,7 +40,7 @@ una instancia en AWS con NFS configurado: &lt;a href=&#34;https://github.com/jeq
 
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/gqhY82kdHh4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
 </description>
-    </item>
-    
-  </channel>
+        </item>
+        
+    </channel>
 </rss>

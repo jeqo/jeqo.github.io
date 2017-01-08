@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-      <title>Kafka on @jeqo </title>
-      <generator uri="https://gohugo.io">Hugo</generator>
-    <link>https://jeqo.github.io/tags/kafka/index.xml</link>
-    <language>en-us</language>
-    
-    <copyright>&amp;copy Copyright 2017. Jorge Quilcate.</copyright>
-    <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
-    
-    <item>
-      <title>Integrate Java EE 7 and Kafka using Avro and RxJava</title>
-      <link>https://jeqo.github.io/post/2015-07-31-java-ee-rxjava-kafka-avro/</link>
-      <pubDate>Fri, 31 Jul 2015 00:00:00 UTC</pubDate>
-      
-      <guid>https://jeqo.github.io/post/2015-07-31-java-ee-rxjava-kafka-avro/</guid>
-      <description>&lt;p&gt;I decided to implement a naive integration between Java EE applications and
+<rss version="2.0">
+    <channel>
+        <title>Jorge Quilcate Otoya on @jeqo</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://jeqo.github.io/tags/kafka/index.xml</link>
+        <language>en-us</language>
+        <author>Jorge Quilcate Otoya</author>
+        
+        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        
+        <item>
+            <title>Integrate Java EE 7 and Kafka using Avro and RxJava</title>
+            <link>https://jeqo.github.io/post/2015-07-31-java-ee-rxjava-kafka-avro/</link>
+            <pubDate>Fri, 31 Jul 2015 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2015-07-31-java-ee-rxjava-kafka-avro/</guid>
+            <description>&lt;p&gt;I decided to implement a naive integration between Java EE applications and
 RxJava/Kafka/Avro, to publish and subscribe to events.&lt;/p&gt;
 
 &lt;p&gt;You can go directly to that &lt;a href=&#34;https://github.com/jeqo/java-ee-rxjava-kafka-avro&#34;&gt;code&lt;/a&gt;, or check my approach:&lt;/p&gt;
@@ -380,7 +380,7 @@ on my service that generates events:&lt;/p&gt;
 
 &lt;span style=&#34;color: #f92672&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;</description>
-    </item>
-    
-  </channel>
+        </item>
+        
+    </channel>
 </rss>
