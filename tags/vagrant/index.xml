@@ -43,82 +43,82 @@
 
 &lt;h3 id=&#34;vagrant-configuration&#34;&gt;Vagrant configuration&lt;/h3&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #66d9ef&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
 
-&lt;span style=&#34;color: #66d9ef&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;configure(&lt;/span&gt;&lt;span style=&#34;color: #66d9ef&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;|&lt;/span&gt;
-	&lt;span style=&#34;color: #75715e&#34;&gt;# Load properties files&lt;/span&gt;
-	&lt;span style=&#34;color: #f8f8f2&#34;&gt;box_props&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;YAML&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;load_file(&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;box.properties&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;)&lt;/span&gt;
-	&lt;span style=&#34;color: #f8f8f2&#34;&gt;aws_props&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;YAML&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;load_file(&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;aws.properties&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #880000&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;configure(&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt;) &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;config&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
+	&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Load properties files&lt;/span&gt;
+	box_props &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #880000&#34;&gt;YAML&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;load_file(&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;box.properties&amp;quot;&lt;/span&gt;)
+	aws_props &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #880000&#34;&gt;YAML&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;load_file(&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;aws.properties&amp;quot;&lt;/span&gt;)
 
-	&lt;span style=&#34;color: #75715e&#34;&gt;# Basic metadata&lt;/span&gt;
-	&lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vm&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;box&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;#{&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;box_props&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}&amp;quot;&lt;/span&gt;
-	&lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vm&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;box_url&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;file://#{&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;box_props&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;base_location&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}&amp;quot;&lt;/span&gt;
+	&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Basic metadata&lt;/span&gt;
+	config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;box &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;box_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;
+	config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;box_url &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;file://&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;box_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;base_location&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;
 
-	&lt;span style=&#34;color: #75715e&#34;&gt;# AWS Configuration&lt;/span&gt;
-	&lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vm&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;provider&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;:aws&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;aws,&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;override&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;|&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;aws&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;access_key_id&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;#{&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;aws_props&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;keys&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;access_key_id&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}&amp;quot;&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;aws&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;secret_access_key&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;#{&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;aws_props&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;keys&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;secret_access_key&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}&amp;quot;&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;aws&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;keypair_name&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;jeqo&amp;quot;&lt;/span&gt;
+	&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# AWS Configuration&lt;/span&gt;
+	config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provider &lt;span style=&#34;color: #19177C&#34;&gt;:aws&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;aws, override&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;access_key_id &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;aws_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;keys&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;access_key_id&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;secret_access_key &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;aws_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;keys&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;secret_access_key&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;keypair_name &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;jeqo&amp;quot;&lt;/span&gt;
 
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;aws&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;instance_type&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;m3.medium&amp;quot;&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;aws&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;region&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;sa-east-1&amp;quot;&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;aws&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;availability_zone&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;sa-east-1a&amp;quot;&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;aws&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;ami&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;ami-0511a418&amp;quot;&lt;/span&gt;
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;instance_type &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;m3.medium&amp;quot;&lt;/span&gt;
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;region &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;sa-east-1&amp;quot;&lt;/span&gt;
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;availability_zone &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;sa-east-1a&amp;quot;&lt;/span&gt;
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;ami &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;ami-0511a418&amp;quot;&lt;/span&gt;
 
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;override&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;ssh&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;username&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;ec2-user&amp;quot;&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;override&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;ssh&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;private_key_path&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;#{&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;aws_props&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;keys&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;key_pair_location&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}&amp;quot;&lt;/span&gt;
+		override&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;ssh&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;username &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;ec2-user&amp;quot;&lt;/span&gt;
+		override&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;ssh&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;private_key_path &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;aws_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;keys&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;key_pair_location&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;
 
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;aws&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;tags&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-		  &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;Name&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;box_props&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt;
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;tags &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; {
+		  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;Name&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; box_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+		}
 
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;aws&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;block_device_mapping&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;DeviceName&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;/dev/sda1&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-			&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;Ebs.VolumeSize&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;box_props&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;disk_size&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;block_device_mapping &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;{
+			&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;DeviceName&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;/dev/sda1&amp;#39;&lt;/span&gt;,
+			&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;Ebs.VolumeSize&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; box_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;disk_size&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+		}&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;aws&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;security_groups&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;jeqo-group&amp;quot;&lt;/span&gt;
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;security_groups &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;jeqo-group&amp;quot;&lt;/span&gt;
 
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;ssh&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;pty&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;true&lt;/span&gt;
-	&lt;span style=&#34;color: #66d9ef&#34;&gt;end&lt;/span&gt;
+		config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;ssh&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;pty &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000&#34;&gt;true&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
 
-	&lt;span style=&#34;color: #75715e&#34;&gt;# Install Chef Client&lt;/span&gt;
-	&lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;omnibus&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;chef_version&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;:latest&lt;/span&gt;
+	&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Install Chef Client&lt;/span&gt;
+	config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;omnibus&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;chef_version &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #19177C&#34;&gt;:latest&lt;/span&gt;
 
-	&lt;span style=&#34;color: #75715e&#34;&gt;# Increase Swap size&lt;/span&gt;
-	&lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vm&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;provision&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;|&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;path&lt;/span&gt;	&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;increase_swap.sh&amp;quot;&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;args&lt;/span&gt;   &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;&amp;#39;#{&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;box_props&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;additional_swap&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}&amp;#39;&amp;quot;&lt;/span&gt;
-	&lt;span style=&#34;color: #66d9ef&#34;&gt;end&lt;/span&gt;
+	&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Increase Swap size&lt;/span&gt;
+	config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provision &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;s&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
+		s&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;path	&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;increase_swap.sh&amp;quot;&lt;/span&gt;
+		s&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;args   &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;box_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;additional_swap&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;&amp;quot;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
 
-	&lt;span style=&#34;color: #75715e&#34;&gt;# Run Provisioning with Chef&lt;/span&gt;
-	&lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vm&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;provision&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;chef_client&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;chef&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;|&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;chef&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;chef_server_url&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;https://api.opscode.com/organizations/jeqo&amp;quot;&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;chef&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;validation_client_name&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;jeqo-validator&amp;quot;&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;chef&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;validation_key_path&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;#{&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;box_props&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;chef&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;repo_location&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}/.chef/jeqo-validator.pem&amp;quot;&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;chef&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;node_name&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;#{&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;box_props&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}&amp;quot;&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;chef&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;add_role&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;chef&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;add_role&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;oracle_db-xe&amp;quot;&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;chef&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;add_role&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;demo-bpm_bam-12c&amp;quot;&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;chef&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;json&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-				&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;server-host&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;127.0.0.1&amp;quot;&lt;/span&gt;
-			&lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
-			&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;oracle-xe&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-				&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;url&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;file:///data/oracle-xe/oracle-xe-11.2.0-1.0.x86_64.rpm&amp;quot;&lt;/span&gt;
-			&lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
-			&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;bpm_qs-12c&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-				&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;url&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;file:///data/oracle-fmw/bpm_qs-12c/fmw_12.1.3.0.0_bpmqs_Disk1_1of1.zip&amp;quot;&lt;/span&gt;
-			&lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt;
-	&lt;span style=&#34;color: #66d9ef&#34;&gt;end&lt;/span&gt;
-&lt;span style=&#34;color: #66d9ef&#34;&gt;end&lt;/span&gt;
+	&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Run Provisioning with Chef&lt;/span&gt;
+	config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provision &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;chef_client&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;chef&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
+		chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;chef_server_url &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;https://api.opscode.com/organizations/jeqo&amp;quot;&lt;/span&gt;
+		chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;validation_client_name &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;jeqo-validator&amp;quot;&lt;/span&gt;
+		chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;validation_key_path &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;box_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;chef&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;repo_location&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;/.chef/jeqo-validator.pem&amp;quot;&lt;/span&gt;
+		chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;node_name &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;box_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;
+		chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;add_role &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;
+		chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;add_role &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;oracle_db-xe&amp;quot;&lt;/span&gt;
+		chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;add_role &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;demo-bpm_bam-12c&amp;quot;&lt;/span&gt;
+		chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;json &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; {
+			&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; {
+				&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;server-host&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;127.0.0.1&amp;quot;&lt;/span&gt;
+			},
+			&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;oracle-xe&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; {
+				&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;url&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;file:///data/oracle-xe/oracle-xe-11.2.0-1.0.x86_64.rpm&amp;quot;&lt;/span&gt;
+			},
+			&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;bpm_qs-12c&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; {
+				&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;url&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;file:///data/oracle-fmw/bpm_qs-12c/fmw_12.1.3.0.0_bpmqs_Disk1_1of1.zip&amp;quot;&lt;/span&gt;
+			}
+		}
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Running this file with:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;vagrant up --provider&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;aws
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;vagrant up --provider&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;aws
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -128,40 +128,40 @@
 
 &lt;p&gt;The first recipe that will be executed is:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;chef&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;add_role&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+  chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;add_role &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This call the following Chef role:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-  &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;description&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Role applied to the system that should be an NFS client tools.&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-  &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-  &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;default_attributes&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;server-host&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;local-directory&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;remote-directory&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
-  &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;run_list&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
-    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;recipe[nfs-utils::nfs-client]&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
-&lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;,
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;description&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Role applied to the system that should be an NFS client tools.&amp;quot;&lt;/span&gt;,
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;,
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;default_attributes&amp;quot;&lt;/span&gt; : {
+    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt; : {
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;server-host&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;local-directory&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;remote-directory&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt;
+    }
+  },
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;run_list&amp;quot;&lt;/span&gt; : [
+    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;recipe[nfs-utils::nfs-client]&amp;quot;&lt;/span&gt;
+  ]
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;To update the server-host from your Vagrant configuration, add these lines:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
-&lt;span style=&#34;color: #f8f8f2&#34;&gt;chef&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;json&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;server-host&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;123.1.1.12&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
-  &lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;json &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; {
+  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;server-host&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;123.1.1.12&amp;quot;&lt;/span&gt;
+  },
+  &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -173,61 +173,61 @@
 
 &lt;p&gt;Vagrant configuration calls this Chef role:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;demo-bpm_bam-12c&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-  &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-  &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;default_attributes&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;domain-12c&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;demo-bpm_bam-domain&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;mode&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Compact&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;apps&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
-        &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;SOA&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
-        &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;BPM&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
-        &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;BAM&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
-        &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;OSB&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt;
-      &lt;span style=&#34;color: #f8f8f2&#34;&gt;],&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;machines&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
-      &lt;span style=&#34;color: #f8f8f2&#34;&gt;],&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;admin_server&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;base_name&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;AdminServer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;new_name&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;bpm_bpm-server&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;port&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;7001&amp;quot;&lt;/span&gt;
-      &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;managed_servers&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
-      &lt;span style=&#34;color: #f8f8f2&#34;&gt;],&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;db_repo_host&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;db_repo_port&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;1521&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;db_repo_sid&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;xe&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;db_repo_prefix&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;DEMO&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;db_repo_password&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;welcome1&amp;quot;&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
-    &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;rcu-12c&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;db_schema_prefix&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;DEMO&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;db_dba_user&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;SYS&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;db_dba_role&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;SYSDBA&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;db_dba_password&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;welcome1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;db_schemas_password&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;welcome1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;db_hostname&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;db_port&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;1521&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;db_service&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;xe&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;components&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;SOAINFRA&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;OPSS&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;IAU&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;MDS&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;WLS&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;UCSUMS&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;IAU_APPEND&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;IAU_VIEWER&amp;quot;&lt;/span&gt;
-      &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
-  &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;run_list&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
-    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;recipe[oracle-fmw::install-bpm_qs-12c]&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;recipe[oracle-fmw::create-rcu_repository-12c]&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;recipe[oracle-fmw::create-domain-12c]&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
-&lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;demo-bpm_bam-12c&amp;quot;&lt;/span&gt;,
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;,
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;default_attributes&amp;quot;&lt;/span&gt; : {
+    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;domain-12c&amp;quot;&lt;/span&gt;: {
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;demo-bpm_bam-domain&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;mode&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Compact&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;apps&amp;quot;&lt;/span&gt;: [
+        {&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;SOA&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;},
+        {&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;BPM&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;},
+        {&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;BAM&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;},
+        {&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;OSB&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;false&lt;/span&gt;}
+      ],
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;machines&amp;quot;&lt;/span&gt;: [
+      ],
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;admin_server&amp;quot;&lt;/span&gt;: {
+        &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;base_name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;AdminServer&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;new_name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;bpm_bpm-server&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;port&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;7001&amp;quot;&lt;/span&gt;
+      },
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;managed_servers&amp;quot;&lt;/span&gt;: [
+      ],
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_repo_host&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_repo_port&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;1521&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_repo_sid&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;xe&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_repo_prefix&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;DEMO&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_repo_password&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;welcome1&amp;quot;&lt;/span&gt;
+    },
+    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;rcu-12c&amp;quot;&lt;/span&gt;: {
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_schema_prefix&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;DEMO&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_dba_user&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;SYS&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_dba_role&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;SYSDBA&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_dba_password&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;welcome1&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_schemas_password&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;welcome1&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_hostname&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_port&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;1521&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_service&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;xe&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;components&amp;quot;&lt;/span&gt;: [
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;SOAINFRA&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;OPSS&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IAU&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;MDS&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;WLS&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;UCSUMS&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IAU_APPEND&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IAU_VIEWER&amp;quot;&lt;/span&gt;
+      ]
+    }
+  },
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;run_list&amp;quot;&lt;/span&gt; : [
+    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;recipe[oracle-fmw::install-bpm_qs-12c]&amp;quot;&lt;/span&gt;,
+    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;recipe[oracle-fmw::create-rcu_repository-12c]&amp;quot;&lt;/span&gt;,
+    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;recipe[oracle-fmw::create-domain-12c]&amp;quot;&lt;/span&gt;
+  ]
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -312,18 +312,18 @@
 
 &lt;p&gt;Ok, I have a base box, how can I use it to create a new box? The basic artifact you need is a Vagrant file:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;mkdir vagrant-box
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;mkdir vagrant-box
 vagrant init
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Running this creates a &lt;em&gt;Vagrantfile&lt;/em&gt; that contains the information to create a new box.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #66d9ef&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
 
-&lt;span style=&#34;color: #66d9ef&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;configure(&lt;/span&gt;&lt;span style=&#34;color: #66d9ef&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;|&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vm&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;box&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;base&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #880000&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;configure(&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt;) &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;config&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
+  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;box &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;base&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -335,11 +335,11 @@ vagrant init
 
 &lt;p&gt;This is not enough to create a box. You need two more attributes:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
-  &lt;span style=&#34;color: #75715e&#34;&gt;# URL or path to base box file&lt;/span&gt;
-  &lt;span style=&#34;color: #75715e&#34;&gt;# config.vm.box_url = &amp;quot;https://storage.us2.oraclecloud.com/v1/istoilis-istoilis/vagrant/oel65-64.box&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vm&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;box_url&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;file://c:/boxes/oel65-64.box&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+  &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# URL or path to base box file&lt;/span&gt;
+  &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# config.vm.box_url = &amp;quot;https://storage.us2.oraclecloud.com/v1/istoilis-istoilis/vagrant/oel65-64.box&amp;quot;&lt;/span&gt;
+  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;box_url &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;file://c:/boxes/oel65-64.box&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -363,14 +363,14 @@ vagrant init
 
 &lt;p&gt;As this is a virtualization platform specific requirement, you have to make these changes on an embedded method:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vm&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;provider&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;:virtualbox&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vb&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;|&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;vb&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;customize&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;modifyvm&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;:id&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;--memory&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;2048&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;vb&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;customize&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;modifyvm&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;:id&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;--name&amp;quot;&lt;/span&gt;  &lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;basemachine&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;vb&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;customize&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;modifyvm&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;:id&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;--cpus&amp;quot;&lt;/span&gt;  &lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;vb&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;customize&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;modifyvm&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;:id&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;--chipset&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;ich9&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;
-  &lt;span style=&#34;color: #66d9ef&#34;&gt;end&lt;/span&gt;
-&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provider &lt;span style=&#34;color: #19177C&#34;&gt;:virtualbox&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;vb&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
+    vb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;customize &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;modifyvm&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:id&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;--memory&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2048&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+    vb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;customize &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;modifyvm&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:id&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;--name&amp;quot;&lt;/span&gt;  , &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;basemachine&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+    vb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;customize &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;modifyvm&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:id&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;--cpus&amp;quot;&lt;/span&gt;  , &lt;span style=&#34;color: #666666&#34;&gt;2]&lt;/span&gt;
+    vb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;customize &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;modifyvm&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:id&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;--chipset&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;ich9&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -396,9 +396,9 @@ recreate over and over again, fast and easy.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Network&lt;/strong&gt;: By default your box use a NAT network that VirtualBox creates out-of-the-box. But, what if you (obviously) want to connect to your box? You need to use the &amp;ldquo;Host-only&amp;rdquo; network:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vm&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;network&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;:private_network&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;ip&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;192.168.56.XYZ&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;network &lt;span style=&#34;color: #19177C&#34;&gt;:private_network&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;ip&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;192.168.56.XYZ&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -410,19 +410,19 @@ recreate over and over again, fast and easy.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Shared Directories&lt;/strong&gt;: Using VirtualBox utility to create shared directories is annoying! With Vagrant is as easy as add thit to your script:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
-  &lt;span style=&#34;color: #75715e&#34;&gt;# Mount c:\data directory to /data directory on box. mount_options is optional&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vm&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;synced_folder&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;:mount_options&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;dmode=777&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;fmode=777&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;
-&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+  &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Mount c:\data directory to /data directory on box. mount_options is optional&lt;/span&gt;
+  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;synced_folder &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt; , &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:mount_options&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;dmode=777&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;fmode=777&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Some other parameters:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
-  &lt;span style=&#34;color: #75715e&#34;&gt;# Hostname&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vm&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;hostname&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;basemachine&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+  &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Hostname&lt;/span&gt;
+  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;hostname &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;basemachine&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -446,7 +446,7 @@ Well, now that I solved is not that difficult:&lt;/p&gt;
 &lt;li&gt;Create an script called &lt;em&gt;&amp;ldquo;bootstrap.sh&amp;rdquo;&lt;/em&gt; on your working directory, and add these lines:&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;pvcreate /dev/sdb
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;pvcreate /dev/sdb
 vgextend VolGroup /dev/sdb
 lvextend /dev/VolGroup/lv_root /dev/sdb
 resize2fs /dev/VolGroup/lv_root
@@ -459,35 +459,35 @@ resize2fs /dev/VolGroup/lv_root
 
 &lt;p&gt;And then add this code to your &lt;em&gt;Vagrantfile&lt;/em&gt;:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vm&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;provider&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;:virtualbox&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vb&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;|&lt;/span&gt;
-  &lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
-  &lt;span style=&#34;color: #75715e&#34;&gt;# Validate this should be run it once&lt;/span&gt;
-  &lt;span style=&#34;color: #66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;ARGV&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;up&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;!&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;exist?(&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;./disk1.vdi&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;)&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;vb&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;customize&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;
-      &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;createhd&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;--filename&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;./disk1.vdi&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;--format&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;VDI&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #75715e&#34;&gt;# 100GB&lt;/span&gt;
-      &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;--size&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;100&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;1024&lt;/span&gt;
-    &lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provider &lt;span style=&#34;color: #19177C&#34;&gt;:virtualbox&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;vb&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
+  &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+  &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Validate this should be run it once&lt;/span&gt;
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #880000&#34;&gt;ARGV&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;[0]&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;up&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;!&lt;/span&gt; &lt;span style=&#34;color: #880000&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;exist?(&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;./disk1.vdi&amp;quot;&lt;/span&gt;)
+    vb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;customize &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;
+      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;createhd&amp;#39;&lt;/span&gt;,
+      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;--filename&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;./disk1.vdi&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;--format&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;VDI&amp;#39;&lt;/span&gt;,
+      &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# 100GB&lt;/span&gt;
+      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;--size&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;100&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;1024&lt;/span&gt;
+    &lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;vb&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;customize&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;
-      &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;storageattach&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;:id&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;--storagectl&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;SATA Controller&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;--port&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;--device&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;--type&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;hdd&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;--medium&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f8f8f2&#34;&gt;file_to_disk&lt;/span&gt;
-    &lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;
-  &lt;span style=&#34;color: #66d9ef&#34;&gt;end&lt;/span&gt;
+    vb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;customize &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;
+      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;storageattach&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:id&lt;/span&gt;,
+      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;--storagectl&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;SATA Controller&amp;#39;&lt;/span&gt;,
+      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;--port&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;--device&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt;,
+      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;--type&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;hdd&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;--medium&amp;#39;&lt;/span&gt;,
+      file_to_disk
+    &lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
 
-  &lt;span style=&#34;color: #66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;ARGV&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;up&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;!&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;exist?(&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;./disk1.vdi&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;)&lt;/span&gt;
-    &lt;span style=&#34;color: #75715e&#34;&gt;# Run script to map new disk&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vm&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;provision&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;path&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;bootstrap.sh&amp;quot;&lt;/span&gt;
-    &lt;span style=&#34;color: #75715e&#34;&gt;# Run script to increase swap memory&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vm&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;provision&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;path&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;increase_swap.sh&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #66d9ef&#34;&gt;end&lt;/span&gt;
-&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #880000&#34;&gt;ARGV&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;[0]&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;up&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;!&lt;/span&gt; &lt;span style=&#34;color: #880000&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;exist?(&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;./disk1.vdi&amp;quot;&lt;/span&gt;)
+    &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Run script to map new disk&lt;/span&gt;
+    config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provision &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;path&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;bootstrap.sh&amp;quot;&lt;/span&gt;
+    &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Run script to increase swap memory&lt;/span&gt;
+    config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provision &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;path&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;increase_swap.sh&amp;quot;&lt;/span&gt;
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -503,30 +503,30 @@ resize2fs /dev/VolGroup/lv_root
 
 &lt;p&gt;To resolve this, add this script called &lt;em&gt;&amp;ldquo;increase_swap.sh&amp;rdquo;&lt;/em&gt; on your working directory:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #75715e&#34;&gt;#!/bin/sh&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;#!/bin/sh&lt;/span&gt;
 
-&lt;span style=&#34;color: #75715e&#34;&gt;# size of swapfile in megabytes&lt;/span&gt;
-&lt;span style=&#34;color: #f8f8f2&#34;&gt;swapsize&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;8000
+&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# size of swapfile in megabytes&lt;/span&gt;
+&lt;span style=&#34;color: #19177C&#34;&gt;swapsize&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;8000
 
-&lt;span style=&#34;color: #75715e&#34;&gt;# does the swap file already exist?&lt;/span&gt;
-grep -q &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;swapfile&amp;quot;&lt;/span&gt; /etc/fstab
+&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# does the swap file already exist?&lt;/span&gt;
+grep -q &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;swapfile&amp;quot;&lt;/span&gt; /etc/fstab
 
-&lt;span style=&#34;color: #75715e&#34;&gt;# if not then create it&lt;/span&gt;
-&lt;span style=&#34;color: #66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;$?&lt;/span&gt; -ne &lt;span style=&#34;color: #ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;then&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;swapfile not found. Adding swapfile.&amp;#39;&lt;/span&gt;
-  fallocate -l &lt;span style=&#34;color: #e6db74&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;swapsize&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}&lt;/span&gt;M /swapfile
-  chmod &lt;span style=&#34;color: #ae81ff&#34;&gt;600&lt;/span&gt; /swapfile
+&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# if not then create it&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #19177C&#34;&gt;$?&lt;/span&gt; -ne &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;then&lt;/span&gt;
+  &lt;span style=&#34;color: #008000&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;swapfile not found. Adding swapfile.&amp;#39;&lt;/span&gt;
+  fallocate -l &lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;swapsize&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;M /swapfile
+  chmod &lt;span style=&#34;color: #666666&#34;&gt;600&lt;/span&gt; /swapfile
   mkswap /swapfile
   swapon /swapfile
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;/swapfile none swap defaults 0 0&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; /etc/fstab
-&lt;span style=&#34;color: #66d9ef&#34;&gt;else&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;swapfile found. No changes made.&amp;#39;&lt;/span&gt;
-&lt;span style=&#34;color: #66d9ef&#34;&gt;fi&lt;/span&gt;
+  &lt;span style=&#34;color: #008000&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;/swapfile none swap defaults 0 0&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; /etc/fstab
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;else&lt;/span&gt;
+  &lt;span style=&#34;color: #008000&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;swapfile found. No changes made.&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 
-&lt;span style=&#34;color: #75715e&#34;&gt;# output results to terminal&lt;/span&gt;
+&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# output results to terminal&lt;/span&gt;
 df -h
 cat /proc/swaps
-cat /proc/meminfo &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; grep Swap
+cat /proc/meminfo | grep Swap
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -550,13 +550,13 @@ cat /proc/meminfo &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; grep
 
 &lt;p&gt;Add this code to the file:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;httpd&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;do&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;action&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;:install&lt;/span&gt;
-&lt;span style=&#34;color: #66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;package &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;httpd&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt;
+  action &lt;span style=&#34;color: #19177C&#34;&gt;:install&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
 
-&lt;span style=&#34;color: #f8f8f2&#34;&gt;service&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;httpd&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;do&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;action&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;:start&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;:enable&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;
-&lt;span style=&#34;color: #66d9ef&#34;&gt;end&lt;/span&gt;
+service &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;httpd&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt;
+  action &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #19177C&#34;&gt;:start&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:enable&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -564,12 +564,12 @@ cat /proc/meminfo &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; grep
 
 &lt;p&gt;To call this simple recipe from Vagrant you need to add this to your file:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vm&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;provision&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;chef_solo&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;chef&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;|&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;chef&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;cookbooks_path&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;../chef/cookbooks&amp;quot;&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;chef&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;add_recipe&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;http::install-httpd&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #66d9ef&#34;&gt;end&lt;/span&gt;
-&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provision &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;chef_solo&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;chef&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
+    chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;cookbooks_path &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;../chef/cookbooks&amp;quot;&lt;/span&gt;
+    chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;add_recipe &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;http::install-httpd&amp;quot;&lt;/span&gt;
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -593,18 +593,18 @@ cat /proc/meminfo &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; grep
 &lt;li&gt;Create a file like this one called &amp;ldquo;vagrant.rb&amp;rdquo;:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #ae81ff&#34;&gt;box&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
-  &lt;span style=&#34;color: #ae81ff&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;base-machine&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #ae81ff&#34;&gt;disk_path&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;./disk1.vdi&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #ae81ff&#34;&gt;url&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;file://c:/boxes/oel65-64.box&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #ae81ff&#34;&gt;ip&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;192.168.56.20&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #ae81ff&#34;&gt;shared_directory&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #ae81ff&#34;&gt;disk_size&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;40&lt;/span&gt;
-  &lt;span style=&#34;color: #ae81ff&#34;&gt;ram_memory&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;2048&lt;/span&gt;
-  &lt;span style=&#34;color: #ae81ff&#34;&gt;cpus&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;2&lt;/span&gt;
-  &lt;span style=&#34;color: #ae81ff&#34;&gt;swap_memory&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;4096&lt;/span&gt;
-&lt;span style=&#34;color: #ae81ff&#34;&gt;chef&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
-  &lt;span style=&#34;color: #ae81ff&#34;&gt;repo_location&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;C:/dev/jeqo/chef-repo&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;box:
+  name: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;base-machine&amp;quot;&lt;/span&gt;
+  disk_path: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;./disk1.vdi&amp;quot;&lt;/span&gt;
+  url: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;file://c:/boxes/oel65-64.box&amp;quot;&lt;/span&gt;
+  ip: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;192.168.56.20&amp;quot;&lt;/span&gt;
+  shared_directory: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt;
+  disk_size: 40
+  ram_memory: 2048
+  cpus: 2
+  swap_memory: 4096
+chef:
+  repo_location: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;C:/dev/jeqo/chef-repo&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -612,7 +612,7 @@ cat /proc/meminfo &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; grep
 &lt;li&gt;Add the &amp;ldquo;yaml&amp;rdquo; library:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #f8f8f2&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;yaml&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #008000&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;yaml&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -620,11 +620,11 @@ cat /proc/meminfo &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; grep
 &lt;li&gt;Then read and use properties:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;props&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;YAML&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;load_file(&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;vagrant.rb&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;)&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+  props &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #880000&#34;&gt;YAML&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;load_file(&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;vagrant.rb&amp;quot;&lt;/span&gt;)
 
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;config&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;vm&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;box&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;#{&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;props&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;}&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #f92672&#34;&gt;...&lt;/span&gt;
+  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;box &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

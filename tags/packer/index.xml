@@ -33,57 +33,57 @@ an independent repository: &lt;a href=&#34;https://github.com/jeqo/oracle-soa-12
 &lt;p&gt;Basically Dockerfile scripts were moved to shell scripts and are called
 from Packer.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;provisioners&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #960050; background-color: #1e0010&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;scripts/create-user.sh&amp;quot;&lt;/span&gt;
-      &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;file&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;source&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;./files/&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;destination&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;/u01/&amp;quot;&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;scripts/install-java.sh&amp;quot;&lt;/span&gt;
-      &lt;span style=&#34;color: #f8f8f2&#34;&gt;],&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;environment_vars&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;JAVA_RPM=/data/{{user `java_rpm`}}&amp;quot;&lt;/span&gt;
-      &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;scripts/install-soa.sh&amp;quot;&lt;/span&gt;
-      &lt;span style=&#34;color: #f8f8f2&#34;&gt;],&lt;/span&gt;
-      &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;environment_vars&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;SOA_ZIP=/data/{{user `soa_zip`}}&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;SOA_PKG={{user `soa_pkg`}}&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;SOA_PKG2={{user `soa_pkg2`}}&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;JAVA_HOME=/usr/java/default&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;MW_HOME=/u01/oracle/soa&amp;quot;&lt;/span&gt;
-      &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;provisioners&amp;quot;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt; [
+    {
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;: [
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;scripts/create-user.sh&amp;quot;&lt;/span&gt;
+      ]
+    },
+    {
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;file&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;source&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;./files/&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;destination&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/u01/&amp;quot;&lt;/span&gt;
+    },
+    {
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;: [
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;scripts/install-java.sh&amp;quot;&lt;/span&gt;
+      ],
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;environment_vars&amp;quot;&lt;/span&gt;: [
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;JAVA_RPM=/data/{{user `java_rpm`}}&amp;quot;&lt;/span&gt;
+      ]
+    },
+    {
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;: [
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;scripts/install-soa.sh&amp;quot;&lt;/span&gt;
+      ],
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;environment_vars&amp;quot;&lt;/span&gt;: [
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;SOA_ZIP=/data/{{user `soa_zip`}}&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;SOA_PKG={{user `soa_pkg`}}&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;SOA_PKG2={{user `soa_pkg2`}}&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;JAVA_HOME=/usr/java/default&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;MW_HOME=/u01/oracle/soa&amp;quot;&lt;/span&gt;
+      ]
+    }
+  ]
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;After provisioning, you can save your image, and if
 you want push it to Docker Hub:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;post-processors&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #960050; background-color: #1e0010&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;[&lt;/span&gt;
-      &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;docker-tag&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;repository&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;jeqo/oracle-soa-12c&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
-        &lt;span style=&#34;color: #f92672&#34;&gt;&amp;quot;tag&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;12.1.3-dev&amp;quot;&lt;/span&gt;
-      &lt;span style=&#34;color: #f8f8f2&#34;&gt;},&lt;/span&gt;
-      &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;docker-push&amp;quot;&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
-  &lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;post-processors&amp;quot;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt; [
+    [
+      {
+        &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;docker-tag&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;repository&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;jeqo/oracle-soa-12c&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;tag&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;12.1.3-dev&amp;quot;&lt;/span&gt;
+      },
+      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;docker-push&amp;quot;&lt;/span&gt;
+    ]
+  ]
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 

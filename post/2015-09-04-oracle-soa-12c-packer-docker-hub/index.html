@@ -59,57 +59,57 @@ an independent repository: <a href="https://github.com/jeqo/oracle-soa-12c-docke
 <p>Basically Dockerfile scripts were moved to shell scripts and are called
 from Packer.</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>  <span style="color: #e6db74">&quot;provisioners&quot;</span><span style="color: #960050; background-color: #1e0010">:</span> <span style="color: #f8f8f2">[</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #f92672">&quot;type&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;shell&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #f92672">&quot;scripts&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #e6db74">&quot;scripts/create-user.sh&quot;</span>
-      <span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #f92672">&quot;type&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;file&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #f92672">&quot;source&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;./files/&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #f92672">&quot;destination&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;/u01/&quot;</span>
-    <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #f92672">&quot;type&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;shell&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #f92672">&quot;scripts&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #e6db74">&quot;scripts/install-java.sh&quot;</span>
-      <span style="color: #f8f8f2">],</span>
-      <span style="color: #f92672">&quot;environment_vars&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #e6db74">&quot;JAVA_RPM=/data/{{user `java_rpm`}}&quot;</span>
-      <span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">},</span>
-    <span style="color: #f8f8f2">{</span>
-      <span style="color: #f92672">&quot;type&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;shell&quot;</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #f92672">&quot;scripts&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #e6db74">&quot;scripts/install-soa.sh&quot;</span>
-      <span style="color: #f8f8f2">],</span>
-      <span style="color: #f92672">&quot;environment_vars&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #f8f8f2">[</span>
-        <span style="color: #e6db74">&quot;SOA_ZIP=/data/{{user `soa_zip`}}&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;SOA_PKG={{user `soa_pkg`}}&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;SOA_PKG2={{user `soa_pkg2`}}&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;JAVA_HOME=/usr/java/default&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #e6db74">&quot;MW_HOME=/u01/oracle/soa&quot;</span>
-      <span style="color: #f8f8f2">]</span>
-    <span style="color: #f8f8f2">}</span>
-  <span style="color: #f8f8f2">]</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>  <span style="color: #BA2121">&quot;provisioners&quot;</span><span style="border: 1px solid #FF0000">:</span> [
+    {
+      <span style="color: #008000; font-weight: bold">&quot;type&quot;</span>: <span style="color: #BA2121">&quot;shell&quot;</span>,
+      <span style="color: #008000; font-weight: bold">&quot;scripts&quot;</span>: [
+        <span style="color: #BA2121">&quot;scripts/create-user.sh&quot;</span>
+      ]
+    },
+    {
+      <span style="color: #008000; font-weight: bold">&quot;type&quot;</span>: <span style="color: #BA2121">&quot;file&quot;</span>,
+      <span style="color: #008000; font-weight: bold">&quot;source&quot;</span>: <span style="color: #BA2121">&quot;./files/&quot;</span>,
+      <span style="color: #008000; font-weight: bold">&quot;destination&quot;</span>: <span style="color: #BA2121">&quot;/u01/&quot;</span>
+    },
+    {
+      <span style="color: #008000; font-weight: bold">&quot;type&quot;</span>: <span style="color: #BA2121">&quot;shell&quot;</span>,
+      <span style="color: #008000; font-weight: bold">&quot;scripts&quot;</span>: [
+        <span style="color: #BA2121">&quot;scripts/install-java.sh&quot;</span>
+      ],
+      <span style="color: #008000; font-weight: bold">&quot;environment_vars&quot;</span>: [
+        <span style="color: #BA2121">&quot;JAVA_RPM=/data/{{user `java_rpm`}}&quot;</span>
+      ]
+    },
+    {
+      <span style="color: #008000; font-weight: bold">&quot;type&quot;</span>: <span style="color: #BA2121">&quot;shell&quot;</span>,
+      <span style="color: #008000; font-weight: bold">&quot;scripts&quot;</span>: [
+        <span style="color: #BA2121">&quot;scripts/install-soa.sh&quot;</span>
+      ],
+      <span style="color: #008000; font-weight: bold">&quot;environment_vars&quot;</span>: [
+        <span style="color: #BA2121">&quot;SOA_ZIP=/data/{{user `soa_zip`}}&quot;</span>,
+        <span style="color: #BA2121">&quot;SOA_PKG={{user `soa_pkg`}}&quot;</span>,
+        <span style="color: #BA2121">&quot;SOA_PKG2={{user `soa_pkg2`}}&quot;</span>,
+        <span style="color: #BA2121">&quot;JAVA_HOME=/usr/java/default&quot;</span>,
+        <span style="color: #BA2121">&quot;MW_HOME=/u01/oracle/soa&quot;</span>
+      ]
+    }
+  ]
 </pre></div>
 
 
 <p>After provisioning, you can save your image, and if
 you want push it to Docker Hub:</p>
 
-<p><div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>  <span style="color: #e6db74">&quot;post-processors&quot;</span><span style="color: #960050; background-color: #1e0010">:</span> <span style="color: #f8f8f2">[</span>
-    <span style="color: #f8f8f2">[</span>
-      <span style="color: #f8f8f2">{</span>
-        <span style="color: #f92672">&quot;type&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;docker-tag&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #f92672">&quot;repository&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;jeqo/oracle-soa-12c&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #f92672">&quot;tag&quot;</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;12.1.3-dev&quot;</span>
-      <span style="color: #f8f8f2">},</span>
-      <span style="color: #e6db74">&quot;docker-push&quot;</span>
-    <span style="color: #f8f8f2">]</span>
-  <span style="color: #f8f8f2">]</span>
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>  <span style="color: #BA2121">&quot;post-processors&quot;</span><span style="border: 1px solid #FF0000">:</span> [
+    [
+      {
+        <span style="color: #008000; font-weight: bold">&quot;type&quot;</span>: <span style="color: #BA2121">&quot;docker-tag&quot;</span>,
+        <span style="color: #008000; font-weight: bold">&quot;repository&quot;</span>: <span style="color: #BA2121">&quot;jeqo/oracle-soa-12c&quot;</span>,
+        <span style="color: #008000; font-weight: bold">&quot;tag&quot;</span>: <span style="color: #BA2121">&quot;12.1.3-dev&quot;</span>
+      },
+      <span style="color: #BA2121">&quot;docker-push&quot;</span>
+    ]
+  ]
 </pre></div>
 </p>
 

@@ -57,10 +57,10 @@ because of its scripting language: YAML, and its agentless architecture.</p>
 <p>This means that is actually really easy to understand and start working
 with it. For example:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">hosts</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">webserver</span>
-  <span style="color: #ae81ff">tasks</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">package</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">apache</span>
-        <span style="color: #ae81ff">state</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">latest</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>- hosts: webserver
+  tasks:
+    - package: apache
+        state: latest
 </pre></div>
 
 
@@ -114,12 +114,12 @@ commands in your workstation.</p>
 
 <p>Just to explain what it does, let&rsquo;s check the main task file:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>  <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">debug</span><span style="color: #f8f8f2">:</span>
-      <span style="color: #ae81ff">msg</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;This</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">Java</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">Provider</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">will</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">be</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">installed:</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">{{</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">java_provider</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">}}&quot;</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>  - debug:
+      msg: <span style="color: #BA2121">&quot;This</span><span style="color: #19177C"> </span><span style="color: #BA2121">Java</span><span style="color: #19177C"> </span><span style="color: #BA2121">Provider</span><span style="color: #19177C"> </span><span style="color: #BA2121">will</span><span style="color: #19177C"> </span><span style="color: #BA2121">be</span><span style="color: #19177C"> </span><span style="color: #BA2121">installed:</span><span style="color: #19177C"> </span><span style="color: #BA2121">{{</span><span style="color: #19177C"> </span><span style="color: #BA2121">java_provider</span><span style="color: #19177C"> </span><span style="color: #BA2121">}}&quot;</span>
 
-  <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">include</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">install-{{ java_provider }}.yml</span>
+  - include: install-{{ java_provider }}.yml
 
-  <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">include</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">set-java-home.yml</span>
+  - include: set-java-home.yml
 </pre></div>
 
 
@@ -129,80 +129,80 @@ variable and finally set JAVA_HOME variable.</p>
 <p>Also this role has a &ldquo;tests&rdquo; directory where you can add playbooks
 to test your role:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">test install openjdk jdk 8 on centos 7</span>
-  <span style="color: #ae81ff">hosts</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">test01</span>
-  <span style="color: #ae81ff">roles</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">role</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">java</span>
-      <span style="color: #ae81ff">java_provider</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">openjdk</span>
-      <span style="color: #ae81ff">java_version</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8</span>
-      <span style="color: #ae81ff">java_type</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">jdk</span>
-<span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">test install openjdk jre 8 on centos 7</span>
-  <span style="color: #ae81ff">hosts</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">test02</span>
-  <span style="color: #ae81ff">roles</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">role</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">java</span>
-      <span style="color: #ae81ff">java_provider</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">openjdk</span>
-      <span style="color: #ae81ff">java_version</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8</span>
-      <span style="color: #ae81ff">java_type</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">jre</span>
-<span style="color: #75715e"># more tests...</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>- name: test install openjdk jdk 8 on centos 7
+  hosts: test01
+  roles:
+    - role: java
+      java_provider: openjdk
+      java_version: 8
+      java_type: jdk
+- name: test install openjdk jre 8 on centos 7
+  hosts: test02
+  roles:
+    - role: java
+      java_provider: openjdk
+      java_version: 8
+      java_type: jre
+<span style="color: #408080; font-style: italic"># more tests...</span>
 </pre></div>
 
 
 <p>And I test this playbooks using Vagrant and VirtualBox:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">Vagrant</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">configure(</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">do</span> <span style="color: #f92672">|</span><span style="color: #f8f8f2">config</span><span style="color: #f92672">|</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #880000">Vagrant</span><span style="color: #666666">.</span>configure(<span style="color: #666666">2</span>) <span style="color: #008000; font-weight: bold">do</span> <span style="color: #666666">|</span>config<span style="color: #666666">|</span>
 
-  <span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">provision</span> <span style="color: #e6db74">&quot;ansible&quot;</span> <span style="color: #66d9ef">do</span> <span style="color: #f92672">|</span><span style="color: #f8f8f2">ansible</span><span style="color: #f92672">|</span>
-    <span style="color: #f8f8f2">ansible</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">playbook</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;test.yml&quot;</span>
-    <span style="color: #f8f8f2">ansible</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">galaxy_role_file</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;roles.yml&quot;</span>
-  <span style="color: #66d9ef">end</span>
+  config<span style="color: #666666">.</span>vm<span style="color: #666666">.</span>provision <span style="color: #BA2121">&quot;ansible&quot;</span> <span style="color: #008000; font-weight: bold">do</span> <span style="color: #666666">|</span>ansible<span style="color: #666666">|</span>
+    ansible<span style="color: #666666">.</span>playbook <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;test.yml&quot;</span>
+    ansible<span style="color: #666666">.</span>galaxy_role_file <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;roles.yml&quot;</span>
+  <span style="color: #008000; font-weight: bold">end</span>
 
-  <span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">define</span> <span style="color: #e6db74">&quot;test01&quot;</span> <span style="color: #66d9ef">do</span> <span style="color: #f92672">|</span><span style="color: #f8f8f2">node</span><span style="color: #f92672">|</span>
-    <span style="color: #f8f8f2">node</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">box</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;jeqo/ansible-centos7&quot;</span>
-  <span style="color: #66d9ef">end</span>
+  config<span style="color: #666666">.</span>vm<span style="color: #666666">.</span>define <span style="color: #BA2121">&quot;test01&quot;</span> <span style="color: #008000; font-weight: bold">do</span> <span style="color: #666666">|</span>node<span style="color: #666666">|</span>
+    node<span style="color: #666666">.</span>vm<span style="color: #666666">.</span>box <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;jeqo/ansible-centos7&quot;</span>
+  <span style="color: #008000; font-weight: bold">end</span>
 
-  <span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">define</span> <span style="color: #e6db74">&quot;test02&quot;</span> <span style="color: #66d9ef">do</span> <span style="color: #f92672">|</span><span style="color: #f8f8f2">node</span><span style="color: #f92672">|</span>
-    <span style="color: #f8f8f2">node</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">vm</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">box</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;jeqo/ansible-centos7&quot;</span>
-  <span style="color: #66d9ef">end</span>
+  config<span style="color: #666666">.</span>vm<span style="color: #666666">.</span>define <span style="color: #BA2121">&quot;test02&quot;</span> <span style="color: #008000; font-weight: bold">do</span> <span style="color: #666666">|</span>node<span style="color: #666666">|</span>
+    node<span style="color: #666666">.</span>vm<span style="color: #666666">.</span>box <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;jeqo/ansible-centos7&quot;</span>
+  <span style="color: #008000; font-weight: bold">end</span>
 
-  <span style="color: #75715e"># more test nodes...</span>
-<span style="color: #66d9ef">end</span>
+  <span style="color: #408080; font-style: italic"># more test nodes...</span>
+<span style="color: #008000; font-weight: bold">end</span>
 </pre></div>
 
 
 <p>So, lets test that OpenJDK 8 is running OK in Centos:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>vagrant up test01
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>vagrant up test01
 ...
 
-PLAY <span style="color: #f92672">[</span><span style="color: #f8f8f2">test</span> install openjdk jdk <span style="color: #ae81ff">8</span> on centos 7<span style="color: #f92672">]</span> **********************************
+PLAY <span style="color: #666666">[</span><span style="color: #008000">test</span> install openjdk jdk <span style="color: #666666">8</span> on centos 7<span style="color: #666666">]</span> **********************************
 
-TASK <span style="color: #f92672">[</span>setup<span style="color: #f92672">]</span> *******************************************************************
-ok: <span style="color: #f92672">[</span>test01<span style="color: #f92672">]</span>
+TASK <span style="color: #666666">[</span>setup<span style="color: #666666">]</span> *******************************************************************
+ok: <span style="color: #666666">[</span>test01<span style="color: #666666">]</span>
 
-TASK <span style="color: #f92672">[</span>java : debug<span style="color: #f92672">]</span> ************************************************************
-ok: <span style="color: #f92672">[</span>test01<span style="color: #f92672">]</span> <span style="color: #f92672">=</span>&gt; <span style="color: #f92672">{</span>
-    <span style="color: #e6db74">&quot;msg&quot;</span>: <span style="color: #e6db74">&quot;This Java Provider will be installed: openjdk&quot;</span>
-<span style="color: #f92672">}</span>
+TASK <span style="color: #666666">[</span>java : debug<span style="color: #666666">]</span> ************************************************************
+ok: <span style="color: #666666">[</span>test01<span style="color: #666666">]</span> <span style="color: #666666">=</span>&gt; <span style="color: #666666">{</span>
+    <span style="color: #BA2121">&quot;msg&quot;</span>: <span style="color: #BA2121">&quot;This Java Provider will be installed: openjdk&quot;</span>
+<span style="color: #666666">}</span>
 
-TASK <span style="color: #f92672">[</span>java : include<span style="color: #f92672">]</span> **********************************************************
-included: /home/jeqo/dev/jeqo/ansible-role-java/tests/roles/java/tasks/install-openjdk.yml <span style="color: #66d9ef">for</span> test01
+TASK <span style="color: #666666">[</span>java : include<span style="color: #666666">]</span> **********************************************************
+included: /home/jeqo/dev/jeqo/ansible-role-java/tests/roles/java/tasks/install-openjdk.yml <span style="color: #008000; font-weight: bold">for</span> test01
 
-TASK <span style="color: #f92672">[</span>java : set_fact<span style="color: #f92672">]</span> *********************************************************
-skipping: <span style="color: #f92672">[</span>test01<span style="color: #f92672">]</span>
+TASK <span style="color: #666666">[</span>java : set_fact<span style="color: #666666">]</span> *********************************************************
+skipping: <span style="color: #666666">[</span>test01<span style="color: #666666">]</span>
 
-TASK <span style="color: #f92672">[</span>java : set_fact<span style="color: #f92672">]</span> *********************************************************
-ok: <span style="color: #f92672">[</span>test01<span style="color: #f92672">]</span>
+TASK <span style="color: #666666">[</span>java : set_fact<span style="color: #666666">]</span> *********************************************************
+ok: <span style="color: #666666">[</span>test01<span style="color: #666666">]</span>
 
-TASK <span style="color: #f92672">[</span>java : set_fact<span style="color: #f92672">]</span> *********************************************************
-skipping: <span style="color: #f92672">[</span>test01<span style="color: #f92672">]</span>
+TASK <span style="color: #666666">[</span>java : set_fact<span style="color: #666666">]</span> *********************************************************
+skipping: <span style="color: #666666">[</span>test01<span style="color: #666666">]</span>
 
-TASK <span style="color: #f92672">[</span>java : set_fact<span style="color: #f92672">]</span> *********************************************************
-ok: <span style="color: #f92672">[</span>test01<span style="color: #f92672">]</span>
+TASK <span style="color: #666666">[</span>java : set_fact<span style="color: #666666">]</span> *********************************************************
+ok: <span style="color: #666666">[</span>test01<span style="color: #666666">]</span>
 
-TASK <span style="color: #f92672">[</span>java : install openjdk <span style="color: #f92672">(</span>debian<span style="color: #f92672">)]</span> *****************************************
-skipping: <span style="color: #f92672">[</span>test01<span style="color: #f92672">]</span>
+TASK <span style="color: #666666">[</span>java : install openjdk <span style="color: #666666">(</span>debian<span style="color: #666666">)]</span> *****************************************
+skipping: <span style="color: #666666">[</span>test01<span style="color: #666666">]</span>
 
-TASK <span style="color: #f92672">[</span>java : install openjdk <span style="color: #f92672">(</span>redhat<span style="color: #f92672">)]</span> *****************************************
+TASK <span style="color: #666666">[</span>java : install openjdk <span style="color: #666666">(</span>redhat<span style="color: #666666">)]</span> *****************************************
 </pre></div>
 
 
@@ -215,61 +215,61 @@ I give it a try: <a href="https://github.com/jeqo/poc-ansible-docker">https://gi
 
 <p>I added a playbook to create a container:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">hosts</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">127.0.0.1</span>
-  <span style="color: #ae81ff">connection</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">local</span>
-  <span style="color: #ae81ff">tasks</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">my container</span>
-      <span style="color: #ae81ff">docker</span><span style="color: #f8f8f2">:</span>
-        <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">poccontainer</span>
-        <span style="color: #ae81ff">image</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">centos</span>
-        <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">sleep infinity</span>
-        <span style="color: #ae81ff">state</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">started</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>- hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: my container
+      docker:
+        name: poccontainer
+        image: centos
+        command: sleep infinity
+        state: started
 </pre></div>
 
 
 <p>Here I&rsquo;m using &ldquo;connection: local&rdquo; to execute commands locally.</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ docker ps
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>$ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-a5e49bd032be        centos              <span style="color: #e6db74">&quot;sleep infinity&quot;</span>    About an hour ago   Up About an hour                        poccontainer
+a5e49bd032be        centos              <span style="color: #BA2121">&quot;sleep infinity&quot;</span>    About an hour ago   Up About an hour                        poccontainer
 </pre></div>
 
 
 <p>And once I have a container running, I can run this playbook:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">hosts</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">poccontainer</span>
-  <span style="color: #ae81ff">connection</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">docker</span>
-  <span style="color: #ae81ff">pre_tasks</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">package</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">name=sudo</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;sed</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">-i</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">-e</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">\&quot;s/Defaults</span><span style="color: #f8f8f2">    </span><span style="color: #e6db74">requiretty.*/</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">#Defaults</span><span style="color: #f8f8f2">    </span><span style="color: #e6db74">requiretty/g\&quot;</span><span style="color: #f8f8f2"> </span><span style="color: #e6db74">/etc/sudoers&quot;</span>
-  <span style="color: #ae81ff">roles</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">role</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">java</span>
-      <span style="color: #ae81ff">java_provider</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">openjdk</span>
-      <span style="color: #ae81ff">java_type</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">jdk</span>
-      <span style="color: #ae81ff">java_version</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">8</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>- hosts: poccontainer
+  connection: docker
+  pre_tasks:
+    - package: name=sudo
+    - command: <span style="color: #BA2121">&quot;sed</span><span style="color: #19177C"> </span><span style="color: #BA2121">-i</span><span style="color: #19177C"> </span><span style="color: #BA2121">-e</span><span style="color: #19177C"> </span><span style="color: #BA2121">\&quot;s/Defaults</span><span style="color: #19177C">    </span><span style="color: #BA2121">requiretty.*/</span><span style="color: #19177C"> </span><span style="color: #BA2121">#Defaults</span><span style="color: #19177C">    </span><span style="color: #BA2121">requiretty/g\&quot;</span><span style="color: #19177C"> </span><span style="color: #BA2121">/etc/sudoers&quot;</span>
+  roles:
+    - role: java
+      java_provider: openjdk
+      java_type: jdk
+      java_version: 8
 </pre></div>
 
 
 <p>Pre-tasks are required to install sudo package and configure tty. And
 then run role as usual:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>$ ansible-playbook provisioning.yml -vvvv
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>$ ansible-playbook provisioning.yml -vvvv
 Using /home/jeqo/dev/jeqo/poc-ansible-docker/ansible.cfg as config file
-Loaded callback default of <span style="color: #f8f8f2">type</span> stdout, v2.0
-<span style="color: #ae81ff">2</span> plays in provisioning.yml
+Loaded callback default of <span style="color: #008000">type</span> stdout, v2.0
+<span style="color: #666666">2</span> plays in provisioning.yml
 
 PLAY ***************************************************************************
 
-TASK <span style="color: #f92672">[</span>setup<span style="color: #f92672">]</span> *******************************************************************
+TASK <span style="color: #666666">[</span>setup<span style="color: #666666">]</span> *******************************************************************
 ESTABLISH DOCKER CONNECTION FOR USER: None
-&lt;poccontainer&gt; EXEC <span style="color: #f92672">[</span><span style="color: #e6db74">&#39;/usr/bin/docker&#39;</span>, <span style="color: #e6db74">&#39;exec&#39;</span>, <span style="color: #e6db74">&#39;-i&#39;</span>, u<span style="color: #e6db74">&#39;poccontainer&#39;</span>, <span style="color: #e6db74">&#39;/bin/sh&#39;</span>, <span style="color: #e6db74">&#39;-c&#39;</span>, <span style="color: #e6db74">&#39;/bin/sh -c \&#39;</span><span style="color: #f92672">(</span> <span style="color: #f8f8f2">umask</span> <span style="color: #ae81ff">22</span> <span style="color: #f92672">&amp;&amp;</span> 
-mkdir -p <span style="color: #e6db74">&quot;` echo </span><span style="color: #f8f8f2">$HOME</span><span style="color: #e6db74">/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&quot;</span> <span style="color: #f92672">&amp;&amp;</span> 
-<span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;` echo </span><span style="color: #f8f8f2">$HOME</span><span style="color: #e6db74">/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&quot;</span> <span style="color: #f92672">)</span><span style="color: #ae81ff">\&#39;</span><span style="color: #e6db74">&#39;]</span>
-<span style="color: #e6db74">&lt;poccontainer&gt; PUT /tmp/tmpNCOaxi TO /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup</span>
-<span style="color: #e6db74">&lt;poccontainer&gt; EXEC [&#39;</span>/usr/bin/docker<span style="color: #e6db74">&#39;, &#39;</span>exec<span style="color: #e6db74">&#39;, &#39;</span>-i<span style="color: #e6db74">&#39;, u&#39;</span>poccontainer<span style="color: #e6db74">&#39;, &#39;</span>/bin/sh<span style="color: #e6db74">&#39;, &#39;</span>-c<span style="color: #e6db74">&#39;, u&#39;</span>/bin/sh -c <span style="color: #ae81ff">\&#39;</span><span style="color: #f8f8f2">LANG</span><span style="color: #f92672">=</span>en_US.UTF-8 
-<span style="color: #f8f8f2">LC_ALL</span><span style="color: #f92672">=</span>en_US.UTF-8 <span style="color: #f8f8f2">LC_MESSAGES</span><span style="color: #f92672">=</span>en_US.UTF-8 /usr/bin/python /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup<span style="color: #f8f8f2">;</span> 
-rm -rf <span style="color: #e6db74">&quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&quot;</span> &gt; /dev/null 2&gt;<span style="color: #f8f8f2">&amp;</span>1<span style="color: #ae81ff">\&#39;</span><span style="color: #960050; background-color: #1e0010">&#39;</span><span style="color: #f92672">]</span>
-ok: <span style="color: #f92672">[</span>poccontainer<span style="color: #f92672">]</span>
+&lt;poccontainer&gt; EXEC <span style="color: #666666">[</span><span style="color: #BA2121">&#39;/usr/bin/docker&#39;</span>, <span style="color: #BA2121">&#39;exec&#39;</span>, <span style="color: #BA2121">&#39;-i&#39;</span>, u<span style="color: #BA2121">&#39;poccontainer&#39;</span>, <span style="color: #BA2121">&#39;/bin/sh&#39;</span>, <span style="color: #BA2121">&#39;-c&#39;</span>, <span style="color: #BA2121">&#39;/bin/sh -c \&#39;</span><span style="color: #666666">(</span> <span style="color: #008000">umask</span> <span style="color: #666666">22</span> <span style="color: #666666">&amp;&amp;</span> 
+mkdir -p <span style="color: #BA2121">&quot;` echo </span><span style="color: #19177C">$HOME</span><span style="color: #BA2121">/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&quot;</span> <span style="color: #666666">&amp;&amp;</span> 
+<span style="color: #008000">echo</span> <span style="color: #BA2121">&quot;` echo </span><span style="color: #19177C">$HOME</span><span style="color: #BA2121">/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&quot;</span> <span style="color: #666666">)</span><span style="color: #BB6622; font-weight: bold">\&#39;</span><span style="color: #BA2121">&#39;]</span>
+<span style="color: #BA2121">&lt;poccontainer&gt; PUT /tmp/tmpNCOaxi TO /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup</span>
+<span style="color: #BA2121">&lt;poccontainer&gt; EXEC [&#39;</span>/usr/bin/docker<span style="color: #BA2121">&#39;, &#39;</span>exec<span style="color: #BA2121">&#39;, &#39;</span>-i<span style="color: #BA2121">&#39;, u&#39;</span>poccontainer<span style="color: #BA2121">&#39;, &#39;</span>/bin/sh<span style="color: #BA2121">&#39;, &#39;</span>-c<span style="color: #BA2121">&#39;, u&#39;</span>/bin/sh -c <span style="color: #BB6622; font-weight: bold">\&#39;</span><span style="color: #19177C">LANG</span><span style="color: #666666">=</span>en_US.UTF-8 
+<span style="color: #19177C">LC_ALL</span><span style="color: #666666">=</span>en_US.UTF-8 <span style="color: #19177C">LC_MESSAGES</span><span style="color: #666666">=</span>en_US.UTF-8 /usr/bin/python /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup; 
+rm -rf <span style="color: #BA2121">&quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&quot;</span> &gt; /dev/null 2&gt;&amp;1<span style="color: #BB6622; font-weight: bold">\&#39;</span><span style="border: 1px solid #FF0000">&#39;</span><span style="color: #666666">]</span>
+ok: <span style="color: #666666">[</span>poccontainer<span style="color: #666666">]</span>
 </pre></div>
 
 
@@ -290,11 +290,11 @@ is missing commit and push tasks to put containers on Docker Hub,
 but you can replace it with local commands as here:</p></li>
 </ul>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">hosts</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">127.0.0.1</span>
-  <span style="color: #ae81ff">connection</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">local</span>
-  <span style="color: #ae81ff">tasks</span><span style="color: #f8f8f2">:</span>
-    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">commit</span>
-      <span style="color: #ae81ff">command</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">docker commit poccontainer</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>- hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: commit
+      command: docker commit poccontainer
 </pre></div>
 
 
