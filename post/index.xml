@@ -43,11 +43,11 @@ couple of processes.&lt;/p&gt;
 run in 2 different containers.&lt;/p&gt;
 
 &lt;p&gt;The easiest way to do this is defining these processes as
-Docker Compose services is a &lt;code&gt;docker-compose.yml&lt;/code&gt; file:&lt;/p&gt;
+Docker Compose services is a &lt;code&gt;kafka-cluster/docker-compose.yml&lt;/code&gt; file:&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;I will use a couple of images that I build. These are fairly simple
+&lt;p&gt;I will use a couple of Docker images. These are fairly simple
 and you can find their source code here:
 &lt;a href=&#34;https://github.com/jeqo/docker-image-apache-kafka&#34;&gt;Apache Kafka&lt;/a&gt;,
 &lt;a href=&#34;https://github.com/jeqo/docker-image-apache-zookeeper&#34;&gt;Apache Zookeeper&lt;/a&gt;, and
@@ -67,7 +67,7 @@ services:
 
 
 &lt;p&gt;This configuration defines 2 services: &lt;code&gt;kafka&lt;/code&gt; and &lt;code&gt;zookeeper&lt;/code&gt;. The &lt;code&gt;kafka&lt;/code&gt;
-service link and environment variable &lt;code&gt;ZOOKEEPER_CONNECT&lt;/code&gt; configure the access
+service &lt;code&gt;link&lt;/code&gt; and environment variable &lt;code&gt;ZOOKEEPER_CONNECT&lt;/code&gt; configure the access
 from &lt;code&gt;kafka&lt;/code&gt; to &lt;code&gt;zookeeper&lt;/code&gt; service.&lt;/p&gt;
 
 &lt;p&gt;If we try to start these configuration with &lt;code&gt;docker-compose up -d&lt;/code&gt;,
@@ -145,8 +145,8 @@ ls /brokers/ids
 
 &lt;h1 id=&#34;scaling-topics&#34;&gt;Scaling Topics&lt;/h1&gt;
 
-&lt;p&gt;In Kafka, &lt;code&gt;Topics&lt;/code&gt; are distributed in &lt;code&gt;Partitions&lt;/code&gt;. &lt;code&gt;Partitions&lt;/code&gt; allows &lt;strong&gt;scalability&lt;/strong&gt;, letting &lt;code&gt;Topics&lt;/code&gt;
-fit in several nodes, and &lt;strong&gt;parallelism&lt;/strong&gt;, allowing different instances from the same &lt;code&gt;Consumer Group&lt;/code&gt; to
+&lt;p&gt;In Kafka, &lt;code&gt;Topics&lt;/code&gt; are distributed in &lt;code&gt;Partitions&lt;/code&gt;. &lt;code&gt;Partitions&lt;/code&gt; allows &lt;strong&gt;scalability&lt;/strong&gt;, enabling &lt;code&gt;Topics&lt;/code&gt;
+to fit in several nodes, and &lt;strong&gt;parallelism&lt;/strong&gt;, allowing different instances from the same &lt;code&gt;Consumer Group&lt;/code&gt; to
 consume messages in parallel.&lt;/p&gt;
 
 &lt;p&gt;Apart from this, Kafka manage how this &lt;code&gt;Partitions&lt;/code&gt; are replicated, to achieve high availability. In

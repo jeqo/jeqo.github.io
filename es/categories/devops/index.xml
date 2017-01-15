@@ -10,6 +10,267 @@
         <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
         
         <item>
+            <title>Escalando Kafka con Docker Containers</title>
+            <link>https://jeqo.github.io/es/post/2017-01-08-scale-kafka-containers/</link>
+            <pubDate>Sun, 15 Jan 2017 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/es/post/2017-01-08-scale-kafka-containers/</guid>
+            <description>&lt;p&gt;En este post mostraré como utilizar contenedores Docker para crear y escalar
+un clúster de Kafka, y también como crear, escalar y mover &lt;code&gt;topics&lt;/code&gt; dentro del
+clúster.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Repositorio: &lt;a href=&#34;https://github.com/jeqo/post-scale-kafka-containers&#34;&gt;https://github.com/jeqo/post-scale-kafka-containers&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;clúster-de-un-nodo&#34;&gt;Clúster de un nodo&lt;/h1&gt;
+
+&lt;p&gt;Primero, comenzaremos con la forma más sencilla de utilizar Docker, que puede
+ser útil y suficiente para algunos escenarios de desarrollo: un &lt;strong&gt;clúster con
+un nodo&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;La arquitectura de &lt;em&gt;Apache Kafka&lt;/em&gt; esta basada en 2 components principales:
+El propio &lt;em&gt;servidor de Apache Kakfa&lt;/em&gt;, y el &lt;em&gt;servidor de Apache Zookeeper&lt;/em&gt;,
+utilizado por Kafka para su coordinación interna.&lt;/p&gt;
+
+&lt;p&gt;Es por eso que un clúster de nodo simple require por lo menos de un par de
+procesos.&lt;/p&gt;
+
+&lt;p&gt;Si hablamos en terminos y prácticas de &lt;code&gt;contenedores&lt;/code&gt;, estos processos deberían
+ejecutarse en dos contenedores diferentes.&lt;/p&gt;
+
+&lt;p&gt;La forma más sencilla de definir estos procesos en Docker, es con
+servicios de &lt;code&gt;Docker Compose&lt;/code&gt;, como están definidos en el archivo
+&lt;code&gt;kafka-cluster/docker-compose.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Usaré un par de imagenes. Son bastante simples, y el código fuente se encuentra
+aquí:
+&lt;a href=&#34;https://github.com/jeqo/docker-image-apache-kafka&#34;&gt;Apache Kafka&lt;/a&gt;,
+&lt;a href=&#34;https://github.com/jeqo/docker-image-apache-zookeeper&#34;&gt;Apache Zookeeper&lt;/a&gt;, and
+&lt;a href=&#34;https://github.com/jeqo/docker-image-confluent-platform&#34;&gt;Confluent Platform&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
+services:
+  kafka:
+    image: jeqo/apache-kafka:0.10.1.0-2.11
+    links:
+      - zookeeper
+  zookeeper:
+    image: jeqo/apache-zookeeper:3.4.8
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Esta configuración define 2 servicios: &lt;code&gt;kafka&lt;/code&gt; y &lt;code&gt;zookeeper&lt;/code&gt;. El &lt;code&gt;link&lt;/code&gt; del&lt;br /&gt;
+servicio &lt;code&gt;kafka&lt;/code&gt; y su variable de entorno &lt;code&gt;ZOOKEEPER_CONNECT&lt;/code&gt;
+configuran el acceso desde &lt;code&gt;kafka&lt;/code&gt; hacia el servicio &lt;code&gt;zookeeper&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Si probamos iniciar los servicios con el comando &lt;code&gt;docker-compose up -d&lt;/code&gt;,
+Docker Compose creará una red donde estos servicios se podrán comunicar.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
+Creating network &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;kafkacluster_default&amp;quot;&lt;/span&gt; with the default driver
+Creating kafkacluster_zookeeper_1
+Creating kafkacluster_kafka_1
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Si queremos acceder a estos servicios desde nuestra aplicación (también
+  definida en Docker Compose) lo podemos hacer de la siguiente manera:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
+services:
+  kafka:
+    image: jeqo/apache-kafka-client:0.10.1.0-2.11
+    command: sleep infinity
+    networks:
+      - default
+      - kafkacluster_default &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;#(2)&lt;/span&gt;
+networks: &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;#(1)&lt;/span&gt;
+  kafkacluster_default:
+    external: true
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Aquí definimos primero una red externa &lt;code&gt;external network&lt;/code&gt; llamada &lt;code&gt;singlenodekafkacluster_default&lt;/code&gt;
+que nos permite acceder a la red del clúster de kafka.
+Luego agregamos esta red a los servicios que requieren acceso, en este caso
+el servicio &lt;code&gt;client&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Para probar el acceso desde el cliente, primero iniciemos el servicio con
+&lt;code&gt;docker-compose up -d&lt;/code&gt; y luego nos conectamos al servicio:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
+&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/kafka-console-producer.sh --broker-list kafka:9092 --topic topic1&lt;/span&gt;
+&lt;span style=&#34;color: #008000&#34;&gt;test&lt;/span&gt;
+&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/kafka-topics.sh --zookeeper zookeeper:2181 --list      &lt;/span&gt;
+topic1
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1 id=&#34;clúster-multi-nodo&#34;&gt;Clúster Multi-Nodo&lt;/h1&gt;
+
+&lt;p&gt;Una vez creado nuestro clúster, escalar nuestro contenedor de ´kafka´
+es tan sencillo como utilizar el comando &lt;code&gt;scale&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;3
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Este comando creará dos contenedores adicionales:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;3
+Creating and starting kafkacluster_kafka_2 ... &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;done&lt;/span&gt;
+Creating and starting kafkacluster_kafka_3 ... &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Para nosotros, como desarrolladores(as) de aplicaciones, solo necesitamos
+saber uno de los host o IPs de los &lt;code&gt;broker&lt;/code&gt; (nodo del clúster de Kafka),
+para conectarnos al clúster. O también podemos usar el nombre del servicio.&lt;/p&gt;
+
+&lt;p&gt;Como la documentación especifíca, el cliente (p.ejem: &lt;code&gt;productor&lt;/code&gt; o &lt;code&gt;consumidor&lt;/code&gt;)
+solo utilizará este dato para iniciar la conexión y obtener la lista completa de
+&lt;code&gt;brokers&lt;/code&gt; del clúster. Esto significa que la escalabilidad de Kafka es
+transparente para nuestra aplicación.&lt;/p&gt;
+
+&lt;p&gt;Para validar que todos los brokers son parte del clúster, usaremos el client
+de Zookeeper.&lt;/p&gt;
+
+&lt;p&gt;Desde el contenedor cliente:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
+&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/zookeeper-shell.sh zookeeper:2181&lt;/span&gt;
+ls /brokers/ids
+&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;1003, 1002, 1001&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1 id=&#34;escalando-topics&#34;&gt;Escalando Topics&lt;/h1&gt;
+
+&lt;p&gt;En Kafka, los &lt;code&gt;Topics&lt;/code&gt; son distribuidos en &lt;code&gt;Partitions&lt;/code&gt;. Las &lt;code&gt;Particiones&lt;/code&gt;
+permiten la &lt;strong&gt;escalabilidad&lt;/strong&gt;, haciendo posible que los &lt;code&gt;Topics&lt;/code&gt; quepan en
+varios nodos; y &lt;strong&gt;paralelismo&lt;/strong&gt;, dejando que distintas instancias de un mismo
+&lt;strong&gt;Grupo de Consumidores&lt;/strong&gt; puedan consumir messages en paralelo.&lt;/p&gt;
+
+&lt;p&gt;Aparte de este beneficio, Kafka tiene la habilidad de &lt;strong&gt;replicar&lt;/strong&gt; estas
+&lt;code&gt;Particiones&lt;/code&gt;, logrando alta disponibilidad. En este case, si tienes varias &lt;code&gt;replicas&lt;/code&gt;
+de una &lt;code&gt;partición&lt;/code&gt;, una será la partición &lt;code&gt;líder&lt;/code&gt; y las demás replicas serán
+&lt;code&gt;seguidoras&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;agregando-nuevos-topics-al-clúster&#34;&gt;Agregando nuevos &lt;code&gt;Topics&lt;/code&gt; al clúster&lt;/h2&gt;
+
+&lt;p&gt;Una vez que el clúster tiene mayor número de nodos, Kafka no utilizará estos
+nuevos nodos hasta que nuevos tópicos sean creados.&lt;/p&gt;
+
+&lt;p&gt;Veamos como probamos esto:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Iniciemos un clúster simple, con un solo nodo&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://asciinema.org/a/9xzqgicktaqhzp1fofjk9ejgm.js&#34; id=&#34;asciicast-9xzqgicktaqhzp1fofjk9ejgm&#34; async&gt;&lt;/script&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Luego iniciemos un cliente, y creemos un topic &lt;code&gt;topic1&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://asciinema.org/a/2schnuetb24mjx6txopew51hc.js&#34; id=&#34;asciicast-2schnuetb24mjx6txopew51hc&#34; async&gt;&lt;/script&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Escalemos el clúster a 3 nodos&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://asciinema.org/a/ahibdzz7xt67q53sc5ert6qdp.js&#34; id=&#34;asciicast-ahibdzz7xt67q53sc5ert6qdp&#34; async&gt;&lt;/script&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Agregemos topics para ocupar los demás brokers&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Usando múltiples particiones:&lt;/p&gt;
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://asciinema.org/a/enq2czkpgdf0tbf3u6fwir3ml.js&#34; id=&#34;asciicast-enq2czkpgdf0tbf3u6fwir3ml&#34; async&gt;&lt;/script&gt;
+
+&lt;p&gt;O usando varias réplicas:&lt;/p&gt;
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://asciinema.org/a/f0u67h5ufiz4zkup84a1t8t5g.js&#34; id=&#34;asciicast-f0u67h5ufiz4zkup84a1t8t5g&#34; async&gt;&lt;/script&gt;
+
+&lt;p&gt;Para decidir que &lt;code&gt;factor de replicación&lt;/code&gt; utilizar o cuantas  &lt;code&gt;particiones&lt;/code&gt;,
+depende de cada caso de uso. Estos temas merecen su propio post.&lt;/p&gt;
+
+&lt;h2 id=&#34;expandiendo-topics-en-el-clúster&#34;&gt;Expandiendo &lt;code&gt;Topics&lt;/code&gt; en el clúster&lt;/h2&gt;
+
+&lt;p&gt;Expandir topics en el clúster significa mover &lt;code&gt;topics&lt;/code&gt; y &lt;code&gt;particiones&lt;/code&gt;
+una vez que se tengan más &lt;code&gt;brokers&lt;/code&gt; en el &lt;code&gt;clúster&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Esto se puede realizar en 3 pasos:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Identificar que &lt;code&gt;topics&lt;/code&gt; se quieren mover a un nuevo &lt;code&gt;broker&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Generar el plan de reasignación. Esto se puede realizar de forma automática
+o manual, si se sabe cómo redistribuir los topics.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Ejecutar el plan de reasignación.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Estos pasos se encuentran documentados aquí: &lt;a href=&#34;http://kafka.apache.org/documentation/#basic_ops_cluster_expansion&#34;&gt;http://kafka.apache.org/documentation/#basic_ops_cluster_expansion&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;He automatizado un poco los pasos con unos script en Ansible:&lt;/p&gt;
+
+&lt;p&gt;Dentro del archivo &lt;code&gt;playbooks/prepare-reassignment.yml&lt;/code&gt; hay dos variables a definir:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;vars:
+  topics:
+    - topic1
+  broker_list: 1003
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Estas prepararán un plan para mover el topic &lt;code&gt;topic1&lt;/code&gt; al &lt;code&gt;broker&lt;/code&gt; con id &lt;code&gt;1003&lt;/code&gt;.&lt;/p&gt;
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://asciinema.org/a/c6332x8t7yumpj65ie4qudgem.js&#34; id=&#34;asciicast-c6332x8t7yumpj65ie4qudgem&#34; async&gt;&lt;/script&gt;
+
+&lt;p&gt;Puedes copiar ese JSON generado en &lt;code&gt;playbooks/reassign-topic-plan.json&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;version&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt;,
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;partitions&amp;quot;&lt;/span&gt;:[{&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;topic&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;topic1&amp;quot;&lt;/span&gt;,&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;partition&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;replicas&amp;quot;&lt;/span&gt;:[&lt;span style=&#34;color: #666666&#34;&gt;1003&lt;/span&gt;]}]
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Y ejecutar el otro playbook: &lt;code&gt;playbooks/execute-reassignment.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://asciinema.org/a/99308.js&#34; id=&#34;asciicast-99308&#34; async&gt;&lt;/script&gt;
+
+&lt;h1 id=&#34;confluent-platform-images&#34;&gt;Confluent Platform images&lt;/h1&gt;
+
+&lt;p&gt;Todos estos pasos se pueden ejecutar igualmente con
+&lt;a href=&#34;https://www.confluent.io/&#34;&gt;Confluent Platform&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Para ello, agregué los directorios &lt;code&gt;confluent-cluster&lt;/code&gt; y &lt;code&gt;confluent-client&lt;/code&gt; para
+poder probarlo:&lt;/p&gt;
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://asciinema.org/a/a446bixdfn3l8xqoiolmsmlqg.js&#34; id=&#34;asciicast-a446bixdfn3l8xqoiolmsmlqg&#34; async&gt;&lt;/script&gt;
+
+&lt;p&gt;Espero que este post los ayude a entender un poco más sobre los &lt;code&gt;topics&lt;/code&gt; en
+Kafka y como los &lt;code&gt;contenedores&lt;/code&gt; nos pueden ayudar a crear clústers en segundos :)&lt;/p&gt;
+
+&lt;p&gt;Y, ya saben, ejecuten &amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;es&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;.&lt;a href=&#34;https://twitter.com/apachekafka&#34;&gt;@apachekafka&lt;/a&gt; everywhere :) &lt;a href=&#34;https://t.co/AcEmkRBCpv&#34;&gt;pic.twitter.com/AcEmkRBCpv&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gwen (Chen) Shapira (@gwenshap) &lt;a href=&#34;https://twitter.com/gwenshap/status/777660752626851840&#34;&gt;19 de septiembre de 2016&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
             <title>Ansible - Provisionamiento sin agentes</title>
             <link>https://jeqo.github.io/es/post/2016-03-30-ansible-agentless-provisioning/</link>
             <pubDate>Wed, 30 Mar 2016 00:00:00 UTC</pubDate>
