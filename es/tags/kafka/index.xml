@@ -11,10 +11,10 @@
         
         <item>
             <title>Escalando Kafka con Docker Containers</title>
-            <link>https://jeqo.github.io/es/post/2017-01-08-scale-kafka-containers/</link>
+            <link>https://jeqo.github.io/es/post/2017-01-15-scale-kafka-containers/</link>
             <pubDate>Sun, 15 Jan 2017 00:00:00 UTC</pubDate>
             <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/es/post/2017-01-08-scale-kafka-containers/</guid>
+            <guid>https://jeqo.github.io/es/post/2017-01-15-scale-kafka-containers/</guid>
             <description>&lt;p&gt;En este post mostraré como utilizar contenedores Docker para crear y escalar
 un clúster de Kafka, y también como crear, escalar y mover &lt;code&gt;topics&lt;/code&gt; dentro del
 clúster.&lt;/p&gt;
