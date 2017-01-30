@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="darksimplicity">
+  <meta name="generator" content="Hugo 0.18.1" />
+  
+  
+  <base href="https://jeqo.github.io/">
+  <title>Kafka - Rewind Consumer Offsets</title>
+  <link rel="stylesheet" href="/css/style.min.css">
+
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="navbar">
+        <ul class="navbar-list" style="float:right">
+          
+        </ul>
+    </div>
+    <div class="navbar">
+        
+    </div>
+    <div class="header"><span style="font-size: 34px;">
+      <a href="https://jeqo.github.io/">@jeqo</a></span>
+      <span style="font-size:12px;">&nbsp;&nbsp;|&nbsp;&nbsp;<i>back-end development, integration, devops, etc.</i> </span></div>
+
+<div class="empty">&nbsp;</div>
+  <div class="post-title">
+    <a class="post-title-link" href="https://jeqo.github.io/post/2017-01-31-kafka-rewind-consumers-offset/">Kafka - Rewind Consumer Offsets</a>
+  </div>
+      <div class="tags">tags:</br>
+        <a class="tag-link" href="/tags/kafka">kafka </a>
+    </div>
+    <div class="content-full"><p>One of the most important features from <em>Apache Kafka</em> is how it manages
+Multiple Consumers. Each <em>Consumer Group</em> has a current <em>OffSet</em>, that
+determine at what point in a <em>Topic</em>, this <em>Consumer Group</em> has consume
+messages. So, each <em>Consumer Group</em> can manage its <em>OffSet</em> independently.</p>
+
+<p>This offers the possibility to rollback in time and reprocess messages from
+the beginning of a <em>topic</em> and regenerate the current status of the system.</p>
+
+<p>But how to do it (programmatically)?</p>
+
+<p></p>
+
+<hr />
+
+<p>Source code: <a href="https://github.com/jeqo/post-kafka-rewind-consumer-offset">https://github.com/jeqo/post-kafka-rewind-consumer-offset</a></p>
+
+<hr />
+
+<h2 id="basic-concepts">Basic Concepts</h2>
+
+<h3 id="topics-and-offsets">Topics and Offsets</h3>
+
+<p>First thing to understand to achieve Consumer Rewind, is rewind over what?
+Because <code>topics</code> are divided into <code>partitions</code>. This partitions allows
+<em>parallelism</em>, because each partitions accepts <code>writes</code> from <code>producers</code>. So,
+each partition has its own <code>offset</code>.</p>
+
+<p>Each <code>record</code> has its own <code>offset</code> that will be used by <code>consumers</code> to define
+which messages has been consumed.</p>
+
+<h3 id="consumers-and-consumer-groups">Consumers and Consumer Groups</h3>
+
+<p>Once we understand that <code>topics</code> have <code>partitions</code> and <code>offsets</code> by <code>partition</code>
+we can now understand how <code>consumers</code> and <code>consumer groups</code> work.</p>
+
+<p><code>Consumers</code> are grouped by <code>group.id</code>. This property identify you as a
+<code>consumer</code>, so the <code>broker</code> knows which was the last <code>record</code> you have
+consumed by <code>offset</code>, by <code>partition</code>.</p>
+
+<p>Before continue, let&rsquo;s show a simple Kafka Producer and Consumer with Java:</p>
+
+<p>KafkaSimpleProducer.java:</p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span><span style="color: #666666">(</span>String<span style="color: #666666">[]</span> args<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    <span style="color: #666666">...</span>
+    Properties properties <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Properties<span style="color: #666666">();</span>
+    properties<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span>ProducerConfig<span style="color: #666666">.</span><span style="color: #7D9029">BOOTSTRAP_SERVERS_CONFIG</span><span style="color: #666666">,</span> bootstrapServers<span style="color: #666666">);</span>
+    properties<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span>ProducerConfig<span style="color: #666666">.</span><span style="color: #7D9029">KEY_SERIALIZER_CLASS_CONFIG</span><span style="color: #666666">,</span> StringSerializer<span style="color: #666666">.</span><span style="color: #7D9029">class</span><span style="color: #666666">.</span><span style="color: #7D9029">getName</span><span style="color: #666666">());</span>
+    properties<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span>ProducerConfig<span style="color: #666666">.</span><span style="color: #7D9029">VALUE_SERIALIZER_CLASS_CONFIG</span><span style="color: #666666">,</span> StringSerializer<span style="color: #666666">.</span><span style="color: #7D9029">class</span><span style="color: #666666">.</span><span style="color: #7D9029">getName</span><span style="color: #666666">());</span>
+
+    Producer<span style="color: #666666">&lt;</span>String<span style="color: #666666">,</span> String<span style="color: #666666">&gt;</span> producer <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> KafkaProducer<span style="color: #666666">&lt;&gt;(</span>properties<span style="color: #666666">);</span>
+
+    IntStream<span style="color: #666666">.</span><span style="color: #7D9029">rangeClosed</span><span style="color: #666666">(1,</span> <span style="color: #666666">100)</span>
+            <span style="color: #666666">.</span><span style="color: #7D9029">boxed</span><span style="color: #666666">()</span>
+            <span style="color: #666666">.</span><span style="color: #7D9029">map</span><span style="color: #666666">(</span>number <span style="color: #666666">-&gt;</span> <span style="color: #008000; font-weight: bold">new</span> ProducerRecord<span style="color: #666666">&lt;&gt;(</span>
+                    <span style="color: #BA2121">&quot;topic-1&quot;</span><span style="color: #666666">,</span>
+                    number<span style="color: #666666">.</span><span style="color: #7D9029">toString</span><span style="color: #666666">(),</span>
+                    number<span style="color: #666666">.</span><span style="color: #7D9029">toString</span><span style="color: #666666">()))</span>
+            <span style="color: #666666">.</span><span style="color: #7D9029">map</span><span style="color: #666666">(</span>record <span style="color: #666666">-&gt;</span> producer<span style="color: #666666">.</span><span style="color: #7D9029">send</span><span style="color: #666666">(</span>record<span style="color: #666666">))</span>
+            <span style="color: #666666">.</span><span style="color: #7D9029">forEach</span><span style="color: #666666">(</span>result <span style="color: #666666">-&gt;</span> printMetadata<span style="color: #666666">(</span>result<span style="color: #666666">));</span>
+    producer<span style="color: #666666">.</span><span style="color: #7D9029">close</span><span style="color: #666666">();</span>
+<span style="color: #666666">}</span>
+</pre></div>
+
+
+<p>This will create 100 <code>records</code> in topic <code>topic-1</code>, with <code>offset</code> from 0-99</p>
+
+<h2 id="from-command-line">From Command-Line</h2>
+
+<p>In this first scenario, we will see how to manage offsets from <em>command-line</em>
+so it will give us an idea of how to implement it in our application.</p>
+
+<p>When you&rsquo;re working from the terminal, you can use <code>kafka-console-consumer</code> without
+<code>group.id</code>, a new <code>group.id</code> is generated using <code>console-consumer-${new Random().nextInt(100000)}</code>
+so unless you use the same <code>group.id</code> afterwards it would be as you create a new consumer group each time.</p>
+
+<p>By default, when you connect to a <code>topic</code> as a <code>consumer</code> with <code>console</code> you
+go to the <code>latest</code> offset, so you won&rsquo;t see any new message until new records
+arrive after you connect.</p>
+
+<p>In this case, going back to the beginning of the topic will as easy as add
+<code>--from-beginning</code> option to the command line:</p>
+
+<script type="text/javascript" src="https://asciinema.org/a/101246.js" id="asciicast-101246" async></script>
+
+<p>But, what happen if you use <code>group.id</code> property, it will only work the first time,
+but <code>offset</code> gets commited to cluster:</p>
+
+<script type="text/javascript" src="https://asciinema.org/a/101248.js" id="asciicast-101248" async></script>
+
+<script type="text/javascript" src="https://asciinema.org/a/101250.js" id="asciicast-101250" async></script>
+
+<p>So, how to go back to the beginning?</p>
+
+<p>We can use <code>--offset</code> option to with three alternatives:</p>
+
+<pre><code>--offset &lt;String: consume offset&gt;        The offset id to consume from (a non-  
+                                           negative number), or 'earliest'      
+                                           which means from beginning, or       
+                                           'latest' which means from end        
+                                           (default: latest)
+</code></pre>
+
+<script type="text/javascript" src="https://asciinema.org/a/101252.js" id="asciicast-101252" async></script>
+
+<h2 id="from-java-clients">From Java Clients</h2>
+
+<p>So, from <code>command-line</code> is pretty easy to go back in time in the log. But
+how to do it from your application?</p>
+
+<p>If you&rsquo;re using Kafka Consumers in your applications, you have to options
+(with Java):</p>
+
+<ul>
+<li><p><a href="http://kafka.apache.org/documentation/#consumerapi">Kafka Consumer API</a></p></li>
+
+<li><p><a href="http://kafka.apache.org/documentation/#streamsapi">Kafka Streams API</a></p></li>
+</ul>
+
+<p>Long story short: If you need stateful and stream processing capabilities,
+go with Kafka Streams.
+If you need simple one-by-one consumption of messages by topics, go with
+Kafka Consumer.</p>
+
+<p>At this moment this are the options to rewind offsets with these APIs:</p>
+
+<ul>
+<li><p>Kafka Consumer API support go back to the beginning of the topic, go back
+to a specific offset, and go back to a specific offset by timestamps.</p></li>
+
+<li><p>Kafka Streams API only support to go back to the earliest offset of the
+<code>input topics</code>, and is well explained by <a href="https://github.com/mjsax">Matthias J. Sax</a>
+in his post
+<a href="https://www.confluent.io/blog/data-reprocessing-with-kafka-streams-resetting-a-streams-application/">[1]</a>.</p></li>
+</ul>
+
+<p>So I will focus in programmatically options available in <code>Kafka Consumer</code>.</p>
+
+<p>A simple Consumer will look something like this:</p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span><span style="color: #666666">(</span>String<span style="color: #666666">[]</span> args<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    Properties props <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Properties<span style="color: #666666">();</span>
+    props<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;bootstrap.servers&quot;</span><span style="color: #666666">,</span> <span style="color: #BA2121">&quot;localhost:9092&quot;</span><span style="color: #666666">);</span>
+    props<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;group.id&quot;</span><span style="color: #666666">,</span> <span style="color: #BA2121">&quot;test&quot;</span><span style="color: #666666">);</span>
+    props<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;enable.auto.commit&quot;</span><span style="color: #666666">,</span> <span style="color: #BA2121">&quot;true&quot;</span><span style="color: #666666">);</span>
+    props<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;key.deserializer&quot;</span><span style="color: #666666">,</span> <span style="color: #BA2121">&quot;org.apache.kafka.common.serialization.StringDeserializer&quot;</span><span style="color: #666666">);</span>
+    props<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;value.deserializer&quot;</span><span style="color: #666666">,</span> <span style="color: #BA2121">&quot;org.apache.kafka.common.serialization.StringDeserializer&quot;</span><span style="color: #666666">);</span>
+
+    KafkaConsumer<span style="color: #666666">&lt;</span>String<span style="color: #666666">,</span> String<span style="color: #666666">&gt;</span> consumer <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> KafkaConsumer<span style="color: #666666">&lt;&gt;(</span>props<span style="color: #666666">);</span>
+    consumer<span style="color: #666666">.</span><span style="color: #7D9029">subscribe</span><span style="color: #666666">(</span>Arrays<span style="color: #666666">.</span><span style="color: #7D9029">asList</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;topic-1&quot;</span><span style="color: #666666">));</span>
+
+    <span style="color: #008000; font-weight: bold">while</span> <span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        ConsumerRecords<span style="color: #666666">&lt;</span>String<span style="color: #666666">,</span> String<span style="color: #666666">&gt;</span> records <span style="color: #666666">=</span> consumer<span style="color: #666666">.</span><span style="color: #7D9029">poll</span><span style="color: #666666">(100);</span>
+
+        <span style="color: #008000; font-weight: bold">for</span> <span style="color: #666666">(</span>ConsumerRecord<span style="color: #666666">&lt;</span>String<span style="color: #666666">,</span> String<span style="color: #666666">&gt;</span> record <span style="color: #666666">:</span> records<span style="color: #666666">)</span>
+            System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">printf</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;offset = %d, key = %s, value = %s%n&quot;</span><span style="color: #666666">,</span> record<span style="color: #666666">.</span><span style="color: #7D9029">offset</span><span style="color: #666666">(),</span> record<span style="color: #666666">.</span><span style="color: #7D9029">key</span><span style="color: #666666">(),</span> record<span style="color: #666666">.</span><span style="color: #7D9029">value</span><span style="color: #666666">());</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre></div>
+
+
+<p>This will poll each <code>100ms</code> for records and print them out.</p>
+
+<p>Now let&rsquo;s check how to rewind offsets in different scenarios. Consumer API has
+add <code>#seek</code> operations to achieve this behavior. I will show a naive way to use
+these operations using flags but it shows the point:</p>
+
+<h3 id="rewind-to-earliest-offset">Rewind to earliest offset</h3>
+
+<p>The easiest options is to go back to the beginning of the topic, that not
+always will be <code>offset=0</code>. This will depends on the <code>retention</code> policy
+option sthat will be cleaning old records based on time or size, but
+this also deserves its own post.</p>
+
+<p>To go to the beginning we can use <code>#seekToBeginning(topicPartition)</code>
+operation to go back to earliest offset:</p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #B00040">boolean</span> flag <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">while</span> <span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    ConsumerRecords<span style="color: #666666">&lt;</span>String<span style="color: #666666">,</span> String<span style="color: #666666">&gt;</span> records <span style="color: #666666">=</span> consumer<span style="color: #666666">.</span><span style="color: #7D9029">poll</span><span style="color: #666666">(100);</span>
+
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>flag<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        consumer<span style="color: #666666">.</span><span style="color: #7D9029">seekToBeginning</span><span style="color: #666666">(</span>
+            Stream<span style="color: #666666">.</span><span style="color: #7D9029">of</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">new</span> TopicPartition<span style="color: #666666">(</span><span style="color: #BA2121">&quot;topic-1&quot;</span><span style="color: #666666">,</span> <span style="color: #666666">0)).</span><span style="color: #7D9029">collect</span><span style="color: #666666">(</span>toList<span style="color: #666666">()));</span>
+        flag <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #008000; font-weight: bold">for</span> <span style="color: #666666">(</span>ConsumerRecord<span style="color: #666666">&lt;</span>String<span style="color: #666666">,</span> String<span style="color: #666666">&gt;</span> record <span style="color: #666666">:</span> records<span style="color: #666666">)</span>
+        <span style="color: #408080; font-style: italic">//Consume record</span>
+<span style="color: #666666">}</span>
+</pre></div>
+
+
+<p>Once the seek is done, we can continue our processing as before.</p>
+
+<h3 id="rewind-to-specific-offset">Rewind to specific offset</h3>
+
+<p>If we can recognized the specific record from where we need to reprocess,
+we can use <code>#seek(topicPartition, offset)</code></p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #B00040">boolean</span> flag <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">while</span> <span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    ConsumerRecords<span style="color: #666666">&lt;</span>String<span style="color: #666666">,</span> String<span style="color: #666666">&gt;</span> records <span style="color: #666666">=</span> consumer<span style="color: #666666">.</span><span style="color: #7D9029">poll</span><span style="color: #666666">(100);</span>
+
+    <span style="color: #008000; font-weight: bold">if</span><span style="color: #666666">(</span>flag<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        consumer<span style="color: #666666">.</span><span style="color: #7D9029">seek</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">new</span> TopicPartition<span style="color: #666666">(</span><span style="color: #BA2121">&quot;topic-1&quot;</span><span style="color: #666666">,</span> <span style="color: #666666">0),</span> <span style="color: #666666">90);</span>
+        flag <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #008000; font-weight: bold">for</span> <span style="color: #666666">(</span>ConsumerRecord<span style="color: #666666">&lt;</span>String<span style="color: #666666">,</span> String<span style="color: #666666">&gt;</span> record <span style="color: #666666">:</span> records<span style="color: #666666">)</span>
+        System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">printf</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;offset = %d, key = %s, value = %s%n&quot;</span><span style="color: #666666">,</span> record<span style="color: #666666">.</span><span style="color: #7D9029">offset</span><span style="color: #666666">(),</span> record<span style="color: #666666">.</span><span style="color: #7D9029">key</span><span style="color: #666666">(),</span> record<span style="color: #666666">.</span><span style="color: #7D9029">value</span><span style="color: #666666">());</span>
+<span style="color: #666666">}</span>
+</pre></div>
+
+
+<p>In this case, we will consume from <code>record</code> with <code>offset=90</code></p>
+
+<h3 id="rewind-to-offset-by-timestamps">Rewind to offset by timestamps</h3>
+
+<p>What if you don&rsquo;t know exactly the <code>offset id</code> to go back to, but you know
+you want to go back 1 hour or 10 min.</p>
+
+<p>For these, since release <code>10.1.0.1</code> (TODO validate), there are a couple of
+improvements <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-32+-+Add+timestamps+to+Kafka+message">[2]</a>
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-33+-+Add+a+time+based+log+index">[3]</a>
+were added and a new <code>seek</code> operation was added: <code>#offsetsForTimes</code>.</p>
+
+<p>Here is how to use it:</p>
+
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #B00040">boolean</span> flag <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">while</span> <span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    ConsumerRecords<span style="color: #666666">&lt;</span>String<span style="color: #666666">,</span> String<span style="color: #666666">&gt;</span> records <span style="color: #666666">=</span> consumer<span style="color: #666666">.</span><span style="color: #7D9029">poll</span><span style="color: #666666">(100);</span>
+
+    <span style="color: #008000; font-weight: bold">if</span><span style="color: #666666">(</span>flag<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        Map<span style="color: #666666">&lt;</span>TopicPartition<span style="color: #666666">,</span> Long<span style="color: #666666">&gt;</span> query <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> HashMap<span style="color: #666666">&lt;&gt;();</span>
+        query<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span>
+                <span style="color: #008000; font-weight: bold">new</span> TopicPartition<span style="color: #666666">(</span><span style="color: #BA2121">&quot;simple-topic-1&quot;</span><span style="color: #666666">,</span> <span style="color: #666666">0),</span>
+                Instant<span style="color: #666666">.</span><span style="color: #7D9029">now</span><span style="color: #666666">().</span><span style="color: #7D9029">minus</span><span style="color: #666666">(10,</span> MINUTES<span style="color: #666666">).</span><span style="color: #7D9029">toEpochMilli</span><span style="color: #666666">());</span>
+
+        Map<span style="color: #666666">&lt;</span>TopicPartition<span style="color: #666666">,</span> OffsetAndTimestamp<span style="color: #666666">&gt;</span> result <span style="color: #666666">=</span> consumer<span style="color: #666666">.</span><span style="color: #7D9029">offsetsForTimes</span><span style="color: #666666">(</span>query<span style="color: #666666">);</span>
+
+        result<span style="color: #666666">.</span><span style="color: #7D9029">entrySet</span><span style="color: #666666">()</span>
+                <span style="color: #666666">.</span><span style="color: #7D9029">stream</span><span style="color: #666666">()</span>
+                <span style="color: #666666">.</span><span style="color: #7D9029">forEach</span><span style="color: #666666">(</span>entry <span style="color: #666666">-&gt;</span> consumer<span style="color: #666666">.</span><span style="color: #7D9029">seek</span><span style="color: #666666">(</span>entry<span style="color: #666666">.</span><span style="color: #7D9029">getKey</span><span style="color: #666666">(),</span> entry<span style="color: #666666">.</span><span style="color: #7D9029">getValue</span><span style="color: #666666">().</span><span style="color: #7D9029">offset</span><span style="color: #666666">()));</span>
+
+        flag <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">false</span><span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #008000; font-weight: bold">for</span> <span style="color: #666666">(</span>ConsumerRecord<span style="color: #666666">&lt;</span>String<span style="color: #666666">,</span> String<span style="color: #666666">&gt;</span> record <span style="color: #666666">:</span> records<span style="color: #666666">)</span>
+        System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">printf</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;offset = %d, key = %s, value = %s%n&quot;</span><span style="color: #666666">,</span> record<span style="color: #666666">.</span><span style="color: #7D9029">offset</span><span style="color: #666666">(),</span> record<span style="color: #666666">.</span><span style="color: #7D9029">key</span><span style="color: #666666">(),</span> record<span style="color: #666666">.</span><span style="color: #7D9029">value</span><span style="color: #666666">());</span>
+<span style="color: #666666">}</span>
+</pre></div>
+
+
+<p>In this case, we are using a query first to get the offset inside a timestamp (10 minutes ago)
+and then using that offset to go back with <code>#seek</code> operation.</p>
+
+<p>As you can see, for each operation I have to define the specific <code>topic partition</code>
+to go back to, so this can get tricky if you have more than one partition, so I
+would recommend to use <code>#offsetsForTimes</code> in those cases to get an aligned result
+and avoid inconsistencies in your consumers.</p>
+
+<hr />
+
+<p><strong>References</strong></p>
+
+<ol>
+<li><p><a href="https://www.confluent.io/blog/data-reprocessing-with-kafka-streams-resetting-a-streams-application/">https://www.confluent.io/blog/data-reprocessing-with-kafka-streams-resetting-a-streams-application/</a></p></li>
+
+<li><p><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-32+-+Add+timestamps+to+Kafka+message">https://cwiki.apache.org/confluence/display/KAFKA/KIP-32+-+Add+timestamps+to+Kafka+message</a></p></li>
+
+<li><p><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-33+-+Add+a+time+based+log+index">https://cwiki.apache.org/confluence/display/KAFKA/KIP-33+-+Add+a+time+based+log+index</a></p></li>
+
+<li><p><a href="https://cwiki.apache.org/confluence/display/KAFKA/FAQ#FAQ-HowcanIrewindtheoffsetintheconsumer">https://cwiki.apache.org/confluence/display/KAFKA/FAQ#FAQ-HowcanIrewindtheoffsetintheconsumer</a></p></li>
+</ol>
+
+<hr /><div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'jeqoblog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+        <div class="navbar">
+        <ul class="navbar-list" style="...">
+            
+            <li class="navbar-item"><a class="navbar-link" href="https://github.com/jeqo/">GitHub</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="https://twitter.com/jeqo89">Twitter</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="index.xml">RSS</a></li>
+        </ul>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2017. @jeqo. All rights reserved. </p>
+    </div>
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-49047812-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</div>
+</body>
+</html>
+

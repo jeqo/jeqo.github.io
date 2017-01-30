@@ -10,6 +10,294 @@
         <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
         
         <item>
+            <title>Kafka - Rewind Consumer Offsets</title>
+            <link>https://jeqo.github.io/post/2017-01-31-kafka-rewind-consumers-offset/</link>
+            <pubDate>Tue, 31 Jan 2017 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2017-01-31-kafka-rewind-consumers-offset/</guid>
+            <description>&lt;p&gt;One of the most important features from &lt;em&gt;Apache Kafka&lt;/em&gt; is how it manages
+Multiple Consumers. Each &lt;em&gt;Consumer Group&lt;/em&gt; has a current &lt;em&gt;OffSet&lt;/em&gt;, that
+determine at what point in a &lt;em&gt;Topic&lt;/em&gt;, this &lt;em&gt;Consumer Group&lt;/em&gt; has consume
+messages. So, each &lt;em&gt;Consumer Group&lt;/em&gt; can manage its &lt;em&gt;OffSet&lt;/em&gt; independently.&lt;/p&gt;
+
+&lt;p&gt;This offers the possibility to rollback in time and reprocess messages from
+the beginning of a &lt;em&gt;topic&lt;/em&gt; and regenerate the current status of the system.&lt;/p&gt;
+
+&lt;p&gt;But how to do it (programmatically)?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Source code: &lt;a href=&#34;https://github.com/jeqo/post-kafka-rewind-consumer-offset&#34;&gt;https://github.com/jeqo/post-kafka-rewind-consumer-offset&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;basic-concepts&#34;&gt;Basic Concepts&lt;/h2&gt;
+
+&lt;h3 id=&#34;topics-and-offsets&#34;&gt;Topics and Offsets&lt;/h3&gt;
+
+&lt;p&gt;First thing to understand to achieve Consumer Rewind, is rewind over what?
+Because &lt;code&gt;topics&lt;/code&gt; are divided into &lt;code&gt;partitions&lt;/code&gt;. This partitions allows
+&lt;em&gt;parallelism&lt;/em&gt;, because each partitions accepts &lt;code&gt;writes&lt;/code&gt; from &lt;code&gt;producers&lt;/code&gt;. So,
+each partition has its own &lt;code&gt;offset&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Each &lt;code&gt;record&lt;/code&gt; has its own &lt;code&gt;offset&lt;/code&gt; that will be used by &lt;code&gt;consumers&lt;/code&gt; to define
+which messages has been consumed.&lt;/p&gt;
+
+&lt;h3 id=&#34;consumers-and-consumer-groups&#34;&gt;Consumers and Consumer Groups&lt;/h3&gt;
+
+&lt;p&gt;Once we understand that &lt;code&gt;topics&lt;/code&gt; have &lt;code&gt;partitions&lt;/code&gt; and &lt;code&gt;offsets&lt;/code&gt; by &lt;code&gt;partition&lt;/code&gt;
+we can now understand how &lt;code&gt;consumers&lt;/code&gt; and &lt;code&gt;consumer groups&lt;/code&gt; work.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Consumers&lt;/code&gt; are grouped by &lt;code&gt;group.id&lt;/code&gt;. This property identify you as a
+&lt;code&gt;consumer&lt;/code&gt;, so the &lt;code&gt;broker&lt;/code&gt; knows which was the last &lt;code&gt;record&lt;/code&gt; you have
+consumed by &lt;code&gt;offset&lt;/code&gt;, by &lt;code&gt;partition&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Before continue, let&amp;rsquo;s show a simple Kafka Producer and Consumer with Java:&lt;/p&gt;
+
+&lt;p&gt;KafkaSimpleProducer.java:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+    Properties properties &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; Properties&lt;span style=&#34;color: #666666&#34;&gt;();&lt;/span&gt;
+    properties&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ProducerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;BOOTSTRAP_SERVERS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; bootstrapServers&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+    properties&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ProducerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;KEY_SERIALIZER_CLASS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; StringSerializer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getName&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;());&lt;/span&gt;
+    properties&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ProducerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;VALUE_SERIALIZER_CLASS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; StringSerializer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getName&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;());&lt;/span&gt;
+
+    Producer&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; producer &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; KafkaProducer&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;properties&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+
+    IntStream&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;rangeClosed&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(1,&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;100)&lt;/span&gt;
+            &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;boxed&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt;
+            &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;map&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;number &lt;span style=&#34;color: #666666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; ProducerRecord&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;
+                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;topic-1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt;
+                    number&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;toString&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(),&lt;/span&gt;
+                    number&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;toString&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()))&lt;/span&gt;
+            &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;map&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;record &lt;span style=&#34;color: #666666&#34;&gt;-&amp;gt;&lt;/span&gt; producer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;send&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;record&lt;span style=&#34;color: #666666&#34;&gt;))&lt;/span&gt;
+            &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;forEach&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;result &lt;span style=&#34;color: #666666&#34;&gt;-&amp;gt;&lt;/span&gt; printMetadata&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;result&lt;span style=&#34;color: #666666&#34;&gt;));&lt;/span&gt;
+    producer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;close&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;();&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will create 100 &lt;code&gt;records&lt;/code&gt; in topic &lt;code&gt;topic-1&lt;/code&gt;, with &lt;code&gt;offset&lt;/code&gt; from 0-99&lt;/p&gt;
+
+&lt;h2 id=&#34;from-command-line&#34;&gt;From Command-Line&lt;/h2&gt;
+
+&lt;p&gt;In this first scenario, we will see how to manage offsets from &lt;em&gt;command-line&lt;/em&gt;
+so it will give us an idea of how to implement it in our application.&lt;/p&gt;
+
+&lt;p&gt;When you&amp;rsquo;re working from the terminal, you can use &lt;code&gt;kafka-console-consumer&lt;/code&gt; without
+&lt;code&gt;group.id&lt;/code&gt;, a new &lt;code&gt;group.id&lt;/code&gt; is generated using &lt;code&gt;console-consumer-${new Random().nextInt(100000)}&lt;/code&gt;
+so unless you use the same &lt;code&gt;group.id&lt;/code&gt; afterwards it would be as you create a new consumer group each time.&lt;/p&gt;
+
+&lt;p&gt;By default, when you connect to a &lt;code&gt;topic&lt;/code&gt; as a &lt;code&gt;consumer&lt;/code&gt; with &lt;code&gt;console&lt;/code&gt; you
+go to the &lt;code&gt;latest&lt;/code&gt; offset, so you won&amp;rsquo;t see any new message until new records
+arrive after you connect.&lt;/p&gt;
+
+&lt;p&gt;In this case, going back to the beginning of the topic will as easy as add
+&lt;code&gt;--from-beginning&lt;/code&gt; option to the command line:&lt;/p&gt;
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://asciinema.org/a/101246.js&#34; id=&#34;asciicast-101246&#34; async&gt;&lt;/script&gt;
+
+&lt;p&gt;But, what happen if you use &lt;code&gt;group.id&lt;/code&gt; property, it will only work the first time,
+but &lt;code&gt;offset&lt;/code&gt; gets commited to cluster:&lt;/p&gt;
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://asciinema.org/a/101248.js&#34; id=&#34;asciicast-101248&#34; async&gt;&lt;/script&gt;
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://asciinema.org/a/101250.js&#34; id=&#34;asciicast-101250&#34; async&gt;&lt;/script&gt;
+
+&lt;p&gt;So, how to go back to the beginning?&lt;/p&gt;
+
+&lt;p&gt;We can use &lt;code&gt;--offset&lt;/code&gt; option to with three alternatives:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;--offset &amp;lt;String: consume offset&amp;gt;        The offset id to consume from (a non-  
+                                           negative number), or &#39;earliest&#39;      
+                                           which means from beginning, or       
+                                           &#39;latest&#39; which means from end        
+                                           (default: latest)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://asciinema.org/a/101252.js&#34; id=&#34;asciicast-101252&#34; async&gt;&lt;/script&gt;
+
+&lt;h2 id=&#34;from-java-clients&#34;&gt;From Java Clients&lt;/h2&gt;
+
+&lt;p&gt;So, from &lt;code&gt;command-line&lt;/code&gt; is pretty easy to go back in time in the log. But
+how to do it from your application?&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re using Kafka Consumers in your applications, you have to options
+(with Java):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://kafka.apache.org/documentation/#consumerapi&#34;&gt;Kafka Consumer API&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://kafka.apache.org/documentation/#streamsapi&#34;&gt;Kafka Streams API&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Long story short: If you need stateful and stream processing capabilities,
+go with Kafka Streams.
+If you need simple one-by-one consumption of messages by topics, go with
+Kafka Consumer.&lt;/p&gt;
+
+&lt;p&gt;At this moment this are the options to rewind offsets with these APIs:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Kafka Consumer API support go back to the beginning of the topic, go back
+to a specific offset, and go back to a specific offset by timestamps.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Kafka Streams API only support to go back to the earliest offset of the
+&lt;code&gt;input topics&lt;/code&gt;, and is well explained by &lt;a href=&#34;https://github.com/mjsax&#34;&gt;Matthias J. Sax&lt;/a&gt;
+in his post
+&lt;a href=&#34;https://www.confluent.io/blog/data-reprocessing-with-kafka-streams-resetting-a-streams-application/&#34;&gt;[1]&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So I will focus in programmatically options available in &lt;code&gt;Kafka Consumer&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A simple Consumer will look something like this:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+    Properties props &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; Properties&lt;span style=&#34;color: #666666&#34;&gt;();&lt;/span&gt;
+    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;bootstrap.servers&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;localhost:9092&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;group.id&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;enable.auto.commit&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;key.deserializer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;org.apache.kafka.common.serialization.StringDeserializer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;value.deserializer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;org.apache.kafka.common.serialization.StringDeserializer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+
+    KafkaConsumer&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; consumer &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; KafkaConsumer&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;props&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+    consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;subscribe&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;Arrays&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;asList&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;topic-1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;));&lt;/span&gt;
+
+    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+        ConsumerRecords&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; records &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;poll&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(100);&lt;/span&gt;
+
+        &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerRecord&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; record &lt;span style=&#34;color: #666666&#34;&gt;:&lt;/span&gt; records&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
+            System&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;printf&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;offset = %d, key = %s, value = %s%n&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;offset&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;());&lt;/span&gt;
+    &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will poll each &lt;code&gt;100ms&lt;/code&gt; for records and print them out.&lt;/p&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s check how to rewind offsets in different scenarios. Consumer API has
+add &lt;code&gt;#seek&lt;/code&gt; operations to achieve this behavior. I will show a naive way to use
+these operations using flags but it shows the point:&lt;/p&gt;
+
+&lt;h3 id=&#34;rewind-to-earliest-offset&#34;&gt;Rewind to earliest offset&lt;/h3&gt;
+
+&lt;p&gt;The easiest options is to go back to the beginning of the topic, that not
+always will be &lt;code&gt;offset=0&lt;/code&gt;. This will depends on the &lt;code&gt;retention&lt;/code&gt; policy
+option sthat will be cleaning old records based on time or size, but
+this also deserves its own post.&lt;/p&gt;
+
+&lt;p&gt;To go to the beginning we can use &lt;code&gt;#seekToBeginning(topicPartition)&lt;/code&gt;
+operation to go back to earliest offset:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #B00040&#34;&gt;boolean&lt;/span&gt; flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+    ConsumerRecords&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; records &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;poll&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(100);&lt;/span&gt;
+
+    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;flag&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+        consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;seekToBeginning&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;
+            Stream&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;of&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; TopicPartition&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;topic-1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;0)).&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;collect&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;toList&lt;span style=&#34;color: #666666&#34;&gt;()));&lt;/span&gt;
+        flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+
+    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerRecord&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; record &lt;span style=&#34;color: #666666&#34;&gt;:&lt;/span&gt; records&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
+        &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;//Consume record&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Once the seek is done, we can continue our processing as before.&lt;/p&gt;
+
+&lt;h3 id=&#34;rewind-to-specific-offset&#34;&gt;Rewind to specific offset&lt;/h3&gt;
+
+&lt;p&gt;If we can recognized the specific record from where we need to reprocess,
+we can use &lt;code&gt;#seek(topicPartition, offset)&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #B00040&#34;&gt;boolean&lt;/span&gt; flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+    ConsumerRecords&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; records &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;poll&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(100);&lt;/span&gt;
+
+    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;flag&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+        consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;seek&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; TopicPartition&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;topic-1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;0),&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;90);&lt;/span&gt;
+        flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+
+    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerRecord&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; record &lt;span style=&#34;color: #666666&#34;&gt;:&lt;/span&gt; records&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
+        System&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;printf&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;offset = %d, key = %s, value = %s%n&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;offset&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;());&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In this case, we will consume from &lt;code&gt;record&lt;/code&gt; with &lt;code&gt;offset=90&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;rewind-to-offset-by-timestamps&#34;&gt;Rewind to offset by timestamps&lt;/h3&gt;
+
+&lt;p&gt;What if you don&amp;rsquo;t know exactly the &lt;code&gt;offset id&lt;/code&gt; to go back to, but you know
+you want to go back 1 hour or 10 min.&lt;/p&gt;
+
+&lt;p&gt;For these, since release &lt;code&gt;10.1.0.1&lt;/code&gt; (TODO validate), there are a couple of
+improvements &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-32+-+Add+timestamps+to+Kafka+message&#34;&gt;[2]&lt;/a&gt;
+&lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-33+-+Add+a+time+based+log+index&#34;&gt;[3]&lt;/a&gt;
+were added and a new &lt;code&gt;seek&lt;/code&gt; operation was added: &lt;code&gt;#offsetsForTimes&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here is how to use it:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #B00040&#34;&gt;boolean&lt;/span&gt; flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+    ConsumerRecords&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; records &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;poll&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(100);&lt;/span&gt;
+
+    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;flag&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+        Map&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;TopicPartition&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; Long&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; query &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; HashMap&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+        query&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;
+                &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; TopicPartition&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;simple-topic-1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;0),&lt;/span&gt;
+                Instant&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;minus&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(10,&lt;/span&gt; MINUTES&lt;span style=&#34;color: #666666&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;toEpochMilli&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;());&lt;/span&gt;
+
+        Map&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;TopicPartition&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; OffsetAndTimestamp&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; result &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;offsetsForTimes&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;query&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+
+        result&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;entrySet&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt;
+                &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;stream&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt;
+                &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;forEach&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;entry &lt;span style=&#34;color: #666666&#34;&gt;-&amp;gt;&lt;/span&gt; consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;seek&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;entry&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getKey&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(),&lt;/span&gt; entry&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getValue&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;offset&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()));&lt;/span&gt;
+
+        flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+
+    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerRecord&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; record &lt;span style=&#34;color: #666666&#34;&gt;:&lt;/span&gt; records&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
+        System&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;printf&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;offset = %d, key = %s, value = %s%n&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;offset&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;());&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In this case, we are using a query first to get the offset inside a timestamp (10 minutes ago)
+and then using that offset to go back with &lt;code&gt;#seek&lt;/code&gt; operation.&lt;/p&gt;
+
+&lt;p&gt;As you can see, for each operation I have to define the specific &lt;code&gt;topic partition&lt;/code&gt;
+to go back to, so this can get tricky if you have more than one partition, so I
+would recommend to use &lt;code&gt;#offsetsForTimes&lt;/code&gt; in those cases to get an aligned result
+and avoid inconsistencies in your consumers.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;References&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.confluent.io/blog/data-reprocessing-with-kafka-streams-resetting-a-streams-application/&#34;&gt;https://www.confluent.io/blog/data-reprocessing-with-kafka-streams-resetting-a-streams-application/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-32+-+Add+timestamps+to+Kafka+message&#34;&gt;https://cwiki.apache.org/confluence/display/KAFKA/KIP-32+-+Add+timestamps+to+Kafka+message&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-33+-+Add+a+time+based+log+index&#34;&gt;https://cwiki.apache.org/confluence/display/KAFKA/KIP-33+-+Add+a+time+based+log+index&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/FAQ#FAQ-HowcanIrewindtheoffsetintheconsumer&#34;&gt;https://cwiki.apache.org/confluence/display/KAFKA/FAQ#FAQ-HowcanIrewindtheoffsetintheconsumer&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;</description>
+        </item>
+        
+        <item>
             <title>Scaling Kafka with Docker Containers</title>
             <link>https://jeqo.github.io/post/2017-01-15-scale-kafka-containers/</link>
             <pubDate>Sun, 15 Jan 2017 00:00:00 UTC</pubDate>

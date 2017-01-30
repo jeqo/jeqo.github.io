@@ -39,6 +39,23 @@
 
 <div class="empty">&nbsp;</div>
   <div class="post-title">
+    <a class="post-title-link" href="https://jeqo.github.io/post/2017-01-31-kafka-rewind-consumers-offset/">Kafka - Rewind Consumer Offsets</a>
+  </div>
+      <div class="tags">tags:</br>
+        <a class="tag-link" href="/tags/kafka">kafka </a></div>
+    <div class="content-tags"><p><p>One of the most important features from <em>Apache Kafka</em> is how it manages
+Multiple Consumers. Each <em>Consumer Group</em> has a current <em>OffSet</em>, that
+determine at what point in a <em>Topic</em>, this <em>Consumer Group</em> has consume
+messages. So, each <em>Consumer Group</em> can manage its <em>OffSet</em> independently.</p>
+
+<p>This offers the possibility to rollback in time and reprocess messages from
+the beginning of a <em>topic</em> and regenerate the current status of the system.</p>
+
+<p>But how to do it (programmatically)?</p>
+
+<p></p></p></div>
+<div class="empty">&nbsp;</div>
+  <div class="post-title">
     <a class="post-title-link" href="https://jeqo.github.io/post/2017-01-15-scale-kafka-containers/">Scaling Kafka with Docker Containers</a>
   </div>
       <div class="tags">tags:</br>
@@ -83,18 +100,6 @@ because of its scripting language: YAML, and its agentless architecture.</p>
 (as volume access, default size image) I researched on how to improve
 building process and I found <a href="https://packer.io/">Packer</a>
 (from the same guy that creates Vagrant).</p>
-
-<p></p></p></div>
-<div class="empty">&nbsp;</div>
-  <div class="post-title">
-    <a class="post-title-link" href="https://jeqo.github.io/post/2015-07-31-java-ee-rxjava-kafka-avro/">Integrate Java EE 7 and Kafka using Avro and RxJava</a>
-  </div>
-      <div class="tags">tags:</br>
-        <a class="tag-link" href="/tags/java-ee">java ee </a><a class="tag-link" href="/tags/kafka">kafka </a><a class="tag-link" href="/tags/avro">avro </a><a class="tag-link" href="/tags/rx">rx </a></div>
-    <div class="content-tags"><p><p>I decided to implement a naive integration between Java EE applications and
-RxJava/Kafka/Avro, to publish and subscribe to events.</p>
-
-<p>You can go directly to that <a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro">code</a>, or check my approach:</p>
 
 <p></p></p></div>
     
