@@ -44,12 +44,13 @@
       <div class="tags">tags:</br>
         <a class="tag-link" href="/tags/kafka">kafka </a></div>
     <div class="content-tags"><p><p>One of the most important features from <em>Apache Kafka</em> is how it manages
-Multiple Consumers. Each <em>Consumer Group</em> has a current <em>OffSet</em>, that
-determine at what point in a <em>Topic</em>, this <em>Consumer Group</em> has consume
-messages. So, each <em>Consumer Group</em> can manage its <em>OffSet</em> independently.</p>
+Multiple Consumers. Each <code>consumer Group</code> has a current <code>offset</code>, that
+determine at what point in a <code>topic</code> this <code>consumer group</code> has consume
+messages. So, each <code>consumer group</code> can manage its <code>offset</code> independently,
+by <code>partition</code>.</p>
 
 <p>This offers the possibility to rollback in time and reprocess messages from
-the beginning of a <em>topic</em> and regenerate the current status of the system.</p>
+the beginning of a <code>topic</code> and regenerate the current status of the system.</p>
 
 <p>But how to do it (programmatically)?</p>
 

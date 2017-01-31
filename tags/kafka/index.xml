@@ -16,12 +16,13 @@
             <author>Jorge Quilcate Otoya</author>
             <guid>https://jeqo.github.io/post/2017-01-31-kafka-rewind-consumers-offset/</guid>
             <description>&lt;p&gt;One of the most important features from &lt;em&gt;Apache Kafka&lt;/em&gt; is how it manages
-Multiple Consumers. Each &lt;em&gt;Consumer Group&lt;/em&gt; has a current &lt;em&gt;OffSet&lt;/em&gt;, that
-determine at what point in a &lt;em&gt;Topic&lt;/em&gt;, this &lt;em&gt;Consumer Group&lt;/em&gt; has consume
-messages. So, each &lt;em&gt;Consumer Group&lt;/em&gt; can manage its &lt;em&gt;OffSet&lt;/em&gt; independently.&lt;/p&gt;
+Multiple Consumers. Each &lt;code&gt;consumer Group&lt;/code&gt; has a current &lt;code&gt;offset&lt;/code&gt;, that
+determine at what point in a &lt;code&gt;topic&lt;/code&gt; this &lt;code&gt;consumer group&lt;/code&gt; has consume
+messages. So, each &lt;code&gt;consumer group&lt;/code&gt; can manage its &lt;code&gt;offset&lt;/code&gt; independently,
+by &lt;code&gt;partition&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;This offers the possibility to rollback in time and reprocess messages from
-the beginning of a &lt;em&gt;topic&lt;/em&gt; and regenerate the current status of the system.&lt;/p&gt;
+the beginning of a &lt;code&gt;topic&lt;/code&gt; and regenerate the current status of the system.&lt;/p&gt;
 
 &lt;p&gt;But how to do it (programmatically)?&lt;/p&gt;
 
@@ -37,13 +38,12 @@ the beginning of a &lt;em&gt;topic&lt;/em&gt; and regenerate the current status 
 
 &lt;h3 id=&#34;topics-and-offsets&#34;&gt;Topics and Offsets&lt;/h3&gt;
 
-&lt;p&gt;First thing to understand to achieve Consumer Rewind, is rewind over what?
-Because &lt;code&gt;topics&lt;/code&gt; are divided into &lt;code&gt;partitions&lt;/code&gt;. This partitions allows
-&lt;em&gt;parallelism&lt;/em&gt;, because each partitions accepts &lt;code&gt;writes&lt;/code&gt; from &lt;code&gt;producers&lt;/code&gt;. So,
-each partition has its own &lt;code&gt;offset&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;First thing to understand to achieve Consumer Rewind, is: rewind over what?
+Because &lt;code&gt;topics&lt;/code&gt; are divided into &lt;code&gt;partitions&lt;/code&gt;. Records sent from &lt;code&gt;Producers&lt;/code&gt;
+are balanced between them, so each partition has its own &lt;code&gt;offset&lt;/code&gt; index.&lt;/p&gt;
 
 &lt;p&gt;Each &lt;code&gt;record&lt;/code&gt; has its own &lt;code&gt;offset&lt;/code&gt; that will be used by &lt;code&gt;consumers&lt;/code&gt; to define
-which messages has been consumed.&lt;/p&gt;
+which messages has been consumed from the &lt;strong&gt;log&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;consumers-and-consumer-groups&#34;&gt;Consumers and Consumer Groups&lt;/h3&gt;
 
@@ -51,12 +51,15 @@ which messages has been consumed.&lt;/p&gt;
 we can now understand how &lt;code&gt;consumers&lt;/code&gt; and &lt;code&gt;consumer groups&lt;/code&gt; work.&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;Consumers&lt;/code&gt; are grouped by &lt;code&gt;group.id&lt;/code&gt;. This property identify you as a
-&lt;code&gt;consumer&lt;/code&gt;, so the &lt;code&gt;broker&lt;/code&gt; knows which was the last &lt;code&gt;record&lt;/code&gt; you have
+&lt;code&gt;consumer group&lt;/code&gt;, so the &lt;code&gt;broker&lt;/code&gt; knows which was the last &lt;code&gt;record&lt;/code&gt; you have
 consumed by &lt;code&gt;offset&lt;/code&gt;, by &lt;code&gt;partition&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Before continue, let&amp;rsquo;s show a simple Kafka Producer and Consumer with Java:&lt;/p&gt;
+&lt;p&gt;This partitions allows &lt;em&gt;parallelism&lt;/em&gt;, because members from a &lt;code&gt;consumer group&lt;/code&gt;
+can consume &lt;code&gt;records&lt;/code&gt; from &lt;code&gt;partitions&lt;/code&gt; independently, in parallel.&lt;/p&gt;
 
-&lt;p&gt;KafkaSimpleProducer.java:&lt;/p&gt;
+&lt;p&gt;Before continue, let&amp;rsquo;s check a simple Kafka Producer implemented with Java:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;KafkaSimpleProducer.java&lt;/code&gt;:&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
     &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
@@ -80,7 +83,7 @@ consumed by &lt;code&gt;offset&lt;/code&gt;, by &lt;code&gt;partition&lt;/code&g
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This will create 100 &lt;code&gt;records&lt;/code&gt; in topic &lt;code&gt;topic-1&lt;/code&gt;, with &lt;code&gt;offset&lt;/code&gt; from 0-99&lt;/p&gt;
+&lt;p&gt;This will create 100 &lt;code&gt;records&lt;/code&gt; in topic &lt;code&gt;topic-1&lt;/code&gt;, with &lt;code&gt;offsets&lt;/code&gt; from 0-99&lt;/p&gt;
 
 &lt;h2 id=&#34;from-command-line&#34;&gt;From Command-Line&lt;/h2&gt;
 
@@ -88,11 +91,13 @@ consumed by &lt;code&gt;offset&lt;/code&gt;, by &lt;code&gt;partition&lt;/code&g
 so it will give us an idea of how to implement it in our application.&lt;/p&gt;
 
 &lt;p&gt;When you&amp;rsquo;re working from the terminal, you can use &lt;code&gt;kafka-console-consumer&lt;/code&gt; without
-&lt;code&gt;group.id&lt;/code&gt;, a new &lt;code&gt;group.id&lt;/code&gt; is generated using &lt;code&gt;console-consumer-${new Random().nextInt(100000)}&lt;/code&gt;
-so unless you use the same &lt;code&gt;group.id&lt;/code&gt; afterwards it would be as you create a new consumer group each time.&lt;/p&gt;
+&lt;code&gt;group.id&lt;/code&gt;, a new &lt;code&gt;group.id&lt;/code&gt; is generated using:
+&lt;code&gt;console-consumer-${new Random().nextInt(100000)}&lt;/code&gt;.
+So unless you use the same &lt;code&gt;group.id&lt;/code&gt; afterwards, it would be as you create a
+new consumer group each time.&lt;/p&gt;
 
-&lt;p&gt;By default, when you connect to a &lt;code&gt;topic&lt;/code&gt; as a &lt;code&gt;consumer&lt;/code&gt; with &lt;code&gt;console&lt;/code&gt; you
-go to the &lt;code&gt;latest&lt;/code&gt; offset, so you won&amp;rsquo;t see any new message until new records
+&lt;p&gt;By default, when you connect to a &lt;code&gt;topic&lt;/code&gt; as a &lt;code&gt;consumer&lt;/code&gt;, you
+go to the &lt;em&gt;latest&lt;/em&gt; &lt;code&gt;offset&lt;/code&gt;, so you won&amp;rsquo;t see any new message until new records
 arrive after you connect.&lt;/p&gt;
 
 &lt;p&gt;In this case, going back to the beginning of the topic will as easy as add
@@ -151,17 +156,17 @@ in his post
 &lt;a href=&#34;https://www.confluent.io/blog/data-reprocessing-with-kafka-streams-resetting-a-streams-application/&#34;&gt;[1]&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;So I will focus in programmatically options available in &lt;code&gt;Kafka Consumer&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;So I will focus in options available in &lt;code&gt;Kafka Consumer&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;A simple Consumer will look something like this:&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
     Properties props &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; Properties&lt;span style=&#34;color: #666666&#34;&gt;();&lt;/span&gt;
-    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;bootstrap.servers&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;localhost:9092&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
-    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;group.id&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
-    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;enable.auto.commit&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
-    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;key.deserializer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;org.apache.kafka.common.serialization.StringDeserializer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
-    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;value.deserializer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;org.apache.kafka.common.serialization.StringDeserializer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;BOOTSTRAP_SERVERS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; bootstrapServers&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;GROUP_ID_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;ENABLE_AUTO_COMMIT_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;KEY_DESERIALIZER_CLASS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;org.apache.kafka.common.serialization.StringDeserializer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;VALUE_DESERIALIZER_CLASS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;org.apache.kafka.common.serialization.StringDeserializer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
 
     KafkaConsumer&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; consumer &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; KafkaConsumer&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;props&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
     consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;subscribe&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;Arrays&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;asList&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;topic-1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;));&lt;/span&gt;
@@ -176,17 +181,18 @@ in his post
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This will poll each &lt;code&gt;100ms&lt;/code&gt; for records and print them out.&lt;/p&gt;
+&lt;p&gt;This will poll each &lt;code&gt;100ms&lt;/code&gt; for records and print them out.  In this case
+it should print 100 records.&lt;/p&gt;
 
-&lt;p&gt;Now let&amp;rsquo;s check how to rewind offsets in different scenarios. Consumer API has
+&lt;p&gt;Now let&amp;rsquo;s check how to rewind &lt;code&gt;offsets&lt;/code&gt; in different scenarios. Consumer API has
 add &lt;code&gt;#seek&lt;/code&gt; operations to achieve this behavior. I will show a naive way to use
 these operations using flags but it shows the point:&lt;/p&gt;
 
-&lt;h3 id=&#34;rewind-to-earliest-offset&#34;&gt;Rewind to earliest offset&lt;/h3&gt;
+&lt;h3 id=&#34;rewind-to-earliest-offset&#34;&gt;Rewind to earliest &lt;code&gt;offset&lt;/code&gt;&lt;/h3&gt;
 
-&lt;p&gt;The easiest options is to go back to the beginning of the topic, that not
+&lt;p&gt;The most common options is to go back to the beginning of the topic, that not
 always will be &lt;code&gt;offset=0&lt;/code&gt;. This will depends on the &lt;code&gt;retention&lt;/code&gt; policy
-option sthat will be cleaning old records based on time or size, but
+option that will be clean up old records based on time or size; but
 this also deserves its own post.&lt;/p&gt;
 
 &lt;p&gt;To go to the beginning we can use &lt;code&gt;#seekToBeginning(topicPartition)&lt;/code&gt;
@@ -209,12 +215,14 @@ operation to go back to earliest offset:&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Once the seek is done, we can continue our processing as before.&lt;/p&gt;
+&lt;p&gt;Once the seek to beginnning is done, it will reprocess all records from
+&lt;code&gt;topic=topic-1&lt;/code&gt; and &lt;code&gt;partition=0&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;rewind-to-specific-offset&#34;&gt;Rewind to specific offset&lt;/h3&gt;
+&lt;h3 id=&#34;rewind-to-specific-offset&#34;&gt;Rewind to specific &lt;code&gt;offset&lt;/code&gt;&lt;/h3&gt;
 
-&lt;p&gt;If we can recognized the specific record from where we need to reprocess,
-we can use &lt;code&gt;#seek(topicPartition, offset)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;If we can recognized the specific &lt;code&gt;record&lt;/code&gt; (by &lt;code&gt;partition&lt;/code&gt;)
+from where we need to reprocess all the log,
+we can use &lt;code&gt;#seek(topicPartition, offset)&lt;/code&gt; directly.&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #B00040&#34;&gt;boolean&lt;/span&gt; flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
 
@@ -232,17 +240,25 @@ we can use &lt;code&gt;#seek(topicPartition, offset)&lt;/code&gt;&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;In this case, we will consume from &lt;code&gt;record&lt;/code&gt; with &lt;code&gt;offset=90&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;In this case, we will consume from &lt;code&gt;record&lt;/code&gt; with &lt;code&gt;offset=90&lt;/code&gt;from
+&lt;code&gt;topic=topic-1&lt;/code&gt; and &lt;code&gt;partition=0&lt;/code&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;NOTE: It could be cumbersome to map all offsets in case that you have
+several partitions. Thats why addition of timestamps helps a lot with this.&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h3 id=&#34;rewind-to-offset-by-timestamps&#34;&gt;Rewind to offset by timestamps&lt;/h3&gt;
 
 &lt;p&gt;What if you don&amp;rsquo;t know exactly the &lt;code&gt;offset id&lt;/code&gt; to go back to, but you know
-you want to go back 1 hour or 10 min.&lt;/p&gt;
+you want to go back 1 hour or 10 min?&lt;/p&gt;
 
-&lt;p&gt;For these, since release &lt;code&gt;10.1.0.1&lt;/code&gt; (TODO validate), there are a couple of
+&lt;p&gt;For these, since release &lt;code&gt;0.10.1.0&lt;/code&gt;, there are a couple of
 improvements &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-32+-+Add+timestamps+to+Kafka+message&#34;&gt;[2]&lt;/a&gt;
 &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-33+-+Add+a+time+based+log+index&#34;&gt;[3]&lt;/a&gt;
-were added and a new &lt;code&gt;seek&lt;/code&gt; operation was added: &lt;code&gt;#offsetsForTimes&lt;/code&gt;.&lt;/p&gt;
+were added and a new operation was added to &lt;code&gt;Kafka Consumer API&lt;/code&gt;: &lt;code&gt;#offsetsForTimes&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Here is how to use it:&lt;/p&gt;
 
@@ -279,6 +295,9 @@ and then using that offset to go back with &lt;code&gt;#seek&lt;/code&gt; operat
 to go back to, so this can get tricky if you have more than one partition, so I
 would recommend to use &lt;code&gt;#offsetsForTimes&lt;/code&gt; in those cases to get an aligned result
 and avoid inconsistencies in your consumers.&lt;/p&gt;
+
+&lt;p&gt;In the source code, I&amp;rsquo;ve added the steps to get partitions by topic that will
+help us to reproduce this steps when you have several topics.&lt;/p&gt;
 
 &lt;hr /&gt;
 

@@ -37,6 +37,25 @@
 
 <div class="empty">&nbsp;</div>
   <div class="post-title">
+    <a class="post-title-link" href="https://jeqo.github.io/es/post/2017-01-31-kafka-rewind-consumers-offset/">Kafka - Retroceder Offsets de Consumidores</a>
+  </div>
+      <div class="tags">tags:</br>
+        <a class="tag-link" href="/es/tags/kafka">kafka </a>
+    </div>
+    <div class="content-tags"><p><p>Una de las características más importantes de <em>Apache Kafka</em> es el manejo
+de múltiples consumidores. Cada <code>consumer group</code> tiene un <code>offset</code>, que
+determina hasta que punto del <code>topic</code> se encuentra consumido por <code>consumer group</code>.
+Así, cada <code>consumer group</code> puede manejar los <code>offset</code> independientemente, por
+partición.</p>
+
+<p>Esto ofrece la posibilidad de retroceder en el tiempo y reprocesar mensaje desde
+el inicio de un <code>topic</code> y regenerar el estado actual del sistema.</p>
+
+<p>Pero, cómo realizar esto de forma programática?</p>
+
+<p></p></p></div>
+<div class="empty">&nbsp;</div>
+  <div class="post-title">
     <a class="post-title-link" href="https://jeqo.github.io/es/post/2017-01-15-scale-kafka-containers/">Escalando Kafka con Docker Containers</a>
   </div>
       <div class="tags">tags:</br>
@@ -78,16 +97,6 @@ También he movido el directory OracleSOA que cree sobre el repositorio de Oracl
 Puedes ir directamente al código, o revisar el enfoque que apliqué:
 TL;DR He estado realizando alguna pruebas de concepto con Kafka seducido por los beneficios que propone (rapidez, escalabilidad, y funcionar como una fuente de eventos durable) para implementar una propagación de eventos usando el patrón &ldquo;Publish/Subscribe&rdquo;.
 En estos momentos que estoy escribiendo esta entrada del blog, me he dado cuenta que las APIs para acceder a Kafka están en constante evolución y volviéndose más simples de utilizar, y no ha sido fácil encontrar un ejemplo con la versión actual.</p></div>
-<div class="empty">&nbsp;</div>
-  <div class="post-title">
-    <a class="post-title-link" href="https://jeqo.github.io/es/post/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/">Oracle Fusion Middleware Chef Cookbook - Nueva versión!</a>
-  </div>
-      <div class="tags">tags:</br>
-        <a class="tag-link" href="/es/tags/oracle">oracle </a><a class="tag-link" href="/es/tags/soa">soa </a><a class="tag-link" href="/es/tags/chef">chef </a>
-    </div>
-    <div class="content-tags"><p>Ayer cargué una nueva versión (0.2.0) de mi Oracle Fusion Middleware Cookbook compartido en Chef Supermarket
-Este nuevo release incluye:
- Soporte para la instalación de Oracle SOA Suite 12c Quickstart Soporte para la instalación y creación de dominios con Oracle SOA/OSB Suite 11g  Pueden encontrar ejemplos de uso en este repositorio: https://github.com/jeqo/chef-repo</p></div>
 <div class="empty">&nbsp;</div>
 <div class="pagination">
   <nav role="pagination" class="post-list-pagination">

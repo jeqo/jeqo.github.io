@@ -8,7 +8,7 @@
   
   
   <base href="https://jeqo.github.io/">
-  <title>Kafka - Rewind Consumer Offsets</title>
+  <title>Kafka - Retroceder Offsets de Consumidores</title>
   <link rel="stylesheet" href="/css/style.min.css">
 
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
@@ -25,65 +25,64 @@
         
         <ul class="navbar-list" style="float:right">
             
-            <li class="navbar-item"><a class="navbar-link" href="https://jeqo.github.io/es/post/2017-01-31-kafka-rewind-consumers-offset/">es</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="https://jeqo.github.io/post/2017-01-31-kafka-rewind-consumers-offset/">en</a></li>
             
         </ul>
         
     </div>
     <div class="header"><span style="font-size: 34px;">
       <a href="https://jeqo.github.io/">@jeqo</a></span>
-      <span style="font-size:12px;">&nbsp;&nbsp;|&nbsp;&nbsp;<i>back-end development, integration, devops, etc.</i> </span></div>
+      <span style="font-size:12px;">&nbsp;&nbsp;|&nbsp;&nbsp;<i>desarrollo de &#39;back-end&#39;, integración, &#39;devops&#39;, etc.</i> </span></div>
 
 <div class="empty">&nbsp;</div>
   <div class="post-title">
-    <a class="post-title-link" href="https://jeqo.github.io/post/2017-01-31-kafka-rewind-consumers-offset/">Kafka - Rewind Consumer Offsets</a>
+    <a class="post-title-link" href="https://jeqo.github.io/es/post/2017-01-31-kafka-rewind-consumers-offset/">Kafka - Retroceder Offsets de Consumidores</a>
   </div>
       <div class="tags">tags:</br>
-        <a class="tag-link" href="/tags/kafka">kafka </a>
+        <a class="tag-link" href="/es/tags/kafka">kafka </a>
     </div>
-    <div class="content-full"><p>One of the most important features from <em>Apache Kafka</em> is how it manages
-Multiple Consumers. Each <code>consumer Group</code> has a current <code>offset</code>, that
-determine at what point in a <code>topic</code> this <code>consumer group</code> has consume
-messages. So, each <code>consumer group</code> can manage its <code>offset</code> independently,
-by <code>partition</code>.</p>
+    <div class="content-full"><p>Una de las características más importantes de <em>Apache Kafka</em> es el manejo
+de múltiples consumidores. Cada <code>consumer group</code> tiene un <code>offset</code>, que
+determina hasta que punto del <code>topic</code> se encuentra consumido por <code>consumer group</code>.
+Así, cada <code>consumer group</code> puede manejar los <code>offset</code> independientemente, por
+partición.</p>
 
-<p>This offers the possibility to rollback in time and reprocess messages from
-the beginning of a <code>topic</code> and regenerate the current status of the system.</p>
+<p>Esto ofrece la posibilidad de retroceder en el tiempo y reprocesar mensaje desde
+el inicio de un <code>topic</code> y regenerar el estado actual del sistema.</p>
 
-<p>But how to do it (programmatically)?</p>
+<p>Pero, cómo realizar esto de forma programática?</p>
 
 <p></p>
 
 <hr />
 
-<p>Source code: <a href="https://github.com/jeqo/post-kafka-rewind-consumer-offset">https://github.com/jeqo/post-kafka-rewind-consumer-offset</a></p>
+<p>Código fuente: <a href="https://github.com/jeqo/post-kafka-rewind-consumer-offset">https://github.com/jeqo/post-kafka-rewind-consumer-offset</a></p>
 
 <hr />
 
-<h2 id="basic-concepts">Basic Concepts</h2>
+<h2 id="conceptos-básicos">Conceptos Básicos</h2>
 
-<h3 id="topics-and-offsets">Topics and Offsets</h3>
+<h3 id="topics-y-offsets">Topics y Offsets</h3>
 
-<p>First thing to understand to achieve Consumer Rewind, is: rewind over what?
-Because <code>topics</code> are divided into <code>partitions</code>. Records sent from <code>Producers</code>
-are balanced between them, so each partition has its own <code>offset</code> index.</p>
+<p>Lo primero por entender para lograr retroceder los consumidores en Kafka es:
+retroceder sobre qué? Cada <code>topic</code> esta dividido en <code>partitions</code>. Los
+registros enviados por los <code>Producers</code> son balanceados entre las <code>partitions</code>,
+así cada partición tiene su propio índice de <code>offsets</code>.</p>
 
-<p>Each <code>record</code> has its own <code>offset</code> that will be used by <code>consumers</code> to define
-which messages has been consumed from the <strong>log</strong>.</p>
+<p>Cada <code>record</code> tiene un <code>offset</code> asignado que será usado por los <code>consumers</code>
+para definir qué mensajes han sido consumidos del <strong>log</strong>.</p>
 
-<h3 id="consumers-and-consumer-groups">Consumers and Consumer Groups</h3>
+<h3 id="consumers-y-consumer-groups">Consumers y Consumer Groups</h3>
 
-<p>Once we understand that <code>topics</code> have <code>partitions</code> and <code>offsets</code> by <code>partition</code>
-we can now understand how <code>consumers</code> and <code>consumer groups</code> work.</p>
+<p>Una vez entendido que los <code>topics</code> tienen <code>partitions</code> y <code>offsets</code> por <code>partition</code>
+podemos pasar a definir como trabajan los <code>consumers</code> y <code>consumer groups</code>.</p>
 
-<p><code>Consumers</code> are grouped by <code>group.id</code>. This property identify you as a
-<code>consumer group</code>, so the <code>broker</code> knows which was the last <code>record</code> you have
-consumed by <code>offset</code>, by <code>partition</code>.</p>
+<p><code>Consumers</code> están agrupados por <code>group.id</code>. Ésta propiedad identifica a cada<br />
+<code>consumer group</code>, así el <code>broker</code> conoce cúal fue el último <code>record</code> consumido
+por <code>offset</code>, por <code>partition</code>.</p>
 
-<p>This partitions allows <em>parallelism</em>, because members from a <code>consumer group</code>
-can consume <code>records</code> from <code>partitions</code> independently, in parallel.</p>
-
-<p>Before continue, let&rsquo;s check a simple Kafka Producer implemented with Java:</p>
+<p>Antes de continuar, revisemos la clase que funcionará como un <code>Kafka Consumer</code>
+simple implementado en Java:</p>
 
 <p><code>KafkaSimpleProducer.java</code>:</p>
 
@@ -109,38 +108,41 @@ can consume <code>records</code> from <code>partitions</code> independently, in 
 </pre></div>
 
 
-<p>This will create 100 <code>records</code> in topic <code>topic-1</code>, with <code>offsets</code> from 0-99</p>
+<p>Este <code>producer</code> creará 100 <code>records</code> en el topic <code>topic-1</code>, con <code>offsets</code>
+de <code>0</code> a <code>99</code>.</p>
 
-<h2 id="from-command-line">From Command-Line</h2>
+<h2 id="desde-línea-de-comandos">Desde Línea de Comandos</h2>
 
-<p>In this first scenario, we will see how to manage offsets from <em>command-line</em>
-so it will give us an idea of how to implement it in our application.</p>
+<p>En este primer escenario revisaremos como manejar los offsets de <code>consumers</code>
+desde <em>línea de comandos</em>, para tener una idea de como implementarlo en
+nuestra aplicación.</p>
 
-<p>When you&rsquo;re working from the terminal, you can use <code>kafka-console-consumer</code> without
-<code>group.id</code>, a new <code>group.id</code> is generated using:
+<p>Cuando trabajas desde un terminal, si se puede utilizar <code>kafka-console-consumer</code>
+sin <code>group.id</code> definido, un nuevo <code>group.id</code> es generado internamente:
 <code>console-consumer-${new Random().nextInt(100000)}</code>.
-So unless you use the same <code>group.id</code> afterwards, it would be as you create a
-new consumer group each time.</p>
+Así que a menos que se utilize el mismo <code>group.id</code> luego, será como si
+creara un nuevo <code>consumer group</code> cada vez que se inice un terminal con
+<code>kafka-console-consumer</code>.</p>
 
-<p>By default, when you connect to a <code>topic</code> as a <code>consumer</code>, you
-go to the <em>latest</em> <code>offset</code>, so you won&rsquo;t see any new message until new records
-arrive after you connect.</p>
+<p>Por defecto, cuando se conecta a un <code>topic</code> como un <code>consumer</code> se inicia con
+el <em>último</em> <code>offset</code>, así que no se recibirán nuevos <code>records</code> a menos que nuevos
+mensajes arriben luego de iniciada la conexión.</p>
 
-<p>In this case, going back to the beginning of the topic will as easy as add
-<code>--from-beginning</code> option to the command line:</p>
+<p>En este caso, para ir hacia el inicio del topic sería suficiente con agregar
+la opción <code>--from-beginning</code> a la línea de comandos:</p>
 
 <script type="text/javascript" src="https://asciinema.org/a/101246.js" id="asciicast-101246" async></script>
 
-<p>But, what happen if you use <code>group.id</code> property, it will only work the first time,
-but <code>offset</code> gets commited to cluster:</p>
+<p>Pero, qué pasaría si se usa la propiedad <code>group.id</code>?, La ópcion <code>--from-beginning</code>
+solo funcionaría la primera vez, ya que el <code>offset</code> sería registrado en el clúster::</p>
 
 <script type="text/javascript" src="https://asciinema.org/a/101248.js" id="asciicast-101248" async></script>
 
 <script type="text/javascript" src="https://asciinema.org/a/101250.js" id="asciicast-101250" async></script>
 
-<p>So, how to go back to the beginning?</p>
+<p>Así que, cómo se regresaría al inicio del log en este caso?</p>
 
-<p>We can use <code>--offset</code> option to with three alternatives:</p>
+<p>Podemos usar la opción <code>--offset</code> con estas tres alternativas:</p>
 
 <pre><code>--offset &lt;String: consume offset&gt;        The offset id to consume from (a non-  
                                            negative number), or 'earliest'      
@@ -151,13 +153,13 @@ but <code>offset</code> gets commited to cluster:</p>
 
 <script type="text/javascript" src="https://asciinema.org/a/101252.js" id="asciicast-101252" async></script>
 
-<h2 id="from-java-clients">From Java Clients</h2>
+<h2 id="desde-clientes-java">Desde Clientes Java</h2>
 
-<p>So, from <code>command-line</code> is pretty easy to go back in time in the log. But
-how to do it from your application?</p>
+<p>Ahora, luego de ver que desde la línea de comandos en sencillo regresar en el
+tiempo sobre el log; pero, cómo hacer éstas operaciones desde una aplicación?</p>
 
-<p>If you&rsquo;re using Kafka Consumers in your applications, you have to options
-(with Java):</p>
+<p>Si estás utilizando Kafka Consumers en tu aplicación, tienes las siguientes
+opciones (con Java):</p>
 
 <ul>
 <li><p><a href="http://kafka.apache.org/documentation/#consumerapi">Kafka Consumer API</a></p></li>
@@ -165,26 +167,28 @@ how to do it from your application?</p>
 <li><p><a href="http://kafka.apache.org/documentation/#streamsapi">Kafka Streams API</a></p></li>
 </ul>
 
-<p>Long story short: If you need stateful and stream processing capabilities,
-go with Kafka Streams.
-If you need simple one-by-one consumption of messages by topics, go with
-Kafka Consumer.</p>
+<p>Haciendo la historia corta: Si necesitas capacidades de procesar mensajes
+desde Kafka de forma <em>stateful</em> (manteniendo el estado), es recomendable
+utilizar <code>Kafka Streams API</code>.
+Si necesitas una API simple para consumir mensajes uno a uno, utiliza
+<code>Kafka Consumer API</code>.</p>
 
-<p>At this moment this are the options to rewind offsets with these APIs:</p>
+<p>Al momento de escribir este post, éstas son las opciones para hacer <em>rewind</em>
+de <code>offsets</code> desde estas APIs:</p>
 
 <ul>
-<li><p>Kafka Consumer API support go back to the beginning of the topic, go back
-to a specific offset, and go back to a specific offset by timestamps.</p></li>
+<li><p><code>Kafka Consumer API</code> soporta regresar al <em>inicio</em> de topic, ir a un
+<code>offset</code> específico, o regresar a un punto en el tiempo (timestamp).</p></li>
 
-<li><p>Kafka Streams API only support to go back to the earliest offset of the
-<code>input topics</code>, and is well explained by <a href="https://github.com/mjsax">Matthias J. Sax</a>
-in his post
+<li><p><code>Kafka Streams API</code> en este momemnto solo soporta regresar al <code>offset</code> inicial
+de los <code>input topics</code>, y se encuentra bien explicado por <a href="https://github.com/mjsax">Matthias J. Sax</a>
+en su post:
 <a href="https://www.confluent.io/blog/data-reprocessing-with-kafka-streams-resetting-a-streams-application/">[1]</a>.</p></li>
 </ul>
 
-<p>So I will focus in options available in <code>Kafka Consumer</code>.</p>
+<p>Así que me enfocaré en las opciones disponibles desde el API de <code>Kafka Consumer</code>.</p>
 
-<p>A simple Consumer will look something like this:</p>
+<p>Un consumidor simple luciría así:</p>
 
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span><span style="color: #666666">(</span>String<span style="color: #666666">[]</span> args<span style="color: #666666">)</span> <span style="color: #666666">{</span>
     Properties props <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Properties<span style="color: #666666">();</span>
@@ -207,22 +211,20 @@ in his post
 </pre></div>
 
 
-<p>This will poll each <code>100ms</code> for records and print them out.  In this case
-it should print 100 records.</p>
+<p>Este consumidor buscará por records cada <code>100ms</code> y los imprimirá en la consola.</p>
 
-<p>Now let&rsquo;s check how to rewind <code>offsets</code> in different scenarios. Consumer API has
-add <code>#seek</code> operations to achieve this behavior. I will show a naive way to use
-these operations using flags but it shows the point:</p>
+<p>Ahora veamos como regresar <code>offsets</code> en distintos escenarios. <code>Consumer API</code>
+tiene operaciones <code>#seek</code> que permiten estas funcionalidades. Mostraré una
+forma sencilla de agregar estas operaciones utilizando <code>flags</code>:</p>
 
-<h3 id="rewind-to-earliest-offset">Rewind to earliest <code>offset</code></h3>
+<h3 id="regresar-al-offset-inicial">Regresar al <code>offset</code> inicial</h3>
 
-<p>The most common options is to go back to the beginning of the topic, that not
-always will be <code>offset=0</code>. This will depends on the <code>retention</code> policy
-option that will be clean up old records based on time or size; but
-this also deserves its own post.</p>
+<p>La opción más común es regresar al inicio del <code>topic</code>, que no siempre será
+<code>offset=0</code>. Esto dependerá de la política de <code>retention</code> que removerá los
+<code>records</code> antiguos por tiempo o por tamaño del <code>topic</code>; pero este tema
+merece su propio post.</p>
 
-<p>To go to the beginning we can use <code>#seekToBeginning(topicPartition)</code>
-operation to go back to earliest offset:</p>
+<p>Para ir al inicio de <code>topic</code> usaremos la operación <code>#seekToBeginning(topicPartition)</code>:</p>
 
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #B00040">boolean</span> flag <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
 
@@ -241,14 +243,14 @@ operation to go back to earliest offset:</p>
 </pre></div>
 
 
-<p>Once the seek to beginnning is done, it will reprocess all records from
-<code>topic=topic-1</code> and <code>partition=0</code>.</p>
+<p>Una vez realizada la búsqueda del <code>offset</code> inicial, para el <code>topic=topic-1</code>
+en la <code>partition=0</code> se reprocesarán los <code>records</code> nuevamente.</p>
 
-<h3 id="rewind-to-specific-offset">Rewind to specific <code>offset</code></h3>
+<h3 id="regresar-a-un-offset-específico">Regresar a un <code>offset</code> específico</h3>
 
-<p>If we can recognized the specific <code>record</code> (by <code>partition</code>)
-from where we need to reprocess all the log,
-we can use <code>#seek(topicPartition, offset)</code> directly.</p>
+<p>Si podemos reconocer los <code>records</code> específicos (por <code>partition</code>) a los que
+necesitamos regresar para reprocesar el log, podemos utilizar
+<code>#seek(topicPartition, offset)</code> directamente.</p>
 
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #B00040">boolean</span> flag <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
 
@@ -266,27 +268,29 @@ we can use <code>#seek(topicPartition, offset)</code> directly.</p>
 </pre></div>
 
 
-<p>In this case, we will consume from <code>record</code> with <code>offset=90</code>from
-<code>topic=topic-1</code> and <code>partition=0</code>.</p>
+<p>En este casoo, retrocederemos en en <code>topic=topic-1</code> <code>partition=0</code>
+hasta el <code>record</code> con <code>offset=90</code> y reprocesaremos los siguiente <code>records</code>
+del log.</p>
 
 <hr />
 
-<p>NOTE: It could be cumbersome to map all offsets in case that you have
-several partitions. Thats why addition of timestamps helps a lot with this.</p>
+<p>NOTA: Puede resultar engorroso mapear todos los offsets por partición cuando
+tienes varias particiones. Por esto es que la adición de <code>timestamps</code> ayuda
+a resolver este tema.</p>
 
 <hr />
 
-<h3 id="rewind-to-offset-by-timestamps">Rewind to offset by timestamps</h3>
+<h3 id="regrasar-a-un-offset-por-timestamp">Regrasar a un <code>offset</code> por <code>timestamp</code></h3>
 
-<p>What if you don&rsquo;t know exactly the <code>offset id</code> to go back to, but you know
-you want to go back 1 hour or 10 min?</p>
+<p>Si no conoces exactamente el <code>offset id</code> del <code>record</code> desde donde necesitar
+reprocesar el log, pero sabes si necesitas regresar 1 hora o 10 minutos atrás
+el nuevo índice de <code>timestamp</code> puede ser útil.</p>
 
-<p>For these, since release <code>0.10.1.0</code>, there are a couple of
-improvements <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-32+-+Add+timestamps+to+Kafka+message">[2]</a>
+<p>Desde el release <code>0.10.1.0</code>, hay un par de mejoras
+<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-32+-+Add+timestamps+to+Kafka+message">[2]</a>
 <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-33+-+Add+a+time+based+log+index">[3]</a>
-were added and a new operation was added to <code>Kafka Consumer API</code>: <code>#offsetsForTimes</code>.</p>
-
-<p>Here is how to use it:</p>
+que fueron implementadas, y una nueva operación fue agregada al
+<code>Kafka Consumer API</code>: <code>#offsetsForTimes</code>:</p>
 
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #B00040">boolean</span> flag <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
 
@@ -314,20 +318,17 @@ were added and a new operation was added to <code>Kafka Consumer API</code>: <co
 </pre></div>
 
 
-<p>In this case, we are using a query first to get the offset inside a timestamp (10 minutes ago)
-and then using that offset to go back with <code>#seek</code> operation.</p>
+<p>En este caso primero estamos consultando cuál es el <code>offset</code> al que tengo que
+regresar si quiero reprocesar los <code>records</code> de hacer 10 minutos,
+y luego con el <code>offset</code> adecuado, utilizamos la operación <code>#seek</code>.</p>
 
-<p>As you can see, for each operation I have to define the specific <code>topic partition</code>
-to go back to, so this can get tricky if you have more than one partition, so I
-would recommend to use <code>#offsetsForTimes</code> in those cases to get an aligned result
-and avoid inconsistencies in your consumers.</p>
-
-<p>In the source code, I&rsquo;ve added the steps to get partitions by topic that will
-help us to reproduce this steps when you have several topics.</p>
+<p>En el código fuente se ha agregado los pasos para buscar las particiones por
+<code>topic</code>. Esto permitirá reproducir estos pasos en escenarios en los que tengamos
+más de una partición por <code>topic</code>.</p>
 
 <hr />
 
-<p><strong>References</strong></p>
+<p><strong>Referencias</strong></p>
 
 <ol>
 <li><p><a href="https://www.confluent.io/blog/data-reprocessing-with-kafka-streams-resetting-a-streams-application/">https://www.confluent.io/blog/data-reprocessing-with-kafka-streams-resetting-a-streams-application/</a></p></li>

@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jeqo.github.io/es/post/2017-01-31-kafka-rewind-consumers-offset/</loc>
+    <lastmod>2017-01-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/es/post/2017-01-15-scale-kafka-containers/</loc>
     <lastmod>2017-01-15T00:00:00+00:00</lastmod>
   </url>
@@ -48,7 +53,7 @@
   
   <url>
     <loc>https://jeqo.github.io/es/</loc>
-    <lastmod>2017-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2017-01-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -119,7 +124,7 @@
   
   <url>
     <loc>https://jeqo.github.io/es/categories/integration/</loc>
-    <lastmod>2017-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2017-01-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -131,7 +136,7 @@
   
   <url>
     <loc>https://jeqo.github.io/es/tags/kafka/</loc>
-    <lastmod>2017-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2017-01-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -155,7 +160,7 @@
   
   <url>
     <loc>https://jeqo.github.io/es/post/</loc>
-    <lastmod>2017-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2017-01-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
