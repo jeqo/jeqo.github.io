@@ -181,7 +181,7 @@ in his post
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This will poll each &lt;code&gt;100ms&lt;/code&gt; for records and print them out.  In this case
+&lt;p&gt;This will poll by &lt;code&gt;100ms&lt;/code&gt; for records and print them out.  In this case
 it should print 100 records.&lt;/p&gt;
 
 &lt;p&gt;Now let&amp;rsquo;s check how to rewind &lt;code&gt;offsets&lt;/code&gt; in different scenarios. Consumer API has

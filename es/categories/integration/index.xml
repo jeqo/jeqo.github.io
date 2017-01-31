@@ -185,7 +185,7 @@ en su post:
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Este consumidor buscará por records cada &lt;code&gt;100ms&lt;/code&gt; y los imprimirá en la consola.&lt;/p&gt;
+&lt;p&gt;Este consumidor buscará por records por &lt;code&gt;100ms&lt;/code&gt; y los imprimirá en la consola.&lt;/p&gt;
 
 &lt;p&gt;Ahora veamos como regresar &lt;code&gt;offsets&lt;/code&gt; en distintos escenarios. &lt;code&gt;Consumer API&lt;/code&gt;
 tiene operaciones &lt;code&gt;#seek&lt;/code&gt; que permiten estas funcionalidades. Mostraré una
