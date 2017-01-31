@@ -16,7 +16,7 @@
             <author>Jorge Quilcate Otoya</author>
             <guid>https://jeqo.github.io/post/2017-01-31-kafka-rewind-consumers-offset/</guid>
             <description>&lt;p&gt;One of the most important features from &lt;em&gt;Apache Kafka&lt;/em&gt; is how it manages
-Multiple Consumers. Each &lt;code&gt;consumer Group&lt;/code&gt; has a current &lt;code&gt;offset&lt;/code&gt;, that
+Multiple Consumers. Each &lt;code&gt;consumer group&lt;/code&gt; has a current &lt;code&gt;offset&lt;/code&gt;, that
 determine at what point in a &lt;code&gt;topic&lt;/code&gt; this &lt;code&gt;consumer group&lt;/code&gt; has consume
 messages. So, each &lt;code&gt;consumer group&lt;/code&gt; can manage its &lt;code&gt;offset&lt;/code&gt; independently,
 by &lt;code&gt;partition&lt;/code&gt;.&lt;/p&gt;
