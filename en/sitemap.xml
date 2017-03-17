@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jeqo.github.io/talk/from-messaging-to-logs-ougn17/</loc>
+    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/talk/scale-wls-the-k8s-way-ougn-17/</loc>
+    <lastmod>2017-03-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/post/2017-01-31-kafka-rewind-consumers-offset/</loc>
     <lastmod>2017-01-31T00:00:00+00:00</lastmod>
   </url>
@@ -68,7 +78,7 @@
   
   <url>
     <loc>https://jeqo.github.io/</loc>
-    <lastmod>2017-01-31T00:00:00+00:00</lastmod>
+    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -92,7 +102,7 @@
   
   <url>
     <loc>https://jeqo.github.io/categories/back-end/</loc>
-    <lastmod>2015-07-31T00:00:00+00:00</lastmod>
+    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -127,13 +137,25 @@
   
   <url>
     <loc>https://jeqo.github.io/categories/development/</loc>
-    <lastmod>2015-07-31T00:00:00+00:00</lastmod>
+    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jeqo.github.io/categories/devops/</loc>
     <lastmod>2017-01-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/tags/devops-k8s-weblogic-ougn/</loc>
+    <lastmod>2017-03-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/categories/devops-oracle/</loc>
+    <lastmod>2017-03-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -150,8 +172,14 @@
   </url>
   
   <url>
+    <loc>https://jeqo.github.io/tags/integration/</loc>
+    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/categories/integration/</loc>
-    <lastmod>2017-01-31T00:00:00+00:00</lastmod>
+    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -163,7 +191,7 @@
   
   <url>
     <loc>https://jeqo.github.io/tags/kafka/</loc>
-    <lastmod>2017-01-31T00:00:00+00:00</lastmod>
+    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -211,6 +239,12 @@
   
   <url>
     <loc>https://jeqo.github.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/talk/</loc>
+    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

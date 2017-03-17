@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0">
+    <channel>
+        <title>Jorge Quilcate Otoya on @jeqo</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://jeqo.github.io/talk/index.xml</link>
+        <language>en-us</language>
+        <author>Jorge Quilcate Otoya</author>
+        
+        <updated>Fri, 10 Mar 2017 00:00:00 UTC</updated>
+        
+        <item>
+            <title>From Messaging to Logs with Apache Kafka - OUGN17</title>
+            <link>https://jeqo.github.io/talk/from-messaging-to-logs-ougn17/</link>
+            <pubDate>Fri, 10 Mar 2017 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/talk/from-messaging-to-logs-ougn17/</guid>
+            <description>&lt;p&gt;Presented at OUGN 2017 (&lt;a href=&#34;http://ougn.no/varseminar-2017/&#34;&gt;http://ougn.no/varseminar-2017/&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;slides&#34;&gt;Slides&lt;/h1&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;b57a55a2c9c14049a8503e281d13959c&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;h1 id=&#34;source-code&#34;&gt;Source-Code&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jeqo/talk-kafka-messaging-logs&#34;&gt;https://github.com/jeqo/talk-kafka-messaging-logs&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Scaling WebLogic, the Kubernetes way - OUGN 2017</title>
+            <link>https://jeqo.github.io/talk/scale-wls-the-k8s-way-ougn-17/</link>
+            <pubDate>Thu, 09 Mar 2017 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/talk/scale-wls-the-k8s-way-ougn-17/</guid>
+            <description>&lt;p&gt;Presented at OUGN 2017 (&lt;a href=&#34;http://ougn.no/varseminar-2017/&#34;&gt;http://ougn.no/varseminar-2017/&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;slides&#34;&gt;Slides&lt;/h1&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;a0a61a9ec75f4a8c9a49b5756b1f5f80&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;h1 id=&#34;source-code&#34;&gt;Source-Code&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jeqo/talk-scale-wls-k8s-way&#34;&gt;https://github.com/jeqo/talk-scale-wls-k8s-way&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

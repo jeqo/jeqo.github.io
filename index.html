@@ -19,15 +19,16 @@
   <div class="wrap">
     <div class="navbar">
         <ul class="navbar-list" style="float:right">
+          <li class="navbar-item">
+              <a class="navbar-link" href="https://jeqo.github.io/post/">Blog</a>
+          </li><li class="navbar-item">
+              <a class="navbar-link" href="https://jeqo.github.io/talk/">Talks</a>
+          </li>
+          <li class="navbar-item"><a class="navbar-link">|</a></li>
           
-        </ul>
-    </div>
-    <div class="navbar">
-        
-        <ul class="navbar-list" style="float:right">
-            
-            <li class="navbar-item"><a class="navbar-link" href="https://jeqo.github.io/es/">es</a></li>
-            
+          
+          <li class="navbar-item"><a class="navbar-link" href="https://jeqo.github.io/es/">es</a></li>
+          
         </ul>
         
     </div>
@@ -41,8 +42,12 @@
   <div class="post-title">
     <a class="post-title-link" href="https://jeqo.github.io/post/2017-01-31-kafka-rewind-consumers-offset/">Kafka - Rewind Consumer Offsets</a>
   </div>
+    
       <div class="tags">tags:</br>
-        <a class="tag-link" href="/tags/kafka">kafka </a></div>
+        
+        <a class="tag-link" href="/tags/kafka">kafka </a>
+        
+      </div>
     <div class="content-tags"><p><p>One of the most important features from <em>Apache Kafka</em> is how it manages
 Multiple Consumers. Each <code>consumer group</code> has a current <code>offset</code>, that
 determine at what point in a <code>topic</code> this <code>consumer group</code> has consume
@@ -55,23 +60,43 @@ the beginning of a <code>topic</code> and regenerate the current status of the s
 <p>But how to do it (programmatically)?</p>
 
 <p></p></p></div>
+    
+  
 <div class="empty">&nbsp;</div>
   <div class="post-title">
     <a class="post-title-link" href="https://jeqo.github.io/post/2017-01-15-scale-kafka-containers/">Scaling Kafka with Docker Containers</a>
   </div>
+    
       <div class="tags">tags:</br>
-        <a class="tag-link" href="/tags/kafka">kafka </a><a class="tag-link" href="/tags/docker">docker </a></div>
+        
+        <a class="tag-link" href="/tags/kafka">kafka </a>
+        
+        <a class="tag-link" href="/tags/docker">docker </a>
+        
+      </div>
     <div class="content-tags"><p><p>In this post I will show how to use Docker containers to create and scale
 a Kafka cluster, and also how to create, scale and move <code>topics</code> inside
 the cluster.</p>
 
 <p></p></p></div>
+    
+  
 <div class="empty">&nbsp;</div>
   <div class="post-title">
     <a class="post-title-link" href="https://jeqo.github.io/post/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/">Speed up your Oracle Database provisioning with Docker and Ansible</a>
   </div>
+    
       <div class="tags">tags:</br>
-        <a class="tag-link" href="/tags/oracle">oracle </a><a class="tag-link" href="/tags/database">database </a><a class="tag-link" href="/tags/ansible">ansible </a><a class="tag-link" href="/tags/docker">docker </a></div>
+        
+        <a class="tag-link" href="/tags/oracle">oracle </a>
+        
+        <a class="tag-link" href="/tags/database">database </a>
+        
+        <a class="tag-link" href="/tags/ansible">ansible </a>
+        
+        <a class="tag-link" href="/tags/docker">docker </a>
+        
+      </div>
     <div class="content-tags"><p><p>Warming up before <a href="http://www.amis-conference.com/Program">AMIS 25th Conference</a>
 event where I will be presenting with my friend
 and colleague Arturo Viveros (@gugalnikov)
@@ -80,23 +105,43 @@ I want to share some practices that help us to provide Oracle Database instances
 between developers and improve our productivity.</p>
 
 <p></p></p></div>
+    
+  
 <div class="empty">&nbsp;</div>
   <div class="post-title">
     <a class="post-title-link" href="https://jeqo.github.io/post/2016-03-30-ansible-agentless-provisioning/">Ansible - an agentless provisioning</a>
   </div>
+    
       <div class="tags">tags:</br>
-        <a class="tag-link" href="/tags/ansible">ansible </a><a class="tag-link" href="/tags/docker">docker </a></div>
+        
+        <a class="tag-link" href="/tags/ansible">ansible </a>
+        
+        <a class="tag-link" href="/tags/docker">docker </a>
+        
+      </div>
     <div class="content-tags"><p><p>Ansible is an automation tool that is recognized for be simple and
 powerful at the same time. From my experience, I can say this is mainly
 because of its scripting language: YAML, and its agentless architecture.</p>
 
 <p></p></p></div>
+    
+  
 <div class="empty">&nbsp;</div>
   <div class="post-title">
     <a class="post-title-link" href="https://jeqo.github.io/post/2015-09-04-oracle-soa-12c-packer-docker-hub/">Oracle SOA Suite 12c Docker Image</a>
   </div>
+    
       <div class="tags">tags:</br>
-        <a class="tag-link" href="/tags/oracle">oracle </a><a class="tag-link" href="/tags/soa">soa </a><a class="tag-link" href="/tags/docker">docker </a><a class="tag-link" href="/tags/packer">packer </a></div>
+        
+        <a class="tag-link" href="/tags/oracle">oracle </a>
+        
+        <a class="tag-link" href="/tags/soa">soa </a>
+        
+        <a class="tag-link" href="/tags/docker">docker </a>
+        
+        <a class="tag-link" href="/tags/packer">packer </a>
+        
+      </div>
     <div class="content-tags"><p><p>After find some limitations on building SOA Docker image using Dockerfile
 (as volume access, default size image) I researched on how to improve
 building process and I found <a href="https://packer.io/">Packer</a>
@@ -104,6 +149,8 @@ building process and I found <a href="https://packer.io/">Packer</a>
 
 <p></p></p></div>
     
+  
+
 <div class="empty">&nbsp;</div>
 <div class="pagination">
   <nav role="pagination" class="post-list-pagination">
@@ -118,12 +165,15 @@ building process and I found <a href="https://packer.io/">Packer</a>
 </div>
 
 
-        <div class="navbar">
+    <div class="navbar">
         <ul class="navbar-list" style="...">
             
             <li class="navbar-item"><a class="navbar-link" href="https://github.com/jeqo/">GitHub</a></li>
+            
             <li class="navbar-item"><a class="navbar-link" href="https://twitter.com/jeqo89">Twitter</a></li>
+            
             <li class="navbar-item"><a class="navbar-link" href="index.xml">RSS</a></li>
+            
         </ul>
     </div>
     <div class="copyright">
