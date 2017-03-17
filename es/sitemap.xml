@@ -2,11 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jeqo.github.io/es/talk/scale-wls-the-k8s-way-ougn-17/</loc>
-    <lastmod>2017-03-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jeqo.github.io/es/talk/de-mensajeria-a-log-de-eventos-perujug/</loc>
     <lastmod>2017-02-16T00:00:00+00:00</lastmod>
   </url>
@@ -63,7 +58,7 @@
   
   <url>
     <loc>https://jeqo.github.io/es/</loc>
-    <lastmod>2017-03-09T00:00:00+00:00</lastmod>
+    <lastmod>2017-02-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -117,18 +112,6 @@
   <url>
     <loc>https://jeqo.github.io/es/categories/devops/</loc>
     <lastmod>2017-01-15T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeqo.github.io/es/tags/devops-k8s-weblogic-ougn/</loc>
-    <lastmod>2017-03-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jeqo.github.io/es/categories/devops-oracle/</loc>
-    <lastmod>2017-03-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -211,7 +194,7 @@
   
   <url>
     <loc>https://jeqo.github.io/es/talk/</loc>
-    <lastmod>2017-03-09T00:00:00+00:00</lastmod>
+    <lastmod>2017-02-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
