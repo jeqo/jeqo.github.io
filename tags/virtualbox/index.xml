@@ -244,7 +244,7 @@ resize2fs /dev/VolGroup/lv_root
 &lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;#!/bin/sh&lt;/span&gt;
 
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# size of swapfile in megabytes&lt;/span&gt;
-&lt;span style=&#34;color: #19177C&#34;&gt;swapsize&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;8000
+&lt;span style=&#34;color: #19177C&#34;&gt;swapsize&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=8000&lt;/span&gt;
 
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# does the swap file already exist?&lt;/span&gt;
 grep -q &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;swapfile&amp;quot;&lt;/span&gt; /etc/fstab

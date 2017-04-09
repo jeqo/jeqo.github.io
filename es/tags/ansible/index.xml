@@ -3,7 +3,7 @@
     <channel>
         <title>Jorge Quilcate Otoya on @jeqo</title>
         <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/es/tags/ansible/index.xml</link>
+        <link>https://jeqo.github.io/es/es/tags/ansible/index.xml</link>
         <language>en-us</language>
         <author>Jorge Quilcate Otoya</author>
         
@@ -11,10 +11,10 @@
         
         <item>
             <title>Ansible - Provisionamiento sin agentes</title>
-            <link>https://jeqo.github.io/es/post/2016-03-30-ansible-agentless-provisioning/</link>
+            <link>https://jeqo.github.io/es/es/post/2016-03-30-ansible-agentless-provisioning/</link>
             <pubDate>Wed, 30 Mar 2016 00:00:00 UTC</pubDate>
             <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/es/post/2016-03-30-ansible-agentless-provisioning/</guid>
+            <guid>https://jeqo.github.io/es/es/post/2016-03-30-ansible-agentless-provisioning/</guid>
             <description>
 
 &lt;p&gt;Ansible es una herramienta de automatización reconocida por ser sencilla
@@ -243,7 +243,7 @@ mkdir -p &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&g
 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;lt;poccontainer&amp;gt; PUT /tmp/tmpNCOaxi TO /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup&lt;/span&gt;
 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;lt;poccontainer&amp;gt; EXEC [&amp;#39;&lt;/span&gt;/usr/bin/docker&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;exec&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-i&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;poccontainer&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;/bin/sh&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-c&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;/bin/sh -c &lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LANG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 
 &lt;span style=&#34;color: #19177C&#34;&gt;LC_ALL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 &lt;span style=&#34;color: #19177C&#34;&gt;LC_MESSAGES&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 /usr/bin/python /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup; 
-rm -rf &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&amp;quot;&lt;/span&gt; &amp;gt; /dev/null 2&amp;gt;&amp;amp;1&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+rm -rf &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&amp;quot;&lt;/span&gt; &amp;gt; /dev/null &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt;&amp;gt;&amp;amp;&lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 ok: &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;poccontainer&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 

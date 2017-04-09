@@ -3,7 +3,7 @@
     <channel>
         <title>Jorge Quilcate Otoya on @jeqo</title>
         <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/es/categories/integration/index.xml</link>
+        <link>https://jeqo.github.io/es/es/categories/integration/index.xml</link>
         <language>en-us</language>
         <author>Jorge Quilcate Otoya</author>
         
@@ -11,10 +11,10 @@
         
         <item>
             <title>De Mensajería a Log de Eventos con Apache Kafka - Perú JUG</title>
-            <link>https://jeqo.github.io/es/talk/de-mensajeria-a-log-de-eventos-perujug/</link>
+            <link>https://jeqo.github.io/es/es/talk/de-mensajeria-a-log-de-eventos-perujug/</link>
             <pubDate>Thu, 16 Feb 2017 00:00:00 UTC</pubDate>
             <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/es/talk/de-mensajeria-a-log-de-eventos-perujug/</guid>
+            <guid>https://jeqo.github.io/es/es/talk/de-mensajeria-a-log-de-eventos-perujug/</guid>
             <description>&lt;p&gt;Presentado al &lt;a href=&#34;https://twitter.com/perujug/&#34;&gt;Perú JUG&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
@@ -35,10 +35,10 @@
         
         <item>
             <title>Kafka - Retroceder Offsets de Consumidores</title>
-            <link>https://jeqo.github.io/es/post/2017-01-31-kafka-rewind-consumers-offset/</link>
+            <link>https://jeqo.github.io/es/es/post/2017-01-31-kafka-rewind-consumers-offset/</link>
             <pubDate>Tue, 31 Jan 2017 00:00:00 UTC</pubDate>
             <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/es/post/2017-01-31-kafka-rewind-consumers-offset/</guid>
+            <guid>https://jeqo.github.io/es/es/post/2017-01-31-kafka-rewind-consumers-offset/</guid>
             <description>&lt;p&gt;Una de las características más importantes de &lt;em&gt;Apache Kafka&lt;/em&gt; es el manejo
 de múltiples consumidores. Cada &lt;code&gt;consumer group&lt;/code&gt; tiene un &lt;code&gt;offset&lt;/code&gt;, que
 determina hasta que punto del &lt;code&gt;topic&lt;/code&gt; se encuentra consumido por &lt;code&gt;consumer group&lt;/code&gt;.
@@ -343,10 +343,10 @@ más de una partición por &lt;code&gt;topic&lt;/code&gt;.&lt;/p&gt;
         
         <item>
             <title>Escalando Kafka con Docker Containers</title>
-            <link>https://jeqo.github.io/es/post/2017-01-15-scale-kafka-containers/</link>
+            <link>https://jeqo.github.io/es/es/post/2017-01-15-scale-kafka-containers/</link>
             <pubDate>Sun, 15 Jan 2017 00:00:00 UTC</pubDate>
             <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/es/post/2017-01-15-scale-kafka-containers/</guid>
+            <guid>https://jeqo.github.io/es/es/post/2017-01-15-scale-kafka-containers/</guid>
             <description>&lt;p&gt;En este post mostraré como utilizar contenedores Docker para crear y escalar
 un clúster de Kafka, y también como crear, escalar y mover &lt;code&gt;topics&lt;/code&gt; dentro del
 clúster.&lt;/p&gt;
@@ -452,13 +452,13 @@ topic1
 &lt;p&gt;Una vez creado nuestro clúster, escalar nuestro contenedor de ´kafka´
 es tan sencillo como utilizar el comando &lt;code&gt;scale&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;3
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=3&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Este comando creará dos contenedores adicionales:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;3
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=3&lt;/span&gt;
 Creating and starting kafkacluster_kafka_2 ... &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;done&lt;/span&gt;
 Creating and starting kafkacluster_kafka_3 ... &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -481,7 +481,7 @@ de Zookeeper.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/zookeeper-shell.sh zookeeper:2181&lt;/span&gt;
 ls /brokers/ids
-&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;1003, 1002, 1001&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;[1003&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;1002&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;1001]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -604,10 +604,10 @@ Kafka y como los &lt;code&gt;contenedores&lt;/code&gt; nos pueden ayudar a crear
         
         <item>
             <title>Integrar Java EE 7 y Kafka usando Avro y RxJava</title>
-            <link>https://jeqo.github.io/es/post/2015-07-31-java-ee-rxjava-kafka-avro/</link>
+            <link>https://jeqo.github.io/es/es/post/2015-07-31-java-ee-rxjava-kafka-avro/</link>
             <pubDate>Fri, 31 Jul 2015 00:00:00 UTC</pubDate>
             <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/es/post/2015-07-31-java-ee-rxjava-kafka-avro/</guid>
+            <guid>https://jeqo.github.io/es/es/post/2015-07-31-java-ee-rxjava-kafka-avro/</guid>
             <description>
 
 &lt;p&gt;Hace poco decidi probar una rápida implementación entre aplicaciones

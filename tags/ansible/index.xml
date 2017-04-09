@@ -161,8 +161,8 @@ Oracle software inside container images:
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker images
 REPOSITORY                        TAG                    IMAGE ID            CREATED             SIZE
-syscomiddleware/oracle-database   oraclelinux-11.2.0.4   15eb5554debd        &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; hours ago         6.301 GB
-syscomiddleware/oracle-database   latest                 ab59ccd81cba        &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; hours ago         6.301 GB 
+syscomiddleware/oracle-database   oraclelinux-11.2.0.4   15eb5554debd        &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; hours ago         &lt;span style=&#34;color: #666666&#34;&gt;6&lt;/span&gt;.301 GB
+syscomiddleware/oracle-database   latest                 ab59ccd81cba        &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; hours ago         &lt;span style=&#34;color: #666666&#34;&gt;6&lt;/span&gt;.301 GB 
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -283,24 +283,24 @@ you override it in your &lt;em&gt;&amp;ldquo;docker run&amp;rdquo;&lt;/em&gt; co
 &lt;p&gt;You can test this image by running:&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker run -it syscomiddleware/oracle-database-instance:oraclelinux-11.2.0.4 
-LSNRCTL &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version 11.2.0.4.0 - Production on 25-MAY-2016 17:00:37
+LSNRCTL &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version &lt;span style=&#34;color: #666666&#34;&gt;11&lt;/span&gt;.2.0.4.0 - Production on &lt;span style=&#34;color: #666666&#34;&gt;25&lt;/span&gt;-MAY-2016 &lt;span style=&#34;color: #666666&#34;&gt;17&lt;/span&gt;:00:37
 
-Copyright &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;c&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; 1991, 2013, Oracle.  All rights reserved.
+Copyright &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;c&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;1991&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;2013&lt;/span&gt;, Oracle.  All rights reserved.
 
 Starting /home/oracle/product/oracle_home/bin/tnslsnr: please wait...
 
-TNSLSNR &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version 11.2.0.4.0 - Production
+TNSLSNR &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version &lt;span style=&#34;color: #666666&#34;&gt;11&lt;/span&gt;.2.0.4.0 - Production
 System parameter file is /home/oracle/product/oracle_home/network/admin/listener.ora
 Log messages written to /home/oracle/product/diag/tnslsnr/02b9ae1e3ab1/listener/alert/log.xml
 Listening on: &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;ipc&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;KEY&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;EXTPROC1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
-Listening on: &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
+Listening on: &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=1521)))&lt;/span&gt;
 
 Connecting to &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;IPC&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;KEY&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;EXTPROC1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
 STATUS of the LISTENER
 ------------------------
 Alias                     LISTENER
-Version                   TNSLSNR &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version 11.2.0.4.0 - Production
-Start Date                25-MAY-2016 17:00:42
+Version                   TNSLSNR &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version &lt;span style=&#34;color: #666666&#34;&gt;11&lt;/span&gt;.2.0.4.0 - Production
+Start Date                &lt;span style=&#34;color: #666666&#34;&gt;25&lt;/span&gt;-MAY-2016 &lt;span style=&#34;color: #666666&#34;&gt;17&lt;/span&gt;:00:42
 Uptime                    &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt; days &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt; hr. &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt; min. &lt;span style=&#34;color: #666666&#34;&gt;3&lt;/span&gt; sec
 Trace Level               off
 Security                  ON: Local OS Authentication
@@ -309,7 +309,7 @@ Listener Parameter File   /home/oracle/product/oracle_home/network/admin/listene
 Listener Log File         /home/oracle/product/diag/tnslsnr/02b9ae1e3ab1/listener/alert/log.xml
 Listening Endpoints Summary...
   &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;ipc&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;KEY&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;EXTPROC1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
-  &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
+  &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=1521)))&lt;/span&gt;
 The listener supports no services
 The &lt;span style=&#34;color: #008000&#34;&gt;command&lt;/span&gt; completed successfully
 Processing Database instance &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;orcl&amp;quot;&lt;/span&gt;: log file /home/oracle/product/oracle_home/startup.log
@@ -320,7 +320,7 @@ Database Buffers	  &lt;span style=&#34;color: #666666&#34;&gt;515899392&lt;/span
 Redo Buffers		    &lt;span style=&#34;color: #666666&#34;&gt;6717440&lt;/span&gt; bytes
 Database mounted.
 Database opened.
-SQL&amp;gt; Disconnected from Oracle Database 11g Release 11.2.0.4.0 - 64bit Production
+SQL&amp;gt; Disconnected from Oracle Database 11g Release &lt;span style=&#34;color: #666666&#34;&gt;11&lt;/span&gt;.2.0.4.0 - 64bit Production
 
 bin/dbstart: Database instance &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;orcl&amp;quot;&lt;/span&gt; warm started.
 &lt;/pre&gt;&lt;/div&gt;
@@ -356,10 +356,10 @@ it will worth our effort.&lt;/p&gt;
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;EndpointID&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;ea1e3277916bcebaa6fbba42ab6cdea6ebd597a2ce20c274b415f4ad89f05bee&amp;quot;&lt;/span&gt;,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Gateway&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;172.17.0.1&amp;quot;&lt;/span&gt;,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IPAddress&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;172.17.0.2&amp;quot;&lt;/span&gt;,
-                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IPPrefixLen&amp;quot;&lt;/span&gt;: 16,
+                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IPPrefixLen&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #666666&#34;&gt;16&lt;/span&gt;,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IPv6Gateway&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;GlobalIPv6Address&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;,
-                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;GlobalIPv6PrefixLen&amp;quot;&lt;/span&gt;: 0,
+                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;GlobalIPv6PrefixLen&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt;,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;MacAddress&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;02:42:ac:11:00:02&amp;quot;&lt;/span&gt;
                 &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
             &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
@@ -578,7 +578,7 @@ to test your role:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;vagrant up test01
 ...
 
-PLAY &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #008000&#34;&gt;test&lt;/span&gt; install openjdk jdk &lt;span style=&#34;color: #666666&#34;&gt;8&lt;/span&gt; on centos 7&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt; **********************************
+PLAY &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #008000&#34;&gt;test&lt;/span&gt; install openjdk jdk &lt;span style=&#34;color: #666666&#34;&gt;8&lt;/span&gt; on centos &lt;span style=&#34;color: #666666&#34;&gt;7]&lt;/span&gt; **********************************
 
 TASK &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;setup&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt; *******************************************************************
 ok: &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;test01&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
@@ -672,7 +672,7 @@ mkdir -p &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&g
 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;lt;poccontainer&amp;gt; PUT /tmp/tmpNCOaxi TO /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup&lt;/span&gt;
 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;lt;poccontainer&amp;gt; EXEC [&amp;#39;&lt;/span&gt;/usr/bin/docker&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;exec&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-i&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;poccontainer&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;/bin/sh&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-c&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;/bin/sh -c &lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LANG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 
 &lt;span style=&#34;color: #19177C&#34;&gt;LC_ALL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 &lt;span style=&#34;color: #19177C&#34;&gt;LC_MESSAGES&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 /usr/bin/python /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup; 
-rm -rf &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&amp;quot;&lt;/span&gt; &amp;gt; /dev/null 2&amp;gt;&amp;amp;1&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+rm -rf &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&amp;quot;&lt;/span&gt; &amp;gt; /dev/null &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt;&amp;gt;&amp;amp;&lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 ok: &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;poccontainer&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 

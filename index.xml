@@ -463,13 +463,13 @@ topic1
 
 &lt;p&gt;To scale a container using Docker Compose is as simple as using the &lt;code&gt;scale&lt;/code&gt; command:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;3
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=3&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This will create 2 more containers:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;3
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=3&lt;/span&gt;
 Creating and starting kafkacluster_kafka_2 ... &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;done&lt;/span&gt;
 Creating and starting kafkacluster_kafka_3 ... &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -486,7 +486,7 @@ client container:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/zookeeper-shell.sh zookeeper:2181&lt;/span&gt;
 ls /brokers/ids
-&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;1003, 1002, 1001&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;[1003&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;1002&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;1001]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -758,8 +758,8 @@ Oracle software inside container images:
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker images
 REPOSITORY                        TAG                    IMAGE ID            CREATED             SIZE
-syscomiddleware/oracle-database   oraclelinux-11.2.0.4   15eb5554debd        &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; hours ago         6.301 GB
-syscomiddleware/oracle-database   latest                 ab59ccd81cba        &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; hours ago         6.301 GB 
+syscomiddleware/oracle-database   oraclelinux-11.2.0.4   15eb5554debd        &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; hours ago         &lt;span style=&#34;color: #666666&#34;&gt;6&lt;/span&gt;.301 GB
+syscomiddleware/oracle-database   latest                 ab59ccd81cba        &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; hours ago         &lt;span style=&#34;color: #666666&#34;&gt;6&lt;/span&gt;.301 GB 
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -880,24 +880,24 @@ you override it in your &lt;em&gt;&amp;ldquo;docker run&amp;rdquo;&lt;/em&gt; co
 &lt;p&gt;You can test this image by running:&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker run -it syscomiddleware/oracle-database-instance:oraclelinux-11.2.0.4 
-LSNRCTL &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version 11.2.0.4.0 - Production on 25-MAY-2016 17:00:37
+LSNRCTL &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version &lt;span style=&#34;color: #666666&#34;&gt;11&lt;/span&gt;.2.0.4.0 - Production on &lt;span style=&#34;color: #666666&#34;&gt;25&lt;/span&gt;-MAY-2016 &lt;span style=&#34;color: #666666&#34;&gt;17&lt;/span&gt;:00:37
 
-Copyright &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;c&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; 1991, 2013, Oracle.  All rights reserved.
+Copyright &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;c&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;1991&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;2013&lt;/span&gt;, Oracle.  All rights reserved.
 
 Starting /home/oracle/product/oracle_home/bin/tnslsnr: please wait...
 
-TNSLSNR &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version 11.2.0.4.0 - Production
+TNSLSNR &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version &lt;span style=&#34;color: #666666&#34;&gt;11&lt;/span&gt;.2.0.4.0 - Production
 System parameter file is /home/oracle/product/oracle_home/network/admin/listener.ora
 Log messages written to /home/oracle/product/diag/tnslsnr/02b9ae1e3ab1/listener/alert/log.xml
 Listening on: &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;ipc&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;KEY&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;EXTPROC1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
-Listening on: &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
+Listening on: &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=1521)))&lt;/span&gt;
 
 Connecting to &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;IPC&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;KEY&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;EXTPROC1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
 STATUS of the LISTENER
 ------------------------
 Alias                     LISTENER
-Version                   TNSLSNR &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version 11.2.0.4.0 - Production
-Start Date                25-MAY-2016 17:00:42
+Version                   TNSLSNR &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version &lt;span style=&#34;color: #666666&#34;&gt;11&lt;/span&gt;.2.0.4.0 - Production
+Start Date                &lt;span style=&#34;color: #666666&#34;&gt;25&lt;/span&gt;-MAY-2016 &lt;span style=&#34;color: #666666&#34;&gt;17&lt;/span&gt;:00:42
 Uptime                    &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt; days &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt; hr. &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt; min. &lt;span style=&#34;color: #666666&#34;&gt;3&lt;/span&gt; sec
 Trace Level               off
 Security                  ON: Local OS Authentication
@@ -906,7 +906,7 @@ Listener Parameter File   /home/oracle/product/oracle_home/network/admin/listene
 Listener Log File         /home/oracle/product/diag/tnslsnr/02b9ae1e3ab1/listener/alert/log.xml
 Listening Endpoints Summary...
   &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;ipc&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;KEY&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;EXTPROC1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
-  &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
+  &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=1521)))&lt;/span&gt;
 The listener supports no services
 The &lt;span style=&#34;color: #008000&#34;&gt;command&lt;/span&gt; completed successfully
 Processing Database instance &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;orcl&amp;quot;&lt;/span&gt;: log file /home/oracle/product/oracle_home/startup.log
@@ -917,7 +917,7 @@ Database Buffers	  &lt;span style=&#34;color: #666666&#34;&gt;515899392&lt;/span
 Redo Buffers		    &lt;span style=&#34;color: #666666&#34;&gt;6717440&lt;/span&gt; bytes
 Database mounted.
 Database opened.
-SQL&amp;gt; Disconnected from Oracle Database 11g Release 11.2.0.4.0 - 64bit Production
+SQL&amp;gt; Disconnected from Oracle Database 11g Release &lt;span style=&#34;color: #666666&#34;&gt;11&lt;/span&gt;.2.0.4.0 - 64bit Production
 
 bin/dbstart: Database instance &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;orcl&amp;quot;&lt;/span&gt; warm started.
 &lt;/pre&gt;&lt;/div&gt;
@@ -953,10 +953,10 @@ it will worth our effort.&lt;/p&gt;
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;EndpointID&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;ea1e3277916bcebaa6fbba42ab6cdea6ebd597a2ce20c274b415f4ad89f05bee&amp;quot;&lt;/span&gt;,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Gateway&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;172.17.0.1&amp;quot;&lt;/span&gt;,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IPAddress&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;172.17.0.2&amp;quot;&lt;/span&gt;,
-                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IPPrefixLen&amp;quot;&lt;/span&gt;: 16,
+                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IPPrefixLen&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #666666&#34;&gt;16&lt;/span&gt;,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IPv6Gateway&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;GlobalIPv6Address&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;,
-                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;GlobalIPv6PrefixLen&amp;quot;&lt;/span&gt;: 0,
+                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;GlobalIPv6PrefixLen&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt;,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;MacAddress&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;02:42:ac:11:00:02&amp;quot;&lt;/span&gt;
                 &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
             &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
@@ -1034,6 +1034,21 @@ top of the database instance image.&lt;/p&gt;
 &lt;p&gt;At AMIS25, we will show how to use this instance to build a SOA Suite database
 and then provide customs SOA Suite Domains, but also show different experiences
 with different &amp;ldquo;DevOps&amp;rdquo; technologies. Hope to see you there!&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Lightning Quick Provisioning and DevOps for Oracle SOA Suite 12c - AMIS 25</title>
+            <link>https://jeqo.github.io/talk/lighning-provisioning-oracle-soa-suite-amis25/</link>
+            <pubDate>Mon, 02 May 2016 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/talk/lighning-provisioning-oracle-soa-suite-amis25/</guid>
+            <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.amis.nl/en/events-eng/jubileumconferentie/&#34;&gt;AMIS25 2016&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;slides&#34;&gt;Slides&lt;/h1&gt;
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/gfubabDVWgrlAH&#34; width=&#34;599&#34; height=&#34;487&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt;</description>
         </item>
         
         <item>
@@ -1175,7 +1190,7 @@ to test your role:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;vagrant up test01
 ...
 
-PLAY &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #008000&#34;&gt;test&lt;/span&gt; install openjdk jdk &lt;span style=&#34;color: #666666&#34;&gt;8&lt;/span&gt; on centos 7&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt; **********************************
+PLAY &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #008000&#34;&gt;test&lt;/span&gt; install openjdk jdk &lt;span style=&#34;color: #666666&#34;&gt;8&lt;/span&gt; on centos &lt;span style=&#34;color: #666666&#34;&gt;7]&lt;/span&gt; **********************************
 
 TASK &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;setup&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt; *******************************************************************
 ok: &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;test01&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
@@ -1269,7 +1284,7 @@ mkdir -p &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&g
 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;lt;poccontainer&amp;gt; PUT /tmp/tmpNCOaxi TO /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup&lt;/span&gt;
 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;lt;poccontainer&amp;gt; EXEC [&amp;#39;&lt;/span&gt;/usr/bin/docker&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;exec&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-i&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;poccontainer&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;/bin/sh&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-c&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;/bin/sh -c &lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LANG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 
 &lt;span style=&#34;color: #19177C&#34;&gt;LC_ALL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 &lt;span style=&#34;color: #19177C&#34;&gt;LC_MESSAGES&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 /usr/bin/python /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup; 
-rm -rf &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&amp;quot;&lt;/span&gt; &amp;gt; /dev/null 2&amp;gt;&amp;amp;1&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+rm -rf &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&amp;quot;&lt;/span&gt; &amp;gt; /dev/null &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt;&amp;gt;&amp;amp;&lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 ok: &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;poccontainer&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1786,6 +1801,21 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
         </item>
         
         <item>
+            <title>What is Adaptive Case Management? - OUGN 15</title>
+            <link>https://jeqo.github.io/talk/what-is-adaptive-case-management-ougn15/</link>
+            <pubDate>Sat, 02 May 2015 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/talk/what-is-adaptive-case-management-ougn15/</guid>
+            <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.amis.nl/en/events-eng/jubileumconferentie/&#34;&gt;AMIS25 2016&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;slides&#34;&gt;Slides&lt;/h1&gt;
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/ovR0dcS7514Q0o&#34; width=&#34;599&#34; height=&#34;487&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt;</description>
+        </item>
+        
+        <item>
             <title>Docker image for Oracle SOA Suite 12c</title>
             <link>https://jeqo.github.io/post/2015-04-01-docker-image-oracle-soa/</link>
             <pubDate>Wed, 01 Apr 2015 00:00:00 UTC</pubDate>
@@ -2159,438 +2189,6 @@ chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;json &lt;span style
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/gqhY82kdHh4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
 
 &lt;p&gt;I hope you find it useful. Feel free to share your comments!&lt;/p&gt;</description>
-        </item>
-        
-        <item>
-            <title>Book Review - Applied SOA Patterns on the Oracle Platform</title>
-            <link>https://jeqo.github.io/post/2014-11-28-review-soa-patterns-oracle-platform/</link>
-            <pubDate>Fri, 28 Nov 2014 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/post/2014-11-28-review-soa-patterns-oracle-platform/</guid>
-            <description>&lt;p&gt;I&amp;rsquo;ve had the opportunity to present a review of this book &lt;a href=&#34;https://www.packtpub.com/application-development/applied-soa-patterns-oracle-platform&#34;&gt;Applied SOA Patterns on the Oracle Platform&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Once I started to read the chapters, I found it quite interesting because of these:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Great introduction to SOA  principles, and Oracle SOA Suite evolution&lt;/li&gt;
-&lt;li&gt;Align AIA Concepts with SOA patterns&lt;/li&gt;
-&lt;li&gt;A key topic for SOA success: Service Repository&lt;/li&gt;
-&lt;li&gt;An extensive and complete description of Security and Error Handling&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;It looks like a really long book (572 pages), and it is. But this is justified because it takes a great approach from concepts to examples combined with experiences and source code. This could help you to feel more confident about your SOA design decisions.&lt;/p&gt;
-
-&lt;h2 id=&#34;must-read-parts&#34;&gt;&amp;ldquo;Must Read&amp;rdquo; parts&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 1 - SOA Frameworks&lt;/strong&gt;: I think these frameworks are quite important to apply on SOA design, for example: &lt;em&gt;Object and XML Modeling&lt;/em&gt;, if they are not designed well, could generate an implementation hell: huge and heavy data types, rare and indescribable names. Also gives an introduction to AIA that can give you a easy-to-learn guide about SOA layers, components, and common terms (Application Business Connector Services, Enterprise Business Flows and Services, and so on).&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 2 - Oracle SOA Roadmap&lt;/strong&gt;: Owesome timeline about SOA Suite and related technologies. First time I found this information really well summarized. In general, this chapter makes a great technical specification about Oracle SOA Foundation: artifacts, technologies, code examples, specifications.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 3 - Oracle Enterprise Business Flow SOA Patterns&lt;/strong&gt;: Great distinction between BPEL and Mediator use cases, and I share the idea that telecommunications is a great industry to take examples about service orchestration.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 4&lt;/strong&gt;: This chapter contains really well explained tutorial: Implementing a basic Proxy on OSB is one of them, a Oracle E-Business Suite case turning a Message Broker into a Service Broker applying &amp;ldquo;Receive-Transform-Deliver&amp;rdquo; implementation pattern, and great examples about &amp;ldquo;VETRO&amp;rdquo; (or &amp;ldquo;VETO&amp;rdquo;) pattern on OSB: &lt;em&gt;Validate, Enrich, Transform and Operate&lt;/em&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 5&lt;/strong&gt;: A great &amp;ldquo;Getting-started&amp;rdquo; with SOA Governance using Oracle Enterprise Repository. &lt;em&gt;&amp;ldquo;Open standards for the SOA Taxonomy&amp;rdquo;, &amp;ldquo;Entity Types&amp;rdquo;&lt;/em&gt;, and &lt;em&gt;&amp;ldquo;Creating a lightweight taxonomy for dynamic service invocations&amp;rdquo;&lt;/em&gt; are definitely &lt;em&gt;must read&lt;/em&gt; parts: they include Service Discovery taxonomy, Entity relationships and how they impact in your architecture.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 6&lt;/strong&gt;: There is a note, on &amp;ldquo;Optimizing the Adapter Framework&amp;rdquo;, about SOAP and REST that you could find very interested, and I&amp;rsquo;m agree with it: &amp;ldquo;SOAP versus REST is a pointless discussion&amp;rdquo;. This is followed by a technical description of how to use different technologies like REST, JSON, EJB, DB Adapter, PL-SQL and Oracle XDK. &lt;em&gt;&amp;ldquo;After all, it doesn&amp;rsquo;t matter if it is modern or not, all that matters is if it works according to our principles or not. The color of the cat does not matter, as long as it catches the mice.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 7&lt;/strong&gt;:  &lt;em&gt;&amp;ldquo;Initial Analysis&amp;rdquo;&lt;/em&gt; including common SOA vulnerabilities and risks, and &lt;em&gt;&amp;ldquo;Risk mitigation design rules&amp;rdquo;&lt;/em&gt;, are all recommendations well explained and quite important in SOA projects.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 8&lt;/strong&gt; - Error-handling design rules is also a &amp;ldquo;must-read&amp;rdquo;: 15 rules related with OSB, BPEL, Enterprise Manager,  to follow and apply a right exception handling on your project. Follower by a technical approach first with JMX and SOA Composites.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Chapter 9&lt;/strong&gt;: This chapter includes an nice summary about Event Processing followed by a practitioner approach to implement CEP with Oracle Event Processing. Also includes 3 more important topics: High Availability with Coherence (How to integrated with OSB and CEP),  Monitoring Business Services with Oracle BAM ( How to use it from BPEL, JMS and Web Service API), and finally SOA as a Cloud Foundation (that&amp;rsquo;s where 12&amp;rdquo;c&amp;rdquo; comes from).&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In conclusion you will find in this book a bunch of real experience aligned with SOA patterns and a mix of principles, frameworks, technical issues and product mapping. I believe you will find it very useful. You can find it &lt;a href=&#34;http://bit.ly/1uqK9dq&#34;&gt;here&lt;/a&gt;!&lt;/p&gt;
-
-&lt;p&gt;For me, this book will be my new handbook for comming SOA projects (with &lt;a href=&#34;http://www.oracle.com/technetwork/topics/entarch/itso-165161.html&#34;&gt;IT Strategies from Oracle&lt;/a&gt;).&lt;/p&gt;
-
-&lt;p&gt;If you have comments about this book, please share! :)&lt;/p&gt;</description>
-        </item>
-        
-        <item>
-            <title>Vagrant and Chef Quickstart</title>
-            <link>https://jeqo.github.io/post/2014-11-26-vagrant-quickstart/</link>
-            <pubDate>Wed, 26 Nov 2014 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/post/2014-11-26-vagrant-quickstart/</guid>
-            <description>&lt;p&gt;I have some months working with Vagrant and I think it&amp;rsquo;s owesome! Integration with almost all kind of virtualization platforms: VirtalBox, VMware, Docker, AWS EC2, Hyper-V and so on. Also it&amp;rsquo;s able to use differente Provisioners: Chef, Puppet, bash, Docker, Ansible. I really like it.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;So, when I start working with Vagrant I choose VirtualBox as my virtualization platform and Chef as my provisioner, and when trying different configurations I start finding some tips to share:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;First step: Should I create my base box? or should I use a base box already created?&lt;/li&gt;
-&lt;li&gt;Can I increase my disk space? how?&lt;/li&gt;
-&lt;li&gt;Can I increase my swap memory? how?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;So, I decide to create a post to start creating Vagrant boxes and resolve this issues. Let&amp;rsquo;s start:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;First of all, install &lt;a href=&#34;https://www.vagrantup.com/downloads.html&#34;&gt;Vagrant&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;create-a-vagrant-box&#34;&gt;Create a Vagrant Box&lt;/h2&gt;
-
-&lt;p&gt;If you read Vagrant documentation, you will find everything is based in a &lt;strong&gt;box&lt;/strong&gt;. What&amp;rsquo;s a box? In my opinion, a box is an abstraction from a base virtual environment: It has an OS installed, some basic configuration, and packaged to be reused. And what&amp;rsquo;s a &lt;strong&gt;base box&lt;/strong&gt;? A base box is a template to create boxes. For instance: A VirtualBox &lt;em&gt;base box&lt;/em&gt; is a VirtualBox VM with an OS installed, a disk space defined, and a basic configuration, and a &lt;em&gt;box&lt;/em&gt; is a Virtual Machine up and running. An Amazon Web Service EC2 &lt;em&gt;box&lt;/em&gt; is an instance and a &lt;em&gt;base box&lt;/em&gt; is a &lt;a href=&#34;https://github.com/mitchellh/vagrant-aws/tree/master/example_box&#34;&gt;file containing an AMI id&lt;/a&gt;, that is a Virtual Machine template from AWS.&lt;/p&gt;
-
-&lt;p&gt;Now that I know what is a box, how can I created? You can created by yourself: creating a simple VM, installing a base OS, and running a Vagrant command to create a &amp;ldquo;base box&amp;rdquo;. The process to do this depends on what virtualization platform you are using, for example: on VirtualBox you can do &lt;a href=&#34;https://docs.vagrantup.com/v2/virtualbox/boxes.html&#34;&gt;this&lt;/a&gt; (official documentation) or a &lt;a href=&#34;http://www.skoblenick.com/vagrant/creating-a-custom-box-from-scratch/&#34;&gt;more detailed way&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;This process is easy, but what if you want to use a cloud base box to be sure that anyone will change a package or configuration? There are two sites that I found where you can search, use directly or download base boxes:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.vagrantbox.es/&#34;&gt;Vagrantbox.es&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://vagrantcloud.com/&#34;&gt;Vagrant Cloud&lt;/a&gt; the Vagrant&amp;rsquo;s official site&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Now you can search an specific distribution and use it whenever you want.&lt;/p&gt;
-
-&lt;p&gt;Ok, I have a base box, how can I use it to create a new box? The basic artifact you need is a Vagrant file:&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;mkdir vagrant-box
-vagrant init
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Running this creates a &lt;em&gt;Vagrantfile&lt;/em&gt; that contains the information to create a new box.&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
-
-&lt;span style=&#34;color: #880000&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;configure(&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt;) &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;config&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
-  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;box &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;base&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;This &lt;em&gt;ruby&lt;/em&gt; script starts a &lt;em&gt;method&lt;/em&gt; where you have a variable &lt;em&gt;config&lt;/em&gt; from &lt;em&gt;Vagrant.configure(&amp;ldquo;2&amp;rdquo;)&lt;/em&gt;. This variable is what you use to start defining your &lt;em&gt;box&lt;/em&gt; properties.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;First important command: &lt;strong&gt;vagrant init&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This is not enough to create a box. You need two more attributes:&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-  &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# URL or path to base box file&lt;/span&gt;
-  &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# config.vm.box_url = &amp;quot;https://storage.us2.oraclecloud.com/v1/istoilis-istoilis/vagrant/oel65-64.box&amp;quot;&lt;/span&gt;
-  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;box_url &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;file://c:/boxes/oel65-64.box&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;With this you can execute &lt;em&gt;vagrant up&lt;/em&gt; to run the script. This will create a VM on VirtualBox with the same configuration as &lt;em&gt;base box&lt;/em&gt;.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Second important command: &lt;strong&gt;vagrant up [&amp;ndash;provider=virtualbox]&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;You can validate a new VM is created from VirtualBox. Depending on your base box you will have certain ammount of RAM memory, disk space and cpu&amp;rsquo;s.&lt;/p&gt;
-
-&lt;p&gt;Great! so if you only want to clone your VM, this is enough.&lt;/p&gt;
-
-&lt;h2 id=&#34;customize-a-vagrant-box&#34;&gt;Customize a Vagrant Box&lt;/h2&gt;
-
-&lt;p&gt;What if I want to change my VM name? What if I want more memory? What if I want to create two instances?&lt;/p&gt;
-
-&lt;p&gt;All these customizations are possible from &lt;em&gt;Vagrantfile&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s start changing VM resources:&lt;/p&gt;
-
-&lt;p&gt;As this is a virtualization platform specific requirement, you have to make these changes on an embedded method:&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provider &lt;span style=&#34;color: #19177C&#34;&gt;:virtualbox&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;vb&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
-    vb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;customize &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;modifyvm&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:id&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;--memory&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2048&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
-    vb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;customize &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;modifyvm&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:id&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;--name&amp;quot;&lt;/span&gt;  , &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;basemachine&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
-    vb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;customize &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;modifyvm&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:id&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;--cpus&amp;quot;&lt;/span&gt;  , &lt;span style=&#34;color: #666666&#34;&gt;2]&lt;/span&gt;
-    vb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;customize &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;modifyvm&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:id&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;--chipset&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;ich9&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
-  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
-&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;In VirtualBox, these are the most important parameters: RAM memory (in MB), VM name, CPUs number, and chipset.&lt;/p&gt;
-
-&lt;p&gt;Ok, let&amp;rsquo;s try it&amp;hellip; wait, I already have a Vagrant box started&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Third important command: &lt;strong&gt;vagrant destroy&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;For me, this is the greatest benefit of using Vagrant, you can destroy you box and you don&amp;rsquo;t care! Well,
-you care if it&amp;rsquo;s a box in production, but when you are creating your environment you can destroy and
-recreate over and over again, fast and easy.&lt;/p&gt;
-
-&lt;p&gt;Run: &lt;em&gt;vagrant destroy&lt;/em&gt;, and &lt;em&gt;vagrant up&lt;/em&gt; again.&lt;/p&gt;
-
-&lt;p&gt;Now you know how to create and parametrize your Vagrant Box on VirtualBox.&lt;/p&gt;
-
-&lt;p&gt;Two more important parameters:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Network&lt;/strong&gt;: By default your box use a NAT network that VirtualBox creates out-of-the-box. But, what if you (obviously) want to connect to your box? You need to use the &amp;ldquo;Host-only&amp;rdquo; network:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;network &lt;span style=&#34;color: #19177C&#34;&gt;:private_network&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;ip&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;192.168.56.XYZ&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;blockquote&gt;
-&lt;p&gt;Normally this is the network IP: 192.168.56.1, so your VMs use this IP as gateway.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Shared Directories&lt;/strong&gt;: Using VirtualBox utility to create shared directories is annoying! With Vagrant is as easy as add thit to your script:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-  &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Mount c:\data directory to /data directory on box. mount_options is optional&lt;/span&gt;
-  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;synced_folder &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt; , &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:mount_options&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;dmode=777&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;fmode=777&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
-&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Some other parameters:&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-  &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Hostname&lt;/span&gt;
-  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;hostname &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;basemachine&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;For more information: &lt;a href=&#34;https://docs.vagrantup.com/v2/vagrantfile/index.html&#34;&gt;Vagrant Docs&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;resolving-some-common-issues&#34;&gt;Resolving some common issues&lt;/h2&gt;
-
-&lt;p&gt;Excellent! you can create and parametrized Vagrant boxes. If your base box have enough disk and swap size, perfect!
-But, what if your base box have 10GB as disk space and your swap space is 512MB or less?&lt;/p&gt;
-
-&lt;p&gt;Well these issues took me a couple of days to resolve, so this is how to handle it:&lt;/p&gt;
-
-&lt;h3 id=&#34;increase-disk-space&#34;&gt;Increase Disk space&lt;/h3&gt;
-
-&lt;p&gt;Normally (sadly), cloud base box comes with VMDK disks formats. If you are lucky and your disk format is VDI,
-you can solve this directly &lt;a href=&#34;http://derekmolloy.ie/resize-a-virtualbox-disk/&#34;&gt;like this&lt;/a&gt;. But, VMDK can&amp;rsquo;t be expanded,
-so you need to add another disk to your VM. If making this manually is hard, can you imaging doing this from Vagrant?
-Well, now that I solved is not that difficult:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Create an script called &lt;em&gt;&amp;ldquo;bootstrap.sh&amp;rdquo;&lt;/em&gt; on your working directory, and add these lines:&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;pvcreate /dev/sdb
-vgextend VolGroup /dev/sdb
-lvextend /dev/VolGroup/lv_root /dev/sdb
-resize2fs /dev/VolGroup/lv_root
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;blockquote&gt;
-&lt;p&gt;VolGroup and lv_root can change on different distributions. But it works for me on Ubuntu also.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;And then add this code to your &lt;em&gt;Vagrantfile&lt;/em&gt;:&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provider &lt;span style=&#34;color: #19177C&#34;&gt;:virtualbox&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;vb&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
-  &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-  &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Validate this should be run it once&lt;/span&gt;
-  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #880000&#34;&gt;ARGV&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;[0]&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;up&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;!&lt;/span&gt; &lt;span style=&#34;color: #880000&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;exist?(&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;./disk1.vdi&amp;quot;&lt;/span&gt;)
-    vb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;customize &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;
-      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;createhd&amp;#39;&lt;/span&gt;,
-      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;--filename&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;./disk1.vdi&amp;quot;&lt;/span&gt;,
-      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;--format&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;VDI&amp;#39;&lt;/span&gt;,
-      &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# 100GB&lt;/span&gt;
-      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;--size&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;100&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;1024&lt;/span&gt;
-    &lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
-
-    vb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;customize &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;
-      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;storageattach&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:id&lt;/span&gt;,
-      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;--storagectl&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;SATA Controller&amp;#39;&lt;/span&gt;,
-      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;--port&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;--device&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt;,
-      &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;--type&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;hdd&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;--medium&amp;#39;&lt;/span&gt;,
-      file_to_disk
-    &lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
-  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
-
-  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #880000&#34;&gt;ARGV&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;[0]&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;up&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;!&lt;/span&gt; &lt;span style=&#34;color: #880000&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;exist?(&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;./disk1.vdi&amp;quot;&lt;/span&gt;)
-    &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Run script to map new disk&lt;/span&gt;
-    config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provision &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;path&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;bootstrap.sh&amp;quot;&lt;/span&gt;
-    &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Run script to increase swap memory&lt;/span&gt;
-    config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provision &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;path&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;increase_swap.sh&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
-&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;This creates a VDI disk file with 100GB of capacity. And is attached to your OS.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;This problem is solved when you create cloud Vagrant boxes, like AWS EC2 instances with Vagrant :D&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&#34;increase-swap-memory&#34;&gt;Increase Swap Memory&lt;/h3&gt;
-
-&lt;p&gt;As I install Oracle Fusion Middleware products, they require some amount of swap memory, but &lt;em&gt;base box&lt;/em&gt; comes with a small amount of swap.&lt;/p&gt;
-
-&lt;p&gt;To resolve this, add this script called &lt;em&gt;&amp;ldquo;increase_swap.sh&amp;rdquo;&lt;/em&gt; on your working directory:&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;#!/bin/sh&lt;/span&gt;
-
-&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# size of swapfile in megabytes&lt;/span&gt;
-&lt;span style=&#34;color: #19177C&#34;&gt;swapsize&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;8000
-
-&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# does the swap file already exist?&lt;/span&gt;
-grep -q &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;swapfile&amp;quot;&lt;/span&gt; /etc/fstab
-
-&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# if not then create it&lt;/span&gt;
-&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #19177C&#34;&gt;$?&lt;/span&gt; -ne &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;then&lt;/span&gt;
-  &lt;span style=&#34;color: #008000&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;swapfile not found. Adding swapfile.&amp;#39;&lt;/span&gt;
-  fallocate -l &lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;swapsize&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;M /swapfile
-  chmod &lt;span style=&#34;color: #666666&#34;&gt;600&lt;/span&gt; /swapfile
-  mkswap /swapfile
-  swapon /swapfile
-  &lt;span style=&#34;color: #008000&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;/swapfile none swap defaults 0 0&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; /etc/fstab
-&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;else&lt;/span&gt;
-  &lt;span style=&#34;color: #008000&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;swapfile found. No changes made.&amp;#39;&lt;/span&gt;
-&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;fi&lt;/span&gt;
-
-&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# output results to terminal&lt;/span&gt;
-df -h
-cat /proc/swaps
-cat /proc/meminfo | grep Swap
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;If you destroy and up your box now, you will have a new box with 8GB of swap memory added and 100GB of additional disk space.&lt;/p&gt;
-
-&lt;h2 id=&#34;additional-tricks&#34;&gt;Additional tricks&lt;/h2&gt;
-
-&lt;h3 id=&#34;get-started-with-chef-provisioning&#34;&gt;Get Started with Chef (Provisioning!)&lt;/h3&gt;
-
-&lt;p&gt;What if you want to install some package or service? You can do this with a bash (as we increase memory and disk) but is not flexible and can take a lot of effort. At this days provisioning is a trend and products as Docker, Puppet and Chef are getting very popular, so I will use Chef to show you how to install Apache and start HTTP service:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;To learn more about chef: &lt;a href=&#34;http://learn.getchef.com&#34;&gt;Learn Chef&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Create the following directories and create a file:&lt;/p&gt;
-
-&lt;p&gt;chef/cookbooks/http/recipes/install-httpd.rb&lt;/p&gt;
-
-&lt;p&gt;Chef base artifacts are Cookbooks that group common Recipes. For example you can create a Cookbook called &amp;ldquo;java&amp;rdquo; and add recipes to install different versions.&lt;/p&gt;
-
-&lt;p&gt;Add this code to the file:&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;package &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;httpd&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt;
-  action &lt;span style=&#34;color: #19177C&#34;&gt;:install&lt;/span&gt;
-&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
-
-service &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;httpd&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt;
-  action &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #19177C&#34;&gt;:start&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:enable&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
-&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;This recipe &lt;em&gt;install&lt;/em&gt; &amp;ldquo;httpd&amp;rdquo; package and ensure service &amp;ldquo;httpd&amp;rdquo; is &lt;em&gt;started&lt;/em&gt; and will be started when the machine is restarted.&lt;/p&gt;
-
-&lt;p&gt;To call this simple recipe from Vagrant you need to add this to your file:&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provision &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;chef_solo&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;chef&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
-    chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;cookbooks_path &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;../chef/cookbooks&amp;quot;&lt;/span&gt;
-    chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;add_recipe &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;http::install-httpd&amp;quot;&lt;/span&gt;
-  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
-&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;chef-solo&lt;/em&gt; is when you use your client independently, and &lt;em&gt;chef-client&lt;/em&gt; is when you use a Chef Server&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Now if you destroy and re-create your Vagrant box again you could test that your HTTP server is up and running&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://ip or host&#34;&gt;http://ip or hostname&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;properties-file&#34;&gt;Properties file&lt;/h3&gt;
-
-&lt;p&gt;The last trick I want to share is how to create a properties file for your Vagrant configuration.&lt;/p&gt;
-
-&lt;p&gt;What if you want to repeat this process to create another box? You can parametrized your Vagrantfile with a properties file.&lt;/p&gt;
-
-&lt;p&gt;To do this:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Create a file like this one called &amp;ldquo;vagrant.rb&amp;rdquo;:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;box:
-  name: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;base-machine&amp;quot;&lt;/span&gt;
-  disk_path: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;./disk1.vdi&amp;quot;&lt;/span&gt;
-  url: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;file://c:/boxes/oel65-64.box&amp;quot;&lt;/span&gt;
-  ip: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;192.168.56.20&amp;quot;&lt;/span&gt;
-  shared_directory: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt;
-  disk_size: 40
-  ram_memory: 2048
-  cpus: 2
-  swap_memory: 4096
-chef:
-  repo_location: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;C:/dev/jeqo/chef-repo&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Add the &amp;ldquo;yaml&amp;rdquo; library:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #008000&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;yaml&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;Then read and use properties:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-  props &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #880000&#34;&gt;YAML&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;load_file(&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;vagrant.rb&amp;quot;&lt;/span&gt;)
-
-  config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;box &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Well, it&amp;rsquo;s a long but (i hope) an easy post. I hope you enjoyed :)&lt;/p&gt;
-
-&lt;p&gt;Here is the &lt;a href=&#34;https://github.com/jeqo/vagrant-quickstart&#34;&gt;Git repository&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Feel free to send your comments and question!&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Disclosure: I&amp;rsquo;m not a Ruby developer (yet), so if I&amp;rsquo;m using a wrong term about ruby code sorry :)  I just trying to describe the source code, that I think is enough for Vagrant files.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;resources&#34;&gt;Resources&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Vagrant Docs: &lt;a href=&#34;https://docs.vagrantup.com/v2/&#34;&gt;https://docs.vagrantup.com/v2/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Increase Swap: &lt;a href=&#34;http://programmaticponderings.wordpress.com/2013/12/19/scripting-linux-swap-space/&#34;&gt;http://programmaticponderings.wordpress.com/2013/12/19/scripting-linux-swap-space/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Add a new disk to VirtualBox VM with Vagrant: &lt;a href=&#34;https://gist.github.com/leifg/4713995&#34;&gt;https://gist.github.com/leifg/4713995&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Getting started with Chef: &lt;a href=&#34;https://learn.getchef.com&#34;&gt;https://learn.getchef.com&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;VirtualBox API documentation: &lt;a href=&#34;https://www.virtualbox.org/manual/ch08.html&#34;&gt;https://www.virtualbox.org/manual/ch08.html&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
         </item>
         
     </channel>

@@ -4,13 +4,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="darksimplicity">
-  <meta name="generator" content="Hugo 0.18.1" />
+  <meta name="generator" content="Hugo 0.19" />
   
   
   <base href="https://jeqo.github.io/">
   <title>Speed up your Oracle Database provisioning with Docker and Ansible</title>
   <link rel="stylesheet" href="/css/style.min.css">
-
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 </head>
@@ -25,9 +24,12 @@
           </li>
           
     </div>
-    <div class="header"><span style="font-size: 34px;">
-      <a href="https://jeqo.github.io/">@jeqo</a></span>
-      <span style="font-size:12px;">&nbsp;&nbsp;|&nbsp;&nbsp;<i>back-end development, integration, devops, etc.</i> </span></div>
+    <div class="header">
+      <span style="font-size: 34px;">
+        <a href="https://jeqo.github.io/">@jeqo</a>
+      </span>
+      <span style="font-size:12px;">&nbsp;&nbsp;|&nbsp;&nbsp;<i>back-end development, integration, devops, etc.</i> </span>
+    </div>
 
 <div class="empty">&nbsp;</div>
   <div class="post-title">
@@ -182,8 +184,8 @@ Oracle software inside container images:
 
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>$ docker images
 REPOSITORY                        TAG                    IMAGE ID            CREATED             SIZE
-syscomiddleware/oracle-database   oraclelinux-11.2.0.4   15eb5554debd        <span style="color: #666666">2</span> hours ago         6.301 GB
-syscomiddleware/oracle-database   latest                 ab59ccd81cba        <span style="color: #666666">2</span> hours ago         6.301 GB 
+syscomiddleware/oracle-database   oraclelinux-11.2.0.4   15eb5554debd        <span style="color: #666666">2</span> hours ago         <span style="color: #666666">6</span>.301 GB
+syscomiddleware/oracle-database   latest                 ab59ccd81cba        <span style="color: #666666">2</span> hours ago         <span style="color: #666666">6</span>.301 GB 
 </pre></div>
 
 
@@ -304,24 +306,24 @@ you override it in your <em>&ldquo;docker run&rdquo;</em> command.</p>
 <p>You can test this image by running:</p>
 
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>$ docker run -it syscomiddleware/oracle-database-instance:oraclelinux-11.2.0.4 
-LSNRCTL <span style="color: #008000; font-weight: bold">for</span> Linux: Version 11.2.0.4.0 - Production on 25-MAY-2016 17:00:37
+LSNRCTL <span style="color: #008000; font-weight: bold">for</span> Linux: Version <span style="color: #666666">11</span>.2.0.4.0 - Production on <span style="color: #666666">25</span>-MAY-2016 <span style="color: #666666">17</span>:00:37
 
-Copyright <span style="color: #666666">(</span>c<span style="color: #666666">)</span> 1991, 2013, Oracle.  All rights reserved.
+Copyright <span style="color: #666666">(</span>c<span style="color: #666666">)</span> <span style="color: #666666">1991</span>, <span style="color: #666666">2013</span>, Oracle.  All rights reserved.
 
 Starting /home/oracle/product/oracle_home/bin/tnslsnr: please wait...
 
-TNSLSNR <span style="color: #008000; font-weight: bold">for</span> Linux: Version 11.2.0.4.0 - Production
+TNSLSNR <span style="color: #008000; font-weight: bold">for</span> Linux: Version <span style="color: #666666">11</span>.2.0.4.0 - Production
 System parameter file is /home/oracle/product/oracle_home/network/admin/listener.ora
 Log messages written to /home/oracle/product/diag/tnslsnr/02b9ae1e3ab1/listener/alert/log.xml
 Listening on: <span style="color: #666666">(</span><span style="color: #19177C">DESCRIPTION</span><span style="color: #666666">=(</span><span style="color: #19177C">ADDRESS</span><span style="color: #666666">=(</span><span style="color: #19177C">PROTOCOL</span><span style="color: #666666">=</span>ipc<span style="color: #666666">)(</span><span style="color: #19177C">KEY</span><span style="color: #666666">=</span>EXTPROC1521<span style="color: #666666">)))</span>
-Listening on: <span style="color: #666666">(</span><span style="color: #19177C">DESCRIPTION</span><span style="color: #666666">=(</span><span style="color: #19177C">ADDRESS</span><span style="color: #666666">=(</span><span style="color: #19177C">PROTOCOL</span><span style="color: #666666">=</span>tcp<span style="color: #666666">)(</span><span style="color: #19177C">HOST</span><span style="color: #666666">=</span>02b9ae1e3ab1<span style="color: #666666">)(</span><span style="color: #19177C">PORT</span><span style="color: #666666">=</span>1521<span style="color: #666666">)))</span>
+Listening on: <span style="color: #666666">(</span><span style="color: #19177C">DESCRIPTION</span><span style="color: #666666">=(</span><span style="color: #19177C">ADDRESS</span><span style="color: #666666">=(</span><span style="color: #19177C">PROTOCOL</span><span style="color: #666666">=</span>tcp<span style="color: #666666">)(</span><span style="color: #19177C">HOST</span><span style="color: #666666">=</span>02b9ae1e3ab1<span style="color: #666666">)(</span><span style="color: #19177C">PORT</span><span style="color: #666666">=1521)))</span>
 
 Connecting to <span style="color: #666666">(</span><span style="color: #19177C">DESCRIPTION</span><span style="color: #666666">=(</span><span style="color: #19177C">ADDRESS</span><span style="color: #666666">=(</span><span style="color: #19177C">PROTOCOL</span><span style="color: #666666">=</span>IPC<span style="color: #666666">)(</span><span style="color: #19177C">KEY</span><span style="color: #666666">=</span>EXTPROC1521<span style="color: #666666">)))</span>
 STATUS of the LISTENER
 ------------------------
 Alias                     LISTENER
-Version                   TNSLSNR <span style="color: #008000; font-weight: bold">for</span> Linux: Version 11.2.0.4.0 - Production
-Start Date                25-MAY-2016 17:00:42
+Version                   TNSLSNR <span style="color: #008000; font-weight: bold">for</span> Linux: Version <span style="color: #666666">11</span>.2.0.4.0 - Production
+Start Date                <span style="color: #666666">25</span>-MAY-2016 <span style="color: #666666">17</span>:00:42
 Uptime                    <span style="color: #666666">0</span> days <span style="color: #666666">0</span> hr. <span style="color: #666666">0</span> min. <span style="color: #666666">3</span> sec
 Trace Level               off
 Security                  ON: Local OS Authentication
@@ -330,7 +332,7 @@ Listener Parameter File   /home/oracle/product/oracle_home/network/admin/listene
 Listener Log File         /home/oracle/product/diag/tnslsnr/02b9ae1e3ab1/listener/alert/log.xml
 Listening Endpoints Summary...
   <span style="color: #666666">(</span><span style="color: #19177C">DESCRIPTION</span><span style="color: #666666">=(</span><span style="color: #19177C">ADDRESS</span><span style="color: #666666">=(</span><span style="color: #19177C">PROTOCOL</span><span style="color: #666666">=</span>ipc<span style="color: #666666">)(</span><span style="color: #19177C">KEY</span><span style="color: #666666">=</span>EXTPROC1521<span style="color: #666666">)))</span>
-  <span style="color: #666666">(</span><span style="color: #19177C">DESCRIPTION</span><span style="color: #666666">=(</span><span style="color: #19177C">ADDRESS</span><span style="color: #666666">=(</span><span style="color: #19177C">PROTOCOL</span><span style="color: #666666">=</span>tcp<span style="color: #666666">)(</span><span style="color: #19177C">HOST</span><span style="color: #666666">=</span>02b9ae1e3ab1<span style="color: #666666">)(</span><span style="color: #19177C">PORT</span><span style="color: #666666">=</span>1521<span style="color: #666666">)))</span>
+  <span style="color: #666666">(</span><span style="color: #19177C">DESCRIPTION</span><span style="color: #666666">=(</span><span style="color: #19177C">ADDRESS</span><span style="color: #666666">=(</span><span style="color: #19177C">PROTOCOL</span><span style="color: #666666">=</span>tcp<span style="color: #666666">)(</span><span style="color: #19177C">HOST</span><span style="color: #666666">=</span>02b9ae1e3ab1<span style="color: #666666">)(</span><span style="color: #19177C">PORT</span><span style="color: #666666">=1521)))</span>
 The listener supports no services
 The <span style="color: #008000">command</span> completed successfully
 Processing Database instance <span style="color: #BA2121">&quot;orcl&quot;</span>: log file /home/oracle/product/oracle_home/startup.log
@@ -341,7 +343,7 @@ Database Buffers	  <span style="color: #666666">515899392</span> bytes
 Redo Buffers		    <span style="color: #666666">6717440</span> bytes
 Database mounted.
 Database opened.
-SQL&gt; Disconnected from Oracle Database 11g Release 11.2.0.4.0 - 64bit Production
+SQL&gt; Disconnected from Oracle Database 11g Release <span style="color: #666666">11</span>.2.0.4.0 - 64bit Production
 
 bin/dbstart: Database instance <span style="color: #BA2121">&quot;orcl&quot;</span> warm started.
 </pre></div>
@@ -377,10 +379,10 @@ it will worth our effort.</p>
                     <span style="color: #BA2121">&quot;EndpointID&quot;</span>: <span style="color: #BA2121">&quot;ea1e3277916bcebaa6fbba42ab6cdea6ebd597a2ce20c274b415f4ad89f05bee&quot;</span>,
                     <span style="color: #BA2121">&quot;Gateway&quot;</span>: <span style="color: #BA2121">&quot;172.17.0.1&quot;</span>,
                     <span style="color: #BA2121">&quot;IPAddress&quot;</span>: <span style="color: #BA2121">&quot;172.17.0.2&quot;</span>,
-                    <span style="color: #BA2121">&quot;IPPrefixLen&quot;</span>: 16,
+                    <span style="color: #BA2121">&quot;IPPrefixLen&quot;</span>: <span style="color: #666666">16</span>,
                     <span style="color: #BA2121">&quot;IPv6Gateway&quot;</span>: <span style="color: #BA2121">&quot;&quot;</span>,
                     <span style="color: #BA2121">&quot;GlobalIPv6Address&quot;</span>: <span style="color: #BA2121">&quot;&quot;</span>,
-                    <span style="color: #BA2121">&quot;GlobalIPv6PrefixLen&quot;</span>: 0,
+                    <span style="color: #BA2121">&quot;GlobalIPv6PrefixLen&quot;</span>: <span style="color: #666666">0</span>,
                     <span style="color: #BA2121">&quot;MacAddress&quot;</span>: <span style="color: #BA2121">&quot;02:42:ac:11:00:02&quot;</span>
                 <span style="color: #666666">}</span>
             <span style="color: #666666">}</span>
