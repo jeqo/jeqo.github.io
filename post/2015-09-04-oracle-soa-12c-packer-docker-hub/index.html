@@ -4,12 +4,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="darksimplicity">
-  <meta name="generator" content="Hugo 0.19" />
+  <meta name="generator" content="Hugo 0.20.2" />
   
   
   <base href="https://jeqo.github.io/">
   <title>Oracle SOA Suite 12c Docker Image</title>
-  <link rel="stylesheet" href="/css/style.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.020/css/hack-extended.min.css">
+  <link rel="stylesheet" href="/css/style.min.css">  
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 </head>
@@ -62,7 +63,7 @@ an independent repository: <a href="https://github.com/jeqo/oracle-soa-12c-docke
 <p>Basically Dockerfile scripts were moved to shell scripts and are called
 from Packer.</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>  <span style="color: #BA2121">&quot;provisioners&quot;</span><span style="border: 1px solid #FF0000">:</span> [
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">  <span style="color: #BA2121">&quot;provisioners&quot;</span><span style="border: 1px solid #FF0000">:</span> [
     {
       <span style="color: #008000; font-weight: bold">&quot;type&quot;</span>: <span style="color: #BA2121">&quot;shell&quot;</span>,
       <span style="color: #008000; font-weight: bold">&quot;scripts&quot;</span>: [
@@ -103,7 +104,7 @@ from Packer.</p>
 <p>After provisioning, you can save your image, and if
 you want push it to Docker Hub:</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>  <span style="color: #BA2121">&quot;post-processors&quot;</span><span style="border: 1px solid #FF0000">:</span> [
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">  <span style="color: #BA2121">&quot;post-processors&quot;</span><span style="border: 1px solid #FF0000">:</span> [
     [
       {
         <span style="color: #008000; font-weight: bold">&quot;type&quot;</span>: <span style="color: #BA2121">&quot;docker-tag&quot;</span>,

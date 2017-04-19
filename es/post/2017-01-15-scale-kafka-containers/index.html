@@ -4,12 +4,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="darksimplicity">
-  <meta name="generator" content="Hugo 0.19" />
+  <meta name="generator" content="Hugo 0.20.2" />
   
   
   <base href="https://jeqo.github.io/es">
   <title>Escalando Kafka con Docker Containers</title>
-  <link rel="stylesheet" href="/es/css/style.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.020/css/hack-extended.min.css">
+  <link rel="stylesheet" href="/es/css/style.min.css">  
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 </head>
@@ -86,7 +87,7 @@ aquí:
 
 <hr />
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>version: <span style="color: #BA2121">&quot;2.1&quot;</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">version: <span style="color: #BA2121">&quot;2.1&quot;</span>
 services:
   kafka:
     image: jeqo/apache-kafka:0.10.1.0-2.11
@@ -104,7 +105,7 @@ configuran el acceso desde <code>kafka</code> hacia el servicio <code>zookeeper<
 <p>Si probamos iniciar los servicios con el comando <code>docker-compose up -d</code>,
 Docker Compose creará una red donde estos servicios se podrán comunicar.</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
 Creating network <span style="color: #BA2121">&quot;kafkacluster_default&quot;</span> with the default driver
 Creating kafkacluster_zookeeper_1
 Creating kafkacluster_kafka_1
@@ -114,7 +115,7 @@ Creating kafkacluster_kafka_1
 <p>Si queremos acceder a estos servicios desde nuestra aplicación (también
   definida en Docker Compose) lo podemos hacer de la siguiente manera:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>version: <span style="color: #BA2121">&quot;2.1&quot;</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">version: <span style="color: #BA2121">&quot;2.1&quot;</span>
 services:
   kafka:
     image: jeqo/apache-kafka-client:0.10.1.0-2.11
@@ -136,7 +137,7 @@ el servicio <code>client</code>.</p>
 <p>Para probar el acceso desde el cliente, primero iniciemos el servicio con
 <code>docker-compose up -d</code> y luego nos conectamos al servicio:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>$ docker-compose <span style="color: #008000">exec</span> kafka bash
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">$ docker-compose <span style="color: #008000">exec</span> kafka bash
 <span style="color: #408080; font-style: italic"># bin/kafka-console-producer.sh --broker-list kafka:9092 --topic topic1</span>
 <span style="color: #008000">test</span>
 <span style="color: #408080; font-style: italic"># bin/kafka-topics.sh --zookeeper zookeeper:2181 --list      </span>
@@ -149,13 +150,13 @@ topic1
 <p>Una vez creado nuestro clúster, escalar nuestro contenedor de ´kafka´
 es tan sencillo como utilizar el comando <code>scale</code>:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>docker-compose scale <span style="color: #19177C">kafka</span><span style="color: #666666">=3</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">docker-compose scale <span style="color: #19177C">kafka</span><span style="color: #666666">=</span>3
 </pre></div>
 
 
 <p>Este comando creará dos contenedores adicionales:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>$ docker-compose scale <span style="color: #19177C">kafka</span><span style="color: #666666">=3</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">$ docker-compose scale <span style="color: #19177C">kafka</span><span style="color: #666666">=</span>3
 Creating and starting kafkacluster_kafka_2 ... <span style="color: #008000; font-weight: bold">done</span>
 Creating and starting kafkacluster_kafka_3 ... <span style="color: #008000; font-weight: bold">done</span>
 </pre></div>
@@ -175,10 +176,10 @@ de Zookeeper.</p>
 
 <p>Desde el contenedor cliente:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>$ docker-compose <span style="color: #008000">exec</span> kafka bash
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">$ docker-compose <span style="color: #008000">exec</span> kafka bash
 <span style="color: #408080; font-style: italic"># bin/zookeeper-shell.sh zookeeper:2181</span>
 ls /brokers/ids
-<span style="color: #666666">[1003</span>, <span style="color: #666666">1002</span>, <span style="color: #666666">1001]</span>
+<span style="color: #666666">[</span>1003, 1002, 1001<span style="color: #666666">]</span>
 </pre></div>
 
 
@@ -256,7 +257,7 @@ o manual, si se sabe cómo redistribuir los topics.</p></li>
 
 <p>Dentro del archivo <code>playbooks/prepare-reassignment.yml</code> hay dos variables a definir:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>vars:
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">vars:
   topics:
     - topic1
   broker_list: 1003
@@ -269,7 +270,7 @@ o manual, si se sabe cómo redistribuir los topics.</p></li>
 
 <p>Puedes copiar ese JSON generado en <code>playbooks/reassign-topic-plan.json</code></p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>{
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">{
   <span style="color: #008000; font-weight: bold">&quot;version&quot;</span>:<span style="color: #666666">1</span>,
   <span style="color: #008000; font-weight: bold">&quot;partitions&quot;</span>:[{<span style="color: #008000; font-weight: bold">&quot;topic&quot;</span>:<span style="color: #BA2121">&quot;topic1&quot;</span>,<span style="color: #008000; font-weight: bold">&quot;partition&quot;</span>:<span style="color: #666666">0</span>,<span style="color: #008000; font-weight: bold">&quot;replicas&quot;</span>:[<span style="color: #666666">1003</span>]}]
 }

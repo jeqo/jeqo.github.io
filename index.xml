@@ -3,7 +3,7 @@
     <channel>
         <title>Jorge Quilcate Otoya on @jeqo</title>
         <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/index.xml</link>
+        <link>https://jeqo.github.io/</link>
         <language>en-us</language>
         <author>Jorge Quilcate Otoya</author>
         
@@ -101,7 +101,7 @@ can consume &lt;code&gt;records&lt;/code&gt; from &lt;code&gt;partitions&lt;/cod
 
 &lt;p&gt;&lt;code&gt;KafkaSimpleProducer.java&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
     &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
     Properties properties &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; Properties&lt;span style=&#34;color: #666666&#34;&gt;();&lt;/span&gt;
     properties&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ProducerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;BOOTSTRAP_SERVERS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; bootstrapServers&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
@@ -200,7 +200,7 @@ in his post
 
 &lt;p&gt;A simple Consumer will look something like this:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
     Properties props &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; Properties&lt;span style=&#34;color: #666666&#34;&gt;();&lt;/span&gt;
     props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;BOOTSTRAP_SERVERS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; bootstrapServers&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
     props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;GROUP_ID_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
@@ -238,7 +238,7 @@ this also deserves its own post.&lt;/p&gt;
 &lt;p&gt;To go to the beginning we can use &lt;code&gt;#seekToBeginning(topicPartition)&lt;/code&gt;
 operation to go back to earliest offset:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #B00040&#34;&gt;boolean&lt;/span&gt; flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #B00040&#34;&gt;boolean&lt;/span&gt; flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
 
 &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
     ConsumerRecords&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; records &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;poll&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(100);&lt;/span&gt;
@@ -264,7 +264,7 @@ operation to go back to earliest offset:&lt;/p&gt;
 from where we need to reprocess all the log,
 we can use &lt;code&gt;#seek(topicPartition, offset)&lt;/code&gt; directly.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #B00040&#34;&gt;boolean&lt;/span&gt; flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #B00040&#34;&gt;boolean&lt;/span&gt; flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
 
 &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
     ConsumerRecords&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; records &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;poll&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(100);&lt;/span&gt;
@@ -302,7 +302,7 @@ were added and a new operation was added to &lt;code&gt;Kafka Consumer API&lt;/c
 
 &lt;p&gt;Here is how to use it:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #B00040&#34;&gt;boolean&lt;/span&gt; flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #B00040&#34;&gt;boolean&lt;/span&gt; flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
 
 &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
     ConsumerRecords&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; records &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;poll&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(100);&lt;/span&gt;
@@ -402,7 +402,7 @@ and you can find their source code here:
 
 &lt;hr /&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
 services:
   kafka:
     image: jeqo/apache-kafka:0.10.1.0-2.11
@@ -420,7 +420,7 @@ from &lt;code&gt;kafka&lt;/code&gt; to &lt;code&gt;zookeeper&lt;/code&gt; servic
 &lt;p&gt;If we try to start these configuration with &lt;code&gt;docker-compose up -d&lt;/code&gt;,
 Docker Compose will create a &lt;code&gt;network&lt;/code&gt; where these service can communicate.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
 Creating network &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;kafkacluster_default&amp;quot;&lt;/span&gt; with the default driver
 Creating kafkacluster_zookeeper_1
 Creating kafkacluster_kafka_1
@@ -430,7 +430,7 @@ Creating kafkacluster_kafka_1
 &lt;p&gt;If you want to communicate with the cluster from your application&amp;rsquo;s
 docker-compose configuration, you can do it as follows:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
 services:
   kafka:
     image: jeqo/apache-kafka-client:0.10.1.0-2.11
@@ -451,7 +451,7 @@ to the service network.&lt;/p&gt;
 &lt;p&gt;To test our client, start it up running &lt;code&gt;docker-compose up -d&lt;/code&gt; and then connect
 to the cluster with the following command:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/kafka-console-producer.sh --broker-list kafka:9092 --topic topic1&lt;/span&gt;
 &lt;span style=&#34;color: #008000&#34;&gt;test&lt;/span&gt;
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/kafka-topics.sh --zookeeper zookeeper:2181 --list      &lt;/span&gt;
@@ -463,13 +463,13 @@ topic1
 
 &lt;p&gt;To scale a container using Docker Compose is as simple as using the &lt;code&gt;scale&lt;/code&gt; command:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=3&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;3
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This will create 2 more containers:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=3&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;3
 Creating and starting kafkacluster_kafka_2 ... &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;done&lt;/span&gt;
 Creating and starting kafkacluster_kafka_3 ... &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -483,10 +483,10 @@ Kafka scaling will be transparent to your application.&lt;/p&gt;
 &lt;p&gt;To validate that all brokers are part of the cluster let&amp;rsquo;s use Zookeeper client to check. From
 client container:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/zookeeper-shell.sh zookeeper:2181&lt;/span&gt;
 ls /brokers/ids
-&lt;span style=&#34;color: #666666&#34;&gt;[1003&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;1002&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;1001]&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;1003, 1002, 1001&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -565,7 +565,7 @@ you can decide how to redistribute your topics.&lt;/p&gt;&lt;/li&gt;
 
 &lt;p&gt;Inside the &lt;code&gt;playbooks/prepare-reassignment.yml&lt;/code&gt; file you have 2 variables:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;vars:
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vars:
   topics:
     - topic1
   broker_list: 1003
@@ -578,7 +578,7 @@ you can decide how to redistribute your topics.&lt;/p&gt;&lt;/li&gt;
 
 &lt;p&gt;You can paste the JSON file generated into &lt;code&gt;playbooks/reassign-topic-plan.json&lt;/code&gt;&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;version&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;partitions&amp;quot;&lt;/span&gt;:[{&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;topic&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;topic1&amp;quot;&lt;/span&gt;,&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;partition&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;replicas&amp;quot;&lt;/span&gt;:[&lt;span style=&#34;color: #666666&#34;&gt;1003&lt;/span&gt;]}]
 }
@@ -685,7 +685,7 @@ take a lot to my previous post:
 &lt;p&gt;Here is how we create an image with Oracle Database 11g (or 12c) installed
 using Ansible:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;- hosts: 127.0.0.1 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# &amp;gt;&amp;gt;&amp;gt; (1)&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- hosts: 127.0.0.1 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# &amp;gt;&amp;gt;&amp;gt; (1)&lt;/span&gt;
   connection: local
   vars_files:
     - vars/main.yml
@@ -750,16 +750,16 @@ Oracle software inside container images:
 
 &lt;p&gt;To run this process you just need:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ ansible-playbook main.yml
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ ansible-playbook main.yml
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;To check that our &amp;ldquo;oracle-database&amp;rdquo; image is created successfully, just run&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker images
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker images
 REPOSITORY                        TAG                    IMAGE ID            CREATED             SIZE
-syscomiddleware/oracle-database   oraclelinux-11.2.0.4   15eb5554debd        &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; hours ago         &lt;span style=&#34;color: #666666&#34;&gt;6&lt;/span&gt;.301 GB
-syscomiddleware/oracle-database   latest                 ab59ccd81cba        &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; hours ago         &lt;span style=&#34;color: #666666&#34;&gt;6&lt;/span&gt;.301 GB 
+syscomiddleware/oracle-database   oraclelinux-11.2.0.4   15eb5554debd        &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; hours ago         6.301 GB
+syscomiddleware/oracle-database   latest                 ab59ccd81cba        &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; hours ago         6.301 GB 
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -787,7 +787,7 @@ run Ansible roles and commit image.&lt;/p&gt;
 &lt;p&gt;And as you see, we are using another Ansible role called &amp;ldquo;oracle-database-instance&amp;rdquo;
 that is used to create an instance and prepare listener:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;- hosts: tmp-oracle-db-instance
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- hosts: tmp-oracle-db-instance
   connection: docker
   roles:
     - role: sysco-middleware.oracle-database-instance
@@ -812,7 +812,7 @@ that is used to create an instance and prepare listener:&lt;/p&gt;
 &lt;p&gt;But this process is a little bit different from previous case:
 As you can see in this main.yml file, there is an additional step:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;- name: build image
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- name: build image
   command: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;docker&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;build&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;-t&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;{{&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;image_name&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;}}&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;docker&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -831,13 +831,13 @@ Dockerfile. But, as you know, we don&amp;rsquo;t have a out-of-the-box script th
 the instance and keep this process alive and printing logging messages.
 But we can create something similar:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$ORACLE_HOME&lt;/span&gt;/network/admin/listener.ora
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;$ORACLE_HOME/network/admin/listener.ora
 
-cp &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;.tmpl&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
-sed -i &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;s/%hostname%/&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$HOSTNAME&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;/g&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+cp &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;.tmpl&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;$&lt;span style=&#34;color: #BA2121&#34;&gt;LISTENERS_ORA&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+sed -i &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;s/%hostname%/&lt;/span&gt;$&lt;span style=&#34;color: #BA2121&#34;&gt;HOSTNAME/g&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
 sed -i &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;s/%port%/1521/g&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
 bin/lsnrctl start &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
-bin/dbstart &lt;span style=&#34;color: #19177C&#34;&gt;$ORACLE_HOME&lt;/span&gt;
+bin/dbstart $ORACLE_HOME
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -853,7 +853,7 @@ So, to keep our database instance consistent, we have to update our listener.ora
 
 &lt;p&gt;Here is our Dockerfile:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;FROM tmp&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;oracle&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;db&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;instance
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;FROM tmp&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;oracle&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;db&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;instance
 
 MAINTAINER Jorge Quilcate &amp;lt;jorge.quilcate&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;@&lt;/span&gt;sysco.no&amp;gt;
 
@@ -879,25 +879,25 @@ you override it in your &lt;em&gt;&amp;ldquo;docker run&amp;rdquo;&lt;/em&gt; co
 
 &lt;p&gt;You can test this image by running:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker run -it syscomiddleware/oracle-database-instance:oraclelinux-11.2.0.4 
-LSNRCTL &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version &lt;span style=&#34;color: #666666&#34;&gt;11&lt;/span&gt;.2.0.4.0 - Production on &lt;span style=&#34;color: #666666&#34;&gt;25&lt;/span&gt;-MAY-2016 &lt;span style=&#34;color: #666666&#34;&gt;17&lt;/span&gt;:00:37
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker run -it syscomiddleware/oracle-database-instance:oraclelinux-11.2.0.4 
+LSNRCTL &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version 11.2.0.4.0 - Production on 25-MAY-2016 17:00:37
 
-Copyright &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;c&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;1991&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;2013&lt;/span&gt;, Oracle.  All rights reserved.
+Copyright &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;c&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; 1991, 2013, Oracle.  All rights reserved.
 
 Starting /home/oracle/product/oracle_home/bin/tnslsnr: please wait...
 
-TNSLSNR &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version &lt;span style=&#34;color: #666666&#34;&gt;11&lt;/span&gt;.2.0.4.0 - Production
+TNSLSNR &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version 11.2.0.4.0 - Production
 System parameter file is /home/oracle/product/oracle_home/network/admin/listener.ora
 Log messages written to /home/oracle/product/diag/tnslsnr/02b9ae1e3ab1/listener/alert/log.xml
 Listening on: &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;ipc&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;KEY&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;EXTPROC1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
-Listening on: &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=1521)))&lt;/span&gt;
+Listening on: &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
 
 Connecting to &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;IPC&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;KEY&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;EXTPROC1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
 STATUS of the LISTENER
 ------------------------
 Alias                     LISTENER
-Version                   TNSLSNR &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version &lt;span style=&#34;color: #666666&#34;&gt;11&lt;/span&gt;.2.0.4.0 - Production
-Start Date                &lt;span style=&#34;color: #666666&#34;&gt;25&lt;/span&gt;-MAY-2016 &lt;span style=&#34;color: #666666&#34;&gt;17&lt;/span&gt;:00:42
+Version                   TNSLSNR &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version 11.2.0.4.0 - Production
+Start Date                25-MAY-2016 17:00:42
 Uptime                    &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt; days &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt; hr. &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt; min. &lt;span style=&#34;color: #666666&#34;&gt;3&lt;/span&gt; sec
 Trace Level               off
 Security                  ON: Local OS Authentication
@@ -906,7 +906,7 @@ Listener Parameter File   /home/oracle/product/oracle_home/network/admin/listene
 Listener Log File         /home/oracle/product/diag/tnslsnr/02b9ae1e3ab1/listener/alert/log.xml
 Listening Endpoints Summary...
   &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;ipc&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;KEY&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;EXTPROC1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
-  &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=1521)))&lt;/span&gt;
+  &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
 The listener supports no services
 The &lt;span style=&#34;color: #008000&#34;&gt;command&lt;/span&gt; completed successfully
 Processing Database instance &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;orcl&amp;quot;&lt;/span&gt;: log file /home/oracle/product/oracle_home/startup.log
@@ -917,14 +917,14 @@ Database Buffers	  &lt;span style=&#34;color: #666666&#34;&gt;515899392&lt;/span
 Redo Buffers		    &lt;span style=&#34;color: #666666&#34;&gt;6717440&lt;/span&gt; bytes
 Database mounted.
 Database opened.
-SQL&amp;gt; Disconnected from Oracle Database 11g Release &lt;span style=&#34;color: #666666&#34;&gt;11&lt;/span&gt;.2.0.4.0 - 64bit Production
+SQL&amp;gt; Disconnected from Oracle Database 11g Release 11.2.0.4.0 - 64bit Production
 
 bin/dbstart: Database instance &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;orcl&amp;quot;&lt;/span&gt; warm started.
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;From other terminal you can check container name and inspect for its IP address:
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker ps
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker ps
 CONTAINER ID        IMAGE                                      COMMAND                  CREATED              STATUS              PORTS               NAMES
 21713e2f2c59        syscomiddleware/oracle-database-instance   &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/bin/sh -c &amp;#39;sh start&amp;quot;&lt;/span&gt;   About a minute ago   Up About a minute                       adoring_yalow
 &lt;/pre&gt;&lt;/div&gt;
@@ -942,7 +942,7 @@ it will worth our effort.&lt;/p&gt;
 
 &lt;p&gt;First, you can see that a container name is assigned randomly: &amp;ldquo;adoring_yalow&amp;rdquo;&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker inspect adoring_yalow
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker inspect adoring_yalow
 ...
 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Networks&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
                 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;bridge&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
@@ -953,10 +953,10 @@ it will worth our effort.&lt;/p&gt;
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;EndpointID&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;ea1e3277916bcebaa6fbba42ab6cdea6ebd597a2ce20c274b415f4ad89f05bee&amp;quot;&lt;/span&gt;,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Gateway&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;172.17.0.1&amp;quot;&lt;/span&gt;,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IPAddress&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;172.17.0.2&amp;quot;&lt;/span&gt;,
-                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IPPrefixLen&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #666666&#34;&gt;16&lt;/span&gt;,
+                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IPPrefixLen&amp;quot;&lt;/span&gt;: 16,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IPv6Gateway&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;GlobalIPv6Address&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;,
-                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;GlobalIPv6PrefixLen&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt;,
+                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;GlobalIPv6PrefixLen&amp;quot;&lt;/span&gt;: 0,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;MacAddress&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;02:42:ac:11:00:02&amp;quot;&lt;/span&gt;
                 &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
             &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
@@ -993,7 +993,7 @@ the &lt;em&gt;project name&lt;/em&gt; by Docker Compose.&lt;/p&gt;
 
 &lt;p&gt;Inside is a file called &amp;ldquo;docker-compose.yml&amp;rdquo; that defines &lt;em&gt;container services&lt;/em&gt;:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;
 services:
   db:
     build: db
@@ -1008,7 +1008,7 @@ to your hosts port 10521, so you can use it from a local application.&lt;/p&gt;
 
 &lt;p&gt;This Dockerfile contains instructions to create an schema called &amp;ldquo;test&amp;rdquo;.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;FROM syscomiddleware&lt;span style=&#34;color: #666666&#34;&gt;/&lt;/span&gt;oracle&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;database&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;instance:oraclelinux&lt;span style=&#34;color: #666666&#34;&gt;-11.2.0.4&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;FROM syscomiddleware&lt;span style=&#34;color: #666666&#34;&gt;/&lt;/span&gt;oracle&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;database&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;instance:oraclelinux&lt;span style=&#34;color: #666666&#34;&gt;-11.2.0.4&lt;/span&gt;
 
 MAINTAINER Jorge Quilcate &amp;lt;jorge.quilcate&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;@&lt;/span&gt;sysco.no&amp;gt;
 
@@ -1073,7 +1073,7 @@ because of its scripting language: YAML, and its agentless architecture.&lt;/p&g
 &lt;p&gt;This means that is actually really easy to understand and start working
 with it. For example:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;- hosts: webserver
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- hosts: webserver
   tasks:
     - package: apache
         state: latest
@@ -1130,7 +1130,7 @@ commands in your workstation.&lt;/p&gt;
 
 &lt;p&gt;Just to explain what it does, let&amp;rsquo;s check the main task file:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  - debug:
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;  - debug:
       msg: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;This&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;Java&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;Provider&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;will&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;be&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;installed:&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;{{&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;java_provider&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;}}&amp;quot;&lt;/span&gt;
 
   - include: install-{{ java_provider }}.yml
@@ -1145,7 +1145,7 @@ variable and finally set JAVA_HOME variable.&lt;/p&gt;
 &lt;p&gt;Also this role has a &amp;ldquo;tests&amp;rdquo; directory where you can add playbooks
 to test your role:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;- name: test install openjdk jdk 8 on centos 7
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- name: test install openjdk jdk 8 on centos 7
   hosts: test01
   roles:
     - role: java
@@ -1165,7 +1165,7 @@ to test your role:&lt;/p&gt;
 
 &lt;p&gt;And I test this playbooks using Vagrant and VirtualBox:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #880000&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;configure(&lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt;) &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;config&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #880000&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;configure(&lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt;) &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;config&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
 
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provision &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;ansible&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;ansible&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
     ansible&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;playbook &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;test.yml&amp;quot;&lt;/span&gt;
@@ -1187,10 +1187,10 @@ to test your role:&lt;/p&gt;
 
 &lt;p&gt;So, lets test that OpenJDK 8 is running OK in Centos:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;vagrant up test01
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vagrant up test01
 ...
 
-PLAY &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #008000&#34;&gt;test&lt;/span&gt; install openjdk jdk &lt;span style=&#34;color: #666666&#34;&gt;8&lt;/span&gt; on centos &lt;span style=&#34;color: #666666&#34;&gt;7]&lt;/span&gt; **********************************
+PLAY &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #008000&#34;&gt;test&lt;/span&gt; install openjdk jdk &lt;span style=&#34;color: #666666&#34;&gt;8&lt;/span&gt; on centos 7&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt; **********************************
 
 TASK &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;setup&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt; *******************************************************************
 ok: &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;test01&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
@@ -1231,7 +1231,7 @@ I give it a try: &lt;a href=&#34;https://github.com/jeqo/poc-ansible-docker&#34;
 
 &lt;p&gt;I added a playbook to create a container:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;- hosts: 127.0.0.1
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- hosts: 127.0.0.1
   connection: local
   tasks:
     - name: my container
@@ -1245,7 +1245,7 @@ I give it a try: &lt;a href=&#34;https://github.com/jeqo/poc-ansible-docker&#34;
 
 &lt;p&gt;Here I&amp;rsquo;m using &amp;ldquo;connection: local&amp;rdquo; to execute commands locally.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker ps
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 a5e49bd032be        centos              &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;sleep infinity&amp;quot;&lt;/span&gt;    About an hour ago   Up About an hour                        poccontainer
 &lt;/pre&gt;&lt;/div&gt;
@@ -1253,7 +1253,7 @@ a5e49bd032be        centos              &lt;span style=&#34;color: #BA2121&#34;&
 
 &lt;p&gt;And once I have a container running, I can run this playbook:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;- hosts: poccontainer
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- hosts: poccontainer
   connection: docker
   pre_tasks:
     - package: name=sudo
@@ -1269,7 +1269,7 @@ a5e49bd032be        centos              &lt;span style=&#34;color: #BA2121&#34;&
 &lt;p&gt;Pre-tasks are required to install sudo package and configure tty. And
 then run role as usual:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ ansible-playbook provisioning.yml -vvvv
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ ansible-playbook provisioning.yml -vvvv
 Using /home/jeqo/dev/jeqo/poc-ansible-docker/ansible.cfg as config file
 Loaded callback default of &lt;span style=&#34;color: #008000&#34;&gt;type&lt;/span&gt; stdout, v2.0
 &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; plays in provisioning.yml
@@ -1279,12 +1279,12 @@ PLAY ***************************************************************************
 TASK &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;setup&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt; *******************************************************************
 ESTABLISH DOCKER CONNECTION FOR USER: None
 &amp;lt;poccontainer&amp;gt; EXEC &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;/usr/bin/docker&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;exec&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;-i&amp;#39;&lt;/span&gt;, u&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;poccontainer&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;/bin/sh&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;-c&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;/bin/sh -c \&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #008000&#34;&gt;umask&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;22&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; 
-mkdir -p &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$HOME&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; 
-&lt;span style=&#34;color: #008000&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$HOME&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;]&lt;/span&gt;
+mkdir -p &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&gt;$&lt;span style=&#34;color: #BA2121&#34;&gt;HOME/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; 
+&lt;span style=&#34;color: #008000&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&gt;$&lt;span style=&#34;color: #BA2121&#34;&gt;HOME/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;]&lt;/span&gt;
 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;lt;poccontainer&amp;gt; PUT /tmp/tmpNCOaxi TO /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup&lt;/span&gt;
 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;lt;poccontainer&amp;gt; EXEC [&amp;#39;&lt;/span&gt;/usr/bin/docker&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;exec&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-i&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;poccontainer&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;/bin/sh&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-c&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;/bin/sh -c &lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LANG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 
 &lt;span style=&#34;color: #19177C&#34;&gt;LC_ALL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 &lt;span style=&#34;color: #19177C&#34;&gt;LC_MESSAGES&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 /usr/bin/python /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup; 
-rm -rf &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&amp;quot;&lt;/span&gt; &amp;gt; /dev/null &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt;&amp;gt;&amp;amp;&lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+rm -rf &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&amp;quot;&lt;/span&gt; &amp;gt; /dev/null 2&amp;gt;&amp;amp;1&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 ok: &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;poccontainer&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1306,7 +1306,7 @@ is missing commit and push tasks to put containers on Docker Hub,
 but you can replace it with local commands as here:&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;- hosts: 127.0.0.1
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- hosts: 127.0.0.1
   connection: local
   tasks:
     - name: commit
@@ -1343,7 +1343,7 @@ an independent repository: &lt;a href=&#34;https://github.com/jeqo/oracle-soa-12
 &lt;p&gt;Basically Dockerfile scripts were moved to shell scripts and are called
 from Packer.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;provisioners&amp;quot;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt; [
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;provisioners&amp;quot;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt; [
     {
       &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;,
       &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;: [
@@ -1384,7 +1384,7 @@ from Packer.&lt;/p&gt;
 &lt;p&gt;After provisioning, you can save your image, and if
 you want push it to Docker Hub:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;post-processors&amp;quot;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt; [
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;post-processors&amp;quot;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt; [
     [
       {
         &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;docker-tag&amp;quot;&lt;/span&gt;,
@@ -1458,7 +1458,7 @@ Consumer will subscribe to that &amp;ldquo;observable&amp;rdquo;. Let&amp;rsquo;
 &lt;li&gt;Events Resource: List (GET) Client Added Events&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #AA22FF&#34;&gt;@Path&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;clients&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #AA22FF&#34;&gt;@Path&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;clients&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
 &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;ClientsResource&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
 
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; List&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; clients &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; ArrayList&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
@@ -1487,7 +1487,7 @@ ClientAddedEvent and list them on Events resource?&lt;/p&gt;
 &lt;p&gt;When I decided to use Kafka, I realized that I can only send String and Byte
 Array messages, so Avro is able to serialize POJO into byte[] and vice versa:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;test&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;test&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
     ClientAddedEvent event &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; ClientAddedEvent&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;newBuilder&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt;
             &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;setName&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;jeqo&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
             &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;setCreated&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; Date&lt;span style=&#34;color: #666666&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getTime&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;())&lt;/span&gt;
@@ -1501,7 +1501,7 @@ Array messages, so Avro is able to serialize POJO into byte[] and vice versa:&lt
 
 &lt;p&gt;ClientAddedEvent event is defined using Avro JSON format:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;namespace&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;com.jeqo.samples.eventsource.event&amp;quot;&lt;/span&gt;,
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;record&amp;quot;&lt;/span&gt;,
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;ClientAddedEvent&amp;quot;&lt;/span&gt;,
@@ -1516,7 +1516,7 @@ Array messages, so Avro is able to serialize POJO into byte[] and vice versa:&lt
 &lt;p&gt;Adding a Maven Plugin, you will generate &lt;em&gt;ClientAddedEvent&lt;/em&gt; each time you build
 your project:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
         &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
             &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.avro&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
@@ -1542,7 +1542,7 @@ your project:&lt;/p&gt;
 
 &lt;p&gt;To serialize Avro records, from POJO to Byte Array:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;EventSerializer&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;extends&lt;/span&gt; SpecificRecordBase&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;EventSerializer&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;extends&lt;/span&gt; SpecificRecordBase&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
 
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;[]&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;serialize&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;T record&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
         &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ByteArrayOutputStream out &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; ByteArrayOutputStream&lt;span style=&#34;color: #666666&#34;&gt;())&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
@@ -1560,7 +1560,7 @@ your project:&lt;/p&gt;
 
 &lt;p&gt;And to deserialize:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;EventDeserializer&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;extends&lt;/span&gt; SpecificRecordBase&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;EventDeserializer&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;extends&lt;/span&gt; SpecificRecordBase&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
 
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;final&lt;/span&gt; Class&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; type&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
 
@@ -1592,7 +1592,7 @@ those events on Kafka:&lt;/p&gt;
 
 &lt;p&gt;First, let&amp;rsquo;s define a couple of interfaces, EventServer:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;EventServer&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;EventServer&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
 
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; Observable&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;consume&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;();&lt;/span&gt;
 &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
@@ -1601,7 +1601,7 @@ those events on Kafka:&lt;/p&gt;
 
 &lt;p&gt;and EventProducer:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;EventProducer&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;EventProducer&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
 
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;publish&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;T message&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
 &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
@@ -1612,7 +1612,7 @@ those events on Kafka:&lt;/p&gt;
 
 &lt;p&gt;To publish messages:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #AA22FF&#34;&gt;@Override&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #AA22FF&#34;&gt;@Override&lt;/span&gt;
 &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;publish&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;T message&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
     &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;// Produce a new Kafka record&lt;/span&gt;
     ProducerRecord&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;[]&amp;gt;&lt;/span&gt; data &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; ProducerRecord&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;
@@ -1640,7 +1640,7 @@ those events on Kafka:&lt;/p&gt;
 
 &lt;p&gt;And on KafkaEventServer, to instantiate an RxJava observable:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #AA22FF&#34;&gt;@Override&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #AA22FF&#34;&gt;@Override&lt;/span&gt;
 &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; Observable&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;consume&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;return&lt;/span&gt; Observable&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;create&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;subscriber &lt;span style=&#34;color: #666666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
         &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
@@ -1690,7 +1690,7 @@ to check that it&amp;rsquo;s working Ok with your Kafka server.&lt;/p&gt;
 
 &lt;p&gt;First, create instantiate a publisher and a subscriber:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #AA22FF&#34;&gt;@ApplicationScoped&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #AA22FF&#34;&gt;@ApplicationScoped&lt;/span&gt;
 &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;ClientAddedEventProducer&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;extends&lt;/span&gt; KafkaEventProducer&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;ClientAddedEvent&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
 
 &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
@@ -1700,7 +1700,7 @@ to check that it&amp;rsquo;s working Ok with your Kafka server.&lt;/p&gt;
 &lt;p&gt;This means that ClientAddedEventProducer will be a &lt;em&gt;&amp;ldquo;singleton&amp;rdquo;&lt;/em&gt; and I could inject it
 on my service that generates events:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;ClientsResource&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;ClientsResource&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
 
     &lt;span style=&#34;color: #AA22FF&#34;&gt;@Inject&lt;/span&gt;
     ClientAddedEventProducer eventProducer&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
@@ -1725,7 +1725,7 @@ on my service that generates events:&lt;/p&gt;
 &lt;p&gt;Then, instantiate a Subscriber (I think this is the most interesting part:
   how we will &lt;strong&gt;react&lt;/strong&gt; to events? ):&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;// Extending Subscriber RxJava class to listen Observables&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;// Extending Subscriber RxJava class to listen Observables&lt;/span&gt;
 &lt;span style=&#34;color: #AA22FF&#34;&gt;@ApplicationScoped&lt;/span&gt;
 &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;ClientAddedEventSubscriber&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;extends&lt;/span&gt; Subscriber&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;ClientAddedEvent&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
 
@@ -1855,7 +1855,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 
 &lt;p&gt;Open a terminal into &lt;em&gt;OracleSOA&lt;/em&gt; directory, go to dockerfiles, run the script &lt;em&gt;buildDockerImage.sh&lt;/em&gt; with the &lt;em&gt;-d&lt;/em&gt; argument because we are installing the Quick Start version of SOA Suite 12c:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;sh buildDockerImage.sh -d
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sh buildDockerImage.sh -d
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1869,7 +1869,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 
 &lt;p&gt;To run it, go to the &lt;em&gt;OracleSOA/samples/12c-domain&lt;/em&gt; and run the following commands:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;docker build -t mysoa .
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;docker build -t mysoa .
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1877,7 +1877,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 
 &lt;p&gt;That&amp;rsquo;s it! When you want to run a SOA Suite 12c Domain, just run:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;docker run -i -t mysoa
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;docker run -i -t mysoa
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1925,7 +1925,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 
 &lt;h3 id=&#34;vagrant-configuration&#34;&gt;Vagrant configuration&lt;/h3&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
 
 &lt;span style=&#34;color: #880000&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;configure(&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt;) &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;config&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
 	&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Load properties files&lt;/span&gt;
@@ -2000,7 +2000,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 
 &lt;p&gt;Running this file with:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;vagrant up --provider&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;aws
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vagrant up --provider&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;aws
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -2010,7 +2010,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 
 &lt;p&gt;The first recipe that will be executed is:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;add_role &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;
 &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -2018,7 +2018,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 
 &lt;p&gt;This call the following Chef role:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;description&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Role applied to the system that should be an NFS client tools.&amp;quot;&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;,
@@ -2038,7 +2038,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 
 &lt;p&gt;To update the server-host from your Vagrant configuration, add these lines:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;json &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; {
   &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; {
     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;server-host&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;123.1.1.12&amp;quot;&lt;/span&gt;
@@ -2055,7 +2055,7 @@ chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;json &lt;span style
 
 &lt;p&gt;Vagrant configuration calls this Chef role:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;demo-bpm_bam-12c&amp;quot;&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;default_attributes&amp;quot;&lt;/span&gt; : {

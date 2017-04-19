@@ -3,11 +3,11 @@
     <channel>
         <title>Jorge Quilcate Otoya on @jeqo</title>
         <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/tags/nfs/index.xml</link>
+        <link>https://jeqo.github.io/tags/nfs/</link>
         <language>en-us</language>
         <author>Jorge Quilcate Otoya</author>
         
-        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        <updated>Sun, 30 Nov 2014 00:00:00 UTC</updated>
         
         <item>
             <title>Create a NFS instance on AWS using Vagrant and Chef</title>

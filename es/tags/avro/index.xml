@@ -3,11 +3,11 @@
     <channel>
         <title>Jorge Quilcate Otoya on @jeqo</title>
         <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/es/es/tags/avro/index.xml</link>
+        <link>https://jeqo.github.io/es/es/tags/avro/</link>
         <language>en-us</language>
         <author>Jorge Quilcate Otoya</author>
         
-        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        <updated>Fri, 31 Jul 2015 00:00:00 UTC</updated>
         
         <item>
             <title>Integrar Java EE 7 y Kafka usando Avro y RxJava</title>

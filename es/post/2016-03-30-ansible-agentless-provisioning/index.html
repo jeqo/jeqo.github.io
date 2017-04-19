@@ -4,12 +4,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="darksimplicity">
-  <meta name="generator" content="Hugo 0.19" />
+  <meta name="generator" content="Hugo 0.20.2" />
   
   
   <base href="https://jeqo.github.io/es">
   <title>Ansible - Provisionamiento sin agentes</title>
-  <link rel="stylesheet" href="/es/css/style.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.020/css/hack-extended.min.css">
+  <link rel="stylesheet" href="/es/css/style.min.css">  
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 </head>
@@ -257,7 +258,7 @@ configurar &ldquo;tty&rdquo; en el contenedos. Esto se requiere cuando ejecutar 
 &ldquo;playbook&rdquo; con el parámetro: &ldquo;become&rdquo;, que ejecuta un comando como &ldquo;sudo&rdquo;.
 Luego se ejecuta el rol como en cualquier nodo:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>$ ansible-playbook provisioning.yml -vvvv
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">$ ansible-playbook provisioning.yml -vvvv
 Using /home/jeqo/dev/jeqo/poc-ansible-docker/ansible.cfg as config file
 Loaded callback default of <span style="color: #008000">type</span> stdout, v2.0
 <span style="color: #666666">2</span> plays in provisioning.yml
@@ -267,12 +268,12 @@ PLAY ***************************************************************************
 TASK <span style="color: #666666">[</span>setup<span style="color: #666666">]</span> *******************************************************************
 ESTABLISH DOCKER CONNECTION FOR USER: None
 &lt;poccontainer&gt; EXEC <span style="color: #666666">[</span><span style="color: #BA2121">&#39;/usr/bin/docker&#39;</span>, <span style="color: #BA2121">&#39;exec&#39;</span>, <span style="color: #BA2121">&#39;-i&#39;</span>, u<span style="color: #BA2121">&#39;poccontainer&#39;</span>, <span style="color: #BA2121">&#39;/bin/sh&#39;</span>, <span style="color: #BA2121">&#39;-c&#39;</span>, <span style="color: #BA2121">&#39;/bin/sh -c \&#39;</span><span style="color: #666666">(</span> <span style="color: #008000">umask</span> <span style="color: #666666">22</span> <span style="color: #666666">&amp;&amp;</span> 
-mkdir -p <span style="color: #BA2121">&quot;` echo </span><span style="color: #19177C">$HOME</span><span style="color: #BA2121">/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&quot;</span> <span style="color: #666666">&amp;&amp;</span> 
-<span style="color: #008000">echo</span> <span style="color: #BA2121">&quot;` echo </span><span style="color: #19177C">$HOME</span><span style="color: #BA2121">/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&quot;</span> <span style="color: #666666">)</span><span style="color: #BB6622; font-weight: bold">\&#39;</span><span style="color: #BA2121">&#39;]</span>
+mkdir -p <span style="color: #BA2121">&quot;` echo </span>$<span style="color: #BA2121">HOME/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&quot;</span> <span style="color: #666666">&amp;&amp;</span> 
+<span style="color: #008000">echo</span> <span style="color: #BA2121">&quot;` echo </span>$<span style="color: #BA2121">HOME/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&quot;</span> <span style="color: #666666">)</span><span style="color: #BB6622; font-weight: bold">\&#39;</span><span style="color: #BA2121">&#39;]</span>
 <span style="color: #BA2121">&lt;poccontainer&gt; PUT /tmp/tmpNCOaxi TO /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup</span>
 <span style="color: #BA2121">&lt;poccontainer&gt; EXEC [&#39;</span>/usr/bin/docker<span style="color: #BA2121">&#39;, &#39;</span>exec<span style="color: #BA2121">&#39;, &#39;</span>-i<span style="color: #BA2121">&#39;, u&#39;</span>poccontainer<span style="color: #BA2121">&#39;, &#39;</span>/bin/sh<span style="color: #BA2121">&#39;, &#39;</span>-c<span style="color: #BA2121">&#39;, u&#39;</span>/bin/sh -c <span style="color: #BB6622; font-weight: bold">\&#39;</span><span style="color: #19177C">LANG</span><span style="color: #666666">=</span>en_US.UTF-8 
 <span style="color: #19177C">LC_ALL</span><span style="color: #666666">=</span>en_US.UTF-8 <span style="color: #19177C">LC_MESSAGES</span><span style="color: #666666">=</span>en_US.UTF-8 /usr/bin/python /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup; 
-rm -rf <span style="color: #BA2121">&quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&quot;</span> &gt; /dev/null <span style="color: #666666">2</span>&gt;&amp;<span style="color: #666666">1</span><span style="color: #BB6622; font-weight: bold">\&#39;</span><span style="border: 1px solid #FF0000">&#39;</span><span style="color: #666666">]</span>
+rm -rf <span style="color: #BA2121">&quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&quot;</span> &gt; /dev/null 2&gt;&amp;1<span style="color: #BB6622; font-weight: bold">\&#39;</span><span style="border: 1px solid #FF0000">&#39;</span><span style="color: #666666">]</span>
 ok: <span style="color: #666666">[</span>poccontainer<span style="color: #666666">]</span>
 </pre></div>
 

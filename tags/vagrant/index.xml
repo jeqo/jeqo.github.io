@@ -3,11 +3,11 @@
     <channel>
         <title>Jorge Quilcate Otoya on @jeqo</title>
         <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/tags/vagrant/index.xml</link>
+        <link>https://jeqo.github.io/tags/vagrant/</link>
         <language>en-us</language>
         <author>Jorge Quilcate Otoya</author>
         
-        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        <updated>Thu, 11 Dec 2014 00:00:00 UTC</updated>
         
         <item>
             <title>Running Oracle BPM 12c on AWS using Vagrant and Chef</title>
@@ -43,7 +43,7 @@
 
 &lt;h3 id=&#34;vagrant-configuration&#34;&gt;Vagrant configuration&lt;/h3&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
 
 &lt;span style=&#34;color: #880000&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;configure(&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt;) &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;config&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
 	&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Load properties files&lt;/span&gt;
@@ -118,7 +118,7 @@
 
 &lt;p&gt;Running this file with:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;vagrant up --provider&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;aws
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vagrant up --provider&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;aws
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -128,7 +128,7 @@
 
 &lt;p&gt;The first recipe that will be executed is:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;add_role &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;
 &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -136,7 +136,7 @@
 
 &lt;p&gt;This call the following Chef role:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;description&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Role applied to the system that should be an NFS client tools.&amp;quot;&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;,
@@ -156,7 +156,7 @@
 
 &lt;p&gt;To update the server-host from your Vagrant configuration, add these lines:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;json &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; {
   &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; {
     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;server-host&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;123.1.1.12&amp;quot;&lt;/span&gt;
@@ -173,7 +173,7 @@ chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;json &lt;span style
 
 &lt;p&gt;Vagrant configuration calls this Chef role:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;demo-bpm_bam-12c&amp;quot;&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;default_attributes&amp;quot;&lt;/span&gt; : {
@@ -312,14 +312,14 @@ chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;json &lt;span style
 
 &lt;p&gt;Ok, I have a base box, how can I use it to create a new box? The basic artifact you need is a Vagrant file:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;mkdir vagrant-box
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mkdir vagrant-box
 vagrant init
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Running this creates a &lt;em&gt;Vagrantfile&lt;/em&gt; that contains the information to create a new box.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
 
 &lt;span style=&#34;color: #880000&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;configure(&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt;) &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;config&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;box &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;base&amp;quot;&lt;/span&gt;
@@ -335,7 +335,7 @@ vagrant init
 
 &lt;p&gt;This is not enough to create a box. You need two more attributes:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# URL or path to base box file&lt;/span&gt;
   &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# config.vm.box_url = &amp;quot;https://storage.us2.oraclecloud.com/v1/istoilis-istoilis/vagrant/oel65-64.box&amp;quot;&lt;/span&gt;
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;box_url &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;file://c:/boxes/oel65-64.box&amp;quot;&lt;/span&gt;
@@ -363,7 +363,7 @@ vagrant init
 
 &lt;p&gt;As this is a virtualization platform specific requirement, you have to make these changes on an embedded method:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provider &lt;span style=&#34;color: #19177C&#34;&gt;:virtualbox&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;vb&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
     vb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;customize &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;modifyvm&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:id&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;--memory&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2048&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
     vb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;customize &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;modifyvm&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:id&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;--name&amp;quot;&lt;/span&gt;  , &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;basemachine&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
@@ -396,7 +396,7 @@ recreate over and over again, fast and easy.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Network&lt;/strong&gt;: By default your box use a NAT network that VirtualBox creates out-of-the-box. But, what if you (obviously) want to connect to your box? You need to use the &amp;ldquo;Host-only&amp;rdquo; network:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;network &lt;span style=&#34;color: #19177C&#34;&gt;:private_network&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;ip&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;192.168.56.XYZ&amp;quot;&lt;/span&gt;
 &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -410,7 +410,7 @@ recreate over and over again, fast and easy.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Shared Directories&lt;/strong&gt;: Using VirtualBox utility to create shared directories is annoying! With Vagrant is as easy as add thit to your script:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Mount c:\data directory to /data directory on box. mount_options is optional&lt;/span&gt;
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;synced_folder &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt; , &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:mount_options&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;dmode=777&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;fmode=777&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
@@ -419,7 +419,7 @@ recreate over and over again, fast and easy.&lt;/p&gt;
 
 &lt;p&gt;Some other parameters:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Hostname&lt;/span&gt;
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;hostname &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;basemachine&amp;quot;&lt;/span&gt;
 &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
@@ -446,7 +446,7 @@ Well, now that I solved is not that difficult:&lt;/p&gt;
 &lt;li&gt;Create an script called &lt;em&gt;&amp;ldquo;bootstrap.sh&amp;rdquo;&lt;/em&gt; on your working directory, and add these lines:&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;pvcreate /dev/sdb
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;pvcreate /dev/sdb
 vgextend VolGroup /dev/sdb
 lvextend /dev/VolGroup/lv_root /dev/sdb
 resize2fs /dev/VolGroup/lv_root
@@ -459,7 +459,7 @@ resize2fs /dev/VolGroup/lv_root
 
 &lt;p&gt;And then add this code to your &lt;em&gt;Vagrantfile&lt;/em&gt;:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provider &lt;span style=&#34;color: #19177C&#34;&gt;:virtualbox&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;vb&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
   &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Validate this should be run it once&lt;/span&gt;
@@ -503,10 +503,10 @@ resize2fs /dev/VolGroup/lv_root
 
 &lt;p&gt;To resolve this, add this script called &lt;em&gt;&amp;ldquo;increase_swap.sh&amp;rdquo;&lt;/em&gt; on your working directory:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;#!/bin/sh&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;#!/bin/sh&lt;/span&gt;
 
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# size of swapfile in megabytes&lt;/span&gt;
-&lt;span style=&#34;color: #19177C&#34;&gt;swapsize&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=8000&lt;/span&gt;
+&lt;span style=&#34;color: #19177C&#34;&gt;swapsize&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;8000
 
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# does the swap file already exist?&lt;/span&gt;
 grep -q &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;swapfile&amp;quot;&lt;/span&gt; /etc/fstab
@@ -550,7 +550,7 @@ cat /proc/meminfo | grep Swap
 
 &lt;p&gt;Add this code to the file:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;package &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;httpd&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;package &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;httpd&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt;
   action &lt;span style=&#34;color: #19177C&#34;&gt;:install&lt;/span&gt;
 &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
 
@@ -564,7 +564,7 @@ service &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;httpd&amp;quot;&lt;
 
 &lt;p&gt;To call this simple recipe from Vagrant you need to add this to your file:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provision &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;chef_solo&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;chef&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
     chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;cookbooks_path &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;../chef/cookbooks&amp;quot;&lt;/span&gt;
     chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;add_recipe &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;http::install-httpd&amp;quot;&lt;/span&gt;
@@ -593,7 +593,7 @@ service &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;httpd&amp;quot;&lt;
 &lt;li&gt;Create a file like this one called &amp;ldquo;vagrant.rb&amp;rdquo;:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;box:
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;box:
   name: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;base-machine&amp;quot;&lt;/span&gt;
   disk_path: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;./disk1.vdi&amp;quot;&lt;/span&gt;
   url: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;file://c:/boxes/oel65-64.box&amp;quot;&lt;/span&gt;
@@ -612,7 +612,7 @@ chef:
 &lt;li&gt;Add the &amp;ldquo;yaml&amp;rdquo; library:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #008000&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;yaml&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;  &lt;span style=&#34;color: #008000&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;yaml&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -620,7 +620,7 @@ chef:
 &lt;li&gt;Then read and use properties:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   props &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #880000&#34;&gt;YAML&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;load_file(&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;vagrant.rb&amp;quot;&lt;/span&gt;)
 
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;box &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;

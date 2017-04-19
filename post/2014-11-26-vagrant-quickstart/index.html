@@ -4,12 +4,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="darksimplicity">
-  <meta name="generator" content="Hugo 0.19" />
+  <meta name="generator" content="Hugo 0.20.2" />
   
   
   <base href="https://jeqo.github.io/">
   <title>Vagrant and Chef Quickstart</title>
-  <link rel="stylesheet" href="/css/style.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.020/css/hack-extended.min.css">
+  <link rel="stylesheet" href="/css/style.min.css">  
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 </head>
@@ -73,14 +74,14 @@
 
 <p>Ok, I have a base box, how can I use it to create a new box? The basic artifact you need is a Vagrant file:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>mkdir vagrant-box
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">mkdir vagrant-box
 vagrant init
 </pre></div>
 
 
 <p>Running this creates a <em>Vagrantfile</em> that contains the information to create a new box.</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #880000">VAGRANTFILE_API_VERSION</span> <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;2&quot;</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #880000">VAGRANTFILE_API_VERSION</span> <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;2&quot;</span>
 
 <span style="color: #880000">Vagrant</span><span style="color: #666666">.</span>configure(<span style="color: #880000">VAGRANTFILE_API_VERSION</span>) <span style="color: #008000; font-weight: bold">do</span> <span style="color: #666666">|</span>config<span style="color: #666666">|</span>
   config<span style="color: #666666">.</span>vm<span style="color: #666666">.</span>box <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;base&quot;</span>
@@ -96,7 +97,7 @@ vagrant init
 
 <p>This is not enough to create a box. You need two more attributes:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #666666">...</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #666666">...</span>
   <span style="color: #408080; font-style: italic"># URL or path to base box file</span>
   <span style="color: #408080; font-style: italic"># config.vm.box_url = &quot;https://storage.us2.oraclecloud.com/v1/istoilis-istoilis/vagrant/oel65-64.box&quot;</span>
   config<span style="color: #666666">.</span>vm<span style="color: #666666">.</span>box_url <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;file://c:/boxes/oel65-64.box&quot;</span>
@@ -124,7 +125,7 @@ vagrant init
 
 <p>As this is a virtualization platform specific requirement, you have to make these changes on an embedded method:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #666666">...</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #666666">...</span>
   config<span style="color: #666666">.</span>vm<span style="color: #666666">.</span>provider <span style="color: #19177C">:virtualbox</span> <span style="color: #008000; font-weight: bold">do</span> <span style="color: #666666">|</span>vb<span style="color: #666666">|</span>
     vb<span style="color: #666666">.</span>customize <span style="color: #666666">[</span><span style="color: #BA2121">&quot;modifyvm&quot;</span>, <span style="color: #19177C">:id</span>, <span style="color: #BA2121">&quot;--memory&quot;</span>, <span style="color: #BA2121">&quot;2048&quot;</span><span style="color: #666666">]</span>
     vb<span style="color: #666666">.</span>customize <span style="color: #666666">[</span><span style="color: #BA2121">&quot;modifyvm&quot;</span>, <span style="color: #19177C">:id</span>, <span style="color: #BA2121">&quot;--name&quot;</span>  , <span style="color: #BA2121">&quot;basemachine&quot;</span><span style="color: #666666">]</span>
@@ -157,7 +158,7 @@ recreate over and over again, fast and easy.</p>
 <li><strong>Network</strong>: By default your box use a NAT network that VirtualBox creates out-of-the-box. But, what if you (obviously) want to connect to your box? You need to use the &ldquo;Host-only&rdquo; network:</li>
 </ul>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #666666">...</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #666666">...</span>
   config<span style="color: #666666">.</span>vm<span style="color: #666666">.</span>network <span style="color: #19177C">:private_network</span>, <span style="color: #19177C">ip</span>: <span style="color: #BA2121">&quot;192.168.56.XYZ&quot;</span>
 <span style="color: #666666">...</span>
 </pre></div>
@@ -171,7 +172,7 @@ recreate over and over again, fast and easy.</p>
 <li><strong>Shared Directories</strong>: Using VirtualBox utility to create shared directories is annoying! With Vagrant is as easy as add thit to your script:</li>
 </ul>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #666666">...</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #666666">...</span>
   <span style="color: #408080; font-style: italic"># Mount c:\data directory to /data directory on box. mount_options is optional</span>
   config<span style="color: #666666">.</span>vm<span style="color: #666666">.</span>synced_folder <span style="color: #BA2121">&quot;/data&quot;</span> , <span style="color: #BA2121">&quot;/data&quot;</span>, <span style="color: #19177C">:mount_options</span> <span style="color: #666666">=&gt;</span> <span style="color: #666666">[</span><span style="color: #BA2121">&quot;dmode=777&quot;</span>, <span style="color: #BA2121">&quot;fmode=777&quot;</span><span style="color: #666666">]</span>
 <span style="color: #666666">...</span>
@@ -180,7 +181,7 @@ recreate over and over again, fast and easy.</p>
 
 <p>Some other parameters:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #666666">...</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #666666">...</span>
   <span style="color: #408080; font-style: italic"># Hostname</span>
   config<span style="color: #666666">.</span>vm<span style="color: #666666">.</span>hostname <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;basemachine&quot;</span>
 <span style="color: #666666">...</span>
@@ -207,7 +208,7 @@ Well, now that I solved is not that difficult:</p>
 <li>Create an script called <em>&ldquo;bootstrap.sh&rdquo;</em> on your working directory, and add these lines:</li>
 </ol>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>pvcreate /dev/sdb
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">pvcreate /dev/sdb
 vgextend VolGroup /dev/sdb
 lvextend /dev/VolGroup/lv_root /dev/sdb
 resize2fs /dev/VolGroup/lv_root
@@ -220,7 +221,7 @@ resize2fs /dev/VolGroup/lv_root
 
 <p>And then add this code to your <em>Vagrantfile</em>:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #666666">...</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #666666">...</span>
   config<span style="color: #666666">.</span>vm<span style="color: #666666">.</span>provider <span style="color: #19177C">:virtualbox</span> <span style="color: #008000; font-weight: bold">do</span> <span style="color: #666666">|</span>vb<span style="color: #666666">|</span>
   <span style="color: #666666">...</span>
   <span style="color: #408080; font-style: italic"># Validate this should be run it once</span>
@@ -264,10 +265,10 @@ resize2fs /dev/VolGroup/lv_root
 
 <p>To resolve this, add this script called <em>&ldquo;increase_swap.sh&rdquo;</em> on your working directory:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #408080; font-style: italic">#!/bin/sh</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #408080; font-style: italic">#!/bin/sh</span>
 
 <span style="color: #408080; font-style: italic"># size of swapfile in megabytes</span>
-<span style="color: #19177C">swapsize</span><span style="color: #666666">=8000</span>
+<span style="color: #19177C">swapsize</span><span style="color: #666666">=</span>8000
 
 <span style="color: #408080; font-style: italic"># does the swap file already exist?</span>
 grep -q <span style="color: #BA2121">&quot;swapfile&quot;</span> /etc/fstab
@@ -311,7 +312,7 @@ cat /proc/meminfo | grep Swap
 
 <p>Add this code to the file:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>package <span style="color: #BA2121">&quot;httpd&quot;</span> <span style="color: #008000; font-weight: bold">do</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">package <span style="color: #BA2121">&quot;httpd&quot;</span> <span style="color: #008000; font-weight: bold">do</span>
   action <span style="color: #19177C">:install</span>
 <span style="color: #008000; font-weight: bold">end</span>
 
@@ -325,7 +326,7 @@ service <span style="color: #BA2121">&quot;httpd&quot;</span> <span style="color
 
 <p>To call this simple recipe from Vagrant you need to add this to your file:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #666666">...</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #666666">...</span>
   config<span style="color: #666666">.</span>vm<span style="color: #666666">.</span>provision <span style="color: #BA2121">&quot;chef_solo&quot;</span> <span style="color: #008000; font-weight: bold">do</span> <span style="color: #666666">|</span>chef<span style="color: #666666">|</span>
     chef<span style="color: #666666">.</span>cookbooks_path <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;../chef/cookbooks&quot;</span>
     chef<span style="color: #666666">.</span>add_recipe <span style="color: #BA2121">&quot;http::install-httpd&quot;</span>
@@ -354,7 +355,7 @@ service <span style="color: #BA2121">&quot;httpd&quot;</span> <span style="color
 <li>Create a file like this one called &ldquo;vagrant.rb&rdquo;:</li>
 </ul>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>box:
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">box:
   name: <span style="color: #BA2121">&quot;base-machine&quot;</span>
   disk_path: <span style="color: #BA2121">&quot;./disk1.vdi&quot;</span>
   url: <span style="color: #BA2121">&quot;file://c:/boxes/oel65-64.box&quot;</span>
@@ -373,7 +374,7 @@ chef:
 <li>Add the &ldquo;yaml&rdquo; library:</li>
 </ul>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>  <span style="color: #008000">require</span> <span style="color: #BA2121">&quot;yaml&quot;</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">  <span style="color: #008000">require</span> <span style="color: #BA2121">&quot;yaml&quot;</span>
 </pre></div>
 
 
@@ -381,7 +382,7 @@ chef:
 <li>Then read and use properties:</li>
 </ul>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #666666">...</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #666666">...</span>
   props <span style="color: #666666">=</span> <span style="color: #880000">YAML</span><span style="color: #666666">.</span>load_file(<span style="color: #BA2121">&quot;vagrant.rb&quot;</span>)
 
   config<span style="color: #666666">.</span>vm<span style="color: #666666">.</span>box <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">#{</span>props<span style="color: #666666">[</span><span style="color: #BA2121">&#39;box&#39;</span><span style="color: #666666">][</span><span style="color: #BA2121">&#39;name&#39;</span><span style="color: #666666">]</span><span style="color: #BB6688; font-weight: bold">}</span><span style="color: #BA2121">&quot;</span>

@@ -3,11 +3,11 @@
     <channel>
         <title>Jorge Quilcate Otoya on @jeqo</title>
         <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/tags/avro/index.xml</link>
+        <link>https://jeqo.github.io/tags/avro/</link>
         <language>en-us</language>
         <author>Jorge Quilcate Otoya</author>
         
-        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        <updated>Fri, 31 Jul 2015 00:00:00 UTC</updated>
         
         <item>
             <title>Integrate Java EE 7 and Kafka using Avro and RxJava</title>
@@ -63,7 +63,7 @@ Consumer will subscribe to that &amp;ldquo;observable&amp;rdquo;. Let&amp;rsquo;
 &lt;li&gt;Events Resource: List (GET) Client Added Events&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #AA22FF&#34;&gt;@Path&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;clients&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #AA22FF&#34;&gt;@Path&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;clients&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
 &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;ClientsResource&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
 
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; List&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; clients &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; ArrayList&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
@@ -92,7 +92,7 @@ ClientAddedEvent and list them on Events resource?&lt;/p&gt;
 &lt;p&gt;When I decided to use Kafka, I realized that I can only send String and Byte
 Array messages, so Avro is able to serialize POJO into byte[] and vice versa:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;test&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;test&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
     ClientAddedEvent event &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; ClientAddedEvent&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;newBuilder&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt;
             &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;setName&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;jeqo&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
             &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;setCreated&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; Date&lt;span style=&#34;color: #666666&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getTime&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;())&lt;/span&gt;
@@ -106,7 +106,7 @@ Array messages, so Avro is able to serialize POJO into byte[] and vice versa:&lt
 
 &lt;p&gt;ClientAddedEvent event is defined using Avro JSON format:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;namespace&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;com.jeqo.samples.eventsource.event&amp;quot;&lt;/span&gt;,
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;record&amp;quot;&lt;/span&gt;,
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;ClientAddedEvent&amp;quot;&lt;/span&gt;,
@@ -121,7 +121,7 @@ Array messages, so Avro is able to serialize POJO into byte[] and vice versa:&lt
 &lt;p&gt;Adding a Maven Plugin, you will generate &lt;em&gt;ClientAddedEvent&lt;/em&gt; each time you build
 your project:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
         &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
             &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.avro&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
@@ -147,7 +147,7 @@ your project:&lt;/p&gt;
 
 &lt;p&gt;To serialize Avro records, from POJO to Byte Array:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;EventSerializer&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;extends&lt;/span&gt; SpecificRecordBase&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;EventSerializer&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;extends&lt;/span&gt; SpecificRecordBase&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
 
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;[]&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;serialize&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;T record&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
         &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ByteArrayOutputStream out &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; ByteArrayOutputStream&lt;span style=&#34;color: #666666&#34;&gt;())&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
@@ -165,7 +165,7 @@ your project:&lt;/p&gt;
 
 &lt;p&gt;And to deserialize:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;EventDeserializer&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;extends&lt;/span&gt; SpecificRecordBase&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;EventDeserializer&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;extends&lt;/span&gt; SpecificRecordBase&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
 
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;final&lt;/span&gt; Class&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; type&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
 
@@ -197,7 +197,7 @@ those events on Kafka:&lt;/p&gt;
 
 &lt;p&gt;First, let&amp;rsquo;s define a couple of interfaces, EventServer:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;EventServer&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;EventServer&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
 
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; Observable&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;consume&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;();&lt;/span&gt;
 &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
@@ -206,7 +206,7 @@ those events on Kafka:&lt;/p&gt;
 
 &lt;p&gt;and EventProducer:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;EventProducer&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;EventProducer&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
 
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;publish&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;T message&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
 &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
@@ -217,7 +217,7 @@ those events on Kafka:&lt;/p&gt;
 
 &lt;p&gt;To publish messages:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #AA22FF&#34;&gt;@Override&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #AA22FF&#34;&gt;@Override&lt;/span&gt;
 &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;publish&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;T message&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
     &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;// Produce a new Kafka record&lt;/span&gt;
     ProducerRecord&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;[]&amp;gt;&lt;/span&gt; data &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; ProducerRecord&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;
@@ -245,7 +245,7 @@ those events on Kafka:&lt;/p&gt;
 
 &lt;p&gt;And on KafkaEventServer, to instantiate an RxJava observable:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #AA22FF&#34;&gt;@Override&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #AA22FF&#34;&gt;@Override&lt;/span&gt;
 &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; Observable&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;consume&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
     &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;return&lt;/span&gt; Observable&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;create&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;subscriber &lt;span style=&#34;color: #666666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
         &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
@@ -295,7 +295,7 @@ to check that it&amp;rsquo;s working Ok with your Kafka server.&lt;/p&gt;
 
 &lt;p&gt;First, create instantiate a publisher and a subscriber:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #AA22FF&#34;&gt;@ApplicationScoped&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #AA22FF&#34;&gt;@ApplicationScoped&lt;/span&gt;
 &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;ClientAddedEventProducer&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;extends&lt;/span&gt; KafkaEventProducer&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;ClientAddedEvent&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
 
 &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
@@ -305,7 +305,7 @@ to check that it&amp;rsquo;s working Ok with your Kafka server.&lt;/p&gt;
 &lt;p&gt;This means that ClientAddedEventProducer will be a &lt;em&gt;&amp;ldquo;singleton&amp;rdquo;&lt;/em&gt; and I could inject it
 on my service that generates events:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;ClientsResource&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;ClientsResource&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
 
     &lt;span style=&#34;color: #AA22FF&#34;&gt;@Inject&lt;/span&gt;
     ClientAddedEventProducer eventProducer&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
@@ -330,7 +330,7 @@ on my service that generates events:&lt;/p&gt;
 &lt;p&gt;Then, instantiate a Subscriber (I think this is the most interesting part:
   how we will &lt;strong&gt;react&lt;/strong&gt; to events? ):&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;// Extending Subscriber RxJava class to listen Observables&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;// Extending Subscriber RxJava class to listen Observables&lt;/span&gt;
 &lt;span style=&#34;color: #AA22FF&#34;&gt;@ApplicationScoped&lt;/span&gt;
 &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #0000FF; font-weight: bold&#34;&gt;ClientAddedEventSubscriber&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;extends&lt;/span&gt; Subscriber&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;ClientAddedEvent&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
 

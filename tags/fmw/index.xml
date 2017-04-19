@@ -3,11 +3,11 @@
     <channel>
         <title>Jorge Quilcate Otoya on @jeqo</title>
         <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/tags/fmw/index.xml</link>
+        <link>https://jeqo.github.io/tags/fmw/</link>
         <language>en-us</language>
         <author>Jorge Quilcate Otoya</author>
         
-        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        <updated>Thu, 11 Dec 2014 00:00:00 UTC</updated>
         
         <item>
             <title>Running Oracle BPM 12c on AWS using Vagrant and Chef</title>
@@ -43,7 +43,7 @@
 
 &lt;h3 id=&#34;vagrant-configuration&#34;&gt;Vagrant configuration&lt;/h3&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
 
 &lt;span style=&#34;color: #880000&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;configure(&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt;) &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;config&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
 	&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Load properties files&lt;/span&gt;
@@ -118,7 +118,7 @@
 
 &lt;p&gt;Running this file with:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;vagrant up --provider&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;aws
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vagrant up --provider&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;aws
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -128,7 +128,7 @@
 
 &lt;p&gt;The first recipe that will be executed is:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;add_role &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;
 &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -136,7 +136,7 @@
 
 &lt;p&gt;This call the following Chef role:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;description&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Role applied to the system that should be an NFS client tools.&amp;quot;&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;,
@@ -156,7 +156,7 @@
 
 &lt;p&gt;To update the server-host from your Vagrant configuration, add these lines:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;json &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; {
   &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; {
     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;server-host&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;123.1.1.12&amp;quot;&lt;/span&gt;
@@ -173,7 +173,7 @@ chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;json &lt;span style
 
 &lt;p&gt;Vagrant configuration calls this Chef role:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;demo-bpm_bam-12c&amp;quot;&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;default_attributes&amp;quot;&lt;/span&gt; : {

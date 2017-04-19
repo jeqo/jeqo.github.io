@@ -4,12 +4,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="darksimplicity">
-  <meta name="generator" content="Hugo 0.19" />
+  <meta name="generator" content="Hugo 0.20.2" />
   
   
   <base href="https://jeqo.github.io/es">
   <title>Kafka - Retroceder Offsets de Consumidores</title>
-  <link rel="stylesheet" href="/es/css/style.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.020/css/hack-extended.min.css">
+  <link rel="stylesheet" href="/es/css/style.min.css">  
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 </head>
@@ -89,7 +90,7 @@ simple implementado en Java:</p>
 
 <p><code>KafkaSimpleProducer.java</code>:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span><span style="color: #666666">(</span>String<span style="color: #666666">[]</span> args<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span><span style="color: #666666">(</span>String<span style="color: #666666">[]</span> args<span style="color: #666666">)</span> <span style="color: #666666">{</span>
     <span style="color: #666666">...</span>
     Properties properties <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Properties<span style="color: #666666">();</span>
     properties<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span>ProducerConfig<span style="color: #666666">.</span><span style="color: #7D9029">BOOTSTRAP_SERVERS_CONFIG</span><span style="color: #666666">,</span> bootstrapServers<span style="color: #666666">);</span>
@@ -193,7 +194,7 @@ en su post:
 
 <p>Un consumidor simple luciría así:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span><span style="color: #666666">(</span>String<span style="color: #666666">[]</span> args<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span><span style="color: #666666">(</span>String<span style="color: #666666">[]</span> args<span style="color: #666666">)</span> <span style="color: #666666">{</span>
     Properties props <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Properties<span style="color: #666666">();</span>
     props<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span>ConsumerConfig<span style="color: #666666">.</span><span style="color: #7D9029">BOOTSTRAP_SERVERS_CONFIG</span><span style="color: #666666">,</span> bootstrapServers<span style="color: #666666">);</span>
     props<span style="color: #666666">.</span><span style="color: #7D9029">put</span><span style="color: #666666">(</span>ConsumerConfig<span style="color: #666666">.</span><span style="color: #7D9029">GROUP_ID_CONFIG</span><span style="color: #666666">,</span> <span style="color: #BA2121">&quot;test&quot;</span><span style="color: #666666">);</span>
@@ -229,7 +230,7 @@ merece su propio post.</p>
 
 <p>Para ir al inicio de <code>topic</code> usaremos la operación <code>#seekToBeginning(topicPartition)</code>:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #B00040">boolean</span> flag <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #B00040">boolean</span> flag <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
 
 <span style="color: #008000; font-weight: bold">while</span> <span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
     ConsumerRecords<span style="color: #666666">&lt;</span>String<span style="color: #666666">,</span> String<span style="color: #666666">&gt;</span> records <span style="color: #666666">=</span> consumer<span style="color: #666666">.</span><span style="color: #7D9029">poll</span><span style="color: #666666">(100);</span>
@@ -255,7 +256,7 @@ en la <code>partition=0</code> se reprocesarán los <code>records</code> nuevame
 necesitamos regresar para reprocesar el log, podemos utilizar
 <code>#seek(topicPartition, offset)</code> directamente.</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #B00040">boolean</span> flag <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #B00040">boolean</span> flag <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
 
 <span style="color: #008000; font-weight: bold">while</span> <span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
     ConsumerRecords<span style="color: #666666">&lt;</span>String<span style="color: #666666">,</span> String<span style="color: #666666">&gt;</span> records <span style="color: #666666">=</span> consumer<span style="color: #666666">.</span><span style="color: #7D9029">poll</span><span style="color: #666666">(100);</span>
@@ -295,7 +296,7 @@ el nuevo índice de <code>timestamp</code> puede ser útil.</p>
 que fueron implementadas, y una nueva operación fue agregada al
 <code>Kafka Consumer API</code>: <code>#offsetsForTimes</code>:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #B00040">boolean</span> flag <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #B00040">boolean</span> flag <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
 
 <span style="color: #008000; font-weight: bold">while</span> <span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
     ConsumerRecords<span style="color: #666666">&lt;</span>String<span style="color: #666666">,</span> String<span style="color: #666666">&gt;</span> records <span style="color: #666666">=</span> consumer<span style="color: #666666">.</span><span style="color: #7D9029">poll</span><span style="color: #666666">(100);</span>

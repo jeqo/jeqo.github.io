@@ -3,11 +3,11 @@
     <channel>
         <title>Jorge Quilcate Otoya on @jeqo</title>
         <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/tags/packer/index.xml</link>
+        <link>https://jeqo.github.io/tags/packer/</link>
         <language>en-us</language>
         <author>Jorge Quilcate Otoya</author>
         
-        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        <updated>Fri, 04 Sep 2015 00:00:00 UTC</updated>
         
         <item>
             <title>Oracle SOA Suite 12c Docker Image</title>
@@ -33,7 +33,7 @@ an independent repository: &lt;a href=&#34;https://github.com/jeqo/oracle-soa-12
 &lt;p&gt;Basically Dockerfile scripts were moved to shell scripts and are called
 from Packer.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;provisioners&amp;quot;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt; [
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;provisioners&amp;quot;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt; [
     {
       &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;,
       &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;: [
@@ -74,7 +74,7 @@ from Packer.&lt;/p&gt;
 &lt;p&gt;After provisioning, you can save your image, and if
 you want push it to Docker Hub:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;post-processors&amp;quot;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt; [
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;post-processors&amp;quot;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt; [
     [
       {
         &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;docker-tag&amp;quot;&lt;/span&gt;,

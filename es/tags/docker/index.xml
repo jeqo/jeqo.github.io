@@ -3,11 +3,11 @@
     <channel>
         <title>Jorge Quilcate Otoya on @jeqo</title>
         <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/es/es/tags/docker/index.xml</link>
+        <link>https://jeqo.github.io/es/es/tags/docker/</link>
         <language>en-us</language>
         <author>Jorge Quilcate Otoya</author>
         
-        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        <updated>Sun, 15 Jan 2017 00:00:00 UTC</updated>
         
         <item>
             <title>Escalando Kafka con Docker Containers</title>
@@ -57,7 +57,7 @@ aquí:
 
 &lt;hr /&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
 services:
   kafka:
     image: jeqo/apache-kafka:0.10.1.0-2.11
@@ -75,7 +75,7 @@ configuran el acceso desde &lt;code&gt;kafka&lt;/code&gt; hacia el servicio &lt;
 &lt;p&gt;Si probamos iniciar los servicios con el comando &lt;code&gt;docker-compose up -d&lt;/code&gt;,
 Docker Compose creará una red donde estos servicios se podrán comunicar.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
 Creating network &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;kafkacluster_default&amp;quot;&lt;/span&gt; with the default driver
 Creating kafkacluster_zookeeper_1
 Creating kafkacluster_kafka_1
@@ -85,7 +85,7 @@ Creating kafkacluster_kafka_1
 &lt;p&gt;Si queremos acceder a estos servicios desde nuestra aplicación (también
   definida en Docker Compose) lo podemos hacer de la siguiente manera:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
 services:
   kafka:
     image: jeqo/apache-kafka-client:0.10.1.0-2.11
@@ -107,7 +107,7 @@ el servicio &lt;code&gt;client&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Para probar el acceso desde el cliente, primero iniciemos el servicio con
 &lt;code&gt;docker-compose up -d&lt;/code&gt; y luego nos conectamos al servicio:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/kafka-console-producer.sh --broker-list kafka:9092 --topic topic1&lt;/span&gt;
 &lt;span style=&#34;color: #008000&#34;&gt;test&lt;/span&gt;
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/kafka-topics.sh --zookeeper zookeeper:2181 --list      &lt;/span&gt;
@@ -120,13 +120,13 @@ topic1
 &lt;p&gt;Una vez creado nuestro clúster, escalar nuestro contenedor de ´kafka´
 es tan sencillo como utilizar el comando &lt;code&gt;scale&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=3&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;3
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Este comando creará dos contenedores adicionales:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=3&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;3
 Creating and starting kafkacluster_kafka_2 ... &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;done&lt;/span&gt;
 Creating and starting kafkacluster_kafka_3 ... &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -146,10 +146,10 @@ de Zookeeper.&lt;/p&gt;
 
 &lt;p&gt;Desde el contenedor cliente:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/zookeeper-shell.sh zookeeper:2181&lt;/span&gt;
 ls /brokers/ids
-&lt;span style=&#34;color: #666666&#34;&gt;[1003&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;1002&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;1001]&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;1003, 1002, 1001&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -227,7 +227,7 @@ o manual, si se sabe cómo redistribuir los topics.&lt;/p&gt;&lt;/li&gt;
 
 &lt;p&gt;Dentro del archivo &lt;code&gt;playbooks/prepare-reassignment.yml&lt;/code&gt; hay dos variables a definir:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;vars:
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vars:
   topics:
     - topic1
   broker_list: 1003
@@ -240,7 +240,7 @@ o manual, si se sabe cómo redistribuir los topics.&lt;/p&gt;&lt;/li&gt;
 
 &lt;p&gt;Puedes copiar ese JSON generado en &lt;code&gt;playbooks/reassign-topic-plan.json&lt;/code&gt;&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;version&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;partitions&amp;quot;&lt;/span&gt;:[{&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;topic&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;topic1&amp;quot;&lt;/span&gt;,&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;partition&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;replicas&amp;quot;&lt;/span&gt;:[&lt;span style=&#34;color: #666666&#34;&gt;1003&lt;/span&gt;]}]
 }
@@ -489,7 +489,7 @@ configurar &amp;ldquo;tty&amp;rdquo; en el contenedos. Esto se requiere cuando e
 &amp;ldquo;playbook&amp;rdquo; con el parámetro: &amp;ldquo;become&amp;rdquo;, que ejecuta un comando como &amp;ldquo;sudo&amp;rdquo;.
 Luego se ejecuta el rol como en cualquier nodo:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ ansible-playbook provisioning.yml -vvvv
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ ansible-playbook provisioning.yml -vvvv
 Using /home/jeqo/dev/jeqo/poc-ansible-docker/ansible.cfg as config file
 Loaded callback default of &lt;span style=&#34;color: #008000&#34;&gt;type&lt;/span&gt; stdout, v2.0
 &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; plays in provisioning.yml
@@ -499,12 +499,12 @@ PLAY ***************************************************************************
 TASK &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;setup&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt; *******************************************************************
 ESTABLISH DOCKER CONNECTION FOR USER: None
 &amp;lt;poccontainer&amp;gt; EXEC &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;/usr/bin/docker&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;exec&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;-i&amp;#39;&lt;/span&gt;, u&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;poccontainer&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;/bin/sh&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;-c&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;/bin/sh -c \&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #008000&#34;&gt;umask&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;22&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; 
-mkdir -p &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$HOME&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; 
-&lt;span style=&#34;color: #008000&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$HOME&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;]&lt;/span&gt;
+mkdir -p &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&gt;$&lt;span style=&#34;color: #BA2121&#34;&gt;HOME/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; 
+&lt;span style=&#34;color: #008000&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&gt;$&lt;span style=&#34;color: #BA2121&#34;&gt;HOME/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;]&lt;/span&gt;
 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;lt;poccontainer&amp;gt; PUT /tmp/tmpNCOaxi TO /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup&lt;/span&gt;
 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;lt;poccontainer&amp;gt; EXEC [&amp;#39;&lt;/span&gt;/usr/bin/docker&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;exec&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-i&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;poccontainer&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;/bin/sh&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-c&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;/bin/sh -c &lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LANG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 
 &lt;span style=&#34;color: #19177C&#34;&gt;LC_ALL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 &lt;span style=&#34;color: #19177C&#34;&gt;LC_MESSAGES&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 /usr/bin/python /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup; 
-rm -rf &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&amp;quot;&lt;/span&gt; &amp;gt; /dev/null &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt;&amp;gt;&amp;amp;&lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+rm -rf &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&amp;quot;&lt;/span&gt; &amp;gt; /dev/null 2&amp;gt;&amp;amp;1&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 ok: &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;poccontainer&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 

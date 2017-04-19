@@ -3,11 +3,11 @@
     <channel>
         <title>Jorge Quilcate Otoya on @jeqo</title>
         <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/categories/devops/index.xml</link>
+        <link>https://jeqo.github.io/categories/devops/</link>
         <language>en-us</language>
         <author>Jorge Quilcate Otoya</author>
         
-        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        <updated>Sun, 15 Jan 2017 00:00:00 UTC</updated>
         
         <item>
             <title>Scaling Kafka with Docker Containers</title>
@@ -55,7 +55,7 @@ and you can find their source code here:
 
 &lt;hr /&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
 services:
   kafka:
     image: jeqo/apache-kafka:0.10.1.0-2.11
@@ -73,7 +73,7 @@ from &lt;code&gt;kafka&lt;/code&gt; to &lt;code&gt;zookeeper&lt;/code&gt; servic
 &lt;p&gt;If we try to start these configuration with &lt;code&gt;docker-compose up -d&lt;/code&gt;,
 Docker Compose will create a &lt;code&gt;network&lt;/code&gt; where these service can communicate.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
 Creating network &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;kafkacluster_default&amp;quot;&lt;/span&gt; with the default driver
 Creating kafkacluster_zookeeper_1
 Creating kafkacluster_kafka_1
@@ -83,7 +83,7 @@ Creating kafkacluster_kafka_1
 &lt;p&gt;If you want to communicate with the cluster from your application&amp;rsquo;s
 docker-compose configuration, you can do it as follows:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
 services:
   kafka:
     image: jeqo/apache-kafka-client:0.10.1.0-2.11
@@ -104,7 +104,7 @@ to the service network.&lt;/p&gt;
 &lt;p&gt;To test our client, start it up running &lt;code&gt;docker-compose up -d&lt;/code&gt; and then connect
 to the cluster with the following command:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/kafka-console-producer.sh --broker-list kafka:9092 --topic topic1&lt;/span&gt;
 &lt;span style=&#34;color: #008000&#34;&gt;test&lt;/span&gt;
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/kafka-topics.sh --zookeeper zookeeper:2181 --list      &lt;/span&gt;
@@ -116,13 +116,13 @@ topic1
 
 &lt;p&gt;To scale a container using Docker Compose is as simple as using the &lt;code&gt;scale&lt;/code&gt; command:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=3&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;3
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This will create 2 more containers:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=3&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;3
 Creating and starting kafkacluster_kafka_2 ... &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;done&lt;/span&gt;
 Creating and starting kafkacluster_kafka_3 ... &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -136,10 +136,10 @@ Kafka scaling will be transparent to your application.&lt;/p&gt;
 &lt;p&gt;To validate that all brokers are part of the cluster let&amp;rsquo;s use Zookeeper client to check. From
 client container:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/zookeeper-shell.sh zookeeper:2181&lt;/span&gt;
 ls /brokers/ids
-&lt;span style=&#34;color: #666666&#34;&gt;[1003&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;1002&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;1001]&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;1003, 1002, 1001&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -218,7 +218,7 @@ you can decide how to redistribute your topics.&lt;/p&gt;&lt;/li&gt;
 
 &lt;p&gt;Inside the &lt;code&gt;playbooks/prepare-reassignment.yml&lt;/code&gt; file you have 2 variables:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;vars:
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vars:
   topics:
     - topic1
   broker_list: 1003
@@ -231,7 +231,7 @@ you can decide how to redistribute your topics.&lt;/p&gt;&lt;/li&gt;
 
 &lt;p&gt;You can paste the JSON file generated into &lt;code&gt;playbooks/reassign-topic-plan.json&lt;/code&gt;&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;version&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;partitions&amp;quot;&lt;/span&gt;:[{&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;topic&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;topic1&amp;quot;&lt;/span&gt;,&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;partition&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;replicas&amp;quot;&lt;/span&gt;:[&lt;span style=&#34;color: #666666&#34;&gt;1003&lt;/span&gt;]}]
 }
@@ -338,7 +338,7 @@ take a lot to my previous post:
 &lt;p&gt;Here is how we create an image with Oracle Database 11g (or 12c) installed
 using Ansible:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;- hosts: 127.0.0.1 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# &amp;gt;&amp;gt;&amp;gt; (1)&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- hosts: 127.0.0.1 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# &amp;gt;&amp;gt;&amp;gt; (1)&lt;/span&gt;
   connection: local
   vars_files:
     - vars/main.yml
@@ -403,16 +403,16 @@ Oracle software inside container images:
 
 &lt;p&gt;To run this process you just need:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ ansible-playbook main.yml
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ ansible-playbook main.yml
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;To check that our &amp;ldquo;oracle-database&amp;rdquo; image is created successfully, just run&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker images
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker images
 REPOSITORY                        TAG                    IMAGE ID            CREATED             SIZE
-syscomiddleware/oracle-database   oraclelinux-11.2.0.4   15eb5554debd        &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; hours ago         &lt;span style=&#34;color: #666666&#34;&gt;6&lt;/span&gt;.301 GB
-syscomiddleware/oracle-database   latest                 ab59ccd81cba        &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; hours ago         &lt;span style=&#34;color: #666666&#34;&gt;6&lt;/span&gt;.301 GB 
+syscomiddleware/oracle-database   oraclelinux-11.2.0.4   15eb5554debd        &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; hours ago         6.301 GB
+syscomiddleware/oracle-database   latest                 ab59ccd81cba        &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; hours ago         6.301 GB 
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -440,7 +440,7 @@ run Ansible roles and commit image.&lt;/p&gt;
 &lt;p&gt;And as you see, we are using another Ansible role called &amp;ldquo;oracle-database-instance&amp;rdquo;
 that is used to create an instance and prepare listener:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;- hosts: tmp-oracle-db-instance
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- hosts: tmp-oracle-db-instance
   connection: docker
   roles:
     - role: sysco-middleware.oracle-database-instance
@@ -465,7 +465,7 @@ that is used to create an instance and prepare listener:&lt;/p&gt;
 &lt;p&gt;But this process is a little bit different from previous case:
 As you can see in this main.yml file, there is an additional step:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;- name: build image
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- name: build image
   command: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;docker&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;build&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;-t&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;{{&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;image_name&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;}}&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;docker&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -484,13 +484,13 @@ Dockerfile. But, as you know, we don&amp;rsquo;t have a out-of-the-box script th
 the instance and keep this process alive and printing logging messages.
 But we can create something similar:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$ORACLE_HOME&lt;/span&gt;/network/admin/listener.ora
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;$ORACLE_HOME/network/admin/listener.ora
 
-cp &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;.tmpl&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
-sed -i &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;s/%hostname%/&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$HOSTNAME&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;/g&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+cp &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;.tmpl&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;$&lt;span style=&#34;color: #BA2121&#34;&gt;LISTENERS_ORA&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+sed -i &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;s/%hostname%/&lt;/span&gt;$&lt;span style=&#34;color: #BA2121&#34;&gt;HOSTNAME/g&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
 sed -i &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;s/%port%/1521/g&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LISTENERS_ORA&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
 bin/lsnrctl start &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
-bin/dbstart &lt;span style=&#34;color: #19177C&#34;&gt;$ORACLE_HOME&lt;/span&gt;
+bin/dbstart $ORACLE_HOME
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -506,7 +506,7 @@ So, to keep our database instance consistent, we have to update our listener.ora
 
 &lt;p&gt;Here is our Dockerfile:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;FROM tmp&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;oracle&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;db&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;instance
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;FROM tmp&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;oracle&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;db&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;instance
 
 MAINTAINER Jorge Quilcate &amp;lt;jorge.quilcate&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;@&lt;/span&gt;sysco.no&amp;gt;
 
@@ -532,25 +532,25 @@ you override it in your &lt;em&gt;&amp;ldquo;docker run&amp;rdquo;&lt;/em&gt; co
 
 &lt;p&gt;You can test this image by running:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker run -it syscomiddleware/oracle-database-instance:oraclelinux-11.2.0.4 
-LSNRCTL &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version &lt;span style=&#34;color: #666666&#34;&gt;11&lt;/span&gt;.2.0.4.0 - Production on &lt;span style=&#34;color: #666666&#34;&gt;25&lt;/span&gt;-MAY-2016 &lt;span style=&#34;color: #666666&#34;&gt;17&lt;/span&gt;:00:37
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker run -it syscomiddleware/oracle-database-instance:oraclelinux-11.2.0.4 
+LSNRCTL &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version 11.2.0.4.0 - Production on 25-MAY-2016 17:00:37
 
-Copyright &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;c&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;1991&lt;/span&gt;, &lt;span style=&#34;color: #666666&#34;&gt;2013&lt;/span&gt;, Oracle.  All rights reserved.
+Copyright &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;c&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; 1991, 2013, Oracle.  All rights reserved.
 
 Starting /home/oracle/product/oracle_home/bin/tnslsnr: please wait...
 
-TNSLSNR &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version &lt;span style=&#34;color: #666666&#34;&gt;11&lt;/span&gt;.2.0.4.0 - Production
+TNSLSNR &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version 11.2.0.4.0 - Production
 System parameter file is /home/oracle/product/oracle_home/network/admin/listener.ora
 Log messages written to /home/oracle/product/diag/tnslsnr/02b9ae1e3ab1/listener/alert/log.xml
 Listening on: &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;ipc&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;KEY&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;EXTPROC1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
-Listening on: &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=1521)))&lt;/span&gt;
+Listening on: &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
 
 Connecting to &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;IPC&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;KEY&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;EXTPROC1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
 STATUS of the LISTENER
 ------------------------
 Alias                     LISTENER
-Version                   TNSLSNR &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version &lt;span style=&#34;color: #666666&#34;&gt;11&lt;/span&gt;.2.0.4.0 - Production
-Start Date                &lt;span style=&#34;color: #666666&#34;&gt;25&lt;/span&gt;-MAY-2016 &lt;span style=&#34;color: #666666&#34;&gt;17&lt;/span&gt;:00:42
+Version                   TNSLSNR &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; Linux: Version 11.2.0.4.0 - Production
+Start Date                25-MAY-2016 17:00:42
 Uptime                    &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt; days &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt; hr. &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt; min. &lt;span style=&#34;color: #666666&#34;&gt;3&lt;/span&gt; sec
 Trace Level               off
 Security                  ON: Local OS Authentication
@@ -559,7 +559,7 @@ Listener Parameter File   /home/oracle/product/oracle_home/network/admin/listene
 Listener Log File         /home/oracle/product/diag/tnslsnr/02b9ae1e3ab1/listener/alert/log.xml
 Listening Endpoints Summary...
   &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;ipc&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;KEY&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;EXTPROC1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
-  &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=1521)))&lt;/span&gt;
+  &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;DESCRIPTION&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;ADDRESS&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PROTOCOL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;tcp&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;HOST&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;02b9ae1e3ab1&lt;span style=&#34;color: #666666&#34;&gt;)(&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;PORT&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;1521&lt;span style=&#34;color: #666666&#34;&gt;)))&lt;/span&gt;
 The listener supports no services
 The &lt;span style=&#34;color: #008000&#34;&gt;command&lt;/span&gt; completed successfully
 Processing Database instance &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;orcl&amp;quot;&lt;/span&gt;: log file /home/oracle/product/oracle_home/startup.log
@@ -570,14 +570,14 @@ Database Buffers	  &lt;span style=&#34;color: #666666&#34;&gt;515899392&lt;/span
 Redo Buffers		    &lt;span style=&#34;color: #666666&#34;&gt;6717440&lt;/span&gt; bytes
 Database mounted.
 Database opened.
-SQL&amp;gt; Disconnected from Oracle Database 11g Release &lt;span style=&#34;color: #666666&#34;&gt;11&lt;/span&gt;.2.0.4.0 - 64bit Production
+SQL&amp;gt; Disconnected from Oracle Database 11g Release 11.2.0.4.0 - 64bit Production
 
 bin/dbstart: Database instance &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;orcl&amp;quot;&lt;/span&gt; warm started.
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;From other terminal you can check container name and inspect for its IP address:
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker ps
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker ps
 CONTAINER ID        IMAGE                                      COMMAND                  CREATED              STATUS              PORTS               NAMES
 21713e2f2c59        syscomiddleware/oracle-database-instance   &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/bin/sh -c &amp;#39;sh start&amp;quot;&lt;/span&gt;   About a minute ago   Up About a minute                       adoring_yalow
 &lt;/pre&gt;&lt;/div&gt;
@@ -595,7 +595,7 @@ it will worth our effort.&lt;/p&gt;
 
 &lt;p&gt;First, you can see that a container name is assigned randomly: &amp;ldquo;adoring_yalow&amp;rdquo;&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker inspect adoring_yalow
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker inspect adoring_yalow
 ...
 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Networks&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
                 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;bridge&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
@@ -606,10 +606,10 @@ it will worth our effort.&lt;/p&gt;
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;EndpointID&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;ea1e3277916bcebaa6fbba42ab6cdea6ebd597a2ce20c274b415f4ad89f05bee&amp;quot;&lt;/span&gt;,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Gateway&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;172.17.0.1&amp;quot;&lt;/span&gt;,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IPAddress&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;172.17.0.2&amp;quot;&lt;/span&gt;,
-                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IPPrefixLen&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #666666&#34;&gt;16&lt;/span&gt;,
+                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IPPrefixLen&amp;quot;&lt;/span&gt;: 16,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IPv6Gateway&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;GlobalIPv6Address&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;,
-                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;GlobalIPv6PrefixLen&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt;,
+                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;GlobalIPv6PrefixLen&amp;quot;&lt;/span&gt;: 0,
                     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;MacAddress&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;02:42:ac:11:00:02&amp;quot;&lt;/span&gt;
                 &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
             &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
@@ -646,7 +646,7 @@ the &lt;em&gt;project name&lt;/em&gt; by Docker Compose.&lt;/p&gt;
 
 &lt;p&gt;Inside is a file called &amp;ldquo;docker-compose.yml&amp;rdquo; that defines &lt;em&gt;container services&lt;/em&gt;:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;
 services:
   db:
     build: db
@@ -661,7 +661,7 @@ to your hosts port 10521, so you can use it from a local application.&lt;/p&gt;
 
 &lt;p&gt;This Dockerfile contains instructions to create an schema called &amp;ldquo;test&amp;rdquo;.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;FROM syscomiddleware&lt;span style=&#34;color: #666666&#34;&gt;/&lt;/span&gt;oracle&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;database&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;instance:oraclelinux&lt;span style=&#34;color: #666666&#34;&gt;-11.2.0.4&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;FROM syscomiddleware&lt;span style=&#34;color: #666666&#34;&gt;/&lt;/span&gt;oracle&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;database&lt;span style=&#34;color: #666666&#34;&gt;-&lt;/span&gt;instance:oraclelinux&lt;span style=&#34;color: #666666&#34;&gt;-11.2.0.4&lt;/span&gt;
 
 MAINTAINER Jorge Quilcate &amp;lt;jorge.quilcate&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;@&lt;/span&gt;sysco.no&amp;gt;
 
@@ -711,7 +711,7 @@ because of its scripting language: YAML, and its agentless architecture.&lt;/p&g
 &lt;p&gt;This means that is actually really easy to understand and start working
 with it. For example:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;- hosts: webserver
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- hosts: webserver
   tasks:
     - package: apache
         state: latest
@@ -768,7 +768,7 @@ commands in your workstation.&lt;/p&gt;
 
 &lt;p&gt;Just to explain what it does, let&amp;rsquo;s check the main task file:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  - debug:
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;  - debug:
       msg: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;This&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;Java&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;Provider&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;will&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;be&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;installed:&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;{{&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;java_provider&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;}}&amp;quot;&lt;/span&gt;
 
   - include: install-{{ java_provider }}.yml
@@ -783,7 +783,7 @@ variable and finally set JAVA_HOME variable.&lt;/p&gt;
 &lt;p&gt;Also this role has a &amp;ldquo;tests&amp;rdquo; directory where you can add playbooks
 to test your role:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;- name: test install openjdk jdk 8 on centos 7
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- name: test install openjdk jdk 8 on centos 7
   hosts: test01
   roles:
     - role: java
@@ -803,7 +803,7 @@ to test your role:&lt;/p&gt;
 
 &lt;p&gt;And I test this playbooks using Vagrant and VirtualBox:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #880000&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;configure(&lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt;) &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;config&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #880000&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;configure(&lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt;) &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;config&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
 
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provision &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;ansible&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;ansible&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
     ansible&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;playbook &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;test.yml&amp;quot;&lt;/span&gt;
@@ -825,10 +825,10 @@ to test your role:&lt;/p&gt;
 
 &lt;p&gt;So, lets test that OpenJDK 8 is running OK in Centos:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;vagrant up test01
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vagrant up test01
 ...
 
-PLAY &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #008000&#34;&gt;test&lt;/span&gt; install openjdk jdk &lt;span style=&#34;color: #666666&#34;&gt;8&lt;/span&gt; on centos &lt;span style=&#34;color: #666666&#34;&gt;7]&lt;/span&gt; **********************************
+PLAY &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #008000&#34;&gt;test&lt;/span&gt; install openjdk jdk &lt;span style=&#34;color: #666666&#34;&gt;8&lt;/span&gt; on centos 7&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt; **********************************
 
 TASK &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;setup&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt; *******************************************************************
 ok: &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;test01&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
@@ -869,7 +869,7 @@ I give it a try: &lt;a href=&#34;https://github.com/jeqo/poc-ansible-docker&#34;
 
 &lt;p&gt;I added a playbook to create a container:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;- hosts: 127.0.0.1
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- hosts: 127.0.0.1
   connection: local
   tasks:
     - name: my container
@@ -883,7 +883,7 @@ I give it a try: &lt;a href=&#34;https://github.com/jeqo/poc-ansible-docker&#34;
 
 &lt;p&gt;Here I&amp;rsquo;m using &amp;ldquo;connection: local&amp;rdquo; to execute commands locally.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ docker ps
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 a5e49bd032be        centos              &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;sleep infinity&amp;quot;&lt;/span&gt;    About an hour ago   Up About an hour                        poccontainer
 &lt;/pre&gt;&lt;/div&gt;
@@ -891,7 +891,7 @@ a5e49bd032be        centos              &lt;span style=&#34;color: #BA2121&#34;&
 
 &lt;p&gt;And once I have a container running, I can run this playbook:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;- hosts: poccontainer
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- hosts: poccontainer
   connection: docker
   pre_tasks:
     - package: name=sudo
@@ -907,7 +907,7 @@ a5e49bd032be        centos              &lt;span style=&#34;color: #BA2121&#34;&
 &lt;p&gt;Pre-tasks are required to install sudo package and configure tty. And
 then run role as usual:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ ansible-playbook provisioning.yml -vvvv
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ ansible-playbook provisioning.yml -vvvv
 Using /home/jeqo/dev/jeqo/poc-ansible-docker/ansible.cfg as config file
 Loaded callback default of &lt;span style=&#34;color: #008000&#34;&gt;type&lt;/span&gt; stdout, v2.0
 &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; plays in provisioning.yml
@@ -917,12 +917,12 @@ PLAY ***************************************************************************
 TASK &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;setup&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt; *******************************************************************
 ESTABLISH DOCKER CONNECTION FOR USER: None
 &amp;lt;poccontainer&amp;gt; EXEC &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;/usr/bin/docker&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;exec&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;-i&amp;#39;&lt;/span&gt;, u&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;poccontainer&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;/bin/sh&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;-c&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;/bin/sh -c \&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #008000&#34;&gt;umask&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;22&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; 
-mkdir -p &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$HOME&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; 
-&lt;span style=&#34;color: #008000&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$HOME&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;]&lt;/span&gt;
+mkdir -p &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&gt;$&lt;span style=&#34;color: #BA2121&#34;&gt;HOME/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; 
+&lt;span style=&#34;color: #008000&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&gt;$&lt;span style=&#34;color: #BA2121&#34;&gt;HOME/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;]&lt;/span&gt;
 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;lt;poccontainer&amp;gt; PUT /tmp/tmpNCOaxi TO /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup&lt;/span&gt;
 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;lt;poccontainer&amp;gt; EXEC [&amp;#39;&lt;/span&gt;/usr/bin/docker&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;exec&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-i&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;poccontainer&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;/bin/sh&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-c&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;/bin/sh -c &lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LANG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 
 &lt;span style=&#34;color: #19177C&#34;&gt;LC_ALL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 &lt;span style=&#34;color: #19177C&#34;&gt;LC_MESSAGES&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 /usr/bin/python /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup; 
-rm -rf &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&amp;quot;&lt;/span&gt; &amp;gt; /dev/null &lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt;&amp;gt;&amp;amp;&lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+rm -rf &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&amp;quot;&lt;/span&gt; &amp;gt; /dev/null 2&amp;gt;&amp;amp;1&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 ok: &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;poccontainer&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -944,7 +944,7 @@ is missing commit and push tasks to put containers on Docker Hub,
 but you can replace it with local commands as here:&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;- hosts: 127.0.0.1
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- hosts: 127.0.0.1
   connection: local
   tasks:
     - name: commit
@@ -981,7 +981,7 @@ an independent repository: &lt;a href=&#34;https://github.com/jeqo/oracle-soa-12
 &lt;p&gt;Basically Dockerfile scripts were moved to shell scripts and are called
 from Packer.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;provisioners&amp;quot;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt; [
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;provisioners&amp;quot;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt; [
     {
       &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;,
       &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;: [
@@ -1022,7 +1022,7 @@ from Packer.&lt;/p&gt;
 &lt;p&gt;After provisioning, you can save your image, and if
 you want push it to Docker Hub:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;post-processors&amp;quot;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt; [
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;post-processors&amp;quot;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt; [
     [
       {
         &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;docker-tag&amp;quot;&lt;/span&gt;,
@@ -1105,7 +1105,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 
 &lt;p&gt;Open a terminal into &lt;em&gt;OracleSOA&lt;/em&gt; directory, go to dockerfiles, run the script &lt;em&gt;buildDockerImage.sh&lt;/em&gt; with the &lt;em&gt;-d&lt;/em&gt; argument because we are installing the Quick Start version of SOA Suite 12c:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;sh buildDockerImage.sh -d
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sh buildDockerImage.sh -d
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1119,7 +1119,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 
 &lt;p&gt;To run it, go to the &lt;em&gt;OracleSOA/samples/12c-domain&lt;/em&gt; and run the following commands:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;docker build -t mysoa .
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;docker build -t mysoa .
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1127,7 +1127,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 
 &lt;p&gt;That&amp;rsquo;s it! When you want to run a SOA Suite 12c Domain, just run:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;docker run -i -t mysoa
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;docker run -i -t mysoa
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1175,7 +1175,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 
 &lt;h3 id=&#34;vagrant-configuration&#34;&gt;Vagrant configuration&lt;/h3&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
 
 &lt;span style=&#34;color: #880000&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;configure(&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt;) &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;config&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
 	&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Load properties files&lt;/span&gt;
@@ -1250,7 +1250,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 
 &lt;p&gt;Running this file with:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;vagrant up --provider&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;aws
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vagrant up --provider&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;aws
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -1260,7 +1260,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 
 &lt;p&gt;The first recipe that will be executed is:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;add_role &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;
 &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -1268,7 +1268,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 
 &lt;p&gt;This call the following Chef role:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;description&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Role applied to the system that should be an NFS client tools.&amp;quot;&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;,
@@ -1288,7 +1288,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 
 &lt;p&gt;To update the server-host from your Vagrant configuration, add these lines:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;json &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; {
   &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; {
     &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;server-host&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;123.1.1.12&amp;quot;&lt;/span&gt;
@@ -1305,7 +1305,7 @@ chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;json &lt;span style
 
 &lt;p&gt;Vagrant configuration calls this Chef role:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;{
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;demo-bpm_bam-12c&amp;quot;&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;,
   &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;default_attributes&amp;quot;&lt;/span&gt; : {
@@ -1482,14 +1482,14 @@ chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;json &lt;span style
 
 &lt;p&gt;Ok, I have a base box, how can I use it to create a new box? The basic artifact you need is a Vagrant file:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;mkdir vagrant-box
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mkdir vagrant-box
 vagrant init
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Running this creates a &lt;em&gt;Vagrantfile&lt;/em&gt; that contains the information to create a new box.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
 
 &lt;span style=&#34;color: #880000&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;configure(&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt;) &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;config&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;box &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;base&amp;quot;&lt;/span&gt;
@@ -1505,7 +1505,7 @@ vagrant init
 
 &lt;p&gt;This is not enough to create a box. You need two more attributes:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# URL or path to base box file&lt;/span&gt;
   &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# config.vm.box_url = &amp;quot;https://storage.us2.oraclecloud.com/v1/istoilis-istoilis/vagrant/oel65-64.box&amp;quot;&lt;/span&gt;
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;box_url &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;file://c:/boxes/oel65-64.box&amp;quot;&lt;/span&gt;
@@ -1533,7 +1533,7 @@ vagrant init
 
 &lt;p&gt;As this is a virtualization platform specific requirement, you have to make these changes on an embedded method:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provider &lt;span style=&#34;color: #19177C&#34;&gt;:virtualbox&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;vb&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
     vb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;customize &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;modifyvm&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:id&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;--memory&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2048&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
     vb&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;customize &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;modifyvm&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:id&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;--name&amp;quot;&lt;/span&gt;  , &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;basemachine&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
@@ -1566,7 +1566,7 @@ recreate over and over again, fast and easy.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Network&lt;/strong&gt;: By default your box use a NAT network that VirtualBox creates out-of-the-box. But, what if you (obviously) want to connect to your box? You need to use the &amp;ldquo;Host-only&amp;rdquo; network:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;network &lt;span style=&#34;color: #19177C&#34;&gt;:private_network&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;ip&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;192.168.56.XYZ&amp;quot;&lt;/span&gt;
 &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -1580,7 +1580,7 @@ recreate over and over again, fast and easy.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Shared Directories&lt;/strong&gt;: Using VirtualBox utility to create shared directories is annoying! With Vagrant is as easy as add thit to your script:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Mount c:\data directory to /data directory on box. mount_options is optional&lt;/span&gt;
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;synced_folder &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt; , &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #19177C&#34;&gt;:mount_options&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;dmode=777&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;fmode=777&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
 &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
@@ -1589,7 +1589,7 @@ recreate over and over again, fast and easy.&lt;/p&gt;
 
 &lt;p&gt;Some other parameters:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Hostname&lt;/span&gt;
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;hostname &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;basemachine&amp;quot;&lt;/span&gt;
 &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
@@ -1616,7 +1616,7 @@ Well, now that I solved is not that difficult:&lt;/p&gt;
 &lt;li&gt;Create an script called &lt;em&gt;&amp;ldquo;bootstrap.sh&amp;rdquo;&lt;/em&gt; on your working directory, and add these lines:&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;pvcreate /dev/sdb
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;pvcreate /dev/sdb
 vgextend VolGroup /dev/sdb
 lvextend /dev/VolGroup/lv_root /dev/sdb
 resize2fs /dev/VolGroup/lv_root
@@ -1629,7 +1629,7 @@ resize2fs /dev/VolGroup/lv_root
 
 &lt;p&gt;And then add this code to your &lt;em&gt;Vagrantfile&lt;/em&gt;:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provider &lt;span style=&#34;color: #19177C&#34;&gt;:virtualbox&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;vb&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
   &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Validate this should be run it once&lt;/span&gt;
@@ -1673,10 +1673,10 @@ resize2fs /dev/VolGroup/lv_root
 
 &lt;p&gt;To resolve this, add this script called &lt;em&gt;&amp;ldquo;increase_swap.sh&amp;rdquo;&lt;/em&gt; on your working directory:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;#!/bin/sh&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;#!/bin/sh&lt;/span&gt;
 
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# size of swapfile in megabytes&lt;/span&gt;
-&lt;span style=&#34;color: #19177C&#34;&gt;swapsize&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=8000&lt;/span&gt;
+&lt;span style=&#34;color: #19177C&#34;&gt;swapsize&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;8000
 
 &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# does the swap file already exist?&lt;/span&gt;
 grep -q &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;swapfile&amp;quot;&lt;/span&gt; /etc/fstab
@@ -1720,7 +1720,7 @@ cat /proc/meminfo | grep Swap
 
 &lt;p&gt;Add this code to the file:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;package &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;httpd&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;package &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;httpd&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt;
   action &lt;span style=&#34;color: #19177C&#34;&gt;:install&lt;/span&gt;
 &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
 
@@ -1734,7 +1734,7 @@ service &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;httpd&amp;quot;&lt;
 
 &lt;p&gt;To call this simple recipe from Vagrant you need to add this to your file:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provision &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;chef_solo&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;chef&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
     chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;cookbooks_path &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;../chef/cookbooks&amp;quot;&lt;/span&gt;
     chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;add_recipe &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;http::install-httpd&amp;quot;&lt;/span&gt;
@@ -1763,7 +1763,7 @@ service &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;httpd&amp;quot;&lt;
 &lt;li&gt;Create a file like this one called &amp;ldquo;vagrant.rb&amp;rdquo;:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;box:
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;box:
   name: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;base-machine&amp;quot;&lt;/span&gt;
   disk_path: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;./disk1.vdi&amp;quot;&lt;/span&gt;
   url: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;file://c:/boxes/oel65-64.box&amp;quot;&lt;/span&gt;
@@ -1782,7 +1782,7 @@ chef:
 &lt;li&gt;Add the &amp;ldquo;yaml&amp;rdquo; library:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;  &lt;span style=&#34;color: #008000&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;yaml&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;  &lt;span style=&#34;color: #008000&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;yaml&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1790,7 +1790,7 @@ chef:
 &lt;li&gt;Then read and use properties:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
   props &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #880000&#34;&gt;YAML&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;load_file(&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;vagrant.rb&amp;quot;&lt;/span&gt;)
 
   config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;box &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;

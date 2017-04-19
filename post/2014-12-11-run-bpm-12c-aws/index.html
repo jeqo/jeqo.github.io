@@ -4,12 +4,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme" content="darksimplicity">
-  <meta name="generator" content="Hugo 0.19" />
+  <meta name="generator" content="Hugo 0.20.2" />
   
   
   <base href="https://jeqo.github.io/">
   <title>Running Oracle BPM 12c on AWS using Vagrant and Chef</title>
-  <link rel="stylesheet" href="/css/style.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.020/css/hack-extended.min.css">
+  <link rel="stylesheet" href="/css/style.min.css">  
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 </head>
@@ -72,7 +73,7 @@
 
 <h3 id="vagrant-configuration">Vagrant configuration</h3>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #880000">VAGRANTFILE_API_VERSION</span> <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;2&quot;</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #880000">VAGRANTFILE_API_VERSION</span> <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;2&quot;</span>
 
 <span style="color: #880000">Vagrant</span><span style="color: #666666">.</span>configure(<span style="color: #880000">VAGRANTFILE_API_VERSION</span>) <span style="color: #008000; font-weight: bold">do</span> <span style="color: #666666">|</span>config<span style="color: #666666">|</span>
 	<span style="color: #408080; font-style: italic"># Load properties files</span>
@@ -147,7 +148,7 @@
 
 <p>Running this file with:</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>vagrant up --provider<span style="color: #666666">=</span>aws
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">vagrant up --provider<span style="color: #666666">=</span>aws
 </pre></div>
 </p>
 
@@ -157,7 +158,7 @@
 
 <p>The first recipe that will be executed is:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #666666">...</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #666666">...</span>
   chef<span style="color: #666666">.</span>add_role <span style="color: #BA2121">&quot;nfs-client&quot;</span>
 <span style="color: #666666">...</span>
 </pre></div>
@@ -165,7 +166,7 @@
 
 <p>This call the following Chef role:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>{
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">{
   <span style="color: #008000; font-weight: bold">&quot;name&quot;</span> : <span style="color: #BA2121">&quot;nfs-client&quot;</span>,
   <span style="color: #008000; font-weight: bold">&quot;description&quot;</span> : <span style="color: #BA2121">&quot;Role applied to the system that should be an NFS client tools.&quot;</span>,
   <span style="color: #008000; font-weight: bold">&quot;json_class&quot;</span> : <span style="color: #BA2121">&quot;Chef::Role&quot;</span>,
@@ -185,7 +186,7 @@
 
 <p>To update the server-host from your Vagrant configuration, add these lines:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span><span style="color: #666666">...</span>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #666666">...</span>
 chef<span style="color: #666666">.</span>json <span style="color: #666666">=</span> {
   <span style="color: #BA2121">&quot;nfs-client&quot;</span> <span style="color: #666666">=&gt;</span> {
     <span style="color: #BA2121">&quot;server-host&quot;</span> <span style="color: #666666">=&gt;</span> <span style="color: #BA2121">&quot;123.1.1.12&quot;</span>
@@ -202,7 +203,7 @@ chef<span style="color: #666666">.</span>json <span style="color: #666666">=</sp
 
 <p>Vagrant configuration calls this Chef role:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span></span>{
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">{
   <span style="color: #008000; font-weight: bold">&quot;name&quot;</span> : <span style="color: #BA2121">&quot;demo-bpm_bam-12c&quot;</span>,
   <span style="color: #008000; font-weight: bold">&quot;json_class&quot;</span> : <span style="color: #BA2121">&quot;Chef::Role&quot;</span>,
   <span style="color: #008000; font-weight: bold">&quot;default_attributes&quot;</span> : {
