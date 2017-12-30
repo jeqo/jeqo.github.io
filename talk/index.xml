@@ -7,7 +7,26 @@
         <language>en-us</language>
         <author>Jorge Quilcate Otoya</author>
         
-        <updated>Fri, 10 Mar 2017 00:00:00 UTC</updated>
+        <updated>Sat, 25 Nov 2017 00:00:00 UTC</updated>
+        
+        <item>
+            <title>Distributed Tracing with OpenTracing - NoSlidesConf 2017</title>
+            <link>https://jeqo.github.io/talk/distributed-tracing-with-opentracing-noslides18/</link>
+            <pubDate>Sat, 25 Nov 2017 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/talk/distributed-tracing-with-opentracing-noslides18/</guid>
+            <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.noslidesconf.net/&#34;&gt;NoSlidesConf 2017&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;slides&#34;&gt;Slides&lt;/h1&gt;
+
+&lt;p&gt;No Slides ;)&lt;/p&gt;
+
+&lt;h1 id=&#34;source-code&#34;&gt;Source-Code&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jeqo/talk-observing-distributed-systems&#34;&gt;https://github.com/jeqo/talk-observing-distributed-systems&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
         
         <item>
             <title>From Messaging to Logs with Apache Kafka - OUGN 2017</title>

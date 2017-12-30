@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jeqo.github.io/talk/distributed-tracing-with-opentracing-noslides18/</loc>
+    <lastmod>2017-11-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/talk/from-messaging-to-logs-ougn17/</loc>
     <lastmod>2017-03-10T00:00:00+00:00</lastmod>
   </url>
@@ -88,7 +93,7 @@
   
   <url>
     <loc>https://jeqo.github.io/</loc>
-    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -225,6 +230,12 @@
   </url>
   
   <url>
+    <loc>https://jeqo.github.io/categories/operations/</loc>
+    <lastmod>2017-11-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/tags/oracle/</loc>
     <lastmod>2016-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -268,7 +279,13 @@
   
   <url>
     <loc>https://jeqo.github.io/talk/</loc>
-    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/tags/tracing/</loc>
+    <lastmod>2017-11-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

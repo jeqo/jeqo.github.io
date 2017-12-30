@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0">
+    <channel>
+        <title>Jorge Quilcate Otoya on @jeqo</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://jeqo.github.io/es/tags/metrics/</link>
+        <language>en-us</language>
+        <author>Jorge Quilcate Otoya</author>
+        
+        <updated>Mon, 18 Dec 2017 00:00:00 UTC</updated>
+        
+        <item>
+            <title>Observando Sistemas Distribuidos - OUGN 2017</title>
+            <link>https://jeqo.github.io/es/talk/observando-sistemas-distribuidos-perujug/</link>
+            <pubDate>Mon, 18 Dec 2017 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/es/talk/observando-sistemas-distribuidos-perujug/</guid>
+            <description>&lt;p&gt;Presentado en &lt;a href=&#34;https://www.meetup.com/es-ES/Peru-Java-User-Group/events/245246354&#34;&gt;PeruJUG&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;slides&#34;&gt;Slides&lt;/h1&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;df40bec5b977467888eb9101edd06d28&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;h1 id=&#34;código-fuente&#34;&gt;Código fuente&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jeqo/talk-observing-distributed-systems&#34;&gt;https://github.com/jeqo/talk-observing-distributed-systems&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
