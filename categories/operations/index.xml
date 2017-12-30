@@ -19,6 +19,14 @@
 
 &lt;p&gt;&lt;/p&gt;
 
+&lt;h1 id=&#34;video&#34;&gt;Video&lt;/h1&gt;
+
+&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;iframe class=&#34;youtube-player&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/hqV4P6Ej7DM&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+
+
 &lt;h1 id=&#34;slides&#34;&gt;Slides&lt;/h1&gt;
 
 &lt;p&gt;No Slides ;)&lt;/p&gt;
