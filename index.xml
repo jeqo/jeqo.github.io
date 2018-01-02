@@ -37,7 +37,7 @@
         </item>
         
         <item>
-            <title>Review - Data on the Outside vs Data on the Inside</title>
+            <title>Data on the Outside vs Data on the Inside</title>
             <link>https://jeqo.github.io/post/2017-10-13-data-on-the-outside-vs-data-on-the-inside/</link>
             <pubDate>Fri, 13 Oct 2017 00:00:00 UTC</pubDate>
             <author>Jorge Quilcate Otoya</author>
@@ -726,7 +726,7 @@ on Documentation but you can find it on Maven Central already:&lt;/p&gt;
         </item>
         
         <item>
-            <title>Kafka - Rewind Consumer Offsets</title>
+            <title>Rewind Kafka Consumer Offsets</title>
             <link>https://jeqo.github.io/post/2017-01-31-kafka-rewind-consumers-offset/</link>
             <pubDate>Tue, 31 Jan 2017 00:00:00 UTC</pubDate>
             <author>Jorge Quilcate Otoya</author>

@@ -546,7 +546,7 @@ on Documentation but you can find it on Maven Central already:&lt;/p&gt;
         </item>
         
         <item>
-            <title>Kafka - Rewind Consumer Offsets</title>
+            <title>Rewind Kafka Consumer Offsets</title>
             <link>https://jeqo.github.io/post/2017-01-31-kafka-rewind-consumers-offset/</link>
             <pubDate>Tue, 31 Jan 2017 00:00:00 UTC</pubDate>
             <author>Jorge Quilcate Otoya</author>
