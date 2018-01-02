@@ -7,6 +7,16 @@
   </url>
   
   <url>
+    <loc>https://jeqo.github.io/post/2017-10-13-data-on-the-outside-vs-data-on-the-inside/</loc>
+    <lastmod>2017-10-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/post/2017-09-28-kafka-opentracing/</loc>
+    <lastmod>2017-09-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/talk/from-messaging-to-logs-ougn17/</loc>
     <lastmod>2017-03-10T00:00:00+00:00</lastmod>
   </url>
@@ -188,6 +198,12 @@
   </url>
   
   <url>
+    <loc>https://jeqo.github.io/tags/distributed-systems/</loc>
+    <lastmod>2017-10-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/tags/docker/</loc>
     <lastmod>2017-01-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -207,7 +223,7 @@
   
   <url>
     <loc>https://jeqo.github.io/categories/integration/</loc>
-    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -219,13 +235,19 @@
   
   <url>
     <loc>https://jeqo.github.io/tags/kafka/</loc>
-    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jeqo.github.io/tags/nfs/</loc>
     <lastmod>2014-11-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/categories/observability/</loc>
+    <lastmod>2017-09-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -248,14 +270,26 @@
   </url>
   
   <url>
+    <loc>https://jeqo.github.io/tags/papers/</loc>
+    <lastmod>2017-10-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/post/</loc>
-    <lastmod>2017-01-31T00:00:00+00:00</lastmod>
+    <lastmod>2017-10-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jeqo.github.io/tags/review/</loc>
     <lastmod>2014-11-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/categories/reviews/</loc>
+    <lastmod>2017-10-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

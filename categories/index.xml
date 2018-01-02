@@ -57,9 +57,18 @@
         <item>
             <title>Integration</title>
             <link>https://jeqo.github.io/categories/integration/</link>
-            <pubDate>Fri, 10 Mar 2017 00:00:00 UTC</pubDate>
+            <pubDate>Thu, 28 Sep 2017 00:00:00 UTC</pubDate>
             <author>Jorge Quilcate Otoya</author>
             <guid>https://jeqo.github.io/categories/integration/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>Observability</title>
+            <link>https://jeqo.github.io/categories/observability/</link>
+            <pubDate>Thu, 28 Sep 2017 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/categories/observability/</guid>
             <description></description>
         </item>
         
@@ -69,6 +78,15 @@
             <pubDate>Sat, 25 Nov 2017 00:00:00 UTC</pubDate>
             <author>Jorge Quilcate Otoya</author>
             <guid>https://jeqo.github.io/categories/operations/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>Reviews</title>
+            <link>https://jeqo.github.io/categories/reviews/</link>
+            <pubDate>Fri, 13 Oct 2017 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/categories/reviews/</guid>
             <description></description>
         </item>
         
