@@ -15,13 +15,7 @@
             <pubDate>Fri, 13 Oct 2017 00:00:00 UTC</pubDate>
             <author>Jorge Quilcate Otoya</author>
             <guid>https://jeqo.github.io/post/2017-10-13-data-on-the-outside-vs-data-on-the-inside/</guid>
-            <description>&lt;ul&gt;
-&lt;li&gt;Link: &lt;a href=&#34;cidrdb.org/cidr2005/papers/P12.pdf&#34;&gt;cidrdb.org/cidr2005/papers/P12.pdf&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Author: Pat Helland&lt;/li&gt;
-&lt;li&gt;Year: 2005&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The relevance of this paper today is as it was in 2005.
+            <description>&lt;p&gt;The relevance of this paper today is as it was in 2005.
 It is fascinating how technologies have changed these 12 years
 and if we just change terms like XML to JSON, SOA to Micro-Services
 or Relational Database to NoSQL Data Stores, the concepts will be
@@ -128,17 +122,23 @@ funcionality, request/response, messaging, log-oriented?&lt;/p&gt;
 relational capabilities are key depending on the context (i.e. inside or outside data).
 XML is unbounded vs Relational bounded representations.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../static/images/2017-10-13-data-on-the-outside-vs-data-on-the-inside/outside-vs-inside.png&#34; alt=&#34;outside vs inside&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2017-10-13-data-on-the-outside-vs-data-on-the-inside/outside-vs-inside.png&#34; alt=&#34;outside vs inside&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;And finally compare the benefits and weakness of the 3 ways to represent data: XML, SQL and Objects:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../static/images/2017-10-13-data-on-the-outside-vs-data-on-the-inside/sql-xml-object.png&#34; alt=&#34;xml vs sql vs objects&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2017-10-13-data-on-the-outside-vs-data-on-the-inside/sql-xml-object.png&#34; alt=&#34;xml vs sql vs objects&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Concluding:&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;We simply need all three of these representations and we need to use them in a fashion that plays to their respective strenghts!&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Link: &lt;a href=&#34;cidrdb.org/cidr2005/papers/P12.pdf&#34;&gt;cidrdb.org/cidr2005/papers/P12.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Author: Pat Helland&lt;/li&gt;
+&lt;li&gt;Year: 2005&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         
