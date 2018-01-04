@@ -1705,5 +1705,61 @@ una instancia en AWS con NFS configurado: &lt;a href=&#34;https://github.com/jeq
 </description>
         </item>
         
+        <item>
+            <title>Acerca de</title>
+            <link>https://jeqo.github.io/es/about/</link>
+            <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/es/about/</guid>
+            <description>
+
+&lt;h1 id=&#34;jorge-esteban-quilcate-otoya&#34;&gt;Jorge Esteban Quilcate Otoya&lt;/h1&gt;
+
+&lt;p&gt;Peruano, Casado, Ingeniero de Software, inmigrante en Noruega.&lt;/p&gt;
+
+&lt;p&gt;Iniciando mi carrera en sistemas distribuidos.&lt;/p&gt;
+
+&lt;p&gt;Empezando a contribuir a proyectos Open-Source desde 2016 (e.g. Apache Kafka)&lt;/p&gt;
+
+&lt;p&gt;Trabajando como &amp;ldquo;back-end and integration developer&amp;rdquo; en SYSCO AS (Oslo, Norway).
+Parte del equipo de Middleware.&lt;/p&gt;
+
+&lt;p&gt;Trabajo mayormente con tecnologías JVM (Java, Scala).&lt;/p&gt;
+
+&lt;p&gt;Intereses actuales:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Observability,&lt;/li&gt;
+&lt;li&gt;Distributed Tracing (OpenTracing),&lt;/li&gt;
+&lt;li&gt;Metrics (Prometheus),&lt;/li&gt;
+&lt;li&gt;Chaos engineering,&lt;/li&gt;
+&lt;li&gt;Event Sourcing and CQRS,&lt;/li&gt;
+&lt;li&gt;Distributed Systems (microservices patterns),&lt;/li&gt;
+&lt;li&gt;Distributed data stores (Apache Cassandra)&lt;/li&gt;
+&lt;li&gt;Cluster Scheduling (Nomad, Kubernetes),&lt;/li&gt;
+&lt;li&gt;Stream processing (Kafka Streams, Apache Flink)&lt;/li&gt;
+&lt;li&gt;Concurrency and Actor Systems&lt;/li&gt;
+&lt;li&gt;Service Discovery (Consul, Zookeeper)&lt;/li&gt;
+&lt;li&gt;Blockchain&lt;/li&gt;
+&lt;li&gt;Sidecar Proxies (Envoy and Istio)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;este-sitio&#34;&gt;Este sitio&lt;/h2&gt;
+
+&lt;p&gt;Este es el sitio web de Jorge Quilcate&amp;rsquo;s desde 2014.&lt;/p&gt;
+
+&lt;p&gt;Este sitio fue implementado anteriormente con Jekyll, pero ha sido migrado a &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; y desplegado en GitHub.
+El tema es un fork de &amp;lsquo;darksimplicity&amp;rsquo;. Las fuentes de tema pueden ser ubicadas &lt;a href=&#34;https://themes.gohugo.io/darksimplicity/&#34;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Este sitio contiene:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://jeqo.github.io/es/post/&#34;&gt;Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://jeqo.github.io/es/talk/&#34;&gt;Presentaciones&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://jeqo.github.io/es/note/&#34;&gt;Notas&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
     </channel>
 </rss>
