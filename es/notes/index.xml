@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0">
+    <channel>
+        <title>Jorge Quilcate Otoya on @jeqo</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://jeqo.github.io/es/notes/</link>
+        <language>en-us</language>
+        <author>Jorge Quilcate Otoya</author>
+        
+        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
+        
+        <item>
+            <title>Observabilidad</title>
+            <link>https://jeqo.github.io/es/notes/observability/</link>
+            <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/es/notes/observability/</guid>
+            <description>
+
+&lt;h2 id=&#34;observabilidad&#34;&gt;Observabilidad&lt;/h2&gt;
+
+&lt;h2 id=&#34;referencias&#34;&gt;Referencias&lt;/h2&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
