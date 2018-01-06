@@ -269,7 +269,7 @@ We are configuring this integration to only trace operations with
 
 <p>And refresh the Jaeger UI:</p>
 
-<p><img src="../../static/images/2017-09-28-kafka-opentracing/first-trace.png" alt="first trace" /></p>
+<p><img src="/images/2017-09-28-kafka-opentracing/first-trace.png" alt="first trace" /></p>
 
 <blockquote>
 <p>Source code on branch: steps/step-02</p>
@@ -316,7 +316,7 @@ tracing context on Kafka Headers (supported since v0.11.0).</p>
 
 <p>That&rsquo;s it, let&rsquo;s redeploy and test again.</p>
 
-<p><img src="../../static/images/2017-09-28-kafka-opentracing/second-traces-not-linked.png" alt="Traces not linked" /></p>
+<p><img src="/images/2017-09-28-kafka-opentracing/second-traces-not-linked.png" alt="Traces not linked" /></p>
 
 <p>Wait!!! but we only run one request, why do we have 2 traces???</p>
 
@@ -370,11 +370,11 @@ public class HelloWorldResource {
 <p>First we inject the Tracer, then we get the span from Request,
 and finally we create an ActiveSpan that wraps the producer.</p>
 
-<p><img src="../../static/images/2017-09-28-kafka-opentracing/third-traces-together.png" alt="Traces together" /></p>
+<p><img src="/images/2017-09-28-kafka-opentracing/third-traces-together.png" alt="Traces together" /></p>
 
 <p>And if we go to the detail we can get more insight from the execution:</p>
 
-<p><img src="../../static/images/2017-09-28-kafka-opentracing/trace-details.png" alt="Trace details" /></p>
+<p><img src="/images/2017-09-28-kafka-opentracing/trace-details.png" alt="Trace details" /></p>
 
 <p>We can get a more deep understanding about the trace execution,
 how the callback works on the producer side, processing the metadata
@@ -449,7 +449,7 @@ given that we don&rsquo;t need to trace HTTP endpoints:</p>
 <pre><code> curl http://localhost:8080/hello/jorge
 </code></pre>
 
-<p><img src="../../static/images/2017-09-28-kafka-opentracing/trace-with-consumer.png" alt="Trace with Consumer" /></p>
+<p><img src="/images/2017-09-28-kafka-opentracing/trace-with-consumer.png" alt="Trace with Consumer" /></p>
 
 <p>That&rsquo;s great! Now we have how long it takes to receive a record on the
 consumer side.</p>
@@ -491,7 +491,7 @@ we can use <code>TracingKafkaUtils</code> to extract it, and reference it:</p>
         }
 </code></pre>
 
-<p><img src="../../static/images/2017-09-28-kafka-opentracing/complete-trace.png" alt="Complete trace" /></p>
+<p><img src="/images/2017-09-28-kafka-opentracing/complete-trace.png" alt="Complete trace" /></p>
 
 <blockquote>
 <p>Source code on branch: steps/step-03</p>
@@ -539,7 +539,7 @@ the transaction ID, the entity ID or user ID.</p>
 
 <p>And you can filter now from the UI:</p>
 
-<p><img src="../../static/images/2017-09-28-kafka-opentracing/tags.png" alt="Complete trace" /></p>
+<p><img src="/images/2017-09-28-kafka-opentracing/tags.png" alt="Complete trace" /></p>
 
 <h2 id="dropwizard-helpers">Dropwizard Helpers</h2>
 

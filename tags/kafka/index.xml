@@ -241,7 +241,7 @@ We are configuring this integration to only trace operations with
 
 &lt;p&gt;And refresh the Jaeger UI:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../static/images/2017-09-28-kafka-opentracing/first-trace.png&#34; alt=&#34;first trace&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2017-09-28-kafka-opentracing/first-trace.png&#34; alt=&#34;first trace&#34; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Source code on branch: steps/step-02&lt;/p&gt;
@@ -288,7 +288,7 @@ tracing context on Kafka Headers (supported since v0.11.0).&lt;/p&gt;
 
 &lt;p&gt;That&amp;rsquo;s it, let&amp;rsquo;s redeploy and test again.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../static/images/2017-09-28-kafka-opentracing/second-traces-not-linked.png&#34; alt=&#34;Traces not linked&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2017-09-28-kafka-opentracing/second-traces-not-linked.png&#34; alt=&#34;Traces not linked&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Wait!!! but we only run one request, why do we have 2 traces???&lt;/p&gt;
 
@@ -342,11 +342,11 @@ public class HelloWorldResource {
 &lt;p&gt;First we inject the Tracer, then we get the span from Request,
 and finally we create an ActiveSpan that wraps the producer.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../static/images/2017-09-28-kafka-opentracing/third-traces-together.png&#34; alt=&#34;Traces together&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2017-09-28-kafka-opentracing/third-traces-together.png&#34; alt=&#34;Traces together&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;And if we go to the detail we can get more insight from the execution:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../static/images/2017-09-28-kafka-opentracing/trace-details.png&#34; alt=&#34;Trace details&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2017-09-28-kafka-opentracing/trace-details.png&#34; alt=&#34;Trace details&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We can get a more deep understanding about the trace execution,
 how the callback works on the producer side, processing the metadata
@@ -421,7 +421,7 @@ given that we don&amp;rsquo;t need to trace HTTP endpoints:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt; curl http://localhost:8080/hello/jorge
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../static/images/2017-09-28-kafka-opentracing/trace-with-consumer.png&#34; alt=&#34;Trace with Consumer&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2017-09-28-kafka-opentracing/trace-with-consumer.png&#34; alt=&#34;Trace with Consumer&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;That&amp;rsquo;s great! Now we have how long it takes to receive a record on the
 consumer side.&lt;/p&gt;
@@ -463,7 +463,7 @@ we can use &lt;code&gt;TracingKafkaUtils&lt;/code&gt; to extract it, and referen
         }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../static/images/2017-09-28-kafka-opentracing/complete-trace.png&#34; alt=&#34;Complete trace&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2017-09-28-kafka-opentracing/complete-trace.png&#34; alt=&#34;Complete trace&#34; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Source code on branch: steps/step-03&lt;/p&gt;
@@ -511,7 +511,7 @@ the transaction ID, the entity ID or user ID.&lt;/p&gt;
 
 &lt;p&gt;And you can filter now from the UI:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;../../static/images/2017-09-28-kafka-opentracing/tags.png&#34; alt=&#34;Complete trace&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2017-09-28-kafka-opentracing/tags.png&#34; alt=&#34;Complete trace&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;dropwizard-helpers&#34;&gt;Dropwizard Helpers&lt;/h2&gt;
 
