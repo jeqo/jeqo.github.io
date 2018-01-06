@@ -1823,19 +1823,5 @@ chef:
 &lt;/ul&gt;</description>
         </item>
         
-        <item>
-            <title>Observability</title>
-            <link>https://jeqo.github.io/notes/observability/</link>
-            <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/notes/observability/</guid>
-            <description>
-
-&lt;h2 id=&#34;observability&#34;&gt;Observability&lt;/h2&gt;
-
-&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
-</description>
-        </item>
-        
     </channel>
 </rss>

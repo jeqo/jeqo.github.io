@@ -37,139 +37,6 @@
         </item>
         
         <item>
-            <title>Data on the Outside vs Data on the Inside</title>
-            <link>https://jeqo.github.io/post/2017-10-13-data-on-the-outside-vs-data-on-the-inside/</link>
-            <pubDate>Fri, 13 Oct 2017 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/post/2017-10-13-data-on-the-outside-vs-data-on-the-inside/</guid>
-            <description>&lt;p&gt;The relevance of this paper today is as it was in 2005.
-It is fascinating how technologies have changed these 12 years
-and if we just change terms like XML to JSON, SOA to Micro-Services
-or Relational Database to NoSQL Data Stores, the concepts will be
-still accurate.&lt;/p&gt;
-
-&lt;p&gt;Pat Helland explains the dichotomy (as Ben Stopford called in his &lt;a href=&#34;https://www.confluent.io/blog/data-dichotomy-rethinking-the-way-we-treat-data-and-services/&#34;&gt;post&lt;/a&gt;)
-between data behind a Service boundary and data on the outside when
-you follow a service-oriented architecture.&lt;/p&gt;
-
-&lt;p&gt;He highlight key challenges that will be need to be embraced if
-the decision to follow this path is taken, like:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&amp;ldquo;[In SOA] atomic transactions with two-phase commit &lt;strong&gt;do not occur&lt;/strong&gt; accross multiple services.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;and&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&amp;ldquo;Data owned by a service is, in general, &lt;strong&gt;never allowed out of it&lt;/strong&gt; unless it is
-processed by application logic&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;But this is just the beginning. Here is one quote I found amazing:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;&amp;ldquo;Going to SOA is like going from Newton&amp;rsquo;s physics to Einstein&amp;rsquo;s physics&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Newton&amp;rsquo;s time marched forward uniformly with instant knowledge at a distance.&lt;/p&gt;
-
-&lt;p&gt;Before SOA, distributed computing strove to make many systems look like one with RPC, 2PC, etc.&lt;/p&gt;
-
-&lt;p&gt;In Einstein&amp;rsquo;s universe, everything is relative to one&amp;rsquo;s perspective.&lt;/p&gt;
-
-&lt;p&gt;SOA has &amp;ldquo;now&amp;rdquo; inside and the &amp;ldquo;past&amp;rdquo; arriving in messages&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Everyone that is thinking to break a monolith system into a bunch of services
-shall read this and ensure that the benefits worth taking these challenges.&lt;/p&gt;
-
-&lt;p&gt;As Adrian Colyer call it in its review here: &lt;a href=&#34;https://blog.acolyer.org/2016/09/13/data-on-the-outside-versus-data-on-the-inside/&#34;&gt;https://blog.acolyer.org/2016/09/13/data-on-the-outside-versus-data-on-the-inside/&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Perhaps we should rename the “extract microservice” refactoring operation to “change model of time and space” ;).&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The service developer that is aware of this challenge will have present that
-the application logic will have to reconcile the &amp;ldquo;now&amp;rdquo; inside a service and
-the &amp;ldquo;then&amp;rdquo; arriving as messages.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;The world is no longer flat!!&lt;/strong&gt; SOA is recognizing that there is more than
-one computer working together.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;From this first part we can conclude 2 main issues that have to be embrace in a SOA:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;ACID transaction won&amp;rsquo;t be part of your toolbox&lt;/li&gt;
-&lt;li&gt;Reconcile &amp;ldquo;now&amp;rdquo; and &amp;ldquo;then&amp;rdquo; is part of the application logic&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Then this paper describes Data on the Ouside and Data on the Inside characteristics.
-On one side, data on the outside:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Data on the outside must be immutable and/or versioned data&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Time-stamping, versioning, and not reusing important identifier, Helland says, are
-excellent techniques to keep you messages immutable.&lt;/p&gt;
-
-&lt;p&gt;Two concepts are stablished when talking about data:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Operators: action information that is part of a message. (e.g. Order amount, items)&lt;/li&gt;
-&lt;li&gt;Operands: reference data, that gives context to the Operators. (e.g. Dapartment information linked to an Order)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And about Reference Data, Helland says:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Each piece of reference data has both a &lt;em&gt;version independent identifier&lt;/em&gt; and
-multiple versions, each of which is labeled iwth a &lt;em&gt;version dependent identifier&lt;/em&gt;.
-For each piece, there is exactly one publishing service.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This concept of Reference Data is one key concept that in my experience creates
-the most difficult scenarios in a SOA. Sharing data is a key feature and implement it
-correctly is usually difficult: how much data should be shared? how do we control the access
-to sensitive data on the consumer sides? Which approach should be taken to implement this
-funcionality, request/response, messaging, log-oriented?&lt;/p&gt;
-
-&lt;p&gt;Nowadays I would say that Apache Kafka is a good fit to express and propagate&lt;code&gt;Reference Data&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;On the other side, to work with Data on the Inside we should take some considerations:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Transactionality is ensured inside a service.&lt;/li&gt;
-&lt;li&gt;Incoming Data is usually kept stored as a binary copy for auditing and non-repudiation.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;XML and SQL are discussed as a way to represent data. Where XML extensibility and SQL
-relational capabilities are key depending on the context (i.e. inside or outside data).
-XML is unbounded vs Relational bounded representations.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2017-10-13-data-on-the-outside-vs-data-on-the-inside/outside-vs-inside.png&#34; alt=&#34;outside vs inside&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;And finally compare the benefits and weakness of the 3 ways to represent data: XML, SQL and Objects:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2017-10-13-data-on-the-outside-vs-data-on-the-inside/sql-xml-object.png&#34; alt=&#34;xml vs sql vs objects&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Concluding:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;We simply need all three of these representations and we need to use them in a fashion that plays to their respective strenghts!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Link: &lt;a href=&#34;cidrdb.org/cidr2005/papers/P12.pdf&#34;&gt;cidrdb.org/cidr2005/papers/P12.pdf&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Author: Pat Helland&lt;/li&gt;
-&lt;li&gt;Year: 2005&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        
-        <item>
             <title>Tracing Kafka applications</title>
             <link>https://jeqo.github.io/post/2017-09-28-kafka-opentracing/</link>
             <pubDate>Thu, 28 Sep 2017 00:00:00 UTC</pubDate>
@@ -2565,6 +2432,239 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
 &lt;li&gt;Extended Domain on Docker: Use an external Oracle Database for Oracle SOA/BPM Schemas&lt;/li&gt;
 &lt;li&gt;SOA/BPM Cluster on Docker containers&lt;/li&gt;
 &lt;/ul&gt;</description>
+        </item>
+        
+        <item>
+            <title>Running Oracle BPM 12c on AWS using Vagrant and Chef</title>
+            <link>https://jeqo.github.io/post/2014-12-11-run-bpm-12c-aws/</link>
+            <pubDate>Thu, 11 Dec 2014 00:00:00 UTC</pubDate>
+            <author>Jorge Quilcate Otoya</author>
+            <guid>https://jeqo.github.io/post/2014-12-11-run-bpm-12c-aws/</guid>
+            <description>&lt;p&gt;In this post, I will show how to create an AWS EC2 Instance with an Oracle BPM 12c Quickstart Domain created. And I will use previous post for related tasks.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets see how to achieve this and make this process reusable. These are the steps:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create an AWS EC2 instance (with Vagrant)&lt;/li&gt;
+&lt;li&gt;Connect to an NFS instance to get the installer (with Chef)&lt;/li&gt;
+&lt;li&gt;Install Oracle BPM 12c Quickstart and create a Domain (with Chef)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;GitHub repository: &lt;a href=&#34;https://github.com/jeqo/oracle-bpm-12c-aws&#34;&gt;Here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;create-an-aws-ec2-instance&#34;&gt;Create an AWS EC2 instance&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;ve created a Red Hat instance using Vagrant. This instance should be connected to my NFS instance that has all the Oracle&amp;rsquo;s installers (to create an NFS instance on AWS EC2: &lt;a href=&#34;http://jeqo.github.io/blog/devops/create-nfs-instance-aws/&#34;&gt;go here&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;This is the NFS instance:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0836.png&#34; alt=&#34;NFS instance&#34; title=&#34;NFS Instance&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And the &amp;ldquo;/data&amp;rdquo; directory is shared. It includes Oracle XE and Oracle FMW installers:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0841.png&#34; alt=&#34;NFS directories&#34; title=&#34;NFS directories&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;vagrant-configuration&#34;&gt;Vagrant configuration&lt;/h3&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;
+
+&lt;span style=&#34;color: #880000&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;configure(&lt;span style=&#34;color: #880000&#34;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt;) &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;config&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
+	&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Load properties files&lt;/span&gt;
+	box_props &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #880000&#34;&gt;YAML&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;load_file(&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;box.properties&amp;quot;&lt;/span&gt;)
+	aws_props &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #880000&#34;&gt;YAML&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;load_file(&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;aws.properties&amp;quot;&lt;/span&gt;)
+
+	&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Basic metadata&lt;/span&gt;
+	config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;box &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;box_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;
+	config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;box_url &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;file://&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;box_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;base_location&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;
+
+	&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# AWS Configuration&lt;/span&gt;
+	config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provider &lt;span style=&#34;color: #19177C&#34;&gt;:aws&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;aws, override&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;access_key_id &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;aws_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;keys&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;access_key_id&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;secret_access_key &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;aws_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;keys&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;secret_access_key&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;keypair_name &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;jeqo&amp;quot;&lt;/span&gt;
+
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;instance_type &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;m3.medium&amp;quot;&lt;/span&gt;
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;region &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;sa-east-1&amp;quot;&lt;/span&gt;
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;availability_zone &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;sa-east-1a&amp;quot;&lt;/span&gt;
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;ami &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;ami-0511a418&amp;quot;&lt;/span&gt;
+
+		override&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;ssh&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;username &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;ec2-user&amp;quot;&lt;/span&gt;
+		override&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;ssh&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;private_key_path &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;aws_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;keys&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;key_pair_location&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;
+
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;tags &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; {
+		  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;Name&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; box_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+		}
+
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;block_device_mapping &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;{
+			&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;DeviceName&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;/dev/sda1&amp;#39;&lt;/span&gt;,
+			&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;Ebs.VolumeSize&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; box_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;disk_size&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+		}&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+
+		aws&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;security_groups &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;jeqo-group&amp;quot;&lt;/span&gt;
+
+		config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;ssh&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;pty &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000&#34;&gt;true&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
+
+	&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Install Chef Client&lt;/span&gt;
+	config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;omnibus&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;chef_version &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #19177C&#34;&gt;:latest&lt;/span&gt;
+
+	&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Increase Swap size&lt;/span&gt;
+	config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provision &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;s&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
+		s&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;path	&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;increase_swap.sh&amp;quot;&lt;/span&gt;
+		s&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;args   &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;box_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;additional_swap&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;&amp;quot;&lt;/span&gt;
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
+
+	&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Run Provisioning with Chef&lt;/span&gt;
+	config&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;provision &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;chef_client&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;chef&lt;span style=&#34;color: #666666&#34;&gt;|&lt;/span&gt;
+		chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;chef_server_url &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;https://api.opscode.com/organizations/jeqo&amp;quot;&lt;/span&gt;
+		chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;validation_client_name &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;jeqo-validator&amp;quot;&lt;/span&gt;
+		chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;validation_key_path &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;box_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;chef&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;repo_location&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;/.chef/jeqo-validator.pem&amp;quot;&lt;/span&gt;
+		chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;node_name &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;#{&lt;/span&gt;box_props&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;box&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;][&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #BB6688; font-weight: bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;&lt;/span&gt;
+		chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;add_role &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;
+		chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;add_role &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;oracle_db-xe&amp;quot;&lt;/span&gt;
+		chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;add_role &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;demo-bpm_bam-12c&amp;quot;&lt;/span&gt;
+		chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;json &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; {
+			&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; {
+				&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;server-host&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;127.0.0.1&amp;quot;&lt;/span&gt;
+			},
+			&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;oracle-xe&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; {
+				&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;url&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;file:///data/oracle-xe/oracle-xe-11.2.0-1.0.x86_64.rpm&amp;quot;&lt;/span&gt;
+			},
+			&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;bpm_qs-12c&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; {
+				&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;url&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;file:///data/oracle-fmw/bpm_qs-12c/fmw_12.1.3.0.0_bpmqs_Disk1_1of1.zip&amp;quot;&lt;/span&gt;
+			}
+		}
+	&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Running this file with:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vagrant up --provider&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;aws
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;You will create a new instance on AWS EC2.&lt;/p&gt;
+
+&lt;h2 id=&#34;connect-to-an-nfs-instance&#34;&gt;Connect to an NFS instance&lt;/h2&gt;
+
+&lt;p&gt;The first recipe that will be executed is:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+  chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;add_role &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This call the following Chef role:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;,
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;description&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Role applied to the system that should be an NFS client tools.&amp;quot;&lt;/span&gt;,
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;,
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;default_attributes&amp;quot;&lt;/span&gt; : {
+    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt; : {
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;server-host&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;local-directory&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;remote-directory&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt;
+    }
+  },
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;run_list&amp;quot;&lt;/span&gt; : [
+    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;recipe[nfs-utils::nfs-client]&amp;quot;&lt;/span&gt;
+  ]
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To update the server-host from your Vagrant configuration, add these lines:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+chef&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;json &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; {
+  &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;server-host&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;123.1.1.12&amp;quot;&lt;/span&gt;
+  },
+  &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And when your instance started, a new directory &amp;ldquo;/data&amp;rdquo; will sync the NFS shared directories.&lt;/p&gt;
+
+&lt;h2 id=&#34;install-oracle-bpm-12c-quickstart&#34;&gt;Install Oracle BPM 12c Quickstart&lt;/h2&gt;
+
+&lt;p&gt;To install BPM, you can download my shared &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;&amp;ldquo;oracle-fmw&amp;rdquo; cookbook&lt;/a&gt; from Chef Supermarket. It is explained in &lt;a href=&#34;http://jeqo.github.io/blog/devops/chef-cookbook-oracle-fmw-12c/&#34;&gt;this post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Vagrant configuration calls this Chef role:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;demo-bpm_bam-12c&amp;quot;&lt;/span&gt;,
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;,
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;default_attributes&amp;quot;&lt;/span&gt; : {
+    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;domain-12c&amp;quot;&lt;/span&gt;: {
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;demo-bpm_bam-domain&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;mode&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Compact&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;apps&amp;quot;&lt;/span&gt;: [
+        {&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;SOA&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;},
+        {&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;BPM&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;},
+        {&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;BAM&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;},
+        {&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;OSB&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;false&lt;/span&gt;}
+      ],
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;machines&amp;quot;&lt;/span&gt;: [
+      ],
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;admin_server&amp;quot;&lt;/span&gt;: {
+        &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;base_name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;AdminServer&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;new_name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;bpm_bpm-server&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;port&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;7001&amp;quot;&lt;/span&gt;
+      },
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;managed_servers&amp;quot;&lt;/span&gt;: [
+      ],
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_repo_host&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_repo_port&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;1521&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_repo_sid&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;xe&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_repo_prefix&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;DEMO&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_repo_password&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;welcome1&amp;quot;&lt;/span&gt;
+    },
+    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;rcu-12c&amp;quot;&lt;/span&gt;: {
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_schema_prefix&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;DEMO&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_dba_user&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;SYS&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_dba_role&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;SYSDBA&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_dba_password&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;welcome1&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_schemas_password&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;welcome1&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_hostname&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_port&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;1521&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;db_service&amp;quot;&lt;/span&gt;: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;xe&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;components&amp;quot;&lt;/span&gt;: [
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;SOAINFRA&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;OPSS&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IAU&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;MDS&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;WLS&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;UCSUMS&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IAU_APPEND&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;IAU_VIEWER&amp;quot;&lt;/span&gt;
+      ]
+    }
+  },
+  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;run_list&amp;quot;&lt;/span&gt; : [
+    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;recipe[oracle-fmw::install-bpm_qs-12c]&amp;quot;&lt;/span&gt;,
+    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;recipe[oracle-fmw::create-rcu_repository-12c]&amp;quot;&lt;/span&gt;,
+    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;recipe[oracle-fmw::create-domain-12c]&amp;quot;&lt;/span&gt;
+  ]
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This includes will run three recipes: &amp;ldquo;install-bpm_qs-12c&amp;rdquo; , &amp;ldquo;create-rcu_repository-12c&amp;rdquo;, &amp;ldquo;create-domain-12c&amp;rdquo;. And includes Domain information (&amp;ldquo;domain-12c&amp;rdquo;), and RCU info (&amp;ldquo;rcu-12c&amp;rdquo;).&lt;/p&gt;
+
+&lt;p&gt;These process takes 30 min. approx. And now we can login with &amp;ldquo;oracle-fmw&amp;rdquo; user (password: welcome1), and start the server:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0930.png&#34; alt=&#34;Start server&#34; title=&#34;Stating WebLogic Server&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://jeqo.github.io/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0931.png&#34; alt=&#34;Server started&#34; title=&#34;WebLogic Server with BPM started&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s it.&lt;/p&gt;</description>
         </item>
         
     </channel>
