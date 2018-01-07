@@ -1,43 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0">
-    <channel>
-        <title>Jorge Quilcate Otoya on @jeqo</title>
-        <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/categories/devops-oracle-soa/</link>
-        <language>en-us</language>
-        <author>Jorge Quilcate Otoya</author>
-        
-        <updated>Mon, 02 May 2016 00:00:00 UTC</updated>
-        
-        <item>
-            <title>Lightning Quick Provisioning and DevOps for Oracle SOA Suite 12c - AMIS 25</title>
-            <link>https://jeqo.github.io/talk/lighning-provisioning-oracle-soa-suite-amis25/</link>
-            <pubDate>Mon, 02 May 2016 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/talk/lighning-provisioning-oracle-soa-suite-amis25/</guid>
-            <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.amis.nl/en/events-eng/jubileumconferentie/&#34;&gt;AMIS25 2016&lt;/a&gt;&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devops Oracle Soa on @jeqo</title>
+    <link>https://jeqo.github.io/categories/devops-oracle-soa/</link>
+    <description>Recent content in Devops Oracle Soa on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright @jeqo</copyright>
+    <lastBuildDate>Mon, 02 May 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jeqo.github.io/categories/devops-oracle-soa/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Lightning Quick Provisioning and DevOps for Oracle SOA Suite 12c - AMIS 25</title>
+      <link>https://jeqo.github.io/talks/lighning-provisioning-oracle-soa-suite-amis25/</link>
+      <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/talks/lighning-provisioning-oracle-soa-suite-amis25/</guid>
+      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.amis.nl/en/events-eng/jubileumconferentie/&#34;&gt;AMIS25 2016&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>What is Adaptive Case Management? - OUGN 15</title>
+      <link>https://jeqo.github.io/talks/what-is-adaptive-case-management-ougn15/</link>
+      <pubDate>Sat, 02 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/talks/what-is-adaptive-case-management-ougn15/</guid>
+      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.amis.nl/en/events-eng/jubileumconferentie/&#34;&gt;AMIS25 2016&lt;/a&gt;&lt;/p&gt;
 
-&lt;h1 id=&#34;slides&#34;&gt;Slides&lt;/h1&gt;
-
-&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/gfubabDVWgrlAH&#34; width=&#34;599&#34; height=&#34;487&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt;</description>
-        </item>
-        
-        <item>
-            <title>What is Adaptive Case Management? - OUGN 15</title>
-            <link>https://jeqo.github.io/talk/what-is-adaptive-case-management-ougn15/</link>
-            <pubDate>Sat, 02 May 2015 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/talk/what-is-adaptive-case-management-ougn15/</guid>
-            <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.amis.nl/en/events-eng/jubileumconferentie/&#34;&gt;AMIS25 2016&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;slides&#34;&gt;Slides&lt;/h1&gt;
-
-&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/ovR0dcS7514Q0o&#34; width=&#34;599&#34; height=&#34;487&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt;</description>
-        </item>
-        
-    </channel>
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
 </rss>

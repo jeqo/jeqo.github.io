@@ -91,7 +91,7 @@ aquí:
 
 <hr />
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">version: <span style="color: #BA2121">&quot;2.1&quot;</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">version: <span style="background-color: #fff0f0">&quot;2.1&quot;</span>
 services:
   kafka:
     image: jeqo/apache-kafka:0.10.1.0-2.11
@@ -109,8 +109,8 @@ configuran el acceso desde <code>kafka</code> hacia el servicio <code>zookeeper<
 <p>Si probamos iniciar los servicios con el comando <code>docker-compose up -d</code>,
 Docker Compose creará una red donde estos servicios se podrán comunicar.</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
-Creating network <span style="color: #BA2121">&quot;kafkacluster_default&quot;</span> with the default driver
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
+Creating network <span style="background-color: #fff0f0">&quot;kafkacluster_default&quot;</span> with the default driver
 Creating kafkacluster_zookeeper_1
 Creating kafkacluster_kafka_1
 </pre></div>
@@ -119,15 +119,15 @@ Creating kafkacluster_kafka_1
 <p>Si queremos acceder a estos servicios desde nuestra aplicación (también
   definida en Docker Compose) lo podemos hacer de la siguiente manera:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">version: <span style="color: #BA2121">&quot;2.1&quot;</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">version: <span style="background-color: #fff0f0">&quot;2.1&quot;</span>
 services:
   kafka:
     image: jeqo/apache-kafka-client:0.10.1.0-2.11
     command: sleep infinity
     networks:
       - default
-      - kafkacluster_default <span style="color: #408080; font-style: italic">#(2)</span>
-networks: <span style="color: #408080; font-style: italic">#(1)</span>
+      - kafkacluster_default <span style="color: #888888">#(2)</span>
+networks: <span style="color: #888888">#(1)</span>
   kafkacluster_default:
     external: true
 </pre></div>
@@ -141,10 +141,10 @@ el servicio <code>client</code>.</p>
 <p>Para probar el acceso desde el cliente, primero iniciemos el servicio con
 <code>docker-compose up -d</code> y luego nos conectamos al servicio:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">$ docker-compose <span style="color: #008000">exec</span> kafka bash
-<span style="color: #408080; font-style: italic"># bin/kafka-console-producer.sh --broker-list kafka:9092 --topic topic1</span>
-<span style="color: #008000">test</span>
-<span style="color: #408080; font-style: italic"># bin/kafka-topics.sh --zookeeper zookeeper:2181 --list      </span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">$ docker-compose <span style="color: #007020">exec</span> kafka bash
+<span style="color: #888888"># bin/kafka-console-producer.sh --broker-list kafka:9092 --topic topic1</span>
+<span style="color: #007020">test</span>
+<span style="color: #888888"># bin/kafka-topics.sh --zookeeper zookeeper:2181 --list      </span>
 topic1
 </pre></div>
 
@@ -154,15 +154,15 @@ topic1
 <p>Una vez creado nuestro clúster, escalar nuestro contenedor de ´kafka´
 es tan sencillo como utilizar el comando <code>scale</code>:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">docker-compose scale <span style="color: #19177C">kafka</span><span style="color: #666666">=</span>3
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">docker-compose scale <span style="color: #996633">kafka</span><span style="color: #333333">=</span>3
 </pre></div>
 
 
 <p>Este comando creará dos contenedores adicionales:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">$ docker-compose scale <span style="color: #19177C">kafka</span><span style="color: #666666">=</span>3
-Creating and starting kafkacluster_kafka_2 ... <span style="color: #008000; font-weight: bold">done</span>
-Creating and starting kafkacluster_kafka_3 ... <span style="color: #008000; font-weight: bold">done</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">$ docker-compose scale <span style="color: #996633">kafka</span><span style="color: #333333">=</span>3
+Creating and starting kafkacluster_kafka_2 ... <span style="color: #008800; font-weight: bold">done</span>
+Creating and starting kafkacluster_kafka_3 ... <span style="color: #008800; font-weight: bold">done</span>
 </pre></div>
 
 
@@ -180,10 +180,10 @@ de Zookeeper.</p>
 
 <p>Desde el contenedor cliente:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">$ docker-compose <span style="color: #008000">exec</span> kafka bash
-<span style="color: #408080; font-style: italic"># bin/zookeeper-shell.sh zookeeper:2181</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">$ docker-compose <span style="color: #007020">exec</span> kafka bash
+<span style="color: #888888"># bin/zookeeper-shell.sh zookeeper:2181</span>
 ls /brokers/ids
-<span style="color: #666666">[</span>1003, 1002, 1001<span style="color: #666666">]</span>
+<span style="color: #333333">[</span>1003, 1002, 1001<span style="color: #333333">]</span>
 </pre></div>
 
 
@@ -261,7 +261,7 @@ o manual, si se sabe cómo redistribuir los topics.</p></li>
 
 <p>Dentro del archivo <code>playbooks/prepare-reassignment.yml</code> hay dos variables a definir:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">vars:
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">vars:
   topics:
     - topic1
   broker_list: 1003
@@ -274,9 +274,9 @@ o manual, si se sabe cómo redistribuir los topics.</p></li>
 
 <p>Puedes copiar ese JSON generado en <code>playbooks/reassign-topic-plan.json</code></p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">{
-  <span style="color: #008000; font-weight: bold">&quot;version&quot;</span>:<span style="color: #666666">1</span>,
-  <span style="color: #008000; font-weight: bold">&quot;partitions&quot;</span>:[{<span style="color: #008000; font-weight: bold">&quot;topic&quot;</span>:<span style="color: #BA2121">&quot;topic1&quot;</span>,<span style="color: #008000; font-weight: bold">&quot;partition&quot;</span>:<span style="color: #666666">0</span>,<span style="color: #008000; font-weight: bold">&quot;replicas&quot;</span>:[<span style="color: #666666">1003</span>]}]
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">{
+  <span style="color: #007700">&quot;version&quot;</span>:<span style="color: #0000DD; font-weight: bold">1</span>,
+  <span style="color: #007700">&quot;partitions&quot;</span>:[{<span style="color: #007700">&quot;topic&quot;</span>:<span style="background-color: #fff0f0">&quot;topic1&quot;</span>,<span style="color: #007700">&quot;partition&quot;</span>:<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #007700">&quot;replicas&quot;</span>:[<span style="color: #0000DD; font-weight: bold">1003</span>]}]
 }
 </pre></div>
 

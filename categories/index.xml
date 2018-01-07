@@ -1,85 +1,88 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0">
-    <channel>
-        <title>Jorge Quilcate Otoya on @jeqo</title>
-        <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/categories/</link>
-        <language>en-us</language>
-        <author>Jorge Quilcate Otoya</author>
-        
-        <updated>Fri, 10 Mar 2017 00:00:00 UTC</updated>
-        
-        <item>
-            <title>Back End</title>
-            <link>https://jeqo.github.io/categories/back-end/</link>
-            <pubDate>Fri, 10 Mar 2017 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/categories/back-end/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Development</title>
-            <link>https://jeqo.github.io/categories/development/</link>
-            <pubDate>Fri, 10 Mar 2017 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/categories/development/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Devops</title>
-            <link>https://jeqo.github.io/categories/devops/</link>
-            <pubDate>Sun, 15 Jan 2017 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/categories/devops/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Devops Oracle</title>
-            <link>https://jeqo.github.io/categories/devops-oracle/</link>
-            <pubDate>Thu, 09 Mar 2017 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/categories/devops-oracle/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Devops Oracle Soa</title>
-            <link>https://jeqo.github.io/categories/devops-oracle-soa/</link>
-            <pubDate>Mon, 02 May 2016 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/categories/devops-oracle-soa/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Integration</title>
-            <link>https://jeqo.github.io/categories/integration/</link>
-            <pubDate>Thu, 28 Sep 2017 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/categories/integration/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Observability</title>
-            <link>https://jeqo.github.io/categories/observability/</link>
-            <pubDate>Thu, 28 Sep 2017 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/categories/observability/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Operations</title>
-            <link>https://jeqo.github.io/categories/operations/</link>
-            <pubDate>Sat, 25 Nov 2017 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/categories/operations/</guid>
-            <description></description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on @jeqo</title>
+    <link>https://jeqo.github.io/categories/</link>
+    <description>Recent content in Categories on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright @jeqo</copyright>
+    <lastBuildDate>Fri, 10 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jeqo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Back End</title>
+      <link>https://jeqo.github.io/categories/back-end/</link>
+      <pubDate>Fri, 10 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/back-end/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>https://jeqo.github.io/categories/development/</link>
+      <pubDate>Fri, 10 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops</title>
+      <link>https://jeqo.github.io/categories/devops/</link>
+      <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops Oracle</title>
+      <link>https://jeqo.github.io/categories/devops-oracle/</link>
+      <pubDate>Thu, 09 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/devops-oracle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops Oracle Soa</title>
+      <link>https://jeqo.github.io/categories/devops-oracle-soa/</link>
+      <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/devops-oracle-soa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Integration</title>
+      <link>https://jeqo.github.io/categories/integration/</link>
+      <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/integration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Observability</title>
+      <link>https://jeqo.github.io/categories/observability/</link>
+      <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/observability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Operations</title>
+      <link>https://jeqo.github.io/categories/operations/</link>
+      <pubDate>Sat, 25 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/operations/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
 </rss>

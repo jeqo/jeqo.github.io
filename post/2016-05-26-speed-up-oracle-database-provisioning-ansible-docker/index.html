@@ -116,7 +116,7 @@ take a lot to my previous post:
 <p>Here is how we create an image with Oracle Database 11g (or 12c) installed
 using Ansible:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">- hosts: 127.0.0.1 <span style="color: #408080; font-style: italic"># &gt;&gt;&gt; (1)</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">- hosts: 127.0.0.1 <span style="color: #888888"># &gt;&gt;&gt; (1)</span>
   connection: local
   vars_files:
     - vars/main.yml
@@ -124,10 +124,10 @@ using Ansible:</p>
     - name: create container
       docker:
         name: tmp-oracle-database
-        image: <span style="color: #BA2121">&quot;{{</span><span style="color: #19177C"> </span><span style="color: #BA2121">base_image</span><span style="color: #19177C"> </span><span style="color: #BA2121">}}&quot;</span>
+        image: <span style="background-color: #fff0f0">&quot;{{</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">base_image</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">}}&quot;</span>
         command: sleep infinity
         volumes:
-          - <span style="color: #BA2121">&quot;/installers/oracle/db/11.2/database/11.2.0.4:/srv/files&quot;</span>
+          - <span style="background-color: #fff0f0">&quot;/installers/oracle/db/11.2/database/11.2.0.4:/srv/files&quot;</span>
         state: started
 
     - add_host:
@@ -135,7 +135,7 @@ using Ansible:</p>
         groups: docker
         ansible_connection: docker
 
-- hosts: tmp-oracle-database <span style="color: #408080; font-style: italic"># &gt;&gt;&gt; (2)</span>
+- hosts: tmp-oracle-database <span style="color: #888888"># &gt;&gt;&gt; (2)</span>
   connection: docker
   roles:
     - role: sysco-middleware.oracle-database
@@ -143,20 +143,20 @@ using Ansible:</p>
       oracle_database_edition: SE
       oracle_database_installer: /srv/files/database/runInstaller
 
-- hosts: 127.0.0.1 <span style="color: #408080; font-style: italic"># &gt;&gt;&gt; (3)</span>
+- hosts: 127.0.0.1 <span style="color: #888888"># &gt;&gt;&gt; (3)</span>
   connection: local
   vars_files:
     - vars/main.yml
   tasks:
     - name: docker commit
-      command: <span style="color: #BA2121">&quot;docker</span><span style="color: #19177C"> </span><span style="color: #BA2121">commit</span><span style="color: #19177C"> </span><span style="color: #BA2121">tmp-oracle-database</span><span style="color: #19177C"> </span><span style="color: #BA2121">{{</span><span style="color: #19177C"> </span><span style="color: #BA2121">image_name</span><span style="color: #19177C"> </span><span style="color: #BA2121">}}:{{</span><span style="color: #19177C"> </span><span style="color: #BA2121">item</span><span style="color: #19177C"> </span><span style="color: #BA2121">}}&quot;</span>
-      with_items: <span style="color: #BA2121">&quot;{{</span><span style="color: #19177C"> </span><span style="color: #BA2121">tags</span><span style="color: #19177C"> </span><span style="color: #BA2121">}}&quot;</span>
+      command: <span style="background-color: #fff0f0">&quot;docker</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">commit</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">tmp-oracle-database</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">{{</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">image_name</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">}}:{{</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">item</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">}}&quot;</span>
+      with_items: <span style="background-color: #fff0f0">&quot;{{</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">tags</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">}}&quot;</span>
 
     - name: docker kill
-      command: <span style="color: #BA2121">&quot;docker</span><span style="color: #19177C"> </span><span style="color: #BA2121">kill</span><span style="color: #19177C"> </span><span style="color: #BA2121">tmp-oracle-database&quot;</span>
+      command: <span style="background-color: #fff0f0">&quot;docker</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">kill</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">tmp-oracle-database&quot;</span>
 
     - name: docker rm
-      command: <span style="color: #BA2121">&quot;docker</span><span style="color: #19177C"> </span><span style="color: #BA2121">rm</span><span style="color: #19177C"> </span><span style="color: #BA2121">tmp-oracle-database&quot;</span>
+      command: <span style="background-color: #fff0f0">&quot;docker</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">rm</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">tmp-oracle-database&quot;</span>
 </pre></div>
 
 
@@ -181,16 +181,16 @@ Oracle software inside container images:
 
 <p>To run this process you just need:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">$ ansible-playbook main.yml
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">$ ansible-playbook main.yml
 </pre></div>
 
 
 <p>To check that our &ldquo;oracle-database&rdquo; image is created successfully, just run</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">$ docker images
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">$ docker images
 REPOSITORY                        TAG                    IMAGE ID            CREATED             SIZE
-syscomiddleware/oracle-database   oraclelinux-11.2.0.4   15eb5554debd        <span style="color: #666666">2</span> hours ago         6.301 GB
-syscomiddleware/oracle-database   latest                 ab59ccd81cba        <span style="color: #666666">2</span> hours ago         6.301 GB 
+syscomiddleware/oracle-database   oraclelinux-11.2.0.4   15eb5554debd        <span style="color: #6600EE; font-weight: bold">2</span> hours ago         6.301 GB
+syscomiddleware/oracle-database   latest                 ab59ccd81cba        <span style="color: #6600EE; font-weight: bold">2</span> hours ago         6.301 GB 
 </pre></div>
 
 
@@ -218,7 +218,7 @@ run Ansible roles and commit image.</p>
 <p>And as you see, we are using another Ansible role called &ldquo;oracle-database-instance&rdquo;
 that is used to create an instance and prepare listener:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">- hosts: tmp-oracle-db-instance
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">- hosts: tmp-oracle-db-instance
   connection: docker
   roles:
     - role: sysco-middleware.oracle-database-instance
@@ -243,8 +243,8 @@ that is used to create an instance and prepare listener:</p>
 <p>But this process is a little bit different from previous case:
 As you can see in this main.yml file, there is an additional step:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">- name: build image
-  command: <span style="color: #BA2121">&quot;docker</span><span style="color: #19177C"> </span><span style="color: #BA2121">build</span><span style="color: #19177C"> </span><span style="color: #BA2121">-t</span><span style="color: #19177C"> </span><span style="color: #BA2121">{{</span><span style="color: #19177C"> </span><span style="color: #BA2121">image_name</span><span style="color: #19177C"> </span><span style="color: #BA2121">}}</span><span style="color: #19177C"> </span><span style="color: #BA2121">docker&quot;</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">- name: build image
+  command: <span style="background-color: #fff0f0">&quot;docker</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">build</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">-t</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">{{</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">image_name</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">}}</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">docker&quot;</span>
 </pre></div>
 
 
@@ -262,12 +262,12 @@ Dockerfile. But, as you know, we don&rsquo;t have a out-of-the-box script that s
 the instance and keep this process alive and printing logging messages.
 But we can create something similar:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">LISTENERS_ORA</span><span style="color: #666666">=</span>$ORACLE_HOME/network/admin/listener.ora
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #996633">LISTENERS_ORA</span><span style="color: #333333">=</span>$ORACLE_HOME/network/admin/listener.ora
 
-cp <span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">${</span><span style="color: #19177C">LISTENERS_ORA</span><span style="color: #BB6688; font-weight: bold">}</span><span style="color: #BA2121">.tmpl&quot;</span> <span style="color: #BA2121">&quot;</span>$<span style="color: #BA2121">LISTENERS_ORA&quot;</span> <span style="color: #666666">&amp;&amp;</span>
-sed -i <span style="color: #BA2121">&quot;s/%hostname%/</span>$<span style="color: #BA2121">HOSTNAME/g&quot;</span> <span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">${</span><span style="color: #19177C">LISTENERS_ORA</span><span style="color: #BB6688; font-weight: bold">}</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">&amp;&amp;</span>
-sed -i <span style="color: #BA2121">&quot;s/%port%/1521/g&quot;</span> <span style="color: #BA2121">&quot;</span><span style="color: #BB6688; font-weight: bold">${</span><span style="color: #19177C">LISTENERS_ORA</span><span style="color: #BB6688; font-weight: bold">}</span><span style="color: #BA2121">&quot;</span> <span style="color: #666666">&amp;&amp;</span>
-bin/lsnrctl start <span style="color: #666666">&amp;&amp;</span>
+cp <span style="background-color: #fff0f0">&quot;</span><span style="background-color: #eeeeee">${</span><span style="color: #996633">LISTENERS_ORA</span><span style="background-color: #eeeeee">}</span><span style="background-color: #fff0f0">.tmpl&quot;</span> <span style="background-color: #fff0f0">&quot;</span>$<span style="background-color: #fff0f0">LISTENERS_ORA&quot;</span> <span style="color: #333333">&amp;&amp;</span>
+sed -i <span style="background-color: #fff0f0">&quot;s/%hostname%/</span>$<span style="background-color: #fff0f0">HOSTNAME/g&quot;</span> <span style="background-color: #fff0f0">&quot;</span><span style="background-color: #eeeeee">${</span><span style="color: #996633">LISTENERS_ORA</span><span style="background-color: #eeeeee">}</span><span style="background-color: #fff0f0">&quot;</span> <span style="color: #333333">&amp;&amp;</span>
+sed -i <span style="background-color: #fff0f0">&quot;s/%port%/1521/g&quot;</span> <span style="background-color: #fff0f0">&quot;</span><span style="background-color: #eeeeee">${</span><span style="color: #996633">LISTENERS_ORA</span><span style="background-color: #eeeeee">}</span><span style="background-color: #fff0f0">&quot;</span> <span style="color: #333333">&amp;&amp;</span>
+bin/lsnrctl start <span style="color: #333333">&amp;&amp;</span>
 bin/dbstart $ORACLE_HOME
 </pre></div>
 
@@ -284,21 +284,21 @@ So, to keep our database instance consistent, we have to update our listener.ora
 
 <p>Here is our Dockerfile:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">FROM tmp<span style="color: #666666">-</span>oracle<span style="color: #666666">-</span>db<span style="color: #666666">-</span>instance
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">FROM tmp<span style="color: #333333">-</span>oracle<span style="color: #333333">-</span>db<span style="color: #333333">-</span>instance
 
-MAINTAINER Jorge Quilcate &lt;jorge.quilcate<span style="border: 1px solid #FF0000">@</span>sysco.no&gt;
+MAINTAINER Jorge Quilcate &lt;jorge.quilcate<span style="color: #FF0000; background-color: #FFAAAA">@</span>sysco.no&gt;
 
 USER oracle
 
-ENV ORACLE_HOME <span style="color: #666666">/</span>home<span style="color: #666666">/</span>oracle<span style="color: #666666">/</span>product<span style="color: #666666">/</span>oracle_home
+ENV ORACLE_HOME <span style="color: #333333">/</span>home<span style="color: #333333">/</span>oracle<span style="color: #333333">/</span>product<span style="color: #333333">/</span>oracle_home
 ENV ORACLE_SID orcl
 
-WORKDIR <span style="border: 1px solid #FF0000">$</span>ORACLE_HOME
+WORKDIR <span style="color: #FF0000; background-color: #FFAAAA">$</span>ORACLE_HOME
 
-ADD listener.ora.tmpl network<span style="color: #666666">/</span>admin<span style="color: #666666">/</span>listener.ora.tmpl
+ADD listener.ora.tmpl network<span style="color: #333333">/</span>admin<span style="color: #333333">/</span>listener.ora.tmpl
 ADD startup.sh .
 
-CMD sh startup.sh <span style="color: #666666">&amp;&amp;</span> tail <span style="color: #666666">-</span>f startup.log
+CMD sh startup.sh <span style="color: #333333">&amp;&amp;</span> tail <span style="color: #333333">-</span>f startup.log
 </pre></div>
 
 
@@ -310,54 +310,54 @@ you override it in your <em>&ldquo;docker run&rdquo;</em> command.</p>
 
 <p>You can test this image by running:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">$ docker run -it syscomiddleware/oracle-database-instance:oraclelinux-11.2.0.4 
-LSNRCTL <span style="color: #008000; font-weight: bold">for</span> Linux: Version 11.2.0.4.0 - Production on 25-MAY-2016 17:00:37
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">$ docker run -it syscomiddleware/oracle-database-instance:oraclelinux-11.2.0.4 
+LSNRCTL <span style="color: #008800; font-weight: bold">for</span> Linux: Version 11.2.0.4.0 - Production on 25-MAY-2016 17:00:37
 
-Copyright <span style="color: #666666">(</span>c<span style="color: #666666">)</span> 1991, 2013, Oracle.  All rights reserved.
+Copyright <span style="color: #333333">(</span>c<span style="color: #333333">)</span> 1991, 2013, Oracle.  All rights reserved.
 
 Starting /home/oracle/product/oracle_home/bin/tnslsnr: please wait...
 
-TNSLSNR <span style="color: #008000; font-weight: bold">for</span> Linux: Version 11.2.0.4.0 - Production
+TNSLSNR <span style="color: #008800; font-weight: bold">for</span> Linux: Version 11.2.0.4.0 - Production
 System parameter file is /home/oracle/product/oracle_home/network/admin/listener.ora
 Log messages written to /home/oracle/product/diag/tnslsnr/02b9ae1e3ab1/listener/alert/log.xml
-Listening on: <span style="color: #666666">(</span><span style="color: #19177C">DESCRIPTION</span><span style="color: #666666">=(</span><span style="color: #19177C">ADDRESS</span><span style="color: #666666">=(</span><span style="color: #19177C">PROTOCOL</span><span style="color: #666666">=</span>ipc<span style="color: #666666">)(</span><span style="color: #19177C">KEY</span><span style="color: #666666">=</span>EXTPROC1521<span style="color: #666666">)))</span>
-Listening on: <span style="color: #666666">(</span><span style="color: #19177C">DESCRIPTION</span><span style="color: #666666">=(</span><span style="color: #19177C">ADDRESS</span><span style="color: #666666">=(</span><span style="color: #19177C">PROTOCOL</span><span style="color: #666666">=</span>tcp<span style="color: #666666">)(</span><span style="color: #19177C">HOST</span><span style="color: #666666">=</span>02b9ae1e3ab1<span style="color: #666666">)(</span><span style="color: #19177C">PORT</span><span style="color: #666666">=</span>1521<span style="color: #666666">)))</span>
+Listening on: <span style="color: #333333">(</span><span style="color: #996633">DESCRIPTION</span><span style="color: #333333">=(</span><span style="color: #996633">ADDRESS</span><span style="color: #333333">=(</span><span style="color: #996633">PROTOCOL</span><span style="color: #333333">=</span>ipc<span style="color: #333333">)(</span><span style="color: #996633">KEY</span><span style="color: #333333">=</span>EXTPROC1521<span style="color: #333333">)))</span>
+Listening on: <span style="color: #333333">(</span><span style="color: #996633">DESCRIPTION</span><span style="color: #333333">=(</span><span style="color: #996633">ADDRESS</span><span style="color: #333333">=(</span><span style="color: #996633">PROTOCOL</span><span style="color: #333333">=</span>tcp<span style="color: #333333">)(</span><span style="color: #996633">HOST</span><span style="color: #333333">=</span>02b9ae1e3ab1<span style="color: #333333">)(</span><span style="color: #996633">PORT</span><span style="color: #333333">=</span>1521<span style="color: #333333">)))</span>
 
-Connecting to <span style="color: #666666">(</span><span style="color: #19177C">DESCRIPTION</span><span style="color: #666666">=(</span><span style="color: #19177C">ADDRESS</span><span style="color: #666666">=(</span><span style="color: #19177C">PROTOCOL</span><span style="color: #666666">=</span>IPC<span style="color: #666666">)(</span><span style="color: #19177C">KEY</span><span style="color: #666666">=</span>EXTPROC1521<span style="color: #666666">)))</span>
+Connecting to <span style="color: #333333">(</span><span style="color: #996633">DESCRIPTION</span><span style="color: #333333">=(</span><span style="color: #996633">ADDRESS</span><span style="color: #333333">=(</span><span style="color: #996633">PROTOCOL</span><span style="color: #333333">=</span>IPC<span style="color: #333333">)(</span><span style="color: #996633">KEY</span><span style="color: #333333">=</span>EXTPROC1521<span style="color: #333333">)))</span>
 STATUS of the LISTENER
 ------------------------
 Alias                     LISTENER
-Version                   TNSLSNR <span style="color: #008000; font-weight: bold">for</span> Linux: Version 11.2.0.4.0 - Production
+Version                   TNSLSNR <span style="color: #008800; font-weight: bold">for</span> Linux: Version 11.2.0.4.0 - Production
 Start Date                25-MAY-2016 17:00:42
-Uptime                    <span style="color: #666666">0</span> days <span style="color: #666666">0</span> hr. <span style="color: #666666">0</span> min. <span style="color: #666666">3</span> sec
+Uptime                    <span style="color: #6600EE; font-weight: bold">0</span> days <span style="color: #6600EE; font-weight: bold">0</span> hr. <span style="color: #6600EE; font-weight: bold">0</span> min. <span style="color: #6600EE; font-weight: bold">3</span> sec
 Trace Level               off
 Security                  ON: Local OS Authentication
 SNMP                      OFF
 Listener Parameter File   /home/oracle/product/oracle_home/network/admin/listener.ora
 Listener Log File         /home/oracle/product/diag/tnslsnr/02b9ae1e3ab1/listener/alert/log.xml
 Listening Endpoints Summary...
-  <span style="color: #666666">(</span><span style="color: #19177C">DESCRIPTION</span><span style="color: #666666">=(</span><span style="color: #19177C">ADDRESS</span><span style="color: #666666">=(</span><span style="color: #19177C">PROTOCOL</span><span style="color: #666666">=</span>ipc<span style="color: #666666">)(</span><span style="color: #19177C">KEY</span><span style="color: #666666">=</span>EXTPROC1521<span style="color: #666666">)))</span>
-  <span style="color: #666666">(</span><span style="color: #19177C">DESCRIPTION</span><span style="color: #666666">=(</span><span style="color: #19177C">ADDRESS</span><span style="color: #666666">=(</span><span style="color: #19177C">PROTOCOL</span><span style="color: #666666">=</span>tcp<span style="color: #666666">)(</span><span style="color: #19177C">HOST</span><span style="color: #666666">=</span>02b9ae1e3ab1<span style="color: #666666">)(</span><span style="color: #19177C">PORT</span><span style="color: #666666">=</span>1521<span style="color: #666666">)))</span>
+  <span style="color: #333333">(</span><span style="color: #996633">DESCRIPTION</span><span style="color: #333333">=(</span><span style="color: #996633">ADDRESS</span><span style="color: #333333">=(</span><span style="color: #996633">PROTOCOL</span><span style="color: #333333">=</span>ipc<span style="color: #333333">)(</span><span style="color: #996633">KEY</span><span style="color: #333333">=</span>EXTPROC1521<span style="color: #333333">)))</span>
+  <span style="color: #333333">(</span><span style="color: #996633">DESCRIPTION</span><span style="color: #333333">=(</span><span style="color: #996633">ADDRESS</span><span style="color: #333333">=(</span><span style="color: #996633">PROTOCOL</span><span style="color: #333333">=</span>tcp<span style="color: #333333">)(</span><span style="color: #996633">HOST</span><span style="color: #333333">=</span>02b9ae1e3ab1<span style="color: #333333">)(</span><span style="color: #996633">PORT</span><span style="color: #333333">=</span>1521<span style="color: #333333">)))</span>
 The listener supports no services
-The <span style="color: #008000">command</span> completed successfully
-Processing Database instance <span style="color: #BA2121">&quot;orcl&quot;</span>: log file /home/oracle/product/oracle_home/startup.log
-Total System Global Area  <span style="color: #666666">801701888</span> bytes
-Fixed Size		    <span style="color: #666666">2257520</span> bytes
-Variable Size		  <span style="color: #666666">276827536</span> bytes
-Database Buffers	  <span style="color: #666666">515899392</span> bytes
-Redo Buffers		    <span style="color: #666666">6717440</span> bytes
+The <span style="color: #007020">command</span> completed successfully
+Processing Database instance <span style="background-color: #fff0f0">&quot;orcl&quot;</span>: log file /home/oracle/product/oracle_home/startup.log
+Total System Global Area  <span style="color: #6600EE; font-weight: bold">801701888</span> bytes
+Fixed Size		    <span style="color: #6600EE; font-weight: bold">2257520</span> bytes
+Variable Size		  <span style="color: #6600EE; font-weight: bold">276827536</span> bytes
+Database Buffers	  <span style="color: #6600EE; font-weight: bold">515899392</span> bytes
+Redo Buffers		    <span style="color: #6600EE; font-weight: bold">6717440</span> bytes
 Database mounted.
 Database opened.
 SQL&gt; Disconnected from Oracle Database 11g Release 11.2.0.4.0 - 64bit Production
 
-bin/dbstart: Database instance <span style="color: #BA2121">&quot;orcl&quot;</span> warm started.
+bin/dbstart: Database instance <span style="background-color: #fff0f0">&quot;orcl&quot;</span> warm started.
 </pre></div>
 
 
 <p>From other terminal you can check container name and inspect for its IP address:
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">$ docker ps
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">$ docker ps
 CONTAINER ID        IMAGE                                      COMMAND                  CREATED              STATUS              PORTS               NAMES
-21713e2f2c59        syscomiddleware/oracle-database-instance   <span style="color: #BA2121">&quot;/bin/sh -c &#39;sh start&quot;</span>   About a minute ago   Up About a minute                       adoring_yalow
+21713e2f2c59        syscomiddleware/oracle-database-instance   <span style="background-color: #fff0f0">&quot;/bin/sh -c &#39;sh start&quot;</span>   About a minute ago   Up About a minute                       adoring_yalow
 </pre></div>
 </p>
 
@@ -373,24 +373,24 @@ it will worth our effort.</p>
 
 <p>First, you can see that a container name is assigned randomly: &ldquo;adoring_yalow&rdquo;</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">$ docker inspect adoring_yalow
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">$ docker inspect adoring_yalow
 ...
-<span style="color: #BA2121">&quot;Networks&quot;</span>: <span style="color: #666666">{</span>
-                <span style="color: #BA2121">&quot;bridge&quot;</span>: <span style="color: #666666">{</span>
-                    <span style="color: #BA2121">&quot;IPAMConfig&quot;</span>: null,
-                    <span style="color: #BA2121">&quot;Links&quot;</span>: null,
-                    <span style="color: #BA2121">&quot;Aliases&quot;</span>: null,
-                    <span style="color: #BA2121">&quot;NetworkID&quot;</span>: <span style="color: #BA2121">&quot;c72c01d764b3aa7f30ffa220ed91a15aa1bb2f7c3396008601cc0137512612cb&quot;</span>,
-                    <span style="color: #BA2121">&quot;EndpointID&quot;</span>: <span style="color: #BA2121">&quot;ea1e3277916bcebaa6fbba42ab6cdea6ebd597a2ce20c274b415f4ad89f05bee&quot;</span>,
-                    <span style="color: #BA2121">&quot;Gateway&quot;</span>: <span style="color: #BA2121">&quot;172.17.0.1&quot;</span>,
-                    <span style="color: #BA2121">&quot;IPAddress&quot;</span>: <span style="color: #BA2121">&quot;172.17.0.2&quot;</span>,
-                    <span style="color: #BA2121">&quot;IPPrefixLen&quot;</span>: 16,
-                    <span style="color: #BA2121">&quot;IPv6Gateway&quot;</span>: <span style="color: #BA2121">&quot;&quot;</span>,
-                    <span style="color: #BA2121">&quot;GlobalIPv6Address&quot;</span>: <span style="color: #BA2121">&quot;&quot;</span>,
-                    <span style="color: #BA2121">&quot;GlobalIPv6PrefixLen&quot;</span>: 0,
-                    <span style="color: #BA2121">&quot;MacAddress&quot;</span>: <span style="color: #BA2121">&quot;02:42:ac:11:00:02&quot;</span>
-                <span style="color: #666666">}</span>
-            <span style="color: #666666">}</span>
+<span style="background-color: #fff0f0">&quot;Networks&quot;</span>: <span style="color: #333333">{</span>
+                <span style="background-color: #fff0f0">&quot;bridge&quot;</span>: <span style="color: #333333">{</span>
+                    <span style="background-color: #fff0f0">&quot;IPAMConfig&quot;</span>: null,
+                    <span style="background-color: #fff0f0">&quot;Links&quot;</span>: null,
+                    <span style="background-color: #fff0f0">&quot;Aliases&quot;</span>: null,
+                    <span style="background-color: #fff0f0">&quot;NetworkID&quot;</span>: <span style="background-color: #fff0f0">&quot;c72c01d764b3aa7f30ffa220ed91a15aa1bb2f7c3396008601cc0137512612cb&quot;</span>,
+                    <span style="background-color: #fff0f0">&quot;EndpointID&quot;</span>: <span style="background-color: #fff0f0">&quot;ea1e3277916bcebaa6fbba42ab6cdea6ebd597a2ce20c274b415f4ad89f05bee&quot;</span>,
+                    <span style="background-color: #fff0f0">&quot;Gateway&quot;</span>: <span style="background-color: #fff0f0">&quot;172.17.0.1&quot;</span>,
+                    <span style="background-color: #fff0f0">&quot;IPAddress&quot;</span>: <span style="background-color: #fff0f0">&quot;172.17.0.2&quot;</span>,
+                    <span style="background-color: #fff0f0">&quot;IPPrefixLen&quot;</span>: 16,
+                    <span style="background-color: #fff0f0">&quot;IPv6Gateway&quot;</span>: <span style="background-color: #fff0f0">&quot;&quot;</span>,
+                    <span style="background-color: #fff0f0">&quot;GlobalIPv6Address&quot;</span>: <span style="background-color: #fff0f0">&quot;&quot;</span>,
+                    <span style="background-color: #fff0f0">&quot;GlobalIPv6PrefixLen&quot;</span>: 0,
+                    <span style="background-color: #fff0f0">&quot;MacAddress&quot;</span>: <span style="background-color: #fff0f0">&quot;02:42:ac:11:00:02&quot;</span>
+                <span style="color: #333333">}</span>
+            <span style="color: #333333">}</span>
 ...
 </pre></div>
 
@@ -424,12 +424,12 @@ the <em>project name</em> by Docker Compose.</p>
 
 <p>Inside is a file called &ldquo;docker-compose.yml&rdquo; that defines <em>container services</em>:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">version: <span style="color: #BA2121">&#39;2&#39;</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">version: <span style="background-color: #fff0f0">&#39;2&#39;</span>
 services:
   db:
     build: db
     ports:
-      - <span style="color: #BA2121">&quot;10521:1521&quot;</span>
+      - <span style="background-color: #fff0f0">&quot;10521:1521&quot;</span>
 </pre></div>
 
 
@@ -439,18 +439,18 @@ to your hosts port 10521, so you can use it from a local application.</p>
 
 <p>This Dockerfile contains instructions to create an schema called &ldquo;test&rdquo;.</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">FROM syscomiddleware<span style="color: #666666">/</span>oracle<span style="color: #666666">-</span>database<span style="color: #666666">-</span>instance:oraclelinux<span style="color: #666666">-11.2.0.4</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">FROM syscomiddleware<span style="color: #333333">/</span>oracle<span style="color: #333333">-</span>database<span style="color: #333333">-</span>instance:oraclelinux<span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">11.2.0.4</span>
 
-MAINTAINER Jorge Quilcate &lt;jorge.quilcate<span style="border: 1px solid #FF0000">@</span>sysco.no&gt;
+MAINTAINER Jorge Quilcate &lt;jorge.quilcate<span style="color: #FF0000; background-color: #FFAAAA">@</span>sysco.no&gt;
 
-ADD create<span style="color: #666666">-</span>schema.sql .
+ADD create<span style="color: #333333">-</span>schema.sql .
 
-RUN sh startup.sh <span style="color: #666666">&amp;&amp;</span> \
-    while ! grep <span style="color: #BA2121">&quot;bin/dbstart: Database instance \&quot;orcl\&quot; warm started.&quot;</span> startup.log; do sleep <span style="color: #666666">10</span>; done <span style="color: #666666">&amp;&amp;</span> \
-    echo exit | bin<span style="color: #666666">/</span>sqlplus system<span style="color: #666666">/</span>welcome1 <span style="border: 1px solid #FF0000">@</span>create<span style="color: #666666">-</span>schema.sql
+RUN sh startup.sh <span style="color: #333333">&amp;&amp;</span> \
+    while ! grep <span style="background-color: #fff0f0">&quot;bin/dbstart: Database instance \&quot;orcl\&quot; warm started.&quot;</span> startup.log; do sleep <span style="color: #0000DD; font-weight: bold">10</span>; done <span style="color: #333333">&amp;&amp;</span> \
+    echo exit | bin<span style="color: #333333">/</span>sqlplus system<span style="color: #333333">/</span>welcome1 <span style="color: #FF0000; background-color: #FFAAAA">@</span>create<span style="color: #333333">-</span>schema.sql
 
-CMD sh startup.sh <span style="color: #666666">&amp;&amp;</span> \
-    tail <span style="color: #666666">-</span>f startup.log
+CMD sh startup.sh <span style="color: #333333">&amp;&amp;</span> \
+    tail <span style="color: #333333">-</span>f startup.log
 </pre></div>
 
 

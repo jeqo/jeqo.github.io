@@ -65,12 +65,11 @@ sin agentes o &ldquo;agentless&rdquo;.</p>
 
 <p>Esto signifíca que es verdaderamente fácil de entender y comenzar a trabajar
 con YAML. Por ejemplo:</p>
-
-<pre><code class="language-yaml">- hosts: webserver
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">- hosts: webserver
   tasks:
     - package: apache
         state: latest
-</code></pre>
+</pre></div>
 
 <p>Este <strong>&ldquo;playbook&rdquo;</strong> dice que el host <em>webserver</em> que tiene 1 tarea: instalar
 el paquete más actual de Apache, usando el <strong>&ldquo;module&rdquo;</strong> <em>package</em>.</p>
@@ -121,23 +120,21 @@ utilizar comandos Docker Exec.</p>
 <a href="https://github.com/jeqo/ansible-role-java">https://github.com/jeqo/ansible-role-java</a></p>
 
 <p>Solo para explicar que hace, vemos el archivo de tareas principal:</p>
-
-<pre><code class="language-yaml">---
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #0e84b5; font-weight: bold">---</span>
   - debug:
-      msg: &quot;This Java Provider will be installed: {{ java_provider }}&quot;
+      msg: <span style="background-color: #fff0f0">&quot;This</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">Java</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">Provider</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">will</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">be</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">installed:</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">{{</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">java_provider</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">}}&quot;</span>
 
   - include: install-{{ java_provider }}.yml
 
   - include: set-java-home.yml
-</code></pre>
+</pre></div>
 
 <p>Primero muestra un mensaje con el tipo de proveedor:
 variable &ldquo;java_provider&rdquo; y luego definir la variable de entorno: JAVA_HOME.</p>
 
 <p>Este rol también tiene una carpeta de pruebas &ldquo;tests&rdquo;, con un &ldquo;playbook&rdquo; con
 algunas pruebas:</p>
-
-<pre><code class="language-yaml">- name: test install openjdk jdk 8 on centos 7
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">- name: test install openjdk jdk 8 on centos 7
   hosts: test01
   roles:
     - role: java
@@ -151,29 +148,28 @@ algunas pruebas:</p>
       java_provider: openjdk
       java_version: 8
       java_type: jre
-# more tests...
-</code></pre>
+<span style="color: #888888"># more tests...</span>
+</pre></div>
 
 <p>Y para ejecutar las pruebas utilizo Vagrant y VirtualBox:</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #003366; font-weight: bold">Vagrant</span><span style="color: #333333">.</span>configure(<span style="color: #0000DD; font-weight: bold">2</span>) <span style="color: #008800; font-weight: bold">do</span> <span style="color: #333333">|</span>config<span style="color: #333333">|</span>
 
-<pre><code class="language-ruby">Vagrant.configure(2) do |config|
+  config<span style="color: #333333">.</span>vm<span style="color: #333333">.</span>provision <span style="background-color: #fff0f0">&quot;ansible&quot;</span> <span style="color: #008800; font-weight: bold">do</span> <span style="color: #333333">|</span>ansible<span style="color: #333333">|</span>
+    ansible<span style="color: #333333">.</span>playbook <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;test.yml&quot;</span>
+    ansible<span style="color: #333333">.</span>galaxy_role_file <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;roles.yml&quot;</span>
+  <span style="color: #008800; font-weight: bold">end</span>
 
-  config.vm.provision &quot;ansible&quot; do |ansible|
-    ansible.playbook = &quot;test.yml&quot;
-    ansible.galaxy_role_file = &quot;roles.yml&quot;
-  end
+  config<span style="color: #333333">.</span>vm<span style="color: #333333">.</span>define <span style="background-color: #fff0f0">&quot;test01&quot;</span> <span style="color: #008800; font-weight: bold">do</span> <span style="color: #333333">|</span>node<span style="color: #333333">|</span>
+    node<span style="color: #333333">.</span>vm<span style="color: #333333">.</span>box <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;jeqo/ansible-centos7&quot;</span>
+  <span style="color: #008800; font-weight: bold">end</span>
 
-  config.vm.define &quot;test01&quot; do |node|
-    node.vm.box = &quot;jeqo/ansible-centos7&quot;
-  end
+  config<span style="color: #333333">.</span>vm<span style="color: #333333">.</span>define <span style="background-color: #fff0f0">&quot;test02&quot;</span> <span style="color: #008800; font-weight: bold">do</span> <span style="color: #333333">|</span>node<span style="color: #333333">|</span>
+    node<span style="color: #333333">.</span>vm<span style="color: #333333">.</span>box <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;jeqo/ansible-centos7&quot;</span>
+  <span style="color: #008800; font-weight: bold">end</span>
 
-  config.vm.define &quot;test02&quot; do |node|
-    node.vm.box = &quot;jeqo/ansible-centos7&quot;
-  end
-
-  # more test nodes...
-end
-</code></pre>
+  <span style="color: #888888"># more test nodes...</span>
+<span style="color: #008800; font-weight: bold">end</span>
+</pre></div>
 
 <p>Ejecutemos la prueba de instalación de OpenJDK 8 en Centos:</p>
 
@@ -222,8 +218,7 @@ incluido en la instalación. Así que hice algunas pruebas:
 <a href="https://github.com/jeqo/poc-ansible-docker">https://github.com/jeqo/poc-ansible-docker</a></p>
 
 <p>En este repositorio tengo un &ldquo;playbook&rdquo; que crea el contenedor:</p>
-
-<pre><code class="language-yaml">- hosts: 127.0.0.1
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">- hosts: 127.0.0.1
   connection: local
   tasks:
     - name: my container
@@ -232,7 +227,7 @@ incluido en la instalación. Así que hice algunas pruebas:
         image: centos
         command: sleep infinity
         state: started
-</code></pre>
+</pre></div>
 
 <p>Aquí utilizo el tipo de tipo de conexión local para ejecutar comandos
 localmente.</p>
@@ -244,41 +239,40 @@ a5e49bd032be        centos              &quot;sleep infinity&quot;    About an h
 
 <p>Una vez que tenga el contenedor en ejecución, se puede ejecutar
 el provisionamiento:</p>
-
-<pre><code class="language-yaml">- hosts: poccontainer
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">- hosts: poccontainer
   connection: docker
   pre_tasks:
     - package: name=sudo
-    - command: &quot;sed -i -e \&quot;s/Defaults    requiretty.*/ #Defaults    requiretty/g\&quot; /etc/sudoers&quot;
+    - command: <span style="background-color: #fff0f0">&quot;sed</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">-i</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">-e</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">\&quot;s/Defaults</span><span style="color: #996633">    </span><span style="background-color: #fff0f0">requiretty.*/</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">#Defaults</span><span style="color: #996633">    </span><span style="background-color: #fff0f0">requiretty/g\&quot;</span><span style="color: #996633"> </span><span style="background-color: #fff0f0">/etc/sudoers&quot;</span>
   roles:
     - role: java
       java_provider: openjdk
       java_type: jdk
       java_version: 8
-</code></pre>
+</pre></div>
 
 <p>Las &ldquo;pre-tasks&rdquo; se necesitan para configurar el paquete &ldquo;sudo&rdquo; y poder
 configurar &ldquo;tty&rdquo; en el contenedos. Esto se requiere cuando ejecutar un
 &ldquo;playbook&rdquo; con el parámetro: &ldquo;become&rdquo;, que ejecuta un comando como &ldquo;sudo&rdquo;.
 Luego se ejecuta el rol como en cualquier nodo:</p>
 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">$ ansible-playbook provisioning.yml -vvvv
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">$ ansible-playbook provisioning.yml -vvvv
 Using /home/jeqo/dev/jeqo/poc-ansible-docker/ansible.cfg as config file
-Loaded callback default of <span style="color: #008000">type</span> stdout, v2.0
-<span style="color: #666666">2</span> plays in provisioning.yml
+Loaded callback default of <span style="color: #007020">type</span> stdout, v2.0
+<span style="color: #6600EE; font-weight: bold">2</span> plays in provisioning.yml
 
 PLAY ***************************************************************************
 
-TASK <span style="color: #666666">[</span>setup<span style="color: #666666">]</span> *******************************************************************
+TASK <span style="color: #333333">[</span>setup<span style="color: #333333">]</span> *******************************************************************
 ESTABLISH DOCKER CONNECTION FOR USER: None
-&lt;poccontainer&gt; EXEC <span style="color: #666666">[</span><span style="color: #BA2121">&#39;/usr/bin/docker&#39;</span>, <span style="color: #BA2121">&#39;exec&#39;</span>, <span style="color: #BA2121">&#39;-i&#39;</span>, u<span style="color: #BA2121">&#39;poccontainer&#39;</span>, <span style="color: #BA2121">&#39;/bin/sh&#39;</span>, <span style="color: #BA2121">&#39;-c&#39;</span>, <span style="color: #BA2121">&#39;/bin/sh -c \&#39;</span><span style="color: #666666">(</span> <span style="color: #008000">umask</span> <span style="color: #666666">22</span> <span style="color: #666666">&amp;&amp;</span> 
-mkdir -p <span style="color: #BA2121">&quot;` echo </span>$<span style="color: #BA2121">HOME/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&quot;</span> <span style="color: #666666">&amp;&amp;</span> 
-<span style="color: #008000">echo</span> <span style="color: #BA2121">&quot;` echo </span>$<span style="color: #BA2121">HOME/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&quot;</span> <span style="color: #666666">)</span><span style="color: #BB6622; font-weight: bold">\&#39;</span><span style="color: #BA2121">&#39;]</span>
-<span style="color: #BA2121">&lt;poccontainer&gt; PUT /tmp/tmpNCOaxi TO /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup</span>
-<span style="color: #BA2121">&lt;poccontainer&gt; EXEC [&#39;</span>/usr/bin/docker<span style="color: #BA2121">&#39;, &#39;</span>exec<span style="color: #BA2121">&#39;, &#39;</span>-i<span style="color: #BA2121">&#39;, u&#39;</span>poccontainer<span style="color: #BA2121">&#39;, &#39;</span>/bin/sh<span style="color: #BA2121">&#39;, &#39;</span>-c<span style="color: #BA2121">&#39;, u&#39;</span>/bin/sh -c <span style="color: #BB6622; font-weight: bold">\&#39;</span><span style="color: #19177C">LANG</span><span style="color: #666666">=</span>en_US.UTF-8 
-<span style="color: #19177C">LC_ALL</span><span style="color: #666666">=</span>en_US.UTF-8 <span style="color: #19177C">LC_MESSAGES</span><span style="color: #666666">=</span>en_US.UTF-8 /usr/bin/python /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup; 
-rm -rf <span style="color: #BA2121">&quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&quot;</span> &gt; /dev/null 2&gt;&amp;1<span style="color: #BB6622; font-weight: bold">\&#39;</span><span style="border: 1px solid #FF0000">&#39;</span><span style="color: #666666">]</span>
-ok: <span style="color: #666666">[</span>poccontainer<span style="color: #666666">]</span>
+&lt;poccontainer&gt; EXEC <span style="color: #333333">[</span><span style="background-color: #fff0f0">&#39;/usr/bin/docker&#39;</span>, <span style="background-color: #fff0f0">&#39;exec&#39;</span>, <span style="background-color: #fff0f0">&#39;-i&#39;</span>, u<span style="background-color: #fff0f0">&#39;poccontainer&#39;</span>, <span style="background-color: #fff0f0">&#39;/bin/sh&#39;</span>, <span style="background-color: #fff0f0">&#39;-c&#39;</span>, <span style="background-color: #fff0f0">&#39;/bin/sh -c \&#39;</span><span style="color: #333333">(</span> <span style="color: #007020">umask</span> <span style="color: #6600EE; font-weight: bold">22</span> <span style="color: #333333">&amp;&amp;</span> 
+mkdir -p <span style="background-color: #fff0f0">&quot;` echo </span>$<span style="background-color: #fff0f0">HOME/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&quot;</span> <span style="color: #333333">&amp;&amp;</span> 
+<span style="color: #007020">echo</span> <span style="background-color: #fff0f0">&quot;` echo </span>$<span style="background-color: #fff0f0">HOME/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&quot;</span> <span style="color: #333333">)</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\&#39;</span><span style="background-color: #fff0f0">&#39;]</span>
+<span style="background-color: #fff0f0">&lt;poccontainer&gt; PUT /tmp/tmpNCOaxi TO /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup</span>
+<span style="background-color: #fff0f0">&lt;poccontainer&gt; EXEC [&#39;</span>/usr/bin/docker<span style="background-color: #fff0f0">&#39;, &#39;</span>exec<span style="background-color: #fff0f0">&#39;, &#39;</span>-i<span style="background-color: #fff0f0">&#39;, u&#39;</span>poccontainer<span style="background-color: #fff0f0">&#39;, &#39;</span>/bin/sh<span style="background-color: #fff0f0">&#39;, &#39;</span>-c<span style="background-color: #fff0f0">&#39;, u&#39;</span>/bin/sh -c <span style="color: #666666; font-weight: bold; background-color: #fff0f0">\&#39;</span><span style="color: #996633">LANG</span><span style="color: #333333">=</span>en_US.UTF-8 
+<span style="color: #996633">LC_ALL</span><span style="color: #333333">=</span>en_US.UTF-8 <span style="color: #996633">LC_MESSAGES</span><span style="color: #333333">=</span>en_US.UTF-8 /usr/bin/python /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup; 
+rm -rf <span style="background-color: #fff0f0">&quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&quot;</span> &gt; /dev/null 2&gt;&amp;1<span style="color: #666666; font-weight: bold; background-color: #fff0f0">\&#39;</span><span style="color: #FF0000; background-color: #FFAAAA">&#39;</span><span style="color: #333333">]</span>
+ok: <span style="color: #333333">[</span>poccontainer<span style="color: #333333">]</span>
 </pre></div>
 
 
@@ -300,13 +294,12 @@ se ejecutan sobre un contenedor en ejecución. En Ansible también está faltand
 las opciones de &ldquo;commit&rdquo; y &ldquo;push&rdquo; en Docker, pero esto se puede reemplazar
 facilmente así:</p></li>
 </ul>
-
-<pre><code class="language-yaml">- hosts: 127.0.0.1
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">- hosts: 127.0.0.1
   connection: local
   tasks:
     - name: commit
       command: docker commit poccontainer
-</code></pre>
+</pre></div>
 
 <p>Sin embargo, Ansible también tiene un módulo para ejecutar Dockerfiles:
 <a href="http://docs.ansible.com/ansible/docker_image_module.html">http://docs.ansible.com/ansible/docker_image_module.html</a></p>

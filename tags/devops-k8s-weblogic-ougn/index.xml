@@ -1,33 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0">
-    <channel>
-        <title>Jorge Quilcate Otoya on @jeqo</title>
-        <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/tags/devops-k8s-weblogic-ougn/</link>
-        <language>en-us</language>
-        <author>Jorge Quilcate Otoya</author>
-        
-        <updated>Thu, 09 Mar 2017 00:00:00 UTC</updated>
-        
-        <item>
-            <title>Scaling WebLogic, the Kubernetes way - OUGN 2017</title>
-            <link>https://jeqo.github.io/talk/scale-wls-the-k8s-way-ougn-17/</link>
-            <pubDate>Thu, 09 Mar 2017 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/talk/scale-wls-the-k8s-way-ougn-17/</guid>
-            <description>&lt;p&gt;Presented at &lt;a href=&#34;http://ougn.no/varseminar-2017/&#34;&gt;OUGN 2017&lt;/a&gt;&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devops K8s Weblogic Ougn on @jeqo</title>
+    <link>https://jeqo.github.io/tags/devops-k8s-weblogic-ougn/</link>
+    <description>Recent content in Devops K8s Weblogic Ougn on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright @jeqo</copyright>
+    <lastBuildDate>Thu, 09 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jeqo.github.io/tags/devops-k8s-weblogic-ougn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Scaling WebLogic, the Kubernetes way - OUGN 2017</title>
+      <link>https://jeqo.github.io/talks/scale-wls-the-k8s-way-ougn-17/</link>
+      <pubDate>Thu, 09 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/talks/scale-wls-the-k8s-way-ougn-17/</guid>
+      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://ougn.no/varseminar-2017/&#34;&gt;OUGN 2017&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;slides&#34;&gt;Slides&lt;/h1&gt;
-
-&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;11469ea5680643f898394b4790088747&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
-
-
-&lt;h1 id=&#34;source-code&#34;&gt;Source-Code&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/jeqo/talk-scale-wls-k8s-way&#34;&gt;https://github.com/jeqo/talk-scale-wls-k8s-way&lt;/a&gt;&lt;/p&gt;</description>
-        </item>
-        
-    </channel>
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
 </rss>

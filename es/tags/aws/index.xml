@@ -1,46 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0">
-    <channel>
-        <title>Jorge Quilcate Otoya on @jeqo</title>
-        <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/es/tags/aws/</link>
-        <language>en-us</language>
-        <author>Jorge Quilcate Otoya</author>
-        
-        <updated>Sun, 30 Nov 2014 00:00:00 UTC</updated>
-        
-        <item>
-            <title>Crear una instancia NFS en AWS usando Vagrant y Chef</title>
-            <link>https://jeqo.github.io/es/post/2014-11-30-create-nfs-instance-aws/</link>
-            <pubDate>Sun, 30 Nov 2014 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/es/post/2014-11-30-create-nfs-instance-aws/</guid>
-            <description>
-
-&lt;p&gt;Estuve probando la creación de instancias en AWS EC2 para instalar productos de Oracle
-Fusion Middleware, y encontré una restricción: Cómo descargar los instaladores si
-quiero reutilizarlos en varias instancias? Cómo evitar un consumo alto
-de ancho de banda? Y cómo hacer este procedimiento repetitivo?&lt;/p&gt;
-
-&lt;p&gt;Entre varias soluciones, en este momento decidi aplicar : &lt;a href=&#34;https://theredblacktree.wordpress.com/2013/05/23/how-to-setup-a-amazon-aws-ec2-nfs-share/&#34;&gt;How to setup an Amazon AWS EC2 NFS Share&lt;/a&gt;.
-Pero para hacerla reutilizable cree una configuración en Vagrant y Chef para provisionar
-una instancia en AWS con NFS configurado: &lt;a href=&#34;https://github.com/jeqo/vagrant-aws-chef-nfs&#34;&gt;Git repository&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;qué-pasos-seguí&#34;&gt;Qué pasos seguí?&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Instalar Vagrant (vagrant-aws y vagrant-omnibus) y Chef SDK&lt;/li&gt;
-&lt;li&gt;Crear una cuenta para crear un &lt;a href=&#34;https://manage.opscode.com/&#34;&gt;Chef Server&lt;/a&gt; y cargar los &amp;ldquo;cookbooks&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;Tener una &lt;a href=&#34;http://aws.amazon.com/&#34;&gt;AWS account&lt;/a&gt; para crear instancias de forma remota.&lt;/li&gt;
-&lt;li&gt;Crear una configuración en Vagrant para tener una instancia con NFS&lt;/li&gt;
-&lt;li&gt;Probar.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Este video muestra como utilizar la configuración del repositorio en GitHub:&lt;/p&gt;
-
-&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/gqhY82kdHh4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aws on @jeqo</title>
+    <link>https://jeqo.github.io/es/tags/aws/</link>
+    <description>Recent content in Aws on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright @jeqo</copyright>
+    <lastBuildDate>Sun, 30 Nov 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jeqo.github.io/es/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Crear una instancia NFS en AWS usando Vagrant y Chef</title>
+      <link>https://jeqo.github.io/es/posts/2014-11-30-create-nfs-instance-aws/</link>
+      <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/es/posts/2014-11-30-create-nfs-instance-aws/</guid>
+      <description>Estuve probando la creación de instancias en AWS EC2 para instalar productos de Oracle Fusion Middleware, y encontré una restricción: Cómo descargar los instaladores si quiero reutilizarlos en varias instancias? Cómo evitar un consumo alto de ancho de banda? Y cómo hacer este procedimiento repetitivo?
+Entre varias soluciones, en este momento decidi aplicar : How to setup an Amazon AWS EC2 NFS Share. Pero para hacerla reutilizable cree una configuración en Vagrant y Chef para provisionar una instancia en AWS con NFS configurado: Git repository</description>
+    </item>
+    
+  </channel>
 </rss>

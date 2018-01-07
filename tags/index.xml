@@ -1,148 +1,223 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0">
-    <channel>
-        <title>Jorge Quilcate Otoya on @jeqo</title>
-        <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/tags/</link>
-        <language>en-us</language>
-        <author>Jorge Quilcate Otoya</author>
-        
-        <updated>Thu, 26 May 2016 00:00:00 UTC</updated>
-        
-        <item>
-            <title>Ansible</title>
-            <link>https://jeqo.github.io/tags/ansible/</link>
-            <pubDate>Thu, 26 May 2016 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/tags/ansible/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Avro</title>
-            <link>https://jeqo.github.io/tags/avro/</link>
-            <pubDate>Fri, 31 Jul 2015 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/tags/avro/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Aws</title>
-            <link>https://jeqo.github.io/tags/aws/</link>
-            <pubDate>Sun, 30 Nov 2014 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/tags/aws/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Book</title>
-            <link>https://jeqo.github.io/tags/book/</link>
-            <pubDate>Fri, 28 Nov 2014 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/tags/book/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Bpm</title>
-            <link>https://jeqo.github.io/tags/bpm/</link>
-            <pubDate>Thu, 11 Dec 2014 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/tags/bpm/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Chef</title>
-            <link>https://jeqo.github.io/tags/chef/</link>
-            <pubDate>Tue, 21 Jul 2015 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/tags/chef/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Database</title>
-            <link>https://jeqo.github.io/tags/database/</link>
-            <pubDate>Thu, 26 May 2016 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/tags/database/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Devops K8s Weblogic Ougn</title>
-            <link>https://jeqo.github.io/tags/devops-k8s-weblogic-ougn/</link>
-            <pubDate>Thu, 09 Mar 2017 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/tags/devops-k8s-weblogic-ougn/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Devops Soa Oracle</title>
-            <link>https://jeqo.github.io/tags/devops-soa-oracle/</link>
-            <pubDate>Mon, 02 May 2016 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/tags/devops-soa-oracle/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Docker</title>
-            <link>https://jeqo.github.io/tags/docker/</link>
-            <pubDate>Sun, 15 Jan 2017 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/tags/docker/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Fmw</title>
-            <link>https://jeqo.github.io/tags/fmw/</link>
-            <pubDate>Thu, 11 Dec 2014 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/tags/fmw/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Integration</title>
-            <link>https://jeqo.github.io/tags/integration/</link>
-            <pubDate>Fri, 10 Mar 2017 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/tags/integration/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Java Ee</title>
-            <link>https://jeqo.github.io/tags/java-ee/</link>
-            <pubDate>Fri, 31 Jul 2015 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/tags/java-ee/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Kafka</title>
-            <link>https://jeqo.github.io/tags/kafka/</link>
-            <pubDate>Thu, 28 Sep 2017 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/tags/kafka/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Nfs</title>
-            <link>https://jeqo.github.io/tags/nfs/</link>
-            <pubDate>Sun, 30 Nov 2014 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/tags/nfs/</guid>
-            <description></description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on @jeqo</title>
+    <link>https://jeqo.github.io/tags/</link>
+    <description>Recent content in Tags on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright @jeqo</copyright>
+    <lastBuildDate>Thu, 26 May 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jeqo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ansible</title>
+      <link>https://jeqo.github.io/tags/ansible/</link>
+      <pubDate>Thu, 26 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/ansible/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Avro</title>
+      <link>https://jeqo.github.io/tags/avro/</link>
+      <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/avro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aws</title>
+      <link>https://jeqo.github.io/tags/aws/</link>
+      <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Book</title>
+      <link>https://jeqo.github.io/tags/book/</link>
+      <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/book/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bpm</title>
+      <link>https://jeqo.github.io/tags/bpm/</link>
+      <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/bpm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chef</title>
+      <link>https://jeqo.github.io/tags/chef/</link>
+      <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/chef/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Database</title>
+      <link>https://jeqo.github.io/tags/database/</link>
+      <pubDate>Thu, 26 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops K8s Weblogic Ougn</title>
+      <link>https://jeqo.github.io/tags/devops-k8s-weblogic-ougn/</link>
+      <pubDate>Thu, 09 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/devops-k8s-weblogic-ougn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops Soa Oracle</title>
+      <link>https://jeqo.github.io/tags/devops-soa-oracle/</link>
+      <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/devops-soa-oracle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://jeqo.github.io/tags/docker/</link>
+      <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fmw</title>
+      <link>https://jeqo.github.io/tags/fmw/</link>
+      <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/fmw/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Integration</title>
+      <link>https://jeqo.github.io/tags/integration/</link>
+      <pubDate>Fri, 10 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/integration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java Ee</title>
+      <link>https://jeqo.github.io/tags/java-ee/</link>
+      <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/java-ee/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kafka</title>
+      <link>https://jeqo.github.io/tags/kafka/</link>
+      <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/kafka/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nfs</title>
+      <link>https://jeqo.github.io/tags/nfs/</link>
+      <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/nfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Oracle</title>
+      <link>https://jeqo.github.io/tags/oracle/</link>
+      <pubDate>Thu, 26 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/oracle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Packer</title>
+      <link>https://jeqo.github.io/tags/packer/</link>
+      <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/packer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Review</title>
+      <link>https://jeqo.github.io/tags/review/</link>
+      <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/review/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rx</title>
+      <link>https://jeqo.github.io/tags/rx/</link>
+      <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/rx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Soa</title>
+      <link>https://jeqo.github.io/tags/soa/</link>
+      <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/soa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tracing</title>
+      <link>https://jeqo.github.io/tags/tracing/</link>
+      <pubDate>Sat, 25 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/tracing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vagrant</title>
+      <link>https://jeqo.github.io/tags/vagrant/</link>
+      <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/vagrant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Virtualbox</title>
+      <link>https://jeqo.github.io/tags/virtualbox/</link>
+      <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/virtualbox/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
 </rss>

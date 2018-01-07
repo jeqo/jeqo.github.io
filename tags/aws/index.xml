@@ -1,42 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0">
-    <channel>
-        <title>Jorge Quilcate Otoya on @jeqo</title>
-        <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/tags/aws/</link>
-        <language>en-us</language>
-        <author>Jorge Quilcate Otoya</author>
-        
-        <updated>Sun, 30 Nov 2014 00:00:00 UTC</updated>
-        
-        <item>
-            <title>Create a NFS instance on AWS using Vagrant and Chef</title>
-            <link>https://jeqo.github.io/post/2014-11-30-create-nfs-instance-aws/</link>
-            <pubDate>Sun, 30 Nov 2014 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/post/2014-11-30-create-nfs-instance-aws/</guid>
-            <description>&lt;p&gt;I was creating AWS EC2 instances to install Oracle Fusion Middleware products, and I found an issue: How to download Oracle&amp;rsquo;s installers if I want to use installers on several instances? This could consume a lot of network bandwith and I want to make this process repeatable, so I don&amp;rsquo;t want to wait 1 hour each installation only downloading files.&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aws on @jeqo</title>
+    <link>https://jeqo.github.io/tags/aws/</link>
+    <description>Recent content in Aws on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright @jeqo</copyright>
+    <lastBuildDate>Sun, 30 Nov 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jeqo.github.io/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Create a NFS instance on AWS using Vagrant and Chef</title>
+      <link>https://jeqo.github.io/posts/2014-11-30-create-nfs-instance-aws/</link>
+      <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/posts/2014-11-30-create-nfs-instance-aws/</guid>
+      <description>&lt;p&gt;I was creating AWS EC2 instances to install Oracle Fusion Middleware products, and I found an issue: How to download Oracle&amp;rsquo;s installers if I want to use installers on several instances? This could consume a lot of network bandwith and I want to make this process repeatable, so I don&amp;rsquo;t want to wait 1 hour each installation only downloading files.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;So, I found this solution: &lt;a href=&#34;https://theredblacktree.wordpress.com/2013/05/23/how-to-setup-a-amazon-aws-ec2-nfs-share/&#34;&gt;How to setup an Amazon AWS EC2 NFS Share&lt;/a&gt;. But to make it more reusable, I create a Vagrant &amp;amp; Chef configuration to replicate and share this method here: &lt;a href=&#34;https://github.com/jeqo/vagrant-aws-chef-nfs&#34;&gt;Git repository&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;what-are-the-steps&#34;&gt;What are the steps?&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;You need to install Vagrant (vagrant-aws and vagrant-omnibus) and Chef SDK&lt;/li&gt;
-&lt;li&gt;You have to create &lt;a href=&#34;https://manage.opscode.com/&#34;&gt;Chef Server&lt;/a&gt; account and upload the cookbooks&lt;/li&gt;
-&lt;li&gt;You need to create &lt;a href=&#34;http://aws.amazon.com/&#34;&gt;AWS account&lt;/a&gt; to create instances remotly.&lt;/li&gt;
-&lt;li&gt;You have to create a Vagrant configuration and customize it to create an AWS EC2 instance&lt;/li&gt;
-&lt;li&gt;Test it.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Well, I&amp;rsquo;ve created a configuration on GitHub and I&amp;rsquo;ll show you how to use it:&lt;/p&gt;
-
-&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/gqhY82kdHh4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
-
-&lt;p&gt;I hope you find it useful. Feel free to share your comments!&lt;/p&gt;</description>
-        </item>
-        
-    </channel>
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
 </rss>

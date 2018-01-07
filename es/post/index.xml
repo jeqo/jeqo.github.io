@@ -60,25 +60,25 @@ simple implementado en Java:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;KafkaSimpleProducer.java&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #666666&#34;&gt;...&lt;/span&gt;
-    Properties properties &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; Properties&lt;span style=&#34;color: #666666&#34;&gt;();&lt;/span&gt;
-    properties&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ProducerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;BOOTSTRAP_SERVERS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; bootstrapServers&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
-    properties&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ProducerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;KEY_SERIALIZER_CLASS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; StringSerializer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getName&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;());&lt;/span&gt;
-    properties&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ProducerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;VALUE_SERIALIZER_CLASS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; StringSerializer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getName&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;());&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;...&lt;/span&gt;
+    Properties properties &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; Properties&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+    properties&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ProducerConfig&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;BOOTSTRAP_SERVERS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; bootstrapServers&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    properties&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ProducerConfig&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;KEY_SERIALIZER_CLASS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; StringSerializer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getName&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;());&lt;/span&gt;
+    properties&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ProducerConfig&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;VALUE_SERIALIZER_CLASS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; StringSerializer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getName&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;());&lt;/span&gt;
 
-    Producer&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; producer &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; KafkaProducer&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;properties&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+    Producer&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; producer &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; KafkaProducer&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;properties&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
 
-    IntStream&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;rangeClosed&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(1,&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;100)&lt;/span&gt;
-            &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;boxed&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt;
-            &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;map&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;number &lt;span style=&#34;color: #666666&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; ProducerRecord&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;
-                    &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;topic-1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt;
-                    number&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;toString&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(),&lt;/span&gt;
-                    number&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;toString&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()))&lt;/span&gt;
-            &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;map&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;record &lt;span style=&#34;color: #666666&#34;&gt;-&amp;gt;&lt;/span&gt; producer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;send&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;record&lt;span style=&#34;color: #666666&#34;&gt;))&lt;/span&gt;
-            &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;forEach&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;result &lt;span style=&#34;color: #666666&#34;&gt;-&amp;gt;&lt;/span&gt; printMetadata&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;result&lt;span style=&#34;color: #666666&#34;&gt;));&lt;/span&gt;
-    producer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;close&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;();&lt;/span&gt;
-&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+    IntStream&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;rangeClosed&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+            &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;boxed&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()&lt;/span&gt;
+            &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;map&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;number &lt;span style=&#34;color: #333333&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; ProducerRecord&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;
+                    &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;topic-1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt;
+                    number&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;toString&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(),&lt;/span&gt;
+                    number&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;toString&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()))&lt;/span&gt;
+            &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;map&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;record &lt;span style=&#34;color: #333333&#34;&gt;-&amp;gt;&lt;/span&gt; producer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;send&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;record&lt;span style=&#34;color: #333333&#34;&gt;))&lt;/span&gt;
+            &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;forEach&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;result &lt;span style=&#34;color: #333333&#34;&gt;-&amp;gt;&lt;/span&gt; printMetadata&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;result&lt;span style=&#34;color: #333333&#34;&gt;));&lt;/span&gt;
+    producer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;close&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -164,24 +164,24 @@ en su post:
 
 &lt;p&gt;Un consumidor simple luciría así:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #B00040&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0000FF&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
-    Properties props &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; Properties&lt;span style=&#34;color: #666666&#34;&gt;();&lt;/span&gt;
-    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;BOOTSTRAP_SERVERS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; bootstrapServers&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
-    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;GROUP_ID_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
-    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;ENABLE_AUTO_COMMIT_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
-    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;KEY_DESERIALIZER_CLASS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;org.apache.kafka.common.serialization.StringDeserializer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
-    props&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;VALUE_DESERIALIZER_CLASS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;org.apache.kafka.common.serialization.StringDeserializer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+    Properties props &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; Properties&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+    props&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;BOOTSTRAP_SERVERS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; bootstrapServers&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    props&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;GROUP_ID_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    props&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;ENABLE_AUTO_COMMIT_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    props&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;KEY_DESERIALIZER_CLASS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;org.apache.kafka.common.serialization.StringDeserializer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    props&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ConsumerConfig&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;VALUE_DESERIALIZER_CLASS_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;org.apache.kafka.common.serialization.StringDeserializer&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
 
-    KafkaConsumer&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; consumer &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; KafkaConsumer&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;props&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
-    consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;subscribe&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;Arrays&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;asList&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;topic-1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;));&lt;/span&gt;
+    KafkaConsumer&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; consumer &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; KafkaConsumer&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;props&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    consumer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;subscribe&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Arrays&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;asList&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;topic-1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;));&lt;/span&gt;
 
-    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
-        ConsumerRecords&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; records &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;poll&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(100);&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        ConsumerRecords&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; records &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;poll&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
 
-        &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerRecord&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; record &lt;span style=&#34;color: #666666&#34;&gt;:&lt;/span&gt; records&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
-            System&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;printf&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;offset = %d, key = %s, value = %s%n&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;offset&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;());&lt;/span&gt;
-    &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ConsumerRecord&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; record &lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; records&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+            System&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;printf&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;offset = %d, key = %s, value = %s%n&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; record&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;offset&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;());&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -200,20 +200,20 @@ merece su propio post.&lt;/p&gt;
 
 &lt;p&gt;Para ir al inicio de &lt;code&gt;topic&lt;/code&gt; usaremos la operación &lt;code&gt;#seekToBeginning(topicPartition)&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #B00040&#34;&gt;boolean&lt;/span&gt; flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;boolean&lt;/span&gt; flag &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
 
-&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
-    ConsumerRecords&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; records &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;poll&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(100);&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+    ConsumerRecords&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; records &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;poll&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
 
-    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;flag&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
-        consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;seekToBeginning&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;
-            Stream&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;of&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; TopicPartition&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;topic-1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;0)).&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;collect&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;toList&lt;span style=&#34;color: #666666&#34;&gt;()));&lt;/span&gt;
-        flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;flag&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        consumer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;seekToBeginning&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;
+            Stream&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;of&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; TopicPartition&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;topic-1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)).&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;collect&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;toList&lt;span style=&#34;color: #333333&#34;&gt;()));&lt;/span&gt;
+        flag &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerRecord&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; record &lt;span style=&#34;color: #666666&#34;&gt;:&lt;/span&gt; records&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
-        &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;//Consume record&lt;/span&gt;
-&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ConsumerRecord&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; record &lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; records&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+        &lt;span style=&#34;color: #888888&#34;&gt;//Consume record&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -226,19 +226,19 @@ en la &lt;code&gt;partition=0&lt;/code&gt; se reprocesarán los &lt;code&gt;reco
 necesitamos regresar para reprocesar el log, podemos utilizar
 &lt;code&gt;#seek(topicPartition, offset)&lt;/code&gt; directamente.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #B00040&#34;&gt;boolean&lt;/span&gt; flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;boolean&lt;/span&gt; flag &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
 
-&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
-    ConsumerRecords&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; records &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;poll&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(100);&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+    ConsumerRecords&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; records &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;poll&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
 
-    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;flag&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
-        consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;seek&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; TopicPartition&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;topic-1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;0),&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;90);&lt;/span&gt;
-        flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;flag&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        consumer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;seek&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; TopicPartition&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;topic-1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;90&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+        flag &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerRecord&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; record &lt;span style=&#34;color: #666666&#34;&gt;:&lt;/span&gt; records&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
-        System&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;printf&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;offset = %d, key = %s, value = %s%n&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;offset&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;());&lt;/span&gt;
-&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ConsumerRecord&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; record &lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; records&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+        System&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;printf&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;offset = %d, key = %s, value = %s%n&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; record&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;offset&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;());&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -266,29 +266,29 @@ el nuevo índice de &lt;code&gt;timestamp&lt;/code&gt; puede ser útil.&lt;/p&gt
 que fueron implementadas, y una nueva operación fue agregada al
 &lt;code&gt;Kafka Consumer API&lt;/code&gt;: &lt;code&gt;#offsetsForTimes&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #B00040&#34;&gt;boolean&lt;/span&gt; flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;boolean&lt;/span&gt; flag &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
 
-&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
-    ConsumerRecords&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; records &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;poll&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(100);&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+    ConsumerRecords&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; records &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;poll&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
 
-    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;flag&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;{&lt;/span&gt;
-        Map&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;TopicPartition&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; Long&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; query &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; HashMap&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-        query&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;
-                &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;new&lt;/span&gt; TopicPartition&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;simple-topic-1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;0),&lt;/span&gt;
-                Instant&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;minus&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(10,&lt;/span&gt; MINUTES&lt;span style=&#34;color: #666666&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;toEpochMilli&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;());&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;flag&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        Map&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;TopicPartition&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; Long&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; query &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; HashMap&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+        query&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;
+                &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; TopicPartition&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;simple-topic-1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;),&lt;/span&gt;
+                Instant&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;minus&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; MINUTES&lt;span style=&#34;color: #333333&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;toEpochMilli&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;());&lt;/span&gt;
 
-        Map&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;TopicPartition&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; OffsetAndTimestamp&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; result &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;offsetsForTimes&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;query&lt;span style=&#34;color: #666666&#34;&gt;);&lt;/span&gt;
+        Map&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;TopicPartition&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; OffsetAndTimestamp&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; result &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; consumer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;offsetsForTimes&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;query&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
 
-        result&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;entrySet&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt;
-                &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;stream&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()&lt;/span&gt;
-                &lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;forEach&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;entry &lt;span style=&#34;color: #666666&#34;&gt;-&amp;gt;&lt;/span&gt; consumer&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;seek&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;entry&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getKey&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(),&lt;/span&gt; entry&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;getValue&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;offset&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;()));&lt;/span&gt;
+        result&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;entrySet&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()&lt;/span&gt;
+                &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;stream&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()&lt;/span&gt;
+                &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;forEach&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;entry &lt;span style=&#34;color: #333333&#34;&gt;-&amp;gt;&lt;/span&gt; consumer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;seek&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;entry&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getKey&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(),&lt;/span&gt; entry&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getValue&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;offset&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()));&lt;/span&gt;
 
-        flag &lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+        flag &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-    &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;ConsumerRecord&lt;span style=&#34;color: #666666&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #666666&#34;&gt;&amp;gt;&lt;/span&gt; record &lt;span style=&#34;color: #666666&#34;&gt;:&lt;/span&gt; records&lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;
-        System&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;printf&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;offset = %d, key = %s, value = %s%n&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;,&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;offset&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #666666&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #7D9029&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;());&lt;/span&gt;
-&lt;span style=&#34;color: #666666&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ConsumerRecord&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; record &lt;span style=&#34;color: #333333&#34;&gt;:&lt;/span&gt; records&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+        System&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;printf&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;offset = %d, key = %s, value = %s%n&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; record&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;offset&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(),&lt;/span&gt; record&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;());&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -365,7 +365,7 @@ aquí:
 
 &lt;hr /&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;version: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
 services:
   kafka:
     image: jeqo/apache-kafka:0.10.1.0-2.11
@@ -383,8 +383,8 @@ configuran el acceso desde &lt;code&gt;kafka&lt;/code&gt; hacia el servicio &lt;
 &lt;p&gt;Si probamos iniciar los servicios con el comando &lt;code&gt;docker-compose up -d&lt;/code&gt;,
 Docker Compose creará una red donde estos servicios se podrán comunicar.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
-Creating network &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;kafkacluster_default&amp;quot;&lt;/span&gt; with the default driver
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
+Creating network &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;kafkacluster_default&amp;quot;&lt;/span&gt; with the default driver
 Creating kafkacluster_zookeeper_1
 Creating kafkacluster_kafka_1
 &lt;/pre&gt;&lt;/div&gt;
@@ -393,15 +393,15 @@ Creating kafkacluster_kafka_1
 &lt;p&gt;Si queremos acceder a estos servicios desde nuestra aplicación (también
   definida en Docker Compose) lo podemos hacer de la siguiente manera:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;version: &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;version: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;2.1&amp;quot;&lt;/span&gt;
 services:
   kafka:
     image: jeqo/apache-kafka-client:0.10.1.0-2.11
     command: sleep infinity
     networks:
       - default
-      - kafkacluster_default &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;#(2)&lt;/span&gt;
-networks: &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;#(1)&lt;/span&gt;
+      - kafkacluster_default &lt;span style=&#34;color: #888888&#34;&gt;#(2)&lt;/span&gt;
+networks: &lt;span style=&#34;color: #888888&#34;&gt;#(1)&lt;/span&gt;
   kafkacluster_default:
     external: true
 &lt;/pre&gt;&lt;/div&gt;
@@ -415,10 +415,10 @@ el servicio &lt;code&gt;client&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Para probar el acceso desde el cliente, primero iniciemos el servicio con
 &lt;code&gt;docker-compose up -d&lt;/code&gt; y luego nos conectamos al servicio:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
-&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/kafka-console-producer.sh --broker-list kafka:9092 --topic topic1&lt;/span&gt;
-&lt;span style=&#34;color: #008000&#34;&gt;test&lt;/span&gt;
-&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/kafka-topics.sh --zookeeper zookeeper:2181 --list      &lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker-compose &lt;span style=&#34;color: #007020&#34;&gt;exec&lt;/span&gt; kafka bash
+&lt;span style=&#34;color: #888888&#34;&gt;# bin/kafka-console-producer.sh --broker-list kafka:9092 --topic topic1&lt;/span&gt;
+&lt;span style=&#34;color: #007020&#34;&gt;test&lt;/span&gt;
+&lt;span style=&#34;color: #888888&#34;&gt;# bin/kafka-topics.sh --zookeeper zookeeper:2181 --list      &lt;/span&gt;
 topic1
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -428,15 +428,15 @@ topic1
 &lt;p&gt;Una vez creado nuestro clúster, escalar nuestro contenedor de ´kafka´
 es tan sencillo como utilizar el comando &lt;code&gt;scale&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;3
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;docker-compose scale &lt;span style=&#34;color: #996633&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt;3
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Este comando creará dos contenedores adicionales:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker-compose scale &lt;span style=&#34;color: #19177C&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;3
-Creating and starting kafkacluster_kafka_2 ... &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;done&lt;/span&gt;
-Creating and starting kafkacluster_kafka_3 ... &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;done&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker-compose scale &lt;span style=&#34;color: #996633&#34;&gt;kafka&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt;3
+Creating and starting kafkacluster_kafka_2 ... &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;done&lt;/span&gt;
+Creating and starting kafkacluster_kafka_3 ... &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -454,10 +454,10 @@ de Zookeeper.&lt;/p&gt;
 
 &lt;p&gt;Desde el contenedor cliente:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker-compose &lt;span style=&#34;color: #008000&#34;&gt;exec&lt;/span&gt; kafka bash
-&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# bin/zookeeper-shell.sh zookeeper:2181&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ docker-compose &lt;span style=&#34;color: #007020&#34;&gt;exec&lt;/span&gt; kafka bash
+&lt;span style=&#34;color: #888888&#34;&gt;# bin/zookeeper-shell.sh zookeeper:2181&lt;/span&gt;
 ls /brokers/ids
-&lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;1003, 1002, 1001&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;[&lt;/span&gt;1003, 1002, 1001&lt;span style=&#34;color: #333333&#34;&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -535,7 +535,7 @@ o manual, si se sabe cómo redistribuir los topics.&lt;/p&gt;&lt;/li&gt;
 
 &lt;p&gt;Dentro del archivo &lt;code&gt;playbooks/prepare-reassignment.yml&lt;/code&gt; hay dos variables a definir:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vars:
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vars:
   topics:
     - topic1
   broker_list: 1003
@@ -548,9 +548,9 @@ o manual, si se sabe cómo redistribuir los topics.&lt;/p&gt;&lt;/li&gt;
 
 &lt;p&gt;Puedes copiar ese JSON generado en &lt;code&gt;playbooks/reassign-topic-plan.json&lt;/code&gt;&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
-  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;version&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt;,
-  &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;partitions&amp;quot;&lt;/span&gt;:[{&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;topic&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;topic1&amp;quot;&lt;/span&gt;,&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;partition&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #666666&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;&amp;quot;replicas&amp;quot;&lt;/span&gt;:[&lt;span style=&#34;color: #666666&#34;&gt;1003&lt;/span&gt;]}]
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;version&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;1&lt;/span&gt;,
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;partitions&amp;quot;&lt;/span&gt;:[{&lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;topic&amp;quot;&lt;/span&gt;:&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;topic1&amp;quot;&lt;/span&gt;,&lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;partition&amp;quot;&lt;/span&gt;:&lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;replicas&amp;quot;&lt;/span&gt;:[&lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;1003&lt;/span&gt;]}]
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -600,12 +600,11 @@ sin agentes o &amp;ldquo;agentless&amp;rdquo;.&lt;/p&gt;
 
 &lt;p&gt;Esto signifíca que es verdaderamente fácil de entender y comenzar a trabajar
 con YAML. Por ejemplo:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;- hosts: webserver
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- hosts: webserver
   tasks:
     - package: apache
         state: latest
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Este &lt;strong&gt;&amp;ldquo;playbook&amp;rdquo;&lt;/strong&gt; dice que el host &lt;em&gt;webserver&lt;/em&gt; que tiene 1 tarea: instalar
 el paquete más actual de Apache, usando el &lt;strong&gt;&amp;ldquo;module&amp;rdquo;&lt;/strong&gt; &lt;em&gt;package&lt;/em&gt;.&lt;/p&gt;
@@ -656,23 +655,21 @@ utilizar comandos Docker Exec.&lt;/p&gt;
 &lt;a href=&#34;https://github.com/jeqo/ansible-role-java&#34;&gt;https://github.com/jeqo/ansible-role-java&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Solo para explicar que hace, vemos el archivo de tareas principal:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;---
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #0e84b5; font-weight: bold&#34;&gt;---&lt;/span&gt;
   - debug:
-      msg: &amp;quot;This Java Provider will be installed: {{ java_provider }}&amp;quot;
+      msg: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;This&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt; &lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;Java&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt; &lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;Provider&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt; &lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;will&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt; &lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;be&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt; &lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;installed:&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt; &lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;{{&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt; &lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;java_provider&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt; &lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;}}&amp;quot;&lt;/span&gt;
 
   - include: install-{{ java_provider }}.yml
 
   - include: set-java-home.yml
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Primero muestra un mensaje con el tipo de proveedor:
 variable &amp;ldquo;java_provider&amp;rdquo; y luego definir la variable de entorno: JAVA_HOME.&lt;/p&gt;
 
 &lt;p&gt;Este rol también tiene una carpeta de pruebas &amp;ldquo;tests&amp;rdquo;, con un &amp;ldquo;playbook&amp;rdquo; con
 algunas pruebas:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;- name: test install openjdk jdk 8 on centos 7
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- name: test install openjdk jdk 8 on centos 7
   hosts: test01
   roles:
     - role: java
@@ -686,29 +683,28 @@ algunas pruebas:&lt;/p&gt;
       java_provider: openjdk
       java_version: 8
       java_type: jre
-# more tests...
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span style=&#34;color: #888888&#34;&gt;# more tests...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Y para ejecutar las pruebas utilizo Vagrant y VirtualBox:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #003366; font-weight: bold&#34;&gt;Vagrant&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;configure(&lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;2&lt;/span&gt;) &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;|&lt;/span&gt;config&lt;span style=&#34;color: #333333&#34;&gt;|&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;Vagrant.configure(2) do |config|
+  config&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;provision &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;ansible&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;|&lt;/span&gt;ansible&lt;span style=&#34;color: #333333&#34;&gt;|&lt;/span&gt;
+    ansible&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;playbook &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;test.yml&amp;quot;&lt;/span&gt;
+    ansible&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;galaxy_role_file &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;roles.yml&amp;quot;&lt;/span&gt;
+  &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;end&lt;/span&gt;
 
-  config.vm.provision &amp;quot;ansible&amp;quot; do |ansible|
-    ansible.playbook = &amp;quot;test.yml&amp;quot;
-    ansible.galaxy_role_file = &amp;quot;roles.yml&amp;quot;
-  end
+  config&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;define &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;test01&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;|&lt;/span&gt;node&lt;span style=&#34;color: #333333&#34;&gt;|&lt;/span&gt;
+    node&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;box &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;jeqo/ansible-centos7&amp;quot;&lt;/span&gt;
+  &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;end&lt;/span&gt;
 
-  config.vm.define &amp;quot;test01&amp;quot; do |node|
-    node.vm.box = &amp;quot;jeqo/ansible-centos7&amp;quot;
-  end
+  config&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;define &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;test02&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;|&lt;/span&gt;node&lt;span style=&#34;color: #333333&#34;&gt;|&lt;/span&gt;
+    node&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;vm&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;box &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;jeqo/ansible-centos7&amp;quot;&lt;/span&gt;
+  &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;end&lt;/span&gt;
 
-  config.vm.define &amp;quot;test02&amp;quot; do |node|
-    node.vm.box = &amp;quot;jeqo/ansible-centos7&amp;quot;
-  end
-
-  # more test nodes...
-end
-&lt;/code&gt;&lt;/pre&gt;
+  &lt;span style=&#34;color: #888888&#34;&gt;# more test nodes...&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Ejecutemos la prueba de instalación de OpenJDK 8 en Centos:&lt;/p&gt;
 
@@ -757,8 +753,7 @@ incluido en la instalación. Así que hice algunas pruebas:
 &lt;a href=&#34;https://github.com/jeqo/poc-ansible-docker&#34;&gt;https://github.com/jeqo/poc-ansible-docker&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;En este repositorio tengo un &amp;ldquo;playbook&amp;rdquo; que crea el contenedor:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;- hosts: 127.0.0.1
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- hosts: 127.0.0.1
   connection: local
   tasks:
     - name: my container
@@ -767,7 +762,7 @@ incluido en la instalación. Así que hice algunas pruebas:
         image: centos
         command: sleep infinity
         state: started
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Aquí utilizo el tipo de tipo de conexión local para ejecutar comandos
 localmente.&lt;/p&gt;
@@ -779,41 +774,40 @@ a5e49bd032be        centos              &amp;quot;sleep infinity&amp;quot;    Ab
 
 &lt;p&gt;Una vez que tenga el contenedor en ejecución, se puede ejecutar
 el provisionamiento:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;- hosts: poccontainer
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- hosts: poccontainer
   connection: docker
   pre_tasks:
     - package: name=sudo
-    - command: &amp;quot;sed -i -e \&amp;quot;s/Defaults    requiretty.*/ #Defaults    requiretty/g\&amp;quot; /etc/sudoers&amp;quot;
+    - command: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;sed&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt; &lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;-i&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt; &lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;-e&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt; &lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;\&amp;quot;s/Defaults&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;requiretty.*/&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt; &lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;#Defaults&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;requiretty/g\&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt; &lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;/etc/sudoers&amp;quot;&lt;/span&gt;
   roles:
     - role: java
       java_provider: openjdk
       java_type: jdk
       java_version: 8
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Las &amp;ldquo;pre-tasks&amp;rdquo; se necesitan para configurar el paquete &amp;ldquo;sudo&amp;rdquo; y poder
 configurar &amp;ldquo;tty&amp;rdquo; en el contenedos. Esto se requiere cuando ejecutar un
 &amp;ldquo;playbook&amp;rdquo; con el parámetro: &amp;ldquo;become&amp;rdquo;, que ejecuta un comando como &amp;ldquo;sudo&amp;rdquo;.
 Luego se ejecuta el rol como en cualquier nodo:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ ansible-playbook provisioning.yml -vvvv
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;$ ansible-playbook provisioning.yml -vvvv
 Using /home/jeqo/dev/jeqo/poc-ansible-docker/ansible.cfg as config file
-Loaded callback default of &lt;span style=&#34;color: #008000&#34;&gt;type&lt;/span&gt; stdout, v2.0
-&lt;span style=&#34;color: #666666&#34;&gt;2&lt;/span&gt; plays in provisioning.yml
+Loaded callback default of &lt;span style=&#34;color: #007020&#34;&gt;type&lt;/span&gt; stdout, v2.0
+&lt;span style=&#34;color: #6600EE; font-weight: bold&#34;&gt;2&lt;/span&gt; plays in provisioning.yml
 
 PLAY ***************************************************************************
 
-TASK &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;setup&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt; *******************************************************************
+TASK &lt;span style=&#34;color: #333333&#34;&gt;[&lt;/span&gt;setup&lt;span style=&#34;color: #333333&#34;&gt;]&lt;/span&gt; *******************************************************************
 ESTABLISH DOCKER CONNECTION FOR USER: None
-&amp;lt;poccontainer&amp;gt; EXEC &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;/usr/bin/docker&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;exec&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;-i&amp;#39;&lt;/span&gt;, u&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;poccontainer&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;/bin/sh&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;-c&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;/bin/sh -c \&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #008000&#34;&gt;umask&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;22&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; 
-mkdir -p &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&gt;$&lt;span style=&#34;color: #BA2121&#34;&gt;HOME/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; 
-&lt;span style=&#34;color: #008000&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;` echo &lt;/span&gt;$&lt;span style=&#34;color: #BA2121&#34;&gt;HOME/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #666666&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;]&lt;/span&gt;
-&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;lt;poccontainer&amp;gt; PUT /tmp/tmpNCOaxi TO /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup&lt;/span&gt;
-&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;lt;poccontainer&amp;gt; EXEC [&amp;#39;&lt;/span&gt;/usr/bin/docker&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;exec&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-i&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;poccontainer&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;/bin/sh&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-c&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;/bin/sh -c &lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;LANG&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 
-&lt;span style=&#34;color: #19177C&#34;&gt;LC_ALL&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 &lt;span style=&#34;color: #19177C&#34;&gt;LC_MESSAGES&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;=&lt;/span&gt;en_US.UTF-8 /usr/bin/python /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup; 
-rm -rf &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&amp;quot;&lt;/span&gt; &amp;gt; /dev/null 2&amp;gt;&amp;amp;1&lt;span style=&#34;color: #BB6622; font-weight: bold&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
-ok: &lt;span style=&#34;color: #666666&#34;&gt;[&lt;/span&gt;poccontainer&lt;span style=&#34;color: #666666&#34;&gt;]&lt;/span&gt;
+&amp;lt;poccontainer&amp;gt; EXEC &lt;span style=&#34;color: #333333&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;#39;/usr/bin/docker&amp;#39;&lt;/span&gt;, &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;#39;exec&amp;#39;&lt;/span&gt;, &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;#39;-i&amp;#39;&lt;/span&gt;, u&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;#39;poccontainer&amp;#39;&lt;/span&gt;, &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;#39;/bin/sh&amp;#39;&lt;/span&gt;, &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;#39;-c&amp;#39;&lt;/span&gt;, &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;#39;/bin/sh -c \&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #007020&#34;&gt;umask&lt;/span&gt; &lt;span style=&#34;color: #6600EE; font-weight: bold&#34;&gt;22&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; 
+mkdir -p &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;` echo &lt;/span&gt;$&lt;span style=&#34;background-color: #fff0f0&#34;&gt;HOME/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; 
+&lt;span style=&#34;color: #007020&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;` echo &lt;/span&gt;$&lt;span style=&#34;background-color: #fff0f0&#34;&gt;HOME/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729 `&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #666666; font-weight: bold; background-color: #fff0f0&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;#39;]&lt;/span&gt;
+&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;lt;poccontainer&amp;gt; PUT /tmp/tmpNCOaxi TO /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup&lt;/span&gt;
+&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;lt;poccontainer&amp;gt; EXEC [&amp;#39;&lt;/span&gt;/usr/bin/docker&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;exec&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-i&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;poccontainer&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;/bin/sh&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-c&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;#39;, u&amp;#39;&lt;/span&gt;/bin/sh -c &lt;span style=&#34;color: #666666; font-weight: bold; background-color: #fff0f0&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #996633&#34;&gt;LANG&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt;en_US.UTF-8 
+&lt;span style=&#34;color: #996633&#34;&gt;LC_ALL&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt;en_US.UTF-8 &lt;span style=&#34;color: #996633&#34;&gt;LC_MESSAGES&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt;en_US.UTF-8 /usr/bin/python /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup; 
+rm -rf &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&amp;quot;&lt;/span&gt; &amp;gt; /dev/null 2&amp;gt;&amp;amp;1&lt;span style=&#34;color: #666666; font-weight: bold; background-color: #fff0f0&#34;&gt;\&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;]&lt;/span&gt;
+ok: &lt;span style=&#34;color: #333333&#34;&gt;[&lt;/span&gt;poccontainer&lt;span style=&#34;color: #333333&#34;&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -835,13 +829,12 @@ se ejecutan sobre un contenedor en ejecución. En Ansible también está faltand
 las opciones de &amp;ldquo;commit&amp;rdquo; y &amp;ldquo;push&amp;rdquo; en Docker, pero esto se puede reemplazar
 facilmente así:&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;- hosts: 127.0.0.1
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;- hosts: 127.0.0.1
   connection: local
   tasks:
     - name: commit
       command: docker commit poccontainer
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Sin embargo, Ansible también tiene un módulo para ejecutar Dockerfiles:
 &lt;a href=&#34;http://docs.ansible.com/ansible/docker_image_module.html&#34;&gt;http://docs.ansible.com/ansible/docker_image_module.html&lt;/a&gt;&lt;/p&gt;
@@ -875,58 +868,56 @@ hacia un repositorio independiente: &lt;a href=&#34;https://github.com/jeqo/orac
 
 &lt;p&gt;Basicamente, los scripts de Dockerfile fueron transformados en shell scripts
 y son invocados desde Packer en la etapa de provisionamiento&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;  &amp;quot;provisioners&amp;quot;: [
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;  &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;provisioners&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;:&lt;/span&gt; [
     {
-      &amp;quot;type&amp;quot;: &amp;quot;shell&amp;quot;,
-      &amp;quot;scripts&amp;quot;: [
-        &amp;quot;scripts/create-user.sh&amp;quot;
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;: [
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;scripts/create-user.sh&amp;quot;&lt;/span&gt;
       ]
     },
     {
-      &amp;quot;type&amp;quot;: &amp;quot;file&amp;quot;,
-      &amp;quot;source&amp;quot;: &amp;quot;./files/&amp;quot;,
-      &amp;quot;destination&amp;quot;: &amp;quot;/u01/&amp;quot;
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;file&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;source&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;./files/&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;destination&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;/u01/&amp;quot;&lt;/span&gt;
     },
     {
-      &amp;quot;type&amp;quot;: &amp;quot;shell&amp;quot;,
-      &amp;quot;scripts&amp;quot;: [
-        &amp;quot;scripts/install-java.sh&amp;quot;
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;: [
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;scripts/install-java.sh&amp;quot;&lt;/span&gt;
       ],
-      &amp;quot;environment_vars&amp;quot;: [
-        &amp;quot;JAVA_RPM=/data/{{user `java_rpm`}}&amp;quot;
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;environment_vars&amp;quot;&lt;/span&gt;: [
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;JAVA_RPM=/data/{{user `java_rpm`}}&amp;quot;&lt;/span&gt;
       ]
     },
     {
-      &amp;quot;type&amp;quot;: &amp;quot;shell&amp;quot;,
-      &amp;quot;scripts&amp;quot;: [
-        &amp;quot;scripts/install-soa.sh&amp;quot;
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;shell&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;: [
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;scripts/install-soa.sh&amp;quot;&lt;/span&gt;
       ],
-      &amp;quot;environment_vars&amp;quot;: [
-        &amp;quot;SOA_ZIP=/data/{{user `soa_zip`}}&amp;quot;,
-        &amp;quot;SOA_PKG={{user `soa_pkg`}}&amp;quot;,
-        &amp;quot;SOA_PKG2={{user `soa_pkg2`}}&amp;quot;,
-        &amp;quot;JAVA_HOME=/usr/java/default&amp;quot;,
-        &amp;quot;MW_HOME=/u01/oracle/soa&amp;quot;
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;environment_vars&amp;quot;&lt;/span&gt;: [
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;SOA_ZIP=/data/{{user `soa_zip`}}&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;SOA_PKG={{user `soa_pkg`}}&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;SOA_PKG2={{user `soa_pkg2`}}&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;JAVA_HOME=/usr/java/default&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;MW_HOME=/u01/oracle/soa&amp;quot;&lt;/span&gt;
       ]
     }
   ]
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Luego del provisionamiento exitoso, se procesa la imagen para
 guardarla en Docker Hub:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;  &amp;quot;post-processors&amp;quot;: [
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;  &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;post-processors&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #FF0000; background-color: #FFAAAA&#34;&gt;:&lt;/span&gt; [
     [
       {
-        &amp;quot;type&amp;quot;: &amp;quot;docker-tag&amp;quot;,
-        &amp;quot;repository&amp;quot;: &amp;quot;jeqo/oracle-soa-12c&amp;quot;,
-        &amp;quot;tag&amp;quot;: &amp;quot;12.1.3-dev&amp;quot;
+        &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;docker-tag&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;repository&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;jeqo/oracle-soa-12c&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;tag&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;12.1.3-dev&amp;quot;&lt;/span&gt;
       },
-      &amp;quot;docker-push&amp;quot;
+      &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;docker-push&amp;quot;&lt;/span&gt;
     ]
   ]
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Realmente la configuración en JSON es bastante simple y concreta.&lt;/p&gt;
 
@@ -998,24 +989,23 @@ cada Consumer se suscribirá a este &amp;ldquo;observable&amp;rdquo;. Revisemos 
 &lt;li&gt;Clients Resource: List (GET) and Add (POST) Clients&lt;/li&gt;
 &lt;li&gt;Events Resource: List (GET) Client Added Events&lt;/li&gt;
 &lt;/ul&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Path&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;clients&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;ClientsResource&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Path(&amp;quot;clients&amp;quot;)
-public class ClientsResource {
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;static&lt;/span&gt; List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; clients &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; ArrayList&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
 
-    static List&amp;lt;String&amp;gt; clients = new ArrayList&amp;lt;&amp;gt;();
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@GET&lt;/span&gt;
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Produces&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;MediaType&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;APPLICATION_JSON&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;getClients&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; clients&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public List&amp;lt;String&amp;gt; getClients() {
-        return clients;
-    }
-
-    @POST
-    public void addClient(String client) {
-        clients.add(client);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@POST&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;addClient&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;String client&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        clients&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;client&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Luego de tener mi recurso &amp;ldquo;Clients&amp;rdquo; implementado, mi requerimiento es
 propagar el evento &amp;ldquo;ClientAddedEvent&amp;rdquo; y listarlo en el recurso Events.&lt;/p&gt;
@@ -1023,183 +1013,174 @@ propagar el evento &amp;ldquo;ClientAddedEvent&amp;rdquo; y listarlo en el recur
 &lt;h2 id=&#34;serialización-y-deserialización-de-eventos&#34;&gt;Serialización y Deserialización de Eventos&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.2&#34;&gt;Tag: v0.0.2&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public void test() {
-    ClientAddedEvent event = ClientAddedEvent.newBuilder()
-            .setName(&amp;quot;jeqo&amp;quot;)
-            .setCreated(new Date().getTime())
-            .build();
-    byte[] eventSerialized = serializer.serialize(event);
-    ClientAddedEvent eventDeserialized = deserializer.deserialize(eventSerialized);
-    assertEquals(event, eventDeserialized);
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;test&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+    ClientAddedEvent event &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; ClientAddedEvent&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;newBuilder&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()&lt;/span&gt;
+            &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;setName&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;jeqo&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+            &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;setCreated&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; Date&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getTime&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;())&lt;/span&gt;
+            &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;build&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+    &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;[]&lt;/span&gt; eventSerialized &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; serializer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;serialize&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;event&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    ClientAddedEvent eventDeserialized &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; deserializer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;deserialize&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;eventSerialized&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    assertEquals&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;event&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; eventDeserialized&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;El event ClientAddedEvent es definido usando el formato Avro JSON:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
-    &amp;quot;namespace&amp;quot;: &amp;quot;com.jeqo.samples.eventsource.event&amp;quot;,
-    &amp;quot;type&amp;quot;: &amp;quot;record&amp;quot;,
-    &amp;quot;name&amp;quot;: &amp;quot;ClientAddedEvent&amp;quot;,
-    &amp;quot;fields&amp;quot;: [
-        {&amp;quot;name&amp;quot;: &amp;quot;name&amp;quot;, &amp;quot;type&amp;quot;: &amp;quot;string&amp;quot;},
-        {&amp;quot;name&amp;quot;: &amp;quot;created&amp;quot;, &amp;quot;type&amp;quot;: &amp;quot;long&amp;quot;}
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;namespace&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;com.jeqo.samples.eventsource.event&amp;quot;&lt;/span&gt;,
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;record&amp;quot;&lt;/span&gt;,
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;ClientAddedEvent&amp;quot;&lt;/span&gt;,
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;fields&amp;quot;&lt;/span&gt;: [
+        {&lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;string&amp;quot;&lt;/span&gt;},
+        {&lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;created&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;long&amp;quot;&lt;/span&gt;}
     ]
 }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Agregando el siguiente plugin de Maven, la clase  &lt;em&gt;ClientAddedEvent&lt;/em&gt; se
 creará cada vez que el proyecto sea construido:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;build&amp;gt;
-    &amp;lt;plugins&amp;gt;
-        &amp;lt;plugin&amp;gt;
-            &amp;lt;groupId&amp;gt;org.apache.avro&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;avro-maven-plugin&amp;lt;/artifactId&amp;gt;
-            &amp;lt;version&amp;gt;1.7.7&amp;lt;/version&amp;gt;
-            &amp;lt;executions&amp;gt;
-                &amp;lt;execution&amp;gt;
-                    &amp;lt;phase&amp;gt;generate-sources&amp;lt;/phase&amp;gt;
-                    &amp;lt;goals&amp;gt;
-                        &amp;lt;goal&amp;gt;schema&amp;lt;/goal&amp;gt;
-                    &amp;lt;/goals&amp;gt;
-                    &amp;lt;configuration&amp;gt;
-                        &amp;lt;sourceDirectory&amp;gt;${project.basedir}/src/main/avro/&amp;lt;/sourceDirectory&amp;gt;
-                        &amp;lt;outputDirectory&amp;gt;${project.basedir}/src/main/java/&amp;lt;/outputDirectory&amp;gt;
-                    &amp;lt;/configuration&amp;gt;
-                &amp;lt;/execution&amp;gt;
-            &amp;lt;/executions&amp;gt;
-        &amp;lt;/plugin&amp;gt;
-    &amp;lt;/plugins&amp;gt;
-&amp;lt;/build&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.avro&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;avro-maven-plugin&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.7.7&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;executions&amp;gt;&lt;/span&gt;
+                &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
+                    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;phase&amp;gt;&lt;/span&gt;generate-sources&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/phase&amp;gt;&lt;/span&gt;
+                    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
+                        &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;schema&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
+                    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
+                    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+                        &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;sourceDirectory&amp;gt;&lt;/span&gt;${project.basedir}/src/main/avro/&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/sourceDirectory&amp;gt;&lt;/span&gt;
+                        &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;outputDirectory&amp;gt;&lt;/span&gt;${project.basedir}/src/main/java/&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/outputDirectory&amp;gt;&lt;/span&gt;
+                    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+                &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/executions&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #007700&#34;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Para serializar Avro records, de POJO a Byte Array:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;EventSerializer&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; SpecificRecordBase&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class EventSerializer&amp;lt;T extends SpecificRecordBase&amp;gt; {
-
-    public byte[] serialize(T record) {
-        try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
-            Encoder encoder = EncoderFactory.get().binaryEncoder(out, null);
-            new SpecificDatumWriter&amp;lt;&amp;gt;(record.getSchema()).write(record, encoder);
-            encoder.flush();
-            return out.toByteArray();
-        } catch (IOException ex) {
-            throw new RuntimeException(&amp;quot;Error serializing event&amp;quot;, ex);
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;[]&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;serialize&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;T record&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ByteArrayOutputStream out &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; ByteArrayOutputStream&lt;span style=&#34;color: #333333&#34;&gt;())&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+            Encoder encoder &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; EncoderFactory&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;binaryEncoder&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;out&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+            &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; SpecificDatumWriter&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;record&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getSchema&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()).&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;write&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;record&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; encoder&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+            encoder&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;flush&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+            &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; out&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;toByteArray&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;IOException ex&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; RuntimeException&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Error serializing event&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; ex&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;y viceversa:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;EventDeserializer&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; SpecificRecordBase&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class EventDeserializer&amp;lt;T extends SpecificRecordBase&amp;gt; {
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;final&lt;/span&gt; Class&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; type&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
 
-    private final Class&amp;lt;T&amp;gt; type;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;EventDeserializer&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Class&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; type&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; type&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-    public EventDeserializer(Class&amp;lt;T&amp;gt; type) {
-        this.type = type;
-    }
-
-    public T deserialize(byte[] recordSerialized) {
-        try {
-            return new SpecificDatumReader&amp;lt;&amp;gt;(type).read(
-                    null,
-                    DecoderFactory.get()
-                    .binaryDecoder(recordSerialized, null)
-            );
-        } catch (IOException ex) {
-            throw new RuntimeException(&amp;quot;Error deserializing event&amp;quot;, ex);
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; T &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;deserialize&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;[]&lt;/span&gt; recordSerialized&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; SpecificDatumReader&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;type&lt;span style=&#34;color: #333333&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;read&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;
+                    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt;
+                    DecoderFactory&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()&lt;/span&gt;
+                    &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;binaryDecoder&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;recordSerialized&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+            &lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;IOException ex&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; RuntimeException&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Error deserializing event&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; ex&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&#34;publicando-y-consumiendo-eventos-desde-kafka-rxjava&#34;&gt;Publicando y consumiendo eventos desde Kafka/RxJava&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.3&#34;&gt;Tag: v0.0.3&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Primero, definamos un par de interfaces, EventServer:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;EventServer&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface EventServer&amp;lt;T&amp;gt; {
-
-    public Observable&amp;lt;T&amp;gt; consume();
-}
-&lt;/code&gt;&lt;/pre&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; Observable&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;consume&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;y EventProducer:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;EventProducer&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface EventProducer&amp;lt;T&amp;gt; {
-
-    public void publish(T message);
-}
-&lt;/code&gt;&lt;/pre&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;publish&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;T message&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Luego, implementemos estas interfaces con Kafka APIs.&lt;/p&gt;
 
 &lt;p&gt;Para publicar mensajes:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Override&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;publish&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;T message&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color: #888888&#34;&gt;// Produce a new Kafka record&lt;/span&gt;
+    ProducerRecord&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;[]&amp;gt;&lt;/span&gt; data &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; ProducerRecord&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;
+            message&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getClass&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getSimpleName&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(),&lt;/span&gt;
+            serializer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;serialize&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;message&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Override
-public void publish(T message) {
-    // Produce a new Kafka record
-    ProducerRecord&amp;lt;String, byte[]&amp;gt; data = new ProducerRecord&amp;lt;&amp;gt;(
-            message.getClass().getSimpleName(),
-            serializer.serialize(message)
-    );
+    &lt;span style=&#34;color: #888888&#34;&gt;// Publish this new record, waiting for acknowledge from Kafka&lt;/span&gt;
+    Future&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;RecordMetadata&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; rs &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; producerProvider&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;producer&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()&lt;/span&gt;
+            &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;send&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;data&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;RecordMetadata recordMetadata&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; Exception e&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+                LOGGER&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Level&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;INFO&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Received ack for partition={0} offset = {1}&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; Object&lt;span style=&#34;color: #333333&#34;&gt;[]{&lt;/span&gt;recordMetadata&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;partition&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(),&lt;/span&gt; recordMetadata&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;offset&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()});&lt;/span&gt;
+            &lt;span style=&#34;color: #333333&#34;&gt;});&lt;/span&gt;
 
-    // Publish this new record, waiting for acknowledge from Kafka
-    Future&amp;lt;RecordMetadata&amp;gt; rs = producerProvider.producer()
-            .send(data, (RecordMetadata recordMetadata, Exception e) -&amp;gt; {
-                LOGGER.log(Level.INFO, &amp;quot;Received ack for partition={0} offset = {1}&amp;quot;, new Object[]{recordMetadata.partition(), recordMetadata.offset()});
-            });
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        RecordMetadata rm &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; rs&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
 
-    try {
-        RecordMetadata rm = rs.get();
+        LOGGER&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Level&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;INFO&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Kafka Record Metadata: partition = {0} offset ={1}&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; Object&lt;span style=&#34;color: #333333&#34;&gt;[]{&lt;/span&gt;rm&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;partition&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(),&lt;/span&gt; rm&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;offset&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()});&lt;/span&gt;
 
-        LOGGER.log(Level.INFO, &amp;quot;Kafka Record Metadata: partition = {0} offset ={1}&amp;quot;, new Object[]{rm.partition(), rm.offset()});
-
-    } catch (InterruptedException | ExecutionException e) {
-        System.out.println(e);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;InterruptedException &lt;span style=&#34;color: #333333&#34;&gt;|&lt;/span&gt; ExecutionException e&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        System&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;println&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;e&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;y en KafkaEventServer, para instanciar un RxJava observable:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Override&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; Observable&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;T&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;consume&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;return&lt;/span&gt; Observable&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;create&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;subscriber &lt;span style=&#34;color: #333333&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+            LOGGER&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Level&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;INFO&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Preparing Server for Event {0}&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; type&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getName&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;());&lt;/span&gt;
+            &lt;span style=&#34;color: #888888&#34;&gt;// It will observe one Topic&lt;/span&gt;
+            Map&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; Integer&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; topicCountMap &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; HashMap&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+            topicCountMap&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;put&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;type&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getSimpleName&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(),&lt;/span&gt; &lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Override
-public Observable&amp;lt;T&amp;gt; consume() {
-    return Observable.create(subscriber -&amp;gt; {
-        try {
-            LOGGER.log(Level.INFO, &amp;quot;Preparing Server for Event {0}&amp;quot;, type.getName());
-            // It will observe one Topic
-            Map&amp;lt;String, Integer&amp;gt; topicCountMap = new HashMap&amp;lt;&amp;gt;();
-            topicCountMap.put(type.getSimpleName(), 1);
+            &lt;span style=&#34;color: #888888&#34;&gt;// consumerProvider will instantiate a consumer that will create a KafkaStream&lt;/span&gt;
+            Map&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;KafkaStream&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;[],&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;[]&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; consumerMap
+                    &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; consumerProvider&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;consumer&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()&lt;/span&gt;
+                    &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;createMessageStreams&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;topicCountMap&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
 
-            // consumerProvider will instantiate a consumer that will create a KafkaStream
-            Map&amp;lt;String, List&amp;lt;KafkaStream&amp;lt;byte[], byte[]&amp;gt;&amp;gt;&amp;gt; consumerMap
-                    = consumerProvider.consumer()
-                    .createMessageStreams(topicCountMap);
+            &lt;span style=&#34;color: #888888&#34;&gt;// then I will ask for the Stream from my topic, defined by Avro Record Class name&lt;/span&gt;
+            List&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;KafkaStream&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;[],&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;[]&amp;gt;&amp;gt;&lt;/span&gt; streams &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; consumerMap
+                    &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;type&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getSimpleName&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;());&lt;/span&gt;
 
-            // then I will ask for the Stream from my topic, defined by Avro Record Class name
-            List&amp;lt;KafkaStream&amp;lt;byte[], byte[]&amp;gt;&amp;gt; streams = consumerMap
-                    .get(type.getSimpleName());
+            KafkaStream&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;[],&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;[]&amp;gt;&lt;/span&gt; stream &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; streams&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #0000DD; font-weight: bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
 
-            KafkaStream&amp;lt;byte[], byte[]&amp;gt; stream = streams.get(0);
+            ConsumerIterator&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;[],&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;byte&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;[]&amp;gt;&lt;/span&gt; it &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; stream&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;iterator&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
 
-            ConsumerIterator&amp;lt;byte[], byte[]&amp;gt; it = stream.iterator();
-
-            // on each message published on topic, I will let the subscriber receive the new message
-            while (it.hasNext()) {
-                subscriber.onNext(
-                        deserializer.deserialize(it.next().message())
-                );
-            }
-        } catch (Exception ex) {
-            subscriber.onError(ex);
-        }
-    });
-}
-&lt;/code&gt;&lt;/pre&gt;
+            &lt;span style=&#34;color: #888888&#34;&gt;// on each message published on topic, I will let the subscriber receive the new message&lt;/span&gt;
+            &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;it&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;hasNext&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;())&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+                subscriber&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;onNext&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;
+                        deserializer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;deserialize&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;it&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;message&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;())&lt;/span&gt;
+                &lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+            &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Exception ex&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+            subscriber&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;onError&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ex&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;});&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Se puede validar la clase *Provider para observar como se genera la conexión
 con Kafka, tanto para el Publisher como para el Subscriber.&lt;/p&gt;
@@ -1213,90 +1194,87 @@ para validar que el servidor Kafka esta trabajando correctamente.&lt;/p&gt;
 
 &lt;p&gt;Finalmente, vamos a integrar la aplicación Java EE interacción con la nuestra
 fuente de eventos (Kafka):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@ApplicationScoped&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;ClientAddedEventProducer&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; KafkaEventProducer&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;ClientAddedEvent&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@ApplicationScoped
-public class ClientAddedEventProducer extends KafkaEventProducer&amp;lt;ClientAddedEvent&amp;gt; {
-
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;La anotación @ApplicationScoped de CDI indica que esta clase se instanciará como
 &lt;em&gt;&amp;ldquo;singleton&amp;rdquo;&lt;/em&gt; y podrá ser inyectada:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;ClientsResource&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class ClientsResource {
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Inject&lt;/span&gt;
+    ClientAddedEventProducer eventProducer&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
 
-    @Inject
-    ClientAddedEventProducer eventProducer;
+    &lt;span style=&#34;color: #888888&#34;&gt;//code&lt;/span&gt;
 
-    //code
-
-    @POST
-    public void addClient(String client) {
-        clients.add(client);
-        //Publishing events
-        eventProducer.publish(
-                ClientAddedEvent.newBuilder()
-                .setName(client)
-                .setCreated(new Date().getTime())
-                .build()
-        );
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@POST&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;addClient&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;String client&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        clients&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;client&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color: #888888&#34;&gt;//Publishing events&lt;/span&gt;
+        eventProducer&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;publish&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;
+                ClientAddedEvent&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;newBuilder&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()&lt;/span&gt;
+                &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;setName&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;client&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+                &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;setCreated&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; Date&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getTime&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;())&lt;/span&gt;
+                &lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;build&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()&lt;/span&gt;
+        &lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Luego para instanciar el &lt;em&gt;Subscriber&lt;/em&gt; (Creo que es la parte más importante:
 como &lt;strong&gt;reaccionar&lt;/strong&gt; a eventos? ):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #888888&#34;&gt;// Extending Subscriber RxJava class to listen Observables&lt;/span&gt;
+&lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@ApplicationScoped&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #BB0066; font-weight: bold&#34;&gt;ClientAddedEventSubscriber&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;extends&lt;/span&gt; Subscriber&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&lt;/span&gt;ClientAddedEvent&lt;span style=&#34;color: #333333&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;// Extending Subscriber RxJava class to listen Observables
-@ApplicationScoped
-public class ClientAddedEventSubscriber extends Subscriber&amp;lt;ClientAddedEvent&amp;gt; {
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;final&lt;/span&gt; Logger LOGGER &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; Logger&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getLogger&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ClientAddedEventSubscriber&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getName&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;());&lt;/span&gt;
 
-    static final Logger LOGGER = Logger.getLogger(ClientAddedEventSubscriber.class.getName());
+    &lt;span style=&#34;color: #888888&#34;&gt;// This will add a new thread to our pool, to subscribe to our Observable&lt;/span&gt;
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Resource&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;name &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;DefaultManagedExecutorService&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;private&lt;/span&gt; ManagedExecutorService executor&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
 
-    // This will add a new thread to our pool, to subscribe to our Observable
-    @Resource(name = &amp;quot;DefaultManagedExecutorService&amp;quot;)
-    private ManagedExecutorService executor;
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Inject&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;private&lt;/span&gt; KafkaConsumerProvider consumerProvider&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
 
-    @Inject
-    private KafkaConsumerProvider consumerProvider;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;private&lt;/span&gt; Subscription subscription&lt;span style=&#34;color: #333333&#34;&gt;;&lt;/span&gt;
 
-    private Subscription subscription;
-
-    // Run this on server startup, using CDI annotations
-    public void init(@Observes @Initialized(ApplicationScoped.class) Object init) {
-        LOGGER.log(Level.INFO, &amp;quot;Starting subscription&amp;quot;);
-        subscription = new KafkaEventServer&amp;lt;&amp;gt;(
-                ClientAddedEvent.class,
-                consumerProvider,
+    &lt;span style=&#34;color: #888888&#34;&gt;// Run this on server startup, using CDI annotations&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;init&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Observes&lt;/span&gt; &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Initialized&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ApplicationScoped&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; Object init&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        LOGGER&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Level&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;INFO&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Starting subscription&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+        subscription &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; KafkaEventServer&lt;span style=&#34;color: #333333&#34;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;
+                ClientAddedEvent&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt;
+                consumerProvider&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt;
                 executor
-        ).consume().subscribe(this);
-    }
+        &lt;span style=&#34;color: #333333&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;consume&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;subscribe&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-    public void destroy(@Observes @Destroyed(ApplicationScoped.class) Object init) {
-        subscription.unsubscribe();
-    }
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;destroy&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Observes&lt;/span&gt; &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Destroyed&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ApplicationScoped&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; Object init&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        subscription&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;unsubscribe&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;();&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-    @Override
-    public void onCompleted() {
-        throw new UnsupportedOperationException(&amp;quot;Not supported yet.&amp;quot;);
-    }
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Override&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;onCompleted&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; UnsupportedOperationException&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Not supported yet.&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-    @Override
-    public void onError(Throwable e) {
-        throw new UnsupportedOperationException(&amp;quot;Not supported yet.&amp;quot;);
-    }
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Override&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;onError&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Throwable e&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; UnsupportedOperationException&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Not supported yet.&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-    @Override
-    public void onNext(ClientAddedEvent t) {
-        LOGGER.log(Level.INFO, &amp;quot;Event received {0}&amp;quot;, t);
-        // How we will react to events:
-        EventsResource.events.add(
-                &amp;quot;Client Added: &amp;quot; + t.getName() + &amp;quot; at &amp;quot; + new Date(t.getCreated())
-        );
-    }
+    &lt;span style=&#34;color: #555555; font-weight: bold&#34;&gt;@Override&lt;/span&gt;
+    &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color: #333399; font-weight: bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color: #0066BB; font-weight: bold&#34;&gt;onNext&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;ClientAddedEvent t&lt;span style=&#34;color: #333333&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;{&lt;/span&gt;
+        LOGGER&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;Level&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;INFO&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Event received {0}&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;,&lt;/span&gt; t&lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color: #888888&#34;&gt;// How we will react to events:&lt;/span&gt;
+        EventsResource&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;events&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;
+                &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Client Added: &amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;+&lt;/span&gt; t&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getName&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot; at &amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;new&lt;/span&gt; Date&lt;span style=&#34;color: #333333&#34;&gt;(&lt;/span&gt;t&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color: #0000CC&#34;&gt;getCreated&lt;/span&gt;&lt;span style=&#34;color: #333333&#34;&gt;())&lt;/span&gt;
+        &lt;span style=&#34;color: #333333&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
 
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 </description>
         </item>
         
@@ -1362,9 +1340,8 @@ y colocarlos en la carpeta OracleSOA/dockerfiles/12.1.3. De la misma forma
  y colocarlo en el mismo folder.&lt;/p&gt;
 
 &lt;p&gt;Abrir un terminal en el directorio &lt;em&gt;OracleSOA&lt;/em&gt;, ir a dockerfiles, y ejecutar el script &lt;em&gt;buildDockerImage.sh&lt;/em&gt; con el argumento &lt;em&gt;-d&lt;/em&gt; que indica que es la versión de desarrollo:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sh buildDockerImage.sh -d
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sh buildDockerImage.sh -d
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Esta ejecución crear una imagen llamada: &lt;strong&gt;oracle/soa:12.1.3-dev&lt;/strong&gt;&lt;/p&gt;
 
@@ -1376,16 +1353,14 @@ crear dominios con WLST.&lt;/p&gt;
 &lt;p&gt;Existe un ejemplo de este procedimiento en &lt;em&gt;OracleSOA/samples&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Para ejecutarlo, ir a &lt;em&gt;OracleSOA/samples/12c-domain&lt;/em&gt; y correr el siguiente comando:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker build -t mysoa .
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;docker build -t mysoa .
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Esto debe crear un imagen &lt;em&gt;mysoa&lt;/em&gt; que contiene un Compact Domain instalado en: &lt;em&gt;/u01/oracle/work/domains/soa-domain&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Eso es todo! Para crear un contenedor desde la imagen, ejecutar:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -i -t mysoa
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;docker run -i -t mysoa
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&#34;siguientes-pasos&#34;&gt;Siguientes pasos&lt;/h3&gt;
 
@@ -1441,49 +1416,44 @@ a una instancia NFS que tiene los instaladores de Oracle (esta fue creada
 &lt;p&gt;{% gist 62b74a9ed65d575d91b4 Vagrantfile &amp;gt;}}&lt;/p&gt;
 
 &lt;p&gt;Ejecutar el siguiente comando:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;vagrant up --provider=aws
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vagrant up --provider&lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt;aws
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3 id=&#34;conectarse-a-la-instancia-nfs&#34;&gt;Conectarse a la instancia NFS&lt;/h3&gt;
 
 &lt;p&gt;Esta es la primera receta Chef que será ejecutada:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;...
-  chef.add_role &amp;quot;nfs-client&amp;quot;
-...
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #333333&#34;&gt;...&lt;/span&gt;
+  chef&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;add_role &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #333333&#34;&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Utilizando el rol Chef:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
-  &amp;quot;name&amp;quot; : &amp;quot;nfs-client&amp;quot;,
-  &amp;quot;description&amp;quot; : &amp;quot;Role applied to the system that should be an NFS client tools.&amp;quot;,
-  &amp;quot;json_class&amp;quot; : &amp;quot;Chef::Role&amp;quot;,
-  &amp;quot;default_attributes&amp;quot; : {
-    &amp;quot;nfs-client&amp;quot; : {
-      &amp;quot;server-host&amp;quot; : &amp;quot;localhost&amp;quot;,
-      &amp;quot;local-directory&amp;quot; : &amp;quot;/data&amp;quot;,
-      &amp;quot;remote-directory&amp;quot; : &amp;quot;/data&amp;quot;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt;,
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;description&amp;quot;&lt;/span&gt; : &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Role applied to the system that should be an NFS client tools.&amp;quot;&lt;/span&gt;,
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt; : &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;,
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;default_attributes&amp;quot;&lt;/span&gt; : {
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt; : {
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;server-host&amp;quot;&lt;/span&gt; : &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;local-directory&amp;quot;&lt;/span&gt; : &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;remote-directory&amp;quot;&lt;/span&gt; : &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;/data&amp;quot;&lt;/span&gt;
     }
   },
-  &amp;quot;run_list&amp;quot; : [
-    &amp;quot;recipe[nfs-utils::nfs-client]&amp;quot;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;run_list&amp;quot;&lt;/span&gt; : [
+    &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;recipe[nfs-utils::nfs-client]&amp;quot;&lt;/span&gt;
   ]
 }
-
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Para actualizar el server-host desde su configuración de Vagrant, agregar las
 siguientes líneas:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;...
-chef.json = {
-  &amp;quot;nfs-client&amp;quot; =&amp;gt; {
-    &amp;quot;server-host&amp;quot; =&amp;gt; &amp;quot;123.1.1.12&amp;quot;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #333333&#34;&gt;...&lt;/span&gt;
+chef&lt;span style=&#34;color: #333333&#34;&gt;.&lt;/span&gt;json &lt;span style=&#34;color: #333333&#34;&gt;=&lt;/span&gt; {
+  &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;nfs-client&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;=&amp;gt;&lt;/span&gt; {
+    &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;server-host&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #333333&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;123.1.1.12&amp;quot;&lt;/span&gt;
   },
-  ...
-&lt;/code&gt;&lt;/pre&gt;
+  &lt;span style=&#34;color: #333333&#34;&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Y cuando la instancia sea creada, un nuevo directorio &amp;ldquo;/data&amp;rdquo; se sincronizará.&lt;/p&gt;
 
@@ -1493,63 +1463,62 @@ chef.json = {
 compartido en Chef Supermarket. Este esta explicador en &lt;a href=&#34;http://jeqo.github.io/blog/devops/chef-cookbook-oracle-fmw-12c-es/&#34;&gt;esta entrada&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;La configuración de Vagrant invoca el provisionamiento con Chef:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
-  &amp;quot;name&amp;quot; : &amp;quot;demo-bpm_bam-12c&amp;quot;,
-  &amp;quot;json_class&amp;quot; : &amp;quot;Chef::Role&amp;quot;,
-  &amp;quot;default_attributes&amp;quot; : {
-    &amp;quot;domain-12c&amp;quot;: {
-      &amp;quot;name&amp;quot;: &amp;quot;demo-bpm_bam-domain&amp;quot;,
-      &amp;quot;mode&amp;quot;: &amp;quot;Compact&amp;quot;,
-      &amp;quot;apps&amp;quot;: [
-        {&amp;quot;name&amp;quot; : &amp;quot;SOA&amp;quot;, &amp;quot;enabled&amp;quot; : true},
-        {&amp;quot;name&amp;quot; : &amp;quot;BPM&amp;quot;, &amp;quot;enabled&amp;quot; : true},
-        {&amp;quot;name&amp;quot; : &amp;quot;BAM&amp;quot;, &amp;quot;enabled&amp;quot; : true},
-        {&amp;quot;name&amp;quot; : &amp;quot;OSB&amp;quot;, &amp;quot;enabled&amp;quot; : false}
+&lt;div class=&#34;highlight&#34; style=&#34;background: #ffffff&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;{
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;demo-bpm_bam-12c&amp;quot;&lt;/span&gt;,
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;json_class&amp;quot;&lt;/span&gt; : &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Chef::Role&amp;quot;&lt;/span&gt;,
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;default_attributes&amp;quot;&lt;/span&gt; : {
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;domain-12c&amp;quot;&lt;/span&gt;: {
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;demo-bpm_bam-domain&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;mode&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;Compact&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;apps&amp;quot;&lt;/span&gt;: [
+        {&lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;SOA&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;true&lt;/span&gt;},
+        {&lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;BPM&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;true&lt;/span&gt;},
+        {&lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;BAM&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;true&lt;/span&gt;},
+        {&lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;OSB&amp;quot;&lt;/span&gt;, &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;enabled&amp;quot;&lt;/span&gt; : &lt;span style=&#34;color: #008800; font-weight: bold&#34;&gt;false&lt;/span&gt;}
       ],
-      &amp;quot;machines&amp;quot;: [
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;machines&amp;quot;&lt;/span&gt;: [
       ],
-      &amp;quot;admin_server&amp;quot;: {
-        &amp;quot;base_name&amp;quot; : &amp;quot;AdminServer&amp;quot;,
-        &amp;quot;new_name&amp;quot; : &amp;quot;bpm_bpm-server&amp;quot;,
-        &amp;quot;port&amp;quot; : &amp;quot;7001&amp;quot;
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;admin_server&amp;quot;&lt;/span&gt;: {
+        &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;base_name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;AdminServer&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;new_name&amp;quot;&lt;/span&gt; : &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;bpm_bpm-server&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;port&amp;quot;&lt;/span&gt; : &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;7001&amp;quot;&lt;/span&gt;
       },
-      &amp;quot;managed_servers&amp;quot;: [
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;managed_servers&amp;quot;&lt;/span&gt;: [
       ],
-      &amp;quot;db_repo_host&amp;quot;: &amp;quot;localhost&amp;quot;,
-      &amp;quot;db_repo_port&amp;quot;: &amp;quot;1521&amp;quot;,
-      &amp;quot;db_repo_sid&amp;quot;: &amp;quot;xe&amp;quot;,
-      &amp;quot;db_repo_prefix&amp;quot;: &amp;quot;DEMO&amp;quot;,
-      &amp;quot;db_repo_password&amp;quot;: &amp;quot;welcome1&amp;quot;
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;db_repo_host&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;db_repo_port&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;1521&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;db_repo_sid&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;xe&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;db_repo_prefix&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;DEMO&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;db_repo_password&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;welcome1&amp;quot;&lt;/span&gt;
     },
-    &amp;quot;rcu-12c&amp;quot;: {
-      &amp;quot;db_schema_prefix&amp;quot;: &amp;quot;DEMO&amp;quot;,
-      &amp;quot;db_dba_user&amp;quot;: &amp;quot;SYS&amp;quot;,
-      &amp;quot;db_dba_role&amp;quot;: &amp;quot;SYSDBA&amp;quot;,
-      &amp;quot;db_dba_password&amp;quot;: &amp;quot;welcome1&amp;quot;,
-      &amp;quot;db_schemas_password&amp;quot;: &amp;quot;welcome1&amp;quot;,
-      &amp;quot;db_hostname&amp;quot;: &amp;quot;localhost&amp;quot;,
-      &amp;quot;db_port&amp;quot;: &amp;quot;1521&amp;quot;,
-      &amp;quot;db_service&amp;quot;: &amp;quot;xe&amp;quot;,
-      &amp;quot;components&amp;quot;: [
-        &amp;quot;SOAINFRA&amp;quot;,
-        &amp;quot;OPSS&amp;quot;,
-        &amp;quot;IAU&amp;quot;,
-        &amp;quot;MDS&amp;quot;,
-        &amp;quot;WLS&amp;quot;,
-        &amp;quot;UCSUMS&amp;quot;,
-        &amp;quot;IAU_APPEND&amp;quot;,
-        &amp;quot;IAU_VIEWER&amp;quot;
+    &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;rcu-12c&amp;quot;&lt;/span&gt;: {
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;db_schema_prefix&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;DEMO&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;db_dba_user&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;SYS&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;db_dba_role&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;SYSDBA&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;db_dba_password&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;welcome1&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;db_schemas_password&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;welcome1&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;db_hostname&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;db_port&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;1521&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;db_service&amp;quot;&lt;/span&gt;: &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;xe&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;components&amp;quot;&lt;/span&gt;: [
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;SOAINFRA&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;OPSS&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;IAU&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;MDS&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;WLS&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;UCSUMS&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;IAU_APPEND&amp;quot;&lt;/span&gt;,
+        &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;IAU_VIEWER&amp;quot;&lt;/span&gt;
       ]
     }
   },
-  &amp;quot;run_list&amp;quot; : [
-    &amp;quot;recipe[oracle-fmw::install-bpm_qs-12c]&amp;quot;,
-    &amp;quot;recipe[oracle-fmw::create-rcu_repository-12c]&amp;quot;,
-    &amp;quot;recipe[oracle-fmw::create-domain-12c]&amp;quot;
+  &lt;span style=&#34;color: #007700&#34;&gt;&amp;quot;run_list&amp;quot;&lt;/span&gt; : [
+    &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;recipe[oracle-fmw::install-bpm_qs-12c]&amp;quot;&lt;/span&gt;,
+    &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;recipe[oracle-fmw::create-rcu_repository-12c]&amp;quot;&lt;/span&gt;,
+    &lt;span style=&#34;background-color: #fff0f0&#34;&gt;&amp;quot;recipe[oracle-fmw::create-domain-12c]&amp;quot;&lt;/span&gt;
   ]
 }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Incluye la llamada a 3 recetas: &amp;ldquo;install-bpm_qs-12c&amp;rdquo; , &amp;ldquo;create-rcu_repository-12c&amp;rdquo;,
 &amp;ldquo;create-domain-12c&amp;rdquo;, incluyendo la información del dominio (&amp;ldquo;domain-12c&amp;rdquo;), y RCU (&amp;ldquo;rcu-12c&amp;rdquo;).&lt;/p&gt;

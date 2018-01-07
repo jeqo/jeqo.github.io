@@ -86,49 +86,44 @@ a una instancia NFS que tiene los instaladores de Oracle (esta fue creada
 <p>{% gist 62b74a9ed65d575d91b4 Vagrantfile &gt;}}</p>
 
 <p>Ejecutar el siguiente comando:</p>
-
-<pre><code class="language-bash">vagrant up --provider=aws
-</code></pre>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">vagrant up --provider<span style="color: #333333">=</span>aws
+</pre></div>
 
 <h3 id="conectarse-a-la-instancia-nfs">Conectarse a la instancia NFS</h3>
 
 <p>Esta es la primera receta Chef que será ejecutada:</p>
-
-<pre><code class="language-ruby">...
-  chef.add_role &quot;nfs-client&quot;
-...
-</code></pre>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #333333">...</span>
+  chef<span style="color: #333333">.</span>add_role <span style="background-color: #fff0f0">&quot;nfs-client&quot;</span>
+<span style="color: #333333">...</span>
+</pre></div>
 
 <p>Utilizando el rol Chef:</p>
-
-<pre><code class="language-json">{
-  &quot;name&quot; : &quot;nfs-client&quot;,
-  &quot;description&quot; : &quot;Role applied to the system that should be an NFS client tools.&quot;,
-  &quot;json_class&quot; : &quot;Chef::Role&quot;,
-  &quot;default_attributes&quot; : {
-    &quot;nfs-client&quot; : {
-      &quot;server-host&quot; : &quot;localhost&quot;,
-      &quot;local-directory&quot; : &quot;/data&quot;,
-      &quot;remote-directory&quot; : &quot;/data&quot;
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">{
+  <span style="color: #007700">&quot;name&quot;</span> : <span style="background-color: #fff0f0">&quot;nfs-client&quot;</span>,
+  <span style="color: #007700">&quot;description&quot;</span> : <span style="background-color: #fff0f0">&quot;Role applied to the system that should be an NFS client tools.&quot;</span>,
+  <span style="color: #007700">&quot;json_class&quot;</span> : <span style="background-color: #fff0f0">&quot;Chef::Role&quot;</span>,
+  <span style="color: #007700">&quot;default_attributes&quot;</span> : {
+    <span style="color: #007700">&quot;nfs-client&quot;</span> : {
+      <span style="color: #007700">&quot;server-host&quot;</span> : <span style="background-color: #fff0f0">&quot;localhost&quot;</span>,
+      <span style="color: #007700">&quot;local-directory&quot;</span> : <span style="background-color: #fff0f0">&quot;/data&quot;</span>,
+      <span style="color: #007700">&quot;remote-directory&quot;</span> : <span style="background-color: #fff0f0">&quot;/data&quot;</span>
     }
   },
-  &quot;run_list&quot; : [
-    &quot;recipe[nfs-utils::nfs-client]&quot;
+  <span style="color: #007700">&quot;run_list&quot;</span> : [
+    <span style="background-color: #fff0f0">&quot;recipe[nfs-utils::nfs-client]&quot;</span>
   ]
 }
-
-</code></pre>
+</pre></div>
 
 <p>Para actualizar el server-host desde su configuración de Vagrant, agregar las
 siguientes líneas:</p>
-
-<pre><code class="language-ruby">...
-chef.json = {
-  &quot;nfs-client&quot; =&gt; {
-    &quot;server-host&quot; =&gt; &quot;123.1.1.12&quot;
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #333333">...</span>
+chef<span style="color: #333333">.</span>json <span style="color: #333333">=</span> {
+  <span style="background-color: #fff0f0">&quot;nfs-client&quot;</span> <span style="color: #333333">=&gt;</span> {
+    <span style="background-color: #fff0f0">&quot;server-host&quot;</span> <span style="color: #333333">=&gt;</span> <span style="background-color: #fff0f0">&quot;123.1.1.12&quot;</span>
   },
-  ...
-</code></pre>
+  <span style="color: #333333">...</span>
+</pre></div>
 
 <p>Y cuando la instancia sea creada, un nuevo directorio &ldquo;/data&rdquo; se sincronizará.</p>
 
@@ -138,63 +133,62 @@ chef.json = {
 compartido en Chef Supermarket. Este esta explicador en <a href="http://jeqo.github.io/blog/devops/chef-cookbook-oracle-fmw-12c-es/">esta entrada</a>.</p>
 
 <p>La configuración de Vagrant invoca el provisionamiento con Chef:</p>
-
-<pre><code class="language-json">{
-  &quot;name&quot; : &quot;demo-bpm_bam-12c&quot;,
-  &quot;json_class&quot; : &quot;Chef::Role&quot;,
-  &quot;default_attributes&quot; : {
-    &quot;domain-12c&quot;: {
-      &quot;name&quot;: &quot;demo-bpm_bam-domain&quot;,
-      &quot;mode&quot;: &quot;Compact&quot;,
-      &quot;apps&quot;: [
-        {&quot;name&quot; : &quot;SOA&quot;, &quot;enabled&quot; : true},
-        {&quot;name&quot; : &quot;BPM&quot;, &quot;enabled&quot; : true},
-        {&quot;name&quot; : &quot;BAM&quot;, &quot;enabled&quot; : true},
-        {&quot;name&quot; : &quot;OSB&quot;, &quot;enabled&quot; : false}
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">{
+  <span style="color: #007700">&quot;name&quot;</span> : <span style="background-color: #fff0f0">&quot;demo-bpm_bam-12c&quot;</span>,
+  <span style="color: #007700">&quot;json_class&quot;</span> : <span style="background-color: #fff0f0">&quot;Chef::Role&quot;</span>,
+  <span style="color: #007700">&quot;default_attributes&quot;</span> : {
+    <span style="color: #007700">&quot;domain-12c&quot;</span>: {
+      <span style="color: #007700">&quot;name&quot;</span>: <span style="background-color: #fff0f0">&quot;demo-bpm_bam-domain&quot;</span>,
+      <span style="color: #007700">&quot;mode&quot;</span>: <span style="background-color: #fff0f0">&quot;Compact&quot;</span>,
+      <span style="color: #007700">&quot;apps&quot;</span>: [
+        {<span style="color: #007700">&quot;name&quot;</span> : <span style="background-color: #fff0f0">&quot;SOA&quot;</span>, <span style="color: #007700">&quot;enabled&quot;</span> : <span style="color: #008800; font-weight: bold">true</span>},
+        {<span style="color: #007700">&quot;name&quot;</span> : <span style="background-color: #fff0f0">&quot;BPM&quot;</span>, <span style="color: #007700">&quot;enabled&quot;</span> : <span style="color: #008800; font-weight: bold">true</span>},
+        {<span style="color: #007700">&quot;name&quot;</span> : <span style="background-color: #fff0f0">&quot;BAM&quot;</span>, <span style="color: #007700">&quot;enabled&quot;</span> : <span style="color: #008800; font-weight: bold">true</span>},
+        {<span style="color: #007700">&quot;name&quot;</span> : <span style="background-color: #fff0f0">&quot;OSB&quot;</span>, <span style="color: #007700">&quot;enabled&quot;</span> : <span style="color: #008800; font-weight: bold">false</span>}
       ],
-      &quot;machines&quot;: [
+      <span style="color: #007700">&quot;machines&quot;</span>: [
       ],
-      &quot;admin_server&quot;: {
-        &quot;base_name&quot; : &quot;AdminServer&quot;,
-        &quot;new_name&quot; : &quot;bpm_bpm-server&quot;,
-        &quot;port&quot; : &quot;7001&quot;
+      <span style="color: #007700">&quot;admin_server&quot;</span>: {
+        <span style="color: #007700">&quot;base_name&quot;</span> : <span style="background-color: #fff0f0">&quot;AdminServer&quot;</span>,
+        <span style="color: #007700">&quot;new_name&quot;</span> : <span style="background-color: #fff0f0">&quot;bpm_bpm-server&quot;</span>,
+        <span style="color: #007700">&quot;port&quot;</span> : <span style="background-color: #fff0f0">&quot;7001&quot;</span>
       },
-      &quot;managed_servers&quot;: [
+      <span style="color: #007700">&quot;managed_servers&quot;</span>: [
       ],
-      &quot;db_repo_host&quot;: &quot;localhost&quot;,
-      &quot;db_repo_port&quot;: &quot;1521&quot;,
-      &quot;db_repo_sid&quot;: &quot;xe&quot;,
-      &quot;db_repo_prefix&quot;: &quot;DEMO&quot;,
-      &quot;db_repo_password&quot;: &quot;welcome1&quot;
+      <span style="color: #007700">&quot;db_repo_host&quot;</span>: <span style="background-color: #fff0f0">&quot;localhost&quot;</span>,
+      <span style="color: #007700">&quot;db_repo_port&quot;</span>: <span style="background-color: #fff0f0">&quot;1521&quot;</span>,
+      <span style="color: #007700">&quot;db_repo_sid&quot;</span>: <span style="background-color: #fff0f0">&quot;xe&quot;</span>,
+      <span style="color: #007700">&quot;db_repo_prefix&quot;</span>: <span style="background-color: #fff0f0">&quot;DEMO&quot;</span>,
+      <span style="color: #007700">&quot;db_repo_password&quot;</span>: <span style="background-color: #fff0f0">&quot;welcome1&quot;</span>
     },
-    &quot;rcu-12c&quot;: {
-      &quot;db_schema_prefix&quot;: &quot;DEMO&quot;,
-      &quot;db_dba_user&quot;: &quot;SYS&quot;,
-      &quot;db_dba_role&quot;: &quot;SYSDBA&quot;,
-      &quot;db_dba_password&quot;: &quot;welcome1&quot;,
-      &quot;db_schemas_password&quot;: &quot;welcome1&quot;,
-      &quot;db_hostname&quot;: &quot;localhost&quot;,
-      &quot;db_port&quot;: &quot;1521&quot;,
-      &quot;db_service&quot;: &quot;xe&quot;,
-      &quot;components&quot;: [
-        &quot;SOAINFRA&quot;,
-        &quot;OPSS&quot;,
-        &quot;IAU&quot;,
-        &quot;MDS&quot;,
-        &quot;WLS&quot;,
-        &quot;UCSUMS&quot;,
-        &quot;IAU_APPEND&quot;,
-        &quot;IAU_VIEWER&quot;
+    <span style="color: #007700">&quot;rcu-12c&quot;</span>: {
+      <span style="color: #007700">&quot;db_schema_prefix&quot;</span>: <span style="background-color: #fff0f0">&quot;DEMO&quot;</span>,
+      <span style="color: #007700">&quot;db_dba_user&quot;</span>: <span style="background-color: #fff0f0">&quot;SYS&quot;</span>,
+      <span style="color: #007700">&quot;db_dba_role&quot;</span>: <span style="background-color: #fff0f0">&quot;SYSDBA&quot;</span>,
+      <span style="color: #007700">&quot;db_dba_password&quot;</span>: <span style="background-color: #fff0f0">&quot;welcome1&quot;</span>,
+      <span style="color: #007700">&quot;db_schemas_password&quot;</span>: <span style="background-color: #fff0f0">&quot;welcome1&quot;</span>,
+      <span style="color: #007700">&quot;db_hostname&quot;</span>: <span style="background-color: #fff0f0">&quot;localhost&quot;</span>,
+      <span style="color: #007700">&quot;db_port&quot;</span>: <span style="background-color: #fff0f0">&quot;1521&quot;</span>,
+      <span style="color: #007700">&quot;db_service&quot;</span>: <span style="background-color: #fff0f0">&quot;xe&quot;</span>,
+      <span style="color: #007700">&quot;components&quot;</span>: [
+        <span style="background-color: #fff0f0">&quot;SOAINFRA&quot;</span>,
+        <span style="background-color: #fff0f0">&quot;OPSS&quot;</span>,
+        <span style="background-color: #fff0f0">&quot;IAU&quot;</span>,
+        <span style="background-color: #fff0f0">&quot;MDS&quot;</span>,
+        <span style="background-color: #fff0f0">&quot;WLS&quot;</span>,
+        <span style="background-color: #fff0f0">&quot;UCSUMS&quot;</span>,
+        <span style="background-color: #fff0f0">&quot;IAU_APPEND&quot;</span>,
+        <span style="background-color: #fff0f0">&quot;IAU_VIEWER&quot;</span>
       ]
     }
   },
-  &quot;run_list&quot; : [
-    &quot;recipe[oracle-fmw::install-bpm_qs-12c]&quot;,
-    &quot;recipe[oracle-fmw::create-rcu_repository-12c]&quot;,
-    &quot;recipe[oracle-fmw::create-domain-12c]&quot;
+  <span style="color: #007700">&quot;run_list&quot;</span> : [
+    <span style="background-color: #fff0f0">&quot;recipe[oracle-fmw::install-bpm_qs-12c]&quot;</span>,
+    <span style="background-color: #fff0f0">&quot;recipe[oracle-fmw::create-rcu_repository-12c]&quot;</span>,
+    <span style="background-color: #fff0f0">&quot;recipe[oracle-fmw::create-domain-12c]&quot;</span>
   ]
 }
-</code></pre>
+</pre></div>
 
 <p>Incluye la llamada a 3 recetas: &ldquo;install-bpm_qs-12c&rdquo; , &ldquo;create-rcu_repository-12c&rdquo;,
 &ldquo;create-domain-12c&rdquo;, incluyendo la información del dominio (&ldquo;domain-12c&rdquo;), y RCU (&ldquo;rcu-12c&rdquo;).</p>
