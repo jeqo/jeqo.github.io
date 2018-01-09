@@ -151,7 +151,20 @@ fashion. <strong>Being constrained to hold active locks on records in the databa
 For instance, <em>brokers</em> in Apache Kafka trust internally in Zookeeper service to assign a leader replica
 for each partition to a broker.</p>
 
-<p>//TODO describe operators operands and reference data.</p>
+<p>Then, a couple of concepts are introduced here that are important along the paper:</p>
+
+<blockquote>
+<ul>
+<li><strong>Operators</strong>: correspond to the intended purpose for the message. Frequently,
+the operator reflects a business function in the domain of the service.</li>
+<li><strong>Operandos</strong>: The operands are additional information required by the
+operator message to fully qualify the intent of the sending service. Operands are typically obtained from reference
+data published by a service to facilitate its later invocation with an operator message.</li>
+</ul>
+</blockquote>
+
+<img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/operatos-operands.png" alt="Data on the Outside vs Data on the Inside /images/notes/data-on-the-outside-vs-data-on-the-inside/operatos-operands.png" data-action="zoom">
+
 
 <h2 id="data-then-and-now">Data: Then and Now</h2>
 

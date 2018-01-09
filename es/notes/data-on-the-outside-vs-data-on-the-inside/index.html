@@ -157,7 +157,20 @@ a tiempo.
 que tienen un alto nivel de confianza, por ejemplo: <em>brokers</em> de Kafka confian internamente
 en el servicio de Zookeeper para asignar la réplica líder de una partición.</p>
 
-<p>//TODO describing Operators, Operands and Reference Data</p>
+<p>Luego, introduce 2 conceptos importantes a lo largo del <em>paper</em>:</p>
+
+<blockquote>
+<ul>
+<li><strong>Operadores</strong>: corresponde a la intención del mensaje. Frecuentemente, el operador refleja una función de negocio en el
+dominio del servicio.</li>
+<li><strong>Operandos</strong>: Mensajes pueden contener operandos para los operadores. Los operandos son información adicional requeridos por
+el mensaje operador para calificar la intensión del servicio. Operandos son usualmente obtenidos a partir de <em>Datos de Referencia</em>
+publicados por un servico para facilitar su invocación más adelante.</li>
+</ul>
+</blockquote>
+
+<img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/operatos-operands.png" alt="Data on the Outside vs Data on the Inside /images/notes/data-on-the-outside-vs-data-on-the-inside/operatos-operands.png" data-action="zoom">
+
 
 <h2 id="data-then-and-now"><em>Data: Then and Now</em></h2>
 
@@ -326,14 +339,16 @@ de <em>outside data</em></p>
 <p>SQL is claramente el líder para representar <em>inside data</em></p>
 </blockquote>
 
-<p><img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/outside-vs-inside.png" alt="outside vs inside" /></p>
+<img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/outside-vs-inside.png" alt="Data on the Outside vs Data on the Inside /images/notes/data-on-the-outside-vs-data-on-the-inside/outside-vs-inside.png" data-action="zoom">
+
 
 <p><em>Actuamente podríamos transladar similares beneficios y debilidades a JSON como opción para datos fuera del servicio,
 y bases de datos NoSQL para datos internos.</em></p>
 
 <p>Para finalmente comparar los beneficios y debilidades de 3 formas de representar datos: XML, SQL y Objectos:</p>
 
-<p><img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/sql-xml-object.png" alt="xml vs sql vs objects" /></p>
+<img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/sql-xml-object.png" alt="Data on the Outside vs Data on the Inside /images/notes/data-on-the-outside-vs-data-on-the-inside/sql-xml-object.png" data-action="zoom">
+
 
 <p>Concluyendo:</p>
 
