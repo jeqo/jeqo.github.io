@@ -93,14 +93,12 @@
   <header>
     <h1>Vagrant and Chef Quickstart</h1>
     <div>
-      
       <div class="c-time">
         Posted on
         <time datetime="2014-11-26T00:00:00Z">
           Nov 26, 2014
         </time>
       </div>
-      
       
       <a href="https://jeqo.github.io/tags/vagrant" class="c-tag">vagrant</a>
       
@@ -459,6 +457,10 @@ service <span style="background-color:#fff0f0">&#34;httpd&#34;</span> <span styl
     
     <div id="disqus_thread"></div>
     <script>
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
     var disqus_shortname = 'jeqoblog';
     (function() {
     var d = document, s = d.createElement('script');

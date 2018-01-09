@@ -98,14 +98,12 @@
   <header>
     <h1>About</h1>
     <div>
-      
       <div class="c-time">
         Posted on
         <time datetime="0001-01-01T00:00:00Z">
           Jan 1, 0001
         </time>
       </div>
-      
       
     </div>
   </header>
@@ -165,6 +163,10 @@ Theme is a fork of &lsquo;darksimplicity&rsquo; theme. Source can be found <a hr
     
     <div id="disqus_thread"></div>
     <script>
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
     var disqus_shortname = 'jeqoblog';
     (function() {
     var d = document, s = d.createElement('script');

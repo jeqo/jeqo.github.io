@@ -98,14 +98,12 @@
   <header>
     <h1>Running Oracle BPM 12c on AWS using Vagrant and Chef</h1>
     <div>
-      
       <div class="c-time">
         Posted on
         <time datetime="2014-12-11T00:00:00Z">
           Dec 11, 2014
         </time>
       </div>
-      
       
       <a href="https://jeqo.github.io/tags/oracle" class="c-tag">oracle</a>
       
@@ -339,6 +337,10 @@ chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
     
     <div id="disqus_thread"></div>
     <script>
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
     var disqus_shortname = 'jeqoblog';
     (function() {
     var d = document, s = d.createElement('script');

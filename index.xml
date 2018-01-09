@@ -7,10 +7,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Sat, 25 Nov 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Apache Kafka</title>
+      <link>https://jeqo.github.io/notes/apache-kafka/</link>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/apache-kafka/</guid>
+      <description>Contributions  KIP-122: Add Reset Consumer Group Offsets tooling https://cwiki.apache.org/confluence/display/KAFKA/KIP-122%3A+Add+Reset+Consumer+Group+Offsets+tooling
+ KIP-171 - Extend Consumer Group Reset Offset for Stream Application https://cwiki.apache.org/confluence/display/KAFKA/KIP-171+-+Extend+Consumer+Group+Reset+Offset+for+Stream+Application
+ KIP-222 - Add Consumer Group operations to Admin API https://cwiki.apache.org/confluence/display/KAFKA/KIP-222+-+Add+Consumer+Group+operations+to+Admin+API
+ KIP-244: Add Record Header support to Kafka Streams https://cwiki.apache.org/confluence/display/KAFKA/KIP-244%3A+Add+Record+Header+support+to+Kafka+Streams
+  References Schemas  Streaming Microservices: Contracts &amp;amp; Compatibility https://www.infoq.com/presentations/contracts-streaming-microservices#
+ RESTful service for holding schemas https://issues.apache.org/jira/browse/AVRO-1124
+  Microservices and Kafka  The Data Dichotomy: Rethinking the Way We Treat Data and Services https://www.</description>
+    </item>
+    
+    <item>
+      <title>Data on the Outside vs Data on the Inside</title>
+      <link>https://jeqo.github.io/notes/data-on-the-outside-vs-data-on-the-inside/</link>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/data-on-the-outside-vs-data-on-the-inside/</guid>
+      <description>I found this paper as relevant and accurate today as it was in 2005, when it was published. It is fascinating how even 12 years later and with new technologies in vogue, same concepts keep applying.
+Overall, I found esential to evaluate concepts proposed here by Pat Helland in relation with Microservices: This paper is describing challenges that we, as developers, will have to deal when they are moving from a monolithic architecture (when we can trust that all components are located in the same context - i.</description>
+    </item>
     
     <item>
       <title>Distributed Tracing with OpenTracing - NoSlidesConf 2017</title>

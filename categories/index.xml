@@ -67,6 +67,15 @@
     </item>
     
     <item>
+      <title>Notes</title>
+      <link>https://jeqo.github.io/categories/notes/</link>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Observability</title>
       <link>https://jeqo.github.io/categories/observability/</link>
       <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
@@ -81,6 +90,15 @@
       <pubDate>Sat, 25 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/categories/operations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Papers</title>
+      <link>https://jeqo.github.io/categories/papers/</link>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/papers/</guid>
       <description></description>
     </item>
     

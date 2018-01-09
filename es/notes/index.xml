@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0">
-    <channel>
-        <title>Jorge Quilcate Otoya on @jeqo</title>
-        <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/es/notes/</link>
-        <language>en-us</language>
-        <author>Jorge Quilcate Otoya</author>
-        
-        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
-        
-        <item>
-            <title>Observabilidad</title>
-            <link>https://jeqo.github.io/es/notes/observability/</link>
-            <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/es/notes/observability/</guid>
-            <description>
-
-&lt;h2 id=&#34;observabilidad&#34;&gt;Observabilidad&lt;/h2&gt;
-
-&lt;h2 id=&#34;referencias&#34;&gt;Referencias&lt;/h2&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on @jeqo</title>
+    <link>https://jeqo.github.io/es/notes/</link>
+    <description>Recent content in Notes on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright @jeqo</copyright>
+    <lastBuildDate>Mon, 08 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jeqo.github.io/es/notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data on the Outside vs Data on the Inside</title>
+      <link>https://jeqo.github.io/es/notes/data-on-the-outside-vs-data-on-the-inside/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/es/notes/data-on-the-outside-vs-data-on-the-inside/</guid>
+      <description>Encuentro este paper tan relevante y preciso hoy como lo fue en 2005, cuando fue publicado. Es fascinante como luego de 12 años y con nuevas tecnologías en voga, los mismos conceptos siguen aplicando.
+Sobre todo encuentro esencial evaluar los conceptos propuestos por Pat Helland en relación a Microservicios: En este paper se describen los retos que afrontan los desarrolladores cuando salen de un entorno monolítico (donde se puede confiar en que todos los componentes están ubicados en un mismo entorno - i.</description>
+    </item>
+    
+  </channel>
 </rss>

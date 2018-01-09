@@ -98,14 +98,12 @@
   <header>
     <h1>Acerca</h1>
     <div>
-      
       <div class="c-time">
         Posted on
         <time datetime="0001-01-01T00:00:00Z">
           Jan 1, 0001
         </time>
       </div>
-      
       
     </div>
   </header>
@@ -164,6 +162,10 @@ El tema es un fork de &lsquo;darksimplicity&rsquo;. Las fuentes de tema pueden s
     
     <div id="disqus_thread"></div>
     <script>
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
     var disqus_shortname = 'jeqoblog';
     (function() {
     var d = document, s = d.createElement('script');

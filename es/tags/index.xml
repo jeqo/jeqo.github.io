@@ -58,6 +58,15 @@
     </item>
     
     <item>
+      <title>Distributed Systems</title>
+      <link>https://jeqo.github.io/es/tags/distributed-systems/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/es/tags/distributed-systems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Docker</title>
       <link>https://jeqo.github.io/es/tags/docker/</link>
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
@@ -112,6 +121,15 @@
     </item>
     
     <item>
+      <title>Microservices</title>
+      <link>https://jeqo.github.io/es/tags/microservices/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/es/tags/microservices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Nfs</title>
       <link>https://jeqo.github.io/es/tags/nfs/</link>
       <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
@@ -148,6 +166,15 @@
     </item>
     
     <item>
+      <title>Pat Helland</title>
+      <link>https://jeqo.github.io/es/tags/pat-helland/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/es/tags/pat-helland/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Rx</title>
       <link>https://jeqo.github.io/es/tags/rx/</link>
       <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
@@ -171,6 +198,15 @@
       <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/es/tags/tracing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Transactions</title>
+      <link>https://jeqo.github.io/es/tags/transactions/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/es/tags/transactions/</guid>
       <description></description>
     </item>
     
