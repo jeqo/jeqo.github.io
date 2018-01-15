@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0">
-    <channel>
-        <title>Jorge Quilcate Otoya on @jeqo</title>
-        <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://jeqo.github.io/tags/observability/</link>
-        <language>en-us</language>
-        <author>Jorge Quilcate Otoya</author>
-        
-        <updated>Mon, 01 Jan 0001 00:00:00 UTC</updated>
-        
-        <item>
-            <title>Observability</title>
-            <link>https://jeqo.github.io/notes/observability/</link>
-            <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
-            <author>Jorge Quilcate Otoya</author>
-            <guid>https://jeqo.github.io/notes/observability/</guid>
-            <description>
-
-&lt;h2 id=&#34;observability&#34;&gt;Observability&lt;/h2&gt;
-
-&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
-</description>
-        </item>
-        
-    </channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Observability on @jeqo</title>
+    <link>https://jeqo.github.io/tags/observability/</link>
+    <description>Recent content in Observability on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright @jeqo</copyright>
+    <lastBuildDate>Thu, 04 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jeqo.github.io/tags/observability/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Observability</title>
+      <link>https://jeqo.github.io/notes/observability/</link>
+      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/observability/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
 </rss>

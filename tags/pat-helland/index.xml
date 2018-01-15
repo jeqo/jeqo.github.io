@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Sat, 06 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/tags/pat-helland/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,11 +15,14 @@
     <item>
       <title>Data on the Outside vs Data on the Inside</title>
       <link>https://jeqo.github.io/notes/data-on-the-outside-vs-data-on-the-inside/</link>
-      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/notes/data-on-the-outside-vs-data-on-the-inside/</guid>
-      <description>I found this paper as relevant and accurate today as it was in 2005, when it was published. It is fascinating how even 12 years later and with new technologies in vogue, same concepts keep applying.
-Overall, I found esential to evaluate concepts proposed here by Pat Helland in relation with Microservices: This paper is describing challenges that we, as developers, will have to deal when they are moving from a monolithic architecture (when we can trust that all components are located in the same context - i.</description>
+      <description>&lt;p&gt;I found this paper as relevant and accurate today as it was in 2005, when it was published.
+It is fascinating how even 12 years later and with new technologies in vogue,
+same concepts keep applying.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
