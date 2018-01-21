@@ -400,22 +400,6 @@
   </url>
   
   <url>
-    <loc>https://jeqo.github.io/es/tags/integration/</loc>
-    <lastmod>2017-02-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/integration/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/integration/"
-                />
-  </url>
-  
-  <url>
     <loc>https://jeqo.github.io/es/categories/integration/</loc>
     <lastmod>2017-02-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -428,6 +412,22 @@
                 rel="alternate"
                 hreflang="es"
                 href="https://jeqo.github.io/es/categories/integration/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/es/tags/integration/</loc>
+    <lastmod>2017-02-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/tags/integration/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/tags/integration/"
                 />
   </url>
   
@@ -467,16 +467,6 @@
     <loc>https://jeqo.github.io/es/tags/metrics/</loc>
     <lastmod>2017-12-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/metrics/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/metrics/"
-                />
   </url>
   
   <url>
@@ -531,16 +521,6 @@
     <loc>https://jeqo.github.io/es/tags/observability/</loc>
     <lastmod>2017-12-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/observability/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/observability/"
-                />
   </url>
   
   <url>

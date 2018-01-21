@@ -7,19 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 04 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Nov 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/categories/operations/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Observability</title>
-      <link>https://jeqo.github.io/notes/observability/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/notes/observability/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>Distributed Tracing with OpenTracing - NoSlidesConf 2017</title>
