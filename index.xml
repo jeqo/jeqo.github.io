@@ -7,10 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Mon, 08 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Immutability Changes Evrything</title>
+      <link>https://jeqo.github.io/notes/immutability-changes-everything/</link>
+      <pubDate>Tue, 16 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/immutability-changes-everything/</guid>
+      <description>&lt;p&gt;Immutability is one of those concepts that could appear simple
+and even dumb at first (&amp;ldquo;yeah, a thing that never changes&amp;rdquo;)
+but it is incredible useful and fundamental for distributed systems:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;We &lt;strong&gt;need immutability&lt;/strong&gt; to coordinate at a distance&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is pretty much related with Pat&amp;rsquo;s previous paper:
+&lt;a href=&#34;../data-on-the-outside-vs-data-on-the-inside/&#34;&gt;Data on the Outside vs Data on the Inside&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;[&amp;hellip;] and we &lt;strong&gt;can afford immutability&lt;/strong&gt;, as storage gets cheaper.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Data on the Outside vs Data on the Inside</title>
@@ -31,6 +55,15 @@ same concepts keep applying.&lt;/p&gt;
       <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/notes/apache-kafka/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Observability</title>
+      <link>https://jeqo.github.io/notes/observability/</link>
+      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/observability/</guid>
       <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     

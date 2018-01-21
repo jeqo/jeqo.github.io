@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jeqo.github.io/notes/immutability-changes-everything/</loc>
+    <lastmod>2018-01-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/notes/data-on-the-outside-vs-data-on-the-inside/</loc>
     <lastmod>2018-01-08T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -20,6 +25,11 @@
   <url>
     <loc>https://jeqo.github.io/notes/apache-kafka/</loc>
     <lastmod>2018-01-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/notes/observability/</loc>
+    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -219,7 +229,7 @@
   
   <url>
     <loc>https://jeqo.github.io/</loc>
-    <lastmod>2018-01-08T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -389,7 +399,7 @@
   
   <url>
     <loc>https://jeqo.github.io/categories/devops/</loc>
-    <lastmod>2017-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -540,6 +550,22 @@
   </url>
   
   <url>
+    <loc>https://jeqo.github.io/tags/metrics/</loc>
+    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/tags/metrics/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/tags/metrics/"
+                />
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/tags/microservices/</loc>
     <lastmod>2018-01-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -573,7 +599,7 @@
   
   <url>
     <loc>https://jeqo.github.io/notes/</loc>
-    <lastmod>2018-01-08T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -594,6 +620,22 @@
   </url>
   
   <url>
+    <loc>https://jeqo.github.io/tags/observability/</loc>
+    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/tags/observability/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/tags/observability/"
+                />
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/categories/observability/</loc>
     <lastmod>2017-09-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -601,7 +643,7 @@
   
   <url>
     <loc>https://jeqo.github.io/categories/operations/</loc>
-    <lastmod>2017-11-25T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -767,7 +809,7 @@
   
   <url>
     <loc>https://jeqo.github.io/tags/tracing/</loc>
-    <lastmod>2017-11-25T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
