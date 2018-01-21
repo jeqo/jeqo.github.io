@@ -148,6 +148,15 @@
     </item>
     
     <item>
+      <title>Metrics</title>
+      <link>https://jeqo.github.io/tags/metrics/</link>
+      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/metrics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Microservices</title>
       <link>https://jeqo.github.io/tags/microservices/</link>
       <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
@@ -162,6 +171,15 @@
       <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/nfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Observability</title>
+      <link>https://jeqo.github.io/tags/observability/</link>
+      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/observability/</guid>
       <description></description>
     </item>
     
@@ -222,7 +240,7 @@
     <item>
       <title>Tracing</title>
       <link>https://jeqo.github.io/tags/tracing/</link>
-      <pubDate>Sat, 25 Nov 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/tracing/</guid>
       <description></description>

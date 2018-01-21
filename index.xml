@@ -59,6 +59,15 @@ same concepts keep applying.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Observability</title>
+      <link>https://jeqo.github.io/notes/observability/</link>
+      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/observability/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Distributed Tracing with OpenTracing - NoSlidesConf 2017</title>
       <link>https://jeqo.github.io/talks/distributed-tracing-with-opentracing-noslides18/</link>
       <pubDate>Sat, 25 Nov 2017 00:00:00 +0000</pubDate>
