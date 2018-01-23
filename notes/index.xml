@@ -7,10 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Mon, 08 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Distributed Systems</title>
+      <link>https://jeqo.github.io/notes/distributed-systems/</link>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/distributed-systems/</guid>
+      <description> Distributed Storage  The Probability of Data Loss in Large Clusters - Martin Kleppmann: https://martin.kleppmann.com/2017/01/26/data-loss-in-large-clusters.html  </description>
+    </item>
+    
+    <item>
+      <title>Event-Driven Architecture</title>
+      <link>https://jeqo.github.io/notes/event-driven-architecture/</link>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/event-driven-architecture/</guid>
+      <description> Event-Driven Architecture  The Many Meanings of Event-Driven Architecture - Martin Fowler - GOTO 2017: https://www.youtube.com/watch?v=STKCRSUsyP0
+ Stream Processing, Event Sourcing, Reactive, CEP.. and making sense of it all - Martin Kleppmann: https://martin.kleppmann.com/2015/01/29/stream-processing-event-sourcing-reactive-cep.html
+ Events as First-Class Citizens - Randy Shoup: https://codeburst.io/events-as-first-class-citizens-646989808785
+  </description>
+    </item>
     
     <item>
       <title>Data on the Outside vs Data on the Inside</title>
