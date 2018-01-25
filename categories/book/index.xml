@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Book on @jeqo</title>
+    <link>https://jeqo.github.io/categories/book/</link>
+    <description>Recent content in Book on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright @jeqo</copyright>
+    
+	<atom:link href="https://jeqo.github.io/categories/book/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Designing Data Intensive Applications - Part III: Derived Data</title>
+      <link>https://jeqo.github.io/notes/designing-data-intensive-applications-derived-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/designing-data-intensive-applications-derived-data/</guid>
+      <description>Systems of Records and Derived Data
+ Systems of Records
+Also known as source of truth, holds the authoritative version of your data. [&amp;hellip;] If there is any discrepancy between another system and the system of records, then the value in the system of record is the correct one.
+Derived Data Systems
+If you lose derived data, you can recreate it from the original source.
+ (e.g. caches, materialized views, indexes)</description>
+    </item>
+    
+  </channel>
+</rss>

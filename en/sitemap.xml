@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jeqo.github.io/notes/eventually-consistent/</loc>
+    <lastmod>2018-01-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/notes/the-tail-at-scale/</loc>
+    <lastmod>2018-01-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/notes/distributed-systems/</loc>
     <lastmod>2018-01-23T00:00:00+00:00</lastmod>
   </url>
@@ -10,6 +20,11 @@
   <url>
     <loc>https://jeqo.github.io/notes/event-driven-architecture/</loc>
     <lastmod>2018-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/notes/standing-on-giant-distributed-shoulders/</loc>
+    <lastmod>2018-01-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -234,7 +249,7 @@
   
   <url>
     <loc>https://jeqo.github.io/</loc>
-    <lastmod>2018-01-23T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -327,6 +342,11 @@
   </url>
   
   <url>
+    <loc>https://jeqo.github.io/categories/book/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/tags/book/</loc>
     <lastmod>2014-11-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -387,6 +407,10 @@
   </url>
   
   <url>
+    <loc>https://jeqo.github.io/notes/designing-data-intensive-applications-derived-data/</loc>
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/categories/development/</loc>
     <lastmod>2017-03-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -444,7 +468,7 @@
   
   <url>
     <loc>https://jeqo.github.io/tags/distributed-systems/</loc>
-    <lastmod>2018-01-08T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -491,22 +515,6 @@
   </url>
   
   <url>
-    <loc>https://jeqo.github.io/tags/integration/</loc>
-    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/integration/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/integration/"
-                />
-  </url>
-  
-  <url>
     <loc>https://jeqo.github.io/categories/integration/</loc>
     <lastmod>2017-09-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -519,6 +527,22 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jeqo.github.io/categories/integration/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/tags/integration/</loc>
+    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/tags/integration/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/tags/integration/"
                 />
   </url>
   
@@ -604,7 +628,7 @@
   
   <url>
     <loc>https://jeqo.github.io/notes/</loc>
-    <lastmod>2018-01-23T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -625,6 +649,12 @@
   </url>
   
   <url>
+    <loc>https://jeqo.github.io/categories/observability/</loc>
+    <lastmod>2017-09-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/tags/observability/</loc>
     <lastmod>2018-01-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -638,12 +668,6 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/observability/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://jeqo.github.io/categories/observability/</loc>
-    <lastmod>2017-09-28T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -695,8 +719,14 @@
   </url>
   
   <url>
+    <loc>https://jeqo.github.io/categories/paper/</loc>
+    <lastmod>2018-01-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/categories/papers/</loc>
-    <lastmod>2018-01-08T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -712,7 +742,7 @@
   
   <url>
     <loc>https://jeqo.github.io/tags/pat-helland/</loc>
-    <lastmod>2018-01-08T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -830,7 +860,7 @@
   
   <url>
     <loc>https://jeqo.github.io/tags/transactions/</loc>
-    <lastmod>2018-01-08T00:00:00+00:00</lastmod>
+    <lastmod>2018-01-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -863,6 +893,11 @@
   <url>
     <loc>https://jeqo.github.io/tags/virtualbox/</loc>
     <lastmod>2014-11-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/tags/wip/</loc>
     <priority>0</priority>
   </url>
   

@@ -400,22 +400,6 @@
   </url>
   
   <url>
-    <loc>https://jeqo.github.io/es/categories/integration/</loc>
-    <lastmod>2017-02-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/categories/integration/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/categories/integration/"
-                />
-  </url>
-  
-  <url>
     <loc>https://jeqo.github.io/es/tags/integration/</loc>
     <lastmod>2017-02-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -428,6 +412,22 @@
                 rel="alternate"
                 hreflang="es"
                 href="https://jeqo.github.io/es/tags/integration/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/es/categories/integration/</loc>
+    <lastmod>2017-02-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/categories/integration/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/categories/integration/"
                 />
   </url>
   
