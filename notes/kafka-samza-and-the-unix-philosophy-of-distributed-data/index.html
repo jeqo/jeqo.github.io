@@ -160,22 +160,34 @@
 
 <h2 id="from-batch-to-streaming-workflows">From Batch to Streaming workflows</h2>
 
-<blockquote>
-<p>[Large-Scale Personalized Services] should have the following properties:
-* System scalability
-* Organizational scalability
-* Operational robustness</p>
+<p>Key properties for large-scale systems:</p>
 
+<blockquote>
+<p>[Large-Scale Personalized Services] should have the following properties:</p>
+
+<ul>
+<li>System scalability</li>
+<li>Organizational scalability</li>
+<li>Operational robustness</li>
+</ul>
+</blockquote>
+
+<p>Where Batch jobs have been successfully used, and represent a reference model to improve from:</p>
+
+<blockquote>
 <p>[Batch, Map-Reduce jobs] has been remarkably successful tool for implementing recommendation systems.</p>
 
-<p>[Batch important benefits:]
-* Multi-consumer: several jobs reading input directories without affecting each others.
-* Visibility: job&rsquo;s input and output can be inspected for tracking down the cause of an error.
-* Team Interface: Directory names, output from one team&rsquo;s job, can be used as input for other team, acting as a interface.
-* Loose coupling: Jobs can be implemented in different languages, using different libraries, relying on the same format.
-* Data provenance: With explicit inputs and outputs for each job, the flow of data can be tracked through the system.
-* Failure recovery: If job 46th out of 50 fail, we can restart from job 46th instead of re-run the entire workflow.
-* Friendly to experimentation: Most jobs modify only their designated output directories, and have no other side effect.</p>
+<p>[Batch important benefits:]</p>
+
+<ul>
+<li>Multi-consumer: several jobs reading input directories without affecting each others.</li>
+<li>Visibility: job&rsquo;s input and output can be inspected for tracking down the cause of an error.</li>
+<li>Team Interface: Directory names, output from one team&rsquo;s job, can be used as input for other team, acting as a interface.</li>
+<li>Loose coupling: Jobs can be implemented in different languages, using different libraries, relying on the same format.</li>
+<li>Data provenance: With explicit inputs and outputs for each job, the flow of data can be tracked through the system.</li>
+<li>Failure recovery: If job 46th out of 50 fail, we can restart from job 46th instead of re-run the entire workflow.</li>
+<li>Friendly to experimentation: Most jobs modify only their designated output directories, and have no other side effect.</li>
+</ul>
 
 <p>When moving from a high-latency batch system to a low-latency streaming system, we wish to preserve the attractive properties listed above.</p>
 
