@@ -32,7 +32,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.32.2" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -243,14 +243,14 @@ variable &ldquo;java_provider&rdquo; y luego definir la variable de entorno: JAV
 <p>Este rol también tiene una carpeta de pruebas &ldquo;tests&rdquo;, con un &ldquo;playbook&rdquo; con
 algunas pruebas:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>test<span style="color:#bbb"> </span>install<span style="color:#bbb"> </span>openjdk<span style="color:#bbb"> </span>jdk<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb"> </span>on<span style="color:#bbb"> </span>centos<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">7</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>hosts:<span style="color:#bbb"> </span>test<span style="color:#60e;font-weight:bold">01</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span>hosts:<span style="color:#bbb"> </span>test01<span style="color:#bbb">
 </span><span style="color:#bbb">  </span>roles:<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>role:<span style="color:#bbb"> </span>java<span style="color:#bbb">
 </span><span style="color:#bbb">      </span>java_provider:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
 </span><span style="color:#bbb">      </span>java_version:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb">
 </span><span style="color:#bbb">      </span>java_type:<span style="color:#bbb"> </span>jdk<span style="color:#bbb">
 </span><span style="color:#bbb"></span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>test<span style="color:#bbb"> </span>install<span style="color:#bbb"> </span>openjdk<span style="color:#bbb"> </span>jre<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb"> </span>on<span style="color:#bbb"> </span>centos<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">7</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>hosts:<span style="color:#bbb"> </span>test<span style="color:#60e;font-weight:bold">02</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span>hosts:<span style="color:#bbb"> </span>test02<span style="color:#bbb">
 </span><span style="color:#bbb">  </span>roles:<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>role:<span style="color:#bbb"> </span>java<span style="color:#bbb">
 </span><span style="color:#bbb">      </span>java_provider:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
@@ -258,7 +258,7 @@ algunas pruebas:</p>
 </span><span style="color:#bbb">      </span>java_type:<span style="color:#bbb"> </span>jre<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#888"># more tests...</span></code></pre></div>
 <p>Y para ejecutar las pruebas utilizo Vagrant y VirtualBox:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#036;font-weight:bold">Vagrant</span><span style="color:#333">.</span>configure(<span style="color:#00d;font-weight:bold">2</span><span style="color:#333"></span>) <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>config<span style="color:#333">|</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#036;font-weight:bold">Vagrant</span><span style="color:#333">.</span>configure(<span style="color:#00d;font-weight:bold">2</span>) <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>config<span style="color:#333">|</span>
 
   config<span style="color:#333">.</span>vm<span style="color:#333">.</span>provision <span style="background-color:#fff0f0">&#34;ansible&#34;</span> <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>ansible<span style="color:#333">|</span>
     ansible<span style="color:#333">.</span>playbook <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;test.yml&#34;</span>

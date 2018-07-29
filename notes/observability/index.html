@@ -32,7 +32,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.32.2" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -162,6 +162,48 @@
 
 <h2 id="references">References</h2>
 
+<h3 id="projects">Projects</h3>
+
+<h4 id="opencensus">OpenCensus</h4>
+
+<ul>
+<li>Specifications <a href="https://github.com/census-instrumentation/opencensus-specs">https://github.com/census-instrumentation/opencensus-specs</a></li>
+</ul>
+
+<blockquote>
+<p>Context API, Tags API, Stats API, Trace API -&gt; Exporters</p>
+</blockquote>
+
+<h4 id="openzipkin">OpenZipkin</h4>
+
+<ul>
+<li>B3 Propagation <a href="https://github.com/openzipkin/b3-propagation">https://github.com/openzipkin/b3-propagation</a></li>
+</ul>
+
+<blockquote>
+<p>Trace Context consists on: Trace Id, Parent Span Id, Span Id and Flags, that includes Parent Sampling Decition and Debugging option.</p>
+</blockquote>
+
+<ul>
+<li>Zipkin API <a href="https://github.com/openzipkin/zipkin-api">https://github.com/openzipkin/zipkin-api</a> and Swagger: <a href="https://zipkin.io/zipkin-api/#/">https://zipkin.io/zipkin-api/#/</a></li>
+</ul>
+
+<h4 id="spigo">Spigo</h4>
+
+<p>Repository: <a href="https://github.com/jeqo/spigo">https://github.com/jeqo/spigo</a></p>
+
+<h5 id="implementation">Implementation</h5>
+
+<p><code>tooling/archius.go</code> contains all configuration options.</p>
+
+<p><code>actors/edda.go</code> start microservices.</p>
+
+<p><code>tooling/architecture.go</code> manage Spigo</p>
+
+<p><code>tooling/asgard.go</code> create nodes (i.e. start specific node depending on type assigned on architecture)</p>
+
+<p><code>actors/eureka.go</code> works as service registry.</p>
+
 <h3 id="papers">Papers</h3>
 
 <ul>
@@ -239,7 +281,7 @@
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/notes/apache-kafka/">Newer</a>
+          <a href="https://jeqo.github.io/notes/reactive-streams/">Newer</a>
           
         </div>
         <div class="c-pagination__older">

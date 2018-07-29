@@ -96,7 +96,7 @@
     <item>
       <title>Distributed Systems</title>
       <link>https://jeqo.github.io/tags/distributed-systems/</link>
-      <pubDate>Thu, 25 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/distributed-systems/</guid>
       <description></description>
@@ -141,7 +141,7 @@
     <item>
       <title>Kafka</title>
       <link>https://jeqo.github.io/tags/kafka/</link>
-      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/kafka/</guid>
       <description></description>
@@ -204,7 +204,7 @@
     <item>
       <title>Pat Helland</title>
       <link>https://jeqo.github.io/tags/pat-helland/</link>
-      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/pat-helland/</guid>
       <description></description>
@@ -229,6 +229,15 @@
     </item>
     
     <item>
+      <title>Samza</title>
+      <link>https://jeqo.github.io/tags/samza/</link>
+      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/samza/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Soa</title>
       <link>https://jeqo.github.io/tags/soa/</link>
       <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
@@ -249,7 +258,7 @@
     <item>
       <title>Transactions</title>
       <link>https://jeqo.github.io/tags/transactions/</link>
-      <pubDate>Thu, 25 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/transactions/</guid>
       <description></description>
@@ -270,15 +279,6 @@
       <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/virtualbox/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Wip</title>
-      <link>https://jeqo.github.io/tags/wip/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/wip/</guid>
       <description></description>
     </item>
     

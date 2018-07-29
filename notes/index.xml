@@ -7,27 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 25 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Eventually Consistent</title>
-      <link>https://jeqo.github.io/notes/eventually-consistent/</link>
-      <pubDate>Thu, 25 Jan 2018 00:00:00 +0000</pubDate>
+      <title>Kafka, Samza and the Unix Philosophy of Distributed Data</title>
+      <link>https://jeqo.github.io/notes/kafka-samza-and-the-unix-philosophy-of-distributed-data/</link>
+      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/notes/eventually-consistent/</guid>
-      <description></description>
+      <guid>https://jeqo.github.io/notes/kafka-samza-and-the-unix-philosophy-of-distributed-data/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>The Tail at Scale</title>
-      <link>https://jeqo.github.io/notes/the-tail-at-scale/</link>
-      <pubDate>Thu, 25 Jan 2018 00:00:00 +0000</pubDate>
+      <title>Designing Data-Intensive Applications</title>
+      <link>https://jeqo.github.io/notes/designing-data-intensive-application/</link>
+      <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/notes/the-tail-at-scale/</guid>
-      <description></description>
+      <guid>https://jeqo.github.io/notes/designing-data-intensive-application/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -46,15 +46,6 @@
       
       <guid>https://jeqo.github.io/notes/event-driven-architecture/</guid>
       <description>&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Standing on Giant Distributed Shoulders</title>
-      <link>https://jeqo.github.io/notes/standing-on-giant-distributed-shoulders/</link>
-      <pubDate>Sat, 20 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/notes/standing-on-giant-distributed-shoulders/</guid>
-      <description></description>
     </item>
     
     <item>
@@ -80,6 +71,15 @@ same concepts keep applying.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Apache Kafka</title>
+      <link>https://jeqo.github.io/notes/reactive-streams/</link>
+      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/reactive-streams/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Observability</title>
       <link>https://jeqo.github.io/notes/observability/</link>
       <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
@@ -89,17 +89,25 @@ same concepts keep applying.&lt;/p&gt;
     </item>
     
     <item>
-      <title>Designing Data Intensive Applications - Part III: Derived Data</title>
-      <link>https://jeqo.github.io/notes/designing-data-intensive-applications-derived-data/</link>
+      <title></title>
+      <link>https://jeqo.github.io/notes/one-size-fits-all-an-idea-whose-time-has-come-and-gone-es/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/notes/designing-data-intensive-applications-derived-data/</guid>
-      <description>Systems of Records and Derived Data
- Systems of Records
-Also known as source of truth, holds the authoritative version of your data. [&amp;hellip;] If there is any discrepancy between another system and the system of records, then the value in the system of record is the correct one.
-Derived Data Systems
-If you lose derived data, you can recreate it from the original source.
- (e.g. caches, materialized views, indexes)</description>
+      <guid>https://jeqo.github.io/notes/one-size-fits-all-an-idea-whose-time-has-come-and-gone-es/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jeqo.github.io/notes/one-size-fits-all-an-idea-whose-time-has-come-and-gone/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/one-size-fits-all-an-idea-whose-time-has-come-and-gone/</guid>
+      <description>[1] ‘One Size Fits All’: An Idea Whose Time Has Come and Gone - April 2005
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.68.9136&amp;amp;rep=rep1&amp;amp;type=pdf
+Initial Database players: DB2 and INGRESS (around 1980&amp;rsquo;s), following vendors: Sybase, Oracle and Informix.
+The initial DBMS model: store relational tables row-by-row, uses B-trees for indexing, uses a cost-based optimized, and provides ACID transaction properties.
+ It is a well known homily that warehouse applications run much better using bit-map indexes while OLTP users prefer B-tree indexes.</description>
     </item>
     
   </channel>
