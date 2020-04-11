@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
       </li>
       
     
@@ -164,47 +144,29 @@ Multiple Consumers. Each <code>consumer group</code> has a current <code>offset<
 determine at what point in a <code>topic</code> this <code>consumer group</code> has consume
 messages. So, each <code>consumer group</code> can manage its <code>offset</code> independently,
 by <code>partition</code>.</p>
-
 <p>This offers the possibility to rollback in time and reprocess messages from
 the beginning of a <code>topic</code> and regenerate the current status of the system.</p>
-
 <p>But how to do it (programmatically)?</p>
-
-<p></p>
-
-<hr />
-
+<hr>
 <p>Source code: <a href="https://github.com/jeqo/post-kafka-rewind-consumer-offset">https://github.com/jeqo/post-kafka-rewind-consumer-offset</a></p>
-
-<hr />
-
+<hr>
 <h2 id="basic-concepts">Basic Concepts</h2>
-
 <h3 id="topics-and-offsets">Topics and Offsets</h3>
-
 <p>First thing to understand to achieve Consumer Rewind, is: rewind over what?
 Because <code>topics</code> are divided into <code>partitions</code>. Records sent from <code>Producers</code>
 are balanced between them, so each partition has its own <code>offset</code> index.</p>
-
 <p>Each <code>record</code> has its own <code>offset</code> that will be used by <code>consumers</code> to define
 which messages has been consumed from the <strong>log</strong>.</p>
-
 <h3 id="consumers-and-consumer-groups">Consumers and Consumer Groups</h3>
-
 <p>Once we understand that <code>topics</code> have <code>partitions</code> and <code>offsets</code> by <code>partition</code>
 we can now understand how <code>consumers</code> and <code>consumer groups</code> work.</p>
-
 <p><code>Consumers</code> are grouped by <code>group.id</code>. This property identify you as a
 <code>consumer group</code>, so the <code>broker</code> knows which was the last <code>record</code> you have
 consumed by <code>offset</code>, by <code>partition</code>.</p>
-
 <p>This partitions allows <em>parallelism</em>, because members from a <code>consumer group</code>
 can consume <code>records</code> from <code>partitions</code> independently, in parallel.</p>
-
 <p>Before continue, let&rsquo;s check a simple Kafka Producer implemented with Java:</p>
-
 <p><code>KafkaSimpleProducer.java</code>:</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">main</span><span style="color:#333">(</span>String<span style="color:#333">[]</span> args<span style="color:#333">)</span> <span style="color:#333">{</span>
     <span style="color:#333">...</span>
     Properties properties <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Properties<span style="color:#333">();</span>
@@ -224,84 +186,65 @@ can consume <code>records</code> from <code>partitions</code> independently, in 
             <span style="color:#333">.</span><span style="color:#00c">forEach</span><span style="color:#333">(</span>result <span style="color:#333">-&gt;</span> printMetadata<span style="color:#333">(</span>result<span style="color:#333">));</span>
     producer<span style="color:#333">.</span><span style="color:#00c">close</span><span style="color:#333">();</span>
 <span style="color:#333">}</span></code></pre></div>
-
 <p>This will create 100 <code>records</code> in topic <code>topic-1</code>, with <code>offsets</code> from 0-99</p>
-
 <h2 id="from-command-line">From Command-Line</h2>
-
 <p>In this first scenario, we will see how to manage offsets from <em>command-line</em>
 so it will give us an idea of how to implement it in our application.</p>
-
 <p>When you&rsquo;re working from the terminal, you can use <code>kafka-console-consumer</code> without
 <code>group.id</code>, a new <code>group.id</code> is generated using:
 <code>console-consumer-${new Random().nextInt(100000)}</code>.
 So unless you use the same <code>group.id</code> afterwards, it would be as you create a
 new consumer group each time.</p>
-
 <p>By default, when you connect to a <code>topic</code> as a <code>consumer</code>, you
 go to the <em>latest</em> <code>offset</code>, so you won&rsquo;t see any new message until new records
 arrive after you connect.</p>
-
 <p>In this case, going back to the beginning of the topic will as easy as add
 <code>--from-beginning</code> option to the command line:</p>
-
-<script type="text/javascript" src="https://asciinema.org/a/101246.js" id="asciicast-101246" async></script>
-
+<!-- raw HTML omitted -->
 <p>But, what happen if you use <code>group.id</code> property, it will only work the first time,
 but <code>offset</code> gets commited to cluster:</p>
-
-<script type="text/javascript" src="https://asciinema.org/a/101248.js" id="asciicast-101248" async></script>
-
-<script type="text/javascript" src="https://asciinema.org/a/101250.js" id="asciicast-101250" async></script>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>So, how to go back to the beginning?</p>
-
 <p>We can use <code>--offset</code> option to with three alternatives:</p>
-
 <pre><code>--offset &lt;String: consume offset&gt;        The offset id to consume from (a non-  
                                            negative number), or 'earliest'      
                                            which means from beginning, or       
                                            'latest' which means from end        
                                            (default: latest)
-</code></pre>
-
-<script type="text/javascript" src="https://asciinema.org/a/101252.js" id="asciicast-101252" async></script>
-
+</code></pre><!-- raw HTML omitted -->
 <h2 id="from-java-clients">From Java Clients</h2>
-
 <p>So, from <code>command-line</code> is pretty easy to go back in time in the log. But
 how to do it from your application?</p>
-
 <p>If you&rsquo;re using Kafka Consumers in your applications, you have to options
 (with Java):</p>
-
 <ul>
-<li><p><a href="http://kafka.apache.org/documentation/#consumerapi">Kafka Consumer API</a></p></li>
-
-<li><p><a href="http://kafka.apache.org/documentation/#streamsapi">Kafka Streams API</a></p></li>
+<li>
+<p><a href="http://kafka.apache.org/documentation/#consumerapi">Kafka Consumer API</a></p>
+</li>
+<li>
+<p><a href="http://kafka.apache.org/documentation/#streamsapi">Kafka Streams API</a></p>
+</li>
 </ul>
-
 <p>Long story short: If you need stateful and stream processing capabilities,
 go with Kafka Streams.
 If you need simple one-by-one consumption of messages by topics, go with
 Kafka Consumer.</p>
-
 <p>At this moment this are the options to rewind offsets with these APIs:</p>
-
 <ul>
-<li><p>Kafka Consumer API support go back to the beginning of the topic, go back
-to a specific offset, and go back to a specific offset by timestamps.</p></li>
-
-<li><p>Kafka Streams API only support to go back to the earliest offset of the
+<li>
+<p>Kafka Consumer API support go back to the beginning of the topic, go back
+to a specific offset, and go back to a specific offset by timestamps.</p>
+</li>
+<li>
+<p>Kafka Streams API only support to go back to the earliest offset of the
 <code>input topics</code>, and is well explained by <a href="https://github.com/mjsax">Matthias J. Sax</a>
 in his post
-<a href="https://www.confluent.io/blog/data-reprocessing-with-kafka-streams-resetting-a-streams-application/">[1]</a>.</p></li>
+<a href="https://www.confluent.io/blog/data-reprocessing-with-kafka-streams-resetting-a-streams-application/">[1]</a>.</p>
+</li>
 </ul>
-
 <p>So I will focus in options available in <code>Kafka Consumer</code>.</p>
-
 <p>A simple Consumer will look something like this:</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">main</span><span style="color:#333">(</span>String<span style="color:#333">[]</span> args<span style="color:#333">)</span> <span style="color:#333">{</span>
     Properties props <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Properties<span style="color:#333">();</span>
     props<span style="color:#333">.</span><span style="color:#00c">put</span><span style="color:#333">(</span>ConsumerConfig<span style="color:#333">.</span><span style="color:#00c">BOOTSTRAP_SERVERS_CONFIG</span><span style="color:#333">,</span> bootstrapServers<span style="color:#333">);</span>
@@ -320,24 +263,18 @@ in his post
             System<span style="color:#333">.</span><span style="color:#00c">out</span><span style="color:#333">.</span><span style="color:#00c">printf</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;offset = %d, key = %s, value = %s%n&#34;</span><span style="color:#333">,</span> record<span style="color:#333">.</span><span style="color:#00c">offset</span><span style="color:#333">(),</span> record<span style="color:#333">.</span><span style="color:#00c">key</span><span style="color:#333">(),</span> record<span style="color:#333">.</span><span style="color:#00c">value</span><span style="color:#333">());</span>
     <span style="color:#333">}</span>
 <span style="color:#333">}</span></code></pre></div>
-
 <p>This will poll by <code>100ms</code> for records and print them out.  In this case
 it should print 100 records.</p>
-
 <p>Now let&rsquo;s check how to rewind <code>offsets</code> in different scenarios. Consumer API has
 add <code>#seek</code> operations to achieve this behavior. I will show a naive way to use
 these operations using flags but it shows the point:</p>
-
 <h3 id="rewind-to-earliest-offset">Rewind to earliest <code>offset</code></h3>
-
 <p>The most common options is to go back to the beginning of the topic, that not
 always will be <code>offset=0</code>. This will depends on the <code>retention</code> policy
 option that will be clean up old records based on time or size; but
 this also deserves its own post.</p>
-
 <p>To go to the beginning we can use <code>#seekToBeginning(topicPartition)</code>
 operation to go back to earliest offset:</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
 
 <span style="color:#080;font-weight:bold">while</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">true</span><span style="color:#333">)</span> <span style="color:#333">{</span>
@@ -352,16 +289,12 @@ operation to go back to earliest offset:</p>
     <span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span>ConsumerRecord<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> record <span style="color:#333">:</span> records<span style="color:#333">)</span>
         <span style="color:#888">//Consume record
 </span><span style="color:#888"></span><span style="color:#333">}</span></code></pre></div>
-
 <p>Once the seek to beginnning is done, it will reprocess all records from
 <code>topic=topic-1</code> and <code>partition=0</code>.</p>
-
 <h3 id="rewind-to-specific-offset">Rewind to specific <code>offset</code></h3>
-
 <p>If we can recognized the specific <code>record</code> (by <code>partition</code>)
 from where we need to reprocess all the log,
 we can use <code>#seek(topicPartition, offset)</code> directly.</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
 
 <span style="color:#080;font-weight:bold">while</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">true</span><span style="color:#333">)</span> <span style="color:#333">{</span>
@@ -375,29 +308,20 @@ we can use <code>#seek(topicPartition, offset)</code> directly.</p>
     <span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span>ConsumerRecord<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> record <span style="color:#333">:</span> records<span style="color:#333">)</span>
         System<span style="color:#333">.</span><span style="color:#00c">out</span><span style="color:#333">.</span><span style="color:#00c">printf</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;offset = %d, key = %s, value = %s%n&#34;</span><span style="color:#333">,</span> record<span style="color:#333">.</span><span style="color:#00c">offset</span><span style="color:#333">(),</span> record<span style="color:#333">.</span><span style="color:#00c">key</span><span style="color:#333">(),</span> record<span style="color:#333">.</span><span style="color:#00c">value</span><span style="color:#333">());</span>
 <span style="color:#333">}</span></code></pre></div>
-
 <p>In this case, we will consume from <code>record</code> with <code>offset=90</code>from
 <code>topic=topic-1</code> and <code>partition=0</code>.</p>
-
-<hr />
-
+<hr>
 <p>NOTE: It could be cumbersome to map all offsets in case that you have
 several partitions. Thats why addition of timestamps helps a lot with this.</p>
-
-<hr />
-
+<hr>
 <h3 id="rewind-to-offset-by-timestamps">Rewind to offset by timestamps</h3>
-
 <p>What if you don&rsquo;t know exactly the <code>offset id</code> to go back to, but you know
 you want to go back 1 hour or 10 min?</p>
-
 <p>For these, since release <code>0.10.1.0</code>, there are a couple of
 improvements <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-32+-+Add+timestamps+to+Kafka+message">[2]</a>
 <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-33+-+Add+a+time+based+log+index">[3]</a>
 were added and a new operation was added to <code>Kafka Consumer API</code>: <code>#offsetsForTimes</code>.</p>
-
 <p>Here is how to use it:</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
 
 <span style="color:#080;font-weight:bold">while</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">true</span><span style="color:#333">)</span> <span style="color:#333">{</span>
@@ -421,33 +345,31 @@ were added and a new operation was added to <code>Kafka Consumer API</code>: <co
     <span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span>ConsumerRecord<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> record <span style="color:#333">:</span> records<span style="color:#333">)</span>
         System<span style="color:#333">.</span><span style="color:#00c">out</span><span style="color:#333">.</span><span style="color:#00c">printf</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;offset = %d, key = %s, value = %s%n&#34;</span><span style="color:#333">,</span> record<span style="color:#333">.</span><span style="color:#00c">offset</span><span style="color:#333">(),</span> record<span style="color:#333">.</span><span style="color:#00c">key</span><span style="color:#333">(),</span> record<span style="color:#333">.</span><span style="color:#00c">value</span><span style="color:#333">());</span>
 <span style="color:#333">}</span></code></pre></div>
-
 <p>In this case, we are using a query first to get the offset inside a timestamp (10 minutes ago)
 and then using that offset to go back with <code>#seek</code> operation.</p>
-
 <p>As you can see, for each operation I have to define the specific <code>topic partition</code>
 to go back to, so this can get tricky if you have more than one partition, so I
 would recommend to use <code>#offsetsForTimes</code> in those cases to get an aligned result
 and avoid inconsistencies in your consumers.</p>
-
 <p>In the source code, I&rsquo;ve added the steps to get partitions by topic that will
 help us to reproduce this steps when you have several topics.</p>
-
-<hr />
-
+<hr>
 <p><strong>References</strong></p>
-
 <ol>
-<li><p><a href="https://www.confluent.io/blog/data-reprocessing-with-kafka-streams-resetting-a-streams-application/">https://www.confluent.io/blog/data-reprocessing-with-kafka-streams-resetting-a-streams-application/</a></p></li>
-
-<li><p><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-32+-+Add+timestamps+to+Kafka+message">https://cwiki.apache.org/confluence/display/KAFKA/KIP-32+-+Add+timestamps+to+Kafka+message</a></p></li>
-
-<li><p><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-33+-+Add+a+time+based+log+index">https://cwiki.apache.org/confluence/display/KAFKA/KIP-33+-+Add+a+time+based+log+index</a></p></li>
-
-<li><p><a href="https://cwiki.apache.org/confluence/display/KAFKA/FAQ#FAQ-HowcanIrewindtheoffsetintheconsumer">https://cwiki.apache.org/confluence/display/KAFKA/FAQ#FAQ-HowcanIrewindtheoffsetintheconsumer</a></p></li>
+<li>
+<p><a href="https://www.confluent.io/blog/data-reprocessing-with-kafka-streams-resetting-a-streams-application/">https://www.confluent.io/blog/data-reprocessing-with-kafka-streams-resetting-a-streams-application/</a></p>
+</li>
+<li>
+<p><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-32+-+Add+timestamps+to+Kafka+message">https://cwiki.apache.org/confluence/display/KAFKA/KIP-32+-+Add+timestamps+to+Kafka+message</a></p>
+</li>
+<li>
+<p><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-33+-+Add+a+time+based+log+index">https://cwiki.apache.org/confluence/display/KAFKA/KIP-33+-+Add+a+time+based+log+index</a></p>
+</li>
+<li>
+<p><a href="https://cwiki.apache.org/confluence/display/KAFKA/FAQ#FAQ-HowcanIrewindtheoffsetintheconsumer">https://cwiki.apache.org/confluence/display/KAFKA/FAQ#FAQ-HowcanIrewindtheoffsetintheconsumer</a></p>
+</li>
 </ol>
-
-<hr />
+<hr>
   </section>
   <footer>
     
@@ -473,12 +395,12 @@ help us to reproduce this steps when you have several topics.</p>
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/talks/scale-wls-the-k8s-way-ougn-17/">Newer</a>
+          <a href="https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/">Older</a>
+          <a href="https://jeqo.github.io/talks/scale-wls-the-k8s-way-ougn-17/">Older</a>
           
         </div>
       </div>
@@ -517,7 +439,7 @@ help us to reproduce this steps when you have several topics.</p>
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -555,12 +477,6 @@ help us to reproduce this steps when you have several topics.</p>
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">About</a>
       </li>
       
@@ -589,9 +505,6 @@ help us to reproduce this steps when you have several topics.</p>
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -600,16 +513,6 @@ help us to reproduce this steps when you have several topics.</p>
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

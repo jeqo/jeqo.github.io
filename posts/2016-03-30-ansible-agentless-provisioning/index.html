@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/posts/2016-03-30-ansible-agentless-provisioning/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
       </li>
       
     
@@ -164,105 +144,79 @@
     <p>Ansible is an automation tool that is recognized for be simple and
 powerful at the same time. From my experience, I can say this is mainly
 because of its scripting language: YAML, and its agentless architecture.</p>
-
-<p></p>
-
 <h2 id="yaml-and-ansible-components">YAML and Ansible components</h2>
-
 <blockquote>
 <p>&ldquo;YAML is a human friendly data serialization standard for all programming
-  languages&rdquo; (Source: <a href="http://yaml.org/">http://yaml.org/</a>)</p>
+languages&rdquo; (Source: <a href="http://yaml.org/">http://yaml.org/</a>)</p>
 </blockquote>
-
 <p>This means that is actually really easy to understand and start working
 with it. For example:</p>
-
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">-<span style="color:#bbb"> </span>hosts:<span style="color:#bbb"> </span>webserver<span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span>webserver<span style="color:#bbb">
 </span><span style="color:#bbb">  </span>tasks:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>package:<span style="color:#bbb"> </span>apache<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>state:<span style="color:#bbb"> </span>latest</code></pre></div>
-
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">package</span>:<span style="color:#bbb"> </span>apache<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">state</span>:<span style="color:#bbb"> </span>latest</code></pre></div>
 <p>This <strong>&ldquo;playbook&rdquo;</strong> says that a <em>webserver</em> host have 1 task: install latest
 Apache package, using a package <strong>&ldquo;module&rdquo;</strong>.</p>
-
 <p>Pretty simple eh?</p>
-
 <p>To check how powerful Ansible can be, take a look on their Module Index:
 <a href="http://docs.ansible.com/ansible/modules_by_category.html">http://docs.ansible.com/ansible/modules_by_category.html</a></p>
-
 <p>To achieve reusability: These tasks can be grouped
 as <strong>&ldquo;roles&rdquo;</strong>, that are a compilation of tasks
 to execute a common goal. e.g: a Java role to install Java SDK on your
 node.</p>
-
 <p>Those are the main components of Ansible: Playbooks, Modules, and Roles.</p>
-
 <h2 id="agentless-architecture">Agentless architecture</h2>
-
 <p>This means that you don&rsquo;t need a &ldquo;ansible-client&rdquo; in your node to run
 tasks, you can have a master that says what you need to run on your nodes.
 This is an important feature compared to other tools where
 you need a &ldquo;***-client&rdquo; to make your node translate and run commands:
 <a href="https://www.ansible.com/benefits-of-agentless-architecture">https://www.ansible.com/benefits-of-agentless-architecture</a></p>
-
 <p>You don&rsquo;t need a client but you need some packages. But this packages
 are ssh and python-related and they are very common:
 <a href="http://docs.ansible.com/ansible/intro_installation.html#managed-node-requirements">http://docs.ansible.com/ansible/intro_installation.html#managed-node-requirements</a></p>
-
 <p>Ansible also have a default &ldquo;push&rdquo; approach, where a master sends commands
 to your nodes. This is also different from other tools that are based on a
 &ldquo;pull&rdquo; approach, where the node asks for commands, although this is also
 possible with Ansible:
 <a href="http://docs.ansible.com/ansible/playbooks_intro.html#ansible-pull">http://docs.ansible.com/ansible/playbooks_intro.html#ansible-pull</a></p>
-
 <p>There is a final feature I would like to mention: Connection Type.
 By default Ansible relies on SSH to send commands to your nodes, but
 there are cases where SSH is not an option or you don&rsquo;t need it:
 local commands, Windows, Docker.</p>
-
 <p>In these cases, connection type option enables your playbook to run
 commands using WinRM in the case of Windows,
 or Docker execute commands on Docker containers, or just run local
 commands in your workstation.</p>
-
 <p>Let&rsquo;s check some code:</p>
-
 <p>I have implemented a Ansible Role to install Java some time ago:
 <a href="https://github.com/jeqo/ansible-role-java">https://github.com/jeqo/ansible-role-java</a></p>
-
 <p>Just to explain what it does, let&rsquo;s check the main task file:</p>
-
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>debug:<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>msg:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;This Java Provider will be installed: {{ java_provider }}&#34;</span><span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#bbb">  </span>- debug:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">msg</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;This Java Provider will be installed: {{ java_provider }}&#34;</span><span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>include:<span style="color:#bbb"> </span>install-{{<span style="color:#bbb"> </span>java_provider<span style="color:#bbb"> </span>}}.yml<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>- <span style="color:#080;font-weight:bold">include</span>:<span style="color:#bbb"> </span>install-{{<span style="color:#bbb"> </span>java_provider<span style="color:#bbb"> </span>}}.yml<span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>include:<span style="color:#bbb"> </span>set-java-home.yml</code></pre></div>
-
+</span><span style="color:#bbb">  </span>- <span style="color:#080;font-weight:bold">include</span>:<span style="color:#bbb"> </span>set-java-home.yml</code></pre></div>
 <p>It will show a message, include a task depending on &ldquo;java_provider&rdquo;
 variable and finally set JAVA_HOME variable.</p>
-
 <p>Also this role has a &ldquo;tests&rdquo; directory where you can add playbooks
 to test your role:</p>
-
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>test<span style="color:#bbb"> </span>install<span style="color:#bbb"> </span>openjdk<span style="color:#bbb"> </span>jdk<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb"> </span>on<span style="color:#bbb"> </span>centos<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">7</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>hosts:<span style="color:#bbb"> </span>test01<span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>test<span style="color:#bbb"> </span>install<span style="color:#bbb"> </span>openjdk<span style="color:#bbb"> </span>jdk<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb"> </span>on<span style="color:#bbb"> </span>centos<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">7</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span>test01<span style="color:#bbb">
 </span><span style="color:#bbb">  </span>roles:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>role:<span style="color:#bbb"> </span>java<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>java_provider:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>java_version:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb">
-</span><span style="color:#bbb">      </span>java_type:<span style="color:#bbb"> </span>jdk<span style="color:#bbb">
-</span><span style="color:#bbb"></span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>test<span style="color:#bbb"> </span>install<span style="color:#bbb"> </span>openjdk<span style="color:#bbb"> </span>jre<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb"> </span>on<span style="color:#bbb"> </span>centos<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">7</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>hosts:<span style="color:#bbb"> </span>test02<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">role</span>:<span style="color:#bbb"> </span>java<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_provider</span>:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_version</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_type</span>:<span style="color:#bbb"> </span>jdk<span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>test<span style="color:#bbb"> </span>install<span style="color:#bbb"> </span>openjdk<span style="color:#bbb"> </span>jre<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb"> </span>on<span style="color:#bbb"> </span>centos<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">7</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span>test02<span style="color:#bbb">
 </span><span style="color:#bbb">  </span>roles:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>role:<span style="color:#bbb"> </span>java<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>java_provider:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>java_version:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb">
-</span><span style="color:#bbb">      </span>java_type:<span style="color:#bbb"> </span>jre<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">role</span>:<span style="color:#bbb"> </span>java<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_provider</span>:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_version</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_type</span>:<span style="color:#bbb"> </span>jre<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#888"># more tests...</span></code></pre></div>
-
 <p>And I test this playbooks using Vagrant and VirtualBox:</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#036;font-weight:bold">Vagrant</span><span style="color:#333">.</span>configure(<span style="color:#00d;font-weight:bold">2</span>) <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>config<span style="color:#333">|</span>
 
   config<span style="color:#333">.</span>vm<span style="color:#333">.</span>provision <span style="background-color:#fff0f0">&#34;ansible&#34;</span> <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>ansible<span style="color:#333">|</span>
@@ -278,15 +232,13 @@ to test your role:</p>
     node<span style="color:#333">.</span>vm<span style="color:#333">.</span>box <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;jeqo/ansible-centos7&#34;</span>
   <span style="color:#080;font-weight:bold">end</span>
 
-  <span style="color:#888"># more test nodes...</span>
+  <span style="color:#888"># more test nodes...</span>
 <span style="color:#080;font-weight:bold">end</span></code></pre></div>
-
 <p>So, lets test that OpenJDK 8 is running OK in Centos:</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vagrant up test01
 ...
 
-PLAY <span style="color:#333">[</span><span style="color:#007020">test</span> install openjdk jdk <span style="color:#60e;font-weight:bold">8</span> on centos <span style="color:#60e;font-weight:bold">7</span><span style="color:#333">]</span> **********************************
+PLAY <span style="color:#333">[</span><span style="color:#007020">test</span> install openjdk jdk <span style="color:#60e;font-weight:bold">8</span> on centos 7<span style="color:#333">]</span> **********************************
 
 TASK <span style="color:#333">[</span>setup<span style="color:#333">]</span> *******************************************************************
 ok: <span style="color:#333">[</span>test01<span style="color:#333">]</span>
@@ -315,48 +267,38 @@ TASK <span style="color:#333">[</span>java : install openjdk <span style="color:
 skipping: <span style="color:#333">[</span>test01<span style="color:#333">]</span>
 
 TASK <span style="color:#333">[</span>java : install openjdk <span style="color:#333">(</span>redhat<span style="color:#333">)]</span> *****************************************</code></pre></div>
-
 <p>But one thing I always want is to reuse this roles on Docker containers,
 without prepare a Container with SSH, that is recognized as an
 anti-pattern: <a href="https://jpetazzo.github.io/2014/06/23/docker-ssh-considered-evil/">https://jpetazzo.github.io/2014/06/23/docker-ssh-considered-evil/</a></p>
-
 <p>So, since Ansible 2.0 a Docker connection type is included OOTB, and
 I give it a try: <a href="https://github.com/jeqo/poc-ansible-docker">https://github.com/jeqo/poc-ansible-docker</a></p>
-
 <p>I added a playbook to create a container:</p>
-
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">-<span style="color:#bbb"> </span>hosts:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">127.0</span>.<span style="color:#60e;font-weight:bold">0.1</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>connection:<span style="color:#bbb"> </span>local<span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">127.0.0.1</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">connection</span>:<span style="color:#bbb"> </span>local<span style="color:#bbb">
 </span><span style="color:#bbb">  </span>tasks:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>my<span style="color:#bbb"> </span>container<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>my<span style="color:#bbb"> </span>container<span style="color:#bbb">
 </span><span style="color:#bbb">      </span>docker:<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>name:<span style="color:#bbb"> </span>poccontainer<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>image:<span style="color:#bbb"> </span>centos<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>command:<span style="color:#bbb"> </span>sleep<span style="color:#bbb"> </span>infinity<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>state:<span style="color:#bbb"> </span>started</code></pre></div>
-
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>poccontainer<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">image</span>:<span style="color:#bbb"> </span>centos<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span>sleep<span style="color:#bbb"> </span>infinity<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">state</span>:<span style="color:#bbb"> </span>started</code></pre></div>
 <p>Here I&rsquo;m using &ldquo;connection: local&rdquo; to execute commands locally.</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 a5e49bd032be        centos              <span style="background-color:#fff0f0">&#34;sleep infinity&#34;</span>    About an hour ago   Up About an hour                        poccontainer</code></pre></div>
-
 <p>And once I have a container running, I can run this playbook:</p>
-
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">-<span style="color:#bbb"> </span>hosts:<span style="color:#bbb"> </span>poccontainer<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>connection:<span style="color:#bbb"> </span>docker<span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span>poccontainer<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">connection</span>:<span style="color:#bbb"> </span>docker<span style="color:#bbb">
 </span><span style="color:#bbb">  </span>pre_tasks:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>package:<span style="color:#bbb"> </span>name=sudo<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>command:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;sed -i -e \&#34;s/Defaults    requiretty.*/ #Defaults    requiretty/g\&#34; /etc/sudoers&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">package</span>:<span style="color:#bbb"> </span>name=sudo<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;sed -i -e \&#34;s/Defaults    requiretty.*/ #Defaults    requiretty/g\&#34; /etc/sudoers&#34;</span><span style="color:#bbb">
 </span><span style="color:#bbb">  </span>roles:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>role:<span style="color:#bbb"> </span>java<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>java_provider:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>java_type:<span style="color:#bbb"> </span>jdk<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>java_version:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span></code></pre></div>
-
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">role</span>:<span style="color:#bbb"> </span>java<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_provider</span>:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_type</span>:<span style="color:#bbb"> </span>jdk<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_version</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span></code></pre></div>
 <p>Pre-tasks are required to install sudo package and configure tty. And
 then run role as usual:</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ansible-playbook provisioning.yml -vvvv
 Using /home/jeqo/dev/jeqo/poc-ansible-docker/ansible.cfg as config file
 Loaded callback default of <span style="color:#007020">type</span> stdout, v2.0
@@ -372,34 +314,32 @@ mkdir -p <span style="background-color:#fff0f0">&#34;` echo </span><span style="
 </span><span style="background-color:#fff0f0">&lt;poccontainer&gt; PUT /tmp/tmpNCOaxi TO /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup
 </span><span style="background-color:#fff0f0">&lt;poccontainer&gt; EXEC [&#39;</span>/usr/bin/docker<span style="background-color:#fff0f0">&#39;, &#39;</span>exec<span style="background-color:#fff0f0">&#39;, &#39;</span>-i<span style="background-color:#fff0f0">&#39;, u&#39;</span>poccontainer<span style="background-color:#fff0f0">&#39;, &#39;</span>/bin/sh<span style="background-color:#fff0f0">&#39;, &#39;</span>-c<span style="background-color:#fff0f0">&#39;, u&#39;</span>/bin/sh -c <span style="color:#666;background-color:#fff0f0;font-weight:bold">\&#39;</span><span style="color:#963">LANG</span><span style="color:#333">=</span>en_US.UTF-8 
 <span style="color:#963">LC_ALL</span><span style="color:#333">=</span>en_US.UTF-8 <span style="color:#963">LC_MESSAGES</span><span style="color:#333">=</span>en_US.UTF-8 /usr/bin/python /root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/setup; 
-rm -rf <span style="background-color:#fff0f0">&#34;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&#34;</span> &gt; /dev/null <span style="color:#60e;font-weight:bold">2</span>&gt;&amp;<span style="color:#60e;font-weight:bold">1</span><span style="color:#666;background-color:#fff0f0;font-weight:bold">\&#39;</span><span style="color:#f00;background-color:#faa">&#39;</span><span style="color:#333">]</span>
+rm -rf <span style="background-color:#fff0f0">&#34;/root/.ansible/tmp/ansible-tmp-1459355431.02-32251179247729/&#34;</span> &gt; /dev/null 2&gt;&amp;1<span style="color:#666;background-color:#fff0f0;font-weight:bold">\&#39;</span><span style="color:#f00;background-color:#faa">&#39;</span><span style="color:#333">]</span>
 ok: <span style="color:#333">[</span>poccontainer<span style="color:#333">]</span></code></pre></div>
-
 <h2 id="conclusions">Conclusions</h2>
-
 <ul>
-<li><p>This samples show how versatile Ansible is, using roles and connection
+<li>
+<p>This samples show how versatile Ansible is, using roles and connection
 type. But there are more platforms where Ansible can fit, as with AWS:
-<a href="https://aws.amazon.com/blogs/apn/getting-started-with-ansible-and-dynamic-amazon-ec2-inventory-management/">https://aws.amazon.com/blogs/apn/getting-started-with-ansible-and-dynamic-amazon-ec2-inventory-management/</a>
-and other Cloud platforms: <a href="http://docs.ansible.com/ansible/list_of_cloud_modules.html">http://docs.ansible.com/ansible/list_of_cloud_modules.html</a></p></li>
-
-<li><p>One question can be: Is this a replacement of Dockerfile? Maybe,
+<a href="https://aws.amazon.com/blogs/apn/getting-started-with-ansible-and-dynamic-amazon-ec2-inventory-management/">https://aws.amazon.com/blogs/apn/getting-started-with-ansible-and-dynamic-amazon-ec2-inventory-management/</a> 
+and other Cloud platforms: <a href="http://docs.ansible.com/ansible/list_of_cloud_modules.html">http://docs.ansible.com/ansible/list_of_cloud_modules.html</a></p>
+</li>
+<li>
+<p>One question can be: Is this a replacement of Dockerfile? Maybe,
 depends on you. Dockerfile are very simple and only works with Docker.
 Dockerfile also has a nice feature to create an image each step, so
 you can distribute images easily. This is missing in Ansible, where
 you execute commands on a running Docker container. Also Ansible
 is missing commit and push tasks to put containers on Docker Hub,
-but you can replace it with local commands as here:</p></li>
+but you can replace it with local commands as here:</p>
+</li>
 </ul>
-
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">-<span style="color:#bbb"> </span>hosts:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">127.0</span>.<span style="color:#60e;font-weight:bold">0.1</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>connection:<span style="color:#bbb"> </span>local<span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">127.0.0.1</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">connection</span>:<span style="color:#bbb"> </span>local<span style="color:#bbb">
 </span><span style="color:#bbb">  </span>tasks:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>commit<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>command:<span style="color:#bbb"> </span>docker<span style="color:#bbb"> </span>commit<span style="color:#bbb"> </span>poccontainer</code></pre></div>
-
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>commit<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span>docker<span style="color:#bbb"> </span>commit<span style="color:#bbb"> </span>poccontainer</code></pre></div>
 <p>Although Ansible also have a module to run Dockerfiles: <a href="http://docs.ansible.com/ansible/docker_image_module.html">http://docs.ansible.com/ansible/docker_image_module.html</a></p>
-
 <p>Hope this helps you to get started with Ansible and Docker.</p>
   </section>
   <footer>
@@ -426,12 +366,12 @@ but you can replace it with local commands as here:</p></li>
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/talks/lighning-provisioning-oracle-soa-suite-amis25/">Newer</a>
+          <a href="https://jeqo.github.io/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/">Older</a>
+          <a href="https://jeqo.github.io/talks/lighning-provisioning-oracle-soa-suite-amis25/">Older</a>
           
         </div>
       </div>
@@ -470,7 +410,7 @@ but you can replace it with local commands as here:</p></li>
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -508,12 +448,6 @@ but you can replace it with local commands as here:</p></li>
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">About</a>
       </li>
       
@@ -542,9 +476,6 @@ but you can replace it with local commands as here:</p></li>
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -553,16 +484,6 @@ but you can replace it with local commands as here:</p></li>
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

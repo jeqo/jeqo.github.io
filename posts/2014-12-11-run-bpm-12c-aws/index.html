@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/posts/2014-12-11-run-bpm-12c-aws/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
       </li>
       
     
@@ -168,45 +148,32 @@
   
   <section id="js-article" class="p-article__body">
     <p>In this post, I will show how to create an AWS EC2 Instance with an Oracle BPM 12c Quickstart Domain created. And I will use previous post for related tasks.</p>
-
-<p></p>
-
 <p>Lets see how to achieve this and make this process reusable. These are the steps:</p>
-
 <ul>
 <li>Create an AWS EC2 instance (with Vagrant)</li>
 <li>Connect to an NFS instance to get the installer (with Chef)</li>
 <li>Install Oracle BPM 12c Quickstart and create a Domain (with Chef)</li>
 </ul>
-
 <p>GitHub repository: <a href="https://github.com/jeqo/oracle-bpm-12c-aws">Here</a></p>
-
 <h2 id="create-an-aws-ec2-instance">Create an AWS EC2 instance</h2>
-
 <p>I&rsquo;ve created a Red Hat instance using Vagrant. This instance should be connected to my NFS instance that has all the Oracle&rsquo;s installers (to create an NFS instance on AWS EC2: <a href="http://jeqo.github.io/blog/devops/create-nfs-instance-aws/">go here</a>).</p>
-
 <p>This is the NFS instance:</p>
-
-<p><img src="/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0836.png" alt="NFS instance" title="NFS Instance" /></p>
-
+<p><img src="/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0836.png" alt="NFS instance" title="NFS Instance"></p>
 <p>And the &ldquo;/data&rdquo; directory is shared. It includes Oracle XE and Oracle FMW installers:</p>
-
-<p><img src="/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0841.png" alt="NFS directories" title="NFS directories" /></p>
-
+<p><img src="/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0841.png" alt="NFS directories" title="NFS directories"></p>
 <h3 id="vagrant-configuration">Vagrant configuration</h3>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#036;font-weight:bold">VAGRANTFILE_API_VERSION</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;2&#34;</span>
 
 <span style="color:#036;font-weight:bold">Vagrant</span><span style="color:#333">.</span>configure(<span style="color:#036;font-weight:bold">VAGRANTFILE_API_VERSION</span>) <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>config<span style="color:#333">|</span>
-	<span style="color:#888"># Load properties files</span>
+	<span style="color:#888"># Load properties files</span>
 	box_props <span style="color:#333">=</span> <span style="color:#036;font-weight:bold">YAML</span><span style="color:#333">.</span>load_file(<span style="background-color:#fff0f0">&#34;box.properties&#34;</span>)
 	aws_props <span style="color:#333">=</span> <span style="color:#036;font-weight:bold">YAML</span><span style="color:#333">.</span>load_file(<span style="background-color:#fff0f0">&#34;aws.properties&#34;</span>)
 
-	<span style="color:#888"># Basic metadata</span>
+	<span style="color:#888"># Basic metadata</span>
 	config<span style="color:#333">.</span>vm<span style="color:#333">.</span>box <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;</span><span style="background-color:#eee">#{</span>box_props<span style="color:#333">[</span><span style="background-color:#fff0f0">&#39;box&#39;</span><span style="color:#333">][</span><span style="background-color:#fff0f0">&#39;name&#39;</span><span style="color:#333">]</span><span style="background-color:#eee">}</span><span style="background-color:#fff0f0">&#34;</span>
 	config<span style="color:#333">.</span>vm<span style="color:#333">.</span>box_url <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;file://</span><span style="background-color:#eee">#{</span>box_props<span style="color:#333">[</span><span style="background-color:#fff0f0">&#39;box&#39;</span><span style="color:#333">][</span><span style="background-color:#fff0f0">&#39;base_location&#39;</span><span style="color:#333">]</span><span style="background-color:#eee">}</span><span style="background-color:#fff0f0">&#34;</span>
 
-	<span style="color:#888"># AWS Configuration</span>
+	<span style="color:#888"># AWS Configuration</span>
 	config<span style="color:#333">.</span>vm<span style="color:#333">.</span>provider <span style="color:#a60;background-color:#fff0f0">:aws</span> <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>aws, override<span style="color:#333">|</span>
 		aws<span style="color:#333">.</span>access_key_id <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;</span><span style="background-color:#eee">#{</span>aws_props<span style="color:#333">[</span><span style="background-color:#fff0f0">&#39;keys&#39;</span><span style="color:#333">][</span><span style="background-color:#fff0f0">&#39;access_key_id&#39;</span><span style="color:#333">]</span><span style="background-color:#eee">}</span><span style="background-color:#fff0f0">&#34;</span>
 		aws<span style="color:#333">.</span>secret_access_key <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;</span><span style="background-color:#eee">#{</span>aws_props<span style="color:#333">[</span><span style="background-color:#fff0f0">&#39;keys&#39;</span><span style="color:#333">][</span><span style="background-color:#fff0f0">&#39;secret_access_key&#39;</span><span style="color:#333">]</span><span style="background-color:#eee">}</span><span style="background-color:#fff0f0">&#34;</span>
@@ -234,16 +201,16 @@
 		config<span style="color:#333">.</span>ssh<span style="color:#333">.</span>pty <span style="color:#333">=</span> <span style="color:#038;font-weight:bold">true</span>
 	<span style="color:#080;font-weight:bold">end</span>
 
-	<span style="color:#888"># Install Chef Client</span>
+	<span style="color:#888"># Install Chef Client</span>
 	config<span style="color:#333">.</span>omnibus<span style="color:#333">.</span>chef_version <span style="color:#333">=</span> <span style="color:#a60;background-color:#fff0f0">:latest</span>
 
-	<span style="color:#888"># Increase Swap size</span>
+	<span style="color:#888"># Increase Swap size</span>
 	config<span style="color:#333">.</span>vm<span style="color:#333">.</span>provision <span style="background-color:#fff0f0">&#34;shell&#34;</span> <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>s<span style="color:#333">|</span>
 		s<span style="color:#333">.</span>path	<span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;increase_swap.sh&#34;</span>
 		s<span style="color:#333">.</span>args   <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;&#39;</span><span style="background-color:#eee">#{</span>box_props<span style="color:#333">[</span><span style="background-color:#fff0f0">&#39;box&#39;</span><span style="color:#333">][</span><span style="background-color:#fff0f0">&#39;additional_swap&#39;</span><span style="color:#333">]</span><span style="background-color:#eee">}</span><span style="background-color:#fff0f0">&#39;&#34;</span>
 	<span style="color:#080;font-weight:bold">end</span>
 
-	<span style="color:#888"># Run Provisioning with Chef</span>
+	<span style="color:#888"># Run Provisioning with Chef</span>
 	config<span style="color:#333">.</span>vm<span style="color:#333">.</span>provision <span style="background-color:#fff0f0">&#34;chef_client&#34;</span> <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>chef<span style="color:#333">|</span>
 		chef<span style="color:#333">.</span>chef_server_url <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;https://api.opscode.com/organizations/jeqo&#34;</span>
 		chef<span style="color:#333">.</span>validation_client_name <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;jeqo-validator&#34;</span>
@@ -265,23 +232,15 @@
 		}
 	<span style="color:#080;font-weight:bold">end</span>
 <span style="color:#080;font-weight:bold">end</span></code></pre></div>
-
 <p>Running this file with:</p>
-
-<p><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vagrant up --provider<span style="color:#333">=</span>aws</code></pre></div></p>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vagrant up --provider<span style="color:#333">=</span>aws</code></pre></div>
 <p>You will create a new instance on AWS EC2.</p>
-
 <h2 id="connect-to-an-nfs-instance">Connect to an NFS instance</h2>
-
 <p>The first recipe that will be executed is:</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
   chef<span style="color:#333">.</span>add_role <span style="background-color:#fff0f0">&#34;nfs-client&#34;</span>
 <span style="color:#333">...</span></code></pre></div>
-
 <p>This call the following Chef role:</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#070">&#34;name&#34;</span> : <span style="background-color:#fff0f0">&#34;nfs-client&#34;</span>,
   <span style="color:#070">&#34;description&#34;</span> : <span style="background-color:#fff0f0">&#34;Role applied to the system that should be an NFS client tools.&#34;</span>,
@@ -297,24 +256,17 @@
     <span style="background-color:#fff0f0">&#34;recipe[nfs-utils::nfs-client]&#34;</span>
   ]
 }</code></pre></div>
-
 <p>To update the server-host from your Vagrant configuration, add these lines:</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
 chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
   <span style="background-color:#fff0f0">&#34;nfs-client&#34;</span> <span style="color:#333">=&gt;</span> {
     <span style="background-color:#fff0f0">&#34;server-host&#34;</span> <span style="color:#333">=&gt;</span> <span style="background-color:#fff0f0">&#34;123.1.1.12&#34;</span>
   },
   <span style="color:#333">...</span></code></pre></div>
-
 <p>And when your instance started, a new directory &ldquo;/data&rdquo; will sync the NFS shared directories.</p>
-
 <h2 id="install-oracle-bpm-12c-quickstart">Install Oracle BPM 12c Quickstart</h2>
-
 <p>To install BPM, you can download my shared <a href="https://supermarket.chef.io/cookbooks/oracle-fmw">&ldquo;oracle-fmw&rdquo; cookbook</a> from Chef Supermarket. It is explained in <a href="http://jeqo.github.io/blog/devops/chef-cookbook-oracle-fmw-12c/">this post</a>.</p>
-
 <p>Vagrant configuration calls this Chef role:</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#070">&#34;name&#34;</span> : <span style="background-color:#fff0f0">&#34;demo-bpm_bam-12c&#34;</span>,
   <span style="color:#070">&#34;json_class&#34;</span> : <span style="background-color:#fff0f0">&#34;Chef::Role&#34;</span>,
@@ -370,15 +322,10 @@ chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
     <span style="background-color:#fff0f0">&#34;recipe[oracle-fmw::create-domain-12c]&#34;</span>
   ]
 }</code></pre></div>
-
 <p>This includes will run three recipes: &ldquo;install-bpm_qs-12c&rdquo; , &ldquo;create-rcu_repository-12c&rdquo;, &ldquo;create-domain-12c&rdquo;. And includes Domain information (&ldquo;domain-12c&rdquo;), and RCU info (&ldquo;rcu-12c&rdquo;).</p>
-
 <p>These process takes 30 min. approx. And now we can login with &ldquo;oracle-fmw&rdquo; user (password: welcome1), and start the server:</p>
-
-<p><img src="/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0930.png" alt="Start server" title="Stating WebLogic Server" /></p>
-
-<p><img src="/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0931.png" alt="Server started" title="WebLogic Server with BPM started" /></p>
-
+<p><img src="/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0930.png" alt="Start server" title="Stating WebLogic Server"></p>
+<p><img src="/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0931.png" alt="Server started" title="WebLogic Server with BPM started"></p>
 <p>That&rsquo;s it.</p>
   </section>
   <footer>
@@ -405,12 +352,12 @@ chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/posts/2015-04-01-docker-image-oracle-soa/">Newer</a>
+          <a href="https://jeqo.github.io/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/">Older</a>
+          <a href="https://jeqo.github.io/posts/2015-04-01-docker-image-oracle-soa/">Older</a>
           
         </div>
       </div>
@@ -463,7 +410,7 @@ chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -501,12 +448,6 @@ chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">About</a>
       </li>
       
@@ -535,9 +476,6 @@ chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -546,16 +484,6 @@ chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

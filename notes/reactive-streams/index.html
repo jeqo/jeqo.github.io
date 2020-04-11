@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/notes/reactive-streams/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
       </li>
       
     
@@ -154,18 +134,11 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p></p>
-
-<h2 id="projects">Projects</h2>
-
+    <h2 id="projects">Projects</h2>
 <h3 id="akka-streams">Akka Streams</h3>
-
 <h4 id="shapes-or-boxes">Shapes or &ldquo;boxes&rdquo;</h4>
-
 <p>Every processing stage can be imagined as a &ldquo;box&rdquo;. <code>Source</code> is a &ldquo;box&rdquo; with a single output <code>port</code>.</p>
-
 <p>Common shapes:</p>
-
 <ul>
 <li><code>Source</code>: single output <code>port</code></li>
 <li><code>Sink</code>: single input <code>port</code></li>
@@ -174,26 +147,19 @@
 <li><code>FanOut</code>: single input <code>port</code> and two output <code>ports</code></li>
 <li><code>BidiFlow</code>: two input <code>ports</code> and two output <code>ports</code></li>
 </ul>
-
 <h4 id="graphstage">GraphStage</h4>
-
 <blockquote>
-<p>The <code>GraphStage</code> abstraction can be used to create arbitrary graph processing stages
+<p>The <code>GraphStage</code> abstraction can be used to create arbitrary graph processing stages 
 with <em>any number of input or output ports</em>.</p>
-
+</blockquote>
+<blockquote>
 <p>It is a counterpart of the GraphDSL.create() method which creates new stream processing stages by composing others</p>
 </blockquote>
-
 <p>A <code>GraphStage</code> requires a Shape.</p>
-
 <h3 id="reactive-kafka-alpakka-kafka-connector">Reactive Kafka (Alpakka Kafka Connector)</h3>
-
 <p><a href="https://github.com/akka/reactive-kafka">https://github.com/akka/reactive-kafka</a></p>
-
 <p><code>scaladsl/Consumer.scala</code></p>
-
 <p>Sources are build by utility methods:</p>
-
 <ul>
 <li><code>plainSource()</code></li>
 <li><code>committableSource()</code></li>
@@ -204,25 +170,16 @@ with <em>any number of input or output ports</em>.</p>
 <li><code>plainExternalSource()</code></li>
 <li><code>committableExternalSource()</code></li>
 </ul>
-
 <p>All of these, used <code>Source.fromGraph()</code> where <code>ConsumerStage</code> build GraphStages that are passed to <code>Consumer</code>.</p>
-
 <p>Every <code>ConsumerStage</code> method implements abstract class <code>KafkaSourceStage</code>:</p>
-
 <pre><code>  abstract class KafkaSourceStage[K, V, Msg]()
     extends GraphStageWithMaterializedValue[SourceShape[Msg], Control] {
-</code></pre>
-
-<p>And the abstract method <code>KafkaSourceStage#logic(SourceShape[Msg])</code>.</p>
-
+</code></pre><p>And the abstract method <code>KafkaSourceStage#logic(SourceShape[Msg])</code>.</p>
 <p>For instance, for <code>plainSource()</code>, logic is implemented by <code>SingleSourceLogic</code>. This logic uses <code>KafaConsumerActor</code>
 to pull, or <code>pump()</code> data from Topic Partitions.</p>
-
 <p><code>SingleSourceLogic</code> implements <code>GraphStageLogic</code> that contains a method <code>setHandler(out: Outlet[_], handler: OutHandler): Unit</code>
 that defined a handler, with Shape logic.</p>
-
 <p>In the case of <code>OutHandler</code> the following methods need to be implemented:</p>
-
 <pre><code>    override def onPull(): Unit = {
       //
     }
@@ -230,10 +187,7 @@ that defined a handler, with Shape logic.</p>
     override def onDownstreamFinish(): Unit = {
       //
     } 
-</code></pre>
-
-<p>In <code>KafkaSourceLogic</code> <code>onPull()</code> call <code>pump()</code> to get <code>ProducerRecord</code> from Kafka and once it is available, one by one <strong>if output shape is avaiable</strong>:</p>
-
+</code></pre><p>In <code>KafkaSourceLogic</code> <code>onPull()</code> call <code>pump()</code> to get <code>ProducerRecord</code> from Kafka and once it is available, one by one <strong>if output shape is avaiable</strong>:</p>
 <pre><code>  @tailrec
   private def pump(): Unit = {
     if (isAvailable(shape.out)) { // validates availability of output
@@ -273,12 +227,12 @@ that defined a handler, with Shape logic.</p>
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/notes/apache-kafka/">Newer</a>
+          <a href="https://jeqo.github.io/notes/observability/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/notes/observability/">Older</a>
+          <a href="https://jeqo.github.io/notes/apache-kafka/">Older</a>
           
         </div>
       </div>
@@ -345,7 +299,7 @@ that defined a handler, with Shape logic.</p>
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -383,12 +337,6 @@ that defined a handler, with Shape logic.</p>
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">About</a>
       </li>
       
@@ -412,9 +360,6 @@ that defined a handler, with Shape logic.</p>
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -423,16 +368,6 @@ that defined a handler, with Shape logic.</p>
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

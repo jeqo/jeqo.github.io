@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
       </li>
       
     
@@ -166,34 +146,21 @@
   
   <section id="js-article" class="p-article__body">
     <p>Provisioning tools have change the way we create software environments: How much time we spend installing OS, databases, configuring platforms, applications? Now you can translate this steps into code, getting the software development benefits and challenges into infrastructure: versioning, reuse, continuous improvement.</p>
-
-<p></p>
-
 <p>In this post, I will show you how to provision Oracle SOA Suite 12c using a Chef cookbook that I created and shared it on <a href="http://supermarket.chef.io">Chef Supermarket</a>.</p>
-
 <h2 id="provisioning-with-chef">Provisioning with Chef</h2>
-
 <p>Chef is a provisioning tool, based on Ruby. Let you organize your &ldquo;infrastructure&rdquo; recipes on <em>Cookbooks</em>. Here you can find the <a href="https://supermarket.chef.io">Chef Supermarket</a>. For a Chef tutorial <a href="http://learn.chef.io/">go here</a></p>
-
 <h3 id="chef-cookbooks-and-recipes">Chef Cookbooks and Recipes</h3>
-
 <p><strong>Chef Cookbooks</strong> are groups of <strong>Recipes</strong>, and a <strong>Recipe</strong> is a sequence of instructions called <strong>Resources</strong>. <em>Directory, Execute, Service, Package</em> are some resources.</p>
-
 <p>For instance: If you want to install an HTTP Server, first you should install a <em>Package</em>, and then start HTTP <em>Service</em>.</p>
-
 <h2 id="oracle-fusion-middleware-cookbook">Oracle Fusion Middleware Cookbook</h2>
-
 <p>I&rsquo;ve created this cookbook: <a href="https://supermarket.chef.io/cookbooks/oracle-fmw">oracle-fmw</a>. The idea is to have a group of recipes to provide Fusion Middleware environments with different products like: SOA, BPM, BAM, OSB, and so on.</p>
-
 <p>In the first release, this cookbook includes the following recipes:</p>
-
 <ul>
 <li><strong>prepare-infrastructure-12c</strong>: Creates the required OS user and group, installs the required OS packages and execute some scripts to set required parameters.</li>
 <li><strong>install-bpm_qs-12c</strong>: Installs Oracle BPM 12c which includes the following products (12.1.3): JDeveloper, Oracle SOA, Oracle OSB, Oracle BAM, Oracle BAM and others.</li>
 <li><strong>create-rcu_repository-12c</strong>: Creates RCU repositories on Oracle Database instance.</li>
 <li><strong>create-domain-12c</strong>: Creates a WebLogic Domain with these (optional) products: SOA, BAM, BPM, OSB.</li>
 </ul>
-
 <p>In a following post I will show you how to use this cookbook. In the mind time you can download it, use it and improve it from <a href="https://supermarket.chef.io/cookbooks/oracle-fmw">Chef Supermarket</a> and <a href="https://github.com/jeqo/oracle-fmw">GitHub</a>.</p>
   </section>
   <footer>
@@ -220,12 +187,12 @@
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/posts/2014-12-11-run-bpm-12c-aws/">Newer</a>
+          <a href="https://jeqo.github.io/posts/2014-11-30-create-nfs-instance-aws/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/posts/2014-11-30-create-nfs-instance-aws/">Older</a>
+          <a href="https://jeqo.github.io/posts/2014-12-11-run-bpm-12c-aws/">Older</a>
           
         </div>
       </div>
@@ -264,7 +231,7 @@
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -302,12 +269,6 @@
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">About</a>
       </li>
       
@@ -336,9 +297,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -347,16 +305,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/es/posts/2015-07-31-java-ee-rxjava-kafka-avro/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Presentaciones</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notas</a>
       </li>
       
     
@@ -165,43 +145,31 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    
-
-<p>Hace poco decidi probar una rápida implementación entre aplicaciones
+    <p>Hace poco decidi probar una rápida implementación entre aplicaciones
 Java EE y RxJava/Kafka/Avro, para publicar/subscribirse a &ldquo;topic messages&rdquo;.</p>
-
 <p>Puedes ir directamente al <a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro">código</a>,
 o revisar el enfoque que apliqué:</p>
-
-<h2 id="tl-dr">TL;DR</h2>
-
+<h2 id="tldr-">TL;DR</h2>
 <p>He estado realizando alguna pruebas de concepto con <a href="http://kafka.apache.org/">Kafka</a>
 seducido por los beneficios que propone (rapidez, escalabilidad, y funcionar como
 una fuente de eventos durable) para implementar una propagación de eventos
 usando el patrón &ldquo;Publish/Subscribe&rdquo;.</p>
-
 <p>En estos momentos que estoy escribiendo esta entrada del blog, me he dado cuenta
 que las APIs para acceder a Kafka están en constante evolución y volviéndose
 más simples de utilizar, y no ha sido fácil encontrar un ejemplo con la versión
 actual. Estoy utilizando el <strong>release 0.8.2.1</strong>.</p>
-
 <p>Logré encontrar este tutorial sobre como utilizar las APIs para <em>publicar</em>
 y <em>suscribirse</em> a mensajes: <a href="https://github.com/mdkhanga/my-blog-code">https://github.com/mdkhanga/my-blog-code</a></p>
-
 <p>Kafka soporta 2 tipos de mensajes : <em>Strings</em> and <em>byte[]</em>. Luego de hacer
 algunas pruebas con String, requería enviar POJOs como mensajes. Y encontré
 otro proyecto de Apache: <a href="https://avro.apache.org">Avro</a>.</p>
-
 <p>Utilizando los tutoriales de Avro (<a href="https://avro.apache.org/docs/current/gettingstartedjava.html">https://avro.apache.org/docs/current/gettingstartedjava.html</a>)
 y otras fuentes: (<a href="https://github.com/wpm/AvroExample">https://github.com/wpm/AvroExample</a>)
 Encontre como Serializar/Deserializar POJO de una forma eficiente, sin necesidad
 de persistir archivos en disco, solo manteniendolos como ByteStreams.</p>
-
 <p>En este punto tengo Eventos, definidos por <a href="https://avro.apache.org/docs/current/spec.html#schema_record">esquemas de Avro</a>,
 y APIs de Kafka listo para publicar y suscribirse a &ldquo;topics&rdquo;.</p>
-
 <p>Finalmente, quiero agregar esta características a mi aplicación Java EE 7.</p>
-
 <p>Primero, usando CDI, fue sencillo inyectar un &ldquo;Producer&rdquo; y publicar mensajes,
 pero cuando se necesita consumir mensajes, el enfoque cambia. Ya no se trata
 de enviar mensajes, pero consumir un &ldquo;stream&rdquo; de eventos. Así llegue a encontrarme
@@ -209,13 +177,9 @@ con <a href="https://github.com/ReactiveX/RxJava">RxJava</a> que aplica concepto
 <a href="http://reactivex.io/documentation/observable.html"><strong>Observables</strong></a> y <strong>Subscribers</strong>
 que cubre mis requerimientos: cada Kafka topic será un stream &ldquo;observable&rdquo; y
 cada Consumer se suscribirá a este &ldquo;observable&rdquo;. Revisemos el código:</p>
-
-<h2 id="sample-java-ee-app">Sample Java EE App</h2>
-
+<h2 id="sample-java-ee-app-">Sample Java EE App</h2>
 <p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.1">Tag: v0.0.1</a></p>
-
 <p>El primer paso fue tener un par de operaciones REST, implementados con JAX-RS:</p>
-
 <ul>
 <li>Clients Resource: List (GET) and Add (POST) Clients</li>
 <li>Events Resource: List (GET) Client Added Events</li>
@@ -235,12 +199,10 @@ cada Consumer se suscribirá a este &ldquo;observable&rdquo;. Revisemos el códi
     <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">addClient</span><span style="color:#333">(</span>String client<span style="color:#333">)</span> <span style="color:#333">{</span>
         clients<span style="color:#333">.</span><span style="color:#00c">add</span><span style="color:#333">(</span>client<span style="color:#333">);</span>
     <span style="color:#333">}</span>
-<span style="color:#333">}</span></code></pre></div>
-<p>Luego de tener mi recurso &ldquo;Clients&rdquo; implementado, mi requerimiento es
+<span style="color:#333">}</span>
+</code></pre></div><p>Luego de tener mi recurso &ldquo;Clients&rdquo; implementado, mi requerimiento es
 propagar el evento &ldquo;ClientAddedEvent&rdquo; y listarlo en el recurso Events.</p>
-
-<h2 id="serialización-y-deserialización-de-eventos">Serialización y Deserialización de Eventos</h2>
-
+<h2 id="serialización-y-deserialización-de-eventos-">Serialización y Deserialización de Eventos</h2>
 <p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.2">Tag: v0.0.2</a></p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">test</span><span style="color:#333">()</span> <span style="color:#333">{</span>
     ClientAddedEvent event <span style="color:#333">=</span> ClientAddedEvent<span style="color:#333">.</span><span style="color:#00c">newBuilder</span><span style="color:#333">()</span>
@@ -250,8 +212,8 @@ propagar el evento &ldquo;ClientAddedEvent&rdquo; y listarlo en el recurso Event
     <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]</span> eventSerialized <span style="color:#333">=</span> serializer<span style="color:#333">.</span><span style="color:#00c">serialize</span><span style="color:#333">(</span>event<span style="color:#333">);</span>
     ClientAddedEvent eventDeserialized <span style="color:#333">=</span> deserializer<span style="color:#333">.</span><span style="color:#00c">deserialize</span><span style="color:#333">(</span>eventSerialized<span style="color:#333">);</span>
     assertEquals<span style="color:#333">(</span>event<span style="color:#333">,</span> eventDeserialized<span style="color:#333">);</span>
-<span style="color:#333">}</span></code></pre></div>
-<p>El event ClientAddedEvent es definido usando el formato Avro JSON:</p>
+<span style="color:#333">}</span>
+</code></pre></div><p>El event ClientAddedEvent es definido usando el formato Avro JSON:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#070">&#34;namespace&#34;</span>: <span style="background-color:#fff0f0">&#34;com.jeqo.samples.eventsource.event&#34;</span>,
     <span style="color:#070">&#34;type&#34;</span>: <span style="background-color:#fff0f0">&#34;record&#34;</span>,
@@ -260,8 +222,8 @@ propagar el evento &ldquo;ClientAddedEvent&rdquo; y listarlo en el recurso Event
         {<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;name&#34;</span>, <span style="color:#070">&#34;type&#34;</span>: <span style="background-color:#fff0f0">&#34;string&#34;</span>},
         {<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;created&#34;</span>, <span style="color:#070">&#34;type&#34;</span>: <span style="background-color:#fff0f0">&#34;long&#34;</span>}
     ]
-}</code></pre></div>
-<p>Agregando el siguiente plugin de Maven, la clase  <em>ClientAddedEvent</em> se
+}
+</code></pre></div><p>Agregando el siguiente plugin de Maven, la clase  <em>ClientAddedEvent</em> se
 creará cada vez que el proyecto sea construido:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#070">&lt;build&gt;</span>
     <span style="color:#070">&lt;plugins&gt;</span>
@@ -283,8 +245,8 @@ creará cada vez que el proyecto sea construido:</p>
             <span style="color:#070">&lt;/executions&gt;</span>
         <span style="color:#070">&lt;/plugin&gt;</span>
     <span style="color:#070">&lt;/plugins&gt;</span>
-<span style="color:#070">&lt;/build&gt;</span></code></pre></div>
-<p>Para serializar Avro records, de POJO a Byte Array:</p>
+<span style="color:#070">&lt;/build&gt;</span>
+</code></pre></div><p>Para serializar Avro records, de POJO a Byte Array:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">EventSerializer</span><span style="color:#333">&lt;</span>T <span style="color:#080;font-weight:bold">extends</span> SpecificRecordBase<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
 
     <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]</span> <span style="color:#06b;font-weight:bold">serialize</span><span style="color:#333">(</span>T record<span style="color:#333">)</span> <span style="color:#333">{</span>
@@ -297,8 +259,8 @@ creará cada vez que el proyecto sea construido:</p>
             <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RuntimeException<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;Error serializing event&#34;</span><span style="color:#333">,</span> ex<span style="color:#333">);</span>
         <span style="color:#333">}</span>
     <span style="color:#333">}</span>
-<span style="color:#333">}</span></code></pre></div>
-<p>y viceversa:</p>
+<span style="color:#333">}</span>
+</code></pre></div><p>y viceversa:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">EventDeserializer</span><span style="color:#333">&lt;</span>T <span style="color:#080;font-weight:bold">extends</span> SpecificRecordBase<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
 
     <span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">final</span> Class<span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> type<span style="color:#333">;</span>
@@ -318,23 +280,20 @@ creará cada vez que el proyecto sea construido:</p>
             <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RuntimeException<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;Error deserializing event&#34;</span><span style="color:#333">,</span> ex<span style="color:#333">);</span>
         <span style="color:#333">}</span>
     <span style="color:#333">}</span>
-<span style="color:#333">}</span></code></pre></div>
-<h2 id="publicando-y-consumiendo-eventos-desde-kafka-rxjava">Publicando y consumiendo eventos desde Kafka/RxJava</h2>
-
+<span style="color:#333">}</span>
+</code></pre></div><h2 id="publicando-y-consumiendo-eventos-desde-kafkarxjava-">Publicando y consumiendo eventos desde Kafka/RxJava</h2>
 <p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.3">Tag: v0.0.3</a></p>
-
 <p>Primero, definamos un par de interfaces, EventServer:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">EventServer</span><span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
 
     <span style="color:#080;font-weight:bold">public</span> Observable<span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">consume</span><span style="color:#333">();</span>
-<span style="color:#333">}</span></code></pre></div>
-<p>y EventProducer:</p>
+<span style="color:#333">}</span>
+</code></pre></div><p>y EventProducer:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">EventProducer</span><span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
 
     <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">publish</span><span style="color:#333">(</span>T message<span style="color:#333">);</span>
-<span style="color:#333">}</span></code></pre></div>
-<p>Luego, implementemos estas interfaces con Kafka APIs.</p>
-
+<span style="color:#333">}</span>
+</code></pre></div><p>Luego, implementemos estas interfaces con Kafka APIs.</p>
 <p>Para publicar mensajes:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@Override</span>
 <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">publish</span><span style="color:#333">(</span>T message<span style="color:#333">)</span> <span style="color:#333">{</span>
@@ -358,8 +317,8 @@ creará cada vez que el proyecto sea construido:</p>
     <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">catch</span> <span style="color:#333">(</span>InterruptedException <span style="color:#333">|</span> ExecutionException e<span style="color:#333">)</span> <span style="color:#333">{</span>
         System<span style="color:#333">.</span><span style="color:#00c">out</span><span style="color:#333">.</span><span style="color:#00c">println</span><span style="color:#333">(</span>e<span style="color:#333">);</span>
     <span style="color:#333">}</span>
-<span style="color:#333">}</span></code></pre></div>
-<p>y en KafkaEventServer, para instanciar un RxJava observable:</p>
+<span style="color:#333">}</span>
+</code></pre></div><p>y en KafkaEventServer, para instanciar un RxJava observable:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@Override</span>
 <span style="color:#080;font-weight:bold">public</span> Observable<span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">consume</span><span style="color:#333">()</span> <span style="color:#333">{</span>
     <span style="color:#080;font-weight:bold">return</span> Observable<span style="color:#333">.</span><span style="color:#00c">create</span><span style="color:#333">(</span>subscriber <span style="color:#333">-&gt;</span> <span style="color:#333">{</span>
@@ -392,24 +351,20 @@ creará cada vez que el proyecto sea construido:</p>
             subscriber<span style="color:#333">.</span><span style="color:#00c">onError</span><span style="color:#333">(</span>ex<span style="color:#333">);</span>
         <span style="color:#333">}</span>
     <span style="color:#333">});</span>
-<span style="color:#333">}</span></code></pre></div>
-<p>Se puede validar la clase *Provider para observar como se genera la conexión
+<span style="color:#333">}</span>
+</code></pre></div><p>Se puede validar la clase *Provider para observar como se genera la conexión
 con Kafka, tanto para el Publisher como para el Subscriber.</p>
-
 <p>En el tag v0.0.3 se puede ejecutar cada clase (KafkaEventServer and KafkaEventProducer)
 para validar que el servidor Kafka esta trabajando correctamente.</p>
-
-<h2 id="uniendo-todo">Uniendo todo</h2>
-
+<h2 id="uniendo-todo-">Uniendo todo</h2>
 <p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.1.0">Tag: v0.1.0</a></p>
-
 <p>Finalmente, vamos a integrar la aplicación Java EE interacción con la nuestra
 fuente de eventos (Kafka):</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@ApplicationScoped</span>
 <span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ClientAddedEventProducer</span> <span style="color:#080;font-weight:bold">extends</span> KafkaEventProducer<span style="color:#333">&lt;</span>ClientAddedEvent<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
 
-<span style="color:#333">}</span></code></pre></div>
-<p>La anotación @ApplicationScoped de CDI indica que esta clase se instanciará como
+<span style="color:#333">}</span>
+</code></pre></div><p>La anotación @ApplicationScoped de CDI indica que esta clase se instanciará como
 <em>&ldquo;singleton&rdquo;</em> y podrá ser inyectada:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ClientsResource</span> <span style="color:#333">{</span>
 
@@ -429,8 +384,8 @@ fuente de eventos (Kafka):</p>
                 <span style="color:#333">.</span><span style="color:#00c">build</span><span style="color:#333">()</span>
         <span style="color:#333">);</span>
     <span style="color:#333">}</span>
-<span style="color:#333">}</span></code></pre></div>
-<p>Luego para instanciar el <em>Subscriber</em> (Creo que es la parte más importante:
+<span style="color:#333">}</span>
+</code></pre></div><p>Luego para instanciar el <em>Subscriber</em> (Creo que es la parte más importante:
 como <strong>reaccionar</strong> a eventos? ):</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#888">// Extending Subscriber RxJava class to listen Observables
 </span><span style="color:#888"></span><span style="color:#555;font-weight:bold">@ApplicationScoped</span>
@@ -480,7 +435,8 @@ como <strong>reaccionar</strong> a eventos? ):</p>
         <span style="color:#333">);</span>
     <span style="color:#333">}</span>
 
-<span style="color:#333">}</span></code></pre></div>
+<span style="color:#333">}</span>
+</code></pre></div>
   </section>
   <footer>
     
@@ -506,12 +462,12 @@ como <strong>reaccionar</strong> a eventos? ):</p>
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/es/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/">Newer</a>
+          <a href="https://jeqo.github.io/es/posts/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/es/posts/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/">Older</a>
+          <a href="https://jeqo.github.io/es/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/">Older</a>
           
         </div>
       </div>
@@ -529,7 +485,7 @@ como <strong>reaccionar</strong> a eventos? ):</p>
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -567,12 +523,6 @@ como <strong>reaccionar</strong> a eventos? ):</p>
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notas</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">Acerca</a>
       </li>
       
@@ -601,9 +551,6 @@ como <strong>reaccionar</strong> a eventos? ):</p>
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -612,16 +559,6 @@ como <strong>reaccionar</strong> a eventos? ):</p>
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

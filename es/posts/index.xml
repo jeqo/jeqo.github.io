@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on @jeqo</title>
@@ -23,13 +23,9 @@ de múltiples consumidores. Cada &lt;code&gt;consumer group&lt;/code&gt; tiene u
 determina hasta que punto del &lt;code&gt;topic&lt;/code&gt; se encuentra consumido por &lt;code&gt;consumer group&lt;/code&gt;.
 Así, cada &lt;code&gt;consumer group&lt;/code&gt; puede manejar los &lt;code&gt;offset&lt;/code&gt; independientemente, por
 partición.&lt;/p&gt;
-
 &lt;p&gt;Esto ofrece la posibilidad de retroceder en el tiempo y reprocesar mensaje desde
 el inicio de un &lt;code&gt;topic&lt;/code&gt; y regenerar el estado actual del sistema.&lt;/p&gt;
-
-&lt;p&gt;Pero, cómo realizar esto de forma programática?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Pero, cómo realizar esto de forma programática?&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -40,9 +36,7 @@ el inicio de un &lt;code&gt;topic&lt;/code&gt; y regenerar el estado actual del 
       <guid>https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/</guid>
       <description>&lt;p&gt;En este post mostraré como utilizar contenedores Docker para crear y escalar
 un clúster de Kafka, y también como crear, escalar y mover &lt;code&gt;topics&lt;/code&gt; dentro del
-clúster.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+clúster.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -97,9 +91,8 @@ Este nuevo release incluye:
       
       <guid>https://jeqo.github.io/es/posts/2015-04-01-docker-image-oracle-soa/</guid>
       <description>Buenas noticias llegaron desde Oracle hace un par de semanas: Oracle WebLogic Server es ahora soportado en Docker!.
-I&amp;#39;m glad we announced support for @OracleWebLogic on @Docker last week, not today :-) https://t.co/6E9UxrgY3n
-&amp;mdash; Bruno Borges (@brunoborges) abril 1, 2015 
-Esto es muy emocionante. Docker es una nueva tecnología que propone una nueva forma de virtualización a través de contenedores (OS, Configurations, Platform, Application) Para más información acerca de Docker</description>
+Esto es muy emocionante. Docker es una nueva tecnología que propone una nueva forma de virtualización a través de contenedores (OS, Configurations, Platform, Application) Para más información acerca de Docker
+Bueno, WebLogic sobre Docker es genial, pero me he propuesto ir unos pasos más adelante y Dockerize los productos de SOA y BPM (como Guido Schmitz hizo con Oracle Stream Explorer)</description>
     </item>
     
     <item>

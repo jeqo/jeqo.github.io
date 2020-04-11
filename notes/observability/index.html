@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/notes/observability/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
       </li>
       
     
@@ -158,103 +138,93 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p></p>
-
-<h2 id="references">References</h2>
-
+    <h2 id="references">References</h2>
 <h3 id="projects">Projects</h3>
-
 <h4 id="opencensus">OpenCensus</h4>
-
 <ul>
 <li>Specifications <a href="https://github.com/census-instrumentation/opencensus-specs">https://github.com/census-instrumentation/opencensus-specs</a></li>
 </ul>
-
 <blockquote>
 <p>Context API, Tags API, Stats API, Trace API -&gt; Exporters</p>
 </blockquote>
-
 <h4 id="openzipkin">OpenZipkin</h4>
-
 <ul>
 <li>B3 Propagation <a href="https://github.com/openzipkin/b3-propagation">https://github.com/openzipkin/b3-propagation</a></li>
 </ul>
-
 <blockquote>
 <p>Trace Context consists on: Trace Id, Parent Span Id, Span Id and Flags, that includes Parent Sampling Decition and Debugging option.</p>
 </blockquote>
-
 <ul>
 <li>Zipkin API <a href="https://github.com/openzipkin/zipkin-api">https://github.com/openzipkin/zipkin-api</a> and Swagger: <a href="https://zipkin.io/zipkin-api/#/">https://zipkin.io/zipkin-api/#/</a></li>
 </ul>
-
 <h4 id="spigo">Spigo</h4>
-
 <p>Repository: <a href="https://github.com/jeqo/spigo">https://github.com/jeqo/spigo</a></p>
-
 <h5 id="implementation">Implementation</h5>
-
 <p><code>tooling/archius.go</code> contains all configuration options.</p>
-
 <p><code>actors/edda.go</code> start microservices.</p>
-
 <p><code>tooling/architecture.go</code> manage Spigo</p>
-
 <p><code>tooling/asgard.go</code> create nodes (i.e. start specific node depending on type assigned on architecture)</p>
-
 <p><code>actors/eureka.go</code> works as service registry.</p>
-
 <h3 id="papers">Papers</h3>
-
 <ul>
-<li><p>Benjamin Sigelman et al.
-<a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/36356.pdf">&ldquo;Dapper, a Large-Scale Distributed Systems Tracing Infrastructure&rdquo;</a></p></li>
-
-<li><p>Jonathan Kaldor, Jonathan Mace, et at.
-<a href="http://cs.brown.edu/~jcmace/papers/kaldor2017canopy.pdf">&ldquo;Canopy: An End-to-End Performance Tracing And Analysis System&rdquo;</a></p></li>
-
-<li><p>Raja R. Sambasivan et al.
-<a href="http://www.pdl.cmu.edu/PDL-FTP/SelfStar/CMU-PDL-14-102.pdf">&ldquo;So, you want to trace your distributed system? Key design insights from years of practical experience&rdquo;</a></p></li>
+<li>
+<p>Benjamin Sigelman et al. 
+<a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/36356.pdf">&ldquo;Dapper, a Large-Scale Distributed Systems Tracing Infrastructure&rdquo;</a></p>
+</li>
+<li>
+<p>Jonathan Kaldor, Jonathan Mace, et at. 
+<a href="http://cs.brown.edu/~jcmace/papers/kaldor2017canopy.pdf">&ldquo;Canopy: An End-to-End Performance Tracing And Analysis System&rdquo;</a></p>
+</li>
+<li>
+<p>Raja R. Sambasivan et al. 
+<a href="http://www.pdl.cmu.edu/PDL-FTP/SelfStar/CMU-PDL-14-102.pdf">&ldquo;So, you want to trace your distributed system? Key design insights from years of practical experience&rdquo;</a></p>
+</li>
 </ul>
-
 <h3 id="blog-posts">Blog Posts</h3>
-
 <h4 id="observability">Observability</h4>
-
 <ul>
-<li><p>Peter Bourgon <a href="https://peter.bourgon.org/blog/2017/02/21/metrics-tracing-and-logging.html">&ldquo;Metrics, Tracing and Logging&rdquo;</a></p></li>
-
-<li><p>Cindy Sridharan <a href="https://medium.com/@copyconstruct/monitoring-in-the-time-of-cloud-native-c87c7a5bfa3e">&ldquo;Monitoring in the Time of Cloud Native&rdquo;</a></p></li>
-
-<li><p>Cindy Sridharan <a href="https://medium.com/@copyconstruct/monitoring-and-observability-8417d1952e1c">&ldquo;Tracing and Observability&rdquo;</a></p></li>
+<li>
+<p>Peter Bourgon <a href="https://peter.bourgon.org/blog/2017/02/21/metrics-tracing-and-logging.html">&ldquo;Metrics, Tracing and Logging&rdquo;</a></p>
+</li>
+<li>
+<p>Cindy Sridharan <a href="https://medium.com/@copyconstruct/monitoring-in-the-time-of-cloud-native-c87c7a5bfa3e">&ldquo;Monitoring in the Time of Cloud Native&rdquo;</a></p>
+</li>
+<li>
+<p>Cindy Sridharan <a href="https://medium.com/@copyconstruct/monitoring-and-observability-8417d1952e1c">&ldquo;Tracing and Observability&rdquo;</a></p>
+</li>
 </ul>
-
 <h4 id="tracing">Tracing</h4>
-
 <ul>
-<li><p>Uber <a href="https://medium.com/opentracing/take-opentracing-for-a-hotrod-ride-f6e3141f7941">&ldquo;Take OpenTracing for a HotROD&rdquo;</a></p></li>
-
-<li><p>Uber <a href="https://eng.uber.com/distributed-tracing/">&ldquo;Distributed Tracing&rdquo;</a></p></li>
-
-<li><p>JaegerTracing <a href="https://medium.com/jaegertracing/jaeger-and-multitenancy-99dfa1d49dc0">&ldquo;Jaeger and Multitenancy&rdquo;</a></p></li>
+<li>
+<p>Uber <a href="https://medium.com/opentracing/take-opentracing-for-a-hotrod-ride-f6e3141f7941">&ldquo;Take OpenTracing for a HotROD&rdquo;</a></p>
+</li>
+<li>
+<p>Uber <a href="https://eng.uber.com/distributed-tracing/">&ldquo;Distributed Tracing&rdquo;</a></p>
+</li>
+<li>
+<p>JaegerTracing <a href="https://medium.com/jaegertracing/jaeger-and-multitenancy-99dfa1d49dc0">&ldquo;Jaeger and Multitenancy&rdquo;</a></p>
+</li>
 </ul>
-
 <h4 id="logging">Logging</h4>
-
 <ul>
-<li><p>Peter Bourgon <a href="https://peter.bourgon.org/blog/2016/02/07/logging-v-instrumentation.html">&ldquo;Logging v. Instrumentation&rdquo;</a></p></li>
-
-<li><p>Peter Bourgon <a href="https://peter.bourgon.org/ok-log/">&ldquo;OK Log&rdquo;</a></p></li>
-
-<li><p>12 Factor App <a href="https://12factor.net/logs">&ldquo;Logs&rdquo;</a></p></li>
+<li>
+<p>Peter Bourgon <a href="https://peter.bourgon.org/blog/2016/02/07/logging-v-instrumentation.html">&ldquo;Logging v. Instrumentation&rdquo;</a></p>
+</li>
+<li>
+<p>Peter Bourgon <a href="https://peter.bourgon.org/ok-log/">&ldquo;OK Log&rdquo;</a></p>
+</li>
+<li>
+<p>12 Factor App <a href="https://12factor.net/logs">&ldquo;Logs&rdquo;</a></p>
+</li>
 </ul>
-
 <h4 id="metrics">Metrics</h4>
-
 <ul>
-<li><p><a href="https://codeascraft.com/2011/02/15/measure-anything-measure-everything/">https://codeascraft.com/2011/02/15/measure-anything-measure-everything/</a></p></li>
-
-<li><p>Cindy Sridharan <a href="https://medium.com/@copyconstruct/logs-and-metrics-6d34d3026e38">&ldquo;Logs and Metrics&rdquo;</a></p></li>
+<li>
+<p><a href="https://codeascraft.com/2011/02/15/measure-anything-measure-everything/">https://codeascraft.com/2011/02/15/measure-anything-measure-everything/</a></p>
+</li>
+<li>
+<p>Cindy Sridharan <a href="https://medium.com/@copyconstruct/logs-and-metrics-6d34d3026e38">&ldquo;Logs and Metrics&rdquo;</a></p>
+</li>
 </ul>
   </section>
   <footer>
@@ -281,12 +251,12 @@
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/notes/reactive-streams/">Newer</a>
+          <a href="https://jeqo.github.io/talks/distributed-tracing-with-opentracing-noslides18/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/talks/distributed-tracing-with-opentracing-noslides18/">Older</a>
+          <a href="https://jeqo.github.io/notes/reactive-streams/">Older</a>
           
         </div>
       </div>
@@ -325,7 +295,7 @@
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -363,12 +333,6 @@
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">About</a>
       </li>
       
@@ -392,9 +356,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -403,16 +364,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

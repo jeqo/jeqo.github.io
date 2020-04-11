@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Talks on @jeqo</title>
@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Sat, 25 Nov 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/talks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Making sense of Event-Driven Systems - Oracle Code One 2019</title>
+      <link>https://jeqo.github.io/talks/making-sense-event-drive-systems-codeone19/</link>
+      <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/talks/making-sense-event-drive-systems-codeone19/</guid>
+      <description>&lt;p&gt;Presented at &lt;a href=&#34;https://events.rainfocus.com/widget/oracle/oow19/catalogcodeone19?search=jorge&amp;amp;search.codeonetracks=15560568230440086BEm&#34;&gt;Oracle Code One 2019&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Making sense of Event-Driven Systems - Kafka Summit 2019</title>
+      <link>https://jeqo.github.io/talks/making-sense-event-drive-dataflows-kafkasummitnyc19/</link>
+      <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/talks/making-sense-event-drive-dataflows-kafkasummitnyc19/</guid>
+      <description>&lt;p&gt;Presented at &lt;a href=&#34;https://kafka-summit.org/sessions/tracing-kafka-based-applications-making-sense-event-driven-dataflows/&#34;&gt;Kafka Summit NYC 2019&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Importance of Observability for Kafka-based applications with Zipkin - Oslo Apache Kafka Meetup</title>
+      <link>https://jeqo.github.io/talks/the-importance-of-observability-kafkausergroupnorway18/</link>
+      <pubDate>Mon, 10 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/talks/the-importance-of-observability-kafkausergroupnorway18/</guid>
+      <description>&lt;p&gt;Presented at &lt;a href=&#34;https://www.meetup.com/en-AU/Oslo-Kafka/events/254039906/&#34;&gt;Oslo Apache Kafka Meetup&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Distributed Tracing with OpenTracing - NoSlidesConf 2017</title>
@@ -18,9 +45,7 @@
       <pubDate>Sat, 25 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/talks/distributed-tracing-with-opentracing-noslides18/</guid>
-      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.noslidesconf.net/&#34;&gt;NoSlidesConf 2017&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.noslidesconf.net/&#34;&gt;NoSlidesConf 2017&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -29,9 +54,7 @@
       <pubDate>Fri, 10 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/</guid>
-      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://ougn.no/varseminar-2017/&#34;&gt;OUGN 2017&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://ougn.no/varseminar-2017/&#34;&gt;OUGN 2017&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -40,9 +63,7 @@
       <pubDate>Thu, 09 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/talks/scale-wls-the-k8s-way-ougn-17/</guid>
-      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://ougn.no/varseminar-2017/&#34;&gt;OUGN 2017&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://ougn.no/varseminar-2017/&#34;&gt;OUGN 2017&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -51,9 +72,7 @@
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/talks/lighning-provisioning-oracle-soa-suite-amis25/</guid>
-      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.amis.nl/en/events-eng/jubileumconferentie/&#34;&gt;AMIS25 2016&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.amis.nl/en/events-eng/jubileumconferentie/&#34;&gt;AMIS25 2016&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -62,9 +81,7 @@
       <pubDate>Sat, 02 May 2015 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/talks/what-is-adaptive-case-management-ougn15/</guid>
-      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.amis.nl/en/events-eng/jubileumconferentie/&#34;&gt;AMIS25 2016&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.amis.nl/en/events-eng/jubileumconferentie/&#34;&gt;AMIS25 2016&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Virtualbox on @jeqo</title>
+    <title>virtualbox on @jeqo</title>
     <link>https://jeqo.github.io/tags/virtualbox/</link>
-    <description>Recent content in Virtualbox on @jeqo</description>
+    <description>Recent content in virtualbox on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
@@ -18,9 +18,7 @@
       <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2014-11-26-vagrant-quickstart/</guid>
-      <description>&lt;p&gt;I have some months working with Vagrant and I think it&amp;rsquo;s owesome! Integration with almost all kind of virtualization platforms: VirtalBox, VMware, Docker, AWS EC2, Hyper-V and so on. Also it&amp;rsquo;s able to use differente Provisioners: Chef, Puppet, bash, Docker, Ansible. I really like it.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;I have some months working with Vagrant and I think it&amp;rsquo;s owesome! Integration with almost all kind of virtualization platforms: VirtalBox, VMware, Docker, AWS EC2, Hyper-V and so on. Also it&amp;rsquo;s able to use differente Provisioners: Chef, Puppet, bash, Docker, Ansible. I really like it.&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Oracle on @jeqo</title>
+    <title>oracle on @jeqo</title>
     <link>https://jeqo.github.io/es/tags/oracle/</link>
-    <description>Recent content in Oracle on @jeqo</description>
+    <description>Recent content in oracle on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
@@ -41,9 +41,8 @@ Este nuevo release incluye:
       
       <guid>https://jeqo.github.io/es/posts/2015-04-01-docker-image-oracle-soa/</guid>
       <description>Buenas noticias llegaron desde Oracle hace un par de semanas: Oracle WebLogic Server es ahora soportado en Docker!.
-I&amp;#39;m glad we announced support for @OracleWebLogic on @Docker last week, not today :-) https://t.co/6E9UxrgY3n
-&amp;mdash; Bruno Borges (@brunoborges) abril 1, 2015 
-Esto es muy emocionante. Docker es una nueva tecnología que propone una nueva forma de virtualización a través de contenedores (OS, Configurations, Platform, Application) Para más información acerca de Docker</description>
+Esto es muy emocionante. Docker es una nueva tecnología que propone una nueva forma de virtualización a través de contenedores (OS, Configurations, Platform, Application) Para más información acerca de Docker
+Bueno, WebLogic sobre Docker es genial, pero me he propuesto ir unos pasos más adelante y Dockerize los productos de SOA y BPM (como Guido Schmitz hizo con Oracle Stream Explorer)</description>
     </item>
     
     <item>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docker on @jeqo</title>
+    <title>docker on @jeqo</title>
     <link>https://jeqo.github.io/es/tags/docker/</link>
-    <description>Recent content in Docker on @jeqo</description>
+    <description>Recent content in docker on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
@@ -20,9 +20,7 @@
       <guid>https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/</guid>
       <description>&lt;p&gt;En este post mostraré como utilizar contenedores Docker para crear y escalar
 un clúster de Kafka, y también como crear, escalar y mover &lt;code&gt;topics&lt;/code&gt; dentro del
-clúster.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+clúster.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -54,9 +52,8 @@ También he movido el directory OracleSOA que cree sobre el repositorio de Oracl
       
       <guid>https://jeqo.github.io/es/posts/2015-04-01-docker-image-oracle-soa/</guid>
       <description>Buenas noticias llegaron desde Oracle hace un par de semanas: Oracle WebLogic Server es ahora soportado en Docker!.
-I&amp;#39;m glad we announced support for @OracleWebLogic on @Docker last week, not today :-) https://t.co/6E9UxrgY3n
-&amp;mdash; Bruno Borges (@brunoborges) abril 1, 2015 
-Esto es muy emocionante. Docker es una nueva tecnología que propone una nueva forma de virtualización a través de contenedores (OS, Configurations, Platform, Application) Para más información acerca de Docker</description>
+Esto es muy emocionante. Docker es una nueva tecnología que propone una nueva forma de virtualización a través de contenedores (OS, Configurations, Platform, Application) Para más información acerca de Docker
+Bueno, WebLogic sobre Docker es genial, pero me he propuesto ir unos pasos más adelante y Dockerize los productos de SOA y BPM (como Guido Schmitz hizo con Oracle Stream Explorer)</description>
     </item>
     
   </channel>

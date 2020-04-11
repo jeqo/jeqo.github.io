@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pat Helland on @jeqo</title>
+    <title>pat helland on @jeqo</title>
     <link>https://jeqo.github.io/tags/pat-helland/</link>
-    <description>Recent content in Pat Helland on @jeqo</description>
+    <description>Recent content in pat helland on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
@@ -18,11 +18,9 @@
       <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/notes/data-on-the-outside-vs-data-on-the-inside/</guid>
-      <description>&lt;p&gt;I found this paper as relevant and accurate today as it was in 2005, when it was published.
-It is fascinating how even 12 years later and with new technologies in vogue,
-same concepts keep applying.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;I found this paper as relevant and accurate today as it was in 2005, when it was published. 
+It is fascinating how even 12 years later and with new technologies in vogue, 
+same concepts keep applying.&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docker on @jeqo</title>
+    <title>docker on @jeqo</title>
     <link>https://jeqo.github.io/tags/docker/</link>
-    <description>Recent content in Docker on @jeqo</description>
+    <description>Recent content in docker on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
@@ -20,9 +20,7 @@
       <guid>https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/</guid>
       <description>&lt;p&gt;In this post I will show how to use Docker containers to create and scale
 a Kafka cluster, and also how to create, scale and move &lt;code&gt;topics&lt;/code&gt; inside
-the cluster.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+the cluster.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -36,9 +34,7 @@ event where I will be presenting with my friend
 and colleague Arturo Viveros (@gugalnikov)
 &lt;a href=&#34;http://www.amis-conference.com/Session-Catalog#session1168&#34;&gt;about Oracle SOA Suite provisioning&lt;/a&gt;,
 I want to share some practices that help us to provide Oracle Database instances
-between developers and improve our productivity.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+between developers and improve our productivity.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -49,9 +45,7 @@ between developers and improve our productivity.&lt;/p&gt;
       <guid>https://jeqo.github.io/posts/2016-03-30-ansible-agentless-provisioning/</guid>
       <description>&lt;p&gt;Ansible is an automation tool that is recognized for be simple and
 powerful at the same time. From my experience, I can say this is mainly
-because of its scripting language: YAML, and its agentless architecture.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+because of its scripting language: YAML, and its agentless architecture.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -63,9 +57,7 @@ because of its scripting language: YAML, and its agentless architecture.&lt;/p&g
       <description>&lt;p&gt;After find some limitations on building SOA Docker image using Dockerfile
 (as volume access, default size image) I researched on how to improve
 building process and I found &lt;a href=&#34;https://packer.io/&#34;&gt;Packer&lt;/a&gt;
-(from the same guy that creates Vagrant).&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+(from the same guy that creates Vagrant).&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -74,9 +66,7 @@ building process and I found &lt;a href=&#34;https://packer.io/&#34;&gt;Packer&l
       <pubDate>Wed, 01 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2015-04-01-docker-image-oracle-soa/</guid>
-      <description>&lt;p&gt;Cool news came from Oracle a couple of weeks ago: &lt;a href=&#34;https://blogs.oracle.com/WebLogicServer/entry/oracle_weblogic_server_now_running&#34;&gt;Oracle WebLogic Server is now supported on Docker!&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Cool news came from Oracle a couple of weeks ago: &lt;a href=&#34;https://blogs.oracle.com/WebLogicServer/entry/oracle_weblogic_server_now_running&#34;&gt;Oracle WebLogic Server is now supported on Docker!&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

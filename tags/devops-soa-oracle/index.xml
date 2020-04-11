@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Devops Soa Oracle on @jeqo</title>
+    <title>devops, soa, oracle on @jeqo</title>
     <link>https://jeqo.github.io/tags/devops-soa-oracle/</link>
-    <description>Recent content in Devops Soa Oracle on @jeqo</description>
+    <description>Recent content in devops, soa, oracle on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
@@ -18,9 +18,7 @@
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/talks/lighning-provisioning-oracle-soa-suite-amis25/</guid>
-      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.amis.nl/en/events-eng/jubileumconferentie/&#34;&gt;AMIS25 2016&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.amis.nl/en/events-eng/jubileumconferentie/&#34;&gt;AMIS25 2016&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -29,9 +27,7 @@
       <pubDate>Sat, 02 May 2015 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/talks/what-is-adaptive-case-management-ougn15/</guid>
-      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.amis.nl/en/events-eng/jubileumconferentie/&#34;&gt;AMIS25 2016&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.amis.nl/en/events-eng/jubileumconferentie/&#34;&gt;AMIS25 2016&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

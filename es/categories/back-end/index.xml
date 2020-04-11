@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Back End on @jeqo</title>
+    <title>back-end on @jeqo</title>
     <link>https://jeqo.github.io/es/categories/back-end/</link>
-    <description>Recent content in Back End on @jeqo</description>
+    <description>Recent content in back-end on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
@@ -18,9 +18,7 @@
       <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/es/talks/de-mensajeria-a-log-de-eventos-perujug/</guid>
-      <description>&lt;p&gt;Presentado al &lt;a href=&#34;https://twitter.com/perujug/&#34;&gt;Perú JUG&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Presentado al &lt;a href=&#34;https://twitter.com/perujug/&#34;&gt;Perú JUG&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

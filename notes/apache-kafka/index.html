@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/notes/apache-kafka/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
       </li>
       
     
@@ -154,75 +134,74 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p></p>
-
-<h2 id="contributions">Contributions</h2>
-
+    <h2 id="contributions">Contributions</h2>
 <ul>
-<li><p>KIP-122: Add Reset Consumer Group Offsets tooling <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-122%3A+Add+Reset+Consumer+Group+Offsets+tooling">https://cwiki.apache.org/confluence/display/KAFKA/KIP-122%3A+Add+Reset+Consumer+Group+Offsets+tooling</a></p></li>
-
-<li><p>KIP-171 - Extend Consumer Group Reset Offset for Stream Application <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-171+-+Extend+Consumer+Group+Reset+Offset+for+Stream+Application">https://cwiki.apache.org/confluence/display/KAFKA/KIP-171+-+Extend+Consumer+Group+Reset+Offset+for+Stream+Application</a></p></li>
-
-<li><p>KIP-222 - Add Consumer Group operations to Admin API <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-222+-+Add+Consumer+Group+operations+to+Admin+API">https://cwiki.apache.org/confluence/display/KAFKA/KIP-222+-+Add+Consumer+Group+operations+to+Admin+API</a></p></li>
-
-<li><p>KIP-244: Add Record Header support to Kafka Streams <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-244%3A+Add+Record+Header+support+to+Kafka+Streams">https://cwiki.apache.org/confluence/display/KAFKA/KIP-244%3A+Add+Record+Header+support+to+Kafka+Streams</a></p></li>
+<li>
+<p>KIP-122: Add Reset Consumer Group Offsets tooling <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-122%3A+Add+Reset+Consumer+Group+Offsets+tooling">https://cwiki.apache.org/confluence/display/KAFKA/KIP-122%3A+Add+Reset+Consumer+Group+Offsets+tooling</a></p>
+</li>
+<li>
+<p>KIP-171 - Extend Consumer Group Reset Offset for Stream Application <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-171+-+Extend+Consumer+Group+Reset+Offset+for+Stream+Application">https://cwiki.apache.org/confluence/display/KAFKA/KIP-171+-+Extend+Consumer+Group+Reset+Offset+for+Stream+Application</a></p>
+</li>
+<li>
+<p>KIP-222 - Add Consumer Group operations to Admin API <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-222+-+Add+Consumer+Group+operations+to+Admin+API">https://cwiki.apache.org/confluence/display/KAFKA/KIP-222+-+Add+Consumer+Group+operations+to+Admin+API</a></p>
+</li>
+<li>
+<p>KIP-244: Add Record Header support to Kafka Streams <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-244%3A+Add+Record+Header+support+to+Kafka+Streams">https://cwiki.apache.org/confluence/display/KAFKA/KIP-244%3A+Add+Record+Header+support+to+Kafka+Streams</a></p>
+</li>
 </ul>
-
 <h2 id="references">References</h2>
-
 <h3 id="architecture">Architecture</h3>
-
 <ul>
 <li><strong>Turning the database inside-out with Apache Samza</strong> - Martin Kleppmann <a href="https://martin.kleppmann.com/2015/03/04/turning-the-database-inside-out.html">https://martin.kleppmann.com/2015/03/04/turning-the-database-inside-out.html</a></li>
 </ul>
-
 <h3 id="schemas">Schemas</h3>
-
 <ul>
-<li><p><strong>Streaming Microservices: Contracts &amp; Compatibility</strong> <a href="https://www.infoq.com/presentations/contracts-streaming-microservices#">https://www.infoq.com/presentations/contracts-streaming-microservices#</a></p></li>
-
-<li><p><strong>RESTful service for holding schemas</strong> <a href="https://issues.apache.org/jira/browse/AVRO-1124">https://issues.apache.org/jira/browse/AVRO-1124</a></p></li>
+<li>
+<p><strong>Streaming Microservices: Contracts &amp; Compatibility</strong> <a href="https://www.infoq.com/presentations/contracts-streaming-microservices#">https://www.infoq.com/presentations/contracts-streaming-microservices#</a></p>
+</li>
+<li>
+<p><strong>RESTful service for holding schemas</strong> <a href="https://issues.apache.org/jira/browse/AVRO-1124">https://issues.apache.org/jira/browse/AVRO-1124</a></p>
+</li>
 </ul>
-
-<h3 id="change-data-capture-cdc">Change Data Capture - CDC</h3>
-
+<h3 id="change-data-capture---cdc">Change Data Capture - CDC</h3>
 <ul>
 <li><strong>Bottled Water: Real-Time integration of PostgreSQL and Kafka</strong> - Martin Kleppmann: <a href="https://martin.kleppmann.com/2015/04/23/bottled-water-real-time-postgresql-kafka.html">https://martin.kleppmann.com/2015/04/23/bottled-water-real-time-postgresql-kafka.html</a></li>
 </ul>
-
 <h3 id="microservices-and-kafka">Microservices and Kafka</h3>
-
 <ul>
-<li><strong>The Data Dichotomy: Rethinking the Way We Treat Data and Services</strong> <a href="https://www.confluent.io/blog/data-dichotomy-rethinking-the-way-we-treat-data-and-services/">https://www.confluent.io/blog/data-dichotomy-rethinking-the-way-we-treat-data-and-services/</a></li>
-</ul>
-
+<li>
+<p><strong>The Data Dichotomy: Rethinking the Way We Treat Data and Services</strong> <a href="https://www.confluent.io/blog/data-dichotomy-rethinking-the-way-we-treat-data-and-services/">https://www.confluent.io/blog/data-dichotomy-rethinking-the-way-we-treat-data-and-services/</a></p>
 <blockquote>
 <p><strong>Streams: A Decentralized Approach to Data and Services</strong></p>
-
-<p>This particular compromise involves a degree of centralization. We can use a Distributed Log for this as it provides retentive, scalable
-streams. Now we need our services to be able to join and operate on these shared streams, but we want to avoid complicated, centralized
-‘God Services’ that do this type of processing.  So a better approach is to embed stream processing into each consuming service. That
+<p>This particular compromise involves a degree of centralization. We can use a Distributed Log for this as it provides retentive, scalable 
+streams. Now we need our services to be able to join and operate on these shared streams, but we want to avoid complicated, centralized 
+‘God Services’ that do this type of processing.  So a better approach is to embed stream processing into each consuming service. That 
 means services can join together various shared datasets and iterate on them at their own pace.</p>
 </blockquote>
-
-<ul>
-<li><p><strong>Experimental CQRS and Event Sourcing service</strong> <a href="https://github.com/capitalone/cqrs-manager-for-distributed-reactive-services">https://github.com/capitalone/cqrs-manager-for-distributed-reactive-services</a></p></li>
-
-<li><p><strong>Architecting a Modern Financial Institution</strong> <a href="https://www.infoq.com/presentations/nubank-architecture">https://www.infoq.com/presentations/nubank-architecture</a></p></li>
-
-<li><p><strong>Should you put several event types in the same Kafka topic?</strong> - Martin Kleppmann:
-<a href="https://martin.kleppmann.com/2018/01/18/event-types-in-kafka-topic.html">https://martin.kleppmann.com/2018/01/18/event-types-in-kafka-topic.html</a></p></li>
-
-<li><p><strong>Event-First Development: Moving Towards Kafka Pipeline Applications</strong> - Zalando:
-<a href="https://jobs.zalando.com/tech/blog/event-first-development---moving-towards-kafka-pipeline-applications/">https://jobs.zalando.com/tech/blog/event-first-development---moving-towards-kafka-pipeline-applications/</a></p></li>
+</li>
+<li>
+<p><strong>Experimental CQRS and Event Sourcing service</strong> <a href="https://github.com/capitalone/cqrs-manager-for-distributed-reactive-services">https://github.com/capitalone/cqrs-manager-for-distributed-reactive-services</a></p>
+</li>
+<li>
+<p><strong>Architecting a Modern Financial Institution</strong> <a href="https://www.infoq.com/presentations/nubank-architecture">https://www.infoq.com/presentations/nubank-architecture</a></p>
+</li>
+<li>
+<p><strong>Should you put several event types in the same Kafka topic?</strong> - Martin Kleppmann: 
+<a href="https://martin.kleppmann.com/2018/01/18/event-types-in-kafka-topic.html">https://martin.kleppmann.com/2018/01/18/event-types-in-kafka-topic.html</a></p>
+</li>
+<li>
+<p><strong>Event-First Development: Moving Towards Kafka Pipeline Applications</strong> - Zalando:
+<a href="https://jobs.zalando.com/tech/blog/event-first-development---moving-towards-kafka-pipeline-applications/">https://jobs.zalando.com/tech/blog/event-first-development---moving-towards-kafka-pipeline-applications/</a></p>
+</li>
 </ul>
-
 <h3 id="performance-tuning">Performance Tuning</h3>
-
 <ul>
-<li><p><strong>Improving Kafka At-Least-Once Performance</strong> &ndash; Ying Zheng, Uber (Dec. 4, 2017) <a href="https://www.youtube.com/watch?v=zrU7r95chHU">https://www.youtube.com/watch?v=zrU7r95chHU</a></p></li>
-
-<li><p><strong>Tuning Kafka for low latency guaranteed messaging</strong> &ndash; Jiangjie (Becket) Qin (LinkedIn), 6/15/16 <a href="https://www.youtube.com/watch?v=oQe7PpDDdzA">https://www.youtube.com/watch?v=oQe7PpDDdzA</a></p></li>
+<li>
+<p><strong>Improving Kafka At-Least-Once Performance</strong> &ndash; Ying Zheng, Uber (Dec. 4, 2017) <a href="https://www.youtube.com/watch?v=zrU7r95chHU">https://www.youtube.com/watch?v=zrU7r95chHU</a></p>
+</li>
+<li>
+<p><strong>Tuning Kafka for low latency guaranteed messaging</strong> &ndash; Jiangjie (Becket) Qin (LinkedIn), 6/15/16 <a href="https://www.youtube.com/watch?v=oQe7PpDDdzA">https://www.youtube.com/watch?v=oQe7PpDDdzA</a></p>
+</li>
 </ul>
   </section>
   <footer>
@@ -249,12 +228,12 @@ means services can join together various shared datasets and iterate on them at 
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/notes/data-on-the-outside-vs-data-on-the-inside/">Newer</a>
+          <a href="https://jeqo.github.io/notes/reactive-streams/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/notes/reactive-streams/">Older</a>
+          <a href="https://jeqo.github.io/notes/data-on-the-outside-vs-data-on-the-inside/">Older</a>
           
         </div>
       </div>
@@ -321,7 +300,7 @@ means services can join together various shared datasets and iterate on them at 
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -359,12 +338,6 @@ means services can join together various shared datasets and iterate on them at 
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">About</a>
       </li>
       
@@ -388,9 +361,6 @@ means services can join together various shared datasets and iterate on them at 
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -399,16 +369,6 @@ means services can join together various shared datasets and iterate on them at 
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Aws on @jeqo</title>
+    <title>aws on @jeqo</title>
     <link>https://jeqo.github.io/tags/aws/</link>
-    <description>Recent content in Aws on @jeqo</description>
+    <description>Recent content in aws on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
@@ -18,9 +18,7 @@
       <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2014-11-30-create-nfs-instance-aws/</guid>
-      <description>&lt;p&gt;I was creating AWS EC2 instances to install Oracle Fusion Middleware products, and I found an issue: How to download Oracle&amp;rsquo;s installers if I want to use installers on several instances? This could consume a lot of network bandwith and I want to make this process repeatable, so I don&amp;rsquo;t want to wait 1 hour each installation only downloading files.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;I was creating AWS EC2 instances to install Oracle Fusion Middleware products, and I found an issue: How to download Oracle&amp;rsquo;s installers if I want to use installers on several instances? This could consume a lot of network bandwith and I want to make this process repeatable, so I don&amp;rsquo;t want to wait 1 hour each installation only downloading files.&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/posts/2014-11-28-review-soa-patterns-oracle-platform/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
       </li>
       
     
@@ -161,46 +141,46 @@
   
   <section id="js-article" class="p-article__body">
     <p>I&rsquo;ve had the opportunity to present a review of this book <a href="https://www.packtpub.com/application-development/applied-soa-patterns-oracle-platform">Applied SOA Patterns on the Oracle Platform</a>.</p>
-
-<p></p>
-
 <p>Once I started to read the chapters, I found it quite interesting because of these:</p>
-
 <ul>
 <li>Great introduction to SOA  principles, and Oracle SOA Suite evolution</li>
 <li>Align AIA Concepts with SOA patterns</li>
 <li>A key topic for SOA success: Service Repository</li>
 <li>An extensive and complete description of Security and Error Handling</li>
 </ul>
-
 <p>It looks like a really long book (572 pages), and it is. But this is justified because it takes a great approach from concepts to examples combined with experiences and source code. This could help you to feel more confident about your SOA design decisions.</p>
-
 <h2 id="must-read-parts">&ldquo;Must Read&rdquo; parts</h2>
-
 <ul>
-<li><p><strong>Chapter 1 - SOA Frameworks</strong>: I think these frameworks are quite important to apply on SOA design, for example: <em>Object and XML Modeling</em>, if they are not designed well, could generate an implementation hell: huge and heavy data types, rare and indescribable names. Also gives an introduction to AIA that can give you a easy-to-learn guide about SOA layers, components, and common terms (Application Business Connector Services, Enterprise Business Flows and Services, and so on).</p></li>
-
-<li><p><strong>Chapter 2 - Oracle SOA Roadmap</strong>: Owesome timeline about SOA Suite and related technologies. First time I found this information really well summarized. In general, this chapter makes a great technical specification about Oracle SOA Foundation: artifacts, technologies, code examples, specifications.</p></li>
-
-<li><p><strong>Chapter 3 - Oracle Enterprise Business Flow SOA Patterns</strong>: Great distinction between BPEL and Mediator use cases, and I share the idea that telecommunications is a great industry to take examples about service orchestration.</p></li>
-
-<li><p><strong>Chapter 4</strong>: This chapter contains really well explained tutorial: Implementing a basic Proxy on OSB is one of them, a Oracle E-Business Suite case turning a Message Broker into a Service Broker applying &ldquo;Receive-Transform-Deliver&rdquo; implementation pattern, and great examples about &ldquo;VETRO&rdquo; (or &ldquo;VETO&rdquo;) pattern on OSB: <em>Validate, Enrich, Transform and Operate</em>.</p></li>
-
-<li><p><strong>Chapter 5</strong>: A great &ldquo;Getting-started&rdquo; with SOA Governance using Oracle Enterprise Repository. <em>&ldquo;Open standards for the SOA Taxonomy&rdquo;, &ldquo;Entity Types&rdquo;</em>, and <em>&ldquo;Creating a lightweight taxonomy for dynamic service invocations&rdquo;</em> are definitely <em>must read</em> parts: they include Service Discovery taxonomy, Entity relationships and how they impact in your architecture.</p></li>
-
-<li><p><strong>Chapter 6</strong>: There is a note, on &ldquo;Optimizing the Adapter Framework&rdquo;, about SOAP and REST that you could find very interested, and I&rsquo;m agree with it: &ldquo;SOAP versus REST is a pointless discussion&rdquo;. This is followed by a technical description of how to use different technologies like REST, JSON, EJB, DB Adapter, PL-SQL and Oracle XDK. <em>&ldquo;After all, it doesn&rsquo;t matter if it is modern or not, all that matters is if it works according to our principles or not. The color of the cat does not matter, as long as it catches the mice.&rdquo;</em></p></li>
-
-<li><p><strong>Chapter 7</strong>:  <em>&ldquo;Initial Analysis&rdquo;</em> including common SOA vulnerabilities and risks, and <em>&ldquo;Risk mitigation design rules&rdquo;</em>, are all recommendations well explained and quite important in SOA projects.</p></li>
-
-<li><p><strong>Chapter 8</strong> - Error-handling design rules is also a &ldquo;must-read&rdquo;: 15 rules related with OSB, BPEL, Enterprise Manager,  to follow and apply a right exception handling on your project. Follower by a technical approach first with JMX and SOA Composites.</p></li>
-
-<li><p><strong>Chapter 9</strong>: This chapter includes an nice summary about Event Processing followed by a practitioner approach to implement CEP with Oracle Event Processing. Also includes 3 more important topics: High Availability with Coherence (How to integrated with OSB and CEP),  Monitoring Business Services with Oracle BAM ( How to use it from BPEL, JMS and Web Service API), and finally SOA as a Cloud Foundation (that&rsquo;s where 12&rdquo;c&rdquo; comes from).</p></li>
+<li>
+<p><strong>Chapter 1 - SOA Frameworks</strong>: I think these frameworks are quite important to apply on SOA design, for example: <em>Object and XML Modeling</em>, if they are not designed well, could generate an implementation hell: huge and heavy data types, rare and indescribable names. Also gives an introduction to AIA that can give you a easy-to-learn guide about SOA layers, components, and common terms (Application Business Connector Services, Enterprise Business Flows and Services, and so on).</p>
+</li>
+<li>
+<p><strong>Chapter 2 - Oracle SOA Roadmap</strong>: Owesome timeline about SOA Suite and related technologies. First time I found this information really well summarized. In general, this chapter makes a great technical specification about Oracle SOA Foundation: artifacts, technologies, code examples, specifications.</p>
+</li>
+<li>
+<p><strong>Chapter 3 - Oracle Enterprise Business Flow SOA Patterns</strong>: Great distinction between BPEL and Mediator use cases, and I share the idea that telecommunications is a great industry to take examples about service orchestration.</p>
+</li>
+<li>
+<p><strong>Chapter 4</strong>: This chapter contains really well explained tutorial: Implementing a basic Proxy on OSB is one of them, a Oracle E-Business Suite case turning a Message Broker into a Service Broker applying &ldquo;Receive-Transform-Deliver&rdquo; implementation pattern, and great examples about &ldquo;VETRO&rdquo; (or &ldquo;VETO&rdquo;) pattern on OSB: <em>Validate, Enrich, Transform and Operate</em>.</p>
+</li>
+<li>
+<p><strong>Chapter 5</strong>: A great &ldquo;Getting-started&rdquo; with SOA Governance using Oracle Enterprise Repository. <em>&ldquo;Open standards for the SOA Taxonomy&rdquo;, &ldquo;Entity Types&rdquo;</em>, and <em>&ldquo;Creating a lightweight taxonomy for dynamic service invocations&rdquo;</em> are definitely <em>must read</em> parts: they include Service Discovery taxonomy, Entity relationships and how they impact in your architecture.</p>
+</li>
+<li>
+<p><strong>Chapter 6</strong>: There is a note, on &ldquo;Optimizing the Adapter Framework&rdquo;, about SOAP and REST that you could find very interested, and I&rsquo;m agree with it: &ldquo;SOAP versus REST is a pointless discussion&rdquo;. This is followed by a technical description of how to use different technologies like REST, JSON, EJB, DB Adapter, PL-SQL and Oracle XDK. <em>&ldquo;After all, it doesn&rsquo;t matter if it is modern or not, all that matters is if it works according to our principles or not. The color of the cat does not matter, as long as it catches the mice.&quot;</em></p>
+</li>
+<li>
+<p><strong>Chapter 7</strong>:  <em>&ldquo;Initial Analysis&rdquo;</em> including common SOA vulnerabilities and risks, and <em>&ldquo;Risk mitigation design rules&rdquo;</em>, are all recommendations well explained and quite important in SOA projects.</p>
+</li>
+<li>
+<p><strong>Chapter 8</strong> - Error-handling design rules is also a &ldquo;must-read&rdquo;: 15 rules related with OSB, BPEL, Enterprise Manager,  to follow and apply a right exception handling on your project. Follower by a technical approach first with JMX and SOA Composites.</p>
+</li>
+<li>
+<p><strong>Chapter 9</strong>: This chapter includes an nice summary about Event Processing followed by a practitioner approach to implement CEP with Oracle Event Processing. Also includes 3 more important topics: High Availability with Coherence (How to integrated with OSB and CEP),  Monitoring Business Services with Oracle BAM ( How to use it from BPEL, JMS and Web Service API), and finally SOA as a Cloud Foundation (that&rsquo;s where 12&quot;c&rdquo; comes from).</p>
+</li>
 </ul>
-
 <p>In conclusion you will find in this book a bunch of real experience aligned with SOA patterns and a mix of principles, frameworks, technical issues and product mapping. I believe you will find it very useful. You can find it <a href="http://bit.ly/1uqK9dq">here</a>!</p>
-
 <p>For me, this book will be my new handbook for comming SOA projects (with <a href="http://www.oracle.com/technetwork/topics/entarch/itso-165161.html">IT Strategies from Oracle</a>).</p>
-
 <p>If you have comments about this book, please share! :)</p>
   </section>
   <footer>
@@ -227,12 +207,12 @@
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/posts/2014-11-30-create-nfs-instance-aws/">Newer</a>
+          <a href="https://jeqo.github.io/posts/2014-11-26-vagrant-quickstart/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/posts/2014-11-26-vagrant-quickstart/">Older</a>
+          <a href="https://jeqo.github.io/posts/2014-11-30-create-nfs-instance-aws/">Older</a>
           
         </div>
       </div>
@@ -250,7 +230,7 @@
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -288,12 +268,6 @@
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">About</a>
       </li>
       
@@ -317,9 +291,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -328,16 +299,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/es/posts/2014-12-11-run-bpm-12c-aws/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Presentaciones</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notas</a>
       </li>
       
     
@@ -167,51 +147,35 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    
-
-<p>En esta entrada mostraré el procedimiento que utilicé para crear
+    <p>En esta entrada mostraré el procedimiento que utilicé para crear
 instancias en Amazon Web Service EC2, con Oracle BPM 12c instalado y
 un dominio provisionado.</p>
-
 <p>Este procedimiento se realizo en los siguientes pasos:</p>
-
 <ul>
 <li>Crear una instancia en AWS EC2 (con Vagrant)</li>
 <li>Conectarse a una instancia NFS para obtener instaladores (con Chef)</li>
 <li>Instalar Oracle BPM 12c Quickstart y crear Dominio (con Chef)</li>
 </ul>
-
 <p>GitHub: <a href="https://github.com/jeqo/oracle-bpm-12c-aws">https://github.com/jeqo/oracle-bpm-12c-aws</a></p>
-
-<h2 id="crear-una-instancia-en-aws-ec2">Crear una instancia en AWS EC2</h2>
-
+<h2 id="crear-una-instancia-en-aws-ec2-">Crear una instancia en AWS EC2</h2>
 <p>He creado una instancia Red Hat usando Vagrant. Esta instancia debe estar conectada
 a una instancia NFS que tiene los instaladores de Oracle (esta fue creada
-  en esta <a href="http://jeqo.github.io/blog/devops/create-nfs-instance-aws-es/">entrada</a>).</p>
-
+en esta <a href="http://jeqo.github.io/blog/devops/create-nfs-instance-aws-es/">entrada</a>).</p>
 <p>Esta es la instancia NFS:</p>
-
-<p><img src="images/2014-12-11-run-bpm-12c-aws/2014-12-11_0836.png" alt="Instancia NFS" title="NFS Instance" /></p>
-
+<p><img src="images/2014-12-11-run-bpm-12c-aws/2014-12-11_0836.png" alt="Instancia NFS" title="NFS Instance"></p>
 <p>Y el directorio &ldquo;/data&rdquo; esta compartido. Incluye los instaladores de Oracle DB XE 11g y BPM 12c:</p>
-
-<p><img src="images/2014-12-11-run-bpm-12c-aws/2014-12-11_0841.png" alt="Directorios NFS" title="NFS directories" /></p>
-
-<h3 id="configuración-en-vagrant">Configuración en Vagrant</h3>
-
+<p><img src="images/2014-12-11-run-bpm-12c-aws/2014-12-11_0841.png" alt="Directorios NFS" title="NFS directories"></p>
+<h3 id="configuración-en-vagrant-">Configuración en Vagrant</h3>
 <p><a href="https://gist.github.com/jeqo/62b74a9ed65d575d91b4">Gist</a></p>
-
 <p>{% gist 62b74a9ed65d575d91b4 Vagrantfile &gt;}}</p>
-
 <p>Ejecutar el siguiente comando:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vagrant up --provider<span style="color:#333">=</span>aws</code></pre></div>
-<h3 id="conectarse-a-la-instancia-nfs">Conectarse a la instancia NFS</h3>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vagrant up --provider<span style="color:#333">=</span>aws
+</code></pre></div><h3 id="conectarse-a-la-instancia-nfs-">Conectarse a la instancia NFS</h3>
 <p>Esta es la primera receta Chef que será ejecutada:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
   chef<span style="color:#333">.</span>add_role <span style="background-color:#fff0f0">&#34;nfs-client&#34;</span>
-<span style="color:#333">...</span></code></pre></div>
-<p>Utilizando el rol Chef:</p>
+<span style="color:#333">...</span>
+</code></pre></div><p>Utilizando el rol Chef:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#070">&#34;name&#34;</span> : <span style="background-color:#fff0f0">&#34;nfs-client&#34;</span>,
   <span style="color:#070">&#34;description&#34;</span> : <span style="background-color:#fff0f0">&#34;Role applied to the system that should be an NFS client tools.&#34;</span>,
@@ -226,22 +190,20 @@ a una instancia NFS que tiene los instaladores de Oracle (esta fue creada
   <span style="color:#070">&#34;run_list&#34;</span> : [
     <span style="background-color:#fff0f0">&#34;recipe[nfs-utils::nfs-client]&#34;</span>
   ]
-}</code></pre></div>
-<p>Para actualizar el server-host desde su configuración de Vagrant, agregar las
+}
+
+</code></pre></div><p>Para actualizar el server-host desde su configuración de Vagrant, agregar las
 siguientes líneas:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
 chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
   <span style="background-color:#fff0f0">&#34;nfs-client&#34;</span> <span style="color:#333">=&gt;</span> {
     <span style="background-color:#fff0f0">&#34;server-host&#34;</span> <span style="color:#333">=&gt;</span> <span style="background-color:#fff0f0">&#34;123.1.1.12&#34;</span>
   },
-  <span style="color:#333">...</span></code></pre></div>
-<p>Y cuando la instancia sea creada, un nuevo directorio &ldquo;/data&rdquo; se sincronizará.</p>
-
-<h2 id="instalación-de-oracle-bpm-12c-quickstart">Instalación de Oracle BPM 12c Quickstart</h2>
-
+  <span style="color:#333">...</span>
+</code></pre></div><p>Y cuando la instancia sea creada, un nuevo directorio &ldquo;/data&rdquo; se sincronizará.</p>
+<h2 id="instalación-de-oracle-bpm-12c-quickstart-">Instalación de Oracle BPM 12c Quickstart</h2>
 <p>Para instalar BPM, se debe utilizar el <a href="https://supermarket.chef.io/cookbooks/oracle-fmw">cookbook &ldquo;oracle-fmw&rdquo;</a>
 compartido en Chef Supermarket. Este esta explicador en <a href="http://jeqo.github.io/blog/devops/chef-cookbook-oracle-fmw-12c-es/">esta entrada</a>.</p>
-
 <p>La configuración de Vagrant invoca el provisionamiento con Chef:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#070">&#34;name&#34;</span> : <span style="background-color:#fff0f0">&#34;demo-bpm_bam-12c&#34;</span>,
@@ -297,18 +259,13 @@ compartido en Chef Supermarket. Este esta explicador en <a href="http://jeqo.git
     <span style="background-color:#fff0f0">&#34;recipe[oracle-fmw::create-rcu_repository-12c]&#34;</span>,
     <span style="background-color:#fff0f0">&#34;recipe[oracle-fmw::create-domain-12c]&#34;</span>
   ]
-}</code></pre></div>
-<p>Incluye la llamada a 3 recetas: &ldquo;install-bpm_qs-12c&rdquo; , &ldquo;create-rcu_repository-12c&rdquo;,
+}
+</code></pre></div><p>Incluye la llamada a 3 recetas: &ldquo;install-bpm_qs-12c&rdquo; , &ldquo;create-rcu_repository-12c&rdquo;,
 &ldquo;create-domain-12c&rdquo;, incluyendo la información del dominio (&ldquo;domain-12c&rdquo;), y RCU (&ldquo;rcu-12c&rdquo;).</p>
-
 <p>Este proceso toma cerca de 30 min. aprox.</p>
-
 <p>Una vez finalizado, debe poder acceder con el usuario de sistema operativo &ldquo;oracle-fmw&rdquo; (password: welcome1), e iniciar el servidor:</p>
-
-<p><img src="images/2014-12-11-run-bpm-12c-aws/2014-12-11_0930.png" alt="Start server" title="Stating WebLogic Server" /></p>
-
-<p><img src="raw/gh-pages/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0931.png" alt="Server started" title="WebLogic Server with BPM started" /></p>
-
+<p><img src="images/2014-12-11-run-bpm-12c-aws/2014-12-11_0930.png" alt="Start server" title="Stating WebLogic Server"></p>
+<p><img src="raw/gh-pages/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0931.png" alt="Server started" title="WebLogic Server with BPM started"></p>
 <p>Eso es todo :).</p>
 
   </section>
@@ -336,12 +293,12 @@ compartido en Chef Supermarket. Este esta explicador en <a href="http://jeqo.git
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/es/posts/2015-04-01-docker-image-oracle-soa/">Newer</a>
+          <a href="https://jeqo.github.io/es/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/es/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/">Older</a>
+          <a href="https://jeqo.github.io/es/posts/2015-04-01-docker-image-oracle-soa/">Older</a>
           
         </div>
       </div>
@@ -380,7 +337,7 @@ compartido en Chef Supermarket. Este esta explicador en <a href="http://jeqo.git
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -418,12 +375,6 @@ compartido en Chef Supermarket. Este esta explicador en <a href="http://jeqo.git
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notas</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">Acerca</a>
       </li>
       
@@ -452,9 +403,6 @@ compartido en Chef Supermarket. Este esta explicador en <a href="http://jeqo.git
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -463,16 +411,6 @@ compartido en Chef Supermarket. Este esta explicador en <a href="http://jeqo.git
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

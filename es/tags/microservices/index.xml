@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Microservices on @jeqo</title>
+    <title>microservices on @jeqo</title>
     <link>https://jeqo.github.io/es/tags/microservices/</link>
-    <description>Recent content in Microservices on @jeqo</description>
+    <description>Recent content in microservices on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
@@ -19,10 +19,8 @@
       
       <guid>https://jeqo.github.io/es/notes/data-on-the-outside-vs-data-on-the-inside/</guid>
       <description>&lt;p&gt;Encuentro este &lt;em&gt;paper&lt;/em&gt; tan relevante y preciso hoy como lo fue en 2005, cuando fue publicado.
-Es fascinante como luego de 12 años y con nuevas tecnologías en voga, los mismos conceptos
-siguen aplicando.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+Es fascinante como luego de 12 años y con nuevas tecnologías en voga, los mismos conceptos 
+siguen aplicando.&lt;/p&gt;</description>
     </item>
     
   </channel>

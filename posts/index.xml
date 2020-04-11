@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on @jeqo</title>
@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 28 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Importance of Distributed Tracing for Apache Kafka Based Applications</title>
+      <link>https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/</link>
+      <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/</guid>
+      <description>Originally posted in Confluent Blog
+ Apache Kafka® based applications stand out for their ability to decouple producers and consumers using an event log as an intermediate layer.
+One result of this is that producers and consumers don’t know about each other, as there is no direct communication between them.
+This enables choreographed service collaborations, where many components can subscribe to events stored in the event log and react to them asynchronously.</description>
+    </item>
     
     <item>
       <title>Tracing Kafka applications</title>
@@ -34,13 +46,9 @@ Multiple Consumers. Each &lt;code&gt;consumer group&lt;/code&gt; has a current &
 determine at what point in a &lt;code&gt;topic&lt;/code&gt; this &lt;code&gt;consumer group&lt;/code&gt; has consume
 messages. So, each &lt;code&gt;consumer group&lt;/code&gt; can manage its &lt;code&gt;offset&lt;/code&gt; independently,
 by &lt;code&gt;partition&lt;/code&gt;.&lt;/p&gt;
-
 &lt;p&gt;This offers the possibility to rollback in time and reprocess messages from
 the beginning of a &lt;code&gt;topic&lt;/code&gt; and regenerate the current status of the system.&lt;/p&gt;
-
-&lt;p&gt;But how to do it (programmatically)?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;But how to do it (programmatically)?&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -51,9 +59,7 @@ the beginning of a &lt;code&gt;topic&lt;/code&gt; and regenerate the current sta
       <guid>https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/</guid>
       <description>&lt;p&gt;In this post I will show how to use Docker containers to create and scale
 a Kafka cluster, and also how to create, scale and move &lt;code&gt;topics&lt;/code&gt; inside
-the cluster.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+the cluster.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -67,9 +73,7 @@ event where I will be presenting with my friend
 and colleague Arturo Viveros (@gugalnikov)
 &lt;a href=&#34;http://www.amis-conference.com/Session-Catalog#session1168&#34;&gt;about Oracle SOA Suite provisioning&lt;/a&gt;,
 I want to share some practices that help us to provide Oracle Database instances
-between developers and improve our productivity.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+between developers and improve our productivity.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -80,9 +84,7 @@ between developers and improve our productivity.&lt;/p&gt;
       <guid>https://jeqo.github.io/posts/2016-03-30-ansible-agentless-provisioning/</guid>
       <description>&lt;p&gt;Ansible is an automation tool that is recognized for be simple and
 powerful at the same time. From my experience, I can say this is mainly
-because of its scripting language: YAML, and its agentless architecture.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+because of its scripting language: YAML, and its agentless architecture.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -94,9 +96,7 @@ because of its scripting language: YAML, and its agentless architecture.&lt;/p&g
       <description>&lt;p&gt;After find some limitations on building SOA Docker image using Dockerfile
 (as volume access, default size image) I researched on how to improve
 building process and I found &lt;a href=&#34;https://packer.io/&#34;&gt;Packer&lt;/a&gt;
-(from the same guy that creates Vagrant).&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+(from the same guy that creates Vagrant).&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -107,10 +107,7 @@ building process and I found &lt;a href=&#34;https://packer.io/&#34;&gt;Packer&l
       <guid>https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/</guid>
       <description>&lt;p&gt;I decided to implement a naive integration between Java EE applications and
 RxJava/Kafka/Avro, to publish and subscribe to events.&lt;/p&gt;
-
-&lt;p&gt;You can go directly to that &lt;a href=&#34;https://github.com/jeqo/java-ee-rxjava-kafka-avro&#34;&gt;code&lt;/a&gt;, or check my approach:&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;You can go directly to that &lt;a href=&#34;https://github.com/jeqo/java-ee-rxjava-kafka-avro&#34;&gt;code&lt;/a&gt;, or check my approach:&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -120,9 +117,7 @@ RxJava/Kafka/Avro, to publish and subscribe to events.&lt;/p&gt;
       
       <guid>https://jeqo.github.io/posts/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</guid>
       <description>&lt;p&gt;Yesterday, I released a new version (0.2.0) of my Oracle Fusion Middleware Cookbook
-hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;Chef Supermarket&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;Chef Supermarket&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -131,9 +126,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
       <pubDate>Wed, 01 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2015-04-01-docker-image-oracle-soa/</guid>
-      <description>&lt;p&gt;Cool news came from Oracle a couple of weeks ago: &lt;a href=&#34;https://blogs.oracle.com/WebLogicServer/entry/oracle_weblogic_server_now_running&#34;&gt;Oracle WebLogic Server is now supported on Docker!&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Cool news came from Oracle a couple of weeks ago: &lt;a href=&#34;https://blogs.oracle.com/WebLogicServer/entry/oracle_weblogic_server_now_running&#34;&gt;Oracle WebLogic Server is now supported on Docker!&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -142,9 +135,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
       <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2014-12-11-run-bpm-12c-aws/</guid>
-      <description>&lt;p&gt;In this post, I will show how to create an AWS EC2 Instance with an Oracle BPM 12c Quickstart Domain created. And I will use previous post for related tasks.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;In this post, I will show how to create an AWS EC2 Instance with an Oracle BPM 12c Quickstart Domain created. And I will use previous post for related tasks.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -153,9 +144,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
       <pubDate>Tue, 09 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/</guid>
-      <description>&lt;p&gt;Provisioning tools have change the way we create software environments: How much time we spend installing OS, databases, configuring platforms, applications? Now you can translate this steps into code, getting the software development benefits and challenges into infrastructure: versioning, reuse, continuous improvement.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Provisioning tools have change the way we create software environments: How much time we spend installing OS, databases, configuring platforms, applications? Now you can translate this steps into code, getting the software development benefits and challenges into infrastructure: versioning, reuse, continuous improvement.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -164,9 +153,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
       <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2014-11-30-create-nfs-instance-aws/</guid>
-      <description>&lt;p&gt;I was creating AWS EC2 instances to install Oracle Fusion Middleware products, and I found an issue: How to download Oracle&amp;rsquo;s installers if I want to use installers on several instances? This could consume a lot of network bandwith and I want to make this process repeatable, so I don&amp;rsquo;t want to wait 1 hour each installation only downloading files.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;I was creating AWS EC2 instances to install Oracle Fusion Middleware products, and I found an issue: How to download Oracle&amp;rsquo;s installers if I want to use installers on several instances? This could consume a lot of network bandwith and I want to make this process repeatable, so I don&amp;rsquo;t want to wait 1 hour each installation only downloading files.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -175,9 +162,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2014-11-28-review-soa-patterns-oracle-platform/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve had the opportunity to present a review of this book &lt;a href=&#34;https://www.packtpub.com/application-development/applied-soa-patterns-oracle-platform&#34;&gt;Applied SOA Patterns on the Oracle Platform&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve had the opportunity to present a review of this book &lt;a href=&#34;https://www.packtpub.com/application-development/applied-soa-patterns-oracle-platform&#34;&gt;Applied SOA Patterns on the Oracle Platform&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -186,9 +171,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
       <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2014-11-26-vagrant-quickstart/</guid>
-      <description>&lt;p&gt;I have some months working with Vagrant and I think it&amp;rsquo;s owesome! Integration with almost all kind of virtualization platforms: VirtalBox, VMware, Docker, AWS EC2, Hyper-V and so on. Also it&amp;rsquo;s able to use differente Provisioners: Chef, Puppet, bash, Docker, Ansible. I really like it.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;I have some months working with Vagrant and I think it&amp;rsquo;s owesome! Integration with almost all kind of virtualization platforms: VirtalBox, VMware, Docker, AWS EC2, Hyper-V and so on. Also it&amp;rsquo;s able to use differente Provisioners: Chef, Puppet, bash, Docker, Ansible. I really like it.&lt;/p&gt;</description>
     </item>
     
   </channel>

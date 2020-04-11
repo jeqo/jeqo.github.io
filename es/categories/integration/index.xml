@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Integration on @jeqo</title>
+    <title>integration on @jeqo</title>
     <link>https://jeqo.github.io/es/categories/integration/</link>
-    <description>Recent content in Integration on @jeqo</description>
+    <description>Recent content in integration on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
@@ -18,9 +18,7 @@
       <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/es/talks/de-mensajeria-a-log-de-eventos-perujug/</guid>
-      <description>&lt;p&gt;Presentado al &lt;a href=&#34;https://twitter.com/perujug/&#34;&gt;Perú JUG&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Presentado al &lt;a href=&#34;https://twitter.com/perujug/&#34;&gt;Perú JUG&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -34,13 +32,9 @@ de múltiples consumidores. Cada &lt;code&gt;consumer group&lt;/code&gt; tiene u
 determina hasta que punto del &lt;code&gt;topic&lt;/code&gt; se encuentra consumido por &lt;code&gt;consumer group&lt;/code&gt;.
 Así, cada &lt;code&gt;consumer group&lt;/code&gt; puede manejar los &lt;code&gt;offset&lt;/code&gt; independientemente, por
 partición.&lt;/p&gt;
-
 &lt;p&gt;Esto ofrece la posibilidad de retroceder en el tiempo y reprocesar mensaje desde
 el inicio de un &lt;code&gt;topic&lt;/code&gt; y regenerar el estado actual del sistema.&lt;/p&gt;
-
-&lt;p&gt;Pero, cómo realizar esto de forma programática?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Pero, cómo realizar esto de forma programática?&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -51,9 +45,7 @@ el inicio de un &lt;code&gt;topic&lt;/code&gt; y regenerar el estado actual del 
       <guid>https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/</guid>
       <description>&lt;p&gt;En este post mostraré como utilizar contenedores Docker para crear y escalar
 un clúster de Kafka, y también como crear, escalar y mover &lt;code&gt;topics&lt;/code&gt; dentro del
-clúster.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+clúster.&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/es/notes/data-on-the-outside-vs-data-on-the-inside/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Presentaciones</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notas</a>
       </li>
       
     
@@ -166,246 +146,189 @@
   
   <section id="js-article" class="p-article__body">
     <p>Encuentro este <em>paper</em> tan relevante y preciso hoy como lo fue en 2005, cuando fue publicado.
-Es fascinante como luego de 12 años y con nuevas tecnologías en voga, los mismos conceptos
+Es fascinante como luego de 12 años y con nuevas tecnologías en voga, los mismos conceptos 
 siguen aplicando.</p>
-
-<p></p>
-
 <p>Sobre todo encuentro esencial evaluar los conceptos propuestos por <strong>Pat Helland</strong>
-en relación a <em>Microservicios</em>: En este <em>paper</em> se describen los retos que afrontan los
-desarrolladores cuando salen de un entorno <em>monolítico</em> (donde se puede confiar en
-que todos los componentes están ubicados en un mismo entorno - i.e. un mismo servidor),
+en relación a <em>Microservicios</em>: En este <em>paper</em> se describen los retos que afrontan los 
+desarrolladores cuando salen de un entorno <em>monolítico</em> (donde se puede confiar en 
+que todos los componentes están ubicados en un mismo entorno - i.e. un mismo servidor), 
 y se tienen que enfrentar a una realidad donde ya no se puede confiar en que todos las partes
-del sistema están en mismo espacio/tiempo; y métodos como transacciones atómicas,
+del sistema están en mismo espacio/tiempo; y métodos como transacciones atómicas, 
 implementado por protocolos como  <em>two-phase commit</em>, no son recomendables ya que atentan directamente contra
 uno de los objetivos de distribuir componentes, que es aumentar la disponibilidad.</p>
-
-<p>El autor inicia su sustentación introduciendo las características de una <em>Arquitectura Orientada a Servicios</em>
+<p>El autor inicia su sustentación introduciendo las características de una <em>Arquitectura Orientada a Servicios</em> 
 (SOA), actualmente relevante a Arquitecturas de Microservicios:</p>
-
 <blockquote>
 <p>&ldquo;Cada <em>servicio</em> esta compuesto de una cantidad de código y datos que son privados para ese servicio.
 Estos <em>servicios</em> son diferentes a las aplicaciones clasicas, que viven en un silo y interactuan
 solo con humanos, en que se interconectan a través de mensajes con otros servicios.&rdquo;</p>
 </blockquote>
-
 <p>Más importante, define las implicancias de Transacciones en SOA:</p>
-
 <blockquote>
-<p>&ldquo;Para participar en una transacción <a href="https://en.wikipedia.org/wiki/ACID">ACID</a> require que
+<p>&ldquo;Para participar en una transacción <a href="https://en.wikipedia.org/wiki/ACID">ACID</a> require que 
 los participantes esten dispuestos <strong>a mantener bloqueados registros en la base de datos</strong>
-hasta que el coordinador de transacciones decida <em>confirmar</em> o <em>abortar</em> la transacción.
+hasta que el coordinador de transacciones decida <em>confirmar</em> o <em>abortar</em> la transacción. 
 Para los componentes independientes, este es ceder seriamente sus niveles de independencia
-y require mucha <strong>confianza</strong> de que el sistema coordinador va a realizar esa decisión
-a tiempo.
-<strong>Estar restringido a mantener bloqueos activos sobre registros en la base de datos puede ser devastador para la disponibiilidad del sistema</strong>&ldquo;</p>
+y require mucha <strong>confianza</strong> de que el sistema coordinador va a realizar esa decisión 
+a tiempo. 
+<strong>Estar restringido a mantener bloqueos activos sobre registros en la base de datos puede ser devastador para la disponibiilidad del sistema</strong>&rdquo;</p>
 </blockquote>
-
-<p>Por lo tanto, solo se deberían considerar transacciones atómicas solo entre componentes
-que tienen un alto nivel de confianza, por ejemplo: <em>brokers</em> de Kafka confian internamente
+<p>Por lo tanto, solo se deberían considerar transacciones atómicas solo entre componentes 
+que tienen un alto nivel de confianza, por ejemplo: <em>brokers</em> de Kafka confian internamente 
 en el servicio de Zookeeper para asignar la réplica líder de una partición.</p>
-
 <p>Luego, introduce 2 conceptos importantes a lo largo del <em>paper</em>:</p>
-
 <blockquote>
 <ul>
-<li><strong>Operadores</strong>: corresponde a la intención del mensaje. Frecuentemente, el operador refleja una función de negocio en el
+<li><strong>Operadores</strong>: corresponde a la intención del mensaje. Frecuentemente, el operador refleja una función de negocio en el 
 dominio del servicio.</li>
-<li><strong>Operandos</strong>: Mensajes pueden contener operandos para los operadores. Los operandos son información adicional requeridos por
+<li><strong>Operandos</strong>: Mensajes pueden contener operandos para los operadores. Los operandos son información adicional requeridos por 
 el mensaje operador para calificar la intensión del servicio. Operandos son usualmente obtenidos a partir de <em>Datos de Referencia</em>
 publicados por un servico para facilitar su invocación más adelante.</li>
 </ul>
 </blockquote>
-
 <img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/operatos-operands.png" alt="Data on the Outside vs Data on the Inside /images/notes/data-on-the-outside-vs-data-on-the-inside/operatos-operands.png" data-action="zoom">
 
-
 <h2 id="data-then-and-now"><em>Data: Then and Now</em></h2>
-
 <p>Este capítulo va más a detalle sobre el impacto en espacio/tiempo de aplicar transacciones en SOA.</p>
-
-<p>Cuando uno se encuentra dentro de los límites de un <em>servicio</em> las transacciones
+<p>Cuando uno se encuentra dentro de los límites de un <em>servicio</em> las transacciones 
 son serializables y nos dan la ilusión de que estamos en un &ldquo;ahora&rdquo;.</p>
-
 <blockquote>
 <p>&ldquo;La Serializabilidad transaccional te hacen sentir solo&rdquo;</p>
 </blockquote>
-
 <p>Podemos asumir que dos operaciones concurrentes que estemos ejecutando: una precede a otra, una sigue a otra,
 o son completamente independientes.</p>
-
 <p>Pero una vez que salimos de los límites de un <em>servicio</em> las cosas cambian completamente:</p>
-
 <blockquote>
 <p>&ldquo;Los contenidos de un mensaje (e.g. <em>request</em> o <em>response</em>) son siempre del  pasado! Nunca son de &lsquo;ahora&rsquo;.&rdquo;</p>
-
 <p>&ldquo;No existe simultaneidad a la distancia!</p>
-
 <ul>
 <li>Similar a la velocidad de la luz que limita la informacion</li>
 <li>Al momento que uno ve un objeto a la distancia, puede haber cambiado!</li>
 <li>Al momento que uno ve un mensaje, sus datos pueden haber cambiado!&rdquo;</li>
 </ul>
-
+</blockquote>
+<blockquote>
 <p>&ldquo;Servicios, transacciones, y bloqueos estan limitados por la simultaneidad</p>
-
 <ul>
 <li>Dentro de una transacción, las cosas son simultaneas</li>
 <li>La simultaneidad solo existe dentro de una transaccion!</li>
 <li>La simultaneidad solo existe dentro de un servicio!&rdquo;</li>
 </ul>
-
-<p>&ldquo;<strong>Cada servicio tiene su propia perspectiva</strong>&ldquo;</p>
 </blockquote>
-
+<blockquote>
+<p>&ldquo;<strong>Cada servicio tiene su propia perspectiva</strong>&rdquo;</p>
+</blockquote>
 <p>Y luego remata con la siguiente comparación:</p>
-
 <blockquote>
 <p><strong>&ldquo;Moverse hacia SOA es como ir de la física de Newton a la física de Einstein</strong></p>
-
 <p>Con Newton el tiempo marcha hacia adelante, uniformemente, con conocimiento instantaneo a la distancia.</p>
-
 <p>Antes de SOA, la computación distruida se esforzaba en hacer que varios sistemas aparenten ser uno con RPC, 2PC, etc.</p>
-
 <p>En el universo de Einstein, todo es relativo a la perspectiva de cada uno.</p>
-
 <p>SOA tiene un &ldquo;ahora&rdquo; dentro de cada servicio y el &ldquo;pasado&rdquo; arrivando a través de mensajes&rdquo;</p>
 </blockquote>
-
 <p>Esta cita me parece clave considerar cuando se esta evaluando migrar de una arquitectura monolítica a
-una distribuida, como Microservicios: Los beneficios tienen que ser mayores a la complejidad que implica
+una distribuida, como Microservicios: Los beneficios tienen que ser mayores a la complejidad que implica 
 trabajar en base a leyes distintas, como aprender las teorías de Einstein luego de estar acostumbrado a las leyes de Newton.</p>
-
-<p>Como <a href="https://twitter.com/adriancolyer">Adrian Colyer</a> describe en
+<p>Como <a href="https://twitter.com/adriancolyer">Adrian Colyer</a> describe en 
 <a href="https://blog.acolyer.org/2016/09/13/data-on-the-outside-versus-data-on-the-inside/">su revisión del <em>paper</em></a>:</p>
-
 <blockquote>
 <p>Quizás debamos renombrar la operacion de refactorización “extraer microservicios” a “cambiar el modelo de espacio y timepo” ;).</p>
 </blockquote>
-
-<p>La responsabilidad de lidiar el <em>presente</em> dentro de un servicio y el <em>pasado</em> (o <em>futuro</em> dependiendo del punto de vista)
+<p>La responsabilidad de lidiar el <em>presente</em> dentro de un servicio y el <em>pasado</em> (o <em>futuro</em> dependiendo del punto de vista) 
 que llega a través de mensajes es de la logica de aplicación del mismo servicio (i.e. es responsabilidad del desarrollador)</p>
-
 <blockquote>
 <p>&ldquo;El mundo ya no es más plano!</p>
-
 <ul>
 <li>SOA reconoce que hay más de una computadora trabajando juntas!</li>
 <li>Varias máquinas significa varios dominios de tiempo.</li>
-<li>Varios dominios de tiempo significa que nosotros debemos lidiar con la ambigüedad para permitir la coexistencia, cooperación,
+<li>Varios dominios de tiempo significa que nosotros debemos lidiar con la ambigüedad para permitir la coexistencia, cooperación, 
 y trabajo conjunto.</li>
 </ul>
 </blockquote>
-
 <h2 id="data-on-the-outside-immutability"><em>Data on the Outside: Immutability</em></h2>
-
-<p>Cuando estamos fuera de un <em>servicio</em>, los datos (parte de los mensajes) deberían ser inmutables, esto permite que los mensajes
+<p>Cuando estamos fuera de un <em>servicio</em>, los datos (parte de los mensajes) deberían ser inmutables, esto permite que los mensajes 
 sean los mismo sin importar cuando hacemos referencia, ni donde.</p>
-
 <p>En esta parte, el autor hace importantes recomendaciones acerca de como identificar registros en una SOA:</p>
-
 <blockquote>
-<p>&ldquo;La inmutabilidad no es suficiente para asegurar que no habrán confusiones. La interpretaciones de los contenidos de
+<p>&ldquo;La inmutabilidad no es suficiente para asegurar que no habrán confusiones. La interpretaciones de los contenidos de 
 los datos debe ser inequivoca. <strong>Datos estables</strong> no son ambigüos y su interpretación no cambian en relación al tiempo/espacio.&rdquo;</p>
 </blockquote>
-
-<p>Además los registros deben ser identificados tanto con un identificador independiente a la version, como con un identificador
+<p>Además los registros deben ser identificados tanto con un identificador independiente a la version, como con un identificador 
 dependiente.</p>
-
 <blockquote>
-<p>Para enlazarse con un identificador independiente de la versión, primero es necesario convertir hacia un identificador
+<p>Para enlazarse con un identificador independiente de la versión, primero es necesario convertir hacia un identificador 
 dependiente a la versión.</p>
 </blockquote>
-
-<p>La idea general es poder referenciar información que no cambia, por ejemplo: Cuando estás realizando una compra on-line,
-los productos que compras tienen un precio en el tiempo en el que se ejecuta la compra. Si tu boleta no referencia al
+<p>La idea general es poder referenciar información que no cambia, por ejemplo: Cuando estás realizando una compra on-line, 
+los productos que compras tienen un precio en el tiempo en el que se ejecuta la compra. Si tu boleta no referencia al 
 producto con un identificador relacionado a la versión, va a referencia a la &ldquo;versión actual&rdquo; del producto, afectando el
 cálculo del monto total de la compra.</p>
-
 <h2 id="data-on-the-outside-reference-data"><em>Data on the Outside: Reference Data</em></h2>
-
 <p>Este es uno de los puntos más importantes desde mi punto de vista, ya que es donde mayores retos se presentan: Cómo compartir
 información que mi servicio es dueño de una forma eficiente y consistente para que otros servicios puedan consumir?</p>
-
 <p>En este capítulo el autor ahonda más a detalle en la importancia de identificadores dependientes e independientes de una versión y define
 3 usos de <em>Datos de Referencia</em>:</p>
-
 <blockquote>
 <ul>
-<li><p><strong>Operandos</strong>: contienen información publicada por un servicio en anticipado, que posiblemente otro servicio envie un <em>operador</em>
-con referencia a estos valores.</p></li>
-
-<li><p><strong>Artefactos Historicos</strong>: describen que paso en el pasado dentro de los confines del servicio.</p></li>
-
-<li><p><strong>Colecciones Compartidas</strong>: contien información que se mantiene como común entre un conjunto de servicios relacionados.
+<li>
+<p><strong>Operandos</strong>: contienen información publicada por un servicio en anticipado, que posiblemente otro servicio envie un <em>operador</em> 
+con referencia a estos valores.</p>
+</li>
+<li>
+<p><strong>Artefactos Historicos</strong>: describen que paso en el pasado dentro de los confines del servicio.</p>
+</li>
+<li>
+<p><strong>Colecciones Compartidas</strong>: contien información que se mantiene como común entre un conjunto de servicios relacionados. 
 Un servicio es el encargado de custodiar y manejar los cambios a parte de la colleción. Los otros servicios usan información
-un tanto atrazada.</p></li>
+un tanto atrazada.</p>
+</li>
 </ul>
 </blockquote>
-
-<p>Para mayor información acerca de como enfrentar este reto, <a href="https://twitter.com/benstopford">Ben Stopford</a>
-ha escrito un post acerca de como lidiar con la dicotomía
-entre Servicios tratando de encapsular datos y Sistemas de Datos tratando de exponerlos:
+<p>Para mayor información acerca de como enfrentar este reto, <a href="https://twitter.com/benstopford">Ben Stopford</a> 
+ha escrito un post acerca de como lidiar con la dicotomía 
+entre Servicios tratando de encapsular datos y Sistemas de Datos tratando de exponerlos: 
 <a href="https://www.confluent.io/blog/data-dichotomy-rethinking-the-way-we-treat-data-and-services/">https://www.confluent.io/blog/data-dichotomy-rethinking-the-way-we-treat-data-and-services/</a></p>
-
 <h2 id="data-on-the-inside"><em>Data on the Inside</em></h2>
-
-<p>Luego de analizar las implicancias de la gestión de datos fuera de los límites de un servicio, se hace una revisión sobre
+<p>Luego de analizar las implicancias de la gestión de datos fuera de los límites de un servicio, se hace una revisión sobre 
 las características de datos dentro de un servicio, tomando SQL como la forma más común de acceso a datos.</p>
-
 <blockquote>
 <p><strong>SQL y DDL viven en el &ldquo;ahora&rdquo;</strong></p>
-
 <p>Cada transacción es significativa solo dentro del contexto del esquema definido por una transacción anterior.</p>
-
-<p>Esta noción de &ldquo;ahora&rdquo; es en el dominio temporal del servicio, compuesto por la lógica del servicio y los datos contenidos en
+<p>Esta noción de &ldquo;ahora&rdquo; es en el dominio temporal del servicio, compuesto por la lógica del servicio y los datos contenidos en 
 su base de datos.</p>
 </blockquote>
-
-<p>Pero más importante aún me parece las consideraciones para almacenar la data que ingresa a los servicios (i.e. como
+<p>Pero más importante aún me parece las consideraciones para almacenar la data que ingresa a los servicios (i.e. como 
 guardar las solicitudes que recibimos desde otros servicios).</p>
-
 <blockquote>
-<p>Muchas veces, un mensaje de entrada se mantiene como una copia binaria exacta para auditoría y no-repudio, mientras
+<p>Muchas veces, un mensaje de entrada se mantiene como una copia binaria exacta para auditoría y no-repudio, mientras 
 que su contendio se conviente a una forma más adecuada dentro del mismo servicio.</p>
 </blockquote>
-
-<p>Esta técnica podría estar relacionada a como manejar &ldquo;comandos&rdquo; en un enfoque de <em>Event Sourcing</em> y
-<em>CQRS</em>. Por ejemplo, Capital One tiene una implementación de referencia que incluye el almacenamiento de los
+<p>Esta técnica podría estar relacionada a como manejar &ldquo;comandos&rdquo; en un enfoque de <em>Event Sourcing</em> y 
+<em>CQRS</em>. Por ejemplo, Capital One tiene una implementación de referencia que incluye el almacenamiento de los 
 comandos como parte de su arquitectura: <a href="https://github.com/capitalone/cqrs-manager-for-distributed-reactive-services">https://github.com/capitalone/cqrs-manager-for-distributed-reactive-services</a></p>
-
 <h2 id="representations-of-data"><em>Representations of Data</em></h2>
-
 <p>XML y SQL son discutidos como dos enfoques para representar datos, donde la extensibilidad de XML y las capacidades
 relacionales de SQL son claves dependiendo del context donde se utiliza (dentro o fuera de un servicio).</p>
-
 <blockquote>
-<p>Es la combinación de jerarquía, identificadores explicitos y bien definidos (URIs), mecanismos claros para manejar
-esquemas antiguos dentro de un nuevo esquema, y la extensibilidad que le da a XML prominencia en la representacion
+<p>Es la combinación de jerarquía, identificadores explicitos y bien definidos (URIs), mecanismos claros para manejar 
+esquemas antiguos dentro de un nuevo esquema, y la extensibilidad que le da a XML prominencia en la representacion 
 de <em>outside data</em></p>
-
+</blockquote>
+<blockquote>
 <p>SQL is claramente el líder para representar <em>inside data</em></p>
 </blockquote>
-
 <img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/outside-vs-inside.png" alt="Data on the Outside vs Data on the Inside /images/notes/data-on-the-outside-vs-data-on-the-inside/outside-vs-inside.png" data-action="zoom">
 
-
-<p><em>Actuamente podríamos transladar similares beneficios y debilidades a JSON como opción para datos fuera del servicio,
+<p><em>Actuamente podríamos transladar similares beneficios y debilidades a JSON como opción para datos fuera del servicio, 
 y bases de datos NoSQL para datos internos.</em></p>
-
 <p>Para finalmente comparar los beneficios y debilidades de 3 formas de representar datos: XML, SQL y Objectos:</p>
-
 <img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/sql-xml-object.png" alt="Data on the Outside vs Data on the Inside /images/notes/data-on-the-outside-vs-data-on-the-inside/sql-xml-object.png" data-action="zoom">
 
-
 <p>Concluyendo:</p>
-
 <blockquote>
 <p>Simplemente necesitamos de los tres tipos de representaciones y necesitamos utilizarlos de una forma respectiva a sus fortalezas!</p>
 </blockquote>
-
 <h2 id="referencias">Referencias</h2>
-
 <ul>
 <li>Link: <a href="http://cidrdb.org/cidr2005/papers/P12.pdf">cidrdb.org/cidr2005/papers/P12.pdf</a></li>
 <li>Autor: Pat Helland</li>
@@ -436,11 +359,12 @@ y bases de datos NoSQL para datos internos.</em></p>
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
+          <a href="https://jeqo.github.io/es/talks/observando-sistemas-distribuidos-perujug/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/es/talks/observando-sistemas-distribuidos-perujug/">Older</a>
+          <a href="https://jeqo.github.io/es/about/">Older</a>
           
         </div>
       </div>
@@ -458,7 +382,7 @@ y bases de datos NoSQL para datos internos.</em></p>
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -496,12 +420,6 @@ y bases de datos NoSQL para datos internos.</em></p>
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notas</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">Acerca</a>
       </li>
       
@@ -530,9 +448,6 @@ y bases de datos NoSQL para datos internos.</em></p>
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -541,16 +456,6 @@ y bases de datos NoSQL para datos internos.</em></p>
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

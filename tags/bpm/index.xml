@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Bpm on @jeqo</title>
+    <title>bpm on @jeqo</title>
     <link>https://jeqo.github.io/tags/bpm/</link>
-    <description>Recent content in Bpm on @jeqo</description>
+    <description>Recent content in bpm on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
@@ -18,9 +18,7 @@
       <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2014-12-11-run-bpm-12c-aws/</guid>
-      <description>&lt;p&gt;In this post, I will show how to create an AWS EC2 Instance with an Oracle BPM 12c Quickstart Domain created. And I will use previous post for related tasks.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;In this post, I will show how to create an AWS EC2 Instance with an Oracle BPM 12c Quickstart Domain created. And I will use previous post for related tasks.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -29,9 +27,7 @@
       <pubDate>Tue, 09 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/</guid>
-      <description>&lt;p&gt;Provisioning tools have change the way we create software environments: How much time we spend installing OS, databases, configuring platforms, applications? Now you can translate this steps into code, getting the software development benefits and challenges into infrastructure: versioning, reuse, continuous improvement.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Provisioning tools have change the way we create software environments: How much time we spend installing OS, databases, configuring platforms, applications? Now you can translate this steps into code, getting the software development benefits and challenges into infrastructure: versioning, reuse, continuous improvement.&lt;/p&gt;</description>
     </item>
     
   </channel>

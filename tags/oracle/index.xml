@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Oracle on @jeqo</title>
+    <title>oracle on @jeqo</title>
     <link>https://jeqo.github.io/tags/oracle/</link>
-    <description>Recent content in Oracle on @jeqo</description>
+    <description>Recent content in oracle on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
@@ -23,9 +23,7 @@ event where I will be presenting with my friend
 and colleague Arturo Viveros (@gugalnikov)
 &lt;a href=&#34;http://www.amis-conference.com/Session-Catalog#session1168&#34;&gt;about Oracle SOA Suite provisioning&lt;/a&gt;,
 I want to share some practices that help us to provide Oracle Database instances
-between developers and improve our productivity.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+between developers and improve our productivity.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -37,9 +35,7 @@ between developers and improve our productivity.&lt;/p&gt;
       <description>&lt;p&gt;After find some limitations on building SOA Docker image using Dockerfile
 (as volume access, default size image) I researched on how to improve
 building process and I found &lt;a href=&#34;https://packer.io/&#34;&gt;Packer&lt;/a&gt;
-(from the same guy that creates Vagrant).&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+(from the same guy that creates Vagrant).&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -49,9 +45,7 @@ building process and I found &lt;a href=&#34;https://packer.io/&#34;&gt;Packer&l
       
       <guid>https://jeqo.github.io/posts/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</guid>
       <description>&lt;p&gt;Yesterday, I released a new version (0.2.0) of my Oracle Fusion Middleware Cookbook
-hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;Chef Supermarket&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;Chef Supermarket&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -60,9 +54,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
       <pubDate>Wed, 01 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2015-04-01-docker-image-oracle-soa/</guid>
-      <description>&lt;p&gt;Cool news came from Oracle a couple of weeks ago: &lt;a href=&#34;https://blogs.oracle.com/WebLogicServer/entry/oracle_weblogic_server_now_running&#34;&gt;Oracle WebLogic Server is now supported on Docker!&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Cool news came from Oracle a couple of weeks ago: &lt;a href=&#34;https://blogs.oracle.com/WebLogicServer/entry/oracle_weblogic_server_now_running&#34;&gt;Oracle WebLogic Server is now supported on Docker!&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -71,9 +63,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
       <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2014-12-11-run-bpm-12c-aws/</guid>
-      <description>&lt;p&gt;In this post, I will show how to create an AWS EC2 Instance with an Oracle BPM 12c Quickstart Domain created. And I will use previous post for related tasks.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;In this post, I will show how to create an AWS EC2 Instance with an Oracle BPM 12c Quickstart Domain created. And I will use previous post for related tasks.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -82,9 +72,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
       <pubDate>Tue, 09 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/</guid>
-      <description>&lt;p&gt;Provisioning tools have change the way we create software environments: How much time we spend installing OS, databases, configuring platforms, applications? Now you can translate this steps into code, getting the software development benefits and challenges into infrastructure: versioning, reuse, continuous improvement.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Provisioning tools have change the way we create software environments: How much time we spend installing OS, databases, configuring platforms, applications? Now you can translate this steps into code, getting the software development benefits and challenges into infrastructure: versioning, reuse, continuous improvement.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -93,9 +81,7 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2014-11-28-review-soa-patterns-oracle-platform/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve had the opportunity to present a review of this book &lt;a href=&#34;https://www.packtpub.com/application-development/applied-soa-patterns-oracle-platform&#34;&gt;Applied SOA Patterns on the Oracle Platform&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve had the opportunity to present a review of this book &lt;a href=&#34;https://www.packtpub.com/application-development/applied-soa-patterns-oracle-platform&#34;&gt;Applied SOA Patterns on the Oracle Platform&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

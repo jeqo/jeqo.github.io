@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/notes/data-on-the-outside-vs-data-on-the-inside/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
       </li>
       
     
@@ -165,94 +145,73 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p>I found this paper as relevant and accurate today as it was in 2005, when it was published.
-It is fascinating how even 12 years later and with new technologies in vogue,
+    <p>I found this paper as relevant and accurate today as it was in 2005, when it was published. 
+It is fascinating how even 12 years later and with new technologies in vogue, 
 same concepts keep applying.</p>
-
-<p></p>
-
 <p>Overall, I found esential to evaluate concepts proposed here by <strong>Pat Helland</strong> in relation
-with Microservices: This paper is describing challenges that we, as developers, will have to deal when
-they are moving from a <em>monolithic</em> architecture (when we can trust that all components are located
+with Microservices: This paper is describing challenges that we, as developers, will have to deal when 
+they are moving from a <em>monolithic</em> architecture (when we can trust that all components are located 
 in the same context - i.e. same server), and you have to go out and face a reality where parts of your
 system a not any more tied to the same space and time; and methods like atomic transactions implemented
-by protocols like 2PC (Two-Phase Commit) are not recommended as they go against one of the goals of
+by protocols like 2PC (Two-Phase Commit) are not recommended as they go against one of the goals of 
 distribute your system that is increase your availability.</p>
-
 <p>The author start explaining Service-Oriented Architecture (SOA) characteristics, currently related with Microservices:</p>
-
 <blockquote>
 <p>Each service comprises a chunk of code and data that is private to that service. Services are different than the classic application
 living in a silo and interacting only with humans in that they are interconnected with messages to other services.</p>
 </blockquote>
-
 <p>More importantly, defines implications of transaction in SOA:</p>
-
 <blockquote>
 <p>To participate in an ACID transaction requires a willingness <strong>to hold database locks</strong> until the transaction
 coordinator decides to commit or abort the transaction. For the non-coordinator, this is a serious ceding of
 independence and requires a lot of trust that the coordinating system will make a decision in a timely
 fashion. <strong>Being constrained to hold active locks on records in the database can be devastating for the availability of a system.</strong></p>
 </blockquote>
-
-<p>Hence we can only consider atomic transactions when there is a high level of trust between components.
-For instance, <em>brokers</em> in Apache Kafka trust internally in Zookeeper service to assign a leader replica
+<p>Hence we can only consider atomic transactions when there is a high level of trust between components. 
+For instance, <em>brokers</em> in Apache Kafka trust internally in Zookeeper service to assign a leader replica 
 for each partition to a broker.</p>
-
 <p>Then, a couple of concepts are introduced here that are important along the paper:</p>
-
 <blockquote>
 <ul>
-<li><strong>Operators</strong>: correspond to the intended purpose for the message. Frequently,
+<li><strong>Operators</strong>: correspond to the intended purpose for the message. Frequently, 
 the operator reflects a business function in the domain of the service.</li>
 <li><strong>Operandos</strong>: The operands are additional information required by the
 operator message to fully qualify the intent of the sending service. Operands are typically obtained from reference
 data published by a service to facilitate its later invocation with an operator message.</li>
 </ul>
 </blockquote>
-
 <img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/operatos-operands.png" alt="Data on the Outside vs Data on the Inside /images/notes/data-on-the-outside-vs-data-on-the-inside/operatos-operands.png" data-action="zoom">
 
-
 <h2 id="data-then-and-now">Data: Then and Now</h2>
-
 <p>This chapter details about the space/time impact of applying transactions in SOA.</p>
-
 <p>When we are inside service boundaries, transactions are serializable and they give us the illusion about a unique &ldquo;now&rdquo;.</p>
-
 <blockquote>
 <p>Transactional serializability makes you feel alone.</p>
 </blockquote>
-
 <p>We can asume that two concurrent operations that we are executing: one precedes another one, one follows another one, or both are completely independent.</p>
-
 <p>But once we are out of a service things change completely:</p>
-
 <blockquote>
 <p>The contents of a message are always from the past! They are never from &ldquo;now&rdquo;</p>
-
+</blockquote>
+<blockquote>
 <p>There is no simultaneity at a distance!</p>
-
 <ul>
 <li>Similar to the speed of light bounding information</li>
 <li>By the time you see a distant object, it may have changed!</li>
 <li>By the time you see a message, the data may have changed!</li>
 </ul>
-
+</blockquote>
+<blockquote>
 <p>Services, transactions, and locks bound simultaneity!</p>
-
 <ul>
 <li>Inside a transaction, things are simultaneous</li>
 <li>Simultaneity exists only inside a transaction!</li>
 <li>Simultaneity exists only inside a service!</li>
 </ul>
 </blockquote>
-
 <p>And then shoots:</p>
-
 <blockquote>
 <p><strong>Going to SOA is like going from Newton&rsquo;s physics to Einstein&rsquo;s physics.</strong></p>
-
 <ul>
 <li>Newton’s time marched forward uniformly with instant knowledge at a distance.</li>
 <li>Before SOA, distributed computing strove to make many systems look like one with RPC, 2PC, etc.</li>
@@ -260,62 +219,45 @@ data published by a service to facilitate its later invocation with an operator 
 <li>SOA has &ldquo;now&rdquo; inside and the &ldquo;past&rdquo; arriving in messages.</li>
 </ul>
 </blockquote>
-
-<p>I believe this quote is key to consider when we are evaluating migrate from a monolithic architecture
-into a distributed one, like Microservice: The benefits have to be bigger than the complexity that involves
+<p>I believe this quote is key to consider when we are evaluating migrate from a monolithic architecture 
+into a distributed one, like Microservice: The benefits have to be bigger than the complexity that involves 
 to work based on different laws. Just like learning and applying Einstein laws once we are used to Newton&rsquo;s laws.</p>
-
-<p>As <a href="https://twitter.com/adriancolyer">Adrian Colyer</a> describes
+<p>As <a href="https://twitter.com/adriancolyer">Adrian Colyer</a> describes 
 <a href="https://blog.acolyer.org/2016/09/13/data-on-the-outside-versus-data-on-the-inside/">on his paper review</a>:</p>
-
 <blockquote>
 <p>Perhaps we should rename the &ldquo;extract microservice&rdquo; refactoring operation to &ldquo;change model of time and space&rdquo; ;).</p>
 </blockquote>
-
 <p>The responsability of dealing between the <em>present</em> inside a service, and the <em>past</em> that comes from the
 outside world is from the service application logic itself (i.e. it is a developer responsability)</p>
-
 <blockquote>
 <p>The world is no longer flat!</p>
-
 <ul>
 <li>SOA is recognizing that there is more than one computer working together!</li>
 <li>Multiple machines mean multiple time domains.</li>
 <li>Multiple time domains mandate we cope with ambiguity to allow coexistence, cooperation, and joint work.</li>
 </ul>
 </blockquote>
-
 <h2 id="data-on-the-outside-immutability">Data on the Outside: Immutability</h2>
-
-<p>When we are out of service boundaries, data (that comes as part of messages) must be immutable. This means that
+<p>When we are out of service boundaries, data (that comes as part of messages) must be immutable. This means that 
 messages should be the same no matter <em>when</em> or <em>where</em> we do a reference.</p>
-
 <p>In this part the author make important recommendations about how to identify records in SOA:</p>
-
 <blockquote>
 <p>Immutability isn’t enough to ensure a lack of confusion. The interpretation of the contents of the data must be
 unambiguous. <strong>Stable data</strong> has an unambiguous and unchanging interpretation across space and time.</p>
 </blockquote>
-
 <p>Also records should be identified not only by a version independent identifier but also by a version-dependent identifier.</p>
-
 <blockquote>
 <p>To bind a version independent identifier, to the underlying data, it is necessary to first convert to a version dependent identifier.</p>
 </blockquote>
-
 <p>The idea here is to be able to reference data that does not change depending on the current status. for instance: When you are
-processing a check-out in an e-commerce platform, products bought have a price at the time you are buying them. If your receipt
-does not reference a product based on a version-dependent identifier, it will reference a <em>current version</em> of the product,
+processing a check-out in an e-commerce platform, products bought have a price at the time you are buying them. If your receipt 
+does not reference a product based on a version-dependent identifier, it will reference a <em>current version</em> of the product, 
 affecting the total amount.</p>
-
 <h2 id="data-on-the-outside-reference-data">Data on the Outside: Reference Data</h2>
-
-<p>This is one of the most important ponts from my point of view, because here is where most of the challenges are:
+<p>This is one of the most important ponts from my point of view, because here is where most of the challenges are: 
 How to share information that my service owns in a way that othere services can consume it in an efficient/consistent way?</p>
-
-<p>In this chapter the author goes deeper about the importance of version dependent/independent identifiers and defines
+<p>In this chapter the author goes deeper about the importance of version dependent/independent identifiers and defines 
 three uses of <em>Reference Data</em>:</p>
-
 <blockquote>
 <ul>
 <li><strong>Operands</strong> contain information published by a service in anticipation that hopefully another service will
@@ -326,68 +268,49 @@ evolves over time. One service is the custodian and manages the application of c
 collection. The other services use somewhat old versions of the information.</li>
 </ul>
 </blockquote>
-
 <p>For more information about how to deal with this challenges, <a href="https://twitter.com/benstopford">Ben Stopford</a>
 have written a post about how to deal with this dichotomy between services trying to encapsulate data, and
 data systems trying to expose it:
 <a href="https://www.confluent.io/blog/data-dichotomy-rethinking-the-way-we-treat-data-and-services/">https://www.confluent.io/blog/data-dichotomy-rethinking-the-way-we-treat-data-and-services/</a></p>
-
 <h2 id="data-on-the-inside">Data on the Inside</h2>
-
-<p>After analyzing the impact of data out of the service boundaries, there is a review about characteristics
+<p>After analyzing the impact of data out of the service boundaries, there is a review about characteristics 
 of data inside a service, taking SQL as the most common way to access it:</p>
-
 <blockquote>
 <p><strong>SQL and DDL live in the &ldquo;Now&rdquo;</strong></p>
-
 <p>Each transaction is meaningful only within the context of the schema defined
 by the preceding transactions.</p>
-
 <p>This notion of “now” is the temporal domain of the service comprising the service’s
 logic and its data contained in this database</p>
 </blockquote>
-
-<p>But most importantly, the considerations about how to treat incoming messages (i.e. how to store requests
+<p>But most importantly, the considerations about how to treat incoming messages (i.e. how to store requests 
 from other services).</p>
-
 <blockquote>
 <p>Many times, an incoming message kept as an exact binary copy for auditing and non-repudiation while still
 converting the contents to a form easier to use within the service itself.</p>
 </blockquote>
-
 <p>I found this technique could be related with how deal with <em>commands</em> in an <em>Event Sourcing/CQRS</em> approach.
-For instance, Capital One has an reference implementation that consider storing commands as part of the
+For instance, Capital One has an reference implementation that consider storing commands as part of the 
 architecture: <a href="https://github.com/capitalone/cqrs-manager-for-distributed-reactive-services">https://github.com/capitalone/cqrs-manager-for-distributed-reactive-services</a></p>
-
 <h2 id="representations-of-data">Representations of Data</h2>
-
 <p>XML and SQL are discussed and compared as two approaches to represent data, where XML extensibility and
 SQL relational capabilities are key depending on the context that they are used (inside or outside of a service):</p>
-
 <blockquote>
 <p>It is this combination of hierarchy, explicit and well defined identifiers (URIs), clear mechanism for
 leveraging old schema within the new schema, and extensibility that has given XML its prominence in representing outside data.</p>
-
+</blockquote>
+<blockquote>
 <p>SQL is clearly the leader as a representation for inside data.</p>
 </blockquote>
-
-<p><img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/outside-vs-inside.png" alt="outside vs inside" /></p>
-
+<p><img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/outside-vs-inside.png" alt="outside vs inside"></p>
 <p><em>Actually we can translate similar benefits and weaknesses to other ways to represent data like JSON for outside and
 NoSQL database technologies for inside data</em></p>
-
 <p>And finally compares strengths and weaknesses from three ways of representing data: XML, SQL and Objects.</p>
-
-<p><img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/sql-xml-object.png" alt="xml vs sql vs objects" /></p>
-
+<p><img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/sql-xml-object.png" alt="xml vs sql vs objects"></p>
 <p>Concluding:</p>
-
 <blockquote>
 <p>We simply need all three of these representations and we need to use them in a fashion that plays to their respective strengths!</p>
 </blockquote>
-
 <h2 id="references">References</h2>
-
 <ul>
 <li>Link: <a href="http://cidrdb.org/cidr2005/papers/P12.pdf">cidrdb.org/cidr2005/papers/P12.pdf</a></li>
 <li>Author: <strong>Pat Helland</strong></li>
@@ -418,12 +341,12 @@ NoSQL database technologies for inside data</em></p>
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/notes/event-driven-architecture/">Newer</a>
+          <a href="https://jeqo.github.io/notes/apache-kafka/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/notes/apache-kafka/">Older</a>
+          <a href="https://jeqo.github.io/notes/event-driven-architecture/">Older</a>
           
         </div>
       </div>
@@ -441,7 +364,7 @@ NoSQL database technologies for inside data</em></p>
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -479,12 +402,6 @@ NoSQL database technologies for inside data</em></p>
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">About</a>
       </li>
       
@@ -513,9 +430,6 @@ NoSQL database technologies for inside data</em></p>
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -524,16 +438,6 @@ NoSQL database technologies for inside data</em></p>
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

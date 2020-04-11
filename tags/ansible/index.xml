@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ansible on @jeqo</title>
+    <title>ansible on @jeqo</title>
     <link>https://jeqo.github.io/tags/ansible/</link>
-    <description>Recent content in Ansible on @jeqo</description>
+    <description>Recent content in ansible on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
@@ -23,9 +23,7 @@ event where I will be presenting with my friend
 and colleague Arturo Viveros (@gugalnikov)
 &lt;a href=&#34;http://www.amis-conference.com/Session-Catalog#session1168&#34;&gt;about Oracle SOA Suite provisioning&lt;/a&gt;,
 I want to share some practices that help us to provide Oracle Database instances
-between developers and improve our productivity.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+between developers and improve our productivity.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -36,9 +34,7 @@ between developers and improve our productivity.&lt;/p&gt;
       <guid>https://jeqo.github.io/posts/2016-03-30-ansible-agentless-provisioning/</guid>
       <description>&lt;p&gt;Ansible is an automation tool that is recognized for be simple and
 powerful at the same time. From my experience, I can say this is mainly
-because of its scripting language: YAML, and its agentless architecture.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+because of its scripting language: YAML, and its agentless architecture.&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
+	<meta name="generator" content="Hugo 0.69.0" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
@@ -15,7 +16,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/es/" />
 
@@ -31,7 +32,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -65,9 +66,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -76,16 +74,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -118,12 +106,6 @@
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notas</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">Acerca</a>
       </li>
       
@@ -143,7 +125,7 @@
   
     <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2017-01-31-kafka-rewind-consumers-offset/">Retroceder Offsets de Consumidores de Kafka</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/">Posts</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2017-01-31T00:00:00Z">
@@ -152,202 +134,8 @@
     </p>
   </header>
   <div class="c-article__summary">
-    Una de las características más importantes de Apache Kafka es el manejo de múltiples consumidores. Cada consumer group tiene un offset, que determina hasta que punto del topic se encuentra consumido por consumer group. Así, cada consumer group puede manejar los offset independientemente, por partición.
-Esto ofrece la posibilidad de retroceder en el tiempo y reprocesar mensaje desde el inicio de un topic y regenerar el estado actual del sistema.
-Pero, cómo realizar esto de forma programática?
-
-
+    
   </div>
-  
-  <a href="https://jeqo.github.io/es/posts/2017-01-31-kafka-rewind-consumers-offset/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/">Escalando Kafka con Docker Containers</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2017-01-15T00:00:00Z">
-        Jan 15, 2017
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    En este post mostraré como utilizar contenedores Docker para crear y escalar un clúster de Kafka, y también como crear, escalar y mover topics dentro del clúster.
-
-
-  </div>
-  
-  <a href="https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2016-03-30-ansible-agentless-provisioning/">Ansible - Provisionamiento sin agentes</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2016-03-30T00:00:00Z">
-        Mar 30, 2016
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Ansible es una herramienta de automatización reconocida por ser sencilla y potente a la vez. Según mi experiencia, puedo decir que esto se debe principalmente al lenguaje que utiliza: YAML, y a tener una arquitectura sin agentes o &ldquo;agentless&rdquo;.
-YAML y los componentes de Ansible  &ldquo;YAML is a human friendly data serialization standard for all programming languages&rdquo; (Source: http://yaml.org/)
- Esto signifíca que es verdaderamente fácil de entender y comenzar a trabajar con YAML.
-  </div>
-  
-  <a href="https://jeqo.github.io/es/posts/2016-03-30-ansible-agentless-provisioning/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/">Imagen de Oracle SOA Suite 12c en Docker</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2015-09-04T00:00:00Z">
-        Sep 4, 2015
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Luego de encontrar algunas limitaciones en la construcción de una imagen en Docker con Oracle SOA Suite 12c instalado usando Dockerfiles (como acceso a volumenes, tamaño de filesystem por defecto), he investigado como mejorar este proceso, y he encontrado Packer (del mismo equipo que creo Vagrant, Hashicorp).
-Para obtener mayor información sobre porqué utilizar Packer en vez de Dockerfiles, ir aquí.
-También he movido el directory OracleSOA que cree sobre el repositorio de Oracle Docker oracle-docker hacia un repositorio independiente: github.
-  </div>
-  
-  <a href="https://jeqo.github.io/es/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2015-07-31-java-ee-rxjava-kafka-avro/">Integrar Java EE 7 y Kafka usando Avro y RxJava</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2015-07-31T00:00:00Z">
-        Jul 31, 2015
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Hace poco decidi probar una rápida implementación entre aplicaciones Java EE y RxJava/Kafka/Avro, para publicar/subscribirse a &ldquo;topic messages&rdquo;.
-Puedes ir directamente al código, o revisar el enfoque que apliqué:
-TL;DR He estado realizando alguna pruebas de concepto con Kafka seducido por los beneficios que propone (rapidez, escalabilidad, y funcionar como una fuente de eventos durable) para implementar una propagación de eventos usando el patrón &ldquo;Publish/Subscribe&rdquo;.
-En estos momentos que estoy escribiendo esta entrada del blog, me he dado cuenta que las APIs para acceder a Kafka están en constante evolución y volviéndose más simples de utilizar, y no ha sido fácil encontrar un ejemplo con la versión actual.
-  </div>
-  
-  <a href="https://jeqo.github.io/es/posts/2015-07-31-java-ee-rxjava-kafka-avro/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/">Oracle Fusion Middleware Chef Cookbook - Nueva versión!</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2015-07-21T00:00:00Z">
-        Jul 21, 2015
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Ayer cargué una nueva versión (0.2.0) de mi Oracle Fusion Middleware Cookbook compartido en Chef Supermarket
-Este nuevo release incluye:
- Soporte para la instalación de Oracle SOA Suite 12c Quickstart Soporte para la instalación y creación de dominios con Oracle SOA/OSB Suite 11g  Pueden encontrar ejemplos de uso en este repositorio: https://github.com/jeqo/chef-repo
-  </div>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2015-04-01-docker-image-oracle-soa/">Oracle SOA Suite 12c sobre Docker</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2015-04-01T00:00:00Z">
-        Apr 1, 2015
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Buenas noticias llegaron desde Oracle hace un par de semanas: Oracle WebLogic Server es ahora soportado en Docker!.
-I&#39;m glad we announced support for @OracleWebLogic on @Docker last week, not today :-) https://t.co/6E9UxrgY3n
-&mdash; Bruno Borges (@brunoborges) abril 1, 2015 
-Esto es muy emocionante. Docker es una nueva tecnología que propone una nueva forma de virtualización a través de contenedores (OS, Configurations, Platform, Application) Para más información acerca de Docker
-  </div>
-  
-  <a href="https://jeqo.github.io/es/posts/2015-04-01-docker-image-oracle-soa/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2014-12-11-run-bpm-12c-aws/">Oracle BPM 12c sobre AWS EC2 usando Vagrant y Chef</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2014-12-11T00:00:00Z">
-        Dec 11, 2014
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    En esta entrada mostraré el procedimiento que utilicé para crear instancias en Amazon Web Service EC2, con Oracle BPM 12c instalado y un dominio provisionado.
-Este procedimiento se realizo en los siguientes pasos:
- Crear una instancia en AWS EC2 (con Vagrant) Conectarse a una instancia NFS para obtener instaladores (con Chef) Instalar Oracle BPM 12c Quickstart y crear Dominio (con Chef)  GitHub: https://github.com/jeqo/oracle-bpm-12c-aws
-Crear una instancia en AWS EC2 He creado una instancia Red Hat usando Vagrant.
-  </div>
-  
-  <a href="https://jeqo.github.io/es/posts/2014-12-11-run-bpm-12c-aws/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/">Chef Cookbook para Oracle Fusion Middleware 12c</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2014-12-09T00:00:00Z">
-        Dec 9, 2014
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Las herramientas de provisionamiento de software han cambiado la forma de crear ambientes: Cuánto tiempo que se toma para instalar Sistema Operativo, base de datos, configurar la plataforma, desplegar aplicaciones? Pueden ser días, hasta semanas. Ahora que se pueden transladar estos pasos en código, este proceso se ve transformado en horas, hasta minutos.
-En esta entrada voy a mostrar como provisionar un Dominio WebLogic con Oracle SOA Suite 12c, utilizando un Chef cookbook que he compartido en Chef Supermarket.
-  </div>
-  
-  <a href="https://jeqo.github.io/es/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2014-11-30-create-nfs-instance-aws/">Crear una instancia NFS en AWS usando Vagrant y Chef</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2014-11-30T00:00:00Z">
-        Nov 30, 2014
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Estuve probando la creación de instancias en AWS EC2 para instalar productos de Oracle Fusion Middleware, y encontré una restricción: Cómo descargar los instaladores si quiero reutilizarlos en varias instancias? Cómo evitar un consumo alto de ancho de banda? Y cómo hacer este procedimiento repetitivo?
-Entre varias soluciones, en este momento decidi aplicar : How to setup an Amazon AWS EC2 NFS Share. Pero para hacerla reutilizable cree una configuración en Vagrant y Chef para provisionar una instancia en AWS con NFS configurado: Git repository
-  </div>
-  
-  <a href="https://jeqo.github.io/es/posts/2014-11-30-create-nfs-instance-aws/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
 </article>
 
@@ -376,7 +164,7 @@ Entre varias soluciones, en este momento decidi aplicar : How to setup an Amazon
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -412,12 +200,6 @@ Entre varias soluciones, en este momento decidi aplicar : How to setup an Amazon
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notas</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">Acerca</a>
       </li>
       
@@ -446,9 +228,6 @@ Entre varias soluciones, en este momento decidi aplicar : How to setup an Amazon
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -457,16 +236,6 @@ Entre varias soluciones, en este momento decidi aplicar : How to setup an Amazon
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Review on @jeqo</title>
+    <title>review on @jeqo</title>
     <link>https://jeqo.github.io/tags/review/</link>
-    <description>Recent content in Review on @jeqo</description>
+    <description>Recent content in review on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
@@ -18,9 +18,7 @@
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2014-11-28-review-soa-patterns-oracle-platform/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve had the opportunity to present a review of this book &lt;a href=&#34;https://www.packtpub.com/application-development/applied-soa-patterns-oracle-platform&#34;&gt;Applied SOA Patterns on the Oracle Platform&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve had the opportunity to present a review of this book &lt;a href=&#34;https://www.packtpub.com/application-development/applied-soa-patterns-oracle-platform&#34;&gt;Applied SOA Patterns on the Oracle Platform&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

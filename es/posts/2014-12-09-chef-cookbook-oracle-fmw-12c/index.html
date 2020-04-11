@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/es/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Presentaciones</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notas</a>
       </li>
       
     
@@ -165,38 +145,26 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    
-
-<p>Las herramientas de provisionamiento de software han cambiado la forma de
+    <p>Las herramientas de provisionamiento de software han cambiado la forma de
 crear ambientes: Cuánto tiempo que se toma para instalar Sistema Operativo,
 base de datos, configurar la plataforma, desplegar aplicaciones? Pueden
 ser días, hasta semanas. Ahora que se pueden transladar estos pasos en código,
 este proceso se ve transformado en horas, hasta minutos.</p>
-
 <p>En esta entrada voy a mostrar como provisionar un Dominio WebLogic con Oracle
 SOA Suite 12c, utilizando un <em>Chef cookbook</em> que he compartido en <a href="http://supermarket.chef.io">Chef Supermarket</a>.</p>
-
-<h2 id="provisionamiento-con-chef">Provisionamiento con Chef</h2>
-
+<h2 id="provisionamiento-con-chef-">Provisionamiento con Chef</h2>
 <p>Chef es una herramienta para configurar software, basada en Ruby. Para mayor información
 sobre como iniciar con Chef, <a href="http://learn.chef.io/">ir aquí</a></p>
-
-<h3 id="chef-cookbooks-y-recipes">Chef Cookbooks y Recipes</h3>
-
+<h3 id="chef-cookbooks-y-recipes-">Chef Cookbooks y Recipes</h3>
 <p><strong>Chef Cookbooks</strong> son grupos de <strong>Recipes</strong> (o recetas), y una <strong>Recipe</strong> es una
- secuencia de instrucciones llamadas <strong>Resources</strong> (o recursos).
- <em>Directory, Execute, Service, Package</em> son algunos recursos disponibles.</p>
-
+secuencia de instrucciones llamadas <strong>Resources</strong> (o recursos).
+<em>Directory, Execute, Service, Package</em> son algunos recursos disponibles.</p>
 <p>Por ejemplo: Si uno quiere instalar un servidor HTTP Server, primero se debe instalar el recurso <em>Package</em>, y luego iniciar el recurso <em>Service</em>.</p>
-
-<h2 id="oracle-fusion-middleware-cookbook">Oracle Fusion Middleware Cookbook</h2>
-
+<h2 id="oracle-fusion-middleware-cookbook-">Oracle Fusion Middleware Cookbook</h2>
 <p>He compartido este &ldquo;Chef cookbook&rdquo;: <a href="https://supermarket.chef.io/cookbooks/oracle-fmw">oracle-fmw</a>.
 La idea es tener un grupo de recetas para configurar ambientes con diferentes productos
 de Oracle Fusion Middleware como: SOA, BPM, BAM, OSB, etc.</p>
-
 <p>En este primer release se incluyen las siguientes recetas:</p>
-
 <ul>
 <li><strong>prepare-infrastructure-12c</strong>: Crear los usuarios y grupos de Sistema Operativo, instala paquetes base
 para la ejecución de futuros scripts de FMW.</li>
@@ -204,7 +172,6 @@ para la ejecución de futuros scripts de FMW.</li>
 <li><strong>create-rcu_repository-12c</strong>: Crea repositorios en base de datos con RCU.</li>
 <li><strong>create-domain-12c</strong>: Crea un Dominio WebLogic con estos productos: SOA, BAM, BPM, OSB.</li>
 </ul>
-
 <p>En una siguiente entrada mostraré como utilizar este &ldquo;cookbook&rdquo;. Mientras tanto puede descargar, usar y compartir mejoras en <a href="https://supermarket.chef.io/cookbooks/oracle-fmw">Chef Supermarket</a> y <a href="https://github.com/jeqo/oracle-fmw">GitHub</a>.</p>
 
   </section>
@@ -232,12 +199,12 @@ para la ejecución de futuros scripts de FMW.</li>
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/es/posts/2014-12-11-run-bpm-12c-aws/">Newer</a>
+          <a href="https://jeqo.github.io/es/posts/2014-11-30-create-nfs-instance-aws/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/es/posts/2014-11-30-create-nfs-instance-aws/">Older</a>
+          <a href="https://jeqo.github.io/es/posts/2014-12-11-run-bpm-12c-aws/">Older</a>
           
         </div>
       </div>
@@ -269,7 +236,7 @@ para la ejecución de futuros scripts de FMW.</li>
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -307,12 +274,6 @@ para la ejecución de futuros scripts de FMW.</li>
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notas</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">Acerca</a>
       </li>
       
@@ -341,9 +302,6 @@ para la ejecución de futuros scripts de FMW.</li>
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -352,16 +310,6 @@ para la ejecución de futuros scripts de FMW.</li>
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

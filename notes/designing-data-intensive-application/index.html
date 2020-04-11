@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/notes/designing-data-intensive-application/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
       </li>
       
     
@@ -154,38 +134,26 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p></p>
-
-<h1 id="chapter-1-reliable-scalable-and-maintainable-applications">Chapter 1: Reliable, Scalable, and Maintainable Applications</h1>
-
-<p>Data Intensive: &ldquo;bigger problems are the <strong>amount</strong> of data, the <strong>complexity</strong> of data, and the <strong>speed</strong> at
+    <h1 id="chapter-1-reliable-scalable-and-maintainable-applications">Chapter 1: Reliable, Scalable, and Maintainable Applications</h1>
+<p>Data Intensive: &ldquo;bigger problems are the <strong>amount</strong> of data, the <strong>complexity</strong> of data, and the <strong>speed</strong> at 
 which it is changing.&rdquo;</p>
-
 <p><strong>Data Systems</strong> umbrella: databases, caches, search indexes, batch processing, stream processing.</p>
-
 <blockquote>
 <p>You are now not only an application developer, but also a data system designer.</p>
 </blockquote>
-
 <p>Main concerns: <strong>Reliablity</strong>, <strong>Scalability</strong>, and <strong>Mantainability</strong>.</p>
-
 <h2 id="reliability">Reliability</h2>
-
 <blockquote>
-<p>A <em>fault</em> is usually defined as one component of the system deviating from its spec, whereas <em>failure</em> is
+<p>A <em>fault</em> is usually defined as one component of the system deviating from its spec, whereas <em>failure</em> is 
 when the system as a whole stops providing the required service to the user &hellip; it is usually best to design
 fault-tolerance mechanisms that prevent faults from causing failures.a</p>
 </blockquote>
-
 <h3 id="hardware-faults">Hardware Faults</h3>
-
 <blockquote>
 <p>Hard disks are reported as having Mean Time To Failure (<strong>MTTF</strong>) of about 10 to 50 years.
 Thus, on a storage cluster with 10,000 disks, <em>we should expect on average one disk to die per day</em>.</p>
 </blockquote>
-
 <h3 id="software-faults">Software Faults</h3>
-
 <h3 id="human-faults">Human Faults</h3>
   </section>
   <footer>
@@ -212,12 +180,12 @@ Thus, on a storage cluster with 10,000 disks, <em>we should expect on average on
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/notes/kafka-samza-and-the-unix-philosophy-of-distributed-data/">Newer</a>
+          <a href="https://jeqo.github.io/notes/distributed-systems/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/notes/distributed-systems/">Older</a>
+          <a href="https://jeqo.github.io/notes/kafka-samza-and-the-unix-philosophy-of-distributed-data/">Older</a>
           
         </div>
       </div>
@@ -249,7 +217,7 @@ Thus, on a storage cluster with 10,000 disks, <em>we should expect on average on
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -287,12 +255,6 @@ Thus, on a storage cluster with 10,000 disks, <em>we should expect on average on
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">About</a>
       </li>
       
@@ -316,9 +278,6 @@ Thus, on a storage cluster with 10,000 disks, <em>we should expect on average on
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -327,16 +286,6 @@ Thus, on a storage cluster with 10,000 disks, <em>we should expect on average on
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

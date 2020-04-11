@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/posts/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
       </li>
       
     
@@ -166,209 +146,171 @@ and colleague Arturo Viveros (@gugalnikov)
 <a href="http://www.amis-conference.com/Session-Catalog#session1168">about Oracle SOA Suite provisioning</a>,
 I want to share some practices that help us to provide Oracle Database instances
 between developers and improve our productivity.</p>
-
-<p></p>
-
 <p>Since I started working with Oracle technologies, almost 7 years ago, provide
 Oracle Database instances has been always a <em>not so easy</em> process. It demands
 configuring the operating system with the right packages and kernel params,
 then prepare user and groups, and after that install the Database engine.
 Once you have your engine installed, you can start creating database instances.</p>
-
 <p>Now that you have a running Database instance, you are able to
 start your database development: creating schemas, running SQL scripts,
 and connect your applications to store data.</p>
-
 <p>So, should I repeat this process on each developer workstation?</p>
-
 <p>There are several options to improve this process: share one database between
 all developers, creating and share a VM image between developers, or
 actually use an automation tool like Vagrant and Packer to create images,
 or just provide the installation automated a tool like Puppet/Chef.</p>
-
 <p>I will share how we are doing it now in a current project using Docker
 as Container platform, and Ansible as our automation tool.</p>
-
 <p>Let&rsquo;s get started&hellip;</p>
-
 <h1 id="defining-the-process">Defining the process</h1>
-
 <p>After several months working with automation tools, I understand a key principle
 about automate provisioning: <strong>&ldquo;divide and conquer&rdquo;</strong>.</p>
-
 <p>Because provision some type of systems is not always a simple process as:
 <em>download, unzip and run</em>, in some cases you need to define your
 provisioning process in steps, so you can define this steps as checkpoints,
 and don&rsquo;t get bored re-running process from scratch. I mean: from configuring
 your OS for running Oracle Database to actually run your SQL scripts is a
 long way right? Even if you automate it or do it manually.</p>
-
 <p>In this case, as I explained before, we have 3 major steps:</p>
-
 <ul>
 <li>Prepare your OS and install database software</li>
 <li>Create database instance</li>
 <li>Run scripts</li>
 </ul>
-
 <p>And each step will become a checkpoint, i.e. a Docker image.</p>
-
 <p>I won&rsquo;t go into every detail about installing Oracle Database, because there
 are plenty information about this. At Sysco, we have developed several
 Ansible roles to automate installation and configuration of Oracle software:
 <a href="http://github.com/sysco-middleware">http://github.com/sysco-middleware</a>. Therefore, I will cover only how do we
 separate this process into steps using Docker and Ansible.</p>
-
 <blockquote>
 <p>If you need to check more about how Docker integrates with Ansible,
 take a lot to my previous post:
 <a href="http://jeqo.github.io/blog/devops/ansible-agentless-provisioning/">http://jeqo.github.io/blog/devops/ansible-agentless-provisioning/</a></p>
 </blockquote>
-
 <h1 id="step-1-install-oracle-database">Step 1: Install Oracle Database</h1>
-
 <p>Go to the first repository called: docker-image-oracle-database
 <a href="http://github.com/sysco-middleware/docker-image-oracle-database">http://github.com/sysco-middleware/docker-image-oracle-database</a></p>
-
 <p>Here is how we create an image with Oracle Database 11g (or 12c) installed
 using Ansible:</p>
-
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">-<span style="color:#bbb"> </span>hosts:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">127.0</span>.<span style="color:#60e;font-weight:bold">0.1</span><span style="color:#bbb"> </span><span style="color:#888"># &gt;&gt;&gt; (1)</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>connection:<span style="color:#bbb"> </span>local<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>vars_files:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>vars/main.yml<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>tasks:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>create<span style="color:#bbb"> </span>container<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>docker:<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>name:<span style="color:#bbb"> </span>tmp-oracle-database<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>image:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;{{ base_image }}&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">        </span>command:<span style="color:#bbb"> </span>sleep<span style="color:#bbb"> </span>infinity<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>volumes:<span style="color:#bbb">
-</span><span style="color:#bbb">          </span>-<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;/installers/oracle/db/11.2/database/11.2.0.4:/srv/files&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">        </span>state:<span style="color:#bbb"> </span>started<span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">127.0.0.1</span><span style="color:#bbb"> </span><span style="color:#888"># &gt;&gt;&gt; (1)</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">connection</span>:<span style="color:#bbb"> </span>local<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">vars_files</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- vars/main.yml<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">tasks</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>create<span style="color:#bbb"> </span>container<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">docker</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>tmp-oracle-database<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">image</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;{{ base_image }}&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span>sleep<span style="color:#bbb"> </span>infinity<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">volumes</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">          </span>- <span style="background-color:#fff0f0">&#34;/installers/oracle/db/11.2/database/11.2.0.4:/srv/files&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">state</span>:<span style="color:#bbb"> </span>started<span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>add_host:<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>name:<span style="color:#bbb"> </span>tmp-oracle-database<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>groups:<span style="color:#bbb"> </span>docker<span style="color:#bbb">
-</span><span style="color:#bbb">        </span>ansible_connection:<span style="color:#bbb"> </span>docker<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">add_host</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>tmp-oracle-database<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">groups</span>:<span style="color:#bbb"> </span>docker<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">ansible_connection</span>:<span style="color:#bbb"> </span>docker<span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>-<span style="color:#bbb"> </span>hosts:<span style="color:#bbb"> </span>tmp-oracle-database<span style="color:#bbb"> </span><span style="color:#888"># &gt;&gt;&gt; (2)</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>connection:<span style="color:#bbb"> </span>docker<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>roles:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>role:<span style="color:#bbb"> </span>sysco-middleware.oracle-database<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>oracle_database_version:<span style="color:#bbb"> </span>11g<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>oracle_database_edition:<span style="color:#bbb"> </span>SE<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>oracle_database_installer:<span style="color:#bbb"> </span>/srv/files/database/runInstaller<span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span>tmp-oracle-database<span style="color:#bbb"> </span><span style="color:#888"># &gt;&gt;&gt; (2)</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">connection</span>:<span style="color:#bbb"> </span>docker<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">roles</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">role</span>:<span style="color:#bbb"> </span>sysco-middleware.oracle-database<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">oracle_database_version</span>:<span style="color:#bbb"> </span>11g<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">oracle_database_edition</span>:<span style="color:#bbb"> </span>SE<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">oracle_database_installer</span>:<span style="color:#bbb"> </span>/srv/files/database/runInstaller<span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>-<span style="color:#bbb"> </span>hosts:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">127.0</span>.<span style="color:#60e;font-weight:bold">0.1</span><span style="color:#bbb"> </span><span style="color:#888"># &gt;&gt;&gt; (3)</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>connection:<span style="color:#bbb"> </span>local<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>vars_files:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>vars/main.yml<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>tasks:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>docker<span style="color:#bbb"> </span>commit<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>command:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;docker commit tmp-oracle-database {{ image_name }}:{{ item }}&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">      </span>with_items:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;{{ tags }}&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">127.0.0.1</span><span style="color:#bbb"> </span><span style="color:#888"># &gt;&gt;&gt; (3)</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">connection</span>:<span style="color:#bbb"> </span>local<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">vars_files</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- vars/main.yml<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">tasks</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>docker<span style="color:#bbb"> </span>commit<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;docker commit tmp-oracle-database {{ image_name }}:{{ item }}&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">with_items</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;{{ tags }}&#34;</span><span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>docker<span style="color:#bbb"> </span>kill<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>command:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;docker kill tmp-oracle-database&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>docker<span style="color:#bbb"> </span>kill<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;docker kill tmp-oracle-database&#34;</span><span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>docker<span style="color:#bbb"> </span>rm<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>command:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;docker rm tmp-oracle-database&#34;</span></code></pre></div>
-
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>docker<span style="color:#bbb"> </span>rm<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;docker rm tmp-oracle-database&#34;</span></code></pre></div>
 <p>We have 3 main steps here:</p>
-
 <ul>
-<li><p>First we create the containers using a variable that contains the base
+<li>
+<p>First we create the containers using a variable that contains the base
 image: &ldquo;syscomiddleware/oraclelinux:6.7&rdquo; that is based in Oracle Linux official
 image, with some packages installed. And then we add the running docker container
-as an Ansible host.</p></li>
-
-<li><p>Second, we connect to the running docker container, and run our
-Oracle Database role (<a href="https://github.com/sysco-middleware/ansible-role-oracle-database">https://github.com/sysco-middleware/ansible-role-oracle-database</a>)</p></li>
-
-<li><p>Finally, after installing Oracle database software, I create a checkpoint:
+as an Ansible host.</p>
+</li>
+<li>
+<p>Second, we connect to the running docker container, and run our
+Oracle Database role (<a href="https://github.com/sysco-middleware/ansible-role-oracle-database">https://github.com/sysco-middleware/ansible-role-oracle-database</a>)</p>
+</li>
+<li>
+<p>Finally, after installing Oracle database software, I create a checkpoint:
 commit container as an image, kill and remove running container, and
 optionally (and if you have a private repository) push your image.
 (check this issue about sharing
 Oracle software inside container images:
-<a href="https://github.com/oracle/docker-images/issues/97)">https://github.com/oracle/docker-images/issues/97)</a></p></li>
+<a href="https://github.com/oracle/docker-images/issues/97">https://github.com/oracle/docker-images/issues/97</a>)</p>
+</li>
 </ul>
-
 <p>To run this process you just need:</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ansible-playbook main.yml</code></pre></div>
-
 <p>To check that our &ldquo;oracle-database&rdquo; image is created successfully, just run</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ docker images
 REPOSITORY                        TAG                    IMAGE ID            CREATED             SIZE
-syscomiddleware/oracle-database   oraclelinux-11.2.0.4   15eb5554debd        <span style="color:#60e;font-weight:bold">2</span> hours ago         <span style="color:#60e;font-weight:bold">6</span>.301 GB
-syscomiddleware/oracle-database   latest                 ab59ccd81cba        <span style="color:#60e;font-weight:bold">2</span> hours ago         <span style="color:#60e;font-weight:bold">6</span>.301 GB </code></pre></div>
-
+syscomiddleware/oracle-database   oraclelinux-11.2.0.4   15eb5554debd        <span style="color:#60e;font-weight:bold">2</span> hours ago         6.301 GB
+syscomiddleware/oracle-database   latest                 ab59ccd81cba        <span style="color:#60e;font-weight:bold">2</span> hours ago         6.301 GB </code></pre></div>
 <p>The main goal here is that we have a checkpoint that represents a container
 with Database engine installed. This is a unique image that can be reused to
 move forward.</p>
-
 <h1 id="step-2-create-database-instance">Step 2: Create database instance</h1>
-
 <p>Once we have the Oracle Database image, we won&rsquo;t have to reinstall it again! :)
 &hellip;as far as we keep using Docker and at least until we find out how to
 improve the installation process.</p>
-
 <p>So, we can move forward from this point up to the next stage: create a database
 instance.</p>
-
 <p>Let&rsquo;s go and checkout this repository:
 <a href="https://github.com/sysco-middleware/docker-image-oracle-database-instance">https://github.com/sysco-middleware/docker-image-oracle-database-instance</a></p>
-
 <p>Here we follow the same approach as previous step: prepare temporal containers,
 run Ansible roles and commit image.</p>
-
 <p>You can check the main.yml file here: <a href="https://github.com/sysco-middleware/docker-image-oracle-database-instance/blob/master/main.yml">https://github.com/sysco-middleware/docker-image-oracle-database-instance/blob/master/main.yml</a></p>
-
 <p>And as you see, we are using another Ansible role called &ldquo;oracle-database-instance&rdquo;
 that is used to create an instance and prepare listener:</p>
-
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">-<span style="color:#bbb"> </span>hosts:<span style="color:#bbb"> </span>tmp-oracle-db-instance<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>connection:<span style="color:#bbb"> </span>docker<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>roles:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>-<span style="color:#bbb"> </span>role:<span style="color:#bbb"> </span>sysco-middleware.oracle-database-instance<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>oracle_database_version:<span style="color:#bbb"> </span>11g<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>oracle_database_sid:<span style="color:#bbb"> </span>orcl<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>oracle_database_global_name:<span style="color:#bbb"> </span>orcl<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>oracle_database_template_name:<span style="color:#bbb"> </span>General_Purpose.dbc<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>oracle_database_admin_password:<span style="color:#bbb"> </span>welcome1<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>oracle_database_auto_memory_mgnt:<span style="color:#bbb"> </span>TRUE<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>oracle_database_memory_percentage:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">80</span><span style="color:#bbb">
-</span><span style="color:#bbb">      </span>oracle_database_memory_total:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">1024</span><span style="color:#bbb">
-</span><span style="color:#bbb">      </span>oracle_database_type:<span style="color:#bbb"> </span>MULTIPURPOSE<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>oracle_database_listener_name:<span style="color:#bbb"> </span>LISTENER<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>oracle_database_listener_port:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">1521</span><span style="color:#bbb">
-</span><span style="color:#bbb">      </span>oracle_database_init_params:<span style="color:#bbb"> </span>JAVA_JIT_ENABLED=FALSE</code></pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span>tmp-oracle-db-instance<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">connection</span>:<span style="color:#bbb"> </span>docker<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">roles</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">role</span>:<span style="color:#bbb"> </span>sysco-middleware.oracle-database-instance<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">oracle_database_version</span>:<span style="color:#bbb"> </span>11g<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">oracle_database_sid</span>:<span style="color:#bbb"> </span>orcl<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">oracle_database_global_name</span>:<span style="color:#bbb"> </span>orcl<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">oracle_database_template_name</span>:<span style="color:#bbb"> </span>General_Purpose.dbc<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">oracle_database_admin_password</span>:<span style="color:#bbb"> </span>welcome1<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">oracle_database_auto_memory_mgnt</span>:<span style="color:#bbb"> </span>TRUE<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">oracle_database_memory_percentage</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">80</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">oracle_database_memory_total</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">1024</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">oracle_database_type</span>:<span style="color:#bbb"> </span>MULTIPURPOSE<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">oracle_database_listener_name</span>:<span style="color:#bbb"> </span>LISTENER<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">oracle_database_listener_port</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">1521</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">oracle_database_init_params</span>:<span style="color:#bbb"> </span>JAVA_JIT_ENABLED=FALSE</code></pre></div>
 <p>After running this Ansible playbook, we will have a new image called:
 <em>oracle-database-instance</em> tagged with its corresponding OS and version.</p>
-
 <p>But this process is a little bit different from previous case:
 As you can see in this main.yml file, there is an additional step:</p>
-
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">-<span style="color:#bbb"> </span>name:<span style="color:#bbb"> </span>build<span style="color:#bbb"> </span>image<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>command:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;docker build -t {{ image_name }} docker&#34;</span></code></pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>build<span style="color:#bbb"> </span>image<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;docker build -t {{ image_name }} docker&#34;</span></code></pre></div>
 <p>This is an important step, because it involves the usage of Dockerfile to
 prepare a Docker image.</p>
-
 <p>To give a small background about this: Docker is prepared to isolate
 process and files, and by convention you should run only 1 process by
 container. To define this process, you will use a Dockerfile to specify
 which command should be run, and this process should persist over time, because
 if it ends, your container will be stopped.</p>
-
 <p>In our case, we need to start our database instance. And to do this we will use a
 Dockerfile. But, as you know, we don&rsquo;t have a out-of-the-box script that starts
 the instance and keep this process alive and printing logging messages.
 But we can create something similar:</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#963">LISTENERS_ORA</span><span style="color:#333">=</span><span style="color:#963">$ORACLE_HOME</span>/network/admin/listener.ora
 
 cp <span style="background-color:#fff0f0">&#34;</span><span style="background-color:#eee">${</span><span style="color:#963">LISTENERS_ORA</span><span style="background-color:#eee">}</span><span style="background-color:#fff0f0">.tmpl&#34;</span> <span style="background-color:#fff0f0">&#34;</span><span style="color:#963">$LISTENERS_ORA</span><span style="background-color:#fff0f0">&#34;</span> <span style="color:#333">&amp;&amp;</span>
@@ -376,19 +318,15 @@ sed -i <span style="background-color:#fff0f0">&#34;s/%hostname%/</span><span sty
 sed -i <span style="background-color:#fff0f0">&#34;s/%port%/1521/g&#34;</span> <span style="background-color:#fff0f0">&#34;</span><span style="background-color:#eee">${</span><span style="color:#963">LISTENERS_ORA</span><span style="background-color:#eee">}</span><span style="background-color:#fff0f0">&#34;</span> <span style="color:#333">&amp;&amp;</span>
 bin/lsnrctl start <span style="color:#333">&amp;&amp;</span>
 bin/dbstart <span style="color:#963">$ORACLE_HOME</span></code></pre></div>
-
 <blockquote>
 <p>Thanks to GitHub user &ldquo;wnameless&rdquo; that share how to do this in its Docke Image
 for Oracle XE: <a href="https://github.com/wnameless/docker-oracle-xe-11g">https://github.com/wnameless/docker-oracle-xe-11g</a></p>
 </blockquote>
-
 <p>Here, we not only start and read a log file, but update our listener file. Why?
 Because, also by convention, every time a container starts, container&rsquo;s hostname
 gets updated.
 So, to keep our database instance consistent, we have to update our listener.ora accordingly.</p>
-
 <p>Here is our Dockerfile:</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">FROM tmp<span style="color:#333">-</span>oracle<span style="color:#333">-</span>db<span style="color:#333">-</span>instance
 
 MAINTAINER Jorge Quilcate &lt;jorge.quilcate<span style="color:#f00;background-color:#faa">@</span>sysco.no&gt;
@@ -404,34 +342,30 @@ ADD listener.ora.tmpl network<span style="color:#333">/</span>admin<span style="
 ADD startup.sh .
 
 CMD sh startup.sh <span style="color:#333">&amp;&amp;</span> tail <span style="color:#333">-</span>f startup.log</code></pre></div>
-
 <p>As you can see, I start the process and tail the startup log file to keep our
 container running.</p>
-
 <p>And each time we want to run this image, this process will be executed, unless
 you override it in your <em>&ldquo;docker run&rdquo;</em> command.</p>
-
 <p>You can test this image by running:</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ docker run -it syscomiddleware/oracle-database-instance:oraclelinux-11.2.0.4 
-LSNRCTL <span style="color:#080;font-weight:bold">for</span> Linux: Version <span style="color:#60e;font-weight:bold">11</span>.2.0.4.0 - Production on <span style="color:#60e;font-weight:bold">25</span>-MAY-2016 <span style="color:#60e;font-weight:bold">17</span>:00:37
+LSNRCTL <span style="color:#080;font-weight:bold">for</span> Linux: Version 11.2.0.4.0 - Production on 25-MAY-2016 17:00:37
 
-Copyright <span style="color:#333">(</span>c<span style="color:#333">)</span> <span style="color:#60e;font-weight:bold">1991</span>, <span style="color:#60e;font-weight:bold">2013</span>, Oracle.  All rights reserved.
+Copyright <span style="color:#333">(</span>c<span style="color:#333">)</span> 1991, 2013, Oracle.  All rights reserved.
 
 Starting /home/oracle/product/oracle_home/bin/tnslsnr: please wait...
 
-TNSLSNR <span style="color:#080;font-weight:bold">for</span> Linux: Version <span style="color:#60e;font-weight:bold">11</span>.2.0.4.0 - Production
+TNSLSNR <span style="color:#080;font-weight:bold">for</span> Linux: Version 11.2.0.4.0 - Production
 System parameter file is /home/oracle/product/oracle_home/network/admin/listener.ora
 Log messages written to /home/oracle/product/diag/tnslsnr/02b9ae1e3ab1/listener/alert/log.xml
 Listening on: <span style="color:#333">(</span><span style="color:#963">DESCRIPTION</span><span style="color:#333">=(</span><span style="color:#963">ADDRESS</span><span style="color:#333">=(</span><span style="color:#963">PROTOCOL</span><span style="color:#333">=</span>ipc<span style="color:#333">)(</span><span style="color:#963">KEY</span><span style="color:#333">=</span>EXTPROC1521<span style="color:#333">)))</span>
-Listening on: <span style="color:#333">(</span><span style="color:#963">DESCRIPTION</span><span style="color:#333">=(</span><span style="color:#963">ADDRESS</span><span style="color:#333">=(</span><span style="color:#963">PROTOCOL</span><span style="color:#333">=</span>tcp<span style="color:#333">)(</span><span style="color:#963">HOST</span><span style="color:#333">=</span>02b9ae1e3ab1<span style="color:#333">)(</span><span style="color:#963">PORT</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1521</span><span style="color:#333">)))</span>
+Listening on: <span style="color:#333">(</span><span style="color:#963">DESCRIPTION</span><span style="color:#333">=(</span><span style="color:#963">ADDRESS</span><span style="color:#333">=(</span><span style="color:#963">PROTOCOL</span><span style="color:#333">=</span>tcp<span style="color:#333">)(</span><span style="color:#963">HOST</span><span style="color:#333">=</span>02b9ae1e3ab1<span style="color:#333">)(</span><span style="color:#963">PORT</span><span style="color:#333">=</span>1521<span style="color:#333">)))</span>
 
 Connecting to <span style="color:#333">(</span><span style="color:#963">DESCRIPTION</span><span style="color:#333">=(</span><span style="color:#963">ADDRESS</span><span style="color:#333">=(</span><span style="color:#963">PROTOCOL</span><span style="color:#333">=</span>IPC<span style="color:#333">)(</span><span style="color:#963">KEY</span><span style="color:#333">=</span>EXTPROC1521<span style="color:#333">)))</span>
 STATUS of the LISTENER
 ------------------------
 Alias                     LISTENER
-Version                   TNSLSNR <span style="color:#080;font-weight:bold">for</span> Linux: Version <span style="color:#60e;font-weight:bold">11</span>.2.0.4.0 - Production
-Start Date                <span style="color:#60e;font-weight:bold">25</span>-MAY-2016 <span style="color:#60e;font-weight:bold">17</span>:00:42
+Version                   TNSLSNR <span style="color:#080;font-weight:bold">for</span> Linux: Version 11.2.0.4.0 - Production
+Start Date                25-MAY-2016 17:00:42
 Uptime                    <span style="color:#60e;font-weight:bold">0</span> days <span style="color:#60e;font-weight:bold">0</span> hr. <span style="color:#60e;font-weight:bold">0</span> min. <span style="color:#60e;font-weight:bold">3</span> sec
 Trace Level               off
 Security                  ON: Local OS Authentication
@@ -440,7 +374,7 @@ Listener Parameter File   /home/oracle/product/oracle_home/network/admin/listene
 Listener Log File         /home/oracle/product/diag/tnslsnr/02b9ae1e3ab1/listener/alert/log.xml
 Listening Endpoints Summary...
   <span style="color:#333">(</span><span style="color:#963">DESCRIPTION</span><span style="color:#333">=(</span><span style="color:#963">ADDRESS</span><span style="color:#333">=(</span><span style="color:#963">PROTOCOL</span><span style="color:#333">=</span>ipc<span style="color:#333">)(</span><span style="color:#963">KEY</span><span style="color:#333">=</span>EXTPROC1521<span style="color:#333">)))</span>
-  <span style="color:#333">(</span><span style="color:#963">DESCRIPTION</span><span style="color:#333">=(</span><span style="color:#963">ADDRESS</span><span style="color:#333">=(</span><span style="color:#963">PROTOCOL</span><span style="color:#333">=</span>tcp<span style="color:#333">)(</span><span style="color:#963">HOST</span><span style="color:#333">=</span>02b9ae1e3ab1<span style="color:#333">)(</span><span style="color:#963">PORT</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1521</span><span style="color:#333">)))</span>
+  <span style="color:#333">(</span><span style="color:#963">DESCRIPTION</span><span style="color:#333">=(</span><span style="color:#963">ADDRESS</span><span style="color:#333">=(</span><span style="color:#963">PROTOCOL</span><span style="color:#333">=</span>tcp<span style="color:#333">)(</span><span style="color:#963">HOST</span><span style="color:#333">=</span>02b9ae1e3ab1<span style="color:#333">)(</span><span style="color:#963">PORT</span><span style="color:#333">=</span>1521<span style="color:#333">)))</span>
 The listener supports no services
 The <span style="color:#007020">command</span> completed successfully
 Processing Database instance <span style="background-color:#fff0f0">&#34;orcl&#34;</span>: log file /home/oracle/product/oracle_home/startup.log
@@ -451,27 +385,22 @@ Database Buffers	  <span style="color:#60e;font-weight:bold">515899392</span> by
 Redo Buffers		    <span style="color:#60e;font-weight:bold">6717440</span> bytes
 Database mounted.
 Database opened.
-SQL&gt; Disconnected from Oracle Database 11g Release <span style="color:#60e;font-weight:bold">11</span>.2.0.4.0 - 64bit Production
+SQL&gt; Disconnected from Oracle Database 11g Release 11.2.0.4.0 - 64bit Production
 
 bin/dbstart: Database instance <span style="background-color:#fff0f0">&#34;orcl&#34;</span> warm started.</code></pre></div>
-
 <p>From other terminal you can check container name and inspect for its IP address:
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ docker ps
 CONTAINER ID        IMAGE                                      COMMAND                  CREATED              STATUS              PORTS               NAMES
 21713e2f2c59        syscomiddleware/oracle-database-instance   <span style="background-color:#fff0f0">&#34;/bin/sh -c &#39;sh start&#34;</span>   About a minute ago   Up About a minute                       adoring_yalow</code></pre></div></p>
-
 <p>Let&rsquo;s take a minute to understand the process: We will have images by steps
 from our provisioning process, and each step can be tagged by version and OS
 (and any other relevant information). This will create a group of images that
 will be reusable, and if we have issues, we can identify and solve specific
 tasks, instead of re-run everything from scratch.</p>
-
 <p>As learning any other technology, this will take some time at the beginning
 of the process, but as we understand and collaborate to improve this images,
 it will worth our effort.</p>
-
 <p>First, you can see that a container name is assigned randomly: &ldquo;adoring_yalow&rdquo;</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ docker inspect adoring_yalow
 ...
 <span style="background-color:#fff0f0">&#34;Networks&#34;</span>: <span style="color:#333">{</span>
@@ -483,57 +412,42 @@ it will worth our effort.</p>
                     <span style="background-color:#fff0f0">&#34;EndpointID&#34;</span>: <span style="background-color:#fff0f0">&#34;ea1e3277916bcebaa6fbba42ab6cdea6ebd597a2ce20c274b415f4ad89f05bee&#34;</span>,
                     <span style="background-color:#fff0f0">&#34;Gateway&#34;</span>: <span style="background-color:#fff0f0">&#34;172.17.0.1&#34;</span>,
                     <span style="background-color:#fff0f0">&#34;IPAddress&#34;</span>: <span style="background-color:#fff0f0">&#34;172.17.0.2&#34;</span>,
-                    <span style="background-color:#fff0f0">&#34;IPPrefixLen&#34;</span>: <span style="color:#60e;font-weight:bold">16</span>,
+                    <span style="background-color:#fff0f0">&#34;IPPrefixLen&#34;</span>: 16,
                     <span style="background-color:#fff0f0">&#34;IPv6Gateway&#34;</span>: <span style="background-color:#fff0f0">&#34;&#34;</span>,
                     <span style="background-color:#fff0f0">&#34;GlobalIPv6Address&#34;</span>: <span style="background-color:#fff0f0">&#34;&#34;</span>,
-                    <span style="background-color:#fff0f0">&#34;GlobalIPv6PrefixLen&#34;</span>: <span style="color:#60e;font-weight:bold">0</span>,
+                    <span style="background-color:#fff0f0">&#34;GlobalIPv6PrefixLen&#34;</span>: 0,
                     <span style="background-color:#fff0f0">&#34;MacAddress&#34;</span>: <span style="background-color:#fff0f0">&#34;02:42:ac:11:00:02&#34;</span>
                 <span style="color:#333">}</span>
             <span style="color:#333">}</span>
 ...</code></pre></div>
-
 <p>And test to connect from your favorite IDE using a JDBC URL like:</p>
-
 <p>jdbc:oracle:thin:@172.17.0.2:1521:orcl</p>
-
-<p><img src="/images/2016-05-24-speed-up-oracle-database-provisioning-ansible-docker/jdbc-test.png" alt="NetBeans JDBC Connection" title="NetBeans JDBC Connection" /></p>
-
+<p><img src="/images/2016-05-24-speed-up-oracle-database-provisioning-ansible-docker/jdbc-test.png" alt="NetBeans JDBC Connection" title="NetBeans JDBC Connection"></p>
 <h1 id="step-3-run-sql-scripts">Step 3: Run SQL scripts</h1>
-
 <p>This is a more &ldquo;custom&rdquo; step as you can use now use this images for different
 purposes (e.g: create a schema, run SQL scripts, add more configurations, or
 if you are working with Fusion Middleware products, you can create RCU schemas).</p>
-
 <p>Depending on your use-case it will be easier, or more efective, to use
 Dockerfile than Ansible playbooks.</p>
-
 <p>In this case, I will show you how to create an schema to start your Java
 application development, for instance.</p>
-
 <p>I will recommend you to use Docker Compose (<a href="https://docs.docker.com/compose/">https://docs.docker.com/compose/</a>)
 just to simplify the execution of Docker command, and link containers together.</p>
-
 <p>I have created a repository (<a href="https://github.com/jeqo/post-oracle-database-docker">https://github.com/jeqo/post-oracle-database-docker</a>)
 to host this sample.</p>
-
 <p>You can check that there is a directory called &ldquo;sample&rdquo; that will be assumed as
 the <em>project name</em> by Docker Compose.</p>
-
 <p>Inside is a file called &ldquo;docker-compose.yml&rdquo; that defines <em>container services</em>:</p>
-
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">version:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#39;2&#39;</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>services:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>db:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>build:<span style="color:#bbb"> </span>db<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>ports:<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>-<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;10521:1521&#34;</span></code></pre></div>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#080;font-weight:bold">version</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#39;2&#39;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#080;font-weight:bold">services</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">db</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">build</span>:<span style="color:#bbb"> </span>db<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">ports</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>- <span style="background-color:#fff0f0">&#34;10521:1521&#34;</span></code></pre></div>
 <p>In this case, it defines a service (a container), that will be built from
 a Dockerfile inside a &ldquo;db&rdquo; directory, and will forward its 1521 port
 to your hosts port 10521, so you can use it from a local application.</p>
-
 <p>This Dockerfile contains instructions to create an schema called &ldquo;test&rdquo;.</p>
-
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">FROM syscomiddleware<span style="color:#333">/</span>oracle<span style="color:#333">-</span>database<span style="color:#333">-</span>instance:oraclelinux<span style="color:#333">-</span><span style="color:#60e;font-weight:bold">11.2.0.4</span>
 
 MAINTAINER Jorge Quilcate &lt;jorge.quilcate<span style="color:#f00;background-color:#faa">@</span>sysco.no&gt;
@@ -546,15 +460,11 @@ RUN sh startup.sh <span style="color:#333">&amp;&amp;</span> \
 
 CMD sh startup.sh <span style="color:#333">&amp;&amp;</span> \
     tail <span style="color:#333">-</span>f startup.log</code></pre></div>
-
 <p>Then, just execute &ldquo;docker-compose up -d&rdquo; and this container will be built and
 started.</p>
-
 <p>To check its execution, run &ldquo;docker-compose logs -f&rdquo; and that&rsquo;s it.</p>
-
 <p>You can customize your Docker Compose file, or just start building more layers on
 top of the database instance image.</p>
-
 <p>At AMIS25, we will show how to use this instance to build a SOA Suite database
 and then provide customs SOA Suite Domains, but also show different experiences
 with different &ldquo;DevOps&rdquo; technologies. Hope to see you there!</p>
@@ -583,12 +493,12 @@ with different &ldquo;DevOps&rdquo; technologies. Hope to see you there!</p>
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/">Newer</a>
+          <a href="https://jeqo.github.io/talks/lighning-provisioning-oracle-soa-suite-amis25/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/talks/lighning-provisioning-oracle-soa-suite-amis25/">Older</a>
+          <a href="https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/">Older</a>
           
         </div>
       </div>
@@ -655,7 +565,7 @@ with different &ldquo;DevOps&rdquo; technologies. Hope to see you there!</p>
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -693,12 +603,6 @@ with different &ldquo;DevOps&rdquo; technologies. Hope to see you there!</p>
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">About</a>
       </li>
       
@@ -722,9 +626,6 @@ with different &ldquo;DevOps&rdquo; technologies. Hope to see you there!</p>
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -733,16 +634,6 @@ with different &ldquo;DevOps&rdquo; technologies. Hope to see you there!</p>
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

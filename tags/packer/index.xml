@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Packer on @jeqo</title>
+    <title>packer on @jeqo</title>
     <link>https://jeqo.github.io/tags/packer/</link>
-    <description>Recent content in Packer on @jeqo</description>
+    <description>Recent content in packer on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
@@ -21,9 +21,7 @@
       <description>&lt;p&gt;After find some limitations on building SOA Docker image using Dockerfile
 (as volume access, default size image) I researched on how to improve
 building process and I found &lt;a href=&#34;https://packer.io/&#34;&gt;Packer&lt;/a&gt;
-(from the same guy that creates Vagrant).&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+(from the same guy that creates Vagrant).&lt;/p&gt;</description>
     </item>
     
   </channel>

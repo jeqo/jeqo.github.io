@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/es/posts/2015-04-01-docker-image-oracle-soa/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Presentaciones</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notas</a>
       </li>
       
     
@@ -163,60 +143,38 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    
-
-<p>Buenas noticias llegaron desde Oracle hace un par de semanas: <a href="https://blogs.oracle.com/WebLogicServer/entry/oracle_weblogic_server_now_running">Oracle WebLogic Server es ahora soportado en  Docker!</a>.</p>
-
-<p><blockquote class="twitter-tweet" lang="es"><p>I&#39;m glad we announced support for <a href="https://twitter.com/OracleWebLogic">@OracleWebLogic</a> on <a href="https://twitter.com/docker">@Docker</a> last week, not today :-) <a href="https://t.co/6E9UxrgY3n">https://t.co/6E9UxrgY3n</a></p>&mdash; Bruno Borges  (@brunoborges) <a href="https://twitter.com/brunoborges/status/583252433343758336">abril 1, 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
-
+    <p>Buenas noticias llegaron desde Oracle hace un par de semanas: <a href="https://blogs.oracle.com/WebLogicServer/entry/oracle_weblogic_server_now_running">Oracle WebLogic Server es ahora soportado en  Docker!</a>.</p>
+<!-- raw HTML omitted -->
 <p>Esto es muy emocionante. <strong>Docker</strong> es una nueva tecnología que propone una nueva forma de virtualización
 a través de contenedores (OS, Configurations, Platform, Application) Para <a href="https://www.docker.com/whatisdocker/">más información acerca de Docker</a></p>
-
 <p>Bueno, WebLogic sobre Docker es genial, pero me he propuesto ir unos pasos más adelante y <em>Dockerize</em> los
 productos de <strong>SOA</strong> y <strong>BPM</strong>  (como <a href="https://guidoschmutz.wordpress.com/2015/03/29/installing-oracle-stream-explorer-in-a-docker-image/">Guido Schmitz hizo con  Oracle Stream Explorer</a>)</p>
-
-<p><blockquote class="twitter-tweet" lang="es"><p>Just published my latest blog “Providing Oracle Stream Explorer environment using Docker”. <a href="https://twitter.com/hashtag/oracle?src=hash">#oracle</a> <a href="https://twitter.com/hashtag/StreamExplorer?src=hash">#StreamExplorer</a> <a href="http://t.co/WNFGCmFVca">http://t.co/WNFGCmFVca</a></p>&mdash; gschmutz (@gschmutz) <a href="https://twitter.com/gschmutz/status/582232826772357120">marzo 29, 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
-
+<!-- raw HTML omitted -->
 <p>He utilizado el <a href="http://github.com/oracle/docker">repositorio de Oracle</a> como base para crear una
 imagen con Oracle SOA Suite 12c instalado, y una configuración para utilizar esa imagen en la
 creación de otro contenedor con un dominio listo para ejecutar.</p>
-
-<h2 id="obtener-el-repositorio">Obtener el repositorio</h2>
-
+<h2 id="obtener-el-repositorio-">Obtener el repositorio</h2>
 <p>Para probar esta entrada del blog, debe tener instalado <a href="https://docs.docker.com/">Docker en su máquina</a>.</p>
-
 <p>El repositorio se encuentra ubicado en: <a href="http://github.com/jeqo/oracle-docker">http://github.com/jeqo/oracle-docker</a></p>
-
 <p>Mi contribución está en la carpeta <a href="https://github.com/jeqo/oracle-docker/tree/master/OracleSOA">&lsquo;OracleSOA&rsquo;</a>.</p>
-
-<h2 id="creación-de-la-imagen-con-oracle-soa-suite-12c">Creación de la imagen con Oracle SOA Suite 12c</h2>
-
+<h2 id="creación-de-la-imagen-con-oracle-soa-suite-12c-">Creación de la imagen con Oracle SOA Suite 12c</h2>
 <p>Primero se deben <a href="http://www.oracle.com/technetwork/middleware/soasuite/downloads/index.html">descargar los instaladores de Oracle SOA Suite 12c Quick Start</a>,
 y colocarlos en la carpeta OracleSOA/dockerfiles/12.1.3. De la misma forma
- <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">descargar Java Development Kit 7</a>,
- y colocarlo en el mismo folder.</p>
-
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">descargar Java Development Kit 7</a>,
+y colocarlo en el mismo folder.</p>
 <p>Abrir un terminal en el directorio <em>OracleSOA</em>, ir a dockerfiles, y ejecutar el script <em>buildDockerImage.sh</em> con el argumento <em>-d</em> que indica que es la versión de desarrollo:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sh buildDockerImage.sh -d</code></pre></div>
-<p>Esta ejecución crear una imagen llamada: <strong>oracle/soa:12.1.3-dev</strong></p>
-
-<h2 id="dockerize-un-dominio-con-soa-suite">Dockerize un dominio con SOA Suite</h2>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sh buildDockerImage.sh -d
+</code></pre></div><p>Esta ejecución crear una imagen llamada: <strong>oracle/soa:12.1.3-dev</strong></p>
+<h2 id="dockerize-un-dominio-con-soa-suite-">Dockerize un dominio con SOA Suite</h2>
 <p>Ahora que tenemos una imagen Docker con SOA instalado, podemos reutilizarla para
 crear dominios con WLST.</p>
-
 <p>Existe un ejemplo de este procedimiento en <em>OracleSOA/samples</em>.</p>
-
 <p>Para ejecutarlo, ir a <em>OracleSOA/samples/12c-domain</em> y correr el siguiente comando:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker build -t mysoa .</code></pre></div>
-<p>Esto debe crear un imagen <em>mysoa</em> que contiene un Compact Domain instalado en: <em>/u01/oracle/work/domains/soa-domain</em></p>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker build -t mysoa .
+</code></pre></div><p>Esto debe crear un imagen <em>mysoa</em> que contiene un Compact Domain instalado en: <em>/u01/oracle/work/domains/soa-domain</em></p>
 <p>Eso es todo! Para crear un contenedor desde la imagen, ejecutar:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -i -t mysoa</code></pre></div>
-<h3 id="siguientes-pasos">Siguientes pasos</h3>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -i -t mysoa
+</code></pre></div><h3 id="siguientes-pasos-">Siguientes pasos</h3>
 <ul>
 <li>BPM sobre Docker</li>
 <li>Publicar imagenes en Docker Hub Registry</li>
@@ -249,12 +207,12 @@ crear dominios con WLST.</p>
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/es/posts/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/">Newer</a>
+          <a href="https://jeqo.github.io/es/posts/2014-12-11-run-bpm-12c-aws/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/es/posts/2014-12-11-run-bpm-12c-aws/">Older</a>
+          <a href="https://jeqo.github.io/es/posts/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/">Older</a>
           
         </div>
       </div>
@@ -293,7 +251,7 @@ crear dominios con WLST.</p>
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -331,12 +289,6 @@ crear dominios con WLST.</p>
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notas</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">Acerca</a>
       </li>
       
@@ -365,9 +317,6 @@ crear dominios con WLST.</p>
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -376,16 +325,6 @@ crear dominios con WLST.</p>
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on @jeqo</title>
@@ -7,67 +7,49 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Fri, 10 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Back End</title>
-      <link>https://jeqo.github.io/categories/back-end/</link>
-      <pubDate>Fri, 10 Mar 2017 00:00:00 +0000</pubDate>
+      <title>papers</title>
+      <link>https://jeqo.github.io/categories/papers/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/categories/back-end/</guid>
+      <guid>https://jeqo.github.io/categories/papers/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Development</title>
-      <link>https://jeqo.github.io/categories/development/</link>
-      <pubDate>Fri, 10 Mar 2017 00:00:00 +0000</pubDate>
+      <title>observability</title>
+      <link>https://jeqo.github.io/categories/observability/</link>
+      <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/categories/development/</guid>
+      <guid>https://jeqo.github.io/categories/observability/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Devops</title>
-      <link>https://jeqo.github.io/categories/devops/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
+      <title>distributed-tracing</title>
+      <link>https://jeqo.github.io/categories/distributed-tracing/</link>
+      <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/categories/devops/</guid>
+      <guid>https://jeqo.github.io/categories/distributed-tracing/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Devops Oracle</title>
-      <link>https://jeqo.github.io/categories/devops-oracle/</link>
-      <pubDate>Thu, 09 Mar 2017 00:00:00 +0000</pubDate>
+      <title>event-driven</title>
+      <link>https://jeqo.github.io/categories/event-driven/</link>
+      <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/categories/devops-oracle/</guid>
+      <guid>https://jeqo.github.io/categories/event-driven/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Devops Oracle Soa</title>
-      <link>https://jeqo.github.io/categories/devops-oracle-soa/</link>
-      <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/categories/devops-oracle-soa/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Integration</title>
-      <link>https://jeqo.github.io/categories/integration/</link>
-      <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/categories/integration/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Notes</title>
+      <title>notes</title>
       <link>https://jeqo.github.io/categories/notes/</link>
       <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
       
@@ -76,16 +58,16 @@
     </item>
     
     <item>
-      <title>Observability</title>
-      <link>https://jeqo.github.io/categories/observability/</link>
-      <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
+      <title>devops</title>
+      <link>https://jeqo.github.io/categories/devops/</link>
+      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/categories/observability/</guid>
+      <guid>https://jeqo.github.io/categories/devops/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Operations</title>
+      <title>operations</title>
       <link>https://jeqo.github.io/categories/operations/</link>
       <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
       
@@ -94,11 +76,47 @@
     </item>
     
     <item>
-      <title>Papers</title>
-      <link>https://jeqo.github.io/categories/papers/</link>
-      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
+      <title>integration</title>
+      <link>https://jeqo.github.io/categories/integration/</link>
+      <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/categories/papers/</guid>
+      <guid>https://jeqo.github.io/categories/integration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>back-end</title>
+      <link>https://jeqo.github.io/categories/back-end/</link>
+      <pubDate>Fri, 10 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/back-end/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>development</title>
+      <link>https://jeqo.github.io/categories/development/</link>
+      <pubDate>Fri, 10 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops, Oracle</title>
+      <link>https://jeqo.github.io/categories/devops-oracle/</link>
+      <pubDate>Thu, 09 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/devops-oracle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops, Oracle, SOA</title>
+      <link>https://jeqo.github.io/categories/devops-oracle-soa/</link>
+      <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/devops-oracle-soa/</guid>
       <description></description>
     </item>
     

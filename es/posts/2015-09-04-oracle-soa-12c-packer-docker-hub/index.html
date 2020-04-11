@@ -15,7 +15,7 @@
   <meta name="twitter:description" content="back-end, integration, devops">
   
 
-  <meta name="author" content="Jorge Quilcate Otoya"/>
+  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
   <meta property="og:url" content="https://jeqo.github.io/es/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/" />
 
@@ -31,8 +31,7 @@
   <meta property="og:type" content="article" />
   
   
-  
-  <meta name="generator" content="Hugo 0.40.1" /><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
   <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
   <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
   <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -66,9 +65,6 @@
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -77,16 +73,6 @@
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">
@@ -114,12 +100,6 @@
       
       <li class="p-menu__listitem">
         <a href="/talks">Presentaciones</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notas</a>
       </li>
       
     
@@ -165,23 +145,17 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    
-
-<p>Luego de encontrar algunas limitaciones en la construcción de una imagen en
+    <p>Luego de encontrar algunas limitaciones en la construcción de una imagen en
 Docker con Oracle SOA Suite 12c instalado usando Dockerfiles (como acceso
 a volumenes, tamaño de filesystem por defecto), he investigado como
 mejorar este proceso, y he encontrado <a href="https://packer.io/">Packer</a>
 (del mismo equipo que creo Vagrant, Hashicorp).</p>
-
 <p>Para obtener mayor información sobre porqué utilizar Packer en vez de
 Dockerfiles, <a href="http://mmckeen.net/blog/2013/12/27/advanced-docker-provisioning-with-packer/">ir aquí</a>.</p>
-
 <p>También he movido el directory <a href="https://github.com/jeqo/oracle-docker/tree/master/OracleSOA">OracleSOA</a>
 que cree sobre el repositorio de Oracle Docker <a href="https://github.com/oracle/docker">oracle-docker</a>
 hacia un repositorio independiente: <a href="https://github.com/jeqo/oracle-soa-12c-docker">github.com/jeqo/oracle-soa-12c-docker</a>.</p>
-
-<h2 id="mejoras">Mejoras</h2>
-
+<h2 id="mejoras-">Mejoras</h2>
 <p>Basicamente, los scripts de Dockerfile fueron transformados en shell scripts
 y son invocados desde Packer en la etapa de provisionamiento</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="background-color:#fff0f0">&#34;provisioners&#34;</span><span style="color:#f00;background-color:#faa">:</span> [
@@ -218,8 +192,8 @@ y son invocados desde Packer en la etapa de provisionamiento</p>
         <span style="background-color:#fff0f0">&#34;MW_HOME=/u01/oracle/soa&#34;</span>
       ]
     }
-  ]</code></pre></div>
-<p>Luego del provisionamiento exitoso, se procesa la imagen para
+  ]
+</code></pre></div><p>Luego del provisionamiento exitoso, se procesa la imagen para
 guardarla en Docker Hub:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="background-color:#fff0f0">&#34;post-processors&#34;</span><span style="color:#f00;background-color:#faa">:</span> [
     [
@@ -230,9 +204,8 @@ guardarla en Docker Hub:</p>
       },
       <span style="background-color:#fff0f0">&#34;docker-push&#34;</span>
     ]
-  ]</code></pre></div>
-<p>Realmente la configuración en JSON es bastante simple y concreta.</p>
-
+  ]
+</code></pre></div><p>Realmente la configuración en JSON es bastante simple y concreta.</p>
 <p>Una vez que la imagen esta cargada en Docker Hub, se puede utilizar
 la herramienta preferida: Docker, Dockerfiles, o Vagrant, para crear un
 dominio sobre la imagen creada. <a href="https://github.com/jeqo/oracle-soa-12c-docker/tree/master/samples/12c-domain">Ejemplo</a>
@@ -263,12 +236,12 @@ explicado en mi <a href="http://jeqo.github.io/blog/devops/docker-image-oracle-s
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/es/posts/2016-03-30-ansible-agentless-provisioning/">Newer</a>
+          <a href="https://jeqo.github.io/es/posts/2015-07-31-java-ee-rxjava-kafka-avro/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/es/posts/2015-07-31-java-ee-rxjava-kafka-avro/">Older</a>
+          <a href="https://jeqo.github.io/es/posts/2016-03-30-ansible-agentless-provisioning/">Older</a>
           
         </div>
       </div>
@@ -321,7 +294,7 @@ explicado en mi <a href="http://jeqo.github.io/blog/devops/docker-image-oracle-s
   
   <div class="p-author__body">
     
-    <p class="c-title p-author__name ">Jorge Quilcate Otoya</p>
+    <p class="c-title p-author__name ">Jorge Esteban Quilcate Otoya</p>
     
     
     <p>peruvian, husband, software engineer</p>
@@ -359,12 +332,6 @@ explicado en mi <a href="http://jeqo.github.io/blog/devops/docker-image-oracle-s
     
       
       <li class="p-menu__listitem">
-        <a href="/notes">Notas</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
         <a href="/about">Acerca</a>
       </li>
       
@@ -393,9 +360,6 @@ explicado en mi <a href="http://jeqo.github.io/blog/devops/docker-image-oracle-s
   </li>
   
   
-  
-  
-  
   <li class="c-links__item">
     <a href="https://github.com/jeqo" target="_blank">
       <svg viewBox="0 0 64 64" class="c-links__icon">
@@ -404,16 +368,6 @@ explicado en mi <a href="http://jeqo.github.io/blog/devops/docker-image-oracle-s
       </svg>
     </a>
   </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   <li class="c-links__item">

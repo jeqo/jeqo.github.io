@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>@jeqo</title>
@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Mon, 08 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Apr 2020 00:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/es/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Acerca</title>
+      <link>https://jeqo.github.io/es/about/</link>
+      <pubDate>Sat, 11 Apr 2020 00:00:00 +0100</pubDate>
+      
+      <guid>https://jeqo.github.io/es/about/</guid>
+      <description>Jorge Esteban Quilcate Otoya Peruano, casado, ingeniero de software, e inmigrante en Noruega y el Reino Unido.
+Disfrutando mi carrera trabajando en sistemas distribuidos.
+Empecé a contribuir en proyectos Open-Source desde 2016, incluyendo Apache Kafka y Zipkin.
+Intereses actuales:
+ Log-based streaming platform (Apache Kafka), Stream processing (Kafka Streams), Distributed Tracing (OpenTracing), Metrics (Micrometer, Prometheus), Cluster Scheduling (Nomad, Kubernetes), Automation (Docker, Ansible)  Este sitio Este es el sitio web de Jorge Quilcate desde 2014.</description>
+    </item>
     
     <item>
       <title>Data on the Outside vs Data on the Inside</title>
@@ -19,10 +32,8 @@
       
       <guid>https://jeqo.github.io/es/notes/data-on-the-outside-vs-data-on-the-inside/</guid>
       <description>&lt;p&gt;Encuentro este &lt;em&gt;paper&lt;/em&gt; tan relevante y preciso hoy como lo fue en 2005, cuando fue publicado.
-Es fascinante como luego de 12 años y con nuevas tecnologías en voga, los mismos conceptos
-siguen aplicando.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+Es fascinante como luego de 12 años y con nuevas tecnologías en voga, los mismos conceptos 
+siguen aplicando.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -31,9 +42,7 @@ siguen aplicando.&lt;/p&gt;
       <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/es/talks/observando-sistemas-distribuidos-perujug/</guid>
-      <description>&lt;p&gt;Presentado en &lt;a href=&#34;https://www.meetup.com/es-ES/Peru-Java-User-Group/events/245246354&#34;&gt;PeruJUG&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Presentado en &lt;a href=&#34;https://www.meetup.com/es-ES/Peru-Java-User-Group/events/245246354&#34;&gt;PeruJUG&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -42,9 +51,7 @@ siguen aplicando.&lt;/p&gt;
       <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/es/talks/de-mensajeria-a-log-de-eventos-perujug/</guid>
-      <description>&lt;p&gt;Presentado al &lt;a href=&#34;https://twitter.com/perujug/&#34;&gt;Perú JUG&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Presentado al &lt;a href=&#34;https://twitter.com/perujug/&#34;&gt;Perú JUG&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -58,13 +65,9 @@ de múltiples consumidores. Cada &lt;code&gt;consumer group&lt;/code&gt; tiene u
 determina hasta que punto del &lt;code&gt;topic&lt;/code&gt; se encuentra consumido por &lt;code&gt;consumer group&lt;/code&gt;.
 Así, cada &lt;code&gt;consumer group&lt;/code&gt; puede manejar los &lt;code&gt;offset&lt;/code&gt; independientemente, por
 partición.&lt;/p&gt;
-
 &lt;p&gt;Esto ofrece la posibilidad de retroceder en el tiempo y reprocesar mensaje desde
 el inicio de un &lt;code&gt;topic&lt;/code&gt; y regenerar el estado actual del sistema.&lt;/p&gt;
-
-&lt;p&gt;Pero, cómo realizar esto de forma programática?&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Pero, cómo realizar esto de forma programática?&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -75,9 +78,7 @@ el inicio de un &lt;code&gt;topic&lt;/code&gt; y regenerar el estado actual del 
       <guid>https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/</guid>
       <description>&lt;p&gt;En este post mostraré como utilizar contenedores Docker para crear y escalar
 un clúster de Kafka, y también como crear, escalar y mover &lt;code&gt;topics&lt;/code&gt; dentro del
-clúster.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+clúster.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -132,9 +133,8 @@ Este nuevo release incluye:
       
       <guid>https://jeqo.github.io/es/posts/2015-04-01-docker-image-oracle-soa/</guid>
       <description>Buenas noticias llegaron desde Oracle hace un par de semanas: Oracle WebLogic Server es ahora soportado en Docker!.
-I&amp;#39;m glad we announced support for @OracleWebLogic on @Docker last week, not today :-) https://t.co/6E9UxrgY3n
-&amp;mdash; Bruno Borges (@brunoborges) abril 1, 2015 
-Esto es muy emocionante. Docker es una nueva tecnología que propone una nueva forma de virtualización a través de contenedores (OS, Configurations, Platform, Application) Para más información acerca de Docker</description>
+Esto es muy emocionante. Docker es una nueva tecnología que propone una nueva forma de virtualización a través de contenedores (OS, Configurations, Platform, Application) Para más información acerca de Docker
+Bueno, WebLogic sobre Docker es genial, pero me he propuesto ir unos pasos más adelante y Dockerize los productos de SOA y BPM (como Guido Schmitz hizo con Oracle Stream Explorer)</description>
     </item>
     
     <item>
@@ -167,21 +167,6 @@ En esta entrada voy a mostrar como provisionar un Dominio WebLogic con Oracle SO
       <guid>https://jeqo.github.io/es/posts/2014-11-30-create-nfs-instance-aws/</guid>
       <description>Estuve probando la creación de instancias en AWS EC2 para instalar productos de Oracle Fusion Middleware, y encontré una restricción: Cómo descargar los instaladores si quiero reutilizarlos en varias instancias? Cómo evitar un consumo alto de ancho de banda? Y cómo hacer este procedimiento repetitivo?
 Entre varias soluciones, en este momento decidi aplicar : How to setup an Amazon AWS EC2 NFS Share. Pero para hacerla reutilizable cree una configuración en Vagrant y Chef para provisionar una instancia en AWS con NFS configurado: Git repository</description>
-    </item>
-    
-    <item>
-      <title>Acerca</title>
-      <link>https://jeqo.github.io/es/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/es/about/</guid>
-      <description>Jorge Esteban Quilcate Otoya Peruano, Casado, Ingeniero de Software, inmigrante en Noruega.
-Iniciando mi carrera en sistemas distribuidos.
-Empezando a contribuir a proyectos Open-Source desde 2016 (e.g. Apache Kafka)
-Trabajando como &amp;ldquo;back-end and integration developer&amp;rdquo; en SYSCO AS (Oslo, Norway). Parte del equipo de Middleware.
-Trabajo mayormente con tecnologías JVM (Java, Scala).
-Intereses actuales:
- Observability, Distributed Tracing (OpenTracing), Metrics (Prometheus), Chaos engineering, Event Sourcing and CQRS, Distributed Systems (microservices patterns), Distributed data stores (Apache Cassandra) Cluster Scheduling (Nomad, Kubernetes), Stream processing (Kafka Streams, Apache Flink) Concurrency and Actor Systems Service Discovery (Consul, Zookeeper) Blockchain Sidecar Proxies (Envoy and Istio)  Este sitio Este es el sitio web de Jorge Quilcate&amp;rsquo;s desde 2014.</description>
     </item>
     
   </channel>
