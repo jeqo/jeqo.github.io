@@ -219,7 +219,7 @@
 <li>Friendly to experimentation: Most jobs modify only their designated output directories, and have no other side effect.</li>
 </ul>
 <p>When moving from a high-latency batch system to a low-latency streaming system, we wish to preserve the attractive properties listed above.</p>
-<p>By analogy, consider how Unix tools are composed into complex programs using shell scripts. A workflow of batch jobs is comparable to a shell 
+<p>By analogy, consider how Unix tools are composed into complex programs using shell scripts. A workflow of batch jobs is comparable to a shell
 script which there is no pipe operator, so each program should write and read from temporal files on disk. In this scenario, one program must
 finish writing its output file before another program can start reading it.</p>
 <p>To move from batch to a steraming data pipeline, the temporary files would need to be replaced with something more like Unix pipes.
@@ -235,7 +235,7 @@ afresh rather than complicated old programs by adding &lsquo;new features&rsquo;
 </blockquote>
 <p>Samza on the other side, is focus on Stream processing:</p>
 <blockquote>
-<p>Each Samza Job is structurally simple: it is jost one step in a data processing pipeline, with Kafka topics as inputs and outputs. If Kafka is 
+<p>Each Samza Job is structurally simple: it is jost one step in a data processing pipeline, with Kafka topics as inputs and outputs. If Kafka is
 like a streaming version of HDFS, then Samza is like a streaming version of MapReduce.</p>
 </blockquote>
 <blockquote>
@@ -248,7 +248,7 @@ like a streaming version of HDFS, then Samza is like a streaming version of MapR
 <blockquote>
 <p>&hellip; the log-oriented model of Kafka and Samza is fundamentally built on the idea of composing heterogeneous system through the uniform interface
 of a replicated, partitioned log.
-Individual systems for data storage and processing are encouraged to do one thing well, and to use logs as input and output. 
+Individual systems for data storage and processing are encouraged to do one thing well, and to use logs as input and output.
 Even though Kafka&rsquo;s logs are not the same as Unix pipes, they encourage composability, and thus Unix-style thinking.</p>
 </blockquote>
   </section>
@@ -293,14 +293,14 @@ Even though Kafka&rsquo;s logs are not the same as Unix pipes, they encourage co
   <ul id="slider" class="p-related__list">
     
     <li class="p-related__item js-related__item">
-      <a href="/notes/apache-kafka/"
+      <a href="/notes/reactive-streams/"
         >
         <span>Apache Kafka</span>
       </a>
     </li>
     
     <li class="p-related__item js-related__item">
-      <a href="/notes/reactive-streams/"
+      <a href="/notes/apache-kafka/"
         >
         <span>Apache Kafka</span>
       </a>
@@ -316,7 +316,7 @@ Even though Kafka&rsquo;s logs are not the same as Unix pipes, they encourage co
     <li class="p-related__item js-related__item">
       <a href="/talks/from-messaging-to-logs-ougn17/"
         >
-        <span>From Messaging to Logs with Apache Kafka - OUGN 2017</span>
+        <span>From Messaging to Logs with Apache Kafka @ OUGN 2017</span>
       </a>
     </li>
     

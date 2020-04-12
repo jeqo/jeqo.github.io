@@ -195,19 +195,19 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p>Tracing is one of the hardest time in integration or microservice development: 
+    <p>Tracing is one of the hardest time in integration or microservice development:
 knowing how a request impact your different components, and if your components
 have behave as expected.</p>
 <p>This could be fairly easy if we have monolith where we have one database and
-with some queries or checking one log file you can validate everything went 
+with some queries or checking one log file you can validate everything went
 well.</p>
-<p>Once you introduce distributed components and asynchronous communication 
+<p>Once you introduce distributed components and asynchronous communication
 this starts to get more complex and tedious.</p>
-<p>OpenTracing (<a href="http://opentracing.io/">http://opentracing.io/</a>) offers a way to solve this bringing a 
+<p>OpenTracing (<a href="http://opentracing.io/">http://opentracing.io/</a>) offers a way to solve this bringing a
 vendor neutral API to be able to create <code>spans</code> that represent the meaningful
 tasks that form part of a <code>trace</code>.</p>
 <h1 id="use-case">Use-Case</h1>
-<p>In this post we will see how to instrument Java applications that communicates 
+<p>In this post we will see how to instrument Java applications that communicates
 using Apache Kafka as Event Log, and how visualize traces and analyze latency.</p>
 <p>The scenario will be a simple Hello World Producer/Consumer. The producer
 side will send a &ldquo;greeting&rdquo; event to &ldquo;greetings-topic&rdquo;, and the consumer
@@ -609,7 +609,7 @@ on Documentation but you can find it on Maven Central already:</p>
     <li class="p-related__item js-related__item">
       <a href="/talks/from-messaging-to-logs-ougn17/"
         >
-        <span>From Messaging to Logs with Apache Kafka - OUGN 2017</span>
+        <span>From Messaging to Logs with Apache Kafka @ OUGN 2017</span>
       </a>
     </li>
     

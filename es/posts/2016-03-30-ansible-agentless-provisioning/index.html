@@ -212,7 +212,7 @@ languages&rdquo; (Source: <a href="http://yaml.org/">http://yaml.org/</a>)</p>
 <p>Esto signifíca que es verdaderamente fácil de entender y comenzar a trabajar
 con YAML. Por ejemplo:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span>webserver<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>tasks:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">tasks</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">package</span>:<span style="color:#bbb"> </span>apache<span style="color:#bbb">
 </span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">state</span>:<span style="color:#bbb"> </span>latest<span style="color:#bbb">
 </span></code></pre></div><p>Este <strong>&ldquo;playbook&rdquo;</strong> dice que el host <em>webserver</em> que tiene 1 tarea: instalar
@@ -252,7 +252,7 @@ utilizar comandos Docker Exec.</p>
 <a href="https://github.com/jeqo/ansible-role-java">https://github.com/jeqo/ansible-role-java</a></p>
 <p>Solo para explicar que hace, vemos el archivo de tareas principal:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>- debug:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>- <span style="color:#080;font-weight:bold">debug</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">msg</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;This Java Provider will be installed: {{ java_provider }}&#34;</span><span style="color:#bbb">
 </span><span style="color:#bbb">
 </span><span style="color:#bbb">  </span>- <span style="color:#080;font-weight:bold">include</span>:<span style="color:#bbb"> </span>install-{{<span style="color:#bbb"> </span>java_provider<span style="color:#bbb"> </span>}}.yml<span style="color:#bbb">
@@ -264,19 +264,19 @@ variable &ldquo;java_provider&rdquo; y luego definir la variable de entorno: JAV
 algunas pruebas:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>test<span style="color:#bbb"> </span>install<span style="color:#bbb"> </span>openjdk<span style="color:#bbb"> </span>jdk<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb"> </span>on<span style="color:#bbb"> </span>centos<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">7</span><span style="color:#bbb">
 </span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span>test01<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>roles:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">roles</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">role</span>:<span style="color:#bbb"> </span>java<span style="color:#bbb">
 </span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_provider</span>:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
 </span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_version</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb">
 </span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_type</span>:<span style="color:#bbb"> </span>jdk<span style="color:#bbb">
 </span><span style="color:#bbb"></span>- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>test<span style="color:#bbb"> </span>install<span style="color:#bbb"> </span>openjdk<span style="color:#bbb"> </span>jre<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb"> </span>on<span style="color:#bbb"> </span>centos<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">7</span><span style="color:#bbb">
 </span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span>test02<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>roles:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">roles</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">role</span>:<span style="color:#bbb"> </span>java<span style="color:#bbb">
 </span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_provider</span>:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
 </span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_version</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb">
 </span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_type</span>:<span style="color:#bbb"> </span>jre<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#888"># more tests...</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#888"># more tests...</span><span style="color:#bbb">
 </span></code></pre></div><p>Y para ejecutar las pruebas utilizo Vagrant y VirtualBox:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#036;font-weight:bold">Vagrant</span><span style="color:#333">.</span>configure(<span style="color:#00d;font-weight:bold">2</span>) <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>config<span style="color:#333">|</span>
 
@@ -293,7 +293,7 @@ algunas pruebas:</p>
     node<span style="color:#333">.</span>vm<span style="color:#333">.</span>box <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;jeqo/ansible-centos7&#34;</span>
   <span style="color:#080;font-weight:bold">end</span>
 
-  <span style="color:#888"># more test nodes...</span>
+  <span style="color:#888"># more test nodes...</span>
 <span style="color:#080;font-weight:bold">end</span>
 </code></pre></div><p>Ejecutemos la prueba de instalación de OpenJDK 8 en Centos:</p>
 <pre><code>vagrant up test01
@@ -339,9 +339,9 @@ incluido en la instalación. Así que hice algunas pruebas:
 <p>En este repositorio tengo un &ldquo;playbook&rdquo; que crea el contenedor:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">127.0.0.1</span><span style="color:#bbb">
 </span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">connection</span>:<span style="color:#bbb"> </span>local<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>tasks:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">tasks</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>my<span style="color:#bbb"> </span>container<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>docker:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">docker</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>poccontainer<span style="color:#bbb">
 </span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">image</span>:<span style="color:#bbb"> </span>centos<span style="color:#bbb">
 </span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span>sleep<span style="color:#bbb"> </span>infinity<span style="color:#bbb">
@@ -355,10 +355,10 @@ a5e49bd032be        centos              &quot;sleep infinity&quot;    About an h
 el provisionamiento:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span>poccontainer<span style="color:#bbb">
 </span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">connection</span>:<span style="color:#bbb"> </span>docker<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>pre_tasks:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">pre_tasks</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">package</span>:<span style="color:#bbb"> </span>name=sudo<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;sed -i -e \&#34;s/Defaults    requiretty.*/ #Defaults    requiretty/g\&#34; /etc/sudoers&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>roles:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">roles</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">role</span>:<span style="color:#bbb"> </span>java<span style="color:#bbb">
 </span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_provider</span>:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
 </span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_type</span>:<span style="color:#bbb"> </span>jdk<span style="color:#bbb">
@@ -406,7 +406,7 @@ facilmente así:</p>
 </ul>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">127.0.0.1</span><span style="color:#bbb">
 </span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">connection</span>:<span style="color:#bbb"> </span>local<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>tasks:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">tasks</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>commit<span style="color:#bbb">
 </span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span>docker<span style="color:#bbb"> </span>commit<span style="color:#bbb"> </span>poccontainer<span style="color:#bbb">
 </span></code></pre></div><p>Sin embargo, Ansible también tiene un módulo para ejecutar Dockerfiles:

@@ -230,8 +230,8 @@ vagrant init</code></pre></div>
 </blockquote>
 <p>This is not enough to create a box. You need two more attributes:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
-  <span style="color:#888"># URL or path to base box file</span>
-  <span style="color:#888"># config.vm.box_url = &#34;https://storage.us2.oraclecloud.com/v1/istoilis-istoilis/vagrant/oel65-64.box&#34;</span>
+  <span style="color:#888"># URL or path to base box file</span>
+  <span style="color:#888"># config.vm.box_url = &#34;https://storage.us2.oraclecloud.com/v1/istoilis-istoilis/vagrant/oel65-64.box&#34;</span>
   config<span style="color:#333">.</span>vm<span style="color:#333">.</span>box_url <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;file://c:/boxes/oel65-64.box&#34;</span>
 <span style="color:#333">...</span></code></pre></div>
 <p>With this you can execute <em>vagrant up</em> to run the script. This will create a VM on VirtualBox with the same configuration as <em>base box</em>.</p>
@@ -258,8 +258,8 @@ vagrant init</code></pre></div>
 <blockquote>
 <p>Third important command: <strong>vagrant destroy</strong></p>
 </blockquote>
-<p>For me, this is the greatest benefit of using Vagrant, you can destroy you box and you don&rsquo;t care! Well, 
-you care if it&rsquo;s a box in production, but when you are creating your environment you can destroy and 
+<p>For me, this is the greatest benefit of using Vagrant, you can destroy you box and you don&rsquo;t care! Well,
+you care if it&rsquo;s a box in production, but when you are creating your environment you can destroy and
 recreate over and over again, fast and easy.</p>
 <p>Run: <em>vagrant destroy</em>, and <em>vagrant up</em> again.</p>
 <p>Now you know how to create and parametrize your Vagrant Box on VirtualBox.</p>
@@ -277,23 +277,23 @@ recreate over and over again, fast and easy.</p>
 <li><strong>Shared Directories</strong>: Using VirtualBox utility to create shared directories is annoying! With Vagrant is as easy as add thit to your script:</li>
 </ul>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
-  <span style="color:#888"># Mount c:\data directory to /data directory on box. mount_options is optional</span>
+  <span style="color:#888"># Mount c:\data directory to /data directory on box. mount_options is optional</span>
   config<span style="color:#333">.</span>vm<span style="color:#333">.</span>synced_folder <span style="background-color:#fff0f0">&#34;/data&#34;</span> , <span style="background-color:#fff0f0">&#34;/data&#34;</span>, <span style="color:#a60;background-color:#fff0f0">:mount_options</span> <span style="color:#333">=&gt;</span> <span style="color:#333">[</span><span style="background-color:#fff0f0">&#34;dmode=777&#34;</span>, <span style="background-color:#fff0f0">&#34;fmode=777&#34;</span><span style="color:#333">]</span>
 <span style="color:#333">...</span></code></pre></div>
 <p>Some other parameters:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
-  <span style="color:#888"># Hostname</span>
+  <span style="color:#888"># Hostname</span>
   config<span style="color:#333">.</span>vm<span style="color:#333">.</span>hostname <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;basemachine&#34;</span>
 <span style="color:#333">...</span></code></pre></div>
 <p>For more information: <a href="https://docs.vagrantup.com/v2/vagrantfile/index.html">Vagrant Docs</a></p>
 <h2 id="resolving-some-common-issues">Resolving some common issues</h2>
-<p>Excellent! you can create and parametrized Vagrant boxes. If your base box have enough disk and swap size, perfect! 
+<p>Excellent! you can create and parametrized Vagrant boxes. If your base box have enough disk and swap size, perfect!
 But, what if your base box have 10GB as disk space and your swap space is 512MB or less?</p>
 <p>Well these issues took me a couple of days to resolve, so this is how to handle it:</p>
 <h3 id="increase-disk-space">Increase Disk space</h3>
-<p>Normally (sadly), cloud base box comes with VMDK disks formats. If you are lucky and your disk format is VDI, 
-you can solve this directly <a href="http://derekmolloy.ie/resize-a-virtualbox-disk/">like this</a>. But, VMDK can&rsquo;t be expanded, 
-so you need to add another disk to your VM. If making this manually is hard, can you imaging doing this from Vagrant? 
+<p>Normally (sadly), cloud base box comes with VMDK disks formats. If you are lucky and your disk format is VDI,
+you can solve this directly <a href="http://derekmolloy.ie/resize-a-virtualbox-disk/">like this</a>. But, VMDK can&rsquo;t be expanded,
+so you need to add another disk to your VM. If making this manually is hard, can you imaging doing this from Vagrant?
 Well, now that I solved is not that difficult:</p>
 <ol>
 <li>Create an script called <em>&ldquo;bootstrap.sh&rdquo;</em> on your working directory, and add these lines:</li>
@@ -309,13 +309,13 @@ resize2fs /dev/VolGroup/lv_root</code></pre></div>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
   config<span style="color:#333">.</span>vm<span style="color:#333">.</span>provider <span style="color:#a60;background-color:#fff0f0">:virtualbox</span> <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>vb<span style="color:#333">|</span>
   <span style="color:#333">...</span>
-  <span style="color:#888"># Validate this should be run it once</span>
+  <span style="color:#888"># Validate this should be run it once</span>
   <span style="color:#080;font-weight:bold">if</span> <span style="color:#036;font-weight:bold">ARGV</span><span style="color:#333">[</span><span style="color:#00d;font-weight:bold">0</span><span style="color:#333">]</span> <span style="color:#333">==</span> <span style="background-color:#fff0f0">&#34;up&#34;</span> <span style="color:#333">&amp;&amp;</span> <span style="color:#333">!</span> <span style="color:#036;font-weight:bold">File</span><span style="color:#333">.</span>exist?(<span style="background-color:#fff0f0">&#34;./disk1.vdi&#34;</span>)
     vb<span style="color:#333">.</span>customize <span style="color:#333">[</span>
       <span style="background-color:#fff0f0">&#39;createhd&#39;</span>,
       <span style="background-color:#fff0f0">&#39;--filename&#39;</span>, <span style="background-color:#fff0f0">&#34;./disk1.vdi&#34;</span>,
       <span style="background-color:#fff0f0">&#39;--format&#39;</span>, <span style="background-color:#fff0f0">&#39;VDI&#39;</span>,
-      <span style="color:#888"># 100GB</span>
+      <span style="color:#888"># 100GB</span>
       <span style="background-color:#fff0f0">&#39;--size&#39;</span>, <span style="color:#00d;font-weight:bold">100</span> <span style="color:#333">*</span> <span style="color:#00d;font-weight:bold">1024</span>
     <span style="color:#333">]</span>
 
@@ -329,9 +329,9 @@ resize2fs /dev/VolGroup/lv_root</code></pre></div>
   <span style="color:#080;font-weight:bold">end</span>
 
   <span style="color:#080;font-weight:bold">if</span> <span style="color:#036;font-weight:bold">ARGV</span><span style="color:#333">[</span><span style="color:#00d;font-weight:bold">0</span><span style="color:#333">]</span> <span style="color:#333">==</span> <span style="background-color:#fff0f0">&#34;up&#34;</span> <span style="color:#333">&amp;&amp;</span> <span style="color:#333">!</span> <span style="color:#036;font-weight:bold">File</span><span style="color:#333">.</span>exist?(<span style="background-color:#fff0f0">&#34;./disk1.vdi&#34;</span>)
-    <span style="color:#888"># Run script to map new disk</span>
+    <span style="color:#888"># Run script to map new disk</span>
     config<span style="color:#333">.</span>vm<span style="color:#333">.</span>provision <span style="background-color:#fff0f0">&#34;shell&#34;</span>, <span style="color:#a60;background-color:#fff0f0">path</span>: <span style="background-color:#fff0f0">&#34;bootstrap.sh&#34;</span>
-    <span style="color:#888"># Run script to increase swap memory</span>
+    <span style="color:#888"># Run script to increase swap memory</span>
     config<span style="color:#333">.</span>vm<span style="color:#333">.</span>provision <span style="background-color:#fff0f0">&#34;shell&#34;</span>, <span style="color:#a60;background-color:#fff0f0">path</span>: <span style="background-color:#fff0f0">&#34;increase_swap.sh&#34;</span>
   <span style="color:#080;font-weight:bold">end</span>
 <span style="color:#333">...</span></code></pre></div>
@@ -345,7 +345,7 @@ resize2fs /dev/VolGroup/lv_root</code></pre></div>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#579">#!/bin/sh
 </span><span style="color:#579"></span>
 <span style="color:#888"># size of swapfile in megabytes</span>
-<span style="color:#963">swapsize</span><span style="color:#333">=</span>8000
+<span style="color:#963">swapsize</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">8000</span>
 
 <span style="color:#888"># does the swap file already exist?</span>
 grep -q <span style="background-color:#fff0f0">&#34;swapfile&#34;</span> /etc/fstab
@@ -404,7 +404,7 @@ service <span style="background-color:#fff0f0">&#34;httpd&#34;</span> <span styl
 <ul>
 <li>Create a file like this one called &ldquo;vagrant.rb&rdquo;:</li>
 </ul>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">box:<span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#080;font-weight:bold">box</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;base-machine&#34;</span><span style="color:#bbb">
 </span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">disk_path</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;./disk1.vdi&#34;</span><span style="color:#bbb">
 </span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">url</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;file://c:/boxes/oel65-64.box&#34;</span><span style="color:#bbb">
@@ -414,7 +414,7 @@ service <span style="background-color:#fff0f0">&#34;httpd&#34;</span> <span styl
 </span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">ram_memory</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">2048</span><span style="color:#bbb">
 </span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">cpus</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">2</span><span style="color:#bbb">
 </span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">swap_memory</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">4096</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>chef:<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#080;font-weight:bold">chef</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">repo_location</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;C:/dev/jeqo/chef-repo&#34;</span></code></pre></div>
 <ul>
 <li>Add the &ldquo;yaml&rdquo; library:</li>

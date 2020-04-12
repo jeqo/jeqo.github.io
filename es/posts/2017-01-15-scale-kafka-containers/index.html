@@ -228,12 +228,12 @@ aquí:
 <a href="https://github.com/jeqo/docker-image-confluent-platform">Confluent Platform</a></p>
 <hr>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#080;font-weight:bold">version</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;2.1&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>services:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>kafka:<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#080;font-weight:bold">services</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">kafka</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">image</span>:<span style="color:#bbb"> </span>jeqo/apache-kafka:<span style="color:#60e;font-weight:bold">0.10.1.0-2.11</span><span style="color:#bbb">
-</span><span style="color:#bbb">    </span>links:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">links</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">      </span>- zookeeper<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>zookeeper:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">zookeeper</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">image</span>:<span style="color:#bbb"> </span>jeqo/apache-zookeeper:<span style="color:#60e;font-weight:bold">3.4.8</span></code></pre></div>
 <p>Esta configuración define 2 servicios: <code>kafka</code> y <code>zookeeper</code>. El <code>link</code> del<br>
 servicio <code>kafka</code> y su variable de entorno <code>ZOOKEEPER_CONNECT</code>
@@ -247,15 +247,15 @@ Creating kafkacluster_kafka_1</code></pre></div>
 <p>Si queremos acceder a estos servicios desde nuestra aplicación (también
 definida en Docker Compose) lo podemos hacer de la siguiente manera:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#080;font-weight:bold">version</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;2.1&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>services:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>kafka:<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#080;font-weight:bold">services</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">kafka</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">image</span>:<span style="color:#bbb"> </span>jeqo/apache-kafka-client:<span style="color:#60e;font-weight:bold">0.10.1.0-2.11</span><span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span>sleep<span style="color:#bbb"> </span>infinity<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>networks:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">networks</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">      </span>- default<span style="color:#bbb">
-</span><span style="color:#bbb">      </span>- kafkacluster_default<span style="color:#bbb"> </span><span style="color:#888">#(2)</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#080;font-weight:bold">networks</span>:<span style="color:#bbb"> </span><span style="color:#888">#(1)</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>kafkacluster_default:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>- kafkacluster_default<span style="color:#bbb"> </span><span style="color:#888">#(2)</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#080;font-weight:bold">networks</span>:<span style="color:#bbb"> </span><span style="color:#888">#(1)</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">kafkacluster_default</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">external</span>:<span style="color:#bbb"> </span><span style="color:#080;font-weight:bold">true</span></code></pre></div>
 <p>Aquí definimos primero una red externa <code>external network</code> llamada <code>singlenodekafkacluster_default</code>
 que nos permite acceder a la red del clúster de kafka.
@@ -273,7 +273,7 @@ topic1</code></pre></div>
 es tan sencillo como utilizar el comando <code>scale</code>:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose scale <span style="color:#963">kafka</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">3</span></code></pre></div>
 <p>Este comando creará dos contenedores adicionales:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-compose scale <span style="color:#963">kafka</span><span style="color:#333">=</span>3
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-compose scale <span style="color:#963">kafka</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">3</span>
 Creating and starting kafkacluster_kafka_2 ... <span style="color:#080;font-weight:bold">done</span>
 Creating and starting kafkacluster_kafka_3 ... <span style="color:#080;font-weight:bold">done</span></code></pre></div>
 <p>Para nosotros, como desarrolladores(as) de aplicaciones, solo necesitamos
@@ -343,8 +343,8 @@ o manual, si se sabe cómo redistribuir los topics.</p>
 <p>Estos pasos se encuentran documentados aquí: <a href="http://kafka.apache.org/documentation/#basic_ops_cluster_expansion">http://kafka.apache.org/documentation/#basic_ops_cluster_expansion</a></p>
 <p>He automatizado un poco los pasos con unos script en Ansible:</p>
 <p>Dentro del archivo <code>playbooks/prepare-reassignment.yml</code> hay dos variables a definir:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">vars:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>topics:<span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#080;font-weight:bold">vars</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">topics</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>- topic1<span style="color:#bbb">
 </span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">broker_list</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">1003</span></code></pre></div>
 <p>Estas prepararán un plan para mover el topic <code>topic1</code> al <code>broker</code> con id <code>1003</code>.</p>
