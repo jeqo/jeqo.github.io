@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/jeqo
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://jeqo.github.io
+  * I am jeqo (https://keybase.io/jeqo) on keybase.
+  * I have a public key ASC1sf7sKR-bauKVvaPdtLAxlCmR1MFexGs291jBibxs5go
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120784602386b45a02252c107fcbf69e87bc4f0d9d61d65aadee4790a9d3e09aac00a",
+      "host": "keybase.io",
+      "kid": "0120b5b1feec291f9b6ae295bda3ddb4b031942991d4c15ec46b36f758c189bc6ce60a",
+      "uid": "8d9bba8867979f77559a3d3a87ef0b19",
+      "username": "jeqo"
+    },
+    "merkle_root": {
+      "ctime": 1586725979,
+      "hash": "9da9db592576ac480a77cd9a2e404c29861f3a2255b7fcba963c562f637420a692432d1e657cd83c7e80dd3e27109208aed1b1798f05afe261b39402a4fca9ee",
+      "hash_meta": "42699cb027b8b4752baef90f27a0642d4fbf9d1e7ac43cd668abeeb8beb4c472",
+      "seqno": 15896758
+    },
+    "service": {
+      "entropy": "J+XoC8G10rdg4LbSGibSLsVS",
+      "hostname": "jeqo.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.3.1"
+  },
+  "ctime": 1586726028,
+  "expire_in": 504576000,
+  "prev": "44f1fa0114529db5e628af1d3e52007063ba4ff2c379967c6cadd626805a2b16",
+  "seqno": 67,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgtbH+7Ckfm2rilb2j3bSwMZQpkdTBXsRrNvdYwYm8bOYKp3BheWxvYWTESpcCQ8QgRPH6ARRSnbXmKK8dPlIAcGO6T/LDeZZ8bK3WJoBaKxbEIOaeshbK3cxtdsLvqnXdx10RFuQZ+KBkdB4ejnEGN++nAgHCo3NpZ8RA4oFSh9HUsWIep/ZOlB+92PuYix/HUB1kgHi9mBSgxiqWg3TYAKOnhI9GUzA/VO50x4+StkYt+DGrp46F9n7XA6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIBEfp1vWBf1lh9G/v/ry7zrHE56Du3mAjsylDc1uGCh0o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jeqo
+
+==================================================================
