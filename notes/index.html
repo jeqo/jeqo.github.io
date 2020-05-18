@@ -158,6 +158,12 @@
     
       
       <li class="p-menu__listitem">
+        <a href="/notes">Notes</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
         <a href="/talks">Talks</a>
       </li>
       
@@ -169,11 +175,6 @@
       
     
     
-    <li class="p-menu__listitem"><a>|</a></li>
-    
-    <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/notes/">es</a></li>
-    
-    
   </ul>
 </nav>
 
@@ -182,225 +183,25 @@
 
 <h2 class="c-title p-tag-title">Notes</h2>
 
-  <h3>2019</h3>
+  <h3>2020</h3>
   
     <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/co-evolving-tracing-and-fault-injection/">Co-evolving Tracing and Fault Injection with Box of Pain</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/notes-on-distributed-tracing/">Notes on Distributed Tracing</a></h2>
     <p class="c-article__meta">
       Posted on
-      <time datetime="2019-10-31T00:00:00Z">
-        Oct 31, 2019
+      <time datetime="2020-05-17T00:00:00Z">
+        May 17, 2020
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-    This paper explores how related tracing and fault injection systems are, and if they should be part of the same thing.
- The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&hellip;]
-  [&hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.
- In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/co-evolving-tracing-and-fault-injection/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-
-  <h3>2018</h3>
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/kafka-samza-and-the-unix-philosophy-of-distributed-data/">Kafka, Samza and the Unix Philosophy of Distributed Data</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-07-27T00:00:00Z">
-        Jul 27, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/kafka-samza-and-the-unix-philosophy-of-distributed-data/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/designing-data-intensive-application/">Designing Data-Intensive Applications</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-05-20T00:00:00Z">
-        May 20, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/designing-data-intensive-application/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/event-driven-architecture/">Event-Driven Architecture</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-01-23T00:00:00Z">
-        Jan 23, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/event-driven-architecture/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/distributed-systems/">Distributed Systems</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-01-23T00:00:00Z">
-        Jan 23, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/distributed-systems/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/data-on-the-outside-vs-data-on-the-inside/">Data on the Outside vs Data on the Inside</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-01-08T00:00:00Z">
-        Jan 8, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    I found this paper as relevant and accurate today as it was in 2005, when it was published. It is fascinating how even 12 years later and with new technologies in vogue, same concepts keep applying.
+    Distributed Tracing is a technique to trace distributed components.
+It seems redundant to highlight the &lsquo;distributed&rsquo; part, but I believe this is key to understand in order to use this technique effectively.
 
   </div>
   
-  <a href="https://jeqo.github.io/notes/data-on-the-outside-vs-data-on-the-inside/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/reactive-streams/">Apache Kafka</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-01-06T00:00:00Z">
-        Jan 6, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/reactive-streams/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/apache-kafka/">Apache Kafka</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-01-06T00:00:00Z">
-        Jan 6, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/apache-kafka/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/observability/">Observability</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-01-04T00:00:00Z">
-        Jan 4, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/observability/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-
-  <h3>0001</h3>
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/one-size-fits-all-an-idea-whose-time-has-come-and-gone/"></a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="0001-01-01T00:00:00Z">
-        Jan 1, 0001
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    [1] ‘One Size Fits All’: An Idea Whose Time Has Come and Gone - April 2005
-http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.68.9136&amp;rep=rep1&amp;type=pdf
-Initial Database players: DB2 and INGRESS (around 1980&rsquo;s), following vendors: Sybase, Oracle and Informix.
-The initial DBMS model: store relational tables row-by-row, uses B-trees for indexing, uses a cost-based optimized, and provides ACID transaction properties.
- It is a well known homily that warehouse applications run much better using bit-map indexes while OLTP users prefer B-tree indexes.
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/one-size-fits-all-an-idea-whose-time-has-come-and-gone/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/one-size-fits-all-an-idea-whose-time-has-come-and-gone-es/"></a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="0001-01-01T00:00:00Z">
-        Jan 1, 0001
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    
-  </div>
+  <a href="https://jeqo.github.io/notes/notes-on-distributed-tracing/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
 </article>
 
@@ -419,6 +220,12 @@ The initial DBMS model: store relational tables row-by-row, uses B-trees for ind
     
       
       <li class="p-menu__listitem">
+        <a href="/notes">Notes</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
         <a href="/talks">Talks</a>
       </li>
       
@@ -428,11 +235,6 @@ The initial DBMS model: store relational tables row-by-row, uses B-trees for ind
         <a href="/about">About</a>
       </li>
       
-    
-    
-    <li class="p-menu__listitem"><a>|</a></li>
-    
-    <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/notes/">es</a></li>
     
     
   </ul>

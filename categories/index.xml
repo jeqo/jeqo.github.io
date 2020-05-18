@@ -58,18 +58,9 @@
     </item>
     
     <item>
-      <title>devops</title>
-      <link>https://jeqo.github.io/categories/devops/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/categories/devops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>operations</title>
       <link>https://jeqo.github.io/categories/operations/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 25 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/categories/operations/</guid>
       <description></description>
@@ -99,6 +90,15 @@
       <pubDate>Fri, 10 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops</title>
+      <link>https://jeqo.github.io/categories/devops/</link>
+      <pubDate>Thu, 09 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/devops/</guid>
       <description></description>
     </item>
     

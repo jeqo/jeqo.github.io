@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 17 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>distributed-tracing</title>
+      <link>https://jeqo.github.io/tags/distributed-tracing/</link>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/distributed-tracing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>observability</title>
+      <link>https://jeqo.github.io/tags/observability/</link>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/observability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zipkin</title>
+      <link>https://jeqo.github.io/tags/zipkin/</link>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/zipkin/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>daniel bittman</title>
@@ -67,29 +94,11 @@
     </item>
     
     <item>
-      <title>distributed-tracing</title>
-      <link>https://jeqo.github.io/tags/distributed-tracing/</link>
-      <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/distributed-tracing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>kafka</title>
       <link>https://jeqo.github.io/tags/kafka/</link>
       <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/kafka/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>zipkin</title>
-      <link>https://jeqo.github.io/tags/zipkin/</link>
-      <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/zipkin/</guid>
       <description></description>
     </item>
     
@@ -126,24 +135,6 @@
       <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/transactions/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>metrics</title>
-      <link>https://jeqo.github.io/tags/metrics/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/metrics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>observability</title>
-      <link>https://jeqo.github.io/tags/observability/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/observability/</guid>
       <description></description>
     </item>
     

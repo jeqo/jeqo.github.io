@@ -13,38 +13,11 @@
     
     
     <item>
-      <title>Kafka, Samza and the Unix Philosophy of Distributed Data</title>
-      <link>https://jeqo.github.io/notes/kafka-samza-and-the-unix-philosophy-of-distributed-data/</link>
+      <title>Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</title>
+      <link>https://jeqo.github.io/posts/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</link>
       <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/notes/kafka-samza-and-the-unix-philosophy-of-distributed-data/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Designing Data-Intensive Applications</title>
-      <link>https://jeqo.github.io/notes/designing-data-intensive-application/</link>
-      <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/notes/designing-data-intensive-application/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Apache Kafka</title>
-      <link>https://jeqo.github.io/notes/apache-kafka/</link>
-      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/notes/apache-kafka/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Apache Kafka</title>
-      <link>https://jeqo.github.io/notes/reactive-streams/</link>
-      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/notes/reactive-streams/</guid>
+      <guid>https://jeqo.github.io/posts/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</guid>
       <description></description>
     </item>
     

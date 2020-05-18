@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Drafts on @jeqo</title>
+    <link>https://jeqo.github.io/drafts/</link>
+    <description>Recent content in Drafts on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright @jeqo</copyright>
+    
+	<atom:link href="https://jeqo.github.io/drafts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://jeqo.github.io/drafts/kip-allow-state-stores-to-iterate-backwards/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/drafts/kip-allow-state-stores-to-iterate-backwards/</guid>
+      <description>KIP: Allow Kafka Streams State Stores to iterate backwards Motivation Fetching a range of results from Kafka Streams state stores comes with a default iterator to go through elements from oldest to newest direction.
+e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions: &amp;ldquo;For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&amp;rdquo;
+Similar guarantees are provided on other fetch operations.
+While abstracting the exposure of how iterator is built, this constraints the usage of local state store for some use cases:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://jeqo.github.io/drafts/kip-move-streams-resetter-to-tools/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/drafts/kip-move-streams-resetter-to-tools/</guid>
+      <description>KIP: Move Streams Resetter Tool from core to tools module Motivation Proposed Changes Compatibilily, Deprecation, and Migration Plan </description>
+    </item>
+    
+  </channel>
+</rss>

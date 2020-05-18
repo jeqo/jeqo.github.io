@@ -52,29 +52,11 @@ This enables choreographed service collaborations, where many components can sub
     </item>
     
     <item>
-      <title>Kafka, Samza and the Unix Philosophy of Distributed Data</title>
-      <link>https://jeqo.github.io/notes/kafka-samza-and-the-unix-philosophy-of-distributed-data/</link>
+      <title>Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</title>
+      <link>https://jeqo.github.io/posts/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</link>
       <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/notes/kafka-samza-and-the-unix-philosophy-of-distributed-data/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Apache Kafka</title>
-      <link>https://jeqo.github.io/notes/apache-kafka/</link>
-      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/notes/apache-kafka/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Apache Kafka</title>
-      <link>https://jeqo.github.io/notes/reactive-streams/</link>
-      <pubDate>Sat, 06 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/notes/reactive-streams/</guid>
+      <guid>https://jeqo.github.io/posts/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</guid>
       <description></description>
     </item>
     
@@ -84,7 +66,8 @@ This enables choreographed service collaborations, where many components can sub
       <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2017-09-28-kafka-opentracing/</guid>
-      <description>Tracing is one of the hardest time in integration or microservice development: knowing how a request impact your different components, and if your components have behave as expected.
+      <description>for a more updated version, check https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/
+ Tracing is one of the hardest time in integration or microservice development: knowing how a request impact your different components, and if your components have behave as expected.
 This could be fairly easy if we have monolith where we have one database and with some queries or checking one log file you can validate everything went well.
 Once you introduce distributed components and asynchronous communication this starts to get more complex and tedious.</description>
     </item>

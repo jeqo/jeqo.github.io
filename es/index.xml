@@ -22,15 +22,15 @@
 Disfrutando mi carrera trabajando en sistemas distribuidos.
 Empecé a contribuir en proyectos Open-Source desde 2016, incluyendo Apache Kafka y Zipkin.
 Intereses actuales:
- Log-based streaming platform (Apache Kafka), Stream processing (Kafka Streams), Distributed Tracing (OpenTracing), Metrics (Micrometer, Prometheus), Cluster Scheduling (Nomad, Kubernetes), Automation (Docker, Ansible)  Este sitio Este es el sitio web de Jorge Quilcate desde 2014.</description>
+ Log-based streaming platform (Apache Kafka), Stream processing (Kafka Streams), Distributed Tracing (OpenTracing), Metrics (Micrometer, Prometheus), Cluster Scheduling (Nomad, Kubernetes), Automation (Docker, Ansible)  Contribuciones de Codigo Abierto   KIP-122: Add Reset Consumer Group Offsets tooling https://cwiki.</description>
     </item>
     
     <item>
       <title>Data on the Outside vs Data on the Inside</title>
-      <link>https://jeqo.github.io/es/notes/data-on-the-outside-vs-data-on-the-inside/</link>
+      <link>https://jeqo.github.io/es/posts/2018-01-08-data-on-the-outside-vs-data-on-the-inside/</link>
       <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/es/notes/data-on-the-outside-vs-data-on-the-inside/</guid>
+      <guid>https://jeqo.github.io/es/posts/2018-01-08-data-on-the-outside-vs-data-on-the-inside/</guid>
       <description>&lt;p&gt;Encuentro este &lt;em&gt;paper&lt;/em&gt; tan relevante y preciso hoy como lo fue en 2005, cuando fue publicado.
 Es fascinante como luego de 12 años y con nuevas tecnologías en voga, los mismos conceptos
 siguen aplicando.&lt;/p&gt;</description>

@@ -7,18 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 04 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 17 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/tags/observability/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Observability</title>
-      <link>https://jeqo.github.io/notes/observability/</link>
-      <pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate>
+      <title>Notes on Distributed Tracing</title>
+      <link>https://jeqo.github.io/notes/notes-on-distributed-tracing/</link>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/notes/observability/</guid>
-      <description></description>
+      <guid>https://jeqo.github.io/notes/notes-on-distributed-tracing/</guid>
+      <description>&lt;p&gt;Distributed Tracing is a technique to trace &lt;em&gt;distributed&lt;/em&gt; components.&lt;/p&gt;
+&lt;p&gt;It seems redundant to highlight the &amp;lsquo;distributed&amp;rsquo; part, but I believe this is key to understand in order to use this technique effectively.&lt;/p&gt;</description>
     </item>
     
   </channel>
