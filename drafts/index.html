@@ -183,6 +183,31 @@
 
 <h2 class="c-title p-tag-title">Drafts</h2>
 
+  <h3>2020</h3>
+  
+    <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/drafts/kip-allow-state-stores-to-iterate-backwards/">KIP: Allow Kafka Streams State Stores to iterate backwards</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-05-18T00:00:00Z">
+        May 18, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Motivation Fetching a range of results from Kafka Streams state stores comes with a default iterator to go through elements from oldest to newest direction.
+e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions: &ldquo;For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&rdquo;
+Similar guarantees are provided on other fetch operations.
+While abstracting the exposure of how iterator is built, this constraints the usage of local state store for some use cases:
+  </div>
+  
+  <a href="https://jeqo.github.io/drafts/kip-allow-state-stores-to-iterate-backwards/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+</article>
+
+  
+
   <h3>0001</h3>
   
     <article class="c-article p-list-article">

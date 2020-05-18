@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jeqo.github.io/drafts/</loc>
+    <lastmod>2020-05-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/drafts/kip-allow-state-stores-to-iterate-backwards/</loc>
+    <lastmod>2020-05-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jeqo.github.io/tags/distributed-tracing/</loc>
     <lastmod>2020-05-17T00:00:00+00:00</lastmod>
   </url>
@@ -859,10 +869,6 @@
   
   <url>
     <loc>https://jeqo.github.io/drafts/kip-move-streams-resetter-to-tools/</loc>
-  </url>
-  
-  <url>
-    <loc>https://jeqo.github.io/drafts/</loc>
   </url>
   
 </urlset>

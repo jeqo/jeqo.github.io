@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>@jeqo</title>
-  <meta property="og:title" content="@jeqo" />
-  <meta name="twitter:title" content="@jeqo" />
+  <title>KIP: Allow Kafka Streams State Stores to iterate backwards</title>
+  <meta property="og:title" content="KIP: Allow Kafka Streams State Stores to iterate backwards" />
+  <meta name="twitter:title" content="KIP: Allow Kafka Streams State Stores to iterate backwards" />
   
 
   
@@ -184,12 +184,12 @@
 
 <article class="p-article">
   <header>
-    <h1></h1>
+    <h1>KIP: Allow Kafka Streams State Stores to iterate backwards</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="0001-01-01T00:00:00Z">
-          Jan 1, 0001
+        <time datetime="2020-05-18T00:00:00Z">
+          May 18, 2020
         </time>
       </div>
       
@@ -197,8 +197,7 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    <h1 id="kip-allow-kafka-streams-state-stores-to-iterate-backwards">KIP: Allow Kafka Streams State Stores to iterate backwards</h1>
-<h2 id="motivation">Motivation</h2>
+    <h2 id="motivation">Motivation</h2>
 <p>Fetching a range of results from Kafka Streams state stores comes with a default iterator to go through elements from oldest to newest direction.</p>
 <p>e.g <code>ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime)</code> mentions: &ldquo;For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&rdquo;</p>
 <p>Similar guarantees are provided on other fetch operations.</p>
@@ -298,12 +297,11 @@
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/drafts/kip-move-streams-resetter-to-tools/">Newer</a>
+          <a href="https://jeqo.github.io/notes/notes-on-distributed-tracing/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/posts/2014-11-26-vagrant-quickstart/">Older</a>
           
         </div>
       </div>
