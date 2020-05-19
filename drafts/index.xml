@@ -13,16 +13,16 @@
     
     
     <item>
-      <title>KIP: Allow Kafka Streams State Stores to iterate backwards</title>
+      <title>KIP: Allow Kafka Streams State Stores to be iterated backwards</title>
       <link>https://jeqo.github.io/drafts/kip-allow-state-stores-to-iterate-backwards/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/drafts/kip-allow-state-stores-to-iterate-backwards/</guid>
-      <description>Motivation Fetching range of results from Kafka Streams state stores comes with a default iterator to traverse elements from oldest to newest, e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions:
+      <description>Motivation Fetching range of records from Kafka Streams state stores comes with an iterator to traverse elements from oldest to newest, e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions:
  For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&amp;rdquo;
  Similar guarantees are provided on other fetch and range operations.
-This constraints the usage of local state store on some use cases:
-When storing windows of records, and an operation wants to return the last N values inserted withing a time range with M records: currently there is no option other than iterating from oldest to newest, traversing M records; where M &amp;raquo; N.</description>
+This APIs constraint the usage of local state store for some use-cases:
+When storing records on time windows, or records by key; and an operation wants to return the last N values inserted withing a time range containing M records: Currently there is no alternative other than iterating records from oldest to newest&amp;ndash;traversing M records, where M &amp;raquo; N.</description>
     </item>
     
     <item>
