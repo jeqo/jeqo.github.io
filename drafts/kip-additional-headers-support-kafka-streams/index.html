@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Drafts</title>
-  <meta property="og:title" content="Drafts" />
-  <meta name="twitter:title" content="Drafts" />
+  <title>KIP: Additional headers support on Kafka Streams</title>
+  <meta property="og:title" content="KIP: Additional headers support on Kafka Streams" />
+  <meta name="twitter:title" content="KIP: Additional headers support on Kafka Streams" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
-  <meta property="og:url" content="https://jeqo.github.io/drafts/" />
+  <meta property="og:url" content="https://jeqo.github.io/drafts/kip-additional-headers-support-kafka-streams/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -28,7 +28,7 @@
   
 
   
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="article" />
   
   
   <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
@@ -93,7 +93,7 @@
 </svg>
   <header class="l-header">
     
-    <h1 class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></h1>
+    <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
     
     
     <p class="p-subtitle">
@@ -181,75 +181,100 @@
 
   <main id="main" class="l-main">
 
-<h2 class="c-title p-tag-title">Drafts</h2>
 
-  <h3>2020</h3>
-  
-    <article class="c-article p-list-article">
+<article class="p-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/drafts/kip-additional-headers-support-kafka-streams/">KIP: Additional headers support on Kafka Streams</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-05-31T00:00:00Z">
-        May 31, 2020
-      </time>
-    </p>
+    <h1>KIP: Additional headers support on Kafka Streams</h1>
+    <div>
+      <div class="c-time">
+        Posted on
+        <time datetime="2020-05-31T00:00:00Z">
+          May 31, 2020
+        </time>
+      </div>
+      
+    </div>
   </header>
-  <div class="c-article__summary">
-    Motivation Headers are transiently passed over a Kafka Streams topology. To act on them, Topology API has to be used.
-Headers usually hold operational information that is important on the business logic of a Kafka Streams application.
-Proposed Changes  Include KStreams operator to map headers to KeyValue. Include ValueAndHeaders operator serde to serialize value with Headers. Include KStreams operator to set headers. Include KStreams join and operator functions to merge Headers.
-  </div>
   
-  <a href="https://jeqo.github.io/drafts/kip-additional-headers-support-kafka-streams/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
+  <section id="js-article" class="p-article__body">
+    <h2 id="motivation">Motivation</h2>
+<p>Headers are transiently passed over a Kafka Streams topology. To act on them, Topology API has to be used.</p>
+<p>Headers usually hold operational information that is important on the business logic of a Kafka Streams application.</p>
+<h2 id="proposed-changes">Proposed Changes</h2>
+<ol>
+<li>Include KStreams operator to map headers to KeyValue.</li>
+<li>Include ValueAndHeaders operator serde to serialize value with Headers.</li>
+<li>Include KStreams operator to set headers.</li>
+<li>Include KStreams join and operator functions to merge Headers.</li>
+</ol>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ValueAndHeaders</span> <span style="color:#333">&lt;</span>V<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+    <span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">final</span> V value<span style="color:#333">;</span>
+    <span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">final</span> Headers headers<span style="color:#333">;</span>
+
+    <span style="color:#888">//...
+</span><span style="color:#888"></span><span style="color:#333">}</span>
+
+<span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ValueAndHeadersSerde</span><span style="color:#333">&lt;</span>V<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+    <span style="color:#888">//TODO
+</span><span style="color:#888"></span><span style="color:#333">}</span>
+
+<span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">KStream</span> <span style="color:#333">{</span>
+    <span style="color:#080;font-weight:bold">public</span> KeyValue<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> ValueAndHeaders<span style="color:#333">&lt;</span>V<span style="color:#333">&gt;&gt;</span> <span style="color:#06b;font-weight:bold">withHeaders</span><span style="color:#333">();</span>
+    <span style="color:#080;font-weight:bold">public</span> KeyValue<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">applyHeaders</span><span style="color:#333">(</span>KeyValue<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> ValueAndHeaders<span style="color:#333">&lt;</span>V<span style="color:#333">&gt;&gt;</span> map<span style="color:#333">);</span>
+<span style="color:#333">}</span>
+</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+kstream<span style="color:#333">.</span><span style="color:#00c">withHeaders</span><span style="color:#333">()</span>
+       <span style="color:#333">.</span><span style="color:#00c">filter</span><span style="color:#333">((</span>k<span style="color:#333">,</span> v<span style="color:#333">)</span> <span style="color:#333">-&gt;</span> v<span style="color:#333">.</span><span style="color:#00c">headers</span><span style="color:#333">.</span><span style="color:#00c">lastValue</span><span style="color:#333">())</span>
+
+</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">kstream<span style="color:#333">.</span><span style="color:#00c">withHeaders</span><span style="color:#333">()</span>
+       <span style="color:#333">.</span><span style="color:#00c">map</span><span style="color:#333">((</span>k<span style="color:#333">,</span> v<span style="color:#333">)</span> <span style="color:#333">-&gt;</span> v<span style="color:#333">.</span><span style="color:#00c">headers</span><span style="color:#333">.</span><span style="color:#00c">add</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;foo&#34;</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;bar&#34;</span><span style="color:#333">.</span><span style="color:#00c">getBytes</span><span style="color:#333">()))</span>
+       <span style="color:#333">.</span><span style="color:#00c">applyHeaders</span><span style="color:#333">()</span>
+       <span style="color:#333">.</span><span style="color:#00c">to</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;output&#34;</span><span style="color:#333">)</span>
+</code></pre></div><h2 id="compatibilily-deprecation-and-migration-plan">Compatibilily, Deprecation, and Migration Plan</h2>
+<h2 id="rejected-alternatives">Rejected alternatives</h2>
+<h3 id="add-headers-to-keyvalue-or-kstreams-operators">Add Headers to KeyValue or KStreams operators</h3>
+<h3 id="include-headers-on-kafka-streams-stores">Include Headers on Kafka Streams stores</h3>
+
+  </section>
+  <footer>
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'jeqoblog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <nav class="p-pagination c-pagination">
+      <div class="c-pagination__ctrl">
+        <div class="c-pagination__newer">
+          
+          <a href="https://jeqo.github.io/drafts/kip-allow-state-stores-to-iterate-backwards/">Newer</a>
+          
+        </div>
+        <div class="c-pagination__older">
+          
+          
+        </div>
+      </div>
+    </nav>
+    
+
+
+  </footer>
 </article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/drafts/kip-allow-state-stores-to-iterate-backwards/">KIP: Allow Kafka Streams State Stores to be iterated backwards</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-05-18T00:00:00Z">
-        May 18, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Motivation Fetching range of records from Kafka Streams state stores comes with an iterator to traverse elements from oldest to newest, e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions:
- For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&rdquo;
- Similar guarantees are provided on other fetch and range operations.
-This APIs constraint the usage of local state store for some use-cases:
-When storing records on time windows, or records by key; and an operation wants to return the last N values inserted withing a time range containing M records: Currently there is no alternative other than iterating records from oldest to newest&ndash;traversing M records, where M &raquo; N.
-  </div>
-  
-  <a href="https://jeqo.github.io/drafts/kip-allow-state-stores-to-iterate-backwards/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-
-  <h3>0001</h3>
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/drafts/kip-move-streams-resetter-to-tools/"></a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="0001-01-01T00:00:00Z">
-        Jan 1, 0001
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    KIP: Move Streams Resetter Tool from core to tools module Motivation Proposed Changes Compatibilily, Deprecation, and Migration Plan 
-  </div>
-  
-</article>
-
-  
-
   </main>
   
 <nav class="l-nav p-menu">
@@ -351,3 +376,4 @@ When storing records on time windows, or records by key; and an operation wants 
 
 </body>
 </html>
+
