@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>stream-processing on @jeqo</title>
+    <link>https://jeqo.github.io/es/tags/stream-processing/</link>
+    <description>Recent content in stream-processing on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright @jeqo</copyright>
+    <lastBuildDate>Mon, 15 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jeqo.github.io/es/tags/stream-processing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Notas sobre Kafka Streams Stores</title>
+      <link>https://jeqo.github.io/es/notes/kafka-streams-stores/</link>
+      <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/es/notes/kafka-streams-stores/</guid>
+      <description>Kafka Streams Stores son los componentes que definen unidades de almacenamiento en una aplicación de Kafka Streams.
+Estos Stores son creados explícita o implícitamente, dependiendo de si la ()[topología] es creada con ()[Kafka Streams DSL], o con ()[Kafka Streams Processor API].
+La siguiente topología
+Topology topology() { final StreamsBuilder builder = new StreamsBuilder(); builder.stream(&amp;#34;input&amp;#34;, Consumed.with(Serdes.String(), Serdes.Integer())) .groupByKey() .count(); return builder.build(); } crea un Store implícito para almacenar los resultados del contador KSTREAM-AGGREGATE-STATE-STORE-0000000001:</description>
+    </item>
+    
+  </channel>
+</rss>

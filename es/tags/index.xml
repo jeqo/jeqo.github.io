@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Mon, 08 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/es/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>apache-kafka</title>
+      <link>https://jeqo.github.io/es/tags/apache-kafka/</link>
+      <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/es/tags/apache-kafka/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>stream-processing</title>
+      <link>https://jeqo.github.io/es/tags/stream-processing/</link>
+      <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/es/tags/stream-processing/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>distributed systems</title>

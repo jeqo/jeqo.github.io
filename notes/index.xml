@@ -7,17 +7,68 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Sun, 17 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Notes on cp-ansible</title>
+      <link>https://jeqo.github.io/notes/cp-ansible/</link>
+      <pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/cp-ansible/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Notes on Apache Kafka and Confluent Platform Security</title>
+      <link>https://jeqo.github.io/notes/kafka-security/</link>
+      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/kafka-security/</guid>
+      <description>Security Standards SSL/TLS SASL Java implementation: JAAS Architecture Zookeeper Security Kafka Security Confluent Platform Security Authentication Authentication Authorization Apache Kafka Access Control Lists Confluent Role-Based Access Control Resources  Zookeeper Client-Server Mutual Authentication: https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication Confluent Security Tutorial (version 5.5.0, update if needed): https://docs.confluent.io/5.5.0/security/security_tutorial.html  </description>
+    </item>
+    
+    <item>
+      <title>Notes on Apache Zookeeper Security</title>
+      <link>https://jeqo.github.io/notes/zookeeper-security/</link>
+      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/zookeeper-security/</guid>
+      <description>Authentication Examples   https://github.com/jeqo/docker-composes/tree/master/zookeeper-security
+   Client/Server Authentication SASL Authentication SASL Authentication alone does not deny access to anonymous users. Beware of this as it gives a false sense of security, and can take some time to realize. Reference: https://issues.apache.org/jira/browse/ZOOKEEPER-1736
+ This can be solved by forcing an Authentication Scheme:
+ requireClientAuthScheme=sasl    Futher reading   https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication ---
+     Server/Server Authentication  Futher reading   https://cwiki.</description>
+    </item>
+    
+    <item>
+      <title>Notes on Java Security</title>
+      <link>https://jeqo.github.io/notes/security/</link>
+      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/security/</guid>
+      <description>Security Standards Hashing Hash Functions Cryptographic Hash Functions What makes a hash function a Cryptographic Hash Function (CHF) is that is a one-way function: practically infeasible to invert.
+  MD5 From Wikipedia:
+  The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to be used as a cryptographic hash function, it has been found to suffer from extensive vulnerabilities.</description>
+    </item>
+    
+    <item>
+      <title>Notes on Kafka Streams Stores</title>
+      <link>https://jeqo.github.io/notes/kafka-streams-stores/</link>
+      <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/kafka-streams-stores/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Notes on Distributed Tracing</title>
-      <link>https://jeqo.github.io/notes/notes-on-distributed-tracing/</link>
+      <link>https://jeqo.github.io/notes/distributed-tracing/</link>
       <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/notes/notes-on-distributed-tracing/</guid>
+      <guid>https://jeqo.github.io/notes/distributed-tracing/</guid>
       <description>&lt;p&gt;Distributed Tracing is a technique to trace &lt;em&gt;distributed&lt;/em&gt; components.&lt;/p&gt;
 &lt;p&gt;It seems redundant to highlight the &amp;lsquo;distributed&amp;rsquo; part, but I believe this is key to understand in order to use this technique effectively.&lt;/p&gt;</description>
     </item>

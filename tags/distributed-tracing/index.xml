@@ -14,10 +14,10 @@
     
     <item>
       <title>Notes on Distributed Tracing</title>
-      <link>https://jeqo.github.io/notes/notes-on-distributed-tracing/</link>
+      <link>https://jeqo.github.io/notes/distributed-tracing/</link>
       <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/notes/notes-on-distributed-tracing/</guid>
+      <guid>https://jeqo.github.io/notes/distributed-tracing/</guid>
       <description>&lt;p&gt;Distributed Tracing is a technique to trace &lt;em&gt;distributed&lt;/em&gt; components.&lt;/p&gt;
 &lt;p&gt;It seems redundant to highlight the &amp;lsquo;distributed&amp;rsquo; part, but I believe this is key to understand in order to use this technique effectively.&lt;/p&gt;</description>
     </item>
