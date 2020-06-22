@@ -223,9 +223,9 @@
 <h2 id="create-an-aws-ec2-instance">Create an AWS EC2 instance</h2>
 <p>I&rsquo;ve created a Red Hat instance using Vagrant. This instance should be connected to my NFS instance that has all the Oracle&rsquo;s installers (to create an NFS instance on AWS EC2: <a href="http://jeqo.github.io/blog/devops/create-nfs-instance-aws/">go here</a>).</p>
 <p>This is the NFS instance:</p>
-<p><img src="/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0836.png" alt="NFS instance" title="NFS Instance"></p>
+<p><img src="/images/posts/2014-12-11-run-bpm-12c-aws/2014-12-11_0836.png" alt="NFS instance" title="NFS Instance"></p>
 <p>And the &ldquo;/data&rdquo; directory is shared. It includes Oracle XE and Oracle FMW installers:</p>
-<p><img src="/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0841.png" alt="NFS directories" title="NFS directories"></p>
+<p><img src="/images/posts/2014-12-11-run-bpm-12c-aws/2014-12-11_0841.png" alt="NFS directories" title="NFS directories"></p>
 <h3 id="vagrant-configuration">Vagrant configuration</h3>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#036;font-weight:bold">VAGRANTFILE_API_VERSION</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;2&#34;</span>
 
@@ -389,8 +389,8 @@ chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
 }</code></pre></div>
 <p>This includes will run three recipes: &ldquo;install-bpm_qs-12c&rdquo; , &ldquo;create-rcu_repository-12c&rdquo;, &ldquo;create-domain-12c&rdquo;. And includes Domain information (&ldquo;domain-12c&rdquo;), and RCU info (&ldquo;rcu-12c&rdquo;).</p>
 <p>These process takes 30 min. approx. And now we can login with &ldquo;oracle-fmw&rdquo; user (password: welcome1), and start the server:</p>
-<p><img src="/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0930.png" alt="Start server" title="Stating WebLogic Server"></p>
-<p><img src="/images/2014-12-11-run-bpm-12c-aws/2014-12-11_0931.png" alt="Server started" title="WebLogic Server with BPM started"></p>
+<p><img src="/images/posts/2014-12-11-run-bpm-12c-aws/2014-12-11_0930.png" alt="Start server" title="Stating WebLogic Server"></p>
+<p><img src="/images/posts/2014-12-11-run-bpm-12c-aws/2014-12-11_0931.png" alt="Server started" title="WebLogic Server with BPM started"></p>
 <p>That&rsquo;s it.</p>
   </section>
   <footer>

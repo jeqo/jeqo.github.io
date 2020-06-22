@@ -365,7 +365,7 @@ We are configuring this integration to only trace operations with
 <p>Now, let&rsquo;s run a first request to check if a trace is created:</p>
 <pre><code>curl http://localhost:8080/hello/jorge
 </code></pre><p>And refresh the Jaeger UI:</p>
-<img src="/images/2017-09-28-kafka-opentracing/first-trace.png" alt="Tracing Kafka applications /images/2017-09-28-kafka-opentracing/first-trace.png" data-action="zoom">
+<img src="/images/posts/2017-09-28-kafka-opentracing/first-trace.png" alt="Tracing Kafka applications /images/posts/2017-09-28-kafka-opentracing/first-trace.png" data-action="zoom">
 
 <blockquote>
 <p>Source code on branch: steps/step-02</p>
@@ -396,7 +396,7 @@ Did the consumer side receive the message?</p>
 </code></pre></div><p>The main difference, is that <code>TracingKafkaProducer</code> will inject
 tracing context on Kafka Headers (supported since v0.11.0).</p>
 <p>That&rsquo;s it, let&rsquo;s redeploy and test again.</p>
-<img src="/images/2017-09-28-kafka-opentracing/second-traces-not-linked.png" alt="Tracing Kafka applications /images/2017-09-28-kafka-opentracing/second-traces-not-linked.png" data-action="zoom">
+<img src="/images/posts/2017-09-28-kafka-opentracing/second-traces-not-linked.png" alt="Tracing Kafka applications /images/posts/2017-09-28-kafka-opentracing/second-traces-not-linked.png" data-action="zoom">
 
 <p>Wait!!! but we only run one request, why do we have 2 traces???</p>
 <p>The thing is that to create <code>spans</code> that are related, we need to create
@@ -439,10 +439,10 @@ how this looks:</p>
 <span style="color:#333">}</span>
 </code></pre></div><p>First we inject the Tracer, then we get the span from Request,
 and finally we create an ActiveSpan that wraps the producer.</p>
-<img src="/images/2017-09-28-kafka-opentracing/third-traces-together.png" alt="Tracing Kafka applications /images/2017-09-28-kafka-opentracing/third-traces-together.png" data-action="zoom">
+<img src="/images/posts/2017-09-28-kafka-opentracing/third-traces-together.png" alt="Tracing Kafka applications /images/posts/2017-09-28-kafka-opentracing/third-traces-together.png" data-action="zoom">
 
 <p>And if we go to the detail we can get more insight from the execution:</p>
-<img src="/images/2017-09-28-kafka-opentracing/trace-details.png" alt="Tracing Kafka applications /images/2017-09-28-kafka-opentracing/trace-details.png" data-action="zoom">
+<img src="/images/posts/2017-09-28-kafka-opentracing/trace-details.png" alt="Tracing Kafka applications /images/posts/2017-09-28-kafka-opentracing/trace-details.png" data-action="zoom">
 
 <p>We can get a more deep understanding about the trace execution,
 how the callback works on the producer side, processing the metadata
@@ -497,7 +497,7 @@ given that we don&rsquo;t need to trace HTTP endpoints:</p>
 <pre><code>./mvnw clean install
  java -jar target/hello-world-consumer.jar server config.yml
 </code></pre><pre><code> curl http://localhost:8080/hello/jorge
-</code></pre><img src="/images/2017-09-28-kafka-opentracing/trace-with-consumer.png" alt="Tracing Kafka applications /images/2017-09-28-kafka-opentracing/trace-with-consumer.png" data-action="zoom">
+</code></pre><img src="/images/posts/2017-09-28-kafka-opentracing/trace-with-consumer.png" alt="Tracing Kafka applications /images/posts/2017-09-28-kafka-opentracing/trace-with-consumer.png" data-action="zoom">
 
 <p>That&rsquo;s great! Now we have how long it takes to receive a record on the
 consumer side.</p>
@@ -530,7 +530,7 @@ we can use <code>TracingKafkaUtils</code> to extract it, and reference it:</p>
             kafkaConsumer<span style="color:#333">.</span><span style="color:#00c">commitSync</span><span style="color:#333">();</span>
           <span style="color:#333">}</span>
         <span style="color:#333">}</span>
-</code></pre></div><img src="/images/2017-09-28-kafka-opentracing/complete-trace.png" alt="Tracing Kafka applications /images/2017-09-28-kafka-opentracing/complete-trace.png" data-action="zoom">
+</code></pre></div><img src="/images/posts/2017-09-28-kafka-opentracing/complete-trace.png" alt="Tracing Kafka applications /images/posts/2017-09-28-kafka-opentracing/complete-trace.png" data-action="zoom">
 
 <blockquote>
 <p>Source code on branch: steps/step-03</p>
@@ -565,7 +565,7 @@ the transaction ID, the entity ID or user ID.</p>
             kafkaConsumer<span style="color:#333">.</span><span style="color:#00c">commitSync</span><span style="color:#333">();</span>
           <span style="color:#333">}</span>
 </code></pre></div><p>And you can filter now from the UI:</p>
-<img src="/images/2017-09-28-kafka-opentracing/tags.png" alt="Tracing Kafka applications /images/2017-09-28-kafka-opentracing/tags.png" data-action="zoom">
+<img src="/images/posts/2017-09-28-kafka-opentracing/tags.png" alt="Tracing Kafka applications /images/posts/2017-09-28-kafka-opentracing/tags.png" data-action="zoom">
 
 <h2 id="dropwizard-helpers">Dropwizard Helpers</h2>
 <p>I have developed some Dropwizard modules to help to instantiate

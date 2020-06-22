@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 17 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What happen with your Kafka cluster when Zookeeper is gone? (not related with KIP-500)</title>
+      <link>https://jeqo.github.io/posts/2020-06-19-what-happen-when-zk-is-gone/</link>
+      <pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/posts/2020-06-19-what-happen-when-zk-is-gone/</guid>
+      <description>This post will try to answer this question:
+If you have a running environment with a Kafka cluster and Zookeper ensemble, what would happen if we lose all the Zookeeper nodes and start with a clean ensemble?
+ Although this question is not related with KIP-500, it might become irrelevant once this KIP is adopted.
+ Scenarios I can imagine 2 scenarios:
+ The Zookeeper ensemble is lost while Kafka cluster running.</description>
+    </item>
     
     <item>
       <title>Notes on cp-ansible</title>
@@ -76,15 +89,14 @@ Proposed Changes  Include KStreams operator to map headers to KeyValue. Include 
     
     <item>
       <title>KIP: Allow Kafka Streams State Stores to be iterated backwards</title>
-      <link>https://jeqo.github.io/drafts/kip-allow-state-stores-to-iterate-backwards/</link>
+      <link>https://jeqo.github.io/drafts/kip-617/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/drafts/kip-allow-state-stores-to-iterate-backwards/</guid>
+      <guid>https://jeqo.github.io/drafts/kip-617/</guid>
       <description>Motivation Fetching range of records from Kafka Streams state stores comes with an iterator to traverse elements from oldest to newest, e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions:
  For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&amp;rdquo;
- Similar guarantees are provided on other fetch and range operations.
-This APIs constraint the usage of local state store for some use-cases:
-When storing records on time windows, or records by key; and an operation wants to return the last N values inserted withing a time range containing M records: Currently there is no alternative other than iterating records from oldest to newest&amp;ndash;traversing M records, where M &amp;raquo; N.</description>
+ Similar guarantees are provided on other fetch and range operations. But in the case of key ranges, there are some nuances regarding order:
+ The returned iterator must be safe from {@link java.</description>
     </item>
     
     <item>

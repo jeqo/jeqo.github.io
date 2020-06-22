@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Drafts</title>
-  <meta property="og:title" content="Drafts" />
-  <meta name="twitter:title" content="Drafts" />
+  <title>zookeeper</title>
+  <meta property="og:title" content="zookeeper" />
+  <meta name="twitter:title" content="zookeeper" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
-  <meta property="og:url" content="https://jeqo.github.io/drafts/" />
+  <meta property="og:url" content="https://jeqo.github.io/tags/zookeeper/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -181,73 +181,30 @@
 
   <main id="main" class="l-main">
 
-<h2 class="c-title p-tag-title">Drafts</h2>
+<h2 class="c-title p-tag-title">zookeeper</h2>
 
-  <h3>2020</h3>
-  
-    <article class="c-article p-list-article">
+<article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/drafts/kip-additional-headers-support-kafka-streams/">KIP: Additional headers support on Kafka Streams</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2020-06-19-what-happen-when-zk-is-gone/">What happen with your Kafka cluster when Zookeeper is gone? (not related with KIP-500)</a></h2>
     <p class="c-article__meta">
       Posted on
-      <time datetime="2020-05-31T00:00:00Z">
-        May 31, 2020
+      <time datetime="2020-06-19T00:00:00Z">
+        Jun 19, 2020
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-    Motivation Headers are transiently passed over a Kafka Streams topology. To act on them, Topology API has to be used.
-Headers usually hold operational information that is important on the business logic of a Kafka Streams application.
-Proposed Changes  Include KStreams operator to map headers to KeyValue. Include ValueAndHeaders operator serde to serialize value with Headers. Include KStreams operator to set headers. Include KStreams join and operator functions to merge Headers.
+    This post will try to answer this question:
+If you have a running environment with a Kafka cluster and Zookeper ensemble, what would happen if we lose all the Zookeeper nodes and start with a clean ensemble?
+ Although this question is not related with KIP-500, it might become irrelevant once this KIP is adopted.
+ Scenarios I can imagine 2 scenarios:
+ The Zookeeper ensemble is lost while Kafka cluster running.
   </div>
   
-  <a href="https://jeqo.github.io/drafts/kip-additional-headers-support-kafka-streams/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  <a href="https://jeqo.github.io/posts/2020-06-19-what-happen-when-zk-is-gone/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
 </article>
 
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/drafts/kip-617/">KIP: Allow Kafka Streams State Stores to be iterated backwards</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-05-18T00:00:00Z">
-        May 18, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Motivation Fetching range of records from Kafka Streams state stores comes with an iterator to traverse elements from oldest to newest, e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions:
- For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&rdquo;
- Similar guarantees are provided on other fetch and range operations. But in the case of key ranges, there are some nuances regarding order:
- The returned iterator must be safe from {@link java.
-  </div>
-  
-  <a href="https://jeqo.github.io/drafts/kip-617/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-
-  <h3>0001</h3>
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/drafts/kip-move-streams-resetter-to-tools/"></a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="0001-01-01T00:00:00Z">
-        Jan 1, 0001
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    KIP: Move Streams Resetter Tool from core to tools module Motivation Proposed Changes Compatibilily, Deprecation, and Migration Plan 
-  </div>
-  
-</article>
-
-  
 
   </main>
   
@@ -350,3 +307,4 @@ Proposed Changes  Include KStreams operator to map headers to KeyValue. Include 
 
 </body>
 </html>
+

@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What happen with your Kafka cluster when Zookeeper is gone? (not related with KIP-500)</title>
+      <link>https://jeqo.github.io/posts/2020-06-19-what-happen-when-zk-is-gone/</link>
+      <pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/posts/2020-06-19-what-happen-when-zk-is-gone/</guid>
+      <description>This post will try to answer this question:
+If you have a running environment with a Kafka cluster and Zookeper ensemble, what would happen if we lose all the Zookeeper nodes and start with a clean ensemble?
+ Although this question is not related with KIP-500, it might become irrelevant once this KIP is adopted.
+ Scenarios I can imagine 2 scenarios:
+ The Zookeeper ensemble is lost while Kafka cluster running.</description>
+    </item>
     
     <item>
       <title>Notes on Co-evolving Tracing and Fault Injection with Box of Pain</title>
