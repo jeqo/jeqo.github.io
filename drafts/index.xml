@@ -13,14 +13,15 @@
     
     
     <item>
-      <title>KIP: Additional headers support on Kafka Streams</title>
-      <link>https://jeqo.github.io/drafts/kip-additional-headers-support-kafka-streams/</link>
+      <title>KIP: Complementary support for headers in Kafka Streams</title>
+      <link>https://jeqo.github.io/drafts/kip-complementary-support-headers-kafka-streams/</link>
       <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/drafts/kip-additional-headers-support-kafka-streams/</guid>
-      <description>Motivation Headers are transiently passed over a Kafka Streams topology. To act on them, Topology API has to be used.
-Headers usually hold operational information that is important on the business logic of a Kafka Streams application.
-Proposed Changes  Include KStreams operator to map headers to KeyValue. Include ValueAndHeaders operator serde to serialize value with Headers. Include KStreams operator to set headers. Include KStreams join and operator functions to merge Headers.</description>
+      <guid>https://jeqo.github.io/drafts/kip-complementary-support-headers-kafka-streams/</guid>
+      <description>Motivation Headers are transiently passed over a Kafka Streams topology. To act on them, Topology API has to be used (KIP-244).
+Although current support is useful for instrumentation, it becomes cumbersome to use headers for traditional Kafka Streams DSL operations (e.g filtering based on header value).
+Related JIRA issue: https://issues.apache.org/jira/browse/KAFKA-7718
+Proposed Changes  Include KStreams operator to map headers into a value pair: ValueAndHeaders. Include ValueAndHeaders serde to serialize values if needed.</description>
     </item>
     
     <item>

@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Notes on Kafka Streams Stores</title>
-  <meta property="og:title" content="Notes on Kafka Streams Stores" />
-  <meta name="twitter:title" content="Notes on Kafka Streams Stores" />
+  <title>KIP: Complementary support for headers in Kafka Streams</title>
+  <meta property="og:title" content="KIP: Complementary support for headers in Kafka Streams" />
+  <meta name="twitter:title" content="KIP: Complementary support for headers in Kafka Streams" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
-  <meta property="og:url" content="https://jeqo.github.io/notes/kafka-streams-stores/" />
+  <meta property="og:url" content="https://jeqo.github.io/drafts/kip-complementary-support-headers-kafka-streams/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -175,11 +175,6 @@
       
     
     
-    <li class="p-menu__listitem"><a>|</a></li>
-    
-    <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/notes/kafka-streams-stores/">es</a></li>
-    
-    
   </ul>
 </nav>
 
@@ -189,24 +184,89 @@
 
 <article class="p-article">
   <header>
-    <h1>Notes on Kafka Streams Stores</h1>
+    <h1>KIP: Complementary support for headers in Kafka Streams</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2020-06-15T00:00:00Z">
-          Jun 15, 2020
+        <time datetime="2020-05-31T00:00:00Z">
+          May 31, 2020
         </time>
       </div>
-      
-      <a href="https://jeqo.github.io/tags/apache-kafka" class="c-tag">apache-kafka</a>
-      
-      <a href="https://jeqo.github.io/tags/stream-processing" class="c-tag">stream-processing</a>
       
     </div>
   </header>
   
   <section id="js-article" class="p-article__body">
-    
+    <h2 id="motivation">Motivation</h2>
+<p>Headers are transiently passed over a Kafka Streams topology. To act on them, Topology API has to be used (<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-244%3A+Add+Record+Header+support+to+Kafka+Streams+Processor+API">KIP-244</a>).</p>
+<p>Although current support is useful for instrumentation, it becomes cumbersome to use headers for traditional Kafka Streams DSL operations (e.g filtering based on header value).</p>
+<p>Related JIRA issue: <a href="https://issues.apache.org/jira/browse/KAFKA-7718">https://issues.apache.org/jira/browse/KAFKA-7718</a></p>
+<h2 id="proposed-changes">Proposed Changes</h2>
+<ol>
+<li>Include KStreams operator to map headers into a value pair: <code>ValueAndHeaders</code>.</li>
+<li>Include <code>ValueAndHeaders</code> serde to serialize values if needed.</li>
+<li>Include KStreams operator to set and remove headers.</li>
+</ol>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ValueAndHeaders</span> <span style="color:#333">&lt;</span>V<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+    <span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">final</span> V value<span style="color:#333">;</span>
+    <span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">final</span> Headers headers<span style="color:#333">;</span>
+
+    <span style="color:#888">//...
+</span><span style="color:#888"></span><span style="color:#333">}</span>
+
+<span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ValueAndHeadersSerde</span><span style="color:#333">&lt;</span>V<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+<span style="color:#333">}</span>
+
+<span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">SetHeadersAction</span><span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+    Iterable<span style="color:#333">&lt;</span>Header<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">apply</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> K key<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> V value<span style="color:#333">);</span>
+<span style="color:#333">}</span>
+
+<span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">SetHeaderAction</span><span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+    Header <span style="color:#06b;font-weight:bold">apply</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> K key<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> V value<span style="color:#333">);</span>
+<span style="color:#333">}</span>
+
+<span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">KStream</span> <span style="color:#333">{</span>
+    <span style="color:#888">//...
+</span><span style="color:#888"></span>    KStream<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">setHeaders</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> SetHeadersAction<span style="color:#333">&lt;?</span> <span style="color:#080;font-weight:bold">super</span> K<span style="color:#333">,</span> <span style="color:#333">?</span> <span style="color:#080;font-weight:bold">super</span> V<span style="color:#333">&gt;</span> action<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> Named named<span style="color:#333">);</span>
+
+    KStream<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">setHeaders</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> SetHeadersAction<span style="color:#333">&lt;?</span> <span style="color:#080;font-weight:bold">super</span> K<span style="color:#333">,</span> <span style="color:#333">?</span> <span style="color:#080;font-weight:bold">super</span> V<span style="color:#333">&gt;</span> action<span style="color:#333">);</span>
+
+    KStream<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">setHeader</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> SetHeaderAction<span style="color:#333">&lt;?</span> <span style="color:#080;font-weight:bold">super</span> K<span style="color:#333">,</span> <span style="color:#333">?</span> <span style="color:#080;font-weight:bold">super</span> V<span style="color:#333">&gt;</span> action<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> Named named<span style="color:#333">);</span>
+
+    KStream<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">setHeader</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> SetHeaderAction<span style="color:#333">&lt;?</span> <span style="color:#080;font-weight:bold">super</span> K<span style="color:#333">,</span> <span style="color:#333">?</span> <span style="color:#080;font-weight:bold">super</span> V<span style="color:#333">&gt;</span> action<span style="color:#333">);</span>
+
+    KStream<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">removeHeaders</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> Iterable<span style="color:#333">&lt;</span>String<span style="color:#333">&gt;</span> headerKeys<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> Named named<span style="color:#333">);</span>
+
+    KStream<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">removeHeaders</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> Iterable<span style="color:#333">&lt;</span>String<span style="color:#333">&gt;</span> headerKeys<span style="color:#333">);</span>
+
+    KStream<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">removeHeader</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> String headerKey<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> Named named<span style="color:#333">);</span>
+
+    KStream<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">removeHeader</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> String headerKey<span style="color:#333">);</span>
+
+    KStream<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> ValueAndHeaders<span style="color:#333">&lt;</span>V<span style="color:#333">&gt;&gt;</span> <span style="color:#06b;font-weight:bold">withHeaders</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> Named named<span style="color:#333">);</span>
+
+    KStream<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> ValueAndHeaders<span style="color:#333">&lt;</span>V<span style="color:#333">&gt;&gt;</span> <span style="color:#06b;font-weight:bold">withHeaders</span><span style="color:#333">();</span>
+    <span style="color:#888">//...
+</span><span style="color:#888"></span><span style="color:#333">}</span>
+</code></pre></div><p>This APIs will allow usages similar to:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">kstream<span style="color:#333">.</span><span style="color:#00c">withHeaders</span><span style="color:#333">()</span>
+       <span style="color:#333">.</span><span style="color:#00c">filter</span><span style="color:#333">((</span>k<span style="color:#333">,</span> v<span style="color:#333">)</span> <span style="color:#333">-&gt;</span> v<span style="color:#333">.</span><span style="color:#00c">headers</span><span style="color:#333">().</span><span style="color:#00c">lastValue</span><span style="color:#333">())</span>
+
+kstream<span style="color:#333">.</span><span style="color:#00c">withHeaders</span><span style="color:#333">()</span>
+       <span style="color:#333">.</span><span style="color:#00c">map</span><span style="color:#333">((</span>k<span style="color:#333">,</span> v<span style="color:#333">)</span> <span style="color:#333">-&gt;</span> v<span style="color:#333">.</span><span style="color:#00c">headers</span><span style="color:#333">().</span><span style="color:#00c">add</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;foo&#34;</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;bar&#34;</span><span style="color:#333">.</span><span style="color:#00c">getBytes</span><span style="color:#333">()))</span>
+       <span style="color:#333">.</span><span style="color:#00c">setHeaders</span><span style="color:#333">((</span>k<span style="color:#333">,</span> v<span style="color:#333">)</span> <span style="color:#333">-&gt;</span> v<span style="color:#333">.</span><span style="color:#00c">headers</span><span style="color:#333">())</span>
+       <span style="color:#333">.</span><span style="color:#00c">to</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;output&#34;</span><span style="color:#333">)</span>
+</code></pre></div><h2 id="compatibilily-deprecation-and-migration-plan">Compatibilily, Deprecation, and Migration Plan</h2>
+<ul>
+<li>New functions will be supported since 2.0+, as KIP-244 adopted.</li>
+<li>No existing stores or functions are affected.</li>
+</ul>
+<h2 id="rejected-alternatives">Rejected alternatives</h2>
+<ol>
+<li>Expand <code>KeyValue</code> to support headers. This will affect all current APIs, from KStream/KTable to Stores.</li>
+</ol>
+
   </section>
   <footer>
     
@@ -232,12 +292,12 @@
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/drafts/kip-complementary-support-headers-kafka-streams/">Newer</a>
+          <a href="https://jeqo.github.io/drafts/kip-617/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/notes/security/">Older</a>
+          <a href="https://jeqo.github.io/notes/kafka-streams-stores/">Older</a>
           
         </div>
       </div>
@@ -275,11 +335,6 @@
         <a href="/about">About</a>
       </li>
       
-    
-    
-    <li class="p-menu__listitem"><a>|</a></li>
-    
-    <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/notes/kafka-streams-stores/">es</a></li>
     
     
   </ul>
