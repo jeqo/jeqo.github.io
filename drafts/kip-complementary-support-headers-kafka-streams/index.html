@@ -269,6 +269,11 @@
 <li>New functions will be supported since 2.0+, as KIP-244 adopted.</li>
 <li>No existing stores or functions are affected.</li>
 </ul>
+<h3 id="potential-next-steps">Potential next steps</h3>
+<ul>
+<li>Use a similar approach for other record metadata (e.g. offset, topic, partition), though in this case only read-only operations are required.
+Related KIP: <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-159%3A+Introducing+Rich+functions+to+Streams">https://cwiki.apache.org/confluence/display/KAFKA/KIP-159%3A+Introducing+Rich+functions+to+Streams</a></li>
+</ul>
 <h2 id="rejected-alternatives">Rejected alternatives</h2>
 <ol>
 <li>Expand <code>KeyValue</code> to support headers. This will affect all current APIs, from KStream/KTable to Stores.</li>
