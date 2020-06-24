@@ -18,10 +18,9 @@
       <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/drafts/kip-complementary-support-headers-kafka-streams/</guid>
-      <description>Motivation Headers are transiently passed over a Kafka Streams topology. To act on them, Topology API has to be used (KIP-244).
-Although current support is useful for instrumentation, it becomes cumbersome to use headers for traditional Kafka Streams DSL operations (e.g filtering based on header value).
-Related JIRA issue: https://issues.apache.org/jira/browse/KAFKA-7718
-Proposed Changes  Include KStreams operator to map headers into a value pair: ValueAndHeaders. Include ValueAndHeaders serde to serialize values if needed.</description>
+      <description>Motivation Headers are transiently passed over a Kafka Streams topology. To act on them, Processor API has to be used since (KIP-244).
+Although current support is useful for instrumentation, it becomes cumbersome to use headers for common Kafka Streams DSL operations (e.g filtering based on header value) as it require using some sort of Transformer implementation.
+Related JIRA issues  https://issues.apache.org/jira/browse/KAFKA-7718  Proposed Changes  Include a new type, to map value and headers.</description>
     </item>
     
     <item>
