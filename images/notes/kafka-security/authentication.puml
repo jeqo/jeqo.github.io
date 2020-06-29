@@ -1,0 +1,39 @@
+@startuml sasl-plain
+skinparam dpi 250
+
+title SASL/PLAIN
+
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+
+LAYOUT_LEFT_RIGHT
+
+Person(client, "Client", "kafka-client")
+
+System_Boundary(kafka_cluster, "Kafka Cluster") {
+  Container(kafka_broker, "Broker", "Kafka")
+  ContainerDb(jaas_file, "JAAS File", "java-config")
+}
+
+Rel(client, kafka_broker, "push", "kafka")
+Rel(kafka_broker, jaas_file, "read", "java")
+@enduml
+
+@startuml sasl-scram
+skinparam dpi 250
+
+title SASL/SCRAM
+
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+
+LAYOUT_LEFT_RIGHT
+
+Person(client, "Client", "kafka-client")
+
+System_Boundary(kafka_cluster, "Kafka Cluster") {
+  Container(kafka_broker, "Broker", "Kafka")
+  ContainerDb(zookeeper, "Zookeeper", "Credential Store")
+}
+
+Rel(client, kafka_broker, "push", "kafka")
+Rel(kafka_broker, zookeeper, "read", "zk")
+@enduml

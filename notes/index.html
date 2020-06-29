@@ -262,7 +262,11 @@
     </p>
   </header>
   <div class="c-article__summary">
-    Security Standards SSL/TLS SASL Java implementation: JAAS Architecture Zookeeper Security Kafka Security Confluent Platform Security Authentication Authentication Authorization Apache Kafka Access Control Lists Confluent Role-Based Access Control Resources  Zookeeper Client-Server Mutual Authentication: https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication Confluent Security Tutorial (version 5.5.0, update if needed): https://docs.confluent.io/5.5.0/security/security_tutorial.html  
+    Authentication SASL/PLAIN  Further reading   Kafka docs: https://kafka.apache.org/documentation/#security_sasl_plain
+    SASL/SCRAM  Support: - SCRAM-SHA-256 - SCRAM-SHA-512
+ Considerations  For each SCRAM mechanism enabled, credentials must be created by adding a config with the mechanism name. Credentials for inter-broker communication must be created before Kafka brokers are started.
+   Further reading   Kafka docs: https://kafka.apache.org/documentation/#security_sasl_scram
+       Authentication   Authorization Apache Kafka Access Control Lists    
   </div>
   
 </article>

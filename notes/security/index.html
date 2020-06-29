@@ -230,12 +230,12 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ echo "hello world" | md5sum
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ echo "hello world" | md5sum
 6f5902ac237024bdd0c176cb93063dc4
 $ echo "hello world" | md5sum
 6f5902ac237024bdd0c176cb93063dc4
 $ echo "hello world " | md5sum
-edf02967b5ae298061db1f1ad2a6b6b4</pre>
+edf02967b5ae298061db1f1ad2a6b6b4</code></pre>
 </div>
 </div>
 <div class="sect4">
@@ -254,8 +254,8 @@ edf02967b5ae298061db1f1ad2a6b6b4</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ echo "hello world " | sha1sum
-313c9923a67853f9000ede0db473abc06d50c9e7  -</pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ echo "hello world " | sha1sum
+313c9923a67853f9000ede0db473abc06d50c9e7  -</code></pre>
 </div>
 </div>
 </div>
@@ -274,18 +274,166 @@ edf02967b5ae298061db1f1ad2a6b6b4</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ echo "hello world " | openssl dgst -sha256
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ echo "hello world " | openssl dgst -sha256
 ce4a4484a607ce2a5319550baf2386cbf63298090ed589133116caf9b38f9bde
 $ echo "hello world " | openssl dgst -sha512
-3060f0e2028911f23a73f115781bbf994196287ca8ef4a240ab3de59376d81569e1091a976428bb1d23739ef826d778045e36e7f2e77af76c8599fed1ba3fc61</pre>
+3060f0e2028911f23a73f115781bbf994196287ca8ef4a240ab3de59376d81569e1091a976428bb1d23739ef826d778045e36e7f2e77af76c8599fed1ba3fc61</code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ssltls">SSL/TLS</h3>
+<h3 id="_ciphers">Ciphers</h3>
+<div class="paragraph">
+<p>Algorithms to secure a network connection that uses TLS.</p>
+</div>
+<div class="paragraph">
+<p><strong>Key exchange algorithm</strong>: Used to exchange a key between 2 devices.</p>
+</div>
+<div class="paragraph">
+<p><strong>Bulk encryption algorithm</strong>: used to encrypt the data being sent.</p>
+</div>
+<div class="paragraph">
+<p><strong>Message authentication code algorithm</strong> (MAC): provides data integrity checks to ensure data sent does not change in transit.</p>
+</div>
+<div class="paragraph">
+<div class="title">Naming Scheme</div>
+<p><code><em class="protocol">[key exchange alg.]</em>[block cipher]_[message authentication alg.]</code></p>
+</div>
+<div class="paragraph">
+<p>e.g. <code>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</code> where:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Protocol: <code>TLS</code></p>
+</li>
+<li>
+<p>Key exchange algorithm: <code>ECDHE_RSA</code></p>
+</li>
+<li>
+<p>Block cipher: <code>AES_128_GCM</code></p>
+</li>
+<li>
+<p>MAC: <code>SHA256</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_key_exchange_algorithms">Key Exchange Algorithms</h3>
+<div class="paragraph">
+<p>The <strong>encryption key</strong> is <em>public</em> and distinct from the <strong>decryption key</strong> which is kept <em>secret</em> (private).</p>
+</div>
+<div class="sect3">
+<h4 id="_rsa_rivest_shamir_adleman">RSA (Rivest-Shamir-Adleman)</h4>
+<div class="paragraph">
+<p>From <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">Wikipedia</a></p>
+</div>
+<div class="paragraph">
+<p>Asymmetry is based on the practical difficulty of factoring the product of 2 large prime numbers.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>RSA is a relatively slow algorithm, and because of this, it is less commonly used to directly encrypt user data. More often, RSA passes encrypted shared keys for symmetric key cryptography which in turn can perform bulk encryption-decryption operations at much higher speed.</p>
+</div>
+</blockquote>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dsa_digital_signature_algorithm">DSA (Digital Signature Algorithm)</h4>
+<div class="paragraph">
+<p>From <a href="https://en.wikipedia.org/wiki/Digital_Signature_Algorithm">Wikipedia</a></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>DSA is based on the algebraic properties of modular exponentiation, together with the discrete logarithm problem, which is considered to be computationally intractable.</p>
+</div>
+</blockquote>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ecdsa_elliptic_curve_digital_signature_algorithm">ECDSA (Elliptic Curve Digital Signature Algorithm)</h4>
+<div class="paragraph">
+<p>From <a href="https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm">Wikipedia</a>:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>As with elliptic-curve cryptography in general, the bit size of the public key believed to be needed for ECDSA is about twice the size of the security level, in bits. For example, at a security level of 80 bits (meaning an attacker requires a maximum of about 2 80 {\displaystyle 2^{80}} 2^{80} operations to find the private key) the size of an ECDSA public key would be 160 bits, whereas the size of a DSA public key is at least 1024 bits. On the other hand, the signature size is the same for both DSA and ECDSA: approximately 4 t {\displaystyle 4t} 4t bits, where t {\displaystyle t} t is the security level measured in bits, that is, about 320 bits for a security level of 80 bits.</p>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_public_key_certificates">Public Key Certificates</h3>
+<div class="sect3">
+<h4 id="_x_509">X.509</h4>
 
+</div>
+</div>
+<div class="sect2">
+<h3 id="_block_encryption_algorithms">Block encryption algorithms</h3>
+<div class="sect3">
+<h4 id="_des_data_encryption_standard">DES (Data Encryption Standard)</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_aes_advanced_encryption_standard">AES (Advanced Encryption Standard)</h4>
+<div class="paragraph">
+<p>It supersedes the DES. The algorithm described by AES is a sumetric key algorithm, meaning the same key is used for both encrypting and decrypting the data.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ssltls">SSL/TLS</h3>
+<div class="sect3">
+<h4 id="_key_and_certificate_managements">Key and Certificate Managements</h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Source: <a href="https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html#openssl-key-and-certificate-management" class="bare">https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html#openssl-key-and-certificate-management</a></p>
+</div>
+</blockquote>
+</div>
+<div class="sect4">
+<h5 id="_key_generation">Key Generation</h5>
+<div class="paragraph">
+<p><strong>Key algorithm</strong></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>RSA, DSA, and ECDSA</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p><strong>Key size</strong></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Today, 2,048-bit RSA keys are considered secure, and that’s what you should use. Aim also to use 2,048 bits for DSA keys and at least 256 bits for ECDSA.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p><strong>Key passphrase</strong></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>passphrases should be viewed only as a mechanism for protecting private keys when they are not installed on production systems. In other words, it’s all right to keep passphrases on production systems, next to the keys. If you need better security in production, you should invest in a hardware solution.</p>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_sasl">SASL</h3>
@@ -376,6 +524,12 @@ $ echo "hello world " | openssl dgst -sha512
 <p>Although all clients and servers have to support the SHA-1 hashing algorithm, SCRAM is, unlike CRAM-MD5 or DIGEST-MD5, independent from the underlying hash function.[3] All hash functions defined by the IANA can be used instead.</p>
 </div>
 </blockquote>
+</div>
+<div class="paragraph">
+<p>SCRAM:
+* Salted Challenge Response Authentication Mechanism.
+* Family of SASL mechanisms to address security concerns with traditional mechanisms, e.g PLAIN, DIGEST-MD5.
+* Defined in <a href="https://tools.ietf.org/html/rfc5802#section-3">RFC-5802</a>.</p>
 </div>
 </div>
 </div>

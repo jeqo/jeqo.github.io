@@ -19,7 +19,7 @@
       
       <guid>https://jeqo.github.io/drafts/kip-complementary-support-headers-kafka-streams/</guid>
       <description>Motivation Headers are transiently passed over a Kafka Streams topology. To act on them, Processor API has to be used since (KIP-244).
-Although current support is useful for instrumentation, it becomes cumbersome to use headers for common Kafka Streams DSL operations (e.g filtering based on header value) as it require using some sort of Transformer implementation.
+Although current support is useful for instrumentations that need to access headers, it becomes cumbersome for users to access headers on common Kafka Streams DSL operations (e.g filtering based on header value) as requires using a Transformer/Processor implementation.
 Related JIRA issues  https://issues.apache.org/jira/browse/KAFKA-7718  Proposed Changes  Include a new type, to map value and headers.</description>
     </item>
     

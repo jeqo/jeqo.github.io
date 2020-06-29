@@ -197,30 +197,75 @@
       
       <a href="https://jeqo.github.io/tags/security" class="c-tag">security</a>
       
-      <a href="https://jeqo.github.io/tags/confluent" class="c-tag">confluent</a>
-      
     </div>
   </header>
   
   <section id="js-article" class="p-article__body">
-    <h2 id="security-standards">Security Standards</h2>
-<h3 id="ssltls">SSL/TLS</h3>
-<h3 id="sasl">SASL</h3>
-<h4 id="java-implementation-jaas">Java implementation: JAAS</h4>
-<h2 id="architecture">Architecture</h2>
-<h3 id="zookeeper-security">Zookeeper Security</h3>
-<h3 id="kafka-security">Kafka Security</h3>
-<h3 id="confluent-platform-security">Confluent Platform Security</h3>
-<h2 id="authentication">Authentication</h2>
-<h2 id="authentication-1">Authentication</h2>
-<h2 id="authorization">Authorization</h2>
-<h3 id="apache-kafka-access-control-lists">Apache Kafka Access Control Lists</h3>
-<h3 id="confluent-role-based-access-control">Confluent Role-Based Access Control</h3>
-<h2 id="resources">Resources</h2>
+    <div class="sect1">
+<h2 id="_authentication">Authentication</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_saslplain">SASL/PLAIN</h3>
+<div class="paragraph">
+<img src="/images/notes/kafka-security/authentication/sasl-plain.png" alt="Notes on Apache Kafka and Confluent Platform Security /images/notes/kafka-security/authentication/sasl-plain.png" data-action="zoom">
+
+</div>
+<div class="ulist">
+<div class="title">Further reading</div>
 <ul>
-<li>Zookeeper Client-Server Mutual Authentication: <a href="https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication">https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication</a></li>
-<li>Confluent Security Tutorial (version 5.5.0, update if needed): <a href="https://docs.confluent.io/5.5.0/security/security_tutorial.html">https://docs.confluent.io/5.5.0/security/security_tutorial.html</a></li>
+<li>
+<p>Kafka docs: <a href="https://kafka.apache.org/documentation/#security_sasl_plain" class="bare">https://kafka.apache.org/documentation/#security_sasl_plain</a></p>
+</li>
 </ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_saslscram">SASL/SCRAM</h3>
+<div class="paragraph">
+<img src="/images/notes/kafka-security/authentication/sasl-scram.png" alt="Notes on Apache Kafka and Confluent Platform Security /images/notes/kafka-security/authentication/sasl-scram.png" data-action="zoom">
+
+</div>
+<div class="paragraph">
+<p>Support:
+- <a href="https://tools.ietf.org/html/rfc7677">SCRAM-SHA-256</a>
+- SCRAM-SHA-512</p>
+</div>
+<div class="sect3">
+<h4 id="_considerations">Considerations</h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>For each SCRAM mechanism enabled, credentials must be created by adding a config with the mechanism name. <strong>Credentials for inter-broker communication must be created before Kafka brokers are started.</strong></p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<div class="title">Further reading</div>
+<ul>
+<li>
+<p>Kafka docs: <a href="https://kafka.apache.org/documentation/#security_sasl_scram" class="bare">https://kafka.apache.org/documentation/#security_sasl_scram</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authentication_2">Authentication</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authorization">Authorization</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_apache_kafka_access_control_lists">Apache Kafka Access Control Lists</h3>
+
+</div>
+</div>
+</div>
 
   </section>
   <footer>
