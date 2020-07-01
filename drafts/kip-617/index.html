@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>KIP: Allow Kafka Streams State Stores to be iterated backwards</title>
-  <meta property="og:title" content="KIP: Allow Kafka Streams State Stores to be iterated backwards" />
-  <meta name="twitter:title" content="KIP: Allow Kafka Streams State Stores to be iterated backwards" />
+  <title>KIP-617: Allow Kafka Streams State Stores to be iterated backwards</title>
+  <meta property="og:title" content="KIP-617: Allow Kafka Streams State Stores to be iterated backwards" />
+  <meta name="twitter:title" content="KIP-617: Allow Kafka Streams State Stores to be iterated backwards" />
   
 
   
@@ -184,7 +184,7 @@
 
 <article class="p-article">
   <header>
-    <h1>KIP: Allow Kafka Streams State Stores to be iterated backwards</h1>
+    <h1>KIP-617: Allow Kafka Streams State Stores to be iterated backwards</h1>
     <div>
       <div class="c-time">
         Posted on
@@ -235,55 +235,59 @@ Though, <code>Bytes</code> support <code>Lexicographic</code> byte array compari
 <li>Time Range</li>
 </ul>
 <h3 id="reverse-key-ranges">Reverse Key Ranges</h3>
-<p>Add a new interface for reverse <code>KeyValueStore</code></p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">ReadOnlyReverseKeyValueStore</span><span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
-    KeyValueIterator<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">reverseRange</span><span style="color:#333">(</span>K from<span style="color:#333">,</span> K to<span style="color:#333">);</span>
-    KeyValueIterator<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">reverseAll</span><span style="color:#333">();</span>
+<p>Extend existing interface for reverse <code>KeyValueStore</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">ReadOnlyKeyValueStore</span><span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+    <span style="color:#080;font-weight:bold">default</span> KeyValueIterator<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">reverseRange</span><span style="color:#333">(</span>K from<span style="color:#333">,</span> K to<span style="color:#333">)</span> <span style="color:#333">{</span> 
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> UnsupportedOperationException<span style="color:#333">();</span> 
+    <span style="color:#333">}</span>
+    <span style="color:#080;font-weight:bold">default</span> KeyValueIterator<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">reverseAll</span><span style="color:#333">()</span> <span style="color:#333">{</span>
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> UnsupportedOperationException<span style="color:#333">();</span> 
+    <span style="color:#333">}</span>
 <span style="color:#333">}</span>
-</code></pre></div><p>And create a new interface on top of <code>KeyValueStore</code>:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">KeyValueStoreWithReverseIteration</span><span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#080;font-weight:bold">extends</span> KeyValueStore<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;,</span> ReadOnlyReverseKeyValueStore<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
-<span style="color:#888">//...
-</span><span style="color:#888"></span><span style="color:#333">}</span>
 </code></pre></div><h3 id="backward-time-ranges">Backward Time Ranges</h3>
 <p>Window and Session stores are based on a set of KeyValue Stores (Segments) organized by a time-based index.
 Therefore, for these stores time-range is more important than key-range to lookup for values.</p>
-<p>A new interfaces will be added for each Store type, including backward methods:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">ReadOnlyBackwardWindowStore</span><span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
-    <span style="color:#555;font-weight:bold">@Deprecated</span>
-    WindowStoreIterator<span style="color:#333">&lt;</span>V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardFetch</span><span style="color:#333">(</span>K key<span style="color:#333">,</span> <span style="color:#339;font-weight:bold">long</span> timeFrom<span style="color:#333">,</span> <span style="color:#339;font-weight:bold">long</span> timeTo<span style="color:#333">);</span>
-    WindowStoreIterator<span style="color:#333">&lt;</span>V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardFetch</span><span style="color:#333">(</span>K key<span style="color:#333">,</span> Instant from<span style="color:#333">,</span> Instant to<span style="color:#333">)</span> <span style="color:#080;font-weight:bold">throws</span> IllegalArgumentException<span style="color:#333">;</span>
-    <span style="color:#555;font-weight:bold">@Deprecated</span>
-    KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardFetch</span><span style="color:#333">(</span>K from<span style="color:#333">,</span> K to<span style="color:#333">,</span> <span style="color:#339;font-weight:bold">long</span> timeFrom<span style="color:#333">,</span> <span style="color:#339;font-weight:bold">long</span> timeTo<span style="color:#333">);</span>
-    KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardFetch</span><span style="color:#333">(</span>K from<span style="color:#333">,</span> K to<span style="color:#333">,</span> Instant fromTime<span style="color:#333">,</span> Instant toTime<span style="color:#333">)</span>
-            <span style="color:#080;font-weight:bold">throws</span> IllegalArgumentException<span style="color:#333">;</span>
-    KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardAll</span><span style="color:#333">();</span>
-    <span style="color:#555;font-weight:bold">@Deprecated</span>
-    KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardFetchAll</span><span style="color:#333">(</span><span style="color:#339;font-weight:bold">long</span> timeFrom<span style="color:#333">,</span> <span style="color:#339;font-weight:bold">long</span> timeTo<span style="color:#333">);</span>
-    KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardFetchAll</span><span style="color:#333">(</span>Instant from<span style="color:#333">,</span> Instant to<span style="color:#333">)</span> <span style="color:#080;font-weight:bold">throws</span> IllegalArgumentException<span style="color:#333">;</span>
-<span style="color:#333">}</span>
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">ReadOnlyBackwardSessionStore</span><span style="color:#333">&lt;</span>K<span style="color:#333">,</span> AGG<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
-    KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> AGG<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardFetch</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> K from<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> K to<span style="color:#333">);</span>
-    KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> AGG<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardFindSessions</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> K key<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">long</span> earliestSessionEndTime<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">long</span> latestSessionStartTime<span style="color:#333">);</span>
-    KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> AGG<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardFindSessions</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> K keyFrom<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> K keyTo<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">long</span> earliestSessionEndTime<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">long</span> latestSessionStartTime<span style="color:#333">);</span>
-<span style="color:#333">}</span>
-</code></pre></div><p>And both <code>SessionStore</code> and <code>WindowStore</code> will extend these new APIs:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">WindowStoreWithBackwardInteration</span><span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#080;font-weight:bold">extends</span> WindowStore<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;,</span> ReadOnlyBackwardWindowStore<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
-<span style="color:#888">// ...
-</span><span style="color:#888"></span><span style="color:#333">}</span>
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">SessionStoreWithBackwardIteration</span><span style="color:#333">&lt;</span>K<span style="color:#333">,</span> AGG<span style="color:#333">&gt;</span> <span style="color:#080;font-weight:bold">extends</span> SessionStore<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> AGG<span style="color:#333">&gt;,</span> ReadOnlyBackwardSessionStore<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> AGG<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
-<span style="color:#888">//...
-</span><span style="color:#888"></span><span style="color:#333">}</span>
-</code></pre></div><p>Class hierarchy will change from:</p>
-<img src="/images/drafts/kip-allow-state-stores-to-iterate-backwards/as-is.png" alt="KIP: Allow Kafka Streams State Stores to be iterated backwards /images/drafts/kip-allow-state-stores-to-iterate-backwards/as-is.png" data-action="zoom">
+<p>Existing stores will be extended with backward methods:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">ReadOnlyWindowStore</span><span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+    <span style="color:#080;font-weight:bold">default</span> WindowStoreIterator<span style="color:#333">&lt;</span>V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardFetch</span><span style="color:#333">(</span>K key<span style="color:#333">,</span> Instant from<span style="color:#333">,</span> Instant to<span style="color:#333">)</span> <span style="color:#080;font-weight:bold">throws</span> IllegalArgumentException <span style="color:#333">{</span>
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> UnsupportedOperationException<span style="color:#333">();</span> 
+    <span style="color:#333">}</span>
 
-<p>To:</p>
-<img src="/images/drafts/kip-allow-state-stores-to-iterate-backwards/to-be.png" alt="KIP: Allow Kafka Streams State Stores to be iterated backwards /images/drafts/kip-allow-state-stores-to-iterate-backwards/to-be.png" data-action="zoom">
+    <span style="color:#080;font-weight:bold">default</span> KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardFetch</span><span style="color:#333">(</span>K from<span style="color:#333">,</span> K to<span style="color:#333">,</span> Instant fromTime<span style="color:#333">,</span> Instant toTime<span style="color:#333">)</span> <span style="color:#080;font-weight:bold">throws</span> IllegalArgumentException <span style="color:#333">{</span>
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> UnsupportedOperationException<span style="color:#333">();</span> 
+    <span style="color:#333">}</span>
+    
+    <span style="color:#080;font-weight:bold">default</span> KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardAll</span><span style="color:#333">()</span> <span style="color:#333">{</span>
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> UnsupportedOperationException<span style="color:#333">();</span> 
+    <span style="color:#333">}</span>
+    
+    <span style="color:#080;font-weight:bold">default</span> KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardFetchAll</span><span style="color:#333">(</span>Instant from<span style="color:#333">,</span> Instant to<span style="color:#333">)</span> <span style="color:#080;font-weight:bold">throws</span> IllegalArgumentException <span style="color:#333">{</span>
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> UnsupportedOperationException<span style="color:#333">();</span> 
+    <span style="color:#333">}</span>
+<span style="color:#333">}</span>
+</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">SessionStore</span><span style="color:#333">&lt;</span>K<span style="color:#333">,</span> AGG<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+    <span style="color:#080;font-weight:bold">default</span> KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> AGG<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardFindSessions</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> K key<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">long</span> earliestSessionEndTime<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">long</span> latestSessionStartTime<span style="color:#333">)</span> <span style="color:#333">{</span>
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> UnsupportedOperationException<span style="color:#333">();</span> 
+    <span style="color:#333">}</span>
 
-<h2 id="compatibilily-deprecation-and-migration-plan">Compatibilily, Deprecation, and Migration Plan</h2>
-<p>As new top interfaces will be implemented by internal components (e.g. RocksDB, InMemory, etc). supporting old one already, current users won&rsquo;t be affected.</p>
-<p>New users will be able to choose between current APIs (forward-only) or proposed ones (forward+backward).</p>
+    <span style="color:#080;font-weight:bold">default</span> KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> AGG<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardFindSessions</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> K keyFrom<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> K keyTo<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">long</span> earliestSessionEndTime<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">long</span> latestSessionStartTime<span style="color:#333">)</span> <span style="color:#333">{</span>
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> UnsupportedOperationException<span style="color:#333">();</span> 
+    <span style="color:#333">}</span>
+<span style="color:#333">}</span>
+
+<span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">ReadOnlySessionStore</span><span style="color:#333">&lt;</span>K<span style="color:#333">,</span> AGG<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+    <span style="color:#080;font-weight:bold">default</span> KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> AGG<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardFetch</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> K key<span style="color:#333">)</span> <span style="color:#333">{</span>
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> UnsupportedOperationException<span style="color:#333">();</span> 
+    <span style="color:#333">}</span>
+    <span style="color:#080;font-weight:bold">default</span> KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> AGG<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">backwardFetch</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> K from<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> K to<span style="color:#333">)</span> <span style="color:#333">{</span>
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> UnsupportedOperationException<span style="color:#333">();</span> 
+    <span style="color:#333">}</span>
+<span style="color:#333">}</span>
+</code></pre></div><h2 id="compatibilily-deprecation-and-migration-plan">Compatibilily, Deprecation, and Migration Plan</h2>
+<p>New methods will have default implementations to avoid affecting current implementations.</p>
 <h2 id="rejected-alternatives">Rejected Alternatives</h2>
 <ul>
+<li><del>Create a parallel hierarchy of interfaces for backward operation. Even though this option seems like the best way to extend functionality, it was proved to not work in practice in KIP-614 discussion as interfaces get wrapped in different layers (Metered, Caching, Logging) so all the current hierarchy to create stores with Kafka Streams DSL will have to be duplicated.</del></li>
 <li><del>Initially it was considered to have additional parameter on all readOnlyStore methods e.g. Store#fetch(keyFrom, keyTo, timeFrom, timeTo, ReadDirection.FORWARD|BACKWARD), but has been declines as passing arguments in inverse is more intuitive. As this could cause unexpected effects in future versions, a flag has been added to overcome this.</del></li>
 <li>Implicit ordering by flipping <code>from</code> and <code>to</code> variables has been discouraged in favor of a more explicit approach based on new interfaces that make explicit the availability of reverse and backward fetch operations.</li>
 </ul>
@@ -318,7 +322,7 @@ Therefore, for these stores time-range is more important than key-range to looku
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/drafts/kip-complementary-support-headers-kafka-streams/">Older</a>
+          <a href="https://jeqo.github.io/drafts/kip-634/">Older</a>
           
         </div>
       </div>

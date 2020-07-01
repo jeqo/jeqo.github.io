@@ -81,18 +81,18 @@ If you have a running environment with a Kafka cluster and Zookeper ensemble, wh
     </item>
     
     <item>
-      <title>KIP: Complementary support for headers in Kafka Streams</title>
-      <link>https://jeqo.github.io/drafts/kip-complementary-support-headers-kafka-streams/</link>
+      <title>KIP-634: Complementary support for headers in Kafka Streams</title>
+      <link>https://jeqo.github.io/drafts/kip-634/</link>
       <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/drafts/kip-complementary-support-headers-kafka-streams/</guid>
+      <guid>https://jeqo.github.io/drafts/kip-634/</guid>
       <description>Motivation Headers are transiently passed over a Kafka Streams topology. To act on them, Processor API has to be used since (KIP-244).
 Although current support is useful for instrumentations that need to access headers, it becomes cumbersome for users to access headers on common Kafka Streams DSL operations (e.g filtering based on header value) as requires using a Transformer/Processor implementation.
 Related JIRA issues  https://issues.apache.org/jira/browse/KAFKA-7718  Proposed Changes  Include a new type, to map value and headers.</description>
     </item>
     
     <item>
-      <title>KIP: Allow Kafka Streams State Stores to be iterated backwards</title>
+      <title>KIP-617: Allow Kafka Streams State Stores to be iterated backwards</title>
       <link>https://jeqo.github.io/drafts/kip-617/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
@@ -391,15 +391,6 @@ hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&
       
       <guid>https://jeqo.github.io/posts/2014-11-26-vagrant-quickstart/</guid>
       <description>&lt;p&gt;I have some months working with Vagrant and I think it&amp;rsquo;s owesome! Integration with almost all kind of virtualization platforms: VirtalBox, VMware, Docker, AWS EC2, Hyper-V and so on. Also it&amp;rsquo;s able to use differente Provisioners: Chef, Puppet, bash, Docker, Ansible. I really like it.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://jeqo.github.io/drafts/kip-move-streams-resetter-to-tools/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/drafts/kip-move-streams-resetter-to-tools/</guid>
-      <description>KIP: Move Streams Resetter Tool from core to tools module Motivation Proposed Changes Compatibilily, Deprecation, and Migration Plan </description>
     </item>
     
   </channel>

@@ -193,7 +193,7 @@
   </url>
   
   <url>
-    <loc>https://jeqo.github.io/drafts/kip-complementary-support-headers-kafka-streams/</loc>
+    <loc>https://jeqo.github.io/drafts/kip-634/</loc>
     <lastmod>2020-05-31T00:00:00+00:00</lastmod>
   </url>
   
@@ -975,10 +975,6 @@
   <url>
     <loc>https://jeqo.github.io/tags/virtualbox/</loc>
     <lastmod>2014-11-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jeqo.github.io/drafts/kip-move-streams-resetter-to-tools/</loc>
   </url>
   
 </urlset>
