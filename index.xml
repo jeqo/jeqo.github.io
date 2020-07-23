@@ -7,23 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Fri, 19 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jeqo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>What happen with your Kafka cluster when Zookeeper is gone? (not related with KIP-500)</title>
-      <link>https://jeqo.github.io/posts/2020-06-19-what-happen-when-zk-is-gone/</link>
-      <pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/posts/2020-06-19-what-happen-when-zk-is-gone/</guid>
-      <description>This post will try to answer this question:
-If you have a running environment with a Kafka cluster and Zookeper ensemble, what would happen if we lose all the Zookeeper nodes and start with a clean ensemble?
- Although this question is not related with KIP-500, it might become irrelevant once this KIP is adopted.
- Scenarios I can imagine 2 scenarios:
- The Zookeeper ensemble is lost while Kafka cluster running.</description>
-    </item>
     
     <item>
       <title>Notes on cp-ansible</title>
@@ -40,11 +27,17 @@ If you have a running environment with a Kafka cluster and Zookeper ensemble, wh
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/notes/kafka-security/</guid>
-      <description>Authentication SASL/PLAIN  Further reading   Kafka docs: https://kafka.apache.org/documentation/#security_sasl_plain
-    SASL/SCRAM  Support: - SCRAM-SHA-256 - SCRAM-SHA-512
- Considerations  For each SCRAM mechanism enabled, credentials must be created by adding a config with the mechanism name. Credentials for inter-broker communication must be created before Kafka brokers are started.
-   Further reading   Kafka docs: https://kafka.apache.org/documentation/#security_sasl_scram
-       Authentication   Authorization Apache Kafka Access Control Lists    </description>
+      <description>== Authentication
+=== SASL/PLAIN
+.Further reading
+ Kafka docs: https://kafka.apache.org/documentation/#security_sasl_plain  === SASL/SCRAM
+Support:
+ https://tools.ietf.org/html/rfc7677[SCRAM-SHA-256] SCRAM-SHA-512  ==== Considerations
+ For each SCRAM mechanism enabled, credentials must be created by adding a config with the mechanism name. Credentials for inter-broker communication must be created before Kafka brokers are started.
+ .Further reading
+ Kafka docs: https://kafka.apache.org/documentation/#security_sasl_scram  == Authentication
+== Authorization
+=== Apache Kafka Access Control Lists</description>
     </item>
     
     <item>
@@ -53,11 +46,16 @@ If you have a running environment with a Kafka cluster and Zookeper ensemble, wh
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/notes/zookeeper-security/</guid>
-      <description>Authentication Examples   https://github.com/jeqo/docker-composes/tree/master/zookeeper-security
-   Client/Server Authentication SASL Authentication SASL Authentication alone does not deny access to anonymous users. Beware of this as it gives a false sense of security, and can take some time to realize. Reference: https://issues.apache.org/jira/browse/ZOOKEEPER-1736
- This can be solved by forcing an Authentication Scheme:
- requireClientAuthScheme=sasl    Futher reading   https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication ---
-     Server/Server Authentication  Futher reading   https://cwiki.</description>
+      <description>== Authentication
+.Examples
+ https://github.com/jeqo/docker-composes/tree/master/zookeeper-security  === Client/Server Authentication
+==== SASL Authentication
+SASL Authentication alone does not deny access to anonymous users. Beware of this as it gives a false sense of security, and can take some time to realize. Reference: https://issues.apache.org/jira/browse/ZOOKEEPER-1736
+This can be solved by forcing an Authentication Scheme:
+requireClientAuthScheme=sasl  .Futher reading
+ https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication   === Server/Server Authentication
+ .Futher reading
+ https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication   == Authorization</description>
     </item>
     
     <item>
@@ -66,9 +64,13 @@ If you have a running environment with a Kafka cluster and Zookeper ensemble, wh
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/notes/security/</guid>
-      <description>Security Standards Hashing Hash Functions Cryptographic Hash Functions What makes a hash function a Cryptographic Hash Function (CHF) is that is a one-way function: practically infeasible to invert.
-  MD5 From Wikipedia:
-  The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to be used as a cryptographic hash function, it has been found to suffer from extensive vulnerabilities.</description>
+      <description>== Security Standards
+=== Hashing
+==== Hash Functions
+.Cryptographic Hash Functions What makes a hash function a Cryptographic Hash Function (CHF) is that is a one-way function: practically infeasible to invert.
+==== MD5
+From https://en.wikipedia.org/wiki/MD5[Wikipedia]:
+ The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to be used as a cryptographic hash function, it has been found to suffer from extensive vulnerabilities.</description>
     </item>
     
     <item>
