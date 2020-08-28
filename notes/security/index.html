@@ -201,111 +201,255 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p>== Security Standards</p>
-<p>=== Hashing</p>
-<p>==== Hash Functions</p>
-<p>.Cryptographic Hash Functions
-What makes a <code>hash function</code> a Cryptographic Hash Function (CHF) is that is a one-way function: <em>practically infeasible to invert.</em></p>
-<p>==== MD5</p>
-<p>From <a href="https://en.wikipedia.org/wiki/MD5%5BWikipedia%5D:">https://en.wikipedia.org/wiki/MD5[Wikipedia]:</a></p>
+    <div class="sect1">
+<h2 id="_security_standards">Security Standards</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_hashing">Hashing</h3>
+<div class="sect3">
+<h4 id="_hash_functions">Hash Functions</h4>
+<div class="paragraph">
+<div class="title">Cryptographic Hash Functions</div>
+<p>What makes a <code>hash function</code> a Cryptographic Hash Function (CHF) is that is a one-way function: <em>practically infeasible to invert.</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_md5">MD5</h4>
+<div class="paragraph">
+<p>From <a href="https://en.wikipedia.org/wiki/MD5">Wikipedia</a>:</p>
+</div>
+<div class="quoteblock">
 <blockquote>
+<div class="paragraph">
 <p>The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to be used as a cryptographic hash function, it has been found to suffer from extensive vulnerabilities. It can still be used as a checksum to verify data integrity, but only against unintentional corruption. It remains suitable for other non-cryptographic purposes, for example for determining the partition for a particular key in a partitioned database.</p>
+</div>
 </blockquote>
+</div>
+<div class="paragraph">
 <p>Examples:</p>
-<h2 id="sourcebash">[source,bash]</h2>
-<h2 id="edf02967b5ae298061db1f1ad2a6b6b4">$ echo &ldquo;hello world&rdquo; | md5sum
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ echo "hello world" | md5sum
 6f5902ac237024bdd0c176cb93063dc4
-$ echo &ldquo;hello world&rdquo; | md5sum
+$ echo "hello world" | md5sum
 6f5902ac237024bdd0c176cb93063dc4
-$ echo &ldquo;hello world &quot; | md5sum
-edf02967b5ae298061db1f1ad2a6b6b4</h2>
-<p>===== SHA-1 (Secure Hash Algorithm 1)</p>
-<p>.From Wikipedia</p>
+$ echo "hello world " | md5sum
+edf02967b5ae298061db1f1ad2a6b6b4</code></pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_sha_1_secure_hash_algorithm_1">SHA-1 (Secure Hash Algorithm 1)</h5>
+<div class="quoteblock">
+<div class="title">From Wikipedia</div>
 <blockquote>
+<div class="paragraph">
 <p>SHA-1 (Secure Hash Algorithm 1) is a cryptographic hash function which takes an input and produces a 160-bit (20-byte) hash value known as a message digest – typically rendered as a hexadecimal number, 40 digits long.
-[&hellip;] As of 2020, chosen-prefix attacks against SHA-1 are now practical[8] as such, it is recommended to remove SHA-1 from products as soon as possible and use instead SHA-256 or SHA-3. Replacing SHA-1 is urgent where it is used for signatures.</p>
+[&#8230;&#8203;] As of 2020, chosen-prefix attacks against SHA-1 are now practical[8] as such, it is recommended to remove SHA-1 from products as soon as possible and use instead SHA-256 or SHA-3. Replacing SHA-1 is urgent where it is used for signatures.</p>
+</div>
 </blockquote>
+</div>
+<div class="paragraph">
 <p>Examples:</p>
-<h2 id="sourcebash-1">[source,bash]</h2>
-<h2 id="313c9923a67853f9000ede0db473abc06d50c9e7---">$ echo &ldquo;hello world &quot; | sha1sum
-313c9923a67853f9000ede0db473abc06d50c9e7  -</h2>
-<p>===== SHA-2</p>
-<p>.From Wikipedia</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ echo "hello world " | sha1sum
+313c9923a67853f9000ede0db473abc06d50c9e7  -</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_sha_2">SHA-2</h5>
+<div class="quoteblock">
+<div class="title">From Wikipedia</div>
 <blockquote>
+<div class="paragraph">
 <p>SHA-2 includes significant changes from its predecessor, SHA-1. The SHA-2 family consists of six hash functions with digests (hash values) that are 224, 256, 384 or 512 bits: SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, SHA-512/256.</p>
+</div>
 </blockquote>
+</div>
+<div class="paragraph">
 <p>Examples:</p>
-<h2 id="sourcebash-2">[source,bash]</h2>
-<h2 id="3060f0e2028911f23a73f115781bbf994196287ca8ef4a240ab3de59376d81569e1091a976428bb1d23739ef826d778045e36e7f2e77af76c8599fed1ba3fc61">$ echo &ldquo;hello world &quot; | openssl dgst -sha256
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ echo "hello world " | openssl dgst -sha256
 ce4a4484a607ce2a5319550baf2386cbf63298090ed589133116caf9b38f9bde
-$ echo &ldquo;hello world &quot; | openssl dgst -sha512
-3060f0e2028911f23a73f115781bbf994196287ca8ef4a240ab3de59376d81569e1091a976428bb1d23739ef826d778045e36e7f2e77af76c8599fed1ba3fc61</h2>
-<p>=== Ciphers</p>
+$ echo "hello world " | openssl dgst -sha512
+3060f0e2028911f23a73f115781bbf994196287ca8ef4a240ab3de59376d81569e1091a976428bb1d23739ef826d778045e36e7f2e77af76c8599fed1ba3fc61</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ciphers">Ciphers</h3>
+<div class="paragraph">
 <p>Algorithms to secure a network connection that uses TLS.</p>
-<p><em>Key exchange algorithm</em>: Used to exchange a key between 2 devices.</p>
-<p><em>Bulk encryption algorithm</em>: used to encrypt the data being sent.</p>
-<p><em>Message authentication code algorithm</em> (MAC): provides data integrity checks to ensure data sent does not change in transit.</p>
-<p>.Naming Scheme
-<code>[protocol]_[key exchange alg.]_[block cipher]_[message authentication alg.]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Key exchange algorithm</strong>: Used to exchange a key between 2 devices.</p>
+</div>
+<div class="paragraph">
+<p><strong>Bulk encryption algorithm</strong>: used to encrypt the data being sent.</p>
+</div>
+<div class="paragraph">
+<p><strong>Message authentication code algorithm</strong> (MAC): provides data integrity checks to ensure data sent does not change in transit.</p>
+</div>
+<div class="paragraph">
+<div class="title">Naming Scheme</div>
+<p><code><em class="protocol">[key exchange alg.]</em>[block cipher]_[message authentication alg.]</code></p>
+</div>
+<div class="paragraph">
 <p>e.g. <code>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</code> where:</p>
-<ul>
-<li>Protocol: <code>TLS</code></li>
-<li>Key exchange algorithm: <code>ECDHE_RSA</code></li>
-<li>Block cipher: <code>AES_128_GCM</code></li>
-<li>MAC: <code>SHA256</code></li>
-</ul>
-<p>=== Key Exchange Algorithms</p>
-<p>The <em>encryption key</em> is <em>public</em> and distinct from the <em>decryption key</em> which is kept <em>secret</em> (private).</p>
-<p>==== RSA (Rivest-Shamir-Adleman)</p>
-<p>From <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)%5BWikipedia%5D">https://en.wikipedia.org/wiki/RSA_(cryptosystem)[Wikipedia]</a></p>
-<p>Asymmetry is based on the practical difficulty of factoring the product of 2 large prime numbers.</p>
-<blockquote>
-<p>RSA is a relatively slow algorithm, and because of this, it is less commonly used to directly encrypt user data. More often, RSA passes encrypted shared keys for symmetric key cryptography which in turn can perform bulk encryption-decryption operations at much higher speed.</p>
-</blockquote>
-<p>==== DSA (Digital Signature Algorithm)</p>
-<p>From <a href="https://en.wikipedia.org/wiki/Digital_Signature_Algorithm%5BWikipedia%5D">https://en.wikipedia.org/wiki/Digital_Signature_Algorithm[Wikipedia]</a></p>
-<blockquote>
-<p>DSA is based on the algebraic properties of modular exponentiation, together with the discrete logarithm problem, which is considered to be computationally intractable.</p>
-</blockquote>
-<p>==== ECDSA (Elliptic Curve Digital Signature Algorithm)</p>
-<p>From <a href="https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm%5BWikipedia%5D:">https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm[Wikipedia]:</a></p>
-<blockquote>
-<p>As with elliptic-curve cryptography in general, the bit size of the public key believed to be needed for ECDSA is about twice the size of the security level, in bits. For example, at a security level of 80 bits (meaning an attacker requires a maximum of about 2 80 {\displaystyle 2^{80}} 2^{80} operations to find the private key) the size of an ECDSA public key would be 160 bits, whereas the size of a DSA public key is at least 1024 bits. On the other hand, the signature size is the same for both DSA and ECDSA: approximately 4 t {\displaystyle 4t} 4t bits, where t {\displaystyle t} t is the security level measured in bits, that is, about 320 bits for a security level of 80 bits.</p>
-</blockquote>
-<p>=== Public Key Certificates</p>
-<p>==== X.509</p>
-<p>=== Block encryption algorithms</p>
-<p>==== DES (Data Encryption Standard)</p>
-<p>==== AES (Advanced Encryption Standard)</p>
-<p>It supersedes the DES. The algorithm described by AES is a sumetric key algorithm, meaning the same key is used for both encrypting and decrypting the data.</p>
-<p>=== SSL/TLS</p>
-<p>==== Key and Certificate Managements</p>
-<blockquote>
-<p>Source: <a href="https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html#openssl-key-and-certificate-management">https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html#openssl-key-and-certificate-management</a></p>
-</blockquote>
-<p>===== Key Generation</p>
-<p><em>Key algorithm</em></p>
-<blockquote>
-<p>RSA, DSA, and ECDSA</p>
-</blockquote>
-<p><em>Key size</em></p>
-<blockquote>
-<p>Today, 2,048-bit RSA keys are considered secure, and that’s what you should use. Aim also to use 2,048 bits for DSA keys and at least 256 bits for ECDSA.</p>
-</blockquote>
-<p><em>Key passphrase</em></p>
-<blockquote>
-<p>passphrases should be viewed only as a mechanism for protecting private keys when they are not installed on production systems. In other words, it’s all right to keep passphrases on production systems, next to the keys. If you need better security in production, you should invest in a hardware solution.</p>
-</blockquote>
-<p>=== SASL</p>
-<p>==== Authentication Methods</p>
-<p>.From <a href="https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer%5BWikipedia%5D">https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer[Wikipedia]</a></p>
-<blockquote>
-<p>A SASL mechanism implements a series of challenges and responses. Defined SASL mechanisms[1] include:</p>
-</blockquote>
+</div>
+<div class="ulist">
 <ul>
 <li>
-<p>EXTERNAL, where authentication is implicit in the context (e.g., for protocols already using IPsec or TLS)</p>
+<p>Protocol: <code>TLS</code></p>
 </li>
+<li>
+<p>Key exchange algorithm: <code>ECDHE_RSA</code></p>
+</li>
+<li>
+<p>Block cipher: <code>AES_128_GCM</code></p>
+</li>
+<li>
+<p>MAC: <code>SHA256</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_key_exchange_algorithms">Key Exchange Algorithms</h3>
+<div class="paragraph">
+<p>The <strong>encryption key</strong> is <em>public</em> and distinct from the <strong>decryption key</strong> which is kept <em>secret</em> (private).</p>
+</div>
+<div class="sect3">
+<h4 id="_rsa_rivest_shamir_adleman">RSA (Rivest-Shamir-Adleman)</h4>
+<div class="paragraph">
+<p>From <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">Wikipedia</a></p>
+</div>
+<div class="paragraph">
+<p>Asymmetry is based on the practical difficulty of factoring the product of 2 large prime numbers.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>RSA is a relatively slow algorithm, and because of this, it is less commonly used to directly encrypt user data. More often, RSA passes encrypted shared keys for symmetric key cryptography which in turn can perform bulk encryption-decryption operations at much higher speed.</p>
+</div>
+</blockquote>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dsa_digital_signature_algorithm">DSA (Digital Signature Algorithm)</h4>
+<div class="paragraph">
+<p>From <a href="https://en.wikipedia.org/wiki/Digital_Signature_Algorithm">Wikipedia</a></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>DSA is based on the algebraic properties of modular exponentiation, together with the discrete logarithm problem, which is considered to be computationally intractable.</p>
+</div>
+</blockquote>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ecdsa_elliptic_curve_digital_signature_algorithm">ECDSA (Elliptic Curve Digital Signature Algorithm)</h4>
+<div class="paragraph">
+<p>From <a href="https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm">Wikipedia</a>:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>As with elliptic-curve cryptography in general, the bit size of the public key believed to be needed for ECDSA is about twice the size of the security level, in bits. For example, at a security level of 80 bits (meaning an attacker requires a maximum of about 2 80 {\displaystyle 2^{80}} 2^{80} operations to find the private key) the size of an ECDSA public key would be 160 bits, whereas the size of a DSA public key is at least 1024 bits. On the other hand, the signature size is the same for both DSA and ECDSA: approximately 4 t {\displaystyle 4t} 4t bits, where t {\displaystyle t} t is the security level measured in bits, that is, about 320 bits for a security level of 80 bits.</p>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_public_key_certificates">Public Key Certificates</h3>
+<div class="sect3">
+<h4 id="_x_509">X.509</h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="_block_encryption_algorithms">Block encryption algorithms</h3>
+<div class="sect3">
+<h4 id="_des_data_encryption_standard">DES (Data Encryption Standard)</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_aes_advanced_encryption_standard">AES (Advanced Encryption Standard)</h4>
+<div class="paragraph">
+<p>It supersedes the DES. The algorithm described by AES is a sumetric key algorithm, meaning the same key is used for both encrypting and decrypting the data.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ssltls">SSL/TLS</h3>
+<div class="sect3">
+<h4 id="_key_and_certificate_managements">Key and Certificate Managements</h4>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Source: <a href="https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html#openssl-key-and-certificate-management" class="bare">https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html#openssl-key-and-certificate-management</a></p>
+</div>
+</blockquote>
+</div>
+<div class="sect4">
+<h5 id="_key_generation">Key Generation</h5>
+<div class="paragraph">
+<p><strong>Key algorithm</strong></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>RSA, DSA, and ECDSA</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p><strong>Key size</strong></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Today, 2,048-bit RSA keys are considered secure, and that’s what you should use. Aim also to use 2,048 bits for DSA keys and at least 256 bits for ECDSA.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p><strong>Key passphrase</strong></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>passphrases should be viewed only as a mechanism for protecting private keys when they are not installed on production systems. In other words, it’s all right to keep passphrases on production systems, next to the keys. If you need better security in production, you should invest in a hardware solution.</p>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sasl">SASL</h3>
+<div class="sect3">
+<h4 id="_authentication_methods">Authentication Methods</h4>
+<div class="quoteblock">
+<div class="title">From <a href="https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer">Wikipedia</a></div>
+<blockquote>
+<div class="paragraph">
+<p>A SASL mechanism implements a series of challenges and responses. Defined SASL mechanisms[1] include:
+- EXTERNAL, where authentication is implicit in the context (e.g., for protocols already using IPsec or TLS)</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>ANONYMOUS, for unauthenticated guest access</p>
 </li>
@@ -352,48 +496,106 @@ $ echo &ldquo;hello world &quot; | openssl dgst -sha512
 <p>OAUTH10A, OAuth 1.0a message-authentication-code tokens (RFC 5849, Section 3.4.2)[6]</p>
 </li>
 </ul>
-<p>===== Digest-MD5</p>
-<p>.Further reading</p>
+</div>
+<div class="sect4">
+<h5 id="_digest_md5">Digest-MD5</h5>
+<div class="ulist">
+<div class="title">Further reading</div>
 <ul>
-<li><a href="https://docs.oracle.com/javase/jndi/tutorial/ldap/security/digest.html">https://docs.oracle.com/javase/jndi/tutorial/ldap/security/digest.html</a></li>
+<li>
+<p><a href="https://docs.oracle.com/javase/jndi/tutorial/ldap/security/digest.html" class="bare">https://docs.oracle.com/javase/jndi/tutorial/ldap/security/digest.html</a></p>
+</li>
 </ul>
-<p>===== SCRAM</p>
-<p>.From Wikipedia</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_scram">SCRAM</h5>
+<div class="quoteblock">
+<div class="title">From Wikipedia</div>
 <blockquote>
+<div class="paragraph">
 <p>In cryptography, the Salted Challenge Response Authentication Mechanism (SCRAM) is a family of modern, password-based challenge–response authentication mechanisms providing authentication of a user to a server. As it is specified for Simple Authentication and Security Layer (SASL), it can be used for password-based logins to services like SMTP and IMAP (e-mail), or XMPP (chat).</p>
+</div>
 </blockquote>
+</div>
+<div class="quoteblock">
 <blockquote>
+<div class="paragraph">
 <p>Although all clients and servers have to support the SHA-1 hashing algorithm, SCRAM is, unlike CRAM-MD5 or DIGEST-MD5, independent from the underlying hash function.[3] All hash functions defined by the IANA can be used instead.</p>
+</div>
 </blockquote>
-<p>SCRAM:</p>
-<ul>
-<li>Salted Challenge Response Authentication Mechanism.</li>
-<li>Family of SASL mechanisms to address security concerns with traditional mechanisms, e.g PLAIN, DIGEST-MD5.</li>
-<li>Defined in <a href="https://tools.ietf.org/html/rfc5802#section-3%5BRFC-5802%5D">https://tools.ietf.org/html/rfc5802#section-3[RFC-5802]</a>.</li>
-</ul>
-<p>=== LDAP</p>
-<p>==== Implementation</p>
+</div>
+<div class="paragraph">
+<p>SCRAM:
+* Salted Challenge Response Authentication Mechanism.
+* Family of SASL mechanisms to address security concerns with traditional mechanisms, e.g PLAIN, DIGEST-MD5.
+* Defined in <a href="https://tools.ietf.org/html/rfc5802#section-3">RFC-5802</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ldap">LDAP</h3>
+<div class="sect3">
+<h4 id="_implementation">Implementation</h4>
+<div class="paragraph">
 <p>Authentication information is defined in an <code>IinitialDirContext</code> map where the following fields are required:</p>
+</div>
+<div class="ulist">
 <ul>
-<li><code>Content.SECURITY_AUTHENTICATION</code></li>
-<li><code>Content.SECURITY_PRINCIPAL</code></li>
-<li><code>Content.SECURITY_CREDENTIALS</code></li>
+<li>
+<p><code>Content.SECURITY_AUTHENTICATION</code></p>
+</li>
+<li>
+<p><code>Content.SECURITY_PRINCIPAL</code></p>
+</li>
+<li>
+<p><code>Content.SECURITY_CREDENTIALS</code></p>
+</li>
 </ul>
+</div>
+<div class="paragraph">
 <p>Principal and Credentials depend on the <code>SECURITY_AUTHENTICATION</code>.</p>
-<p>==== Authentication Mechanisms</p>
-<p>.LDAP v2</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_authentication_mechanisms">Authentication Mechanisms</h4>
+<div class="ulist">
+<div class="title">LDAP v2</div>
 <ul>
-<li>anonymous</li>
-<li>simple (clear-text password)</li>
-<li>Kerberos v4</li>
+<li>
+<p>anonymous</p>
+</li>
+<li>
+<p>simple (clear-text password)</p>
+</li>
+<li>
+<p>Kerberos v4</p>
+</li>
 </ul>
-<p>.LDAP v3</p>
+</div>
+<div class="ulist">
+<div class="title">LDAP v3</div>
 <ul>
-<li>anonymous</li>
-<li>simple (clear-text password)</li>
-<li>SASL authentication</li>
+<li>
+<p>anonymous</p>
+</li>
+<li>
+<p>simple (clear-text password)</p>
+</li>
+<li>
+<p>SASL authentication</p>
+</li>
 </ul>
-<p>=== Java implementation: JAAS</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_java_implementation_jaas">Java implementation: JAAS</h3>
+
+</div>
+</div>
+</div>
 
   </section>
   <footer>

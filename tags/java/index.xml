@@ -18,13 +18,9 @@
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/notes/security/</guid>
-      <description>== Security Standards
-=== Hashing
-==== Hash Functions
-.Cryptographic Hash Functions What makes a hash function a Cryptographic Hash Function (CHF) is that is a one-way function: practically infeasible to invert.
-==== MD5
-From https://en.wikipedia.org/wiki/MD5[Wikipedia]:
- The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to be used as a cryptographic hash function, it has been found to suffer from extensive vulnerabilities.</description>
+      <description>Security Standards Hashing Hash Functions Cryptographic Hash Functions What makes a hash function a Cryptographic Hash Function (CHF) is that is a one-way function: practically infeasible to invert.
+  MD5 From Wikipedia:
+  The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to be used as a cryptographic hash function, it has been found to suffer from extensive vulnerabilities.</description>
     </item>
     
   </channel>

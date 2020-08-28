@@ -218,11 +218,11 @@ productos de <strong>SOA</strong> y <strong>BPM</strong>  (como <a href="https:/
 <p>He utilizado el <a href="http://github.com/oracle/docker">repositorio de Oracle</a> como base para crear una
 imagen con Oracle SOA Suite 12c instalado, y una configuración para utilizar esa imagen en la
 creación de otro contenedor con un dominio listo para ejecutar.</p>
-<h2 id="obtener-el-repositorio">Obtener el repositorio</h2>
+<h2 id="obtener-el-repositorio-">Obtener el repositorio</h2>
 <p>Para probar esta entrada del blog, debe tener instalado <a href="https://docs.docker.com/">Docker en su máquina</a>.</p>
 <p>El repositorio se encuentra ubicado en: <a href="http://github.com/jeqo/oracle-docker">http://github.com/jeqo/oracle-docker</a></p>
 <p>Mi contribución está en la carpeta <a href="https://github.com/jeqo/oracle-docker/tree/master/OracleSOA">&lsquo;OracleSOA&rsquo;</a>.</p>
-<h2 id="creación-de-la-imagen-con-oracle-soa-suite-12c">Creación de la imagen con Oracle SOA Suite 12c</h2>
+<h2 id="creación-de-la-imagen-con-oracle-soa-suite-12c-">Creación de la imagen con Oracle SOA Suite 12c</h2>
 <p>Primero se deben <a href="http://www.oracle.com/technetwork/middleware/soasuite/downloads/index.html">descargar los instaladores de Oracle SOA Suite 12c Quick Start</a>,
 y colocarlos en la carpeta OracleSOA/dockerfiles/12.1.3. De la misma forma
 <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">descargar Java Development Kit 7</a>,
@@ -230,7 +230,7 @@ y colocarlo en el mismo folder.</p>
 <p>Abrir un terminal en el directorio <em>OracleSOA</em>, ir a dockerfiles, y ejecutar el script <em>buildDockerImage.sh</em> con el argumento <em>-d</em> que indica que es la versión de desarrollo:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sh buildDockerImage.sh -d
 </code></pre></div><p>Esta ejecución crear una imagen llamada: <strong>oracle/soa:12.1.3-dev</strong></p>
-<h2 id="dockerize-un-dominio-con-soa-suite">Dockerize un dominio con SOA Suite</h2>
+<h2 id="dockerize-un-dominio-con-soa-suite-">Dockerize un dominio con SOA Suite</h2>
 <p>Ahora que tenemos una imagen Docker con SOA instalado, podemos reutilizarla para
 crear dominios con WLST.</p>
 <p>Existe un ejemplo de este procedimiento en <em>OracleSOA/samples</em>.</p>
@@ -239,7 +239,7 @@ crear dominios con WLST.</p>
 </code></pre></div><p>Esto debe crear un imagen <em>mysoa</em> que contiene un Compact Domain instalado en: <em>/u01/oracle/work/domains/soa-domain</em></p>
 <p>Eso es todo! Para crear un contenedor desde la imagen, ejecutar:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -i -t mysoa
-</code></pre></div><h3 id="siguientes-pasos">Siguientes pasos</h3>
+</code></pre></div><h3 id="siguientes-pasos-">Siguientes pasos</h3>
 <ul>
 <li>BPM sobre Docker</li>
 <li>Publicar imagenes en Docker Hub Registry</li>

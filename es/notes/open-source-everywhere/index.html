@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Chef Cookbook para Oracle Fusion Middleware 12c</title>
-  <meta property="og:title" content="Chef Cookbook para Oracle Fusion Middleware 12c" />
-  <meta name="twitter:title" content="Chef Cookbook para Oracle Fusion Middleware 12c" />
+  <title>Notas sobre Todo Open-Source</title>
+  <meta property="og:title" content="Notas sobre Todo Open-Source" />
+  <meta name="twitter:title" content="Notas sobre Todo Open-Source" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
-  <meta property="og:url" content="https://jeqo.github.io/es/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/" />
+  <meta property="og:url" content="https://jeqo.github.io/es/notes/open-source-everywhere/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -175,11 +175,6 @@
       
     
     
-    <li class="p-menu__listitem"><a>|</a></li>
-    
-    <li class="p-menu__listitem"><a href="https://jeqo.github.io/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/">en</a></li>
-    
-    
   </ul>
 </nav>
 
@@ -189,55 +184,48 @@
 
 <article class="p-article">
   <header>
-    <h1>Chef Cookbook para Oracle Fusion Middleware 12c</h1>
+    <h1>Notas sobre Todo Open-Source</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2014-12-09T00:00:00Z">
-          Dec 9, 2014
+        <time datetime="2020-08-27T00:00:00Z">
+          Aug 27, 2020
         </time>
       </div>
       
-      <a href="https://jeqo.github.io/tags/oracle" class="c-tag">oracle</a>
-      
-      <a href="https://jeqo.github.io/tags/fmw" class="c-tag">fmw</a>
-      
-      <a href="https://jeqo.github.io/tags/bpm" class="c-tag">bpm</a>
-      
-      <a href="https://jeqo.github.io/tags/chef" class="c-tag">chef</a>
+      <a href="https://jeqo.github.io/tags/open-source" class="c-tag">open-source</a>
       
     </div>
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p>Las herramientas de provisionamiento de software han cambiado la forma de
-crear ambientes: Cuánto tiempo que se toma para instalar Sistema Operativo,
-base de datos, configurar la plataforma, desplegar aplicaciones? Pueden
-ser días, hasta semanas. Ahora que se pueden transladar estos pasos en código,
-este proceso se ve transformado en horas, hasta minutos.</p>
-<p>En esta entrada voy a mostrar como provisionar un Dominio WebLogic con Oracle
-SOA Suite 12c, utilizando un <em>Chef cookbook</em> que he compartido en <a href="http://supermarket.chef.io">Chef Supermarket</a>.</p>
-<h2 id="provisionamiento-con-chef-">Provisionamiento con Chef</h2>
-<p>Chef es una herramienta para configurar software, basada en Ruby. Para mayor información
-sobre como iniciar con Chef, <a href="http://learn.chef.io/">ir aquí</a></p>
-<h3 id="chef-cookbooks-y-recipes-">Chef Cookbooks y Recipes</h3>
-<p><strong>Chef Cookbooks</strong> son grupos de <strong>Recipes</strong> (o recetas), y una <strong>Recipe</strong> es una
-secuencia de instrucciones llamadas <strong>Resources</strong> (o recursos).
-<em>Directory, Execute, Service, Package</em> son algunos recursos disponibles.</p>
-<p>Por ejemplo: Si uno quiere instalar un servidor HTTP Server, primero se debe instalar el recurso <em>Package</em>, y luego iniciar el recurso <em>Service</em>.</p>
-<h2 id="oracle-fusion-middleware-cookbook-">Oracle Fusion Middleware Cookbook</h2>
-<p>He compartido este &ldquo;Chef cookbook&rdquo;: <a href="https://supermarket.chef.io/cookbooks/oracle-fmw">oracle-fmw</a>.
-La idea es tener un grupo de recetas para configurar ambientes con diferentes productos
-de Oracle Fusion Middleware como: SOA, BPM, BAM, OSB, etc.</p>
-<p>En este primer release se incluyen las siguientes recetas:</p>
-<ul>
-<li><strong>prepare-infrastructure-12c</strong>: Crear los usuarios y grupos de Sistema Operativo, instala paquetes base
-para la ejecución de futuros scripts de FMW.</li>
-<li><strong>install-bpm_qs-12c</strong>: Instala Oracle BPM 12c, que incluye los siguientes productos en la versión 12.1.3: JDeveloper, Oracle SOA, Oracle OSB, Oracle BAM, Oracle BAM and others.</li>
-<li><strong>create-rcu_repository-12c</strong>: Crea repositorios en base de datos con RCU.</li>
-<li><strong>create-domain-12c</strong>: Crea un Dominio WebLogic con estos productos: SOA, BAM, BPM, OSB.</li>
-</ul>
-<p>En una siguiente entrada mostraré como utilizar este &ldquo;cookbook&rdquo;. Mientras tanto puede descargar, usar y compartir mejoras en <a href="https://supermarket.chef.io/cookbooks/oracle-fmw">Chef Supermarket</a> y <a href="https://github.com/jeqo/oracle-fmw">GitHub</a>.</p>
+    <div class="paragraph">
+<p>Software se esta comiendo el mundo.</p>
+</div>
+<div class="paragraph">
+<p>Uno de los motores mas importantes que ha permitido un crecimiendo y adopcion de tecnologias informaticas de manera tan disruptiva ha sido el movimiento open-source.</p>
+</div>
+<div class="paragraph">
+<p>El significado de open-source puede ser debatible. Para algunos significa software gratis, para otros software de código abierto. Para mi es un marco de trabajo para compartir conocimiento libremente, en comunidad.</p>
+</div>
+<div class="paragraph">
+<p>En el mundo de software, a lo largo de los ultimos 40 o 50 anios se ha discutido sobre la viabilidad y éxito de los proyectos open-source. Probablemente la competencia entre Microsoft Windows y Linux ha sido las mas famosa. Hoy en dia podemos decir con hechos que open-source funciona&#8212;&#8203;ver slogans como "Microsoft &lt;3 Linux" y "Microsoft &lt;3 Open-source". Y no solo "funciona", sino que ha revolucionado el mundo de software, convirtiendose en la medula espinal de la industria. Probablemente el numero de organizaciones a nivel mundial que no depende de proyectos de software open-source es cero.</p>
+</div>
+<div class="paragraph">
+<p>Aunque software sea el campo donde el movimiento open-source ha sido creado, no hay nada que limite reutilizar los mismo principios y mismas plataformas en otros campos.</p>
+</div>
+<div class="paragraph">
+<p>Sin dejar de ser revolucionario, ni tampoco una panacea donde todo funciona en armonia, el movimiento open-source ha demostrado que funciona en el sistema actual, donde las grandes companias han cambiado el discurso de hace 10-15 anios donde el software de codigo cerrado era "mejor" que open-source. Companias que siguen utilizando ese discurso simplemente quedan en ridiculo, como Oracle en su carta enviada a la Casa Blanca.</p>
+</div>
+<div class="paragraph">
+<p>Esto me lleva a preguntarme, porque los mismos principios no pueden ser implementados en otros campos?</p>
+</div>
+<div class="paragraph">
+<p>La actual pandemia desnuda una vez mas los defectos del sistema actual. Nuestra incapacidad de reaccionar en conjunto, de compartir metodos de mitigacion y tratamiento del virus, entre muchos otros son ejemplo de lo poco preparados para colaborar.</p>
+</div>
+<div class="paragraph">
+<p>Considero que es mucho mas valioso para los estudiantes de ahora entender los principios y herramientas de Open-source (e.g. Git) , que aprender a programar en los colegios. Lo que hace que la carrera de computacion y programacion de software sea tan vanguardista es open-source: los foros de discucion abundan, las plataformas para iniciar son basicamente gratis (e.g. GitHub), los lenguages de programacion y librerias mas importantes son open-source (e.g. JavaScript, HTML, Python, etc).</p>
+</div>
 
   </section>
   <footer>
@@ -264,31 +252,16 @@ para la ejecución de futuros scripts de FMW.</li>
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/es/posts/2014-11-30-create-nfs-instance-aws/">Newer</a>
+          <a href="https://jeqo.github.io/es/notes/kafka-streams-stores/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/es/posts/2014-12-11-run-bpm-12c-aws/">Older</a>
           
         </div>
       </div>
     </nav>
     
-
-<section class="p-related">
-  <h3>See Also</h3>
-  <ul id="slider" class="p-related__list">
-    
-    <li class="p-related__item js-related__item">
-      <a href="/es/posts/2014-11-30-create-nfs-instance-aws/"
-        >
-        <span>Crear una instancia NFS en AWS usando Vagrant y Chef</span>
-      </a>
-    </li>
-    
-  </ul>
-</section>
 
 
   </footer>
@@ -321,11 +294,6 @@ para la ejecución de futuros scripts de FMW.</li>
         <a href="/about">Acerca</a>
       </li>
       
-    
-    
-    <li class="p-menu__listitem"><a>|</a></li>
-    
-    <li class="p-menu__listitem"><a href="https://jeqo.github.io/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/">en</a></li>
     
     
   </ul>

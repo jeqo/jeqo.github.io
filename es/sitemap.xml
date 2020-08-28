@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://jeqo.github.io/es/</loc>
-    <lastmod>2020-06-15T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-27T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -14,6 +14,46 @@
                 rel="alternate"
                 hreflang="es"
                 href="https://jeqo.github.io/es/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/es/notes/open-source-everywhere/</loc>
+    <lastmod>2020-08-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/es/notes/</loc>
+    <lastmod>2020-08-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/notes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/notes/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/es/tags/open-source/</loc>
+    <lastmod>2020-08-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jeqo.github.io/es/tags/</loc>
+    <lastmod>2020-08-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/tags/"
                 />
   </url>
   
@@ -48,21 +88,6 @@
   </url>
   
   <url>
-    <loc>https://jeqo.github.io/es/notes/</loc>
-    <lastmod>2020-06-15T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/notes/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/notes/"
-                />
-  </url>
-  
-  <url>
     <loc>https://jeqo.github.io/es/tags/stream-processing/</loc>
     <lastmod>2020-06-15T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -74,21 +99,6 @@
                 rel="alternate"
                 hreflang="es"
                 href="https://jeqo.github.io/es/tags/stream-processing/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://jeqo.github.io/es/tags/</loc>
-    <lastmod>2020-06-15T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/"
                 />
   </url>
   

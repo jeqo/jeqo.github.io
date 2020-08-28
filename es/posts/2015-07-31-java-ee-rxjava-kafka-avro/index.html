@@ -214,7 +214,7 @@
 Java EE y RxJava/Kafka/Avro, para publicar/subscribirse a &ldquo;topic messages&rdquo;.</p>
 <p>Puedes ir directamente al <a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro">código</a>,
 o revisar el enfoque que apliqué:</p>
-<h2 id="tldr">TL;DR</h2>
+<h2 id="tldr-">TL;DR</h2>
 <p>He estado realizando alguna pruebas de concepto con <a href="http://kafka.apache.org/">Kafka</a>
 seducido por los beneficios que propone (rapidez, escalabilidad, y funcionar como
 una fuente de eventos durable) para implementar una propagación de eventos
@@ -242,7 +242,7 @@ con <a href="https://github.com/ReactiveX/RxJava">RxJava</a> que aplica concepto
 <a href="http://reactivex.io/documentation/observable.html"><strong>Observables</strong></a> y <strong>Subscribers</strong>
 que cubre mis requerimientos: cada Kafka topic será un stream &ldquo;observable&rdquo; y
 cada Consumer se suscribirá a este &ldquo;observable&rdquo;. Revisemos el código:</p>
-<h2 id="sample-java-ee-app">Sample Java EE App</h2>
+<h2 id="sample-java-ee-app-">Sample Java EE App</h2>
 <p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.1">Tag: v0.0.1</a></p>
 <p>El primer paso fue tener un par de operaciones REST, implementados con JAX-RS:</p>
 <ul>
@@ -267,7 +267,7 @@ cada Consumer se suscribirá a este &ldquo;observable&rdquo;. Revisemos el códi
 <span style="color:#333">}</span>
 </code></pre></div><p>Luego de tener mi recurso &ldquo;Clients&rdquo; implementado, mi requerimiento es
 propagar el evento &ldquo;ClientAddedEvent&rdquo; y listarlo en el recurso Events.</p>
-<h2 id="serialización-y-deserialización-de-eventos">Serialización y Deserialización de Eventos</h2>
+<h2 id="serialización-y-deserialización-de-eventos-">Serialización y Deserialización de Eventos</h2>
 <p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.2">Tag: v0.0.2</a></p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">test</span><span style="color:#333">()</span> <span style="color:#333">{</span>
     ClientAddedEvent event <span style="color:#333">=</span> ClientAddedEvent<span style="color:#333">.</span><span style="color:#00c">newBuilder</span><span style="color:#333">()</span>
@@ -346,7 +346,7 @@ creará cada vez que el proyecto sea construido:</p>
         <span style="color:#333">}</span>
     <span style="color:#333">}</span>
 <span style="color:#333">}</span>
-</code></pre></div><h2 id="publicando-y-consumiendo-eventos-desde-kafkarxjava">Publicando y consumiendo eventos desde Kafka/RxJava</h2>
+</code></pre></div><h2 id="publicando-y-consumiendo-eventos-desde-kafkarxjava-">Publicando y consumiendo eventos desde Kafka/RxJava</h2>
 <p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.3">Tag: v0.0.3</a></p>
 <p>Primero, definamos un par de interfaces, EventServer:</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">EventServer</span><span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
@@ -421,7 +421,7 @@ creará cada vez que el proyecto sea construido:</p>
 con Kafka, tanto para el Publisher como para el Subscriber.</p>
 <p>En el tag v0.0.3 se puede ejecutar cada clase (KafkaEventServer and KafkaEventProducer)
 para validar que el servidor Kafka esta trabajando correctamente.</p>
-<h2 id="uniendo-todo">Uniendo todo</h2>
+<h2 id="uniendo-todo-">Uniendo todo</h2>
 <p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.1.0">Tag: v0.1.0</a></p>
 <p>Finalmente, vamos a integrar la aplicación Java EE interacción con la nuestra
 fuente de eventos (Kafka):</p>
