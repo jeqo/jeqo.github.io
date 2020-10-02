@@ -18,11 +18,17 @@
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/notes/kafka-security/</guid>
-      <description>Authentication SASL/PLAIN  Further reading   Kafka docs: https://kafka.apache.org/documentation/#security_sasl_plain
-    SASL/SCRAM  Support: - SCRAM-SHA-256 - SCRAM-SHA-512
- Considerations  For each SCRAM mechanism enabled, credentials must be created by adding a config with the mechanism name. Credentials for inter-broker communication must be created before Kafka brokers are started.
-   Further reading   Kafka docs: https://kafka.apache.org/documentation/#security_sasl_scram
-       Authentication   Authorization Apache Kafka Access Control Lists    </description>
+      <description>== Authentication
+=== SASL/PLAIN
+.Further reading
+ Kafka docs: https://kafka.apache.org/documentation/#security_sasl_plain  === SASL/SCRAM
+Support:
+ https://tools.ietf.org/html/rfc7677[SCRAM-SHA-256] SCRAM-SHA-512  ==== Considerations
+ For each SCRAM mechanism enabled, credentials must be created by adding a config with the mechanism name. Credentials for inter-broker communication must be created before Kafka brokers are started.
+ .Further reading
+ Kafka docs: https://kafka.apache.org/documentation/#security_sasl_scram  == Authentication
+== Authorization
+=== Apache Kafka Access Control Lists</description>
     </item>
     
     <item>

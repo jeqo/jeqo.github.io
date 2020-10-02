@@ -201,87 +201,40 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    <div class="sect1">
-<h2 id="_authentication">Authentication</h2>
-<div class="sectionbody">
-<div class="ulist">
-<div class="title">Examples</div>
+    <p>== Authentication</p>
+<p>.Examples</p>
 <ul>
-<li>
-<p><a href="https://github.com/jeqo/docker-composes/tree/master/zookeeper-security" class="bare">https://github.com/jeqo/docker-composes/tree/master/zookeeper-security</a></p>
-</li>
+<li><a href="https://github.com/jeqo/docker-composes/tree/master/zookeeper-security">https://github.com/jeqo/docker-composes/tree/master/zookeeper-security</a></li>
 </ul>
-</div>
-<div class="sect2">
-<h3 id="_clientserver_authentication">Client/Server Authentication</h3>
-<div class="sect3">
-<h4 id="_sasl_authentication">SASL Authentication</h4>
-<div class="paragraph">
-<p>SASL Authentication alone does not deny access to <code>anonymous</code> users. Beware of this as it gives a false sense of security, and can take some time to realize. Reference: <a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1736" class="bare">https://issues.apache.org/jira/browse/ZOOKEEPER-1736</a></p>
-</div>
-<div class="paragraph">
+<p>=== Client/Server Authentication</p>
+<p>==== SASL Authentication</p>
+<p>SASL Authentication alone does not deny access to <code>anonymous</code> users. Beware of this as it gives a false sense of security, and can take some time to realize. Reference: <a href="https://issues.apache.org/jira/browse/ZOOKEEPER-1736">https://issues.apache.org/jira/browse/ZOOKEEPER-1736</a></p>
 <p>This can be solved by forcing an Authentication Scheme:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-properties" data-lang="properties">requireClientAuthScheme=sasl</code></pre>
-</div>
-</div>
+<pre><code class="language-properties" data-lang="properties">requireClientAuthScheme=sasl
+</code></pre><hr>
+<p>.Futher reading</p>
+<ul>
+<li><a href="https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication">https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication</a></li>
+</ul>
 <hr>
-<div class="ulist">
-<div class="title">Futher reading</div>
-<ul>
-<li>
-<p><a href="https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication" class="bare">https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication</a>
----</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_serverserver_authentication">Server/Server Authentication</h3>
+<p>=== Server/Server Authentication</p>
 <hr>
-<div class="ulist">
-<div class="title">Futher reading</div>
+<p>.Futher reading</p>
 <ul>
-<li>
-<p><a href="https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication" class="bare">https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication</a>
----</p>
-</li>
+<li><a href="https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication">https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication</a></li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_authorization">Authorization</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_zookeeper_acls">Zookeeper ACLs</h3>
-<div class="ulist">
+<hr>
+<p>== Authorization</p>
+<p>=== Zookeeper ACLs</p>
 <ul>
-<li>
-<p>An ACL pertains only to a specific <code>znode</code>.</p>
-</li>
-<li>
-<p>ACLs are not recursive.</p>
-</li>
-<li>
-<p>ACLs require an <code>id</code> with the form: <code>scheme:expression</code>, where <code>expression</code> depends on the authentication scheme.</p>
-</li>
+<li>An ACL pertains only to a specific <code>znode</code>.</li>
+<li>ACLs are not recursive.</li>
+<li>ACLs require an <code>id</code> with the form: <code>scheme:expression</code>, where <code>expression</code> depends on the authentication scheme.</li>
 </ul>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>From Zookeeper docs:</p>
-</div>
-<div class="paragraph">
-<div class="title">ACL Permissions</div>
-<p>ZooKeeper supports the following permissions:</p>
-</div>
-<div class="ulist">
+<p>====
+From Zookeeper docs:</p>
+<p>.ACL Permissions
+ZooKeeper supports the following permissions:</p>
 <ul>
 <li>
 <p><code>CREATE</code>: you can create a child node</p>
@@ -299,35 +252,16 @@
 <p><code>ADMIN</code>: you can set permissions</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<div class="title">Builtin ACL Schemes</div>
-<p>ZooKeeeper has the following built in schemes:</p>
-</div>
-<div class="ulist">
+<p>.Builtin ACL Schemes
+ZooKeeeper has the following built in schemes:</p>
 <ul>
-<li>
-<p><code>world</code> has a single id, anyone, that represents anyone.</p>
-</li>
-<li>
-<p><code>auth</code> is a special scheme which ignores any provided expression and instead uses the current user, credentials, and scheme. Any expression (whether user like with SASL authentication or user:password like with DIGEST authentication) provided is ignored by the ZooKeeper server when persisting the ACL. However, the expression must still be provided in the ACL because the ACL must match the form scheme:expression:perms. This scheme is provided as a convenience as it is a common use-case for a user to create a znode and then restrict access to that znode to only that user. If there is no authenticated user, setting an ACL with the auth scheme will fail.</p>
-</li>
-<li>
-<p><code>digest</code> uses a username:password string to generate MD5 hash which is then used as an ACL ID identity. Authentication is done by sending the username:password in clear text. When used in the ACL the expression will be the username:base64 encoded SHA1 password digest.</p>
-</li>
-<li>
-<p><code>ip</code> uses the client host IP as an ACL ID identity. The ACL expression is of the form addr/bits where the most significant bits of addr are matched against the most significant bits of the client host IP.</p>
-</li>
-<li>
-<p><code>x509</code> uses the client X500 Principal as an ACL ID identity. The ACL expression is the exact X500 Principal name of a client. When using the secure port, clients are automatically authenticated and their auth info for the x509 scheme is set.</p>
-</li>
+<li><code>world</code> has a single id, anyone, that represents anyone.</li>
+<li><code>auth</code> is a special scheme which ignores any provided expression and instead uses the current user, credentials, and scheme. Any expression (whether user like with SASL authentication or user:password like with DIGEST authentication) provided is ignored by the ZooKeeper server when persisting the ACL. However, the expression must still be provided in the ACL because the ACL must match the form scheme:expression:perms. This scheme is provided as a convenience as it is a common use-case for a user to create a znode and then restrict access to that znode to only that user. If there is no authenticated user, setting an ACL with the auth scheme will fail.</li>
+<li><code>digest</code> uses a username:password string to generate MD5 hash which is then used as an ACL ID identity. Authentication is done by sending the username:password in clear text. When used in the ACL the expression will be the username:base64 encoded SHA1 password digest.</li>
+<li><code>ip</code> uses the client host IP as an ACL ID identity. The ACL expression is of the form addr/bits where the most significant bits of addr are matched against the most significant bits of the client host IP.</li>
+<li><code>x509</code> uses the client X500 Principal as an ACL ID identity. The ACL expression is the exact X500 Principal name of a client. When using the secure port, clients are automatically authenticated and their auth info for the x509 scheme is set.</li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<p>====</p>
 
   </section>
   <footer>

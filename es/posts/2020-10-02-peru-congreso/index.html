@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Notas sobre Todo Open-Source</title>
-  <meta property="og:title" content="Notas sobre Todo Open-Source" />
-  <meta name="twitter:title" content="Notas sobre Todo Open-Source" />
+  <title>Cómo mejorar el sitio web del Congreso de Perú?</title>
+  <meta property="og:title" content="Cómo mejorar el sitio web del Congreso de Perú?" />
+  <meta name="twitter:title" content="Cómo mejorar el sitio web del Congreso de Perú?" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
   <meta property="og:site_name" content="@jeqo" />
-  <meta property="og:url" content="https://jeqo.github.io/es/notes/open-source-everywhere/" />
+  <meta property="og:url" content="https://jeqo.github.io/es/posts/2020-10-02-peru-congreso/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -184,14 +184,16 @@
 
 <article class="p-article">
   <header>
-    <h1>Notas sobre Todo Open-Source</h1>
+    <h1>Cómo mejorar el sitio web del Congreso de Perú?</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2020-08-27T00:00:00Z">
-          Aug 27, 2020
+        <time datetime="2020-10-01T00:00:00Z">
+          Oct 1, 2020
         </time>
       </div>
+      
+      <a href="https://jeqo.github.io/tags/congreso" class="c-tag">congreso</a>
       
       <a href="https://jeqo.github.io/tags/open-source" class="c-tag">open-source</a>
       
@@ -199,33 +201,71 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    <div class="paragraph">
-<p>Software se esta comiendo el mundo.</p>
-</div>
-<div class="paragraph">
-<p>Uno de los motores mas importantes que ha permitido un crecimiendo y adopcion de tecnologias informaticas de manera tan disruptiva ha sido el movimiento open-source.</p>
-</div>
-<div class="paragraph">
-<p>El significado de open-source puede ser debatible. Para algunos significa software gratis, para otros software de código abierto. Para mi es un marco de trabajo para compartir conocimiento libremente, en comunidad.</p>
-</div>
-<div class="paragraph">
-<p>En el mundo de software, a lo largo de los ultimos 40 o 50 anios se ha discutido sobre la viabilidad y éxito de los proyectos open-source. Probablemente la competencia entre Microsoft Windows y Linux ha sido las mas famosa. Hoy en dia podemos decir con hechos que open-source funciona&#8212;&#8203;ver slogans como "Microsoft &lt;3 Linux" y "Microsoft &lt;3 Open-source". Y no solo "funciona", sino que ha revolucionado el mundo de software, convirtiendose en la medula espinal de la industria. Probablemente el numero de organizaciones a nivel mundial que no depende de proyectos de software open-source es cero.</p>
-</div>
-<div class="paragraph">
-<p>Aunque software sea el campo donde el movimiento open-source ha sido creado, no hay nada que limite reutilizar los mismo principios y mismas plataformas en otros campos.</p>
-</div>
-<div class="paragraph">
-<p>Sin dejar de ser revolucionario, ni tampoco una panacea donde todo funciona en armonia, el movimiento open-source ha demostrado que funciona en el sistema actual, donde las grandes companias han cambiado el discurso de hace 10-15 anios donde el software de codigo cerrado era "mejor" que open-source. Companias que siguen utilizando ese discurso simplemente quedan en ridiculo, como Oracle en su carta enviada a la Casa Blanca.</p>
-</div>
-<div class="paragraph">
-<p>Esto me lleva a preguntarme, porque los mismos principios no pueden ser implementados en otros campos?</p>
-</div>
-<div class="paragraph">
-<p>La actual pandemia desnuda una vez mas los defectos del sistema actual. Nuestra incapacidad de reaccionar en conjunto, de compartir metodos de mitigacion y tratamiento del virus, entre muchos otros son ejemplo de lo poco preparados para colaborar.</p>
-</div>
-<div class="paragraph">
-<p>Considero que es mucho mas valioso para los estudiantes de ahora entender los principios y herramientas de Open-source (e.g. Git) , que aprender a programar en los colegios. Lo que hace que la carrera de computacion y programacion de software sea tan vanguardista es open-source: los foros de discucion abundan, las plataformas para iniciar son basicamente gratis (e.g. GitHub), los lenguages de programacion y librerias mas importantes son open-source (e.g. JavaScript, HTML, Python, etc).</p>
-</div>
+    <p>Si bien nos podemos seguir quejando (y con muchas razones) sobre las deficiencias del Congreso, no sirve de mucho si no va de la mano de con propuestas de como apoyar a solucionarlo.</p>
+<p>En teoría el Congreso literalmente trabaja para nosotros (los ciudadanos).
+Si como ciudadanos no somos capaces de entender y fiscalizar que es lo que el Congreso hace, no hay manera de controlarlos.</p>
+<h2 id="sitio-web-del-congreso">Sitio web del Congreso</h2>
+<p>El <a href="http://www.congreso.gob.pe">actual sitio web</a> si bien tiene una apariencia renovada, la información expuesta aún no es facilmente accessible, ni procesable.</p>
+<p>Inicialmente me he enfocado en <a href="http://www.congreso.gob.pe/pley-2016-2021">&ldquo;Proyectos de Ley&rdquo;</a>.</p>
+<p>Tanto la búsqueda, como el listado de Proyectos de Ley, están en diferente formato que la web del congreso:</p>
+<p><img src="/images/posts/2020-10-02-peru-congreso/busqueda.png" alt="busqueda"></p>
+<p><img src="/images/posts/2020-10-02-peru-congreso/lista.png" alt="lista"></p>
+<p>Aunque la información se encuentra disponible, no es facilmente accesible.
+Si bien existen enlaces, estos están &ldquo;escondidos&rdquo;.
+Por ejemplo, no existe un enlace fácil de referenciar para acceder un proyecto de ley.</p>
+<p>Por otro lado, si se desea analizar la información de los proyectos de ley, no hay una base de datos pública que permita explotar esos datos.</p>
+<p>Tanto la lista de proyectos, como el seguimiento y su expediente se encuentran todos en enlaces distintos.</p>
+<p>Por último, el sitio web esta expuesto sin seguridad habilitada (HTTP).
+Aunque uno puede argumentar que al brindar información pública, no es necesario encriptar los datos; pero esto no es cierto.
+HTTPS es necesario para que la información sea facilmente accesible a través de motores de búsqueda como Google.
+Los proyectos del ley tienen formularios que contienen información personal de los ciudadanos para publicar opiniones.
+Sin HTTPS, estos datos viajan sin ser encriptados, permitiendo que esta información sea accesible en internet.
+Además, si uno quiere hacer referencia a la página de un proyecto de ley a traves de <code>&lt;iframe&gt;</code>, no es actualmente posible si el sitio referenciado es HTTP.</p>
+<p>Una de mis sorpresas fue que en realidad <em>si</em> existe opción para publicar opiniones sobre los proyectos de ley (!). Y por más escondida que la opción está, existen ciertos proyectos que tienen opiniones publicadas.</p>
+<p>Con un sitio web más usable para los ciudadanos, esperaría que estas opiniones publicadas se multipliquen y podamos ejercer mayor presión sobre este poder del estado.</p>
+<h2 id="política-y-proyectos-de-software">Política y proyectos de software</h2>
+<p>Navegando el sitio del congreso, he llegado a la conclusión de que el trabajo realizado por los congresistas no difiere tanto del trabajo de un equipo de desarrollo de software, o una comunidad open-source:</p>
+<ul>
+<li>Ambos gestionan contenido: el proyecto de software gestiona el código fuente, y el congreso gestiona el código de leyes.</li>
+<li>En los proyectos de software, los cambios son propuestos a través de &ldquo;Pull Requests&rdquo; donde un programador, o equipo de programadores, describen que cambios quieren realizar a las leyes actuales. El Congreso crea proyectos de ley que buscan implementar cambios en la Constitución u otros código de leyes.</li>
+<li>Las propuestas de cambio pasan por un proceso de revisión y aprovación similar a los proyectos de software.</li>
+<li>Los cambios en el ciclo de vida de un proyecto de ley son capturados en su seguimiento, similar a los cambios de un &ldquo;issue&rdquo; en JIRA u otro gestor de proyectos.</li>
+</ul>
+<p>La gran diferencia es que los proyectos de software utilizan plataformas abiertas como GitHub, donde uno puede navegar todos los cambios que han pasado un proyecto, quien ha realizado los cambios, quienes lo aprobaron, etc.</p>
+<p>Luego de revisar brevemente como funcionan los proyectos de ley en el Congreso, no me es difícil imaginar un futuro donde los proyectos de ley sean gestionados con git, publicamente accesibles, y discutidos abiertamente.</p>
+<p>De echo, la discusión abierta es la parte más importante de un proyecto de software. Las consultas, recomendaciones, y como la propuesta se va mejorando para ser aprobada. Esto actualmente no existe, o es efímero en las sesiones del congreso. Si pudieramos tener no solo la evaluación de un proyecto ley, sino también la discución de como se llego a la versión final, sería de tremendo impacto en terminos de fiscalización y evaluación del congreso.</p>
+<p>Para poner un ejemplo, imaginen el Congreso gestionando repositorios en GitHub:</p>
+<p>Donde podamos acceder al estado actual de las leyes:</p>
+<p><img src="/images/posts/2020-10-02-peru-congreso/github.png" alt="github"></p>
+<p>Por ejemplo, en &ldquo;Contributors&rdquo; en la zona derecha podriamos acceder a los Congresistas que contribuyen al proyecto, y quien es el que más contribuye, etc.</p>
+<p>Los números de &ldquo;Pull Requests&rdquo; abiertos, representarían los proyectos de ley abiertos y en discusión:</p>
+<p><img src="/images/posts/2020-10-02-peru-congreso/prs.png" alt="pull requests"></p>
+<p>Si uno quiere revisar un proyecto de ley, revisaría un &ldquo;Pull Request&rdquo;, y vería la discución y los textos propuestos:</p>
+<p><img src="/images/posts/2020-10-02-peru-congreso/pr-comments.png" alt="pull request-comments"></p>
+<p><img src="/images/posts/2020-10-02-peru-congreso/pr-docs.png" alt="pull request-docs"></p>
+<p>Donde en vez de código fuente de software, veríamos específicamente los cambios propuestos en las leyes. Y cualquier ciudadano podría comentar específicamente que parte apoya o propone modificar previo a la aceptación.</p>
+<h2 id="experimento-nuevo-sitio-web-para-el-congreso">Experimento: nuevo sitio web para el Congreso</h2>
+<p>Si bien esta visión puede verse bastante lejana, se pueden ir experimentando algunas mejoras.</p>
+<p>Para mejorar la referenciación y seguimiento de los proyectos, podriamos exponer los proyectos en un sitio web más simple, tipo blog, donde cada post sería un proyecto de ley.</p>
+<p>Este proyecto de es un intento de materializar esta propuesta: <a href="https://github.com/jeqo/peru-congreso">https://github.com/jeqo/peru-congreso</a>.
+Y el resultado es el sitio web: <a href="https://jeqo.github.io/peru-congreso">https://jeqo.github.io/peru-congreso</a></p>
+<h3 id="importación-de-datos">Importación de datos</h3>
+<p>El primer paso para experimentar con estos datos, es importar la información desde el sitio web del Congreso.
+Como no existe una base de datos pública, he tenido que acceder directamente al código disponible en el sitio web para extraer los datos de la página web HTML.</p>
+<p>Luego de extraer los datos y los enlaces al seguimiento y expediente, he podido obtener toda la información relacionada a un proyecto de ley.</p>
+<p>Los datos son guardados en un sistema de datos local (Apache Kafka), para ser luego procesados.</p>
+<p>Actualmente esta importación depende directamente de la estructura de la página web. Si la web es actualizada (espero que mejorada) va a requerir modificar el proceso de importación.</p>
+<h3 id="exportación-de-datos">Exportación de datos</h3>
+<p>Los datos importados son procesados y exportados en distintos formatos:</p>
+<ul>
+<li>CSV: <a href="https://jeqo.github.io/peru-congreso/proyectos-ley/2016-2021.csv">https://jeqo.github.io/peru-congreso/proyectos-ley/2016-2021.csv</a></li>
+<li>Blog (usando <a href="https://gohugo.io">Hugo</a>): <a href="https://jeqo.github.io/peru-congreso">https://jeqo.github.io/peru-congreso</a></li>
+<li>Twitter: <a href="https://twitter.com/otrocongresope">https://twitter.com/otrocongresope</a></li>
+</ul>
+<p>El objetivo de exportar los datos en formato CSV es para permitir que científicos de datos puedan procesar esta información y analizar el rendimiento del Congreso.</p>
+<p>El blog busca darle fácil acceso a los proyectos.</p>
+<p>Y Twitter permite la publicación de actualizaciones para su discusión en esta plataforma.</p>
+<p>Actualmente estas exportaciones son ejecutadas manualmente de forma diaria.</p>
 
   </section>
   <footer>
@@ -252,17 +292,30 @@
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/es/notes/kafka-streams-stores/">Newer</a>
+          <a href="https://jeqo.github.io/es/notes/open-source-everywhere/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/es/posts/2020-10-02-peru-congreso/">Older</a>
           
         </div>
       </div>
     </nav>
     
+
+<section class="p-related">
+  <h3>See Also</h3>
+  <ul id="slider" class="p-related__list">
+    
+    <li class="p-related__item js-related__item">
+      <a href="/es/notes/open-source-everywhere/"
+        >
+        <span>Notas sobre Todo Open-Source</span>
+      </a>
+    </li>
+    
+  </ul>
+</section>
 
 
   </footer>
