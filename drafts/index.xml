@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Sun, 31 May 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://jeqo.github.io/drafts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 31 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/drafts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>KIP-634: Complementary support for headers in Kafka Streams</title>
       <link>https://jeqo.github.io/drafts/kip-634/</link>
@@ -30,7 +26,7 @@ Related JIRA issues  https://issues.apache.org/jira/browse/KAFKA-7718  Proposed 
       
       <guid>https://jeqo.github.io/drafts/kip-617/</guid>
       <description>Motivation Fetching range of records from Kafka Streams state stores comes with an iterator to traverse elements from oldest to newest, e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions:
- For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&amp;rdquo;
+ For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&amp;quot;
  Similar guarantees are provided on other fetch and range operations. But in the case of key ranges, there are some nuances regarding order:
  The returned iterator must be safe from {@link java.</description>
     </item>

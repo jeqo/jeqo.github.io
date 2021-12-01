@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Oracle SOA Suite 12c Docker Image</title>
+  <title>oracle soa suite 12c docker image</title>
   <meta property="og:title" content="Oracle SOA Suite 12c Docker Image" />
   <meta name="twitter:title" content="Oracle SOA Suite 12c Docker Image" />
   
@@ -158,6 +158,12 @@
     
       
       <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
         <a href="/notes">Notes</a>
       </li>
       
@@ -221,7 +227,7 @@ an independent repository: <a href="https://github.com/jeqo/oracle-soa-12c-docke
 <h2 id="improvements">Improvements</h2>
 <p>Basically Dockerfile scripts were moved to shell scripts and are called
 from Packer.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="background-color:#fff0f0">&#34;provisioners&#34;</span><span style="color:#f00;background-color:#faa">:</span> [
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="background-color:#fff0f0">&#34;provisioners&#34;</span><span style="color:#f00;background-color:#faa">:</span> [
     {
       <span style="color:#070">&#34;type&#34;</span>: <span style="background-color:#fff0f0">&#34;shell&#34;</span>,
       <span style="color:#070">&#34;scripts&#34;</span>: [
@@ -258,7 +264,7 @@ from Packer.</p>
   ]</code></pre></div>
 <p>After provisioning, you can save your image, and if
 you want push it to Docker Hub:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="background-color:#fff0f0">&#34;post-processors&#34;</span><span style="color:#f00;background-color:#faa">:</span> [
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="background-color:#fff0f0">&#34;post-processors&#34;</span><span style="color:#f00;background-color:#faa">:</span> [
     [
       {
         <span style="color:#070">&#34;type&#34;</span>: <span style="background-color:#fff0f0">&#34;docker-tag&#34;</span>,
@@ -362,6 +368,12 @@ on <a href="http://jeqo.github.io/blog/devops/docker-image-oracle-soa/">my previ
       
       <li class="p-menu__listitem">
         <a href="/posts">Posts</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
       </li>
       
     

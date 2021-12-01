@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Docker image for Oracle SOA Suite 12c</title>
+  <title>docker image for oracle soa suite 12c</title>
   <meta property="og:title" content="Docker image for Oracle SOA Suite 12c" />
   <meta name="twitter:title" content="Docker image for Oracle SOA Suite 12c" />
   
@@ -158,6 +158,12 @@
     
       
       <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
         <a href="/notes">Notes</a>
       </li>
       
@@ -223,16 +229,16 @@
 <h2 id="creating-the-soa-suite-12c-image">Creating the SOA Suite 12c image</h2>
 <p>Now you should <a href="http://www.oracle.com/technetwork/middleware/soasuite/downloads/index.html">download Oracle SOA Suite 12c Quick Start installer</a>, and put it into OracleSOA/dockerfiles/12.1.3. Also, you should <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">download Java Development Kit 7</a>, and put it in the same folder.</p>
 <p>Open a terminal into <em>OracleSOA</em> directory, go to dockerfiles, run the script <em>buildDockerImage.sh</em> with the <em>-d</em> argument because we are installing the Quick Start version of SOA Suite 12c:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sh buildDockerImage.sh -d</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sh buildDockerImage.sh -d</code></pre></div>
 <p>This creates a Docker image called: <strong>oracle/soa:12.1.3-dev</strong></p>
 <h2 id="dockerize-a-soa-suite-domain">Dockerize a SOA Suite Domain</h2>
 <p>So, now we have a Docker image with Oracle SOA Suite 12c installed. What we can do now is create a domain with WLST.</p>
 <p>That&rsquo;s what I did, and I add it to the <em>OracleSOA/samples</em> directory.</p>
 <p>To run it, go to the <em>OracleSOA/samples/12c-domain</em> and run the following commands:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker build -t mysoa .</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker build -t mysoa .</code></pre></div>
 <p>And this should create an image called <em>mysoa</em> that contains a Compact Domain into this directory: <em>/u01/oracle/work/domains/soa-domain</em></p>
 <p>That&rsquo;s it! When you want to run a SOA Suite 12c Domain, just run:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker run -i -t mysoa</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker run -i -t mysoa</code></pre></div>
 <h3 id="next-steps">Next steps</h3>
 <ul>
 <li>BPM on Docker</li>
@@ -316,6 +322,12 @@
       
       <li class="p-menu__listitem">
         <a href="/posts">Posts</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
       </li>
       
     

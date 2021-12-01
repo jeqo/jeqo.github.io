@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Sun, 17 May 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://jeqo.github.io/tags/distributed-tracing/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 17 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/distributed-tracing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Notes on Distributed Tracing</title>
       <link>https://jeqo.github.io/notes/distributed-tracing/</link>
@@ -24,19 +20,19 @@
     
     <item>
       <title>Making sense of Event-Driven Systems @ Oracle Code One 2019</title>
-      <link>https://jeqo.github.io/talks/making-sense-event-drive-systems-codeone19/</link>
+      <link>https://jeqo.github.io/talks/making-sense-event-driven-systems-codeone19/</link>
       <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/talks/making-sense-event-drive-systems-codeone19/</guid>
+      <guid>https://jeqo.github.io/talks/making-sense-event-driven-systems-codeone19/</guid>
       <description>&lt;p&gt;Presented at &lt;a href=&#34;https://events.rainfocus.com/widget/oracle/oow19/catalogcodeone19?search=jorge&amp;amp;search.codeonetracks=15560568230440086BEm&#34;&gt;Oracle Code One 2019&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Making sense of Event-Driven Systems @ Kafka Summit 2019</title>
-      <link>https://jeqo.github.io/talks/making-sense-event-drive-dataflows-kafkasummitnyc19/</link>
+      <link>https://jeqo.github.io/talks/making-sense-event-driven-dataflows-kafkasummitnyc19/</link>
       <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/talks/making-sense-event-drive-dataflows-kafkasummitnyc19/</guid>
+      <guid>https://jeqo.github.io/talks/making-sense-event-driven-dataflows-kafkasummitnyc19/</guid>
       <description>&lt;p&gt;Presented at &lt;a href=&#34;https://kafka-summit.org/sessions/tracing-kafka-based-applications-making-sense-event-driven-dataflows/&#34;&gt;Kafka Summit NYC 2019&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     

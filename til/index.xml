@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tils on @jeqo</title>
+    <link>https://jeqo.github.io/til/</link>
+    <description>Recent content in Tils on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright @jeqo</copyright>
+    <lastBuildDate>Wed, 01 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/til/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About TILs</title>
+      <link>https://jeqo.github.io/til/2021-12-01-about-til/</link>
+      <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/til/2021-12-01-about-til/</guid>
+      <description>Today I learned about Today-I-Learned posts from Simon Willison: https://til.simonwillison.net/ and found it super cool, so I decided to try out, let&amp;rsquo;s see how it goes.</description>
+    </item>
+    
+  </channel>
+</rss>

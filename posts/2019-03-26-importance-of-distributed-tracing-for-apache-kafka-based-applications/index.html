@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>The Importance of Distributed Tracing for Apache Kafka Based Applications</title>
+  <title>the importance of distributed tracing for apache kafka based applications</title>
   <meta property="og:title" content="The Importance of Distributed Tracing for Apache Kafka Based Applications" />
   <meta name="twitter:title" content="The Importance of Distributed Tracing for Apache Kafka Based Applications" />
   
@@ -158,6 +158,12 @@
     
       
       <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
         <a href="/notes">Notes</a>
       </li>
       
@@ -217,7 +223,7 @@
 <p>Let’s imagine a “Hello, World!” web service that has a greeting operation. This service has a dependency on another service called translation, which emits a response according to the geographical location of the request.</p>
 <p><img src="https://cdn.confluent.io/wp-content/uploads/Services.png" alt="hello-world"></p>
 <p>A trace would look like this:</p>
-<pre><code>[-----------------hello_world:greeting-----------------------]
+<pre tabindex="0"><code>[-----------------hello_world:greeting-----------------------]
          [-----hello_world:call_translation_service----]
                [--translation:translate----]
 </code></pre><p>A root span is created when the “Hello, World!” service receives a call to perform the greeting operation. Then another span is created to record how long it takes to call the translation service. The translation service, on the other hand, receives a call to the translate operation and records tracing data.</p>
@@ -257,7 +263,7 @@
 <h2 id="tracing-for-ksql">Tracing for KSQL</h2>
 <p>Similar to Kafka Connect, KSQL is also a packaged component based on standard Kafka APIs that enables the usage of Kafka interceptors. This can be a useful technique in addition to the concepts in <a href="https://www.confluent.io/blog/troubleshooting-ksql-part-1">this previous blog discussing how to gather metrics and monitor KSQL</a>.</p>
 <p>In KSQL, we’ll create a <code>STREAM</code> from the <code>tweets</code> topic:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ksql http://localhost:8088
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ksql http://localhost:8088
 
 ksql&gt; CREATE STREAM twitter_avro_v1 WITH <span style="color:#333">(</span><span style="color:#963">KAFKA_TOPIC</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;twitter_avro_v1&#39;</span>, <span style="color:#963">VALUE_FORMAT</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;AVRO&#39;</span><span style="color:#333">)</span>;
 
@@ -309,7 +315,7 @@ ksql&gt; SELECT username FROM twitter_avro_v1;
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/talks/making-sense-event-drive-dataflows-kafkasummitnyc19/">Older</a>
+          <a href="https://jeqo.github.io/talks/making-sense-event-driven-dataflows-kafkasummitnyc19/">Older</a>
           
         </div>
       </div>
@@ -376,6 +382,12 @@ ksql&gt; SELECT username FROM twitter_avro_v1;
       
       <li class="p-menu__listitem">
         <a href="/posts">Posts</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
       </li>
       
     

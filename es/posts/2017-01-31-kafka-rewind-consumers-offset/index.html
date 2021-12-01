@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Retroceder Offsets de Consumidores de Kafka</title>
+  <title>retroceder offsets de consumidores de kafka</title>
   <meta property="og:title" content="Retroceder Offsets de Consumidores de Kafka" />
   <meta name="twitter:title" content="Retroceder Offsets de Consumidores de Kafka" />
   
@@ -158,6 +158,12 @@
     
       
       <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
         <a href="/es/notes">Notas</a>
       </li>
       
@@ -232,7 +238,7 @@ por <code>offset</code>, por <code>partition</code>.</p>
 <p>Antes de continuar, revisemos la clase que funcionará como un <code>Kafka Consumer</code>
 simple implementado en Java:</p>
 <p><code>KafkaSimpleProducer.java</code>:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">main</span><span style="color:#333">(</span>String<span style="color:#333">[]</span> args<span style="color:#333">)</span> <span style="color:#333">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">main</span><span style="color:#333">(</span>String<span style="color:#333">[]</span> args<span style="color:#333">)</span> <span style="color:#333">{</span>
     <span style="color:#333">...</span>
     Properties properties <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Properties<span style="color:#333">();</span>
     properties<span style="color:#333">.</span><span style="color:#00c">put</span><span style="color:#333">(</span>ProducerConfig<span style="color:#333">.</span><span style="color:#00c">BOOTSTRAP_SERVERS_CONFIG</span><span style="color:#333">,</span> bootstrapServers<span style="color:#333">);</span>
@@ -275,7 +281,7 @@ solo funcionaría la primera vez, ya que el <code>offset</code> sería registrad
 <!-- raw HTML omitted -->
 <p>Así que, cómo se regresaría al inicio del log en este caso?</p>
 <p>Podemos usar la opción <code>--offset</code> con estas tres alternativas:</p>
-<pre><code>--offset &lt;String: consume offset&gt;        The offset id to consume from (a non-  
+<pre tabindex="0"><code>--offset &lt;String: consume offset&gt;        The offset id to consume from (a non-  
                                            negative number), or 'earliest'      
                                            which means from beginning, or       
                                            'latest' which means from end        
@@ -315,7 +321,7 @@ en su post:
 </ul>
 <p>Así que me enfocaré en las opciones disponibles desde el API de <code>Kafka Consumer</code>.</p>
 <p>Un consumidor simple luciría así:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">main</span><span style="color:#333">(</span>String<span style="color:#333">[]</span> args<span style="color:#333">)</span> <span style="color:#333">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">main</span><span style="color:#333">(</span>String<span style="color:#333">[]</span> args<span style="color:#333">)</span> <span style="color:#333">{</span>
     Properties props <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Properties<span style="color:#333">();</span>
     props<span style="color:#333">.</span><span style="color:#00c">put</span><span style="color:#333">(</span>ConsumerConfig<span style="color:#333">.</span><span style="color:#00c">BOOTSTRAP_SERVERS_CONFIG</span><span style="color:#333">,</span> bootstrapServers<span style="color:#333">);</span>
     props<span style="color:#333">.</span><span style="color:#00c">put</span><span style="color:#333">(</span>ConsumerConfig<span style="color:#333">.</span><span style="color:#00c">GROUP_ID_CONFIG</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;test&#34;</span><span style="color:#333">);</span>
@@ -343,7 +349,7 @@ forma sencilla de agregar estas operaciones utilizando <code>flags</code>:</p>
 <code>records</code> antiguos por tiempo o por tamaño del <code>topic</code>; pero este tema
 merece su propio post.</p>
 <p>Para ir al inicio de <code>topic</code> usaremos la operación <code>#seekToBeginning(topicPartition)</code>:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
 
 <span style="color:#080;font-weight:bold">while</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">true</span><span style="color:#333">)</span> <span style="color:#333">{</span>
     ConsumerRecords<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> records <span style="color:#333">=</span> consumer<span style="color:#333">.</span><span style="color:#00c">poll</span><span style="color:#333">(</span>100<span style="color:#333">);</span>
@@ -363,7 +369,7 @@ en la <code>partition=0</code> se reprocesarán los <code>records</code> nuevame
 <p>Si podemos reconocer los <code>records</code> específicos (por <code>partition</code>) a los que
 necesitamos regresar para reprocesar el log, podemos utilizar
 <code>#seek(topicPartition, offset)</code> directamente.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
 
 <span style="color:#080;font-weight:bold">while</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">true</span><span style="color:#333">)</span> <span style="color:#333">{</span>
     ConsumerRecords<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> records <span style="color:#333">=</span> consumer<span style="color:#333">.</span><span style="color:#00c">poll</span><span style="color:#333">(</span>100<span style="color:#333">);</span>
@@ -393,7 +399,7 @@ el nuevo índice de <code>timestamp</code> puede ser útil.</p>
 <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-33+-+Add+a+time+based+log+index">[3]</a>
 que fueron implementadas, y una nueva operación fue agregada al
 <code>Kafka Consumer API</code>: <code>#offsetsForTimes</code>:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
 
 <span style="color:#080;font-weight:bold">while</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">true</span><span style="color:#333">)</span> <span style="color:#333">{</span>
     ConsumerRecords<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> records <span style="color:#333">=</span> consumer<span style="color:#333">.</span><span style="color:#00c">poll</span><span style="color:#333">(</span>100<span style="color:#333">);</span>
@@ -508,6 +514,12 @@ más de una partición por <code>topic</code>.</p>
       
       <li class="p-menu__listitem">
         <a href="/es/posts">Posts</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
       </li>
       
     

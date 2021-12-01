@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Running Oracle BPM 12c on AWS using Vagrant and Chef</title>
+  <title>running oracle bpm 12c on aws using vagrant and chef</title>
   <meta property="og:title" content="Running Oracle BPM 12c on AWS using Vagrant and Chef" />
   <meta name="twitter:title" content="Running Oracle BPM 12c on AWS using Vagrant and Chef" />
   
@@ -158,6 +158,12 @@
     
       
       <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
         <a href="/notes">Notes</a>
       </li>
       
@@ -227,7 +233,7 @@
 <p>And the &ldquo;/data&rdquo; directory is shared. It includes Oracle XE and Oracle FMW installers:</p>
 <p><img src="/images/posts/2014-12-11-run-bpm-12c-aws/2014-12-11_0841.png" alt="NFS directories" title="NFS directories"></p>
 <h3 id="vagrant-configuration">Vagrant configuration</h3>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#036;font-weight:bold">VAGRANTFILE_API_VERSION</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;2&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#036;font-weight:bold">VAGRANTFILE_API_VERSION</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;2&#34;</span>
 
 <span style="color:#036;font-weight:bold">Vagrant</span><span style="color:#333">.</span>configure(<span style="color:#036;font-weight:bold">VAGRANTFILE_API_VERSION</span>) <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>config<span style="color:#333">|</span>
 	<span style="color:#888"># Load properties files</span>
@@ -298,15 +304,15 @@
 	<span style="color:#080;font-weight:bold">end</span>
 <span style="color:#080;font-weight:bold">end</span></code></pre></div>
 <p>Running this file with:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vagrant up --provider<span style="color:#333">=</span>aws</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vagrant up --provider<span style="color:#333">=</span>aws</code></pre></div>
 <p>You will create a new instance on AWS EC2.</p>
 <h2 id="connect-to-an-nfs-instance">Connect to an NFS instance</h2>
 <p>The first recipe that will be executed is:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
   chef<span style="color:#333">.</span>add_role <span style="background-color:#fff0f0">&#34;nfs-client&#34;</span>
 <span style="color:#333">...</span></code></pre></div>
 <p>This call the following Chef role:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#070">&#34;name&#34;</span> : <span style="background-color:#fff0f0">&#34;nfs-client&#34;</span>,
   <span style="color:#070">&#34;description&#34;</span> : <span style="background-color:#fff0f0">&#34;Role applied to the system that should be an NFS client tools.&#34;</span>,
   <span style="color:#070">&#34;json_class&#34;</span> : <span style="background-color:#fff0f0">&#34;Chef::Role&#34;</span>,
@@ -322,7 +328,7 @@
   ]
 }</code></pre></div>
 <p>To update the server-host from your Vagrant configuration, add these lines:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
 chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
   <span style="background-color:#fff0f0">&#34;nfs-client&#34;</span> <span style="color:#333">=&gt;</span> {
     <span style="background-color:#fff0f0">&#34;server-host&#34;</span> <span style="color:#333">=&gt;</span> <span style="background-color:#fff0f0">&#34;123.1.1.12&#34;</span>
@@ -332,7 +338,7 @@ chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
 <h2 id="install-oracle-bpm-12c-quickstart">Install Oracle BPM 12c Quickstart</h2>
 <p>To install BPM, you can download my shared <a href="https://supermarket.chef.io/cookbooks/oracle-fmw">&ldquo;oracle-fmw&rdquo; cookbook</a> from Chef Supermarket. It is explained in <a href="http://jeqo.github.io/blog/devops/chef-cookbook-oracle-fmw-12c/">this post</a>.</p>
 <p>Vagrant configuration calls this Chef role:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#070">&#34;name&#34;</span> : <span style="background-color:#fff0f0">&#34;demo-bpm_bam-12c&#34;</span>,
   <span style="color:#070">&#34;json_class&#34;</span> : <span style="background-color:#fff0f0">&#34;Chef::Role&#34;</span>,
   <span style="color:#070">&#34;default_attributes&#34;</span> : {
@@ -475,6 +481,12 @@ chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
       
       <li class="p-menu__listitem">
         <a href="/posts">Posts</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
       </li>
       
     

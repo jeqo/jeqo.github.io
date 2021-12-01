@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Oracle BPM 12c sobre AWS EC2 usando Vagrant y Chef</title>
+  <title>oracle bpm 12c sobre aws ec2 usando vagrant y chef</title>
   <meta property="og:title" content="Oracle BPM 12c sobre AWS EC2 usando Vagrant y Chef" />
   <meta name="twitter:title" content="Oracle BPM 12c sobre AWS EC2 usando Vagrant y Chef" />
   
@@ -158,6 +158,12 @@
     
       
       <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
         <a href="/es/notes">Notas</a>
       </li>
       
@@ -234,14 +240,14 @@ en esta <a href="http://jeqo.github.io/blog/devops/create-nfs-instance-aws-es/">
 <p><a href="https://gist.github.com/jeqo/62b74a9ed65d575d91b4">Gist</a></p>
 <p>{% gist 62b74a9ed65d575d91b4 Vagrantfile &gt;}}</p>
 <p>Ejecutar el siguiente comando:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vagrant up --provider<span style="color:#333">=</span>aws
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vagrant up --provider<span style="color:#333">=</span>aws
 </code></pre></div><h3 id="conectarse-a-la-instancia-nfs">Conectarse a la instancia NFS</h3>
 <p>Esta es la primera receta Chef que será ejecutada:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
   chef<span style="color:#333">.</span>add_role <span style="background-color:#fff0f0">&#34;nfs-client&#34;</span>
 <span style="color:#333">...</span>
 </code></pre></div><p>Utilizando el rol Chef:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#070">&#34;name&#34;</span> : <span style="background-color:#fff0f0">&#34;nfs-client&#34;</span>,
   <span style="color:#070">&#34;description&#34;</span> : <span style="background-color:#fff0f0">&#34;Role applied to the system that should be an NFS client tools.&#34;</span>,
   <span style="color:#070">&#34;json_class&#34;</span> : <span style="background-color:#fff0f0">&#34;Chef::Role&#34;</span>,
@@ -259,7 +265,7 @@ en esta <a href="http://jeqo.github.io/blog/devops/create-nfs-instance-aws-es/">
 
 </code></pre></div><p>Para actualizar el server-host desde su configuración de Vagrant, agregar las
 siguientes líneas:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
 chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
   <span style="background-color:#fff0f0">&#34;nfs-client&#34;</span> <span style="color:#333">=&gt;</span> {
     <span style="background-color:#fff0f0">&#34;server-host&#34;</span> <span style="color:#333">=&gt;</span> <span style="background-color:#fff0f0">&#34;123.1.1.12&#34;</span>
@@ -270,7 +276,7 @@ chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
 <p>Para instalar BPM, se debe utilizar el <a href="https://supermarket.chef.io/cookbooks/oracle-fmw">cookbook &ldquo;oracle-fmw&rdquo;</a>
 compartido en Chef Supermarket. Este esta explicador en <a href="http://jeqo.github.io/blog/devops/chef-cookbook-oracle-fmw-12c-es/">esta entrada</a>.</p>
 <p>La configuración de Vagrant invoca el provisionamiento con Chef:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#070">&#34;name&#34;</span> : <span style="background-color:#fff0f0">&#34;demo-bpm_bam-12c&#34;</span>,
   <span style="color:#070">&#34;json_class&#34;</span> : <span style="background-color:#fff0f0">&#34;Chef::Role&#34;</span>,
   <span style="color:#070">&#34;default_attributes&#34;</span> : {
@@ -402,6 +408,12 @@ compartido en Chef Supermarket. Este esta explicador en <a href="http://jeqo.git
       
       <li class="p-menu__listitem">
         <a href="/es/posts">Posts</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
       </li>
       
     

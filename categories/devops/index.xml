@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Sun, 15 Jan 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://jeqo.github.io/categories/devops/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 15 Jan 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/devops/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Scaling Kafka with Docker Containers</title>
       <link>https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/</link>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Vagrant and Chef Quickstart</title>
+  <title>vagrant and chef quickstart</title>
   <meta property="og:title" content="Vagrant and Chef Quickstart" />
   <meta name="twitter:title" content="Vagrant and Chef Quickstart" />
   
@@ -158,6 +158,12 @@
     
       
       <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
         <a href="/notes">Notes</a>
       </li>
       
@@ -222,10 +228,10 @@
 </ul>
 <p>Now you can search an specific distribution and use it whenever you want.</p>
 <p>Ok, I have a base box, how can I use it to create a new box? The basic artifact you need is a Vagrant file:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir vagrant-box
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir vagrant-box
 vagrant init</code></pre></div>
 <p>Running this creates a <em>Vagrantfile</em> that contains the information to create a new box.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#036;font-weight:bold">VAGRANTFILE_API_VERSION</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;2&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#036;font-weight:bold">VAGRANTFILE_API_VERSION</span> <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;2&#34;</span>
 
 <span style="color:#036;font-weight:bold">Vagrant</span><span style="color:#333">.</span>configure(<span style="color:#036;font-weight:bold">VAGRANTFILE_API_VERSION</span>) <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>config<span style="color:#333">|</span>
   config<span style="color:#333">.</span>vm<span style="color:#333">.</span>box <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;base&#34;</span>
@@ -235,7 +241,7 @@ vagrant init</code></pre></div>
 <p>First important command: <strong>vagrant init</strong></p>
 </blockquote>
 <p>This is not enough to create a box. You need two more attributes:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
   <span style="color:#888"># URL or path to base box file</span>
   <span style="color:#888"># config.vm.box_url = &#34;https://storage.us2.oraclecloud.com/v1/istoilis-istoilis/vagrant/oel65-64.box&#34;</span>
   config<span style="color:#333">.</span>vm<span style="color:#333">.</span>box_url <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;file://c:/boxes/oel65-64.box&#34;</span>
@@ -251,7 +257,7 @@ vagrant init</code></pre></div>
 <p>All these customizations are possible from <em>Vagrantfile</em>.</p>
 <p>Let&rsquo;s start changing VM resources:</p>
 <p>As this is a virtualization platform specific requirement, you have to make these changes on an embedded method:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
   config<span style="color:#333">.</span>vm<span style="color:#333">.</span>provider <span style="color:#a60;background-color:#fff0f0">:virtualbox</span> <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>vb<span style="color:#333">|</span>
     vb<span style="color:#333">.</span>customize <span style="color:#333">[</span><span style="background-color:#fff0f0">&#34;modifyvm&#34;</span>, <span style="color:#a60;background-color:#fff0f0">:id</span>, <span style="background-color:#fff0f0">&#34;--memory&#34;</span>, <span style="background-color:#fff0f0">&#34;2048&#34;</span><span style="color:#333">]</span>
     vb<span style="color:#333">.</span>customize <span style="color:#333">[</span><span style="background-color:#fff0f0">&#34;modifyvm&#34;</span>, <span style="color:#a60;background-color:#fff0f0">:id</span>, <span style="background-color:#fff0f0">&#34;--name&#34;</span>  , <span style="background-color:#fff0f0">&#34;basemachine&#34;</span><span style="color:#333">]</span>
@@ -273,7 +279,7 @@ recreate over and over again, fast and easy.</p>
 <ul>
 <li><strong>Network</strong>: By default your box use a NAT network that VirtualBox creates out-of-the-box. But, what if you (obviously) want to connect to your box? You need to use the &ldquo;Host-only&rdquo; network:</li>
 </ul>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
   config<span style="color:#333">.</span>vm<span style="color:#333">.</span>network <span style="color:#a60;background-color:#fff0f0">:private_network</span>, <span style="color:#a60;background-color:#fff0f0">ip</span>: <span style="background-color:#fff0f0">&#34;192.168.56.XYZ&#34;</span>
 <span style="color:#333">...</span></code></pre></div>
 <blockquote>
@@ -282,12 +288,12 @@ recreate over and over again, fast and easy.</p>
 <ul>
 <li><strong>Shared Directories</strong>: Using VirtualBox utility to create shared directories is annoying! With Vagrant is as easy as add thit to your script:</li>
 </ul>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
   <span style="color:#888"># Mount c:\data directory to /data directory on box. mount_options is optional</span>
   config<span style="color:#333">.</span>vm<span style="color:#333">.</span>synced_folder <span style="background-color:#fff0f0">&#34;/data&#34;</span> , <span style="background-color:#fff0f0">&#34;/data&#34;</span>, <span style="color:#a60;background-color:#fff0f0">:mount_options</span> <span style="color:#333">=&gt;</span> <span style="color:#333">[</span><span style="background-color:#fff0f0">&#34;dmode=777&#34;</span>, <span style="background-color:#fff0f0">&#34;fmode=777&#34;</span><span style="color:#333">]</span>
 <span style="color:#333">...</span></code></pre></div>
 <p>Some other parameters:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
   <span style="color:#888"># Hostname</span>
   config<span style="color:#333">.</span>vm<span style="color:#333">.</span>hostname <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;basemachine&#34;</span>
 <span style="color:#333">...</span></code></pre></div>
@@ -304,7 +310,7 @@ Well, now that I solved is not that difficult:</p>
 <ol>
 <li>Create an script called <em>&ldquo;bootstrap.sh&rdquo;</em> on your working directory, and add these lines:</li>
 </ol>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pvcreate /dev/sdb
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pvcreate /dev/sdb
 vgextend VolGroup /dev/sdb
 lvextend /dev/VolGroup/lv_root /dev/sdb
 resize2fs /dev/VolGroup/lv_root</code></pre></div>
@@ -312,7 +318,7 @@ resize2fs /dev/VolGroup/lv_root</code></pre></div>
 <p>VolGroup and lv_root can change on different distributions. But it works for me on Ubuntu also.</p>
 </blockquote>
 <p>And then add this code to your <em>Vagrantfile</em>:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
   config<span style="color:#333">.</span>vm<span style="color:#333">.</span>provider <span style="color:#a60;background-color:#fff0f0">:virtualbox</span> <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>vb<span style="color:#333">|</span>
   <span style="color:#333">...</span>
   <span style="color:#888"># Validate this should be run it once</span>
@@ -348,7 +354,7 @@ resize2fs /dev/VolGroup/lv_root</code></pre></div>
 <h3 id="increase-swap-memory">Increase Swap Memory</h3>
 <p>As I install Oracle Fusion Middleware products, they require some amount of swap memory, but <em>base box</em> comes with a small amount of swap.</p>
 <p>To resolve this, add this script called <em>&ldquo;increase_swap.sh&rdquo;</em> on your working directory:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#579">#!/bin/sh
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#579">#!/bin/sh
 </span><span style="color:#579"></span>
 <span style="color:#888"># size of swapfile in megabytes</span>
 <span style="color:#963">swapsize</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">8000</span>
@@ -383,7 +389,7 @@ cat /proc/meminfo | grep Swap</code></pre></div>
 <p>chef/cookbooks/http/recipes/install-httpd.rb</p>
 <p>Chef base artifacts are Cookbooks that group common Recipes. For example you can create a Cookbook called &ldquo;java&rdquo; and add recipes to install different versions.</p>
 <p>Add this code to the file:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">package <span style="background-color:#fff0f0">&#34;httpd&#34;</span> <span style="color:#080;font-weight:bold">do</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">package <span style="background-color:#fff0f0">&#34;httpd&#34;</span> <span style="color:#080;font-weight:bold">do</span>
   action <span style="color:#a60;background-color:#fff0f0">:install</span>
 <span style="color:#080;font-weight:bold">end</span>
 
@@ -392,7 +398,7 @@ service <span style="background-color:#fff0f0">&#34;httpd&#34;</span> <span styl
 <span style="color:#080;font-weight:bold">end</span></code></pre></div>
 <p>This recipe <em>install</em> &ldquo;httpd&rdquo; package and ensure service &ldquo;httpd&rdquo; is <em>started</em> and will be started when the machine is restarted.</p>
 <p>To call this simple recipe from Vagrant you need to add this to your file:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
   config<span style="color:#333">.</span>vm<span style="color:#333">.</span>provision <span style="background-color:#fff0f0">&#34;chef_solo&#34;</span> <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>chef<span style="color:#333">|</span>
     chef<span style="color:#333">.</span>cookbooks_path <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;../chef/cookbooks&#34;</span>
     chef<span style="color:#333">.</span>add_recipe <span style="background-color:#fff0f0">&#34;http::install-httpd&#34;</span>
@@ -410,26 +416,26 @@ service <span style="background-color:#fff0f0">&#34;httpd&#34;</span> <span styl
 <ul>
 <li>Create a file like this one called &ldquo;vagrant.rb&rdquo;:</li>
 </ul>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#080;font-weight:bold">box</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;base-machine&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">disk_path</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;./disk1.vdi&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">url</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;file://c:/boxes/oel65-64.box&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">ip</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;192.168.56.20&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">shared_directory</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;/data&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">disk_size</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">40</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">ram_memory</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">2048</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">cpus</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">2</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">swap_memory</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">4096</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#080;font-weight:bold">chef</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">repo_location</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;C:/dev/jeqo/chef-repo&#34;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#070">box</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#070">name</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;base-machine&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#070">disk_path</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;./disk1.vdi&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#070">url</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;file://c:/boxes/oel65-64.box&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#070">ip</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;192.168.56.20&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#070">shared_directory</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;/data&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#070">disk_size</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">40</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#070">ram_memory</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">2048</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#070">cpus</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">2</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#070">swap_memory</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">4096</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#070">chef</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#070">repo_location</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;C:/dev/jeqo/chef-repo&#34;</span></code></pre></div>
 <ul>
 <li>Add the &ldquo;yaml&rdquo; library:</li>
 </ul>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  <span style="color:#007020">require</span> <span style="background-color:#fff0f0">&#34;yaml&#34;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  <span style="color:#007020">require</span> <span style="background-color:#fff0f0">&#34;yaml&#34;</span></code></pre></div>
 <ul>
 <li>Then read and use properties:</li>
 </ul>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
   props <span style="color:#333">=</span> <span style="color:#036;font-weight:bold">YAML</span><span style="color:#333">.</span>load_file(<span style="background-color:#fff0f0">&#34;vagrant.rb&#34;</span>)
 
   config<span style="color:#333">.</span>vm<span style="color:#333">.</span>box <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;</span><span style="background-color:#eee">#{</span>props<span style="color:#333">[</span><span style="background-color:#fff0f0">&#39;box&#39;</span><span style="color:#333">][</span><span style="background-color:#fff0f0">&#39;name&#39;</span><span style="color:#333">]</span><span style="background-color:#eee">}</span><span style="background-color:#fff0f0">&#34;</span>
@@ -505,6 +511,12 @@ service <span style="background-color:#fff0f0">&#34;httpd&#34;</span> <span styl
       
       <li class="p-menu__listitem">
         <a href="/posts">Posts</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
       </li>
       
     

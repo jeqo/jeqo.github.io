@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Integrar Java EE 7 y Kafka usando Avro y RxJava</title>
+  <title>integrar java ee 7 y kafka usando avro y rxjava</title>
   <meta property="og:title" content="Integrar Java EE 7 y Kafka usando Avro y RxJava" />
   <meta name="twitter:title" content="Integrar Java EE 7 y Kafka usando Avro y RxJava" />
   
@@ -158,6 +158,12 @@
     
       
       <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
         <a href="/es/notes">Notas</a>
       </li>
       
@@ -249,7 +255,7 @@ cada Consumer se suscribirá a este &ldquo;observable&rdquo;. Revisemos el códi
 <li>Clients Resource: List (GET) and Add (POST) Clients</li>
 <li>Events Resource: List (GET) Client Added Events</li>
 </ul>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@Path</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;clients&#34;</span><span style="color:#333">)</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@Path</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;clients&#34;</span><span style="color:#333">)</span>
 <span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ClientsResource</span> <span style="color:#333">{</span>
 
     <span style="color:#080;font-weight:bold">static</span> List<span style="color:#333">&lt;</span>String<span style="color:#333">&gt;</span> clients <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> ArrayList<span style="color:#333">&lt;&gt;();</span>
@@ -269,7 +275,7 @@ cada Consumer se suscribirá a este &ldquo;observable&rdquo;. Revisemos el códi
 propagar el evento &ldquo;ClientAddedEvent&rdquo; y listarlo en el recurso Events.</p>
 <h2 id="serialización-y-deserialización-de-eventos">Serialización y Deserialización de Eventos</h2>
 <p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.2">Tag: v0.0.2</a></p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">test</span><span style="color:#333">()</span> <span style="color:#333">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">test</span><span style="color:#333">()</span> <span style="color:#333">{</span>
     ClientAddedEvent event <span style="color:#333">=</span> ClientAddedEvent<span style="color:#333">.</span><span style="color:#00c">newBuilder</span><span style="color:#333">()</span>
             <span style="color:#333">.</span><span style="color:#00c">setName</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;jeqo&#34;</span><span style="color:#333">)</span>
             <span style="color:#333">.</span><span style="color:#00c">setCreated</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">new</span> Date<span style="color:#333">().</span><span style="color:#00c">getTime</span><span style="color:#333">())</span>
@@ -279,7 +285,7 @@ propagar el evento &ldquo;ClientAddedEvent&rdquo; y listarlo en el recurso Event
     assertEquals<span style="color:#333">(</span>event<span style="color:#333">,</span> eventDeserialized<span style="color:#333">);</span>
 <span style="color:#333">}</span>
 </code></pre></div><p>El event ClientAddedEvent es definido usando el formato Avro JSON:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#070">&#34;namespace&#34;</span>: <span style="background-color:#fff0f0">&#34;com.jeqo.samples.eventsource.event&#34;</span>,
     <span style="color:#070">&#34;type&#34;</span>: <span style="background-color:#fff0f0">&#34;record&#34;</span>,
     <span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;ClientAddedEvent&#34;</span>,
@@ -290,7 +296,7 @@ propagar el evento &ldquo;ClientAddedEvent&rdquo; y listarlo en el recurso Event
 }
 </code></pre></div><p>Agregando el siguiente plugin de Maven, la clase  <em>ClientAddedEvent</em> se
 creará cada vez que el proyecto sea construido:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#070">&lt;build&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#070">&lt;build&gt;</span>
     <span style="color:#070">&lt;plugins&gt;</span>
         <span style="color:#070">&lt;plugin&gt;</span>
             <span style="color:#070">&lt;groupId&gt;</span>org.apache.avro<span style="color:#070">&lt;/groupId&gt;</span>
@@ -312,7 +318,7 @@ creará cada vez que el proyecto sea construido:</p>
     <span style="color:#070">&lt;/plugins&gt;</span>
 <span style="color:#070">&lt;/build&gt;</span>
 </code></pre></div><p>Para serializar Avro records, de POJO a Byte Array:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">EventSerializer</span><span style="color:#333">&lt;</span>T <span style="color:#080;font-weight:bold">extends</span> SpecificRecordBase<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">EventSerializer</span><span style="color:#333">&lt;</span>T <span style="color:#080;font-weight:bold">extends</span> SpecificRecordBase<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
 
     <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]</span> <span style="color:#06b;font-weight:bold">serialize</span><span style="color:#333">(</span>T record<span style="color:#333">)</span> <span style="color:#333">{</span>
         <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">(</span>ByteArrayOutputStream out <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> ByteArrayOutputStream<span style="color:#333">())</span> <span style="color:#333">{</span>
@@ -326,7 +332,7 @@ creará cada vez que el proyecto sea construido:</p>
     <span style="color:#333">}</span>
 <span style="color:#333">}</span>
 </code></pre></div><p>y viceversa:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">EventDeserializer</span><span style="color:#333">&lt;</span>T <span style="color:#080;font-weight:bold">extends</span> SpecificRecordBase<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">EventDeserializer</span><span style="color:#333">&lt;</span>T <span style="color:#080;font-weight:bold">extends</span> SpecificRecordBase<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
 
     <span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">final</span> Class<span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> type<span style="color:#333">;</span>
 
@@ -349,18 +355,18 @@ creará cada vez que el proyecto sea construido:</p>
 </code></pre></div><h2 id="publicando-y-consumiendo-eventos-desde-kafkarxjava">Publicando y consumiendo eventos desde Kafka/RxJava</h2>
 <p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.3">Tag: v0.0.3</a></p>
 <p>Primero, definamos un par de interfaces, EventServer:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">EventServer</span><span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">EventServer</span><span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
 
     <span style="color:#080;font-weight:bold">public</span> Observable<span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">consume</span><span style="color:#333">();</span>
 <span style="color:#333">}</span>
 </code></pre></div><p>y EventProducer:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">EventProducer</span><span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">EventProducer</span><span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
 
     <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">publish</span><span style="color:#333">(</span>T message<span style="color:#333">);</span>
 <span style="color:#333">}</span>
 </code></pre></div><p>Luego, implementemos estas interfaces con Kafka APIs.</p>
 <p>Para publicar mensajes:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@Override</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@Override</span>
 <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">publish</span><span style="color:#333">(</span>T message<span style="color:#333">)</span> <span style="color:#333">{</span>
     <span style="color:#888">// Produce a new Kafka record
 </span><span style="color:#888"></span>    ProducerRecord<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]&gt;</span> data <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> ProducerRecord<span style="color:#333">&lt;&gt;(</span>
@@ -384,7 +390,7 @@ creará cada vez que el proyecto sea construido:</p>
     <span style="color:#333">}</span>
 <span style="color:#333">}</span>
 </code></pre></div><p>y en KafkaEventServer, para instanciar un RxJava observable:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@Override</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@Override</span>
 <span style="color:#080;font-weight:bold">public</span> Observable<span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">consume</span><span style="color:#333">()</span> <span style="color:#333">{</span>
     <span style="color:#080;font-weight:bold">return</span> Observable<span style="color:#333">.</span><span style="color:#00c">create</span><span style="color:#333">(</span>subscriber <span style="color:#333">-&gt;</span> <span style="color:#333">{</span>
         <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">{</span>
@@ -425,13 +431,13 @@ para validar que el servidor Kafka esta trabajando correctamente.</p>
 <p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.1.0">Tag: v0.1.0</a></p>
 <p>Finalmente, vamos a integrar la aplicación Java EE interacción con la nuestra
 fuente de eventos (Kafka):</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@ApplicationScoped</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@ApplicationScoped</span>
 <span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ClientAddedEventProducer</span> <span style="color:#080;font-weight:bold">extends</span> KafkaEventProducer<span style="color:#333">&lt;</span>ClientAddedEvent<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
 
 <span style="color:#333">}</span>
 </code></pre></div><p>La anotación @ApplicationScoped de CDI indica que esta clase se instanciará como
 <em>&ldquo;singleton&rdquo;</em> y podrá ser inyectada:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ClientsResource</span> <span style="color:#333">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ClientsResource</span> <span style="color:#333">{</span>
 
     <span style="color:#555;font-weight:bold">@Inject</span>
     ClientAddedEventProducer eventProducer<span style="color:#333">;</span>
@@ -452,7 +458,7 @@ fuente de eventos (Kafka):</p>
 <span style="color:#333">}</span>
 </code></pre></div><p>Luego para instanciar el <em>Subscriber</em> (Creo que es la parte más importante:
 como <strong>reaccionar</strong> a eventos? ):</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#888">// Extending Subscriber RxJava class to listen Observables
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#888">// Extending Subscriber RxJava class to listen Observables
 </span><span style="color:#888"></span><span style="color:#555;font-weight:bold">@ApplicationScoped</span>
 <span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ClientAddedEventSubscriber</span> <span style="color:#080;font-weight:bold">extends</span> Subscriber<span style="color:#333">&lt;</span>ClientAddedEvent<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
 
@@ -550,6 +556,12 @@ como <strong>reaccionar</strong> a eventos? ):</p>
       
       <li class="p-menu__listitem">
         <a href="/es/posts">Posts</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
       </li>
       
     

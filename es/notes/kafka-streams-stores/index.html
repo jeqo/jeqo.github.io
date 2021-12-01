@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Notas sobre Kafka Streams Stores</title>
+  <title>notas sobre kafka streams stores</title>
   <meta property="og:title" content="Notas sobre Kafka Streams Stores" />
   <meta name="twitter:title" content="Notas sobre Kafka Streams Stores" />
   
@@ -158,6 +158,12 @@
     
       
       <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
         <a href="/es/notes">Notas</a>
       </li>
       
@@ -209,7 +215,7 @@
     <p>Kafka Streams Stores son los componentes que definen unidades de almacenamiento en una aplicación de Kafka Streams.</p>
 <p>Estos Stores son creados explícita o implícitamente, dependiendo de si la ()[topología] es creada con ()[Kafka Streams DSL], o con ()[Kafka Streams Processor API].</p>
 <p>La siguiente topología</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    Topology <span style="color:#06b;font-weight:bold">topology</span><span style="color:#333">()</span> <span style="color:#333">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    Topology <span style="color:#06b;font-weight:bold">topology</span><span style="color:#333">()</span> <span style="color:#333">{</span>
         <span style="color:#080;font-weight:bold">final</span> StreamsBuilder builder <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> StreamsBuilder<span style="color:#333">();</span>
         builder<span style="color:#333">.</span><span style="color:#00c">stream</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;input&#34;</span><span style="color:#333">,</span> Consumed<span style="color:#333">.</span><span style="color:#00c">with</span><span style="color:#333">(</span>Serdes<span style="color:#333">.</span><span style="color:#00c">String</span><span style="color:#333">(),</span> Serdes<span style="color:#333">.</span><span style="color:#00c">Integer</span><span style="color:#333">()))</span>
                 <span style="color:#333">.</span><span style="color:#00c">groupByKey</span><span style="color:#333">()</span>
@@ -217,7 +223,7 @@
         <span style="color:#080;font-weight:bold">return</span> builder<span style="color:#333">.</span><span style="color:#00c">build</span><span style="color:#333">();</span>
     <span style="color:#333">}</span>
 </code></pre></div><p>crea un <code>Store</code> implícito para almacenar los resultados del contador <code>KSTREAM-AGGREGATE-STATE-STORE-0000000001</code>:</p>
-<pre><code>Topologies:
+<pre tabindex="0"><code>Topologies:
    Sub-topology: 0
     Source: KSTREAM-SOURCE-0000000000 (topics: [input])
       --&gt; KSTREAM-AGGREGATE-0000000002
@@ -232,7 +238,7 @@
 <li>Crear <code>StoreBuilder</code>s para usarlo desde el <code>Processor</code> API.</li>
 </ul>
 <p>Esta fábrica permite definir el <code>Store</code> se persiste en disco (i.e. usando <code>RocksDB</code>) o se maneja en memoria.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    Topology <span style="color:#06b;font-weight:bold">topology</span><span style="color:#333">()</span> <span style="color:#333">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    Topology <span style="color:#06b;font-weight:bold">topology</span><span style="color:#333">()</span> <span style="color:#333">{</span>
         KeyValueBytesStoreSupplier storeSupplier <span style="color:#333">=</span>
                 Stores<span style="color:#333">.</span><span style="color:#00c">inMemoryKeyValueStore</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;input-counter&#34;</span><span style="color:#333">);</span>
 
@@ -244,7 +250,7 @@
     <span style="color:#333">}</span>
 </code></pre></div><p>y la interfaz <a href="https://kafka.apache.org/25/javadoc/org/apache/kafka/streams/kstream/Materialized.html"><code>Materialized</code></a> permite parametrizar el Store.</p>
 <p>o, cuando se utiliza el <code>Processor</code> API:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    Topology <span style="color:#06b;font-weight:bold">topology</span><span style="color:#333">()</span> <span style="color:#333">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    Topology <span style="color:#06b;font-weight:bold">topology</span><span style="color:#333">()</span> <span style="color:#333">{</span>
         StoreBuilder<span style="color:#333">&lt;</span>KeyValueStore<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> Long<span style="color:#333">&gt;&gt;</span> storeBuilder <span style="color:#333">=</span>
                 Stores<span style="color:#333">.</span><span style="color:#00c">keyValueStoreBuilder</span><span style="color:#333">(</span>
                         Stores<span style="color:#333">.</span><span style="color:#00c">inMemoryKeyValueStore</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;input-counter&#34;</span><span style="color:#333">),</span>
@@ -303,7 +309,7 @@
 <h3 id="in-memory-stores">In-Memory Stores</h3>
 <p>Mantienen el mapa de <code>KeyValue</code> en memoria, soportado por <code>TreeMap&lt;Bytes, byte[]&gt;</code>.</p>
 <p>Acceso a operaciones del <code>Store</code> están sincronizadas para manejar la concurrencia:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">volatile</span> <span style="color:#339;font-weight:bold">boolean</span> open <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">false</span><span style="color:#333">;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">volatile</span> <span style="color:#339;font-weight:bold">boolean</span> open <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">false</span><span style="color:#333">;</span>
 <span style="color:#888">//...e.g.
 </span><span style="color:#888"></span>    <span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">synchronized</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]</span> <span style="color:#06b;font-weight:bold">get</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> Bytes key<span style="color:#333">)</span> <span style="color:#333">{</span>
         <span style="color:#080;font-weight:bold">return</span> map<span style="color:#333">.</span><span style="color:#00c">get</span><span style="color:#333">(</span>key<span style="color:#333">);</span>
@@ -359,6 +365,12 @@
       
       <li class="p-menu__listitem">
         <a href="/es/posts">Posts</a>
+      </li>
+      
+    
+      
+      <li class="p-menu__listitem">
+        <a href="/til">TIL</a>
       </li>
       
     

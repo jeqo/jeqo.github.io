@@ -7,10 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 17 Jun 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://jeqo.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 01 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About TILs</title>
+      <link>https://jeqo.github.io/til/2021-12-01-about-til/</link>
+      <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/til/2021-12-01-about-til/</guid>
+      <description>Today I learned about Today-I-Learned posts from Simon Willison: https://til.simonwillison.net/ and found it super cool, so I decided to try out, let&amp;rsquo;s see how it goes.</description>
+    </item>
     
     <item>
       <title>Notes on cp-ansible</title>
@@ -100,7 +105,7 @@ Related JIRA issues  https://issues.apache.org/jira/browse/KAFKA-7718  Proposed 
       
       <guid>https://jeqo.github.io/drafts/kip-617/</guid>
       <description>Motivation Fetching range of records from Kafka Streams state stores comes with an iterator to traverse elements from oldest to newest, e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions:
- For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&amp;rdquo;
+ For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&amp;quot;
  Similar guarantees are provided on other fetch and range operations. But in the case of key ranges, there are some nuances regarding order:
  The returned iterator must be safe from {@link java.</description>
     </item>
@@ -118,7 +123,7 @@ Related JIRA issues  https://issues.apache.org/jira/browse/KAFKA-7718  Proposed 
     <item>
       <title>About</title>
       <link>https://jeqo.github.io/about/</link>
-      <pubDate>Sat, 11 Apr 2020 00:00:00 +0100</pubDate>
+      <pubDate>Sat, 11 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/about/</guid>
       <description>Jorge Esteban Quilcate Otoya Peruvian, husband, software engineer, and immigrant in Norway and the UK.
@@ -142,19 +147,19 @@ Current interests:
     
     <item>
       <title>Making sense of Event-Driven Systems @ Oracle Code One 2019</title>
-      <link>https://jeqo.github.io/talks/making-sense-event-drive-systems-codeone19/</link>
+      <link>https://jeqo.github.io/talks/making-sense-event-driven-systems-codeone19/</link>
       <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/talks/making-sense-event-drive-systems-codeone19/</guid>
+      <guid>https://jeqo.github.io/talks/making-sense-event-driven-systems-codeone19/</guid>
       <description>&lt;p&gt;Presented at &lt;a href=&#34;https://events.rainfocus.com/widget/oracle/oow19/catalogcodeone19?search=jorge&amp;amp;search.codeonetracks=15560568230440086BEm&#34;&gt;Oracle Code One 2019&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Making sense of Event-Driven Systems @ Kafka Summit 2019</title>
-      <link>https://jeqo.github.io/talks/making-sense-event-drive-dataflows-kafkasummitnyc19/</link>
+      <link>https://jeqo.github.io/talks/making-sense-event-driven-dataflows-kafkasummitnyc19/</link>
       <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/talks/making-sense-event-drive-dataflows-kafkasummitnyc19/</guid>
+      <guid>https://jeqo.github.io/talks/making-sense-event-driven-dataflows-kafkasummitnyc19/</guid>
       <description>&lt;p&gt;Presented at &lt;a href=&#34;https://kafka-summit.org/sessions/tracing-kafka-based-applications-making-sense-event-driven-dataflows/&#34;&gt;Kafka Summit NYC 2019&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
