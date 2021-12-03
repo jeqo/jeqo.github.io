@@ -207,33 +207,71 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p>== Authentication</p>
-<p>=== SASL/PLAIN</p>
+    <div class="sect1">
+<h2 id="_authentication">Authentication</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_saslplain">SASL/PLAIN</h3>
+<div class="paragraph">
 <img src="/images/notes/kafka-security/authentication/sasl-plain.png" alt="Notes on Apache Kafka and Confluent Platform Security /images/notes/kafka-security/authentication/sasl-plain.png" data-action="zoom">
 
-<p>.Further reading</p>
+</div>
+<div class="ulist">
+<div class="title">Further reading</div>
 <ul>
-<li>Kafka docs: <a href="https://kafka.apache.org/documentation/#security_sasl_plain">https://kafka.apache.org/documentation/#security_sasl_plain</a></li>
+<li>
+<p>Kafka docs: <a href="https://kafka.apache.org/documentation/#security_sasl_plain" class="bare">https://kafka.apache.org/documentation/#security_sasl_plain</a></p>
+</li>
 </ul>
-<p>=== SASL/SCRAM</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_saslscram">SASL/SCRAM</h3>
+<div class="paragraph">
 <img src="/images/notes/kafka-security/authentication/sasl-scram.png" alt="Notes on Apache Kafka and Confluent Platform Security /images/notes/kafka-security/authentication/sasl-scram.png" data-action="zoom">
 
-<p>Support:</p>
-<ul>
-<li><a href="https://tools.ietf.org/html/rfc7677%5BSCRAM-SHA-256%5D">https://tools.ietf.org/html/rfc7677[SCRAM-SHA-256]</a></li>
-<li>SCRAM-SHA-512</li>
-</ul>
-<p>==== Considerations</p>
+</div>
+<div class="paragraph">
+<p>Support:
+- <a href="https://tools.ietf.org/html/rfc7677">SCRAM-SHA-256</a>
+- SCRAM-SHA-512</p>
+</div>
+<div class="sect3">
+<h4 id="_considerations">Considerations</h4>
+<div class="quoteblock">
 <blockquote>
+<div class="paragraph">
 <p>For each SCRAM mechanism enabled, credentials must be created by adding a config with the mechanism name. <strong>Credentials for inter-broker communication must be created before Kafka brokers are started.</strong></p>
+</div>
 </blockquote>
-<p>.Further reading</p>
+</div>
+<div class="ulist">
+<div class="title">Further reading</div>
 <ul>
-<li>Kafka docs: <a href="https://kafka.apache.org/documentation/#security_sasl_scram">https://kafka.apache.org/documentation/#security_sasl_scram</a></li>
+<li>
+<p>Kafka docs: <a href="https://kafka.apache.org/documentation/#security_sasl_scram" class="bare">https://kafka.apache.org/documentation/#security_sasl_scram</a></p>
+</li>
 </ul>
-<p>== Authentication</p>
-<p>== Authorization</p>
-<p>=== Apache Kafka Access Control Lists</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authentication_2">Authentication</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authorization">Authorization</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_apache_kafka_access_control_lists">Apache Kafka Access Control Lists</h3>
+
+</div>
+</div>
+</div>
 
   </section>
   <footer>

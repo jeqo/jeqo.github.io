@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/es/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Apr 2020 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="https://jeqo.github.io/es/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Cómo mejorar el sitio web del Congreso de Perú?</title>
       <link>https://jeqo.github.io/es/posts/2020-10-02-peru-congreso/</link>
@@ -46,7 +50,7 @@ Topology topology() { final StreamsBuilder builder = new StreamsBuilder(); build
     <item>
       <title>Acerca</title>
       <link>https://jeqo.github.io/es/about/</link>
-      <pubDate>Sat, 11 Apr 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 11 Apr 2020 00:00:00 -0500</pubDate>
       
       <guid>https://jeqo.github.io/es/about/</guid>
       <description>Jorge Esteban Quilcate Otoya Peruano, casado, ingeniero de software, e inmigrante en Noruega y el Reino Unido.

@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 16 Feb 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/es/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jeqo.github.io/es/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>De Mensajería a Log de Eventos con Apache Kafka @ Perú JUG</title>
       <link>https://jeqo.github.io/es/talks/de-mensajeria-a-log-de-eventos-perujug/</link>

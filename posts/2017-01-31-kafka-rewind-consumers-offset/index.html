@@ -238,7 +238,7 @@ consumed by <code>offset</code>, by <code>partition</code>.</p>
 can consume <code>records</code> from <code>partitions</code> independently, in parallel.</p>
 <p>Before continue, let&rsquo;s check a simple Kafka Producer implemented with Java:</p>
 <p><code>KafkaSimpleProducer.java</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">main</span><span style="color:#333">(</span>String<span style="color:#333">[]</span> args<span style="color:#333">)</span> <span style="color:#333">{</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">main</span><span style="color:#333">(</span>String<span style="color:#333">[]</span> args<span style="color:#333">)</span> <span style="color:#333">{</span>
     <span style="color:#333">...</span>
     Properties properties <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Properties<span style="color:#333">();</span>
     properties<span style="color:#333">.</span><span style="color:#00c">put</span><span style="color:#333">(</span>ProducerConfig<span style="color:#333">.</span><span style="color:#00c">BOOTSTRAP_SERVERS_CONFIG</span><span style="color:#333">,</span> bootstrapServers<span style="color:#333">);</span>
@@ -278,7 +278,7 @@ but <code>offset</code> gets commited to cluster:</p>
 <!-- raw HTML omitted -->
 <p>So, how to go back to the beginning?</p>
 <p>We can use <code>--offset</code> option to with three alternatives:</p>
-<pre tabindex="0"><code>--offset &lt;String: consume offset&gt;        The offset id to consume from (a non-  
+<pre><code>--offset &lt;String: consume offset&gt;        The offset id to consume from (a non-  
                                            negative number), or 'earliest'      
                                            which means from beginning, or       
                                            'latest' which means from end        
@@ -316,7 +316,7 @@ in his post
 </ul>
 <p>So I will focus in options available in <code>Kafka Consumer</code>.</p>
 <p>A simple Consumer will look something like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">main</span><span style="color:#333">(</span>String<span style="color:#333">[]</span> args<span style="color:#333">)</span> <span style="color:#333">{</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">main</span><span style="color:#333">(</span>String<span style="color:#333">[]</span> args<span style="color:#333">)</span> <span style="color:#333">{</span>
     Properties props <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Properties<span style="color:#333">();</span>
     props<span style="color:#333">.</span><span style="color:#00c">put</span><span style="color:#333">(</span>ConsumerConfig<span style="color:#333">.</span><span style="color:#00c">BOOTSTRAP_SERVERS_CONFIG</span><span style="color:#333">,</span> bootstrapServers<span style="color:#333">);</span>
     props<span style="color:#333">.</span><span style="color:#00c">put</span><span style="color:#333">(</span>ConsumerConfig<span style="color:#333">.</span><span style="color:#00c">GROUP_ID_CONFIG</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;test&#34;</span><span style="color:#333">);</span>
@@ -346,7 +346,7 @@ option that will be clean up old records based on time or size; but
 this also deserves its own post.</p>
 <p>To go to the beginning we can use <code>#seekToBeginning(topicPartition)</code>
 operation to go back to earliest offset:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
 
 <span style="color:#080;font-weight:bold">while</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">true</span><span style="color:#333">)</span> <span style="color:#333">{</span>
     ConsumerRecords<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> records <span style="color:#333">=</span> consumer<span style="color:#333">.</span><span style="color:#00c">poll</span><span style="color:#333">(</span>100<span style="color:#333">);</span>
@@ -366,7 +366,7 @@ operation to go back to earliest offset:</p>
 <p>If we can recognized the specific <code>record</code> (by <code>partition</code>)
 from where we need to reprocess all the log,
 we can use <code>#seek(topicPartition, offset)</code> directly.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
 
 <span style="color:#080;font-weight:bold">while</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">true</span><span style="color:#333">)</span> <span style="color:#333">{</span>
     ConsumerRecords<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> records <span style="color:#333">=</span> consumer<span style="color:#333">.</span><span style="color:#00c">poll</span><span style="color:#333">(</span>100<span style="color:#333">);</span>
@@ -393,7 +393,7 @@ improvements <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-32+-
 <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-33+-+Add+a+time+based+log+index">[3]</a>
 were added and a new operation was added to <code>Kafka Consumer API</code>: <code>#offsetsForTimes</code>.</p>
 <p>Here is how to use it:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
 
 <span style="color:#080;font-weight:bold">while</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">true</span><span style="color:#333">)</span> <span style="color:#333">{</span>
     ConsumerRecords<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> records <span style="color:#333">=</span> consumer<span style="color:#333">.</span><span style="color:#00c">poll</span><span style="color:#333">(</span>100<span style="color:#333">);</span>

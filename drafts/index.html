@@ -224,7 +224,7 @@ Related JIRA issues  https://issues.apache.org/jira/browse/KAFKA-7718  Proposed 
   </header>
   <div class="c-article__summary">
     Motivation Fetching range of records from Kafka Streams state stores comes with an iterator to traverse elements from oldest to newest, e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions:
- For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&quot;
+ For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&rdquo;
  Similar guarantees are provided on other fetch and range operations. But in the case of key ranges, there are some nuances regarding order:
  The returned iterator must be safe from {@link java.
   </div>

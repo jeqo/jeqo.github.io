@@ -193,6 +193,26 @@
   
     <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-02-kafka-min-isr/">Use min.insync.replicas for fault-tolerance</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2021-12-02T00:00:00Z">
+        Dec 2, 2021
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Things to remember:
+ Topic replication factor is not enough to guarantee fault-tolerance. If min.insync.replicas is not defined i.e. 1, then data could potentially be lost. acks=all will force replica leader to wait for all brokers in the ISR, not only the min.insync.replicas. If replicas available are equal to minimum ISR, then the topic partitions are at the edge of losing availability. If one broker becomes unavailable (e.g. restarting), then producers will fail to write data.
+  </div>
+  
+  <a href="https://jeqo.github.io/til/2021-12-02-kafka-min-isr/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+</article>
+
+  
+    <article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-01-about-til/">About TILs</a></h2>
     <p class="c-article__meta">
       Posted on

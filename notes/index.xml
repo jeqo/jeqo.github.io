@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 17 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jeqo.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Notes on cp-ansible</title>
       <link>https://jeqo.github.io/notes/cp-ansible/</link>
@@ -23,17 +27,11 @@
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/notes/kafka-security/</guid>
-      <description>== Authentication
-=== SASL/PLAIN
-.Further reading
- Kafka docs: https://kafka.apache.org/documentation/#security_sasl_plain  === SASL/SCRAM
-Support:
- https://tools.ietf.org/html/rfc7677[SCRAM-SHA-256] SCRAM-SHA-512  ==== Considerations
- For each SCRAM mechanism enabled, credentials must be created by adding a config with the mechanism name. Credentials for inter-broker communication must be created before Kafka brokers are started.
- .Further reading
- Kafka docs: https://kafka.apache.org/documentation/#security_sasl_scram  == Authentication
-== Authorization
-=== Apache Kafka Access Control Lists</description>
+      <description>Authentication SASL/PLAIN  Further reading   Kafka docs: https://kafka.apache.org/documentation/#security_sasl_plain
+    SASL/SCRAM  Support: - SCRAM-SHA-256 - SCRAM-SHA-512
+ Considerations  For each SCRAM mechanism enabled, credentials must be created by adding a config with the mechanism name. Credentials for inter-broker communication must be created before Kafka brokers are started.
+   Further reading   Kafka docs: https://kafka.apache.org/documentation/#security_sasl_scram
+       Authentication   Authorization Apache Kafka Access Control Lists    </description>
     </item>
     
     <item>
@@ -42,16 +40,11 @@ Support:
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/notes/zookeeper-security/</guid>
-      <description>== Authentication
-.Examples
- https://github.com/jeqo/docker-composes/tree/master/zookeeper-security  === Client/Server Authentication
-==== SASL Authentication
-SASL Authentication alone does not deny access to anonymous users. Beware of this as it gives a false sense of security, and can take some time to realize. Reference: https://issues.apache.org/jira/browse/ZOOKEEPER-1736
-This can be solved by forcing an Authentication Scheme:
-requireClientAuthScheme=sasl  .Futher reading
- https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication   === Server/Server Authentication
- .Futher reading
- https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication   == Authorization</description>
+      <description>Authentication Examples   https://github.com/jeqo/docker-composes/tree/master/zookeeper-security
+   Client/Server Authentication SASL Authentication SASL Authentication alone does not deny access to anonymous users. Beware of this as it gives a false sense of security, and can take some time to realize. Reference: https://issues.apache.org/jira/browse/ZOOKEEPER-1736
+ This can be solved by forcing an Authentication Scheme:
+ requireClientAuthScheme=sasl    Futher reading   https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication ---
+     Server/Server Authentication  Futher reading   https://cwiki.</description>
     </item>
     
     <item>
@@ -60,13 +53,9 @@ requireClientAuthScheme=sasl  .Futher reading
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/notes/security/</guid>
-      <description>== Security Standards
-=== Hashing
-==== Hash Functions
-.Cryptographic Hash Functions What makes a hash function a Cryptographic Hash Function (CHF) is that is a one-way function: practically infeasible to invert.
-==== MD5
-From https://en.wikipedia.org/wiki/MD5[Wikipedia]:
- The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to be used as a cryptographic hash function, it has been found to suffer from extensive vulnerabilities.</description>
+      <description>Security Standards Hashing Hash Functions Cryptographic Hash Functions What makes a hash function a Cryptographic Hash Function (CHF) is that is a one-way function: practically infeasible to invert.
+  MD5 From Wikipedia:
+  The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to be used as a cryptographic hash function, it has been found to suffer from extensive vulnerabilities.</description>
     </item>
     
     <item>

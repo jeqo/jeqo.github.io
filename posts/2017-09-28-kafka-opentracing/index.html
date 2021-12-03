@@ -245,15 +245,15 @@ and another application that consumes and print those events.</p>
 <p>To execute this applications let&rsquo;s first start a local version of Kafka:</p>
 <h2 id="install-and-run-kafka">Install and Run Kafka</h2>
 <p>First, execute the script to install Kafka:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#007020">cd</span> kafka/
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#007020">cd</span> kafka/
 ./install-kafka.sh
 </code></pre></div><p>Once it is installed, start Zookeeper and then one Kafka broker:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./start-zookeeper.sh
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./start-zookeeper.sh
 ...
 <span style="color:#333">[</span>2017-09-27 22:09:26,634<span style="color:#333">]</span> INFO binding to port 0.0.0.0/0.0.0.0:2181 <span style="color:#333">(</span>org.apache.zookeeper.server.NIOServerCnxnFactory<span style="color:#333">)</span>
 ...
 
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./start-broker.sh
+</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./start-broker.sh
 ...
 <span style="color:#333">[</span>2017-09-27 22:09:33,814<span style="color:#333">]</span> INFO Registered broker <span style="color:#60e;font-weight:bold">0</span> at path /brokers/ids/0 with addresses: EndPoint<span style="color:#333">(</span>jeqo-Oryx-Pro,9092,ListenerName<span style="color:#333">(</span>PLAINTEXT<span style="color:#333">)</span>,PLAINTEXT<span style="color:#333">)</span> <span style="color:#333">(</span>kafka.utils.ZkUtils<span style="color:#333">)</span>
 ...
@@ -264,19 +264,19 @@ and another application that consumes and print those events.</p>
 <p>To get started, let&rsquo;s start the producer side and test it.</p>
 <p>Build the whole project: <code>./mvnw clean install</code></p>
 <p>And start the producer application:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#007020">cd</span> hello-world-producer/
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#007020">cd</span> hello-world-producer/
 java -jar target/hello-world-producer.jar server config.yml
 </code></pre></div><p>This will start a web server listening on port 8080.</p>
 <p>We have a resource listening on context <code>/hello</code> and an operation
 <code>GET /hello/{name}</code> that will call the <code>KafkaHelloWorldProducer</code>
 that sends the record to Kafka.</p>
 <p>Once the applications is started, we can call the operation with curl:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -XGET http://localhost:8080/hello/jeqo
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -XGET http://localhost:8080/hello/jeqo
 <span style="color:#080;font-weight:bold">done</span>.
 </code></pre></div><h3 id="start-consumer-side">Start Consumer Side</h3>
 <p>Once producer side is started and running, we can start consumer side
 to print out the events:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">java -jar target/hello-world-consumer.jar server config.yml
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">java -jar target/hello-world-consumer.jar server config.yml
 ...
 Hi jeqo
 ...
@@ -306,7 +306,7 @@ contribute: <a href="https://github.com/opentracing-contrib/">https://github.com
 <p>We are following this step to have a complete view since request is
 received.</p>
 <p>Firsts let&rsquo;s add Maven dependencies:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">        <span style="color:#070">&lt;dependency&gt;</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">        <span style="color:#070">&lt;dependency&gt;</span>
             <span style="color:#070">&lt;groupId&gt;</span>io.opentracing<span style="color:#070">&lt;/groupId&gt;</span>
             <span style="color:#070">&lt;artifactId&gt;</span>opentracing-api<span style="color:#070">&lt;/artifactId&gt;</span>
             <span style="color:#070">&lt;version&gt;</span>0.30.0<span style="color:#070">&lt;/version&gt;</span>
@@ -328,7 +328,7 @@ that handles traces for all of your JAX-RS resource&rsquo;s operations by defaul
 adds the Jaeger Java Client to connect to Jaeger Agent.</p>
 <p>Then, we need to instantiate and register the Tracer on the Application
 class:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#080;font-weight:bold">final</span> Tracer tracer <span style="color:#333">=</span> <span style="color:#888">//(1)
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#080;font-weight:bold">final</span> Tracer tracer <span style="color:#333">=</span> <span style="color:#888">//(1)
 </span><span style="color:#888"></span>        <span style="color:#080;font-weight:bold">new</span> com<span style="color:#333">.</span><span style="color:#00c">uber</span><span style="color:#333">.</span><span style="color:#00c">jaeger</span><span style="color:#333">.</span><span style="color:#00c">Configuration</span><span style="color:#333">(</span>
             getName<span style="color:#333">(),</span>
             <span style="color:#080;font-weight:bold">new</span> com<span style="color:#333">.</span><span style="color:#00c">uber</span><span style="color:#333">.</span><span style="color:#00c">jaeger</span><span style="color:#333">.</span><span style="color:#00c">Configuration</span><span style="color:#333">.</span><span style="color:#00c">SamplerConfiguration</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;const&#34;</span><span style="color:#333">,</span> 1<span style="color:#333">),</span>
@@ -354,7 +354,7 @@ reference it from other layers.</p>
 We are configuring this integration to only trace operations with
 <code>@Trace</code> annotation: <code>.withTraceAnnotations()</code></p>
 <p>So, your resource class, should looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#555;font-weight:bold">@GET</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#555;font-weight:bold">@GET</span>
   <span style="color:#555;font-weight:bold">@Path</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;{name}&#34;</span><span style="color:#333">)</span>
   <span style="color:#555;font-weight:bold">@Trace</span>
   <span style="color:#080;font-weight:bold">public</span> Response <span style="color:#06b;font-weight:bold">sayHi</span><span style="color:#333">(</span><span style="color:#555;font-weight:bold">@PathParam</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;name&#34;</span><span style="color:#333">)</span> <span style="color:#080;font-weight:bold">final</span> String name<span style="color:#333">)</span> <span style="color:#333">{</span>
@@ -362,14 +362,14 @@ We are configuring this integration to only trace operations with
     <span style="color:#080;font-weight:bold">return</span> Response<span style="color:#333">.</span><span style="color:#00c">accepted</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;done.&#34;</span><span style="color:#333">).</span><span style="color:#00c">build</span><span style="color:#333">();</span>
   <span style="color:#333">}</span>
 </code></pre></div><p>Let&rsquo;s install and start Jaeger, in its standalone version:</p>
-<pre tabindex="0"><code>cd jaeger/
+<pre><code>cd jaeger/
 ./install-jaeger.sh
 </code></pre><p>And then:</p>
-<pre tabindex="0"><code>./start-standalone.sh
+<pre><code>./start-standalone.sh
 </code></pre><p>Once it is started, you can go to: http://localhost:16686/search</p>
 <p>And check its UI.</p>
 <p>Now, let&rsquo;s run a first request to check if a trace is created:</p>
-<pre tabindex="0"><code>curl http://localhost:8080/hello/jorge
+<pre><code>curl http://localhost:8080/hello/jorge
 </code></pre><p>And refresh the Jaeger UI:</p>
 <img src="/images/posts/2017-09-28-kafka-opentracing/first-trace.png" alt="Tracing Kafka applications /images/posts/2017-09-28-kafka-opentracing/first-trace.png" data-action="zoom">
 
@@ -387,14 +387,14 @@ Did the consumer side receive the message?</p>
 <p>This are the question we should be able to solve using OpenTracing.</p>
 <p>Now let&rsquo;s add instrumentation for Kafka Clients:</p>
 <p>First, let&rsquo;s add another dependency:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#070">&lt;dependency&gt;</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#070">&lt;dependency&gt;</span>
     <span style="color:#070">&lt;groupId&gt;</span>io.opentracing.contrib<span style="color:#070">&lt;/groupId&gt;</span>
     <span style="color:#070">&lt;artifactId&gt;</span>opentracing-kafka-client<span style="color:#070">&lt;/artifactId&gt;</span>
     <span style="color:#070">&lt;version&gt;</span>0.0.4<span style="color:#070">&lt;/version&gt;</span>
 <span style="color:#070">&lt;/dependency&gt;</span>
 </code></pre></div><p><a href="https://github.com/opentracing-contrib/java-kafka-client">https://github.com/opentracing-contrib/java-kafka-client</a></p>
 <p>And let&rsquo;s wrap the tracer on a <code>TracingKafkaProducer</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#080;font-weight:bold">final</span> KafkaProducer<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> kafkaProducer <span style="color:#333">=</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#080;font-weight:bold">final</span> KafkaProducer<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> kafkaProducer <span style="color:#333">=</span>
         <span style="color:#080;font-weight:bold">new</span> KafkaProducer<span style="color:#333">&lt;&gt;(</span>producerProperties<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">new</span> StringSerializer<span style="color:#333">(),</span> <span style="color:#080;font-weight:bold">new</span> StringSerializer<span style="color:#333">());</span>
     <span style="color:#080;font-weight:bold">final</span> TracingKafkaProducer<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> tracingKafkaProducer <span style="color:#333">=</span>
         <span style="color:#080;font-weight:bold">new</span> TracingKafkaProducer<span style="color:#333">&lt;&gt;(</span>kafkaProducer<span style="color:#333">,</span> tracer<span style="color:#333">);</span>
@@ -412,10 +412,10 @@ a reference.</p>
 <code>ActiveSpan</code> that will wrap the execution of Kafka Client. Let&rsquo;s see
 how this looks:</p>
 <p>Let&rsquo;s go to the resource operation and add a parameter:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#080;font-weight:bold">public</span> Response <span style="color:#06b;font-weight:bold">sayHi</span><span style="color:#333">(</span><span style="color:#555;font-weight:bold">@Context</span> <span style="color:#080;font-weight:bold">final</span> Request request<span style="color:#333">,</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#080;font-weight:bold">public</span> Response <span style="color:#06b;font-weight:bold">sayHi</span><span style="color:#333">(</span><span style="color:#555;font-weight:bold">@Context</span> <span style="color:#080;font-weight:bold">final</span> Request request<span style="color:#333">,</span>
                         <span style="color:#555;font-weight:bold">@PathParam</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;name&#34;</span><span style="color:#333">)</span> <span style="color:#080;font-weight:bold">final</span> String name<span style="color:#333">)</span> <span style="color:#333">{</span>
 </code></pre></div><p>Then we can use it to get the span using the DropwizardTracer:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@Path</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;hello&#34;</span><span style="color:#333">)</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@Path</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;hello&#34;</span><span style="color:#333">)</span>
 <span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">HelloWorldResource</span> <span style="color:#333">{</span>
   <span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">final</span> DropWizardTracer dropWizardTracer<span style="color:#333">;</span> <span style="color:#888">//(1)
 </span><span style="color:#888"></span>  <span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">final</span> KafkaHelloWorldProducer producer<span style="color:#333">;</span>
@@ -459,7 +459,7 @@ the producer side. But what happen next? How the consumer side reacts?</p>
 <p>To know that using OpenTracing instrumentation we will using the same
 integration of OpenTracing with Kafka, but it is a bit different.</p>
 <p>Again, let&rsquo;s start adding dependencies:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">        <span style="color:#070">&lt;dependency&gt;</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">        <span style="color:#070">&lt;dependency&gt;</span>
             <span style="color:#070">&lt;groupId&gt;</span>io.opentracing<span style="color:#070">&lt;/groupId&gt;</span>
             <span style="color:#070">&lt;artifactId&gt;</span>opentracing-api<span style="color:#070">&lt;/artifactId&gt;</span>
             <span style="color:#070">&lt;version&gt;</span>0.30.0<span style="color:#070">&lt;/version&gt;</span>
@@ -478,7 +478,7 @@ integration of OpenTracing with Kafka, but it is a bit different.</p>
 for integration with Kafka Clients.</p>
 <p>Then, we need to instantiate the <code>Tracer</code>, but without the <code>DropwizardTracer</code>
 given that we don&rsquo;t need to trace HTTP endpoints:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#888">//Instantiate and register Tracer
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#888">//Instantiate and register Tracer
 </span><span style="color:#888"></span>    <span style="color:#080;font-weight:bold">final</span> Tracer tracer <span style="color:#333">=</span>
         <span style="color:#080;font-weight:bold">new</span> com<span style="color:#333">.</span><span style="color:#00c">uber</span><span style="color:#333">.</span><span style="color:#00c">jaeger</span><span style="color:#333">.</span><span style="color:#00c">Configuration</span><span style="color:#333">(</span>
             getName<span style="color:#333">(),</span>
@@ -492,7 +492,7 @@ given that we don&rsquo;t need to trace HTTP endpoints:</p>
             <span style="color:#333">.</span><span style="color:#00c">getTracer</span><span style="color:#333">();</span>
     GlobalTracer<span style="color:#333">.</span><span style="color:#00c">register</span><span style="color:#333">(</span>tracer<span style="color:#333">);</span>
 </code></pre></div><p>And then, instantiate the <code>TracingKafkaConsumer</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#080;font-weight:bold">final</span> TracingKafkaConsumer<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> tracingKafkaConsumer <span style="color:#333">=</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#080;font-weight:bold">final</span> TracingKafkaConsumer<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> tracingKafkaConsumer <span style="color:#333">=</span>
         <span style="color:#080;font-weight:bold">new</span> TracingKafkaConsumer<span style="color:#333">&lt;&gt;(</span>kafkaConsumer<span style="color:#333">,</span> tracer<span style="color:#333">);</span>
 
     <span style="color:#888">//Define Runnable Handler
@@ -500,9 +500,9 @@ given that we don&rsquo;t need to trace HTTP endpoints:</p>
         <span style="color:#080;font-weight:bold">new</span> KafkaGreetingsHandler<span style="color:#333">(</span>tracingKafkaConsumer<span style="color:#333">)</span>
 </code></pre></div><p>Should be enough. Let&rsquo;s try it out:</p>
 <p>(build and run your consumer side)</p>
-<pre tabindex="0"><code>./mvnw clean install
+<pre><code>./mvnw clean install
  java -jar target/hello-world-consumer.jar server config.yml
-</code></pre><pre tabindex="0"><code> curl http://localhost:8080/hello/jorge
+</code></pre><pre><code> curl http://localhost:8080/hello/jorge
 </code></pre><img src="/images/posts/2017-09-28-kafka-opentracing/trace-with-consumer.png" alt="Tracing Kafka applications /images/posts/2017-09-28-kafka-opentracing/trace-with-consumer.png" data-action="zoom">
 
 <p>That&rsquo;s great! Now we have how long it takes to receive a record on the
@@ -510,7 +510,7 @@ consumer side.</p>
 <p>But, what if we want to measure the complete execution, since we get
 the message until we commit it?</p>
 <p>To do this, we can add an <code>ActiveSpan</code> on the consumption side:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">        <span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span>ConsumerRecord<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> consumerRecord <span style="color:#333">:</span> consumerRecords<span style="color:#333">)</span> <span style="color:#333">{</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">        <span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span>ConsumerRecord<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> consumerRecord <span style="color:#333">:</span> consumerRecords<span style="color:#333">)</span> <span style="color:#333">{</span>
           <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">(</span>ActiveSpan activeSpan <span style="color:#333">=</span>
                    GlobalTracer<span style="color:#333">.</span><span style="color:#00c">get</span><span style="color:#333">()</span>
                        <span style="color:#333">.</span><span style="color:#00c">buildSpan</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;consumption&#34;</span><span style="color:#333">)</span>
@@ -524,7 +524,7 @@ the message until we commit it?</p>
 </code></pre></div><p>But where is the context coming from?</p>
 <p>Well, as <code>TracingKafkaProducer</code> inject tracing contexts on Headers,
 we can use <code>TracingKafkaUtils</code> to extract it, and reference it:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">        <span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span>ConsumerRecord<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> consumerRecord <span style="color:#333">:</span> consumerRecords<span style="color:#333">)</span> <span style="color:#333">{</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">        <span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span>ConsumerRecord<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> consumerRecord <span style="color:#333">:</span> consumerRecords<span style="color:#333">)</span> <span style="color:#333">{</span>
           <span style="color:#080;font-weight:bold">final</span> SpanContext context <span style="color:#333">=</span>
               TracingKafkaUtils<span style="color:#333">.</span><span style="color:#00c">extractSpanContext</span><span style="color:#333">(</span>consumerRecord<span style="color:#333">.</span><span style="color:#00c">headers</span><span style="color:#333">(),</span> tracer<span style="color:#333">);</span>
           <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">(</span>ActiveSpan activeSpan <span style="color:#333">=</span>
@@ -551,7 +551,7 @@ or Splunk to store your logging messages, and use <code>tags</code> just to refe
 the transaction ID, the entity ID or user ID.</p>
 <p>For instance, in this case, we can add a tag to track the name:</p>
 <p>On the producer side:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">(</span>ActiveSpan ignored <span style="color:#333">=</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">(</span>ActiveSpan ignored <span style="color:#333">=</span>
              dropWizardTracer<span style="color:#333">.</span><span style="color:#00c">getTracer</span><span style="color:#333">()</span>
                  <span style="color:#333">.</span><span style="color:#00c">buildSpan</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;sayHi&#34;</span><span style="color:#333">)</span>
                  <span style="color:#333">.</span><span style="color:#00c">asChildOf</span><span style="color:#333">(</span>span<span style="color:#333">)</span>
@@ -561,7 +561,7 @@ the transaction ID, the entity ID or user ID.</p>
       <span style="color:#080;font-weight:bold">return</span> Response<span style="color:#333">.</span><span style="color:#00c">accepted</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;done.&#34;</span><span style="color:#333">).</span><span style="color:#00c">build</span><span style="color:#333">();</span>
     <span style="color:#333">}</span>
 </code></pre></div><p>And in the consumer side, the same story:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">          <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">(</span>ActiveSpan ignored <span style="color:#333">=</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">          <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">(</span>ActiveSpan ignored <span style="color:#333">=</span>
                    tracer<span style="color:#333">.</span><span style="color:#00c">buildSpan</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;consumption&#34;</span><span style="color:#333">)</span>
                        <span style="color:#333">.</span><span style="color:#00c">withTag</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;user&#34;</span><span style="color:#333">,</span> consumerRecord<span style="color:#333">.</span><span style="color:#00c">key</span><span style="color:#333">())</span>
                        <span style="color:#333">.</span><span style="color:#00c">asChildOf</span><span style="color:#333">(</span>context<span style="color:#333">)</span>

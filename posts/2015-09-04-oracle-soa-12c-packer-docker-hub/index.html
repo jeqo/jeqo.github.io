@@ -224,10 +224,10 @@ building process and I found <a href="https://packer.io/">Packer</a>
 <p>I also moved <a href="https://github.com/jeqo/oracle-docker/tree/master/OracleSOA">OracleSOA directory</a>
 from my forked <a href="https://github.com/oracle/docker">oracle-docker repository</a> to
 an independent repository: <a href="https://github.com/jeqo/oracle-soa-12c-docker">github.com/jeqo/oracle-soa-12c-docker</a>.</p>
-<h2 id="improvements">Improvements</h2>
+<h2 id="improvements-">Improvements</h2>
 <p>Basically Dockerfile scripts were moved to shell scripts and are called
 from Packer.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="background-color:#fff0f0">&#34;provisioners&#34;</span><span style="color:#f00;background-color:#faa">:</span> [
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="background-color:#fff0f0">&#34;provisioners&#34;</span><span style="color:#f00;background-color:#faa">:</span> [
     {
       <span style="color:#070">&#34;type&#34;</span>: <span style="background-color:#fff0f0">&#34;shell&#34;</span>,
       <span style="color:#070">&#34;scripts&#34;</span>: [
@@ -264,7 +264,7 @@ from Packer.</p>
   ]</code></pre></div>
 <p>After provisioning, you can save your image, and if
 you want push it to Docker Hub:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="background-color:#fff0f0">&#34;post-processors&#34;</span><span style="color:#f00;background-color:#faa">:</span> [
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="background-color:#fff0f0">&#34;post-processors&#34;</span><span style="color:#f00;background-color:#faa">:</span> [
     [
       {
         <span style="color:#070">&#34;type&#34;</span>: <span style="background-color:#fff0f0">&#34;docker-tag&#34;</span>,

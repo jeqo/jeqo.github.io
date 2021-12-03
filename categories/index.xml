@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Dec 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jeqo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ops</title>
+      <link>https://jeqo.github.io/categories/ops/</link>
+      <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/ops/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>papers</title>
       <link>https://jeqo.github.io/categories/papers/</link>
@@ -90,20 +103,20 @@
     </item>
     
     <item>
+      <title>Devops</title>
+      <link>https://jeqo.github.io/categories/devops/</link>
+      <pubDate>Thu, 09 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Devops, Oracle</title>
       <link>https://jeqo.github.io/categories/devops-oracle/</link>
       <pubDate>Thu, 09 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/categories/devops-oracle/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Devops</title>
-      <link>https://jeqo.github.io/categories/devops/</link>
-      <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/categories/devops/</guid>
       <description></description>
     </item>
     

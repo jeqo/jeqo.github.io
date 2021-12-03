@@ -222,10 +222,10 @@ languages&rdquo; (Source: <a href="http://yaml.org/">http://yaml.org/</a>)</p>
 </blockquote>
 <p>This means that is actually really easy to understand and start working
 with it. For example:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#070">hosts</span>:<span style="color:#bbb"> </span>webserver<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">tasks</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>- <span style="color:#070">package</span>:<span style="color:#bbb"> </span>apache<span style="color:#bbb">
-</span><span style="color:#bbb">        </span><span style="color:#070">state</span>:<span style="color:#bbb"> </span>latest</code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span>webserver<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">tasks</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">package</span>:<span style="color:#bbb"> </span>apache<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">state</span>:<span style="color:#bbb"> </span>latest</code></pre></div>
 <p>This <strong>&ldquo;playbook&rdquo;</strong> says that a <em>webserver</em> host have 1 task: install latest
 Apache package, using a package <strong>&ldquo;module&rdquo;</strong>.</p>
 <p>Pretty simple eh?</p>
@@ -262,33 +262,33 @@ commands in your workstation.</p>
 <p>I have implemented a Ansible Role to install Java some time ago:
 <a href="https://github.com/jeqo/ansible-role-java">https://github.com/jeqo/ansible-role-java</a></p>
 <p>Just to explain what it does, let&rsquo;s check the main task file:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#bbb">  </span>- <span style="color:#070">debug</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">      </span><span style="color:#070">msg</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;This Java Provider will be installed: {{ java_provider }}&#34;</span><span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#bbb">  </span>- <span style="color:#080;font-weight:bold">debug</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">msg</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;This Java Provider will be installed: {{ java_provider }}&#34;</span><span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>- <span style="color:#070">include</span>:<span style="color:#bbb"> </span>install-{{ java_provider }}.yml<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>- <span style="color:#080;font-weight:bold">include</span>:<span style="color:#bbb"> </span>install-{{<span style="color:#bbb"> </span>java_provider<span style="color:#bbb"> </span>}}.yml<span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span>- <span style="color:#070">include</span>:<span style="color:#bbb"> </span>set-java-home.yml</code></pre></div>
+</span><span style="color:#bbb">  </span>- <span style="color:#080;font-weight:bold">include</span>:<span style="color:#bbb"> </span>set-java-home.yml</code></pre></div>
 <p>It will show a message, include a task depending on &ldquo;java_provider&rdquo;
 variable and finally set JAVA_HOME variable.</p>
 <p>Also this role has a &ldquo;tests&rdquo; directory where you can add playbooks
 to test your role:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#070">name</span>:<span style="color:#bbb"> </span>test install openjdk jdk 8 on centos 7<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">hosts</span>:<span style="color:#bbb"> </span>test01<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">roles</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>- <span style="color:#070">role</span>:<span style="color:#bbb"> </span>java<span style="color:#bbb">
-</span><span style="color:#bbb">      </span><span style="color:#070">java_provider</span>:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
-</span><span style="color:#bbb">      </span><span style="color:#070">java_version</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb">
-</span><span style="color:#bbb">      </span><span style="color:#070">java_type</span>:<span style="color:#bbb"> </span>jdk<span style="color:#bbb">
-</span><span style="color:#bbb"></span>- <span style="color:#070">name</span>:<span style="color:#bbb"> </span>test install openjdk jre 8 on centos 7<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">hosts</span>:<span style="color:#bbb"> </span>test02<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">roles</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>- <span style="color:#070">role</span>:<span style="color:#bbb"> </span>java<span style="color:#bbb">
-</span><span style="color:#bbb">      </span><span style="color:#070">java_provider</span>:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
-</span><span style="color:#bbb">      </span><span style="color:#070">java_version</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb">
-</span><span style="color:#bbb">      </span><span style="color:#070">java_type</span>:<span style="color:#bbb"> </span>jre<span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>test<span style="color:#bbb"> </span>install<span style="color:#bbb"> </span>openjdk<span style="color:#bbb"> </span>jdk<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb"> </span>on<span style="color:#bbb"> </span>centos<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">7</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span>test01<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">roles</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">role</span>:<span style="color:#bbb"> </span>java<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_provider</span>:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_version</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_type</span>:<span style="color:#bbb"> </span>jdk<span style="color:#bbb">
+</span><span style="color:#bbb"></span>- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>test<span style="color:#bbb"> </span>install<span style="color:#bbb"> </span>openjdk<span style="color:#bbb"> </span>jre<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb"> </span>on<span style="color:#bbb"> </span>centos<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">7</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span>test02<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">roles</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">role</span>:<span style="color:#bbb"> </span>java<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_provider</span>:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_version</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span><span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_type</span>:<span style="color:#bbb"> </span>jre<span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="color:#888"># more tests...</span></code></pre></div>
 <p>And I test this playbooks using Vagrant and VirtualBox:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#036;font-weight:bold">Vagrant</span><span style="color:#333">.</span>configure(<span style="color:#00d;font-weight:bold">2</span>) <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>config<span style="color:#333">|</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#036;font-weight:bold">Vagrant</span><span style="color:#333">.</span>configure(<span style="color:#00d;font-weight:bold">2</span>) <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>config<span style="color:#333">|</span>
 
   config<span style="color:#333">.</span>vm<span style="color:#333">.</span>provision <span style="background-color:#fff0f0">&#34;ansible&#34;</span> <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>ansible<span style="color:#333">|</span>
     ansible<span style="color:#333">.</span>playbook <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;test.yml&#34;</span>
@@ -306,7 +306,7 @@ to test your role:</p>
   <span style="color:#888"># more test nodes...</span>
 <span style="color:#080;font-weight:bold">end</span></code></pre></div>
 <p>So, lets test that OpenJDK 8 is running OK in Centos:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vagrant up test01
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vagrant up test01
 ...
 
 PLAY <span style="color:#333">[</span><span style="color:#007020">test</span> install openjdk jdk <span style="color:#60e;font-weight:bold">8</span> on centos 7<span style="color:#333">]</span> **********************************
@@ -344,33 +344,33 @@ anti-pattern: <a href="https://jpetazzo.github.io/2014/06/23/docker-ssh-consider
 <p>So, since Ansible 2.0 a Docker connection type is included OOTB, and
 I give it a try: <a href="https://github.com/jeqo/poc-ansible-docker">https://github.com/jeqo/poc-ansible-docker</a></p>
 <p>I added a playbook to create a container:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#070">hosts</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">127.0.0.1</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">connection</span>:<span style="color:#bbb"> </span>local<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">tasks</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>- <span style="color:#070">name</span>:<span style="color:#bbb"> </span>my container<span style="color:#bbb">
-</span><span style="color:#bbb">      </span><span style="color:#070">docker</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">        </span><span style="color:#070">name</span>:<span style="color:#bbb"> </span>poccontainer<span style="color:#bbb">
-</span><span style="color:#bbb">        </span><span style="color:#070">image</span>:<span style="color:#bbb"> </span>centos<span style="color:#bbb">
-</span><span style="color:#bbb">        </span><span style="color:#070">command</span>:<span style="color:#bbb"> </span>sleep infinity<span style="color:#bbb">
-</span><span style="color:#bbb">        </span><span style="color:#070">state</span>:<span style="color:#bbb"> </span>started</code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">127.0.0.1</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">connection</span>:<span style="color:#bbb"> </span>local<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">tasks</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>my<span style="color:#bbb"> </span>container<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">docker</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>poccontainer<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">image</span>:<span style="color:#bbb"> </span>centos<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span>sleep<span style="color:#bbb"> </span>infinity<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#080;font-weight:bold">state</span>:<span style="color:#bbb"> </span>started</code></pre></div>
 <p>Here I&rsquo;m using &ldquo;connection: local&rdquo; to execute commands locally.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ docker ps
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 a5e49bd032be        centos              <span style="background-color:#fff0f0">&#34;sleep infinity&#34;</span>    About an hour ago   Up About an hour                        poccontainer</code></pre></div>
 <p>And once I have a container running, I can run this playbook:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#070">hosts</span>:<span style="color:#bbb"> </span>poccontainer<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">connection</span>:<span style="color:#bbb"> </span>docker<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">pre_tasks</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>- <span style="color:#070">package</span>:<span style="color:#bbb"> </span>name=sudo<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>- <span style="color:#070">command</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;sed -i -e \&#34;s/Defaults    requiretty.*/ #Defaults    requiretty/g\&#34; /etc/sudoers&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">roles</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>- <span style="color:#070">role</span>:<span style="color:#bbb"> </span>java<span style="color:#bbb">
-</span><span style="color:#bbb">      </span><span style="color:#070">java_provider</span>:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
-</span><span style="color:#bbb">      </span><span style="color:#070">java_type</span>:<span style="color:#bbb"> </span>jdk<span style="color:#bbb">
-</span><span style="color:#bbb">      </span><span style="color:#070">java_version</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span>poccontainer<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">connection</span>:<span style="color:#bbb"> </span>docker<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">pre_tasks</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">package</span>:<span style="color:#bbb"> </span>name=sudo<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;sed -i -e \&#34;s/Defaults    requiretty.*/ #Defaults    requiretty/g\&#34; /etc/sudoers&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">roles</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">role</span>:<span style="color:#bbb"> </span>java<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_provider</span>:<span style="color:#bbb"> </span>openjdk<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_type</span>:<span style="color:#bbb"> </span>jdk<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">java_version</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">8</span></code></pre></div>
 <p>Pre-tasks are required to install sudo package and configure tty. And
 then run role as usual:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ansible-playbook provisioning.yml -vvvv
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ansible-playbook provisioning.yml -vvvv
 Using /home/jeqo/dev/jeqo/poc-ansible-docker/ansible.cfg as config file
 Loaded callback default of <span style="color:#007020">type</span> stdout, v2.0
 <span style="color:#60e;font-weight:bold">2</span> plays in provisioning.yml
@@ -405,11 +405,11 @@ is missing commit and push tasks to put containers on Docker Hub,
 but you can replace it with local commands as here:</p>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#070">hosts</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">127.0.0.1</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">connection</span>:<span style="color:#bbb"> </span>local<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">tasks</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>- <span style="color:#070">name</span>:<span style="color:#bbb"> </span>commit<span style="color:#bbb">
-</span><span style="color:#bbb">      </span><span style="color:#070">command</span>:<span style="color:#bbb"> </span>docker commit poccontainer</code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#080;font-weight:bold">hosts</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">127.0.0.1</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">connection</span>:<span style="color:#bbb"> </span>local<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">tasks</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>- <span style="color:#080;font-weight:bold">name</span>:<span style="color:#bbb"> </span>commit<span style="color:#bbb">
+</span><span style="color:#bbb">      </span><span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span>docker<span style="color:#bbb"> </span>commit<span style="color:#bbb"> </span>poccontainer</code></pre></div>
 <p>Although Ansible also have a module to run Dockerfiles: <a href="http://docs.ansible.com/ansible/docker_image_module.html">http://docs.ansible.com/ansible/docker_image_module.html</a></p>
 <p>Hope this helps you to get started with Ansible and Docker.</p>
   </section>

@@ -200,16 +200,11 @@
     </p>
   </header>
   <div class="c-article__summary">
-    == Authentication
-.Examples
- https://github.com/jeqo/docker-composes/tree/master/zookeeper-security  === Client/Server Authentication
-==== SASL Authentication
-SASL Authentication alone does not deny access to anonymous users. Beware of this as it gives a false sense of security, and can take some time to realize. Reference: https://issues.apache.org/jira/browse/ZOOKEEPER-1736
-This can be solved by forcing an Authentication Scheme:
-requireClientAuthScheme=sasl  .Futher reading
- https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication   === Server/Server Authentication
- .Futher reading
- https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication   == Authorization
+    Authentication Examples   https://github.com/jeqo/docker-composes/tree/master/zookeeper-security
+   Client/Server Authentication SASL Authentication SASL Authentication alone does not deny access to anonymous users. Beware of this as it gives a false sense of security, and can take some time to realize. Reference: https://issues.apache.org/jira/browse/ZOOKEEPER-1736
+ This can be solved by forcing an Authentication Scheme:
+ requireClientAuthScheme=sasl    Futher reading   https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication ---
+     Server/Server Authentication  Futher reading   https://cwiki.
   </div>
   
   <a href="https://jeqo.github.io/notes/zookeeper-security/" class="c-article__btn p-list-article__btn">Read more</a></li>

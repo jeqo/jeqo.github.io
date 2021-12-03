@@ -237,51 +237,51 @@ and you can find their source code here:
 <a href="https://github.com/jeqo/docker-image-apache-zookeeper">Apache Zookeeper</a>, and
 <a href="https://github.com/jeqo/docker-image-confluent-platform">Confluent Platform</a></p>
 <hr>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#070">version</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;2.1&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#070">services</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">kafka</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="color:#070">image</span>:<span style="color:#bbb"> </span>jeqo/apache-kafka:0.10.1.0-2.11<span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="color:#070">links</span>:<span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#080;font-weight:bold">version</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;2.1&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#080;font-weight:bold">services</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">kafka</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">image</span>:<span style="color:#bbb"> </span>jeqo/apache-kafka:<span style="color:#60e;font-weight:bold">0.10.1.0-2.11</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">links</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">      </span>- zookeeper<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">zookeeper</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="color:#070">image</span>:<span style="color:#bbb"> </span>jeqo/apache-zookeeper:3.4.8</code></pre></div>
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">zookeeper</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">image</span>:<span style="color:#bbb"> </span>jeqo/apache-zookeeper:<span style="color:#60e;font-weight:bold">3.4.8</span></code></pre></div>
 <p>This configuration defines 2 services: <code>kafka</code> and <code>zookeeper</code>. The <code>kafka</code>
 service <code>link</code> and environment variable <code>ZOOKEEPER_CONNECT</code> configure the access
 from <code>kafka</code> to <code>zookeeper</code> service.</p>
 <p>If we try to start these configuration with <code>docker-compose up -d</code>,
 Docker Compose will create a <code>network</code> where these service can communicate.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
 Creating network <span style="background-color:#fff0f0">&#34;kafkacluster_default&#34;</span> with the default driver
 Creating kafkacluster_zookeeper_1
 Creating kafkacluster_kafka_1</code></pre></div>
 <p>If you want to communicate with the cluster from your application&rsquo;s
 docker-compose configuration, you can do it as follows:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#070">version</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;2.1&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#070">services</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">kafka</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="color:#070">image</span>:<span style="color:#bbb"> </span>jeqo/apache-kafka-client:0.10.1.0-2.11<span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="color:#070">command</span>:<span style="color:#bbb"> </span>sleep infinity<span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="color:#070">networks</span>:<span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#080;font-weight:bold">version</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;2.1&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#080;font-weight:bold">services</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">kafka</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">image</span>:<span style="color:#bbb"> </span>jeqo/apache-kafka-client:<span style="color:#60e;font-weight:bold">0.10.1.0-2.11</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span>sleep<span style="color:#bbb"> </span>infinity<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">networks</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">      </span>- default<span style="color:#bbb">
 </span><span style="color:#bbb">      </span>- kafkacluster_default<span style="color:#bbb"> </span><span style="color:#888">#(2)</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#070">networks</span>:<span style="color:#bbb"> </span><span style="color:#888">#(1)</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">kafkacluster_default</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="color:#070">external</span>:<span style="color:#bbb"> </span><span style="color:#080;font-weight:bold">true</span></code></pre></div>
+</span><span style="color:#bbb"></span><span style="color:#080;font-weight:bold">networks</span>:<span style="color:#bbb"> </span><span style="color:#888">#(1)</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">kafkacluster_default</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">external</span>:<span style="color:#bbb"> </span><span style="color:#080;font-weight:bold">true</span></code></pre></div>
 <p>Here we define first an <code>external network</code> called <code>singlenodekafkacluster_default</code>
 that will give us access to the kafka cluster network. Then we add this network
 to the service network.</p>
 <p>To test our client, start it up running <code>docker-compose up -d</code> and then connect
 to the cluster with the following command:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-compose <span style="color:#007020">exec</span> kafka bash
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-compose <span style="color:#007020">exec</span> kafka bash
 <span style="color:#888"># bin/kafka-console-producer.sh --broker-list kafka:9092 --topic topic1</span>
 <span style="color:#007020">test</span>
-<span style="color:#888"># bin/kafka-topics.sh --zookeeper zookeeper:2181 --list      </span>
+<span style="color:#888"># bin/kafka-topics.sh --zookeeper zookeeper:2181 --list</span>      
 topic1</code></pre></div>
 <h1 id="multi-node-cluster">Multi-Node Cluster</h1>
 <p>To scale a container using Docker Compose is as simple as using the <code>scale</code> command:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose scale <span style="color:#963">kafka</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">3</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose scale <span style="color:#963">kafka</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">3</span></code></pre></div>
 <p>This will create 2 more containers:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-compose scale <span style="color:#963">kafka</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">3</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-compose scale <span style="color:#963">kafka</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">3</span>
 Creating and starting kafkacluster_kafka_2 ... <span style="color:#080;font-weight:bold">done</span>
 Creating and starting kafkacluster_kafka_3 ... <span style="color:#080;font-weight:bold">done</span></code></pre></div>
 <p>You, as an application developer, only need to know one of the <code>broker</code> IPs, or use the service
@@ -290,7 +290,7 @@ will use it only once to get the Kafka <code>broker</code> IPs from the same clu
 Kafka scaling will be transparent to your application.</p>
 <p>To validate that all brokers are part of the cluster let&rsquo;s use Zookeeper client to check. From
 client container:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-compose <span style="color:#007020">exec</span> kafka bash
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-compose <span style="color:#007020">exec</span> kafka bash
 <span style="color:#888"># bin/zookeeper-shell.sh zookeeper:2181</span>
 ls /brokers/ids
 <span style="color:#333">[</span>1003, 1002, 1001<span style="color:#333">]</span></code></pre></div>
@@ -347,14 +347,14 @@ you can decide how to redistribute your topics.</p>
 <p>You can do this following the documentation here: <a href="http://kafka.apache.org/documentation/#basic_ops_cluster_expansion">http://kafka.apache.org/documentation/#basic_ops_cluster_expansion</a></p>
 <p>The steps described in the documentation are automated a bit with Ansible:</p>
 <p>Inside the <code>playbooks/prepare-reassignment.yml</code> file you have 2 variables:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#070">vars</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">topics</span>:<span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#080;font-weight:bold">vars</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">topics</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>- topic1<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#070">broker_list</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">1003</span></code></pre></div>
+</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">broker_list</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">1003</span></code></pre></div>
 <p>This will prepare a recipe to move your topic <code>topic1</code> to <code>broker</code> with id <code>1003</code>.</p>
 <!-- raw HTML omitted -->
 <p>You can paste the JSON file generated into <code>playbooks/reassign-topic-plan.json</code></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#070">&#34;version&#34;</span>:<span style="color:#00d;font-weight:bold">1</span>,
   <span style="color:#070">&#34;partitions&#34;</span>:[{<span style="color:#070">&#34;topic&#34;</span>:<span style="background-color:#fff0f0">&#34;topic1&#34;</span>,<span style="color:#070">&#34;partition&#34;</span>:<span style="color:#00d;font-weight:bold">0</span>,<span style="color:#070">&#34;replicas&#34;</span>:[<span style="color:#00d;font-weight:bold">1003</span>]}]
 }</code></pre></div>
