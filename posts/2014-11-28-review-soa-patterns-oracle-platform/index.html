@@ -1,47 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  
-  <title>book review - applied soa patterns on the oracle platform</title>
-  <meta property="og:title" content="Book Review - Applied SOA Patterns on the Oracle Platform" />
-  <meta name="twitter:title" content="Book Review - Applied SOA Patterns on the Oracle Platform" />
-  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
+    <title>book review - applied soa patterns on the oracle platform</title>
+    <meta property="og:title" content="Book Review - Applied SOA Patterns on the Oracle Platform" />
+    <meta name="twitter:title" content="Book Review - Applied SOA Patterns on the Oracle Platform" />  
+    <meta name="description" content="data streaming, observability, automation">
+    <meta property="og:description" content="data streaming, observability, automation">
+    <meta name="twitter:description" content="data streaming, observability, automation"> 
 
-  
-  <meta name="description" content="data streaming, observability, automation">
-  <meta property="og:description" content="data streaming, observability, automation">
-  <meta name="twitter:description" content="data streaming, observability, automation">
-  
+    <meta name="author" content="Jorge Esteban Quilcate Otoya" />
+    <meta property="og:site_name" content="@jeqo" />
+    <meta property="og:url" content="https://jeqo.github.io/posts/2014-11-28-review-soa-patterns-oracle-platform/" /> 
+    <meta name="twitter:card" content="summary" /> 
+    <meta name="twitter:site" content="@jeqo89" />
+    <meta name="twitter:creator" content="@jeqo89" />  
+    <meta property="og:type" content="article" /> 
 
-  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
-  <meta property="og:site_name" content="@jeqo" />
-  <meta property="og:url" content="https://jeqo.github.io/posts/2014-11-28-review-soa-patterns-oracle-platform/" />
-
-  
-  <meta name="twitter:card" content="summary" />
-
-  
-  <meta name="twitter:site" content="@jeqo89" />
-  <meta name="twitter:creator" content="@jeqo89" />
-  
-
-  
-  <meta property="og:type" content="article" />
-  
-  
-  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
-  <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
-  <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
-  <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
-  
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+    <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
+    <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
+    <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
+    
 
 </head>
 
 <body>
-  <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a>
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
+    <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
     <symbol id="icon-feed" viewBox="0 0 16 16">
         <g>
             <path
@@ -91,17 +77,16 @@
         </g>
     </symbol>
 </svg>
-  <header class="l-header">
+    <header class="l-header">
+        
+        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
+         
+        <p class="p-subtitle">
+            data streaming, observability, automation
+        </p>
+        
+    </header>
     
-    <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
-    
-    
-    <p class="p-subtitle">
-      data streaming, observability, automation
-    </p>
-    
-  </header>
-  
 <ul class="c-links">
   
   <li class="c-links__item">
@@ -145,48 +130,34 @@
   
 </ul>
 
-
-  
+ 
 <nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/posts">Posts</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/til">TIL</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">About</a>
-      </li>
-      
-    
-    
-  </ul>
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/til">TIL</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/notes">Notes</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">About</a>
+        </li>
+          
+    </ul>
 </nav>
 
-
-  <main id="main" class="l-main">
-
+    <main id="main" class="l-main">
 
 <article class="p-article">
   <header>
@@ -220,8 +191,15 @@
 <li>An extensive and complete description of Security and Error Handling</li>
 </ul>
 <p>It looks like a really long book (572 pages), and it is. But this is justified because it takes a great approach from concepts to examples combined with experiences and source code. This could help you to feel more confident about your SOA design decisions.</p>
-<h2 id="must-read-parts">&ldquo;Must Read&rdquo; parts</h2>
-<ul>
+<h2 id="must-read-parts">
+    <a class="hash-link nohover" href="#must-read-parts">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;&ldquo;Must Read&rdquo; parts
+</h2><ul>
 <li>
 <p><strong>Chapter 1 - SOA Frameworks</strong>: I think these frameworks are quite important to apply on SOA design, for example: <em>Object and XML Modeling</em>, if they are not designed well, could generate an implementation hell: huge and heavy data types, rare and indescribable names. Also gives an introduction to AIA that can give you a easy-to-learn guide about SOA layers, components, and common terms (Application Business Connector Services, Enterprise Business Flows and Services, and so on).</p>
 </li>
@@ -296,42 +274,30 @@
   </main>
   
 <nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/posts">Posts</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/til">TIL</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">About</a>
-      </li>
-      
-    
-    
-  </ul>
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/til">TIL</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/notes">Notes</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">About</a>
+        </li>
+          
+    </ul>
 </nav>
-
 
   <footer class="l-footer">
     

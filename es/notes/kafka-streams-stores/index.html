@@ -1,47 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  
-  <title>notas sobre kafka streams stores</title>
-  <meta property="og:title" content="Notas sobre Kafka Streams Stores" />
-  <meta name="twitter:title" content="Notas sobre Kafka Streams Stores" />
-  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
+    <title>notas sobre kafka streams stores</title>
+    <meta property="og:title" content="Notas sobre Kafka Streams Stores" />
+    <meta name="twitter:title" content="Notas sobre Kafka Streams Stores" />  
+    <meta name="description" content="data streaming, observability, automation">
+    <meta property="og:description" content="data streaming, observability, automation">
+    <meta name="twitter:description" content="data streaming, observability, automation"> 
 
-  
-  <meta name="description" content="data streaming, observability, automation">
-  <meta property="og:description" content="data streaming, observability, automation">
-  <meta name="twitter:description" content="data streaming, observability, automation">
-  
+    <meta name="author" content="Jorge Esteban Quilcate Otoya" />
+    <meta property="og:site_name" content="@jeqo" />
+    <meta property="og:url" content="https://jeqo.github.io/es/notes/kafka-streams-stores/" /> 
+    <meta name="twitter:card" content="summary" /> 
+    <meta name="twitter:site" content="@jeqo89" />
+    <meta name="twitter:creator" content="@jeqo89" />  
+    <meta property="og:type" content="article" /> 
 
-  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
-  <meta property="og:site_name" content="@jeqo" />
-  <meta property="og:url" content="https://jeqo.github.io/es/notes/kafka-streams-stores/" />
-
-  
-  <meta name="twitter:card" content="summary" />
-
-  
-  <meta name="twitter:site" content="@jeqo89" />
-  <meta name="twitter:creator" content="@jeqo89" />
-  
-
-  
-  <meta property="og:type" content="article" />
-  
-  
-  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
-  <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
-  <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
-  <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
-  
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+    <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
+    <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
+    <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
+    
 
 </head>
 
 <body>
-  <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a>
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
+    <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
     <symbol id="icon-feed" viewBox="0 0 16 16">
         <g>
             <path
@@ -91,17 +77,16 @@
         </g>
     </symbol>
 </svg>
-  <header class="l-header">
+    <header class="l-header">
+        
+        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
+         
+        <p class="p-subtitle">
+            data streaming, observability, automation
+        </p>
+        
+    </header>
     
-    <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
-    
-    
-    <p class="p-subtitle">
-      data streaming, observability, automation
-    </p>
-    
-  </header>
-  
 <ul class="c-links">
   
   <li class="c-links__item">
@@ -145,53 +130,38 @@
   
 </ul>
 
-
-  
+ 
 <nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/posts">Posts</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/til">TIL</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/notes">Notas</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/talks">Presentaciones</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">Acerca</a>
-      </li>
-      
-    
-    
-    <li class="p-menu__listitem"><a>|</a></li>
-    
-    <li class="p-menu__listitem"><a href="https://jeqo.github.io/notes/kafka-streams-stores/">en</a></li>
-    
-    
-  </ul>
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/es/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/til">TIL</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/es/notes">Notas</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/es/talks">Presentaciones</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">Acerca</a>
+        </li>
+          
+        <li class="p-menu__listitem"><a>|</a></li>
+        
+        <li class="p-menu__listitem"><a href="https://jeqo.github.io/notes/kafka-streams-stores/">en</a></li>
+         
+    </ul>
 </nav>
 
-
-  <main id="main" class="l-main">
-
+    <main id="main" class="l-main">
 
 <article class="p-article">
   <header>
@@ -215,7 +185,7 @@
     <p>Kafka Streams Stores son los componentes que definen unidades de almacenamiento en una aplicación de Kafka Streams.</p>
 <p>Estos Stores son creados explícita o implícitamente, dependiendo de si la ()[topología] es creada con ()[Kafka Streams DSL], o con ()[Kafka Streams Processor API].</p>
 <p>La siguiente topología</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    Topology <span style="color:#06b;font-weight:bold">topology</span><span style="color:#333">()</span> <span style="color:#333">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    Topology <span style="color:#06b;font-weight:bold">topology</span><span style="color:#333">()</span> <span style="color:#333">{</span>
         <span style="color:#080;font-weight:bold">final</span> StreamsBuilder builder <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> StreamsBuilder<span style="color:#333">();</span>
         builder<span style="color:#333">.</span><span style="color:#00c">stream</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;input&#34;</span><span style="color:#333">,</span> Consumed<span style="color:#333">.</span><span style="color:#00c">with</span><span style="color:#333">(</span>Serdes<span style="color:#333">.</span><span style="color:#00c">String</span><span style="color:#333">(),</span> Serdes<span style="color:#333">.</span><span style="color:#00c">Integer</span><span style="color:#333">()))</span>
                 <span style="color:#333">.</span><span style="color:#00c">groupByKey</span><span style="color:#333">()</span>
@@ -223,7 +193,7 @@
         <span style="color:#080;font-weight:bold">return</span> builder<span style="color:#333">.</span><span style="color:#00c">build</span><span style="color:#333">();</span>
     <span style="color:#333">}</span>
 </code></pre></div><p>crea un <code>Store</code> implícito para almacenar los resultados del contador <code>KSTREAM-AGGREGATE-STATE-STORE-0000000001</code>:</p>
-<pre><code>Topologies:
+<pre tabindex="0"><code>Topologies:
    Sub-topology: 0
     Source: KSTREAM-SOURCE-0000000000 (topics: [input])
       --&gt; KSTREAM-AGGREGATE-0000000002
@@ -231,14 +201,21 @@
       --&gt; none
       &lt;-- KSTREAM-SOURCE-0000000000
 </code></pre><p>Por defecto este <code>Store</code> persiste valores en disco, usando RocksDB.</p>
-<h2 id="fábrica-de-stores">Fábrica de <code>Stores</code></h2>
-<p>Kafka Streams tiene una fábrica de <code>Stores</code> que permite:</p>
+<h2 id="fábrica-de-stores">
+    <a class="hash-link nohover" href="#f%c3%a1brica-de-stores">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Fábrica de <code>Stores</code>
+</h2><p>Kafka Streams tiene una fábrica de <code>Stores</code> que permite:</p>
 <ul>
 <li>Crear <code>StoreSupplier</code>s para inyectarlos a una Topología creada por <code>DSL</code>.</li>
 <li>Crear <code>StoreBuilder</code>s para usarlo desde el <code>Processor</code> API.</li>
 </ul>
 <p>Esta fábrica permite definir el <code>Store</code> se persiste en disco (i.e. usando <code>RocksDB</code>) o se maneja en memoria.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    Topology <span style="color:#06b;font-weight:bold">topology</span><span style="color:#333">()</span> <span style="color:#333">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    Topology <span style="color:#06b;font-weight:bold">topology</span><span style="color:#333">()</span> <span style="color:#333">{</span>
         KeyValueBytesStoreSupplier storeSupplier <span style="color:#333">=</span>
                 Stores<span style="color:#333">.</span><span style="color:#00c">inMemoryKeyValueStore</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;input-counter&#34;</span><span style="color:#333">);</span>
 
@@ -250,7 +227,7 @@
     <span style="color:#333">}</span>
 </code></pre></div><p>y la interfaz <a href="https://kafka.apache.org/25/javadoc/org/apache/kafka/streams/kstream/Materialized.html"><code>Materialized</code></a> permite parametrizar el Store.</p>
 <p>o, cuando se utiliza el <code>Processor</code> API:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    Topology <span style="color:#06b;font-weight:bold">topology</span><span style="color:#333">()</span> <span style="color:#333">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    Topology <span style="color:#06b;font-weight:bold">topology</span><span style="color:#333">()</span> <span style="color:#333">{</span>
         StoreBuilder<span style="color:#333">&lt;</span>KeyValueStore<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> Long<span style="color:#333">&gt;&gt;</span> storeBuilder <span style="color:#333">=</span>
                 Stores<span style="color:#333">.</span><span style="color:#00c">keyValueStoreBuilder</span><span style="color:#333">(</span>
                         Stores<span style="color:#333">.</span><span style="color:#00c">inMemoryKeyValueStore</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;input-counter&#34;</span><span style="color:#333">),</span>
@@ -280,21 +257,49 @@
                 <span style="color:#333">},</span> <span style="background-color:#fff0f0">&#34;input-counter&#34;</span><span style="color:#333">);</span>
         <span style="color:#080;font-weight:bold">return</span> builder<span style="color:#333">.</span><span style="color:#00c">build</span><span style="color:#333">();</span>
     <span style="color:#333">}</span>
-</code></pre></div><h2 id="tipos-de-stores">Tipos de <code>Stores</code></h2>
-<p>Kafka Streams ofrece 3 tipos de <code>Stores</code>:</p>
+</code></pre></div><h2 id="tipos-de-stores">
+    <a class="hash-link nohover" href="#tipos-de-stores">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Tipos de <code>Stores</code>
+</h2><p>Kafka Streams ofrece 3 tipos de <code>Stores</code>:</p>
 <ul>
 <li><code>KeyValueStore</code></li>
 <li><code>WindowStore</code></li>
 <li><code>SessionStore</code></li>
 </ul>
 <p>Vamos a detallar como cada uno de estos <code>Store</code> funciona actualmente.</p>
-<h3 id="keyvaluestore"><code>KeyValueStore</code></h3>
-<p>El <code>Store</code> más común es el <code>KeyValueStore</code>, ya que es similar a mantener un <code>Map</code> de Java.</p>
+<h3 id="keyvaluestore">
+    <a class="hash-link nohover" href="#keyvaluestore">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;<code>KeyValueStore</code>
+</h3><p>El <code>Store</code> más común es el <code>KeyValueStore</code>, ya que es similar a mantener un <code>Map</code> de Java.</p>
 <p>En el ejemplo anterior sobre el uso de <code>StoreBuilder</code> se observa como el <code>KeyValueStore</code> permite manejar el contador como un mapa, reemplazando el mismo comportamiento ofrecido por la función <code>count()</code>.</p>
-<h4 id="consideraciones">Consideraciones</h4>
-<p>Si bien el <code>KeyValueStore</code> es familiar para los desarrolladores, hay ciertas consideraciones a tener en cuenta:</p>
-<h5 id="keyvaluestores-no-tienen-funcionalidad-de-retención"><code>KeyValueStore</code>s no tienen funcionalidad de retención</h5>
-<p>A comparación de los otros dos tipos de <code>Store</code>s, <code>KeyValueStore</code> no tiene suporte para eliminar valores por antigüedad.</p>
+<h4 id="consideraciones">
+    <a class="hash-link nohover" href="#consideraciones">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Consideraciones
+</h4><p>Si bien el <code>KeyValueStore</code> es familiar para los desarrolladores, hay ciertas consideraciones a tener en cuenta:</p>
+<h5 id="keyvaluestores-no-tienen-funcionalidad-de-retención">
+    <a class="hash-link nohover" href="#keyvaluestores-no-tienen-funcionalidad-de-retenci%c3%b3n">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;<code>KeyValueStore</code>s no tienen funcionalidad de retención
+</h5><p>A comparación de los otros dos tipos de <code>Store</code>s, <code>KeyValueStore</code> no tiene suporte para eliminar valores por antigüedad.</p>
 <p>Los desarrolladores tendrán que considerar si esto es ideal como parte del diseño de la aplicación considerando lo siguiente:</p>
 <p><strong>La cardinalidad de <code>Key</code>s es manejable como parte de la memoría?</strong></p>
 <p>Si no hay un límite en la cantidad de valores posibles para <code>Key</code>, considera utilizar un <code>Store</code> persistente para no utilizar todos los recursos de memoria.</p>
@@ -302,21 +307,70 @@
 <p>Si los valores esperados tienen más valor si son agrupados temporalmente, considera <code>WindowStore</code>.</p>
 <p>Si es interés esta en el conjunto de valores con una misma <code>Key</code>, considera <code>SessionStore</code>.</p>
 <!-- raw HTML omitted -->
-<h2 id="detalles-de-implementación">Detalles de Implementación</h2>
-<h3 id="caching-stores">Caching Stores</h3>
-<h3 id="changelogging-stores">ChangeLogging Stores</h3>
-<h3 id="composite-stores">Composite Stores</h3>
-<h3 id="in-memory-stores">In-Memory Stores</h3>
-<p>Mantienen el mapa de <code>KeyValue</code> en memoria, soportado por <code>TreeMap&lt;Bytes, byte[]&gt;</code>.</p>
+<h2 id="detalles-de-implementación">
+    <a class="hash-link nohover" href="#detalles-de-implementaci%c3%b3n">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Detalles de Implementación
+</h2><h3 id="caching-stores">
+    <a class="hash-link nohover" href="#caching-stores">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Caching Stores
+</h3><h3 id="changelogging-stores">
+    <a class="hash-link nohover" href="#changelogging-stores">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;ChangeLogging Stores
+</h3><h3 id="composite-stores">
+    <a class="hash-link nohover" href="#composite-stores">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Composite Stores
+</h3><h3 id="in-memory-stores">
+    <a class="hash-link nohover" href="#in-memory-stores">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;In-Memory Stores
+</h3><p>Mantienen el mapa de <code>KeyValue</code> en memoria, soportado por <code>TreeMap&lt;Bytes, byte[]&gt;</code>.</p>
 <p>Acceso a operaciones del <code>Store</code> están sincronizadas para manejar la concurrencia:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">volatile</span> <span style="color:#339;font-weight:bold">boolean</span> open <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">false</span><span style="color:#333">;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">volatile</span> <span style="color:#339;font-weight:bold">boolean</span> open <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">false</span><span style="color:#333">;</span>
 <span style="color:#888">//...e.g.
 </span><span style="color:#888"></span>    <span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">synchronized</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]</span> <span style="color:#06b;font-weight:bold">get</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> Bytes key<span style="color:#333">)</span> <span style="color:#333">{</span>
         <span style="color:#080;font-weight:bold">return</span> map<span style="color:#333">.</span><span style="color:#00c">get</span><span style="color:#333">(</span>key<span style="color:#333">);</span>
     <span style="color:#333">}</span>
-</code></pre></div><h3 id="metered-stores">Metered Stores</h3>
-<h3 id="rocksdb-stores">RocksDB Stores</h3>
-
+</code></pre></div><h3 id="metered-stores">
+    <a class="hash-link nohover" href="#metered-stores">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Metered Stores
+</h3><h3 id="rocksdb-stores">
+    <a class="hash-link nohover" href="#rocksdb-stores">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;RocksDB Stores
+</h3>
   </section>
   <footer>
     
@@ -360,47 +414,34 @@
   </main>
   
 <nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/posts">Posts</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/til">TIL</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/notes">Notas</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/talks">Presentaciones</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">Acerca</a>
-      </li>
-      
-    
-    
-    <li class="p-menu__listitem"><a>|</a></li>
-    
-    <li class="p-menu__listitem"><a href="https://jeqo.github.io/notes/kafka-streams-stores/">en</a></li>
-    
-    
-  </ul>
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/es/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/til">TIL</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/es/notes">Notas</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/es/talks">Presentaciones</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">Acerca</a>
+        </li>
+          
+        <li class="p-menu__listitem"><a>|</a></li>
+        
+        <li class="p-menu__listitem"><a href="https://jeqo.github.io/notes/kafka-streams-stores/">en</a></li>
+         
+    </ul>
 </nav>
-
 
   <footer class="l-footer">
     

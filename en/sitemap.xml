@@ -1,8 +1,52 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
+    <loc>https://jeqo.github.io/</loc>
+    <lastmod>2021-12-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/"
+                />
+  </url><url>
+    <loc>https://jeqo.github.io/tags/cioran/</loc>
+    <lastmod>2021-12-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/notes/cioran/</loc>
+    <lastmod>2021-12-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/notes/</loc>
+    <lastmod>2021-12-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/notes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/notes/"
+                />
+  </url><url>
+    <loc>https://jeqo.github.io/tags/</loc>
+    <lastmod>2021-12-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/tags/"
+                />
+  </url><url>
     <loc>https://jeqo.github.io/categories/</loc>
     <lastmod>2021-12-02T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -15,9 +59,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/categories/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/kafka/</loc>
     <lastmod>2021-12-02T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -30,44 +72,19 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/kafka/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/categories/ops/</loc>
     <lastmod>2021-12-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jeqo.github.io/tags/</loc>
-    <lastmod>2021-12-02T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/"
-                />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/til/</loc>
     <lastmod>2021-12-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/til/2021-12-02-kafka-min-isr/</loc>
     <lastmod>2021-12-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/til/2021-12-01-about-til/</loc>
     <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/ansible/</loc>
     <lastmod>2020-06-17T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -80,34 +97,13 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/ansible/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/automation/</loc>
     <lastmod>2020-06-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jeqo.github.io/notes/</loc>
-    <lastmod>2020-06-17T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/notes/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/notes/"
-                />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/notes/cp-ansible/</loc>
     <lastmod>2020-06-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/apache-kafka/</loc>
     <lastmod>2020-06-16T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -120,39 +116,25 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/apache-kafka/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/apache-zookeeper/</loc>
     <lastmod>2020-06-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/java/</loc>
     <lastmod>2020-06-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/notes/kafka-security/</loc>
     <lastmod>2020-06-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/notes/zookeeper-security/</loc>
     <lastmod>2020-06-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/notes/security/</loc>
     <lastmod>2020-06-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/security/</loc>
     <lastmod>2020-06-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/notes/kafka-streams-stores/</loc>
     <lastmod>2020-06-15T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -165,9 +147,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/notes/kafka-streams-stores/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/stream-processing/</loc>
     <lastmod>2020-06-15T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -180,34 +160,22 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/stream-processing/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/drafts/</loc>
     <lastmod>2020-05-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/drafts/kip-634/</loc>
     <lastmod>2020-05-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/drafts/kip-617/</loc>
     <lastmod>2020-05-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/distributed-tracing/</loc>
     <lastmod>2020-05-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/notes/distributed-tracing/</loc>
     <lastmod>2020-05-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/observability/</loc>
     <lastmod>2020-05-17T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -220,31 +188,12 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/observability/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/zipkin/</loc>
     <lastmod>2020-05-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jeqo.github.io/</loc>
-    <lastmod>2020-04-11T00:00:00-05:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/"
-                />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/about/</loc>
-    <lastmod>2020-04-11T00:00:00-05:00</lastmod>
+    <lastmod>2020-04-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -255,14 +204,10 @@
                 hreflang="en"
                 href="https://jeqo.github.io/about/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/daniel-bittman/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/distributed-systems/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -275,24 +220,16 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/distributed-systems/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/ethan-l-miller/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/fault-injection/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2019-10-31-co-evolving-tracing-and-fault-injection/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/categories/papers/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -305,14 +242,10 @@
                 hreflang="en"
                 href="https://jeqo.github.io/categories/papers/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/peter-alvaro/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -325,9 +258,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/posts/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/tracing/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -340,19 +271,13 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/tracing/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/talks/making-sense-event-driven-systems-codeone19/</loc>
     <lastmod>2019-09-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/categories/observability/</loc>
     <lastmod>2019-09-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/talks/</loc>
     <lastmod>2019-09-19T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -365,49 +290,31 @@
                 hreflang="en"
                 href="https://jeqo.github.io/talks/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/talks/making-sense-event-driven-dataflows-kafkasummitnyc19/</loc>
     <lastmod>2019-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/categories/distributed-tracing/</loc>
     <lastmod>2019-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/categories/event-driven/</loc>
     <lastmod>2019-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/</loc>
     <lastmod>2019-03-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/talks/the-importance-of-observability-kafkausergroupnorway18/</loc>
     <lastmod>2018-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/categories/notes/</loc>
     <lastmod>2018-07-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</loc>
     <lastmod>2018-07-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/samza/</loc>
     <lastmod>2018-07-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2018-01-08-data-on-the-outside-vs-data-on-the-inside/</loc>
     <lastmod>2018-01-08T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -420,9 +327,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/posts/2018-01-08-data-on-the-outside-vs-data-on-the-inside/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/microservices/</loc>
     <lastmod>2018-01-08T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -435,9 +340,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/microservices/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/pat-helland/</loc>
     <lastmod>2018-01-08T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -450,9 +353,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/pat-helland/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/transactions/</loc>
     <lastmod>2018-01-08T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -465,14 +366,10 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/transactions/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/talks/distributed-tracing-with-opentracing-noslides18/</loc>
     <lastmod>2017-11-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/categories/operations/</loc>
     <lastmod>2017-11-25T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -485,9 +382,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/categories/operations/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/categories/integration/</loc>
     <lastmod>2017-09-28T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -500,14 +395,10 @@
                 hreflang="en"
                 href="https://jeqo.github.io/categories/integration/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2017-09-28-kafka-opentracing/</loc>
     <lastmod>2017-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/categories/back-end/</loc>
     <lastmod>2017-03-10T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -520,9 +411,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/categories/back-end/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/categories/development/</loc>
     <lastmod>2017-03-10T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -535,14 +424,10 @@
                 hreflang="en"
                 href="https://jeqo.github.io/categories/development/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/</loc>
     <lastmod>2017-03-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/integration/</loc>
     <lastmod>2017-03-10T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -555,39 +440,16 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/integration/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://jeqo.github.io/categories/devops/</loc>
-    <lastmod>2017-03-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/categories/devops/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/categories/devops/"
-                />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/devops-k8s-weblogic-ougn/</loc>
     <lastmod>2017-03-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/categories/devops-oracle/</loc>
     <lastmod>2017-03-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/talks/scale-wls-the-k8s-way-ougn-17/</loc>
     <lastmod>2017-03-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/</loc>
     <lastmod>2017-01-31T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -600,9 +462,20 @@
                 hreflang="en"
                 href="https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://jeqo.github.io/categories/devops/</loc>
+    <lastmod>2017-01-15T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/categories/devops/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/categories/devops/"
+                />
+  </url><url>
     <loc>https://jeqo.github.io/tags/docker/</loc>
     <lastmod>2017-01-15T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -615,9 +488,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/docker/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/</loc>
     <lastmod>2017-01-15T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -630,14 +501,10 @@
                 hreflang="en"
                 href="https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/database/</loc>
     <lastmod>2016-05-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/oracle/</loc>
     <lastmod>2016-05-26T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -650,29 +517,19 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/oracle/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</loc>
     <lastmod>2016-05-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/categories/devops-oracle-soa/</loc>
     <lastmod>2016-05-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/devops-soa-oracle/</loc>
     <lastmod>2016-05-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/talks/lighning-provisioning-oracle-soa-suite-amis25/</loc>
     <lastmod>2016-05-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2016-03-30-ansible-agentless-provisioning/</loc>
     <lastmod>2016-03-30T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -685,9 +542,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/posts/2016-03-30-ansible-agentless-provisioning/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/</loc>
     <lastmod>2015-09-04T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -700,9 +555,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/packer/</loc>
     <lastmod>2015-09-04T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -715,9 +568,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/packer/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/soa/</loc>
     <lastmod>2015-09-04T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -730,9 +581,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/soa/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/avro/</loc>
     <lastmod>2015-07-31T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -745,9 +594,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/avro/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/</loc>
     <lastmod>2015-07-31T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -760,9 +607,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/java-ee/</loc>
     <lastmod>2015-07-31T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -775,9 +620,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/java-ee/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/rx/</loc>
     <lastmod>2015-07-31T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -790,9 +633,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/rx/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/chef/</loc>
     <lastmod>2015-07-21T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -805,9 +646,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/chef/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</loc>
     <lastmod>2015-07-21T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -820,14 +659,10 @@
                 hreflang="en"
                 href="https://jeqo.github.io/posts/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/talks/what-is-adaptive-case-management-ougn15/</loc>
     <lastmod>2015-05-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2015-04-01-docker-image-oracle-soa/</loc>
     <lastmod>2015-04-01T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -840,9 +675,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/posts/2015-04-01-docker-image-oracle-soa/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/bpm/</loc>
     <lastmod>2014-12-11T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -855,9 +688,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/bpm/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/fmw/</loc>
     <lastmod>2014-12-11T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -870,9 +701,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/fmw/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2014-12-11-run-bpm-12c-aws/</loc>
     <lastmod>2014-12-11T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -885,9 +714,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/posts/2014-12-11-run-bpm-12c-aws/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/vagrant/</loc>
     <lastmod>2014-12-11T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -900,9 +727,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/vagrant/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/</loc>
     <lastmod>2014-12-09T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -915,9 +740,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/aws/</loc>
     <lastmod>2014-11-30T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -930,9 +753,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/aws/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2014-11-30-create-nfs-instance-aws/</loc>
     <lastmod>2014-11-30T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -945,9 +766,7 @@
                 hreflang="en"
                 href="https://jeqo.github.io/posts/2014-11-30-create-nfs-instance-aws/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/nfs/</loc>
     <lastmod>2014-11-30T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -960,31 +779,20 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/nfs/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/book/</loc>
     <lastmod>2014-11-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2014-11-28-review-soa-patterns-oracle-platform/</loc>
     <lastmod>2014-11-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/review/</loc>
     <lastmod>2014-11-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/posts/2014-11-26-vagrant-quickstart/</loc>
     <lastmod>2014-11-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jeqo.github.io/tags/virtualbox/</loc>
     <lastmod>2014-11-26T00:00:00+00:00</lastmod>
   </url>
-  
 </urlset>

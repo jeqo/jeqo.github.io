@@ -1,47 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  
-  <title>retroceder offsets de consumidores de kafka</title>
-  <meta property="og:title" content="Retroceder Offsets de Consumidores de Kafka" />
-  <meta name="twitter:title" content="Retroceder Offsets de Consumidores de Kafka" />
-  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
+    <title>retroceder offsets de consumidores de kafka</title>
+    <meta property="og:title" content="Retroceder Offsets de Consumidores de Kafka" />
+    <meta name="twitter:title" content="Retroceder Offsets de Consumidores de Kafka" />  
+    <meta name="description" content="data streaming, observability, automation">
+    <meta property="og:description" content="data streaming, observability, automation">
+    <meta name="twitter:description" content="data streaming, observability, automation"> 
 
-  
-  <meta name="description" content="data streaming, observability, automation">
-  <meta property="og:description" content="data streaming, observability, automation">
-  <meta name="twitter:description" content="data streaming, observability, automation">
-  
+    <meta name="author" content="Jorge Esteban Quilcate Otoya" />
+    <meta property="og:site_name" content="@jeqo" />
+    <meta property="og:url" content="https://jeqo.github.io/es/posts/2017-01-31-kafka-rewind-consumers-offset/" /> 
+    <meta name="twitter:card" content="summary" /> 
+    <meta name="twitter:site" content="@jeqo89" />
+    <meta name="twitter:creator" content="@jeqo89" />  
+    <meta property="og:type" content="article" /> 
 
-  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
-  <meta property="og:site_name" content="@jeqo" />
-  <meta property="og:url" content="https://jeqo.github.io/es/posts/2017-01-31-kafka-rewind-consumers-offset/" />
-
-  
-  <meta name="twitter:card" content="summary" />
-
-  
-  <meta name="twitter:site" content="@jeqo89" />
-  <meta name="twitter:creator" content="@jeqo89" />
-  
-
-  
-  <meta property="og:type" content="article" />
-  
-  
-  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
-  <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
-  <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
-  <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
-  
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+    <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
+    <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
+    <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
+    
 
 </head>
 
 <body>
-  <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a>
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
+    <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
     <symbol id="icon-feed" viewBox="0 0 16 16">
         <g>
             <path
@@ -91,17 +77,16 @@
         </g>
     </symbol>
 </svg>
-  <header class="l-header">
+    <header class="l-header">
+        
+        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
+         
+        <p class="p-subtitle">
+            data streaming, observability, automation
+        </p>
+        
+    </header>
     
-    <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
-    
-    
-    <p class="p-subtitle">
-      data streaming, observability, automation
-    </p>
-    
-  </header>
-  
 <ul class="c-links">
   
   <li class="c-links__item">
@@ -145,53 +130,38 @@
   
 </ul>
 
-
-  
+ 
 <nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/posts">Posts</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/til">TIL</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/notes">Notas</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/talks">Presentaciones</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">Acerca</a>
-      </li>
-      
-    
-    
-    <li class="p-menu__listitem"><a>|</a></li>
-    
-    <li class="p-menu__listitem"><a href="https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/">en</a></li>
-    
-    
-  </ul>
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/es/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/til">TIL</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/es/notes">Notas</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/es/talks">Presentaciones</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">Acerca</a>
+        </li>
+          
+        <li class="p-menu__listitem"><a>|</a></li>
+        
+        <li class="p-menu__listitem"><a href="https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/">en</a></li>
+         
+    </ul>
 </nav>
 
-
-  <main id="main" class="l-main">
-
+    <main id="main" class="l-main">
 
 <article class="p-article">
   <header>
@@ -221,16 +191,37 @@ el inicio de un <code>topic</code> y regenerar el estado actual del sistema.</p>
 <hr>
 <p>Código fuente: <a href="https://github.com/jeqo/post-kafka-rewind-consumer-offset">https://github.com/jeqo/post-kafka-rewind-consumer-offset</a></p>
 <hr>
-<h2 id="conceptos-básicos">Conceptos Básicos</h2>
-<h3 id="topics-y-offsets">Topics y Offsets</h3>
-<p>Lo primero por entender para lograr retroceder los consumidores en Kafka es:
+<h2 id="conceptos-básicos">
+    <a class="hash-link nohover" href="#conceptos-b%c3%a1sicos">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Conceptos Básicos
+</h2><h3 id="topics-y-offsets">
+    <a class="hash-link nohover" href="#topics-y-offsets">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Topics y Offsets
+</h3><p>Lo primero por entender para lograr retroceder los consumidores en Kafka es:
 retroceder sobre qué? Cada <code>topic</code> esta dividido en <code>partitions</code>. Los
 registros enviados por los <code>Producers</code> son balanceados entre las <code>partitions</code>,
 así cada partición tiene su propio índice de <code>offsets</code>.</p>
 <p>Cada <code>record</code> tiene un <code>offset</code> asignado que será usado por los <code>consumers</code>
 para definir qué mensajes han sido consumidos del <strong>log</strong>.</p>
-<h3 id="consumers-y-consumer-groups">Consumers y Consumer Groups</h3>
-<p>Una vez entendido que los <code>topics</code> tienen <code>partitions</code> y <code>offsets</code> por <code>partition</code>
+<h3 id="consumers-y-consumer-groups">
+    <a class="hash-link nohover" href="#consumers-y-consumer-groups">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Consumers y Consumer Groups
+</h3><p>Una vez entendido que los <code>topics</code> tienen <code>partitions</code> y <code>offsets</code> por <code>partition</code>
 podemos pasar a definir como trabajan los <code>consumers</code> y <code>consumer groups</code>.</p>
 <p><code>Consumers</code> están agrupados por <code>group.id</code>. Ésta propiedad identifica a cada<br>
 <code>consumer group</code>, así el <code>broker</code> conoce cúal fue el último <code>record</code> consumido
@@ -238,7 +229,7 @@ por <code>offset</code>, por <code>partition</code>.</p>
 <p>Antes de continuar, revisemos la clase que funcionará como un <code>Kafka Consumer</code>
 simple implementado en Java:</p>
 <p><code>KafkaSimpleProducer.java</code>:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">main</span><span style="color:#333">(</span>String<span style="color:#333">[]</span> args<span style="color:#333">)</span> <span style="color:#333">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">main</span><span style="color:#333">(</span>String<span style="color:#333">[]</span> args<span style="color:#333">)</span> <span style="color:#333">{</span>
     <span style="color:#333">...</span>
     Properties properties <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Properties<span style="color:#333">();</span>
     properties<span style="color:#333">.</span><span style="color:#00c">put</span><span style="color:#333">(</span>ProducerConfig<span style="color:#333">.</span><span style="color:#00c">BOOTSTRAP_SERVERS_CONFIG</span><span style="color:#333">,</span> bootstrapServers<span style="color:#333">);</span>
@@ -259,8 +250,15 @@ simple implementado en Java:</p>
 <span style="color:#333">}</span></code></pre></div>
 <p>Este <code>producer</code> creará 100 <code>records</code> en el topic <code>topic-1</code>, con <code>offsets</code>
 de <code>0</code> a <code>99</code>.</p>
-<h2 id="desde-línea-de-comandos">Desde Línea de Comandos</h2>
-<p>En este primer escenario revisaremos como manejar los offsets de <code>consumers</code>
+<h2 id="desde-línea-de-comandos">
+    <a class="hash-link nohover" href="#desde-l%c3%adnea-de-comandos">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Desde Línea de Comandos
+</h2><p>En este primer escenario revisaremos como manejar los offsets de <code>consumers</code>
 desde <em>línea de comandos</em>, para tener una idea de como implementarlo en
 nuestra aplicación.</p>
 <p>Cuando trabajas desde un terminal, si se puede utilizar <code>kafka-console-consumer</code>
@@ -281,14 +279,21 @@ solo funcionaría la primera vez, ya que el <code>offset</code> sería registrad
 <!-- raw HTML omitted -->
 <p>Así que, cómo se regresaría al inicio del log en este caso?</p>
 <p>Podemos usar la opción <code>--offset</code> con estas tres alternativas:</p>
-<pre><code>--offset &lt;String: consume offset&gt;        The offset id to consume from (a non-  
+<pre tabindex="0"><code>--offset &lt;String: consume offset&gt;        The offset id to consume from (a non-  
                                            negative number), or 'earliest'      
                                            which means from beginning, or       
                                            'latest' which means from end        
                                            (default: latest)
 </code></pre><!-- raw HTML omitted -->
-<h2 id="desde-clientes-java">Desde Clientes Java</h2>
-<p>Ahora, luego de ver que desde la línea de comandos en sencillo regresar en el
+<h2 id="desde-clientes-java">
+    <a class="hash-link nohover" href="#desde-clientes-java">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Desde Clientes Java
+</h2><p>Ahora, luego de ver que desde la línea de comandos en sencillo regresar en el
 tiempo sobre el log; pero, cómo hacer éstas operaciones desde una aplicación?</p>
 <p>Si estás utilizando Kafka Consumers en tu aplicación, tienes las siguientes
 opciones (con Java):</p>
@@ -321,7 +326,7 @@ en su post:
 </ul>
 <p>Así que me enfocaré en las opciones disponibles desde el API de <code>Kafka Consumer</code>.</p>
 <p>Un consumidor simple luciría así:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">main</span><span style="color:#333">(</span>String<span style="color:#333">[]</span> args<span style="color:#333">)</span> <span style="color:#333">{</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">main</span><span style="color:#333">(</span>String<span style="color:#333">[]</span> args<span style="color:#333">)</span> <span style="color:#333">{</span>
     Properties props <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Properties<span style="color:#333">();</span>
     props<span style="color:#333">.</span><span style="color:#00c">put</span><span style="color:#333">(</span>ConsumerConfig<span style="color:#333">.</span><span style="color:#00c">BOOTSTRAP_SERVERS_CONFIG</span><span style="color:#333">,</span> bootstrapServers<span style="color:#333">);</span>
     props<span style="color:#333">.</span><span style="color:#00c">put</span><span style="color:#333">(</span>ConsumerConfig<span style="color:#333">.</span><span style="color:#00c">GROUP_ID_CONFIG</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;test&#34;</span><span style="color:#333">);</span>
@@ -343,13 +348,20 @@ en su post:
 <p>Ahora veamos como regresar <code>offsets</code> en distintos escenarios. <code>Consumer API</code>
 tiene operaciones <code>#seek</code> que permiten estas funcionalidades. Mostraré una
 forma sencilla de agregar estas operaciones utilizando <code>flags</code>:</p>
-<h3 id="regresar-al-offset-inicial">Regresar al <code>offset</code> inicial</h3>
-<p>La opción más común es regresar al inicio del <code>topic</code>, que no siempre será
+<h3 id="regresar-al-offset-inicial">
+    <a class="hash-link nohover" href="#regresar-al-offset-inicial">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Regresar al <code>offset</code> inicial
+</h3><p>La opción más común es regresar al inicio del <code>topic</code>, que no siempre será
 <code>offset=0</code>. Esto dependerá de la política de <code>retention</code> que removerá los
 <code>records</code> antiguos por tiempo o por tamaño del <code>topic</code>; pero este tema
 merece su propio post.</p>
 <p>Para ir al inicio de <code>topic</code> usaremos la operación <code>#seekToBeginning(topicPartition)</code>:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
 
 <span style="color:#080;font-weight:bold">while</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">true</span><span style="color:#333">)</span> <span style="color:#333">{</span>
     ConsumerRecords<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> records <span style="color:#333">=</span> consumer<span style="color:#333">.</span><span style="color:#00c">poll</span><span style="color:#333">(</span>100<span style="color:#333">);</span>
@@ -365,11 +377,18 @@ merece su propio post.</p>
 </span><span style="color:#888"></span><span style="color:#333">}</span></code></pre></div>
 <p>Una vez realizada la búsqueda del <code>offset</code> inicial, para el <code>topic=topic-1</code>
 en la <code>partition=0</code> se reprocesarán los <code>records</code> nuevamente.</p>
-<h3 id="regresar-a-un-offset-específico">Regresar a un <code>offset</code> específico</h3>
-<p>Si podemos reconocer los <code>records</code> específicos (por <code>partition</code>) a los que
+<h3 id="regresar-a-un-offset-específico">
+    <a class="hash-link nohover" href="#regresar-a-un-offset-espec%c3%adfico">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Regresar a un <code>offset</code> específico
+</h3><p>Si podemos reconocer los <code>records</code> específicos (por <code>partition</code>) a los que
 necesitamos regresar para reprocesar el log, podemos utilizar
 <code>#seek(topicPartition, offset)</code> directamente.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
 
 <span style="color:#080;font-weight:bold">while</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">true</span><span style="color:#333">)</span> <span style="color:#333">{</span>
     ConsumerRecords<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> records <span style="color:#333">=</span> consumer<span style="color:#333">.</span><span style="color:#00c">poll</span><span style="color:#333">(</span>100<span style="color:#333">);</span>
@@ -390,8 +409,15 @@ del log.</p>
 tienes varias particiones. Por esto es que la adición de <code>timestamps</code> ayuda
 a resolver este tema.</p>
 <hr>
-<h3 id="regrasar-a-un-offset-por-timestamp">Regrasar a un <code>offset</code> por <code>timestamp</code></h3>
-<p>Si no conoces exactamente el <code>offset id</code> del <code>record</code> desde donde necesitar
+<h3 id="regrasar-a-un-offset-por-timestamp">
+    <a class="hash-link nohover" href="#regrasar-a-un-offset-por-timestamp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Regrasar a un <code>offset</code> por <code>timestamp</code>
+</h3><p>Si no conoces exactamente el <code>offset id</code> del <code>record</code> desde donde necesitar
 reprocesar el log, pero sabes si necesitas regresar 1 hora o 10 minutos atrás
 el nuevo índice de <code>timestamp</code> puede ser útil.</p>
 <p>Desde el release <code>0.10.1.0</code>, hay un par de mejoras
@@ -399,7 +425,7 @@ el nuevo índice de <code>timestamp</code> puede ser útil.</p>
 <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-33+-+Add+a+time+based+log+index">[3]</a>
 que fueron implementadas, y una nueva operación fue agregada al
 <code>Kafka Consumer API</code>: <code>#offsetsForTimes</code>:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#339;font-weight:bold">boolean</span> flag <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span><span style="color:#333">;</span>
 
 <span style="color:#080;font-weight:bold">while</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">true</span><span style="color:#333">)</span> <span style="color:#333">{</span>
     ConsumerRecords<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> String<span style="color:#333">&gt;</span> records <span style="color:#333">=</span> consumer<span style="color:#333">.</span><span style="color:#00c">poll</span><span style="color:#333">(</span>100<span style="color:#333">);</span>
@@ -509,47 +535,34 @@ más de una partición por <code>topic</code>.</p>
   </main>
   
 <nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/posts">Posts</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/til">TIL</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/notes">Notas</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/talks">Presentaciones</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">Acerca</a>
-      </li>
-      
-    
-    
-    <li class="p-menu__listitem"><a>|</a></li>
-    
-    <li class="p-menu__listitem"><a href="https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/">en</a></li>
-    
-    
-  </ul>
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/es/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/til">TIL</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/es/notes">Notas</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/es/talks">Presentaciones</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">Acerca</a>
+        </li>
+          
+        <li class="p-menu__listitem"><a>|</a></li>
+        
+        <li class="p-menu__listitem"><a href="https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/">en</a></li>
+         
+    </ul>
 </nav>
-
 
   <footer class="l-footer">
     

@@ -1,47 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  
-  <title>oracle soa suite 12c docker image</title>
-  <meta property="og:title" content="Oracle SOA Suite 12c Docker Image" />
-  <meta name="twitter:title" content="Oracle SOA Suite 12c Docker Image" />
-  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
+    <title>oracle soa suite 12c docker image</title>
+    <meta property="og:title" content="Oracle SOA Suite 12c Docker Image" />
+    <meta name="twitter:title" content="Oracle SOA Suite 12c Docker Image" />  
+    <meta name="description" content="data streaming, observability, automation">
+    <meta property="og:description" content="data streaming, observability, automation">
+    <meta name="twitter:description" content="data streaming, observability, automation"> 
 
-  
-  <meta name="description" content="data streaming, observability, automation">
-  <meta property="og:description" content="data streaming, observability, automation">
-  <meta name="twitter:description" content="data streaming, observability, automation">
-  
+    <meta name="author" content="Jorge Esteban Quilcate Otoya" />
+    <meta property="og:site_name" content="@jeqo" />
+    <meta property="og:url" content="https://jeqo.github.io/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/" /> 
+    <meta name="twitter:card" content="summary" /> 
+    <meta name="twitter:site" content="@jeqo89" />
+    <meta name="twitter:creator" content="@jeqo89" />  
+    <meta property="og:type" content="article" /> 
 
-  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
-  <meta property="og:site_name" content="@jeqo" />
-  <meta property="og:url" content="https://jeqo.github.io/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/" />
-
-  
-  <meta name="twitter:card" content="summary" />
-
-  
-  <meta name="twitter:site" content="@jeqo89" />
-  <meta name="twitter:creator" content="@jeqo89" />
-  
-
-  
-  <meta property="og:type" content="article" />
-  
-  
-  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
-  <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
-  <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
-  <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
-  
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+    <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
+    <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
+    <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
+    
 
 </head>
 
 <body>
-  <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a>
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
+    <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
     <symbol id="icon-feed" viewBox="0 0 16 16">
         <g>
             <path
@@ -91,17 +77,16 @@
         </g>
     </symbol>
 </svg>
-  <header class="l-header">
+    <header class="l-header">
+        
+        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
+         
+        <p class="p-subtitle">
+            data streaming, observability, automation
+        </p>
+        
+    </header>
     
-    <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
-    
-    
-    <p class="p-subtitle">
-      data streaming, observability, automation
-    </p>
-    
-  </header>
-  
 <ul class="c-links">
   
   <li class="c-links__item">
@@ -145,53 +130,38 @@
   
 </ul>
 
-
-  
+ 
 <nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/posts">Posts</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/til">TIL</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">About</a>
-      </li>
-      
-    
-    
-    <li class="p-menu__listitem"><a>|</a></li>
-    
-    <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/">es</a></li>
-    
-    
-  </ul>
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/til">TIL</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/notes">Notes</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">About</a>
+        </li>
+          
+        <li class="p-menu__listitem"><a>|</a></li>
+        
+        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/">es</a></li>
+         
+    </ul>
 </nav>
 
-
-  <main id="main" class="l-main">
-
+    <main id="main" class="l-main">
 
 <article class="p-article">
   <header>
@@ -224,10 +194,17 @@ building process and I found <a href="https://packer.io/">Packer</a>
 <p>I also moved <a href="https://github.com/jeqo/oracle-docker/tree/master/OracleSOA">OracleSOA directory</a>
 from my forked <a href="https://github.com/oracle/docker">oracle-docker repository</a> to
 an independent repository: <a href="https://github.com/jeqo/oracle-soa-12c-docker">github.com/jeqo/oracle-soa-12c-docker</a>.</p>
-<h2 id="improvements-">Improvements</h2>
-<p>Basically Dockerfile scripts were moved to shell scripts and are called
+<h2 id="improvements">
+    <a class="hash-link nohover" href="#improvements">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Improvements
+</h2><p>Basically Dockerfile scripts were moved to shell scripts and are called
 from Packer.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="background-color:#fff0f0">&#34;provisioners&#34;</span><span style="color:#f00;background-color:#faa">:</span> [
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="background-color:#fff0f0">&#34;provisioners&#34;</span><span style="color:#f00;background-color:#faa">:</span> [
     {
       <span style="color:#070">&#34;type&#34;</span>: <span style="background-color:#fff0f0">&#34;shell&#34;</span>,
       <span style="color:#070">&#34;scripts&#34;</span>: [
@@ -264,7 +241,7 @@ from Packer.</p>
   ]</code></pre></div>
 <p>After provisioning, you can save your image, and if
 you want push it to Docker Hub:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="background-color:#fff0f0">&#34;post-processors&#34;</span><span style="color:#f00;background-color:#faa">:</span> [
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="background-color:#fff0f0">&#34;post-processors&#34;</span><span style="color:#f00;background-color:#faa">:</span> [
     [
       {
         <span style="color:#070">&#34;type&#34;</span>: <span style="background-color:#fff0f0">&#34;docker-tag&#34;</span>,
@@ -363,47 +340,34 @@ on <a href="http://jeqo.github.io/blog/devops/docker-image-oracle-soa/">my previ
   </main>
   
 <nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/posts">Posts</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/til">TIL</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">About</a>
-      </li>
-      
-    
-    
-    <li class="p-menu__listitem"><a>|</a></li>
-    
-    <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/">es</a></li>
-    
-    
-  </ul>
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/til">TIL</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/notes">Notes</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">About</a>
+        </li>
+          
+        <li class="p-menu__listitem"><a>|</a></li>
+        
+        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/">es</a></li>
+         
+    </ul>
 </nav>
-
 
   <footer class="l-footer">
     

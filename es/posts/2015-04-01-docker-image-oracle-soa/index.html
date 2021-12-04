@@ -1,47 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  
-  <title>oracle soa suite 12c sobre docker</title>
-  <meta property="og:title" content="Oracle SOA Suite 12c sobre Docker" />
-  <meta name="twitter:title" content="Oracle SOA Suite 12c sobre Docker" />
-  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
+    <title>oracle soa suite 12c sobre docker</title>
+    <meta property="og:title" content="Oracle SOA Suite 12c sobre Docker" />
+    <meta name="twitter:title" content="Oracle SOA Suite 12c sobre Docker" />  
+    <meta name="description" content="data streaming, observability, automation">
+    <meta property="og:description" content="data streaming, observability, automation">
+    <meta name="twitter:description" content="data streaming, observability, automation"> 
 
-  
-  <meta name="description" content="data streaming, observability, automation">
-  <meta property="og:description" content="data streaming, observability, automation">
-  <meta name="twitter:description" content="data streaming, observability, automation">
-  
+    <meta name="author" content="Jorge Esteban Quilcate Otoya" />
+    <meta property="og:site_name" content="@jeqo" />
+    <meta property="og:url" content="https://jeqo.github.io/es/posts/2015-04-01-docker-image-oracle-soa/" /> 
+    <meta name="twitter:card" content="summary" /> 
+    <meta name="twitter:site" content="@jeqo89" />
+    <meta name="twitter:creator" content="@jeqo89" />  
+    <meta property="og:type" content="article" /> 
 
-  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
-  <meta property="og:site_name" content="@jeqo" />
-  <meta property="og:url" content="https://jeqo.github.io/es/posts/2015-04-01-docker-image-oracle-soa/" />
-
-  
-  <meta name="twitter:card" content="summary" />
-
-  
-  <meta name="twitter:site" content="@jeqo89" />
-  <meta name="twitter:creator" content="@jeqo89" />
-  
-
-  
-  <meta property="og:type" content="article" />
-  
-  
-  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
-  <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
-  <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
-  <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
-  
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+    <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
+    <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
+    <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
+    
 
 </head>
 
 <body>
-  <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a>
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
+    <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
     <symbol id="icon-feed" viewBox="0 0 16 16">
         <g>
             <path
@@ -91,17 +77,16 @@
         </g>
     </symbol>
 </svg>
-  <header class="l-header">
+    <header class="l-header">
+        
+        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
+         
+        <p class="p-subtitle">
+            data streaming, observability, automation
+        </p>
+        
+    </header>
     
-    <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
-    
-    
-    <p class="p-subtitle">
-      data streaming, observability, automation
-    </p>
-    
-  </header>
-  
 <ul class="c-links">
   
   <li class="c-links__item">
@@ -145,53 +130,38 @@
   
 </ul>
 
-
-  
+ 
 <nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/posts">Posts</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/til">TIL</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/notes">Notas</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/talks">Presentaciones</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">Acerca</a>
-      </li>
-      
-    
-    
-    <li class="p-menu__listitem"><a>|</a></li>
-    
-    <li class="p-menu__listitem"><a href="https://jeqo.github.io/posts/2015-04-01-docker-image-oracle-soa/">en</a></li>
-    
-    
-  </ul>
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/es/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/til">TIL</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/es/notes">Notas</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/es/talks">Presentaciones</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">Acerca</a>
+        </li>
+          
+        <li class="p-menu__listitem"><a>|</a></li>
+        
+        <li class="p-menu__listitem"><a href="https://jeqo.github.io/posts/2015-04-01-docker-image-oracle-soa/">en</a></li>
+         
+    </ul>
 </nav>
 
-
-  <main id="main" class="l-main">
-
+    <main id="main" class="l-main">
 
 <article class="p-article">
   <header>
@@ -224,29 +194,57 @@ productos de <strong>SOA</strong> y <strong>BPM</strong>  (como <a href="https:/
 <p>He utilizado el <a href="http://github.com/oracle/docker">repositorio de Oracle</a> como base para crear una
 imagen con Oracle SOA Suite 12c instalado, y una configuración para utilizar esa imagen en la
 creación de otro contenedor con un dominio listo para ejecutar.</p>
-<h2 id="obtener-el-repositorio-">Obtener el repositorio</h2>
-<p>Para probar esta entrada del blog, debe tener instalado <a href="https://docs.docker.com/">Docker en su máquina</a>.</p>
+<h2 id="obtener-el-repositorio">
+    <a class="hash-link nohover" href="#obtener-el-repositorio">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Obtener el repositorio
+</h2><p>Para probar esta entrada del blog, debe tener instalado <a href="https://docs.docker.com/">Docker en su máquina</a>.</p>
 <p>El repositorio se encuentra ubicado en: <a href="http://github.com/jeqo/oracle-docker">http://github.com/jeqo/oracle-docker</a></p>
 <p>Mi contribución está en la carpeta <a href="https://github.com/jeqo/oracle-docker/tree/master/OracleSOA">&lsquo;OracleSOA&rsquo;</a>.</p>
-<h2 id="creación-de-la-imagen-con-oracle-soa-suite-12c-">Creación de la imagen con Oracle SOA Suite 12c</h2>
-<p>Primero se deben <a href="http://www.oracle.com/technetwork/middleware/soasuite/downloads/index.html">descargar los instaladores de Oracle SOA Suite 12c Quick Start</a>,
+<h2 id="creación-de-la-imagen-con-oracle-soa-suite-12c">
+    <a class="hash-link nohover" href="#creaci%c3%b3n-de-la-imagen-con-oracle-soa-suite-12c">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Creación de la imagen con Oracle SOA Suite 12c
+</h2><p>Primero se deben <a href="http://www.oracle.com/technetwork/middleware/soasuite/downloads/index.html">descargar los instaladores de Oracle SOA Suite 12c Quick Start</a>,
 y colocarlos en la carpeta OracleSOA/dockerfiles/12.1.3. De la misma forma
 <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">descargar Java Development Kit 7</a>,
 y colocarlo en el mismo folder.</p>
 <p>Abrir un terminal en el directorio <em>OracleSOA</em>, ir a dockerfiles, y ejecutar el script <em>buildDockerImage.sh</em> con el argumento <em>-d</em> que indica que es la versión de desarrollo:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sh buildDockerImage.sh -d
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sh buildDockerImage.sh -d
 </code></pre></div><p>Esta ejecución crear una imagen llamada: <strong>oracle/soa:12.1.3-dev</strong></p>
-<h2 id="dockerize-un-dominio-con-soa-suite-">Dockerize un dominio con SOA Suite</h2>
-<p>Ahora que tenemos una imagen Docker con SOA instalado, podemos reutilizarla para
+<h2 id="dockerize-un-dominio-con-soa-suite">
+    <a class="hash-link nohover" href="#dockerize-un-dominio-con-soa-suite">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Dockerize un dominio con SOA Suite
+</h2><p>Ahora que tenemos una imagen Docker con SOA instalado, podemos reutilizarla para
 crear dominios con WLST.</p>
 <p>Existe un ejemplo de este procedimiento en <em>OracleSOA/samples</em>.</p>
 <p>Para ejecutarlo, ir a <em>OracleSOA/samples/12c-domain</em> y correr el siguiente comando:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker build -t mysoa .
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker build -t mysoa .
 </code></pre></div><p>Esto debe crear un imagen <em>mysoa</em> que contiene un Compact Domain instalado en: <em>/u01/oracle/work/domains/soa-domain</em></p>
 <p>Eso es todo! Para crear un contenedor desde la imagen, ejecutar:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -i -t mysoa
-</code></pre></div><h3 id="siguientes-pasos-">Siguientes pasos</h3>
-<ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -i -t mysoa
+</code></pre></div><h3 id="siguientes-pasos">
+    <a class="hash-link nohover" href="#siguientes-pasos">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Siguientes pasos
+</h3><ul>
 <li>BPM sobre Docker</li>
 <li>Publicar imagenes en Docker Hub Registry</li>
 <li>Dominios Extendidos sobre Docker: Usar una base de datos Oracle Database para instalar Oracle SOA/BPM Schemas</li>
@@ -317,47 +315,34 @@ crear dominios con WLST.</p>
   </main>
   
 <nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/posts">Posts</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/til">TIL</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/notes">Notas</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/es/talks">Presentaciones</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">Acerca</a>
-      </li>
-      
-    
-    
-    <li class="p-menu__listitem"><a>|</a></li>
-    
-    <li class="p-menu__listitem"><a href="https://jeqo.github.io/posts/2015-04-01-docker-image-oracle-soa/">en</a></li>
-    
-    
-  </ul>
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/es/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/til">TIL</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/es/notes">Notas</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/es/talks">Presentaciones</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">Acerca</a>
+        </li>
+          
+        <li class="p-menu__listitem"><a>|</a></li>
+        
+        <li class="p-menu__listitem"><a href="https://jeqo.github.io/posts/2015-04-01-docker-image-oracle-soa/">en</a></li>
+         
+    </ul>
 </nav>
-
 
   <footer class="l-footer">
     

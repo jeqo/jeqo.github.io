@@ -7,10 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 17 Jun 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://jeqo.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Fri, 03 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cioran books</title>
+      <link>https://jeqo.github.io/notes/cioran/</link>
+      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/cioran/</guid>
+      <description> Link to this section    &amp;nbsp;001  Link to this section    &amp;nbsp;002  Link to this section    &amp;nbsp;003  Link to this section    &amp;nbsp;004  Link to this section    &amp;nbsp;005  Link to this section    &amp;nbsp;006  Link to this section    &amp;nbsp;007  Link to this section    &amp;nbsp;008  Link to this section    &amp;nbsp;009  Link to this section    &amp;nbsp;010  Link to this section    &amp;nbsp;011  Link to this section    &amp;nbsp;012  Link to this section    &amp;nbsp;013  Link to this section    &amp;nbsp;014  Link to this section    &amp;nbsp;015  Link to this section    &amp;nbsp;016  Link to this section    &amp;nbsp;017  Link to this section    &amp;nbsp;018  Link to this section    &amp;nbsp;019  Link to this section    &amp;nbsp;020  Link to this section    &amp;nbsp;021  Link to this section    &amp;nbsp;022  Link to this section    &amp;nbsp;023  Link to this section    &amp;nbsp;024  Link to this section    &amp;nbsp;025  Link to this section    &amp;nbsp;026  Link to this section    &amp;nbsp;027  Link to this section    &amp;nbsp;028  Link to this section    &amp;nbsp;029  Link to this section    &amp;nbsp;030  Link to this section    &amp;nbsp;031  Link to this section    &amp;nbsp;032  Link to this section    &amp;nbsp;033  Link to this section    &amp;nbsp;034  Link to this section    &amp;nbsp;035  Link to this section    &amp;nbsp;036  Link to this section    &amp;nbsp;037  Link to this section    &amp;nbsp;038  Link to this section    &amp;nbsp;039  Link to this section    &amp;nbsp;040  Link to this section    &amp;nbsp;041  Link to this section    &amp;nbsp;042  Link to this section    &amp;nbsp;043  Link to this section    &amp;nbsp;044  Link to this section    &amp;nbsp;045  Link to this section    &amp;nbsp;046  Link to this section    &amp;nbsp;047  Link to this section    &amp;nbsp;048  Link to this section    &amp;nbsp;049  Link to this section    &amp;nbsp;050  Link to this section    &amp;nbsp;051  </description>
+    </item>
     
     <item>
       <title>Notes on cp-ansible</title>
@@ -27,11 +32,17 @@
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/notes/kafka-security/</guid>
-      <description>Authentication SASL/PLAIN  Further reading   Kafka docs: https://kafka.apache.org/documentation/#security_sasl_plain
-    SASL/SCRAM  Support: - SCRAM-SHA-256 - SCRAM-SHA-512
- Considerations  For each SCRAM mechanism enabled, credentials must be created by adding a config with the mechanism name. Credentials for inter-broker communication must be created before Kafka brokers are started.
-   Further reading   Kafka docs: https://kafka.apache.org/documentation/#security_sasl_scram
-       Authentication   Authorization Apache Kafka Access Control Lists    </description>
+      <description>== Authentication
+=== SASL/PLAIN
+.Further reading
+ Kafka docs: https://kafka.apache.org/documentation/#security_sasl_plain  === SASL/SCRAM
+Support:
+ https://tools.ietf.org/html/rfc7677[SCRAM-SHA-256] SCRAM-SHA-512  ==== Considerations
+ For each SCRAM mechanism enabled, credentials must be created by adding a config with the mechanism name. Credentials for inter-broker communication must be created before Kafka brokers are started.
+ .Further reading
+ Kafka docs: https://kafka.apache.org/documentation/#security_sasl_scram  == Authentication
+== Authorization
+=== Apache Kafka Access Control Lists</description>
     </item>
     
     <item>
@@ -40,11 +51,16 @@
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/notes/zookeeper-security/</guid>
-      <description>Authentication Examples   https://github.com/jeqo/docker-composes/tree/master/zookeeper-security
-   Client/Server Authentication SASL Authentication SASL Authentication alone does not deny access to anonymous users. Beware of this as it gives a false sense of security, and can take some time to realize. Reference: https://issues.apache.org/jira/browse/ZOOKEEPER-1736
- This can be solved by forcing an Authentication Scheme:
- requireClientAuthScheme=sasl    Futher reading   https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication ---
-     Server/Server Authentication  Futher reading   https://cwiki.</description>
+      <description>== Authentication
+.Examples
+ https://github.com/jeqo/docker-composes/tree/master/zookeeper-security  === Client/Server Authentication
+==== SASL Authentication
+SASL Authentication alone does not deny access to anonymous users. Beware of this as it gives a false sense of security, and can take some time to realize. Reference: https://issues.apache.org/jira/browse/ZOOKEEPER-1736
+This can be solved by forcing an Authentication Scheme:
+requireClientAuthScheme=sasl  .Futher reading
+ https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication   === Server/Server Authentication
+ .Futher reading
+ https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication   == Authorization</description>
     </item>
     
     <item>
@@ -53,9 +69,13 @@
       <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/notes/security/</guid>
-      <description>Security Standards Hashing Hash Functions Cryptographic Hash Functions What makes a hash function a Cryptographic Hash Function (CHF) is that is a one-way function: practically infeasible to invert.
-  MD5 From Wikipedia:
-  The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to be used as a cryptographic hash function, it has been found to suffer from extensive vulnerabilities.</description>
+      <description>== Security Standards
+=== Hashing
+==== Hash Functions
+.Cryptographic Hash Functions What makes a hash function a Cryptographic Hash Function (CHF) is that is a one-way function: practically infeasible to invert.
+==== MD5
+From https://en.wikipedia.org/wiki/MD5[Wikipedia]:
+ The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to be used as a cryptographic hash function, it has been found to suffer from extensive vulnerabilities.</description>
     </item>
     
     <item>

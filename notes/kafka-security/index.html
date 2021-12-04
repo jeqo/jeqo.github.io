@@ -1,47 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  
-  <title>notes on apache kafka and confluent platform security</title>
-  <meta property="og:title" content="Notes on Apache Kafka and Confluent Platform Security" />
-  <meta name="twitter:title" content="Notes on Apache Kafka and Confluent Platform Security" />
-  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
+    <title>notes on apache kafka and confluent platform security</title>
+    <meta property="og:title" content="Notes on Apache Kafka and Confluent Platform Security" />
+    <meta name="twitter:title" content="Notes on Apache Kafka and Confluent Platform Security" />  
+    <meta name="description" content="data streaming, observability, automation">
+    <meta property="og:description" content="data streaming, observability, automation">
+    <meta name="twitter:description" content="data streaming, observability, automation"> 
 
-  
-  <meta name="description" content="data streaming, observability, automation">
-  <meta property="og:description" content="data streaming, observability, automation">
-  <meta name="twitter:description" content="data streaming, observability, automation">
-  
+    <meta name="author" content="Jorge Esteban Quilcate Otoya" />
+    <meta property="og:site_name" content="@jeqo" />
+    <meta property="og:url" content="https://jeqo.github.io/notes/kafka-security/" /> 
+    <meta name="twitter:card" content="summary" /> 
+    <meta name="twitter:site" content="@jeqo89" />
+    <meta name="twitter:creator" content="@jeqo89" />  
+    <meta property="og:type" content="article" /> 
 
-  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
-  <meta property="og:site_name" content="@jeqo" />
-  <meta property="og:url" content="https://jeqo.github.io/notes/kafka-security/" />
-
-  
-  <meta name="twitter:card" content="summary" />
-
-  
-  <meta name="twitter:site" content="@jeqo89" />
-  <meta name="twitter:creator" content="@jeqo89" />
-  
-
-  
-  <meta property="og:type" content="article" />
-  
-  
-  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
-  <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
-  <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
-  <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
-  
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+    <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
+    <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
+    <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
+    
 
 </head>
 
 <body>
-  <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a>
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
+    <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
     <symbol id="icon-feed" viewBox="0 0 16 16">
         <g>
             <path
@@ -91,17 +77,16 @@
         </g>
     </symbol>
 </svg>
-  <header class="l-header">
+    <header class="l-header">
+        
+        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
+         
+        <p class="p-subtitle">
+            data streaming, observability, automation
+        </p>
+        
+    </header>
     
-    <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
-    
-    
-    <p class="p-subtitle">
-      data streaming, observability, automation
-    </p>
-    
-  </header>
-  
 <ul class="c-links">
   
   <li class="c-links__item">
@@ -145,48 +130,34 @@
   
 </ul>
 
-
-  
+ 
 <nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/posts">Posts</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/til">TIL</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">About</a>
-      </li>
-      
-    
-    
-  </ul>
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/til">TIL</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/notes">Notes</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">About</a>
+        </li>
+          
+    </ul>
 </nav>
 
-
-  <main id="main" class="l-main">
-
+    <main id="main" class="l-main">
 
 <article class="p-article">
   <header>
@@ -207,71 +178,33 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    <div class="sect1">
-<h2 id="_authentication">Authentication</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_saslplain">SASL/PLAIN</h3>
-<div class="paragraph">
+    <p>== Authentication</p>
+<p>=== SASL/PLAIN</p>
 <img src="/images/notes/kafka-security/authentication/sasl-plain.png" alt="Notes on Apache Kafka and Confluent Platform Security /images/notes/kafka-security/authentication/sasl-plain.png" data-action="zoom">
 
-</div>
-<div class="ulist">
-<div class="title">Further reading</div>
+<p>.Further reading</p>
 <ul>
-<li>
-<p>Kafka docs: <a href="https://kafka.apache.org/documentation/#security_sasl_plain" class="bare">https://kafka.apache.org/documentation/#security_sasl_plain</a></p>
-</li>
+<li>Kafka docs: <a href="https://kafka.apache.org/documentation/#security_sasl_plain">https://kafka.apache.org/documentation/#security_sasl_plain</a></li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_saslscram">SASL/SCRAM</h3>
-<div class="paragraph">
+<p>=== SASL/SCRAM</p>
 <img src="/images/notes/kafka-security/authentication/sasl-scram.png" alt="Notes on Apache Kafka and Confluent Platform Security /images/notes/kafka-security/authentication/sasl-scram.png" data-action="zoom">
 
-</div>
-<div class="paragraph">
-<p>Support:
-- <a href="https://tools.ietf.org/html/rfc7677">SCRAM-SHA-256</a>
-- SCRAM-SHA-512</p>
-</div>
-<div class="sect3">
-<h4 id="_considerations">Considerations</h4>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>For each SCRAM mechanism enabled, credentials must be created by adding a config with the mechanism name. <strong>Credentials for inter-broker communication must be created before Kafka brokers are started.</strong></p>
-</div>
-</blockquote>
-</div>
-<div class="ulist">
-<div class="title">Further reading</div>
+<p>Support:</p>
 <ul>
-<li>
-<p>Kafka docs: <a href="https://kafka.apache.org/documentation/#security_sasl_scram" class="bare">https://kafka.apache.org/documentation/#security_sasl_scram</a></p>
-</li>
+<li><a href="https://tools.ietf.org/html/rfc7677%5BSCRAM-SHA-256%5D">https://tools.ietf.org/html/rfc7677[SCRAM-SHA-256]</a></li>
+<li>SCRAM-SHA-512</li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_authentication_2">Authentication</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="_authorization">Authorization</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_apache_kafka_access_control_lists">Apache Kafka Access Control Lists</h3>
-
-</div>
-</div>
-</div>
+<p>==== Considerations</p>
+<blockquote>
+<p>For each SCRAM mechanism enabled, credentials must be created by adding a config with the mechanism name. <strong>Credentials for inter-broker communication must be created before Kafka brokers are started.</strong></p>
+</blockquote>
+<p>.Further reading</p>
+<ul>
+<li>Kafka docs: <a href="https://kafka.apache.org/documentation/#security_sasl_scram">https://kafka.apache.org/documentation/#security_sasl_scram</a></li>
+</ul>
+<p>== Authentication</p>
+<p>== Authorization</p>
+<p>=== Apache Kafka Access Control Lists</p>
 
   </section>
   <footer>
@@ -344,42 +277,30 @@
   </main>
   
 <nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/posts">Posts</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/til">TIL</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">About</a>
-      </li>
-      
-    
-    
-  </ul>
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/til">TIL</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/notes">Notes</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">About</a>
+        </li>
+          
+    </ul>
 </nav>
-
 
   <footer class="l-footer">
     

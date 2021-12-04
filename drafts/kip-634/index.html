@@ -1,47 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  
-  <title>kip-634: complementary support for headers in kafka streams</title>
-  <meta property="og:title" content="KIP-634: Complementary support for headers in Kafka Streams" />
-  <meta name="twitter:title" content="KIP-634: Complementary support for headers in Kafka Streams" />
-  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
+    <title>kip-634: complementary support for headers in kafka streams</title>
+    <meta property="og:title" content="KIP-634: Complementary support for headers in Kafka Streams" />
+    <meta name="twitter:title" content="KIP-634: Complementary support for headers in Kafka Streams" />  
+    <meta name="description" content="data streaming, observability, automation">
+    <meta property="og:description" content="data streaming, observability, automation">
+    <meta name="twitter:description" content="data streaming, observability, automation"> 
 
-  
-  <meta name="description" content="data streaming, observability, automation">
-  <meta property="og:description" content="data streaming, observability, automation">
-  <meta name="twitter:description" content="data streaming, observability, automation">
-  
+    <meta name="author" content="Jorge Esteban Quilcate Otoya" />
+    <meta property="og:site_name" content="@jeqo" />
+    <meta property="og:url" content="https://jeqo.github.io/drafts/kip-634/" /> 
+    <meta name="twitter:card" content="summary" /> 
+    <meta name="twitter:site" content="@jeqo89" />
+    <meta name="twitter:creator" content="@jeqo89" />  
+    <meta property="og:type" content="article" /> 
 
-  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
-  <meta property="og:site_name" content="@jeqo" />
-  <meta property="og:url" content="https://jeqo.github.io/drafts/kip-634/" />
-
-  
-  <meta name="twitter:card" content="summary" />
-
-  
-  <meta name="twitter:site" content="@jeqo89" />
-  <meta name="twitter:creator" content="@jeqo89" />
-  
-
-  
-  <meta property="og:type" content="article" />
-  
-  
-  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
-  <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
-  <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
-  <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
-  
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+    <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
+    <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
+    <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
+    
 
 </head>
 
 <body>
-  <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a>
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
+    <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
     <symbol id="icon-feed" viewBox="0 0 16 16">
         <g>
             <path
@@ -91,17 +77,16 @@
         </g>
     </symbol>
 </svg>
-  <header class="l-header">
+    <header class="l-header">
+        
+        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
+         
+        <p class="p-subtitle">
+            data streaming, observability, automation
+        </p>
+        
+    </header>
     
-    <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
-    
-    
-    <p class="p-subtitle">
-      data streaming, observability, automation
-    </p>
-    
-  </header>
-  
 <ul class="c-links">
   
   <li class="c-links__item">
@@ -145,48 +130,34 @@
   
 </ul>
 
-
-  
+ 
 <nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/posts">Posts</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/til">TIL</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">About</a>
-      </li>
-      
-    
-    
-  </ul>
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/til">TIL</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/notes">Notes</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">About</a>
+        </li>
+          
+    </ul>
 </nav>
 
-
-  <main id="main" class="l-main">
-
+    <main id="main" class="l-main">
 
 <article class="p-article">
   <header>
@@ -203,15 +174,36 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    <h2 id="motivation">Motivation</h2>
-<p>Headers are transiently passed over a Kafka Streams topology. To act on them, Processor API has to be used since (<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-244%3A+Add+Record+Header+support+to+Kafka+Streams+Processor+API">KIP-244</a>).</p>
+    <h2 id="motivation">
+    <a class="hash-link nohover" href="#motivation">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Motivation
+</h2><p>Headers are transiently passed over a Kafka Streams topology. To act on them, Processor API has to be used since (<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-244%3A+Add+Record+Header+support+to+Kafka+Streams+Processor+API">KIP-244</a>).</p>
 <p>Although current support is useful for instrumentations that need to access headers, it becomes cumbersome for users to access headers on common Kafka Streams DSL operations (e.g filtering based on header value) as requires using a <code>Transformer</code>/<code>Processor</code> implementation.</p>
-<h3 id="related-jira-issues">Related JIRA issues</h3>
-<ul>
+<h3 id="related-jira-issues">
+    <a class="hash-link nohover" href="#related-jira-issues">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Related JIRA issues
+</h3><ul>
 <li><a href="https://issues.apache.org/jira/browse/KAFKA-7718">https://issues.apache.org/jira/browse/KAFKA-7718</a></li>
 </ul>
-<h2 id="proposed-changes">Proposed Changes</h2>
-<ol>
+<h2 id="proposed-changes">
+    <a class="hash-link nohover" href="#proposed-changes">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Proposed Changes
+</h2><ol>
 <li>Include a new type, to map value and headers.</li>
 <li>Include <code>ValueAndHeaders</code> serde to serialize values if needed.</li>
 <li>Include KStreams operator to map headers into the value pair: <code>ValueAndHeaders</code>.</li>
@@ -231,8 +223,15 @@
 </ul>
 </li>
 </ul>
-<h2 id="new-or-changed-public-interfaces">New or Changed Public Interfaces</h2>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#888">// New type
+<h2 id="new-or-changed-public-interfaces">
+    <a class="hash-link nohover" href="#new-or-changed-public-interfaces">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;New or Changed Public Interfaces
+</h2><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#888">// New type
 </span><span style="color:#888"></span><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ValueAndHeaders</span> <span style="color:#333">&lt;</span>V<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
     <span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">final</span> V value<span style="color:#333">;</span>
     <span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">final</span> Headers headers<span style="color:#333">;</span>
@@ -242,7 +241,7 @@
 <span style="color:#888">// With Serde to persist/join if needed
 </span><span style="color:#888"></span><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ValueAndHeadersSerde</span><span style="color:#333">&lt;</span>V<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
 <span style="color:#333">}</span>
-</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">KStream</span> <span style="color:#333">{</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">KStream</span> <span style="color:#333">{</span>
     <span style="color:#888">//Functions to act on headers
 </span><span style="color:#888"></span>    KStream<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">setHeaders</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> SetHeadersAction<span style="color:#333">&lt;?</span> <span style="color:#080;font-weight:bold">super</span> K<span style="color:#333">,</span> <span style="color:#333">?</span> <span style="color:#080;font-weight:bold">super</span> V<span style="color:#333">&gt;</span> action<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> Named named<span style="color:#333">);</span>
 
@@ -278,7 +277,7 @@
     Header <span style="color:#06b;font-weight:bold">apply</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> K key<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">final</span> V value<span style="color:#333">);</span>
 <span style="color:#333">}</span>
 </code></pre></div><p>This new APIs will allow usages similar to:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">kstream<span style="color:#333">.</span><span style="color:#00c">withHeaders</span><span style="color:#333">()</span> <span style="color:#888">// headers mapped to value
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">kstream<span style="color:#333">.</span><span style="color:#00c">withHeaders</span><span style="color:#333">()</span> <span style="color:#888">// headers mapped to value
 </span><span style="color:#888"></span>       <span style="color:#333">.</span><span style="color:#00c">filter</span><span style="color:#333">((</span>k<span style="color:#333">,</span> v<span style="color:#333">)</span> <span style="color:#333">-&gt;</span> v<span style="color:#333">.</span><span style="color:#00c">headers</span><span style="color:#333">().</span><span style="color:#00c">headers</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;k&#34;</span><span style="color:#333">).</span><span style="color:#00c">iterator</span><span style="color:#333">().</span><span style="color:#00c">hasNext</span><span style="color:#333">())</span>
        <span style="color:#333">.</span><span style="color:#00c">filter</span><span style="color:#333">((</span>k<span style="color:#333">,</span> v<span style="color:#333">)</span> <span style="color:#333">-&gt;</span> Arrays<span style="color:#333">.</span><span style="color:#00c">equals</span><span style="color:#333">(</span>v<span style="color:#333">.</span><span style="color:#00c">headers</span><span style="color:#333">().</span><span style="color:#00c">lastHeader</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;k&#34;</span><span style="color:#333">).</span><span style="color:#00c">value</span><span style="color:#333">(),</span> <span style="background-color:#fff0f0">&#34;v&#34;</span><span style="color:#333">.</span><span style="color:#00c">getBytes</span><span style="color:#333">()))</span> <span style="color:#888">// filtering based on header value
 </span><span style="color:#888"></span>       <span style="color:#333">.</span><span style="color:#00c">groupByKey</span><span style="color:#333">(</span>Grouped<span style="color:#333">.</span><span style="color:#00c">with</span><span style="color:#333">(</span>Serdes<span style="color:#333">.</span><span style="color:#00c">String</span><span style="color:#333">(),</span> <span style="color:#080;font-weight:bold">new</span> ValueAndHeadersSerde<span style="color:#333">&lt;&gt;(</span>Serdes<span style="color:#333">.</span><span style="color:#00c">String</span><span style="color:#333">())))</span> <span style="color:#888">// val/headers serialization
@@ -290,18 +289,39 @@
 </span><span style="color:#888"></span>       <span style="color:#333">.</span><span style="color:#00c">setHeader</span><span style="color:#333">((</span>k<span style="color:#333">,</span> v<span style="color:#333">)</span> <span style="color:#333">-&gt;</span> <span style="color:#080;font-weight:bold">new</span> RecordHeader<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;newHeader&#34;</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;val&#34;</span><span style="color:#333">.</span><span style="color:#00c">getBytes</span><span style="color:#333">()))</span> <span style="color:#888">// add more headers
 </span><span style="color:#888"></span>       <span style="color:#333">.</span><span style="color:#00c">mapValues</span><span style="color:#333">((</span>k<span style="color:#333">,</span> v<span style="color:#333">)</span> <span style="color:#333">-&gt;</span> v<span style="color:#333">.</span><span style="color:#00c">value</span><span style="color:#333">())</span> <span style="color:#888">// return to value
 </span><span style="color:#888"></span>       <span style="color:#333">.</span><span style="color:#00c">to</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;output&#34;</span><span style="color:#333">)</span>
-</code></pre></div><h2 id="compatibilily-deprecation-and-migration-plan">Compatibilily, Deprecation, and Migration Plan</h2>
-<ul>
+</code></pre></div><h2 id="compatibilily-deprecation-and-migration-plan">
+    <a class="hash-link nohover" href="#compatibilily-deprecation-and-migration-plan">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Compatibilily, Deprecation, and Migration Plan
+</h2><ul>
 <li>New functions will be supported since 2.0+, as KIP-244 adopted.</li>
 <li>No existing stores or functions are affected.</li>
 </ul>
-<h3 id="potential-next-steps">Potential next steps</h3>
-<ul>
+<h3 id="potential-next-steps">
+    <a class="hash-link nohover" href="#potential-next-steps">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Potential next steps
+</h3><ul>
 <li>Use a similar approach for other record metadata (e.g. offset, topic, partition), though in this case only read-only operations are required.
 Related KIP: <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-159%3A+Introducing+Rich+functions+to+Streams">https://cwiki.apache.org/confluence/display/KAFKA/KIP-159%3A+Introducing+Rich+functions+to+Streams</a></li>
 </ul>
-<h2 id="rejected-alternatives">Rejected alternatives</h2>
-<ol>
+<h2 id="rejected-alternatives">
+    <a class="hash-link nohover" href="#rejected-alternatives">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Rejected alternatives
+</h2><ol>
 <li>Expand <code>KeyValue</code> to support headers. This will affect all current APIs, from KStream/KTable to Stores.</li>
 <li>Adding <code>mergeHeaders</code> functions to join/aggregation. Although this will extend support for headers, will add complexity to existing functions.</li>
 </ol>
@@ -349,42 +369,30 @@ Related KIP: <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-159%
   </main>
   
 <nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/posts">Posts</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/til">TIL</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">About</a>
-      </li>
-      
-    
-    
-  </ul>
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/til">TIL</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/notes">Notes</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">About</a>
+        </li>
+          
+    </ul>
 </nav>
-
 
   <footer class="l-footer">
     

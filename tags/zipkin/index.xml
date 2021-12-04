@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Sun, 17 May 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://jeqo.github.io/tags/zipkin/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 17 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/zipkin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Notes on Distributed Tracing</title>
       <link>https://jeqo.github.io/notes/distributed-tracing/</link>

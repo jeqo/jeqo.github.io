@@ -7,10 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 02 Dec 2021 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://jeqo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Fri, 03 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cioran</title>
+      <link>https://jeqo.github.io/tags/cioran/</link>
+      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/cioran/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>kafka</title>

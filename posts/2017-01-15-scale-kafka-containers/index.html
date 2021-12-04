@@ -1,47 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  
-  <title>scaling kafka with docker containers</title>
-  <meta property="og:title" content="Scaling Kafka with Docker Containers" />
-  <meta name="twitter:title" content="Scaling Kafka with Docker Containers" />
-  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
+    <title>scaling kafka with docker containers</title>
+    <meta property="og:title" content="Scaling Kafka with Docker Containers" />
+    <meta name="twitter:title" content="Scaling Kafka with Docker Containers" />  
+    <meta name="description" content="data streaming, observability, automation">
+    <meta property="og:description" content="data streaming, observability, automation">
+    <meta name="twitter:description" content="data streaming, observability, automation"> 
 
-  
-  <meta name="description" content="data streaming, observability, automation">
-  <meta property="og:description" content="data streaming, observability, automation">
-  <meta name="twitter:description" content="data streaming, observability, automation">
-  
+    <meta name="author" content="Jorge Esteban Quilcate Otoya" />
+    <meta property="og:site_name" content="@jeqo" />
+    <meta property="og:url" content="https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/" /> 
+    <meta name="twitter:card" content="summary" /> 
+    <meta name="twitter:site" content="@jeqo89" />
+    <meta name="twitter:creator" content="@jeqo89" />  
+    <meta property="og:type" content="article" /> 
 
-  <meta name="author" content="Jorge Esteban Quilcate Otoya"/>
-  <meta property="og:site_name" content="@jeqo" />
-  <meta property="og:url" content="https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/" />
-
-  
-  <meta name="twitter:card" content="summary" />
-
-  
-  <meta name="twitter:site" content="@jeqo89" />
-  <meta name="twitter:creator" content="@jeqo89" />
-  
-
-  
-  <meta property="og:type" content="article" />
-  
-  
-  <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
-  <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
-  <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
-  <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
-  
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+    <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
+    <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
+    <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
+    
 
 </head>
 
 <body>
-  <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a>
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
+    <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
     <symbol id="icon-feed" viewBox="0 0 16 16">
         <g>
             <path
@@ -91,17 +77,16 @@
         </g>
     </symbol>
 </svg>
-  <header class="l-header">
+    <header class="l-header">
+        
+        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
+         
+        <p class="p-subtitle">
+            data streaming, observability, automation
+        </p>
+        
+    </header>
     
-    <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
-    
-    
-    <p class="p-subtitle">
-      data streaming, observability, automation
-    </p>
-    
-  </header>
-  
 <ul class="c-links">
   
   <li class="c-links__item">
@@ -145,53 +130,38 @@
   
 </ul>
 
-
-  
+ 
 <nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/posts">Posts</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/til">TIL</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">About</a>
-      </li>
-      
-    
-    
-    <li class="p-menu__listitem"><a>|</a></li>
-    
-    <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/">es</a></li>
-    
-    
-  </ul>
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/til">TIL</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/notes">Notes</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">About</a>
+        </li>
+          
+        <li class="p-menu__listitem"><a>|</a></li>
+        
+        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/">es</a></li>
+         
+    </ul>
 </nav>
 
-
-  <main id="main" class="l-main">
-
+    <main id="main" class="l-main">
 
 <article class="p-article">
   <header>
@@ -218,8 +188,15 @@ the cluster.</p>
 <hr>
 <p>Repository: <a href="https://github.com/jeqo/post-scale-kafka-containers">https://github.com/jeqo/post-scale-kafka-containers</a></p>
 <hr>
-<h1 id="single-node-cluster">Single-Node Cluster</h1>
-<p>First of all, let&rsquo;s start with the most simple way to run Docker, that
+<h1 id="single-node-cluster">
+    <a class="hash-link nohover" href="#single-node-cluster">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Single-Node Cluster
+</h1><p>First of all, let&rsquo;s start with the most simple way to run Docker, that
 could be useful for some development scenarios: <strong>Single-Node Cluster</strong></p>
 <p>Apache Kafka architecture is based in 2 main components: The <em>Apache
 Kafka server</em> itself, and the <em>Apache Zookeeper server</em> used for internal
@@ -237,51 +214,58 @@ and you can find their source code here:
 <a href="https://github.com/jeqo/docker-image-apache-zookeeper">Apache Zookeeper</a>, and
 <a href="https://github.com/jeqo/docker-image-confluent-platform">Confluent Platform</a></p>
 <hr>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#080;font-weight:bold">version</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;2.1&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#080;font-weight:bold">services</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">kafka</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">image</span>:<span style="color:#bbb"> </span>jeqo/apache-kafka:<span style="color:#60e;font-weight:bold">0.10.1.0-2.11</span><span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">links</span>:<span style="color:#bbb">
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#070">version</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;2.1&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#070">services</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#070">kafka</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#070">image</span>:<span style="color:#bbb"> </span>jeqo/apache-kafka:0.10.1.0-2.11<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#070">links</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">      </span>- zookeeper<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">zookeeper</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">image</span>:<span style="color:#bbb"> </span>jeqo/apache-zookeeper:<span style="color:#60e;font-weight:bold">3.4.8</span></code></pre></div>
+</span><span style="color:#bbb">  </span><span style="color:#070">zookeeper</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#070">image</span>:<span style="color:#bbb"> </span>jeqo/apache-zookeeper:3.4.8</code></pre></div>
 <p>This configuration defines 2 services: <code>kafka</code> and <code>zookeeper</code>. The <code>kafka</code>
 service <code>link</code> and environment variable <code>ZOOKEEPER_CONNECT</code> configure the access
 from <code>kafka</code> to <code>zookeeper</code> service.</p>
 <p>If we try to start these configuration with <code>docker-compose up -d</code>,
 Docker Compose will create a <code>network</code> where these service can communicate.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jeqo@jeqo-Oryx-Pro:.../single-node-kafka-cluster$ docker-compose up -d
 Creating network <span style="background-color:#fff0f0">&#34;kafkacluster_default&#34;</span> with the default driver
 Creating kafkacluster_zookeeper_1
 Creating kafkacluster_kafka_1</code></pre></div>
 <p>If you want to communicate with the cluster from your application&rsquo;s
 docker-compose configuration, you can do it as follows:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#080;font-weight:bold">version</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;2.1&#34;</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#080;font-weight:bold">services</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">kafka</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">image</span>:<span style="color:#bbb"> </span>jeqo/apache-kafka-client:<span style="color:#60e;font-weight:bold">0.10.1.0-2.11</span><span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">command</span>:<span style="color:#bbb"> </span>sleep<span style="color:#bbb"> </span>infinity<span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">networks</span>:<span style="color:#bbb">
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#070">version</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;2.1&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#070">services</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#070">kafka</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#070">image</span>:<span style="color:#bbb"> </span>jeqo/apache-kafka-client:0.10.1.0-2.11<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#070">command</span>:<span style="color:#bbb"> </span>sleep infinity<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#070">networks</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">      </span>- default<span style="color:#bbb">
 </span><span style="color:#bbb">      </span>- kafkacluster_default<span style="color:#bbb"> </span><span style="color:#888">#(2)</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#080;font-weight:bold">networks</span>:<span style="color:#bbb"> </span><span style="color:#888">#(1)</span><span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">kafkacluster_default</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="color:#080;font-weight:bold">external</span>:<span style="color:#bbb"> </span><span style="color:#080;font-weight:bold">true</span></code></pre></div>
+</span><span style="color:#bbb"></span><span style="color:#070">networks</span>:<span style="color:#bbb"> </span><span style="color:#888">#(1)</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#070">kafkacluster_default</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#070">external</span>:<span style="color:#bbb"> </span><span style="color:#080;font-weight:bold">true</span></code></pre></div>
 <p>Here we define first an <code>external network</code> called <code>singlenodekafkacluster_default</code>
 that will give us access to the kafka cluster network. Then we add this network
 to the service network.</p>
 <p>To test our client, start it up running <code>docker-compose up -d</code> and then connect
 to the cluster with the following command:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-compose <span style="color:#007020">exec</span> kafka bash
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-compose <span style="color:#007020">exec</span> kafka bash
 <span style="color:#888"># bin/kafka-console-producer.sh --broker-list kafka:9092 --topic topic1</span>
 <span style="color:#007020">test</span>
-<span style="color:#888"># bin/kafka-topics.sh --zookeeper zookeeper:2181 --list</span>      
+<span style="color:#888"># bin/kafka-topics.sh --zookeeper zookeeper:2181 --list      </span>
 topic1</code></pre></div>
-<h1 id="multi-node-cluster">Multi-Node Cluster</h1>
-<p>To scale a container using Docker Compose is as simple as using the <code>scale</code> command:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose scale <span style="color:#963">kafka</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">3</span></code></pre></div>
+<h1 id="multi-node-cluster">
+    <a class="hash-link nohover" href="#multi-node-cluster">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Multi-Node Cluster
+</h1><p>To scale a container using Docker Compose is as simple as using the <code>scale</code> command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose scale <span style="color:#963">kafka</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">3</span></code></pre></div>
 <p>This will create 2 more containers:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-compose scale <span style="color:#963">kafka</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">3</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-compose scale <span style="color:#963">kafka</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">3</span>
 Creating and starting kafkacluster_kafka_2 ... <span style="color:#080;font-weight:bold">done</span>
 Creating and starting kafkacluster_kafka_3 ... <span style="color:#080;font-weight:bold">done</span></code></pre></div>
 <p>You, as an application developer, only need to know one of the <code>broker</code> IPs, or use the service
@@ -290,20 +274,34 @@ will use it only once to get the Kafka <code>broker</code> IPs from the same clu
 Kafka scaling will be transparent to your application.</p>
 <p>To validate that all brokers are part of the cluster let&rsquo;s use Zookeeper client to check. From
 client container:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-compose <span style="color:#007020">exec</span> kafka bash
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-compose <span style="color:#007020">exec</span> kafka bash
 <span style="color:#888"># bin/zookeeper-shell.sh zookeeper:2181</span>
 ls /brokers/ids
 <span style="color:#333">[</span>1003, 1002, 1001<span style="color:#333">]</span></code></pre></div>
-<h1 id="scaling-topics">Scaling Topics</h1>
-<p>In Kafka, <code>Topics</code> are distributed in <code>Partitions</code>. <code>Partitions</code> allows <strong>scalability</strong>, enabling <code>Topics</code>
+<h1 id="scaling-topics">
+    <a class="hash-link nohover" href="#scaling-topics">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Scaling Topics
+</h1><p>In Kafka, <code>Topics</code> are distributed in <code>Partitions</code>. <code>Partitions</code> allows <strong>scalability</strong>, enabling <code>Topics</code>
 to fit in several nodes, and <strong>parallelism</strong>, allowing different instances from the same <code>Consumer Group</code> to
 consume messages in parallel.</p>
 <p>Apart from this, Kafka manage how this <code>Partitions</code> are replicated, to achieve high availability. In
 this case, if you have many <code>replicas</code> from one <code>partition</code>, one will be the <code>leader</code> and there will
 be zero o more <code>followers</code> spread on different nodes.</p>
 <p>How do we configure this using this simple container configuration? Let&rsquo;s evaluate some scenarios:</p>
-<h2 id="adding-new-topics-to-the-cluster">Adding new topics to the cluster</h2>
-<p>Once you scale your cluster, Kafka won&rsquo;t use these new nodes unless new <code>topics</code> are created.</p>
+<h2 id="adding-new-topics-to-the-cluster">
+    <a class="hash-link nohover" href="#adding-new-topics-to-the-cluster">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Adding new topics to the cluster
+</h2><p>Once you scale your cluster, Kafka won&rsquo;t use these new nodes unless new <code>topics</code> are created.</p>
 <p>Let&rsquo;s test it following these steps:</p>
 <ol>
 <li>Start a single node cluster</li>
@@ -326,8 +324,15 @@ be zero o more <code>followers</code> spread on different nodes.</p>
 <!-- raw HTML omitted -->
 <p>To decide what <code>replication factor</code> or how many <code>partitions</code> to use, depends
 on your use case. This deserves its own blog post.</p>
-<h2 id="expanding-topics-in-your-cluster">Expanding topics in your cluster</h2>
-<p>Expanding topics in your cluster means move <code>topics</code> and <code>partitions</code> once
+<h2 id="expanding-topics-in-your-cluster">
+    <a class="hash-link nohover" href="#expanding-topics-in-your-cluster">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Expanding topics in your cluster
+</h2><p>Expanding topics in your cluster means move <code>topics</code> and <code>partitions</code> once
 you have more <code>brokers</code> in your <code>cluster</code>, because, as show before,
 your new <code>brokers</code> won&rsquo;t store any data, once they are created, unless
 you create new <code>topics</code>.</p>
@@ -347,21 +352,28 @@ you can decide how to redistribute your topics.</p>
 <p>You can do this following the documentation here: <a href="http://kafka.apache.org/documentation/#basic_ops_cluster_expansion">http://kafka.apache.org/documentation/#basic_ops_cluster_expansion</a></p>
 <p>The steps described in the documentation are automated a bit with Ansible:</p>
 <p>Inside the <code>playbooks/prepare-reassignment.yml</code> file you have 2 variables:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#080;font-weight:bold">vars</span>:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">topics</span>:<span style="color:#bbb">
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#070">vars</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#070">topics</span>:<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>- topic1<span style="color:#bbb">
-</span><span style="color:#bbb">  </span><span style="color:#080;font-weight:bold">broker_list</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">1003</span></code></pre></div>
+</span><span style="color:#bbb">  </span><span style="color:#070">broker_list</span>:<span style="color:#bbb"> </span><span style="color:#60e;font-weight:bold">1003</span></code></pre></div>
 <p>This will prepare a recipe to move your topic <code>topic1</code> to <code>broker</code> with id <code>1003</code>.</p>
 <!-- raw HTML omitted -->
 <p>You can paste the JSON file generated into <code>playbooks/reassign-topic-plan.json</code></p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#070">&#34;version&#34;</span>:<span style="color:#00d;font-weight:bold">1</span>,
   <span style="color:#070">&#34;partitions&#34;</span>:[{<span style="color:#070">&#34;topic&#34;</span>:<span style="background-color:#fff0f0">&#34;topic1&#34;</span>,<span style="color:#070">&#34;partition&#34;</span>:<span style="color:#00d;font-weight:bold">0</span>,<span style="color:#070">&#34;replicas&#34;</span>:[<span style="color:#00d;font-weight:bold">1003</span>]}]
 }</code></pre></div>
 <p>And then run this plan with the another playbook: <code>playbooks/execute-reassignment.yml</code></p>
 <!-- raw HTML omitted -->
-<h1 id="confluent-platform-images">Confluent Platform images</h1>
-<p>All these could be done in the same way with <a href="https://www.confluent.io/">Confluent Platform</a>.</p>
+<h1 id="confluent-platform-images">
+    <a class="hash-link nohover" href="#confluent-platform-images">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Confluent Platform images
+</h1><p>All these could be done in the same way with <a href="https://www.confluent.io/">Confluent Platform</a>.</p>
 <p>There is a couple of directories <code>confluent-cluster</code> and <code>confluent-client</code> to test this out:</p>
 <!-- raw HTML omitted -->
 <p>Hope this post help you to understand Kafka <code>topics</code> and how <code>containers</code> can
@@ -453,47 +465,34 @@ help you to run clusters in seconds :)</p>
   </main>
   
 <nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/posts">Posts</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/til">TIL</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/notes">Notes</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/talks">Talks</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">About</a>
-      </li>
-      
-    
-    
-    <li class="p-menu__listitem"><a>|</a></li>
-    
-    <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/">es</a></li>
-    
-    
-  </ul>
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/til">TIL</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/notes">Notes</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">About</a>
+        </li>
+          
+        <li class="p-menu__listitem"><a>|</a></li>
+        
+        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/">es</a></li>
+         
+    </ul>
 </nav>
-
 
   <footer class="l-footer">
     

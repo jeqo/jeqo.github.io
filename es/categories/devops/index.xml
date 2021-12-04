@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Sun, 15 Jan 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://jeqo.github.io/es/categories/devops/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 15 Jan 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/es/categories/devops/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Escalando Kafka con Docker Containers</title>
       <link>https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/</link>
@@ -30,7 +26,7 @@ clúster.&lt;/p&gt;</description>
       
       <guid>https://jeqo.github.io/es/posts/2016-03-30-ansible-agentless-provisioning/</guid>
       <description>Ansible es una herramienta de automatización reconocida por ser sencilla y potente a la vez. Según mi experiencia, puedo decir que esto se debe principalmente al lenguaje que utiliza: YAML, y a tener una arquitectura sin agentes o &amp;ldquo;agentless&amp;rdquo;.
-YAML y los componentes de Ansible  &amp;ldquo;YAML is a human friendly data serialization standard for all programming languages&amp;rdquo; (Source: http://yaml.org/)
+Link to this section    &amp;nbsp;YAML y los componentes de Ansible  &amp;ldquo;YAML is a human friendly data serialization standard for all programming languages&amp;rdquo; (Source: http://yaml.org/)
  Esto signifíca que es verdaderamente fácil de entender y comenzar a trabajar con YAML.</description>
     </item>
     
@@ -76,7 +72,7 @@ Bueno, WebLogic sobre Docker es genial, pero me he propuesto ir unos pasos más 
       <description>En esta entrada mostraré el procedimiento que utilicé para crear instancias en Amazon Web Service EC2, con Oracle BPM 12c instalado y un dominio provisionado.
 Este procedimiento se realizo en los siguientes pasos:
  Crear una instancia en AWS EC2 (con Vagrant) Conectarse a una instancia NFS para obtener instaladores (con Chef) Instalar Oracle BPM 12c Quickstart y crear Dominio (con Chef)  GitHub: https://github.com/jeqo/oracle-bpm-12c-aws
-Crear una instancia en AWS EC2 He creado una instancia Red Hat usando Vagrant.</description>
+Link to this section    &amp;nbsp;Crear una instancia en AWS EC2 He creado una instancia Red Hat usando Vagrant.</description>
     </item>
     
     <item>

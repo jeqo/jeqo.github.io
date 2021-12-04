@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Fri, 04 Sep 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://jeqo.github.io/es/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 04 Sep 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/es/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Imagen de Oracle SOA Suite 12c en Docker</title>
       <link>https://jeqo.github.io/es/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/</link>
@@ -54,7 +50,7 @@ Bueno, WebLogic sobre Docker es genial, pero me he propuesto ir unos pasos más 
       <description>En esta entrada mostraré el procedimiento que utilicé para crear instancias en Amazon Web Service EC2, con Oracle BPM 12c instalado y un dominio provisionado.
 Este procedimiento se realizo en los siguientes pasos:
  Crear una instancia en AWS EC2 (con Vagrant) Conectarse a una instancia NFS para obtener instaladores (con Chef) Instalar Oracle BPM 12c Quickstart y crear Dominio (con Chef)  GitHub: https://github.com/jeqo/oracle-bpm-12c-aws
-Crear una instancia en AWS EC2 He creado una instancia Red Hat usando Vagrant.</description>
+Link to this section    &amp;nbsp;Crear una instancia en AWS EC2 He creado una instancia Red Hat usando Vagrant.</description>
     </item>
     
     <item>
