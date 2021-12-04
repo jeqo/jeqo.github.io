@@ -14,8 +14,13 @@
       <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/til/2021-12-02-kafka-min-isr/</guid>
-      <description>Things to remember:
- Topic replication factor is not enough to guarantee fault-tolerance. If min.insync.replicas is not defined i.e. 1, then data could potentially be lost. acks=all will force replica leader to wait for all brokers in the ISR, not only the min.insync.replicas. If replicas available are equal to minimum ISR, then the topic partitions are at the edge of losing availability. If one broker becomes unavailable (e.g. restarting), then producers will fail to write data.</description>
+      <description>&lt;p&gt;Things to remember:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Topic replication factor is not enough to guarantee fault-tolerance. If &lt;code&gt;min.insync.replicas&lt;/code&gt; is not defined i.e. 1, then data could potentially be lost.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;acks=all&lt;/code&gt; will force replica leader to wait for &lt;em&gt;all&lt;/em&gt; brokers in the ISR, not only the &lt;code&gt;min.insync.replicas&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;If replicas available are equal to minimum ISR, then the topic partitions are at the edge of losing availability. If one broker becomes unavailable (e.g. restarting), then producers will fail to write data.&lt;/li&gt;
+&lt;li&gt;Topic configuration is inherited from the server. If broker configuration changes, it affects the &lt;em&gt;existing&lt;/em&gt; topics. Keep the topic defaults, unless it needs to be different than broker default for easier maintenance.&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
   </channel>

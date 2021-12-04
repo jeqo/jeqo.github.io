@@ -183,7 +183,6 @@
 <li>If replicas available are equal to minimum ISR, then the topic partitions are at the edge of losing availability. If one broker becomes unavailable (e.g. restarting), then producers will fail to write data.</li>
 <li>Topic configuration is inherited from the server. If broker configuration changes, it affects the <em>existing</em> topics. Keep the topic defaults, unless it needs to be different than broker default for easier maintenance.</li>
 </ul>
-<hr>
 <p>When writing data on Kafka topics, it&rsquo;s often required for this data to be replicated across multiple brokers and enforce this replication as part of the writing process.
 This is enforced by the Producer when setting <code>acks=all</code>.
 <code>min.insync.replicas</code> define the minimum number of replicas required to acknowledge back to producers.</p>
@@ -257,7 +256,6 @@ For instance, Confluent Cloud uses <code>RF=3</code> and <code>min.isr=2</code>.
 </code></pre></div><blockquote>
 <p>Source-code: <a href="https://github.com/apache/kafka/blob/965ec40c0a282bc311c702c6eb795689ec7ddfa5/core/src/main/scala/kafka/cluster/Partition.scala#L1042-L1069">https://github.com/apache/kafka/blob/965ec40c0a282bc311c702c6eb795689ec7ddfa5/core/src/main/scala/kafka/cluster/Partition.scala#L1042-L1069</a></p>
 </blockquote>
-
   </section>
   <footer>
     
