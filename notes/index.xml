@@ -22,83 +22,35 @@
     </item>
     
     <item>
-      <title>Notes on cp-ansible</title>
-      <link>https://jeqo.github.io/notes/cp-ansible/</link>
-      <pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate>
+      <title>Notes on Co-evolving Tracing and Fault Injection with Box of Pain</title>
+      <link>https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/notes/cp-ansible/</guid>
+      <guid>https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/</guid>
+      <description>This paper explores how related tracing and fault injection systems are, and if they should be part of the same thing.
+ The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&amp;hellip;]
+  [&amp;hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.
+ In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.</description>
+    </item>
+    
+    <item>
+      <title>Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</title>
+      <link>https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</link>
+      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Notes on Apache Kafka and Confluent Platform Security</title>
-      <link>https://jeqo.github.io/notes/kafka-security/</link>
-      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
+      <title>Data on the Outside vs Data on the Inside</title>
+      <link>https://jeqo.github.io/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/notes/kafka-security/</guid>
-      <description>== Authentication
-=== SASL/PLAIN
-.Further reading
- Kafka docs: https://kafka.apache.org/documentation/#security_sasl_plain  === SASL/SCRAM
-Support:
- https://tools.ietf.org/html/rfc7677[SCRAM-SHA-256] SCRAM-SHA-512  ==== Considerations
- For each SCRAM mechanism enabled, credentials must be created by adding a config with the mechanism name. Credentials for inter-broker communication must be created before Kafka brokers are started.
- .Further reading
- Kafka docs: https://kafka.apache.org/documentation/#security_sasl_scram  == Authentication
-== Authorization
-=== Apache Kafka Access Control Lists</description>
-    </item>
-    
-    <item>
-      <title>Notes on Apache Zookeeper Security</title>
-      <link>https://jeqo.github.io/notes/zookeeper-security/</link>
-      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/notes/zookeeper-security/</guid>
-      <description>== Authentication
-.Examples
- https://github.com/jeqo/docker-composes/tree/master/zookeeper-security  === Client/Server Authentication
-==== SASL Authentication
-SASL Authentication alone does not deny access to anonymous users. Beware of this as it gives a false sense of security, and can take some time to realize. Reference: https://issues.apache.org/jira/browse/ZOOKEEPER-1736
-This can be solved by forcing an Authentication Scheme:
-requireClientAuthScheme=sasl  .Futher reading
- https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication   === Server/Server Authentication
- .Futher reading
- https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication   == Authorization</description>
-    </item>
-    
-    <item>
-      <title>Notes on Java Security</title>
-      <link>https://jeqo.github.io/notes/security/</link>
-      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/notes/security/</guid>
-      <description>== Security Standards
-=== Hashing
-==== Hash Functions
-.Cryptographic Hash Functions What makes a hash function a Cryptographic Hash Function (CHF) is that is a one-way function: practically infeasible to invert.
-==== MD5
-From https://en.wikipedia.org/wiki/MD5[Wikipedia]:
- The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to be used as a cryptographic hash function, it has been found to suffer from extensive vulnerabilities.</description>
-    </item>
-    
-    <item>
-      <title>Notes on Kafka Streams Stores</title>
-      <link>https://jeqo.github.io/notes/kafka-streams-stores/</link>
-      <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/notes/kafka-streams-stores/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Notes on Distributed Tracing</title>
-      <link>https://jeqo.github.io/notes/distributed-tracing/</link>
-      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/notes/distributed-tracing/</guid>
-      <description>&lt;p&gt;Distributed Tracing is a technique to trace &lt;em&gt;distributed&lt;/em&gt; components.&lt;/p&gt;
-&lt;p&gt;It seems redundant to highlight the &amp;lsquo;distributed&amp;rsquo; part, but I believe this is key to understand in order to use this technique effectively.&lt;/p&gt;</description>
+      <guid>https://jeqo.github.io/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/</guid>
+      <description>&lt;p&gt;I found this paper as relevant and accurate today as it was in 2005, when it was published.
+It is fascinating how even 12 years later and with new technologies in vogue,
+same concepts keep applying.&lt;/p&gt;</description>
     </item>
     
   </channel>

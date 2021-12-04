@@ -3,16 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>cómo mejorar el sitio web del congreso de perú?</title>
-    <meta property="og:title" content="Cómo mejorar el sitio web del Congreso de Perú?" />
-    <meta name="twitter:title" content="Cómo mejorar el sitio web del Congreso de Perú?" />  
+    <title>data on the outside vs data on the inside</title>
+    <meta property="og:title" content="Data on the Outside vs Data on the Inside" />
+    <meta name="twitter:title" content="Data on the Outside vs Data on the Inside" />  
     <meta name="description" content="data streaming, observability, automation">
     <meta property="og:description" content="data streaming, observability, automation">
     <meta name="twitter:description" content="data streaming, observability, automation"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/es/posts/2020-10-02-peru-congreso/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
@@ -135,7 +135,7 @@
     <ul class="p-menu__lists">
          
         <li class="p-menu__listitem">
-            <a href="/es/posts">Posts</a>
+            <a href="/posts">Posts</a>
         </li>
           
         <li class="p-menu__listitem">
@@ -143,17 +143,21 @@
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/es/notes">Notas</a>
+            <a href="/notes">Notes</a>
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/es/talks">Presentaciones</a>
+            <a href="/talks">Talks</a>
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/about">Acerca</a>
+            <a href="/about">About</a>
         </li>
           
+        <li class="p-menu__listitem"><a>|</a></li>
+        
+        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/">es</a></li>
+         
     </ul>
 </nav>
 
@@ -161,137 +165,240 @@
 
 <article class="p-article">
   <header>
-    <h1>Cómo mejorar el sitio web del Congreso de Perú?</h1>
+    <h1>Data on the Outside vs Data on the Inside</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2020-10-01T00:00:00Z">
-          Oct 1, 2020
+        <time datetime="2018-01-08T00:00:00Z">
+          Jan 8, 2018
         </time>
       </div>
       
-      <a href="https://jeqo.github.io/tags/congreso" class="c-tag">congreso</a>
+      <a href="https://jeqo.github.io/tags/distributed-systems" class="c-tag">distributed systems</a>
       
-      <a href="https://jeqo.github.io/tags/open-source" class="c-tag">open-source</a>
+      <a href="https://jeqo.github.io/tags/microservices" class="c-tag">microservices</a>
+      
+      <a href="https://jeqo.github.io/tags/pat-helland" class="c-tag">pat helland</a>
+      
+      <a href="https://jeqo.github.io/tags/transactions" class="c-tag">transactions</a>
       
     </div>
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p>Si bien nos podemos seguir quejando (y con muchas razones) sobre las deficiencias del Congreso, no sirve de mucho si no va de la mano de con propuestas de como apoyar a solucionarlo.</p>
-<p>En teoría el Congreso literalmente trabaja para nosotros (los ciudadanos).
-Si como ciudadanos no somos capaces de entender y fiscalizar que es lo que el Congreso hace, no hay manera de controlarlos.</p>
-<h2 id="sitio-web-del-congreso">
-    <a class="hash-link nohover" href="#sitio-web-del-congreso">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
-    </a>&nbsp;Sitio web del Congreso
-</h2><p>El <a href="http://www.congreso.gob.pe">actual sitio web</a> si bien tiene una apariencia renovada, la información expuesta aún no es facilmente accessible, ni procesable.</p>
-<p>Inicialmente me he enfocado en <a href="http://www.congreso.gob.pe/pley-2016-2021">&ldquo;Proyectos de Ley&rdquo;</a>.</p>
-<p>Tanto la búsqueda, como el listado de Proyectos de Ley, están en diferente formato que la web del congreso:</p>
-<p><img src="/images/posts/2020-10-02-peru-congreso/busqueda.png" alt="busqueda"></p>
-<p><img src="/images/posts/2020-10-02-peru-congreso/lista.png" alt="lista"></p>
-<p>Aunque la información se encuentra disponible, no es facilmente accesible.
-Si bien existen enlaces, estos están &ldquo;escondidos&rdquo;.
-Por ejemplo, no existe un enlace fácil de referenciar para acceder un proyecto de ley.</p>
-<p>Por otro lado, si se desea analizar la información de los proyectos de ley, no hay una base de datos pública que permita explotar esos datos.</p>
-<p>Tanto la lista de proyectos, como el seguimiento y su expediente se encuentran todos en enlaces distintos.</p>
-<p>Por último, el sitio web esta expuesto sin seguridad habilitada (HTTP).
-Aunque uno puede argumentar que al brindar información pública, no es necesario encriptar los datos; pero esto no es cierto.
-HTTPS es necesario para que la información sea facilmente accesible a través de motores de búsqueda como Google.
-Los proyectos del ley tienen formularios que contienen información personal de los ciudadanos para publicar opiniones.
-Sin HTTPS, estos datos viajan sin ser encriptados, permitiendo que esta información sea accesible en internet.
-Además, si uno quiere hacer referencia a la página de un proyecto de ley a traves de <code>&lt;iframe&gt;</code>, no es actualmente posible si el sitio referenciado es HTTP.</p>
-<p>Una de mis sorpresas fue que en realidad <em>si</em> existe opción para publicar opiniones sobre los proyectos de ley (!). Y por más escondida que la opción está, existen ciertos proyectos que tienen opiniones publicadas.</p>
-<p>Con un sitio web más usable para los ciudadanos, esperaría que estas opiniones publicadas se multipliquen y podamos ejercer mayor presión sobre este poder del estado.</p>
-<h2 id="política-y-proyectos-de-software">
-    <a class="hash-link nohover" href="#pol%c3%adtica-y-proyectos-de-software">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
-    </a>&nbsp;Política y proyectos de software
-</h2><p>Navegando el sitio del congreso, he llegado a la conclusión de que el trabajo realizado por los congresistas no difiere tanto del trabajo de un equipo de desarrollo de software, o una comunidad open-source:</p>
+    <p>I found this paper as relevant and accurate today as it was in 2005, when it was published.
+It is fascinating how even 12 years later and with new technologies in vogue,
+same concepts keep applying.</p>
+<p>Overall, I found esential to evaluate concepts proposed here by <strong>Pat Helland</strong> in relation
+with Microservices: This paper is describing challenges that we, as developers, will have to deal when
+they are moving from a <em>monolithic</em> architecture (when we can trust that all components are located
+in the same context - i.e. same server), and you have to go out and face a reality where parts of your
+system a not any more tied to the same space and time; and methods like atomic transactions implemented
+by protocols like 2PC (Two-Phase Commit) are not recommended as they go against one of the goals of
+distribute your system that is increase your availability.</p>
+<p>The author start explaining Service-Oriented Architecture (SOA) characteristics, currently related with Microservices:</p>
+<blockquote>
+<p>Each service comprises a chunk of code and data that is private to that service. Services are different than the classic application
+living in a silo and interacting only with humans in that they are interconnected with messages to other services.</p>
+</blockquote>
+<p>More importantly, defines implications of transaction in SOA:</p>
+<blockquote>
+<p>To participate in an ACID transaction requires a willingness <strong>to hold database locks</strong> until the transaction
+coordinator decides to commit or abort the transaction. For the non-coordinator, this is a serious ceding of
+independence and requires a lot of trust that the coordinating system will make a decision in a timely
+fashion. <strong>Being constrained to hold active locks on records in the database can be devastating for the availability of a system.</strong></p>
+</blockquote>
+<p>Hence we can only consider atomic transactions when there is a high level of trust between components.
+For instance, <em>brokers</em> in Apache Kafka trust internally in Zookeeper service to assign a leader replica
+for each partition to a broker.</p>
+<p>Then, a couple of concepts are introduced here that are important along the paper:</p>
+<blockquote>
 <ul>
-<li>Ambos gestionan contenido: el proyecto de software gestiona el código fuente, y el congreso gestiona el código de leyes.</li>
-<li>En los proyectos de software, los cambios son propuestos a través de &ldquo;Pull Requests&rdquo; donde un programador, o equipo de programadores, describen que cambios quieren realizar a las leyes actuales. El Congreso crea proyectos de ley que buscan implementar cambios en la Constitución u otros código de leyes.</li>
-<li>Las propuestas de cambio pasan por un proceso de revisión y aprovación similar a los proyectos de software.</li>
-<li>Los cambios en el ciclo de vida de un proyecto de ley son capturados en su seguimiento, similar a los cambios de un &ldquo;issue&rdquo; en JIRA u otro gestor de proyectos.</li>
+<li><strong>Operators</strong>: correspond to the intended purpose for the message. Frequently,
+the operator reflects a business function in the domain of the service.</li>
+<li><strong>Operandos</strong>: The operands are additional information required by the
+operator message to fully qualify the intent of the sending service. Operands are typically obtained from reference
+data published by a service to facilitate its later invocation with an operator message.</li>
 </ul>
-<p>La gran diferencia es que los proyectos de software utilizan plataformas abiertas como GitHub, donde uno puede navegar todos los cambios que han pasado un proyecto, quien ha realizado los cambios, quienes lo aprobaron, etc.</p>
-<p>Luego de revisar brevemente como funcionan los proyectos de ley en el Congreso, no me es difícil imaginar un futuro donde los proyectos de ley sean gestionados con git, publicamente accesibles, y discutidos abiertamente.</p>
-<p>De echo, la discusión abierta es la parte más importante de un proyecto de software. Las consultas, recomendaciones, y como la propuesta se va mejorando para ser aprobada. Esto actualmente no existe, o es efímero en las sesiones del congreso. Si pudieramos tener no solo la evaluación de un proyecto ley, sino también la discución de como se llego a la versión final, sería de tremendo impacto en terminos de fiscalización y evaluación del congreso.</p>
-<p>Para poner un ejemplo, imaginen el Congreso gestionando repositorios en GitHub:</p>
-<p>Donde podamos acceder al estado actual de las leyes:</p>
-<p><img src="/images/posts/2020-10-02-peru-congreso/github.png" alt="github"></p>
-<p>Por ejemplo, en &ldquo;Contributors&rdquo; en la zona derecha podriamos acceder a los Congresistas que contribuyen al proyecto, y quien es el que más contribuye, etc.</p>
-<p>Los números de &ldquo;Pull Requests&rdquo; abiertos, representarían los proyectos de ley abiertos y en discusión:</p>
-<p><img src="/images/posts/2020-10-02-peru-congreso/prs.png" alt="pull requests"></p>
-<p>Si uno quiere revisar un proyecto de ley, revisaría un &ldquo;Pull Request&rdquo;, y vería la discución y los textos propuestos:</p>
-<p><img src="/images/posts/2020-10-02-peru-congreso/pr-comments.png" alt="pull request-comments"></p>
-<p><img src="/images/posts/2020-10-02-peru-congreso/pr-docs.png" alt="pull request-docs"></p>
-<p>Donde en vez de código fuente de software, veríamos específicamente los cambios propuestos en las leyes. Y cualquier ciudadano podría comentar específicamente que parte apoya o propone modificar previo a la aceptación.</p>
-<p>Obviamente, esta idea no es nueva. Me inspiré en esta charla de Ted <a href="https://www.ted.com/talks/clay_shirky_how_the_internet_will_one_day_transform_government">https://www.ted.com/talks/clay_shirky_how_the_internet_will_one_day_transform_government</a></p>
-<h2 id="experimento-nuevo-sitio-web-para-el-congreso">
-    <a class="hash-link nohover" href="#experimento-nuevo-sitio-web-para-el-congreso">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
-    </a>&nbsp;Experimento: nuevo sitio web para el Congreso
-</h2><p>Si bien esta visión puede verse bastante lejana, se pueden ir experimentando algunas mejoras.</p>
-<p>Para mejorar la referenciación y seguimiento de los proyectos, podriamos exponer los proyectos en un sitio web más simple, tipo blog, donde cada post sería un proyecto de ley.</p>
-<p>Este proyecto de es un intento de materializar esta propuesta: <a href="https://github.com/jeqo/peru-congreso">https://github.com/jeqo/peru-congreso</a>.
-Y el resultado es el sitio web: <a href="https://jeqo.github.io/peru-congreso">https://jeqo.github.io/peru-congreso</a></p>
-<h3 id="importación-de-datos">
-    <a class="hash-link nohover" href="#importaci%c3%b3n-de-datos">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
-    </a>&nbsp;Importación de datos
-</h3><p>El primer paso para experimentar con estos datos, es importar la información desde el sitio web del Congreso.
-Como no existe una base de datos pública, he tenido que acceder directamente al código disponible en el sitio web para extraer los datos de la página web HTML.</p>
-<p>Luego de extraer los datos y los enlaces al seguimiento y expediente, he podido obtener toda la información relacionada a un proyecto de ley.</p>
-<p>Los datos son guardados en un sistema de datos local (Apache Kafka), para ser luego procesados.</p>
-<p>Actualmente esta importación depende directamente de la estructura de la página web. Si la web es actualizada (espero que mejorada) va a requerir modificar el proceso de importación.</p>
-<h3 id="exportación-de-datos">
-    <a class="hash-link nohover" href="#exportaci%c3%b3n-de-datos">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
-    </a>&nbsp;Exportación de datos
-</h3><p>Los datos importados son procesados y exportados en distintos formatos:</p>
-<ul>
-<li>CSV: <a href="https://jeqo.github.io/peru-congreso/proyectos-ley/2016-2021.csv">https://jeqo.github.io/peru-congreso/proyectos-ley/2016-2021.csv</a></li>
-<li>Blog (usando <a href="https://gohugo.io">Hugo</a>): <a href="https://jeqo.github.io/peru-congreso">https://jeqo.github.io/peru-congreso</a></li>
-<li>Twitter: <a href="https://twitter.com/otrocongresope">https://twitter.com/otrocongresope</a></li>
-</ul>
-<p>El objetivo de exportar los datos en formato CSV es para permitir que científicos de datos puedan procesar esta información y analizar el rendimiento del Congreso.</p>
-<p>El blog busca darle fácil acceso a los proyectos.</p>
-<p>Y Twitter permite la publicación de actualizaciones para su discusión en esta plataforma.</p>
-<p>Actualmente estas exportaciones son ejecutadas manualmente de forma diaria.</p>
-<p>Para mayores detalles técnicos: <a href="https://github.com/jeqo/peru-congreso/blob/trunk/RATIONALE.md">aquí</a></p>
-<h2 id="conclusiones">
-    <a class="hash-link nohover" href="#conclusiones">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
-    </a>&nbsp;Conclusiones
-</h2><p>Este experimento funcionará hasta que el sitio del Congreso sea reemplazado.
-Ojalá por uno mejorado y considerando las propuestas expuestas antes.</p>
-<p>Me atrevería incluso a exigir que tanto los datos, como el sitio web del Congreso─incluso los sistemas de gob.pe─deberían ser gestionados como proyectos de código abierto, para que sean auditables y mejorables por los ciudadanos.</p>
+</blockquote>
+<img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/operatos-operands.png" alt="Data on the Outside vs Data on the Inside /images/notes/data-on-the-outside-vs-data-on-the-inside/operatos-operands.png" data-action="zoom">
 
+<h2 id="data-then-and-now">
+    <a class="hash-link nohover" href="#data-then-and-now">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Data: Then and Now
+</h2><p>This chapter details about the space/time impact of applying transactions in SOA.</p>
+<p>When we are inside service boundaries, transactions are serializable and they give us the illusion about a unique &ldquo;now&rdquo;.</p>
+<blockquote>
+<p>Transactional serializability makes you feel alone.</p>
+</blockquote>
+<p>We can asume that two concurrent operations that we are executing: one precedes another one, one follows another one, or both are completely independent.</p>
+<p>But once we are out of a service things change completely:</p>
+<blockquote>
+<p>The contents of a message are always from the past! They are never from &ldquo;now&rdquo;</p>
+</blockquote>
+<blockquote>
+<p>There is no simultaneity at a distance!</p>
+<ul>
+<li>Similar to the speed of light bounding information</li>
+<li>By the time you see a distant object, it may have changed!</li>
+<li>By the time you see a message, the data may have changed!</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Services, transactions, and locks bound simultaneity!</p>
+<ul>
+<li>Inside a transaction, things are simultaneous</li>
+<li>Simultaneity exists only inside a transaction!</li>
+<li>Simultaneity exists only inside a service!</li>
+</ul>
+</blockquote>
+<p>And then shoots:</p>
+<blockquote>
+<p><strong>Going to SOA is like going from Newton&rsquo;s physics to Einstein&rsquo;s physics.</strong></p>
+<ul>
+<li>Newton’s time marched forward uniformly with instant knowledge at a distance.</li>
+<li>Before SOA, distributed computing strove to make many systems look like one with RPC, 2PC, etc.</li>
+<li>In Einstein’s universe, everything is relative to one’s perspective.</li>
+<li>SOA has &ldquo;now&rdquo; inside and the &ldquo;past&rdquo; arriving in messages.</li>
+</ul>
+</blockquote>
+<p>I believe this quote is key to consider when we are evaluating migrate from a monolithic architecture
+into a distributed one, like Microservice: The benefits have to be bigger than the complexity that involves
+to work based on different laws. Just like learning and applying Einstein laws once we are used to Newton&rsquo;s laws.</p>
+<p>As <a href="https://twitter.com/adriancolyer">Adrian Colyer</a> describes
+<a href="https://blog.acolyer.org/2016/09/13/data-on-the-outside-versus-data-on-the-inside/">on his paper review</a>:</p>
+<blockquote>
+<p>Perhaps we should rename the &ldquo;extract microservice&rdquo; refactoring operation to &ldquo;change model of time and space&rdquo; ;).</p>
+</blockquote>
+<p>The responsability of dealing between the <em>present</em> inside a service, and the <em>past</em> that comes from the
+outside world is from the service application logic itself (i.e. it is a developer responsability)</p>
+<blockquote>
+<p>The world is no longer flat!</p>
+<ul>
+<li>SOA is recognizing that there is more than one computer working together!</li>
+<li>Multiple machines mean multiple time domains.</li>
+<li>Multiple time domains mandate we cope with ambiguity to allow coexistence, cooperation, and joint work.</li>
+</ul>
+</blockquote>
+<h2 id="data-on-the-outside-immutability">
+    <a class="hash-link nohover" href="#data-on-the-outside-immutability">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Data on the Outside: Immutability
+</h2><p>When we are out of service boundaries, data (that comes as part of messages) must be immutable. This means that
+messages should be the same no matter <em>when</em> or <em>where</em> we do a reference.</p>
+<p>In this part the author make important recommendations about how to identify records in SOA:</p>
+<blockquote>
+<p>Immutability isn’t enough to ensure a lack of confusion. The interpretation of the contents of the data must be
+unambiguous. <strong>Stable data</strong> has an unambiguous and unchanging interpretation across space and time.</p>
+</blockquote>
+<p>Also records should be identified not only by a version independent identifier but also by a version-dependent identifier.</p>
+<blockquote>
+<p>To bind a version independent identifier, to the underlying data, it is necessary to first convert to a version dependent identifier.</p>
+</blockquote>
+<p>The idea here is to be able to reference data that does not change depending on the current status. for instance: When you are
+processing a check-out in an e-commerce platform, products bought have a price at the time you are buying them. If your receipt
+does not reference a product based on a version-dependent identifier, it will reference a <em>current version</em> of the product,
+affecting the total amount.</p>
+<h2 id="data-on-the-outside-reference-data">
+    <a class="hash-link nohover" href="#data-on-the-outside-reference-data">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Data on the Outside: Reference Data
+</h2><p>This is one of the most important ponts from my point of view, because here is where most of the challenges are:
+How to share information that my service owns in a way that othere services can consume it in an efficient/consistent way?</p>
+<p>In this chapter the author goes deeper about the importance of version dependent/independent identifiers and defines
+three uses of <em>Reference Data</em>:</p>
+<blockquote>
+<ul>
+<li><strong>Operands</strong> contain information published by a service in anticipation that hopefully another service will
+submit an operator using these values.</li>
+<li><strong>Historic Artifacts</strong> describe what happened in the past within the confines of the sending service.</li>
+<li><strong>Shared Collections</strong> contain information that is held in common across a set of related services that gradually
+evolves over time. One service is the custodian and manages the application of changes to a part of the
+collection. The other services use somewhat old versions of the information.</li>
+</ul>
+</blockquote>
+<p>For more information about how to deal with this challenges, <a href="https://twitter.com/benstopford">Ben Stopford</a>
+have written a post about how to deal with this dichotomy between services trying to encapsulate data, and
+data systems trying to expose it:
+<a href="https://www.confluent.io/blog/data-dichotomy-rethinking-the-way-we-treat-data-and-services/">https://www.confluent.io/blog/data-dichotomy-rethinking-the-way-we-treat-data-and-services/</a></p>
+<h2 id="data-on-the-inside">
+    <a class="hash-link nohover" href="#data-on-the-inside">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Data on the Inside
+</h2><p>After analyzing the impact of data out of the service boundaries, there is a review about characteristics
+of data inside a service, taking SQL as the most common way to access it:</p>
+<blockquote>
+<p><strong>SQL and DDL live in the &ldquo;Now&rdquo;</strong></p>
+<p>Each transaction is meaningful only within the context of the schema defined
+by the preceding transactions.</p>
+<p>This notion of “now” is the temporal domain of the service comprising the service’s
+logic and its data contained in this database</p>
+</blockquote>
+<p>But most importantly, the considerations about how to treat incoming messages (i.e. how to store requests
+from other services).</p>
+<blockquote>
+<p>Many times, an incoming message kept as an exact binary copy for auditing and non-repudiation while still
+converting the contents to a form easier to use within the service itself.</p>
+</blockquote>
+<p>I found this technique could be related with how deal with <em>commands</em> in an <em>Event Sourcing/CQRS</em> approach.
+For instance, Capital One has an reference implementation that consider storing commands as part of the
+architecture: <a href="https://github.com/capitalone/cqrs-manager-for-distributed-reactive-services">https://github.com/capitalone/cqrs-manager-for-distributed-reactive-services</a></p>
+<h2 id="representations-of-data">
+    <a class="hash-link nohover" href="#representations-of-data">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Representations of Data
+</h2><p>XML and SQL are discussed and compared as two approaches to represent data, where XML extensibility and
+SQL relational capabilities are key depending on the context that they are used (inside or outside of a service):</p>
+<blockquote>
+<p>It is this combination of hierarchy, explicit and well defined identifiers (URIs), clear mechanism for
+leveraging old schema within the new schema, and extensibility that has given XML its prominence in representing outside data.</p>
+</blockquote>
+<blockquote>
+<p>SQL is clearly the leader as a representation for inside data.</p>
+</blockquote>
+<p><img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/outside-vs-inside.png" alt="outside vs inside"></p>
+<p><em>Actually we can translate similar benefits and weaknesses to other ways to represent data like JSON for outside and
+NoSQL database technologies for inside data</em></p>
+<p>And finally compares strengths and weaknesses from three ways of representing data: XML, SQL and Objects.</p>
+<p><img src="/images/notes/data-on-the-outside-vs-data-on-the-inside/sql-xml-object.png" alt="xml vs sql vs objects"></p>
+<p>Concluding:</p>
+<blockquote>
+<p>We simply need all three of these representations and we need to use them in a fashion that plays to their respective strengths!</p>
+</blockquote>
+<h2 id="references">
+    <a class="hash-link nohover" href="#references">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;References
+</h2><ul>
+<li>Link: <a href="http://cidrdb.org/cidr2005/papers/P12.pdf">cidrdb.org/cidr2005/papers/P12.pdf</a></li>
+<li>Author: <strong>Pat Helland</strong></li>
+<li>Year: 2005</li>
+</ul>
   </section>
   <footer>
     
@@ -317,11 +424,12 @@ Ojalá por uno mejorado y considerando las propuestas expuestas antes.</p>
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/es/about/">Newer</a>
+          <a href="https://jeqo.github.io/talks/distributed-tracing-with-opentracing-noslides18/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
+          <a href="https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/">Older</a>
           
         </div>
       </div>
@@ -337,7 +445,7 @@ Ojalá por uno mejorado y considerando las propuestas expuestas antes.</p>
     <ul class="p-menu__lists">
          
         <li class="p-menu__listitem">
-            <a href="/es/posts">Posts</a>
+            <a href="/posts">Posts</a>
         </li>
           
         <li class="p-menu__listitem">
@@ -345,17 +453,21 @@ Ojalá por uno mejorado y considerando las propuestas expuestas antes.</p>
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/es/notes">Notas</a>
+            <a href="/notes">Notes</a>
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/es/talks">Presentaciones</a>
+            <a href="/talks">Talks</a>
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/about">Acerca</a>
+            <a href="/about">About</a>
         </li>
           
+        <li class="p-menu__listitem"><a>|</a></li>
+        
+        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/">es</a></li>
+         
     </ul>
 </nav>
 

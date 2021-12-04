@@ -36,96 +36,6 @@
     </item>
     
     <item>
-      <title>ansible</title>
-      <link>https://jeqo.github.io/tags/ansible/</link>
-      <pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/ansible/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>automation</title>
-      <link>https://jeqo.github.io/tags/automation/</link>
-      <pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/automation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>apache-kafka</title>
-      <link>https://jeqo.github.io/tags/apache-kafka/</link>
-      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/apache-kafka/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>apache-zookeeper</title>
-      <link>https://jeqo.github.io/tags/apache-zookeeper/</link>
-      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/apache-zookeeper/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>java</title>
-      <link>https://jeqo.github.io/tags/java/</link>
-      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security</title>
-      <link>https://jeqo.github.io/tags/security/</link>
-      <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>stream-processing</title>
-      <link>https://jeqo.github.io/tags/stream-processing/</link>
-      <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/stream-processing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>distributed-tracing</title>
-      <link>https://jeqo.github.io/tags/distributed-tracing/</link>
-      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/distributed-tracing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>observability</title>
-      <link>https://jeqo.github.io/tags/observability/</link>
-      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/observability/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>zipkin</title>
-      <link>https://jeqo.github.io/tags/zipkin/</link>
-      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/zipkin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>daniel bittman</title>
       <link>https://jeqo.github.io/tags/daniel-bittman/</link>
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
@@ -176,6 +86,24 @@
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/tracing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>distributed-tracing</title>
+      <link>https://jeqo.github.io/tags/distributed-tracing/</link>
+      <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/distributed-tracing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zipkin</title>
+      <link>https://jeqo.github.io/tags/zipkin/</link>
+      <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/zipkin/</guid>
       <description></description>
     </item>
     
@@ -239,6 +167,15 @@
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ansible</title>
+      <link>https://jeqo.github.io/tags/ansible/</link>
+      <pubDate>Thu, 26 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/ansible/</guid>
       <description></description>
     </item>
     

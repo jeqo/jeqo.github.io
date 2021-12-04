@@ -88,82 +88,6 @@
     <loc>https://jeqo.github.io/til/2021-12-01-about-til/</loc>
     <lastmod>2021-12-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/tags/ansible/</loc>
-    <lastmod>2020-06-17T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/ansible/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/ansible/"
-                />
-  </url><url>
-    <loc>https://jeqo.github.io/tags/automation/</loc>
-    <lastmod>2020-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/notes/cp-ansible/</loc>
-    <lastmod>2020-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/tags/apache-kafka/</loc>
-    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/apache-kafka/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/apache-kafka/"
-                />
-  </url><url>
-    <loc>https://jeqo.github.io/tags/apache-zookeeper/</loc>
-    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/tags/java/</loc>
-    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/notes/kafka-security/</loc>
-    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/notes/zookeeper-security/</loc>
-    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/notes/security/</loc>
-    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/tags/security/</loc>
-    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/notes/kafka-streams-stores/</loc>
-    <lastmod>2020-06-15T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/notes/kafka-streams-stores/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/notes/kafka-streams-stores/"
-                />
-  </url><url>
-    <loc>https://jeqo.github.io/tags/stream-processing/</loc>
-    <lastmod>2020-06-15T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/stream-processing/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/stream-processing/"
-                />
-  </url><url>
     <loc>https://jeqo.github.io/drafts/</loc>
     <lastmod>2020-05-31T00:00:00+00:00</lastmod>
   </url><url>
@@ -172,28 +96,6 @@
   </url><url>
     <loc>https://jeqo.github.io/drafts/kip-617/</loc>
     <lastmod>2020-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/tags/distributed-tracing/</loc>
-    <lastmod>2020-05-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/notes/distributed-tracing/</loc>
-    <lastmod>2020-05-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/tags/observability/</loc>
-    <lastmod>2020-05-17T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/observability/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/observability/"
-                />
-  </url><url>
-    <loc>https://jeqo.github.io/tags/zipkin/</loc>
-    <lastmod>2020-05-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/about/</loc>
     <lastmod>2020-04-11T00:00:00+00:00</lastmod>
@@ -230,7 +132,7 @@
     <loc>https://jeqo.github.io/tags/fault-injection/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/posts/2019-10-31-co-evolving-tracing-and-fault-injection/</loc>
+    <loc>https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/categories/papers/</loc>
@@ -249,19 +151,6 @@
     <loc>https://jeqo.github.io/tags/peter-alvaro/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/posts/</loc>
-    <lastmod>2019-10-31T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/posts/"
-                />
-  </url><url>
     <loc>https://jeqo.github.io/tags/tracing/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -274,6 +163,9 @@
                 hreflang="en"
                 href="https://jeqo.github.io/tags/tracing/"
                 />
+  </url><url>
+    <loc>https://jeqo.github.io/tags/distributed-tracing/</loc>
+    <lastmod>2019-09-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/talks/making-sense-event-driven-systems-codeone19/</loc>
     <lastmod>2019-09-19T00:00:00+00:00</lastmod>
@@ -294,6 +186,9 @@
                 href="https://jeqo.github.io/talks/"
                 />
   </url><url>
+    <loc>https://jeqo.github.io/tags/zipkin/</loc>
+    <lastmod>2019-09-19T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jeqo.github.io/talks/making-sense-event-driven-dataflows-kafkasummitnyc19/</loc>
     <lastmod>2019-04-02T00:00:00+00:00</lastmod>
   </url><url>
@@ -302,6 +197,19 @@
   </url><url>
     <loc>https://jeqo.github.io/categories/event-driven/</loc>
     <lastmod>2019-03-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/posts/</loc>
+    <lastmod>2019-03-26T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/posts/"
+                />
   </url><url>
     <loc>https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/</loc>
     <lastmod>2019-03-26T00:00:00+00:00</lastmod>
@@ -312,23 +220,23 @@
     <loc>https://jeqo.github.io/categories/notes/</loc>
     <lastmod>2018-07-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/posts/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</loc>
+    <loc>https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</loc>
     <lastmod>2018-07-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/samza/</loc>
     <lastmod>2018-07-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/posts/2018-01-08-data-on-the-outside-vs-data-on-the-inside/</loc>
+    <loc>https://jeqo.github.io/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/</loc>
     <lastmod>2018-01-08T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://jeqo.github.io/es/posts/2018-01-08-data-on-the-outside-vs-data-on-the-inside/"
+                href="https://jeqo.github.io/es/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://jeqo.github.io/posts/2018-01-08-data-on-the-outside-vs-data-on-the-inside/"
+                href="https://jeqo.github.io/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/"
                 />
   </url><url>
     <loc>https://jeqo.github.io/tags/microservices/</loc>
@@ -503,6 +411,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/"
+                />
+  </url><url>
+    <loc>https://jeqo.github.io/tags/ansible/</loc>
+    <lastmod>2016-05-26T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/tags/ansible/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/tags/ansible/"
                 />
   </url><url>
     <loc>https://jeqo.github.io/tags/database/</loc>

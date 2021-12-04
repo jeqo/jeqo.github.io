@@ -7,29 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 27 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/es/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/es/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Notas sobre Todo Open-Source</title>
-      <link>https://jeqo.github.io/es/notes/open-source-everywhere/</link>
-      <pubDate>Thu, 27 Aug 2020 00:00:00 +0000</pubDate>
+      <title>Data on the Outside vs Data on the Inside</title>
+      <link>https://jeqo.github.io/es/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/es/notes/open-source-everywhere/</guid>
-      <description>Software se esta comiendo el mundo.
- Uno de los motores mas importantes que ha permitido un crecimiendo y adopcion de tecnologias informaticas de manera tan disruptiva ha sido el movimiento open-source.
- El significado de open-source puede ser debatible. Para algunos significa software gratis, para otros software de código abierto. Para mi es un marco de trabajo para compartir conocimiento libremente, en comunidad.
- En el mundo de software, a lo largo de los ultimos 40 o 50 anios se ha discutido sobre la viabilidad y éxito de los proyectos open-source.</description>
-    </item>
-    
-    <item>
-      <title>Notas sobre Kafka Streams Stores</title>
-      <link>https://jeqo.github.io/es/notes/kafka-streams-stores/</link>
-      <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/es/notes/kafka-streams-stores/</guid>
-      <description>Kafka Streams Stores son los componentes que definen unidades de almacenamiento en una aplicación de Kafka Streams.
-Estos Stores son creados explícita o implícitamente, dependiendo de si la ()[topología] es creada con ()[Kafka Streams DSL], o con ()[Kafka Streams Processor API].
-La siguiente topología
-Topology topology() { final StreamsBuilder builder = new StreamsBuilder(); builder.stream(&amp;#34;input&amp;#34;, Consumed.with(Serdes.String(), Serdes.Integer())) .groupByKey() .count(); return builder.build(); } crea un Store implícito para almacenar los resultados del contador KSTREAM-AGGREGATE-STATE-STORE-0000000001:</description>
+      <guid>https://jeqo.github.io/es/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/</guid>
+      <description>&lt;p&gt;Encuentro este &lt;em&gt;paper&lt;/em&gt; tan relevante y preciso hoy como lo fue en 2005, cuando fue publicado.
+Es fascinante como luego de 12 años y con nuevas tecnologías en voga, los mismos conceptos
+siguen aplicando.&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -64,10 +64,10 @@ This enables choreographed service collaborations, where many components can sub
     
     <item>
       <title>Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</title>
-      <link>https://jeqo.github.io/posts/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</link>
+      <link>https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</link>
       <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/posts/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</guid>
+      <guid>https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</guid>
       <description></description>
     </item>
     

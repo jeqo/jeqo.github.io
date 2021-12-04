@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>transactions</title>
-    <meta property="og:title" content="transactions" />
-    <meta name="twitter:title" content="transactions" />  
+    <title>notes on kafka, samza and the unix philosophy of distributed data</title>
+    <meta property="og:title" content="Notes on Kafka, Samza and the Unix Philosophy of Distributed Data" />
+    <meta name="twitter:title" content="Notes on Kafka, Samza and the Unix Philosophy of Distributed Data" />  
     <meta name="description" content="data streaming, observability, automation">
     <meta property="og:description" content="data streaming, observability, automation">
     <meta name="twitter:description" content="data streaming, observability, automation"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/tags/transactions/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
-    <meta property="og:type" content="website" /> 
+    <meta property="og:type" content="article" /> 
 
     <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
     <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
@@ -79,7 +79,7 @@
 </svg>
     <header class="l-header">
         
-        <h1 class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></h1>
+        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
          
         <p class="p-subtitle">
             data streaming, observability, automation
@@ -154,36 +154,189 @@
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/tags/transactions/">es</a></li>
-         
     </ul>
 </nav>
 
     <main id="main" class="l-main">
-<h2 class="c-title p-tag-title">transactions</h2>
 
-<article class="c-article p-list-article">
+<article class="p-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/">Data on the Outside vs Data on the Inside</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-01-08T00:00:00Z">
-        Jan 8, 2018
-      </time>
-    </p>
+    <h1>Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</h1>
+    <div>
+      <div class="c-time">
+        Posted on
+        <time datetime="2018-07-27T00:00:00Z">
+          Jul 27, 2018
+        </time>
+      </div>
+      
+      <a href="https://jeqo.github.io/tags/kafka" class="c-tag">kafka</a>
+      
+      <a href="https://jeqo.github.io/tags/samza" class="c-tag">samza</a>
+      
+    </div>
   </header>
-  <div class="c-article__summary">
-    I found this paper as relevant and accurate today as it was in 2005, when it was published. It is fascinating how even 12 years later and with new technologies in vogue, same concepts keep applying.
+  
+  <section id="js-article" class="p-article__body">
+    <h2 id="from-batch-to-streaming-workflows">
+    <a class="hash-link nohover" href="#from-batch-to-streaming-workflows">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;From Batch to Streaming workflows
+</h2><p>Key properties for large-scale systems:</p>
+<blockquote>
+<p>[Large-Scale Personalized Services] should have the following properties:</p>
+<ul>
+<li>System scalability</li>
+<li>Organizational scalability</li>
+<li>Operational robustness</li>
+</ul>
+</blockquote>
+<p>Where Batch jobs have been successfully used, and represent a reference model to improve from:</p>
+<blockquote>
+<p>[Batch, Map-Reduce jobs] has been remarkably successful tool for implementing recommendation systems.</p>
+<p>[Batch important benefits:]</p>
+<ul>
+<li>Multi-consumer: several jobs reading input directories without affecting each others.</li>
+<li>Visibility: job&rsquo;s input and output can be inspected for tracking down the cause of an error.</li>
+<li>Team Interface: Directory names, output from one team&rsquo;s job, can be used as input for other team, acting as a interface.</li>
+<li>Loose coupling: Jobs can be implemented in different languages, using different libraries, relying on the same format.</li>
+<li>Data provenance: With explicit inputs and outputs for each job, the flow of data can be tracked through the system.</li>
+<li>Failure recovery: If job 46th out of 50 fail, we can restart from job 46th instead of re-run the entire workflow.</li>
+<li>Friendly to experimentation: Most jobs modify only their designated output directories, and have no other side effect.</li>
+</ul>
+<p>When moving from a high-latency batch system to a low-latency streaming system, we wish to preserve the attractive properties listed above.</p>
+<p>By analogy, consider how Unix tools are composed into complex programs using shell scripts. A workflow of batch jobs is comparable to a shell
+script which there is no pipe operator, so each program should write and read from temporal files on disk. In this scenario, one program must
+finish writing its output file before another program can start reading it.</p>
+<p>To move from batch to a steraming data pipeline, the temporary files would need to be replaced with something more like Unix pipes.
+[&hellip;] However, Unix pipes do not have all the properties we want: they connect one output to exactly one input (not multi-consumer), and
+then cannot be repaired if one of the processes crashes and restarts (no fault recovery)</p>
+</blockquote>
+<p>Then Kafka and Samza are explained as components to support Streaming data piples for large-scale services.</p>
+<h2 id="discussion">
+    <a class="hash-link nohover" href="#discussion">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Discussion
+</h2><p>Kafka, on one side, is focused on making replicated logs as efficient and performant as possible.</p>
+<blockquote>
+<p>Kafka&rsquo;s focus on the log abstraction is reminiscent of the Unix philosophy: <strong>&ldquo;Make each program do one thing well. To do a new job, build
+afresh rather than complicated old programs by adding &lsquo;new features&rsquo;&quot;</strong></p>
+</blockquote>
+<p>Samza on the other side, is focus on Stream processing:</p>
+<blockquote>
+<p>Each Samza Job is structurally simple: it is jost one step in a data processing pipeline, with Kafka topics as inputs and outputs. If Kafka is
+like a streaming version of HDFS, then Samza is like a streaming version of MapReduce.</p>
+</blockquote>
+<blockquote>
+<p>This principle again evokes a Unix maxim: <strong>&ldquo;Expect the output of every program to become the unput to another, as yet unknown, program.&quot;</strong></p>
+</blockquote>
+<blockquote>
+<p>Kafka topics deliberately do not provide backpressure: the on-disk log acts as an almost-unbounded buffer for messages.</p>
+</blockquote>
+<h3 id="unix-as-a-role-model">
+    <a class="hash-link nohover" href="#unix-as-a-role-model">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>Link to this section</title>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+    </a>&nbsp;Unix as a Role Model
+</h3><blockquote>
+<p>&hellip; the log-oriented model of Kafka and Samza is fundamentally built on the idea of composing heterogeneous system through the uniform interface
+of a replicated, partitioned log.
+Individual systems for data storage and processing are encouraged to do one thing well, and to use logs as input and output.
+Even though Kafka&rsquo;s logs are not the same as Unix pipes, they encourage composability, and thus Unix-style thinking.</p>
+</blockquote>
+  </section>
+  <footer>
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
 
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'jeqoblog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <nav class="p-pagination c-pagination">
+      <div class="c-pagination__ctrl">
+        <div class="c-pagination__newer">
+          
+          <a href="https://jeqo.github.io/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/">Newer</a>
+          
+        </div>
+        <div class="c-pagination__older">
+          
+          <a href="https://jeqo.github.io/talks/the-importance-of-observability-kafkausergroupnorway18/">Older</a>
+          
+        </div>
+      </div>
+    </nav>
+    
+
+<section class="p-related">
+  <h3>See Also</h3>
+  <ul id="slider" class="p-related__list">
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2017-09-28-kafka-opentracing/"
+        >
+        <span>Tracing Kafka applications</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/talks/from-messaging-to-logs-ougn17/"
+        >
+        <span>From Messaging to Logs with Apache Kafka @ OUGN 2017</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2017-01-31-kafka-rewind-consumers-offset/"
+        >
+        <span>Rewind Kafka Consumer Offsets</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2017-01-15-scale-kafka-containers/"
+        >
+        <span>Scaling Kafka with Docker Containers</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2015-07-31-java-ee-rxjava-kafka-avro/"
+        >
+        <span>Integrate Java EE 7 and Kafka using Avro and RxJava</span>
+      </a>
+    </li>
+    
+  </ul>
+</section>
+
+
+  </footer>
 </article>
-
-
   </main>
   
 <nav class="l-nav p-menu">
@@ -209,10 +362,6 @@
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/tags/transactions/">es</a></li>
-         
     </ul>
 </nav>
 

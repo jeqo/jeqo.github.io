@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>transactions</title>
-    <meta property="og:title" content="transactions" />
-    <meta name="twitter:title" content="transactions" />  
+    <title>notes on co-evolving tracing and fault injection with box of pain</title>
+    <meta property="og:title" content="Notes on Co-evolving Tracing and Fault Injection with Box of Pain" />
+    <meta name="twitter:title" content="Notes on Co-evolving Tracing and Fault Injection with Box of Pain" />  
     <meta name="description" content="data streaming, observability, automation">
     <meta property="og:description" content="data streaming, observability, automation">
     <meta name="twitter:description" content="data streaming, observability, automation"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/tags/transactions/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
-    <meta property="og:type" content="website" /> 
+    <meta property="og:type" content="article" /> 
 
     <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
     <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
@@ -79,7 +79,7 @@
 </svg>
     <header class="l-header">
         
-        <h1 class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></h1>
+        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
          
         <p class="p-subtitle">
             data streaming, observability, automation
@@ -154,36 +154,138 @@
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/tags/transactions/">es</a></li>
-         
     </ul>
 </nav>
 
     <main id="main" class="l-main">
-<h2 class="c-title p-tag-title">transactions</h2>
 
-<article class="c-article p-list-article">
+<article class="p-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/">Data on the Outside vs Data on the Inside</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-01-08T00:00:00Z">
-        Jan 8, 2018
-      </time>
-    </p>
+    <h1>Notes on Co-evolving Tracing and Fault Injection with Box of Pain</h1>
+    <div>
+      <div class="c-time">
+        Posted on
+        <time datetime="2019-10-31T00:00:00Z">
+          Oct 31, 2019
+        </time>
+      </div>
+      
+      <a href="https://jeqo.github.io/tags/distributed-systems" class="c-tag">distributed systems</a>
+      
+      <a href="https://jeqo.github.io/tags/tracing" class="c-tag">tracing</a>
+      
+      <a href="https://jeqo.github.io/tags/fault-injection" class="c-tag">fault injection</a>
+      
+      <a href="https://jeqo.github.io/tags/peter-alvaro" class="c-tag">peter alvaro</a>
+      
+      <a href="https://jeqo.github.io/tags/daniel-bittman" class="c-tag">daniel bittman</a>
+      
+      <a href="https://jeqo.github.io/tags/ethan-l-miller" class="c-tag">ethan l miller</a>
+      
+    </div>
   </header>
-  <div class="c-article__summary">
-    I found this paper as relevant and accurate today as it was in 2005, when it was published. It is fascinating how even 12 years later and with new technologies in vogue, same concepts keep applying.
+  
+  <section id="js-article" class="p-article__body">
+    <p>This paper explores how related tracing and fault injection systems are, and if they should be part of the same <em>thing</em>.</p>
+<blockquote>
+<p>The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&hellip;]</p>
+</blockquote>
+<blockquote>
+<p>[&hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs <strong>handle partial failure</strong> of remote components.</p>
+</blockquote>
+<p>In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.</p>
+<blockquote>
+<p>Our philosophy on tracing and fault-injection is three-fold. First, faults such as machine crashes and network partitions will always manifest themselves at <em>remote</em> nodes as the <em>absense</em> of a message.</p>
+<p>Second, we believe that although the space of possible executions of a distributed system is exponentially large in the number of events, in practice some executions are significantly more likely than others; thus, even if an understanding of a system is based on witnessing shedules of executions, we can bound the number of shcedules we are likely to see.</p>
+<p>Third, tracing and fault-injection should co-evolve&ndash;tracing is necessary to inform and perform targeted fault-injection, which can only perturb events in a language that is defined <em>by</em> the tracing infrastructure itself; this, <strong>economy of mechanisms overweights separation of concerns</strong></p>
+</blockquote>
+<p>Box of pain is a tool composed of both mechanisms, based on 3 components: a <em>tracer</em>, a <em>tracker</em>, and an <em>injector</em>. It is designed to be used in test environments.</p>
+<p>The paper includes a discussion on why it chooses <strong>ptrace</strong> (kernel-level, system call tracing) instead of application level traces:</p>
+<blockquote>
+<p>Tracing infrastructure often involves a trade-off between the complexity of kernel-level tracing and the overhead of application-level instrumentation.</p>
+</blockquote>
+<blockquote>
+<p>It remains to be shown that it is possible to extrapolate from our low-level traces to something akin to the application-level signal provided by call graph tracing.</p>
+</blockquote>
+<p>Box of pain <code>tracker</code> aims to aggregate and traces produced and identify most probable patterns of communication, and produce input for fault-injector to act.</p>
+<blockquote>
+<p>Bug-finding software can then consider faults in terms of &ldquo;after thread <em>T</em> does <em>x</em> but before <em>y</em>&rdquo;, improving how <em>targeted</em> faults can be.</p>
+</blockquote>
+<blockquote>
+<p>We have initial evidence that not only is it possible to trace a distributed system at the system-call level and recover <em>happens-before</em> such that we can decide and target faults to inject, <strong>but we can do this without non-determinism becoming intractable</strong></p>
+</blockquote>
+<blockquote>
+<p>Box of Pain promises to open up the LDFI approach to arbitratry, uninstrumented systems, including distributed data management systems, configuration services, and message queues.</p>
+</blockquote>
 
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
+  </section>
+  <footer>
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'jeqoblog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <nav class="p-pagination c-pagination">
+      <div class="c-pagination__ctrl">
+        <div class="c-pagination__newer">
+          
+          <a href="https://jeqo.github.io/talks/making-sense-event-driven-systems-codeone19/">Newer</a>
+          
+        </div>
+        <div class="c-pagination__older">
+          
+          <a href="https://jeqo.github.io/about/">Older</a>
+          
+        </div>
+      </div>
+    </nav>
+    
+
+<section class="p-related">
+  <h3>See Also</h3>
+  <ul id="slider" class="p-related__list">
+    
+    <li class="p-related__item js-related__item">
+      <a href="/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/"
+        >
+        <span>Data on the Outside vs Data on the Inside</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/talks/distributed-tracing-with-opentracing-noslides18/"
+        >
+        <span>Distributed Tracing with OpenTracing @ NoSlidesConf 2017</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2017-09-28-kafka-opentracing/"
+        >
+        <span>Tracing Kafka applications</span>
+      </a>
+    </li>
+    
+  </ul>
+</section>
+
+
+  </footer>
 </article>
-
-
   </main>
   
 <nav class="l-nav p-menu">
@@ -209,10 +311,6 @@
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/tags/transactions/">es</a></li>
-         
     </ul>
 </nav>
 

@@ -7,19 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Notes on Co-evolving Tracing and Fault Injection with Box of Pain</title>
-      <link>https://jeqo.github.io/posts/2019-10-31-co-evolving-tracing-and-fault-injection/</link>
-      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/posts/2019-10-31-co-evolving-tracing-and-fault-injection/</guid>
-      <description>This paper explores how related tracing and fault injection systems are, and if they should be part of the same thing.
- The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&amp;hellip;]
-  [&amp;hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.
- In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.</description>
-    </item>
-    
+    <lastBuildDate>Tue, 26 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Importance of Distributed Tracing for Apache Kafka Based Applications</title>
       <link>https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/</link>
@@ -30,26 +18,6 @@
  Apache Kafka® based applications stand out for their ability to decouple producers and consumers using an event log as an intermediate layer.
 One result of this is that producers and consumers don’t know about each other, as there is no direct communication between them.
 This enables choreographed service collaborations, where many components can subscribe to events stored in the event log and react to them asynchronously.</description>
-    </item>
-    
-    <item>
-      <title>Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</title>
-      <link>https://jeqo.github.io/posts/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</link>
-      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/posts/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data on the Outside vs Data on the Inside</title>
-      <link>https://jeqo.github.io/posts/2018-01-08-data-on-the-outside-vs-data-on-the-inside/</link>
-      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/posts/2018-01-08-data-on-the-outside-vs-data-on-the-inside/</guid>
-      <description>&lt;p&gt;I found this paper as relevant and accurate today as it was in 2005, when it was published.
-It is fascinating how even 12 years later and with new technologies in vogue,
-same concepts keep applying.&lt;/p&gt;</description>
     </item>
     
     <item>

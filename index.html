@@ -166,28 +166,6 @@
 
   <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2019-10-31-co-evolving-tracing-and-fault-injection/">Notes on Co-evolving Tracing and Fault Injection with Box of Pain</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-10-31T00:00:00Z">
-        Oct 31, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    This paper explores how related tracing and fault injection systems are, and if they should be part of the same thing.
- The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&hellip;]
-  [&hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.
- In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.
-  </div>
-  
-  <a href="https://jeqo.github.io/posts/2019-10-31-co-evolving-tracing-and-fault-injection/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
     <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/talks/making-sense-event-driven-systems-codeone19/">Making sense of Event-Driven Systems @ Oracle Code One 2019</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -270,45 +248,6 @@ This enables choreographed service collaborations, where many components can sub
 
   <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/">Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-07-27T00:00:00Z">
-        Jul 27, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    
-  </div>
-  
-  <a href="https://jeqo.github.io/posts/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2018-01-08-data-on-the-outside-vs-data-on-the-inside/">Data on the Outside vs Data on the Inside</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-01-08T00:00:00Z">
-        Jan 8, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    I found this paper as relevant and accurate today as it was in 2005, when it was published. It is fascinating how even 12 years later and with new technologies in vogue, same concepts keep applying.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/posts/2018-01-08-data-on-the-outside-vs-data-on-the-inside/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
     <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/talks/distributed-tracing-with-opentracing-noslides18/">Distributed Tracing with OpenTracing @ NoSlidesConf 2017</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -365,6 +304,68 @@ Once you introduce distributed components and asynchronous communication this st
   </div>
   
   <a href="https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+</article>
+
+
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/talks/scale-wls-the-k8s-way-ougn-17/">Scaling WebLogic, the Kubernetes way @ OUGN 2017</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2017-03-09T00:00:00Z">
+        Mar 9, 2017
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Presented at OUGN 2017
+
+  </div>
+  
+  <a href="https://jeqo.github.io/talks/scale-wls-the-k8s-way-ougn-17/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+</article>
+
+
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/">Rewind Kafka Consumer Offsets</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2017-01-31T00:00:00Z">
+        Jan 31, 2017
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    One of the most important features from Apache Kafka is how it manages Multiple Consumers. Each consumer group has a current offset, that determine at what point in a topic this consumer group has consume messages. So, each consumer group can manage its offset independently, by partition.
+This offers the possibility to rollback in time and reprocess messages from the beginning of a topic and regenerate the current status of the system.
+But how to do it (programmatically)?
+
+  </div>
+  
+  <a href="https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+</article>
+
+
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/">Scaling Kafka with Docker Containers</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2017-01-15T00:00:00Z">
+        Jan 15, 2017
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    In this post I will show how to use Docker containers to create and scale a Kafka cluster, and also how to create, scale and move topics inside the cluster.
+
+  </div>
+  
+  <a href="https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
 </article>
 
