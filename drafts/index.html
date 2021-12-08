@@ -151,6 +151,10 @@
         </li>
           
         <li class="p-menu__listitem">
+            <a href="/projects">Projects</a>
+        </li>
+          
+        <li class="p-menu__listitem">
             <a href="/about">About</a>
         </li>
           
@@ -173,9 +177,9 @@
     </p>
   </header>
   <div class="c-article__summary">
-    Link to this section    &nbsp;Motivation Headers are transiently passed over a Kafka Streams topology. To act on them, Processor API has to be used since (KIP-244).
+    &nbsp;Motivation Headers are transiently passed over a Kafka Streams topology. To act on them, Processor API has to be used since (KIP-244).
 Although current support is useful for instrumentations that need to access headers, it becomes cumbersome for users to access headers on common Kafka Streams DSL operations (e.g filtering based on header value) as requires using a Transformer/Processor implementation.
-Link to this section    &nbsp;Related JIRA issues  https://issues.
+ &nbsp;Related JIRA issues  https://issues.apache.org/jira/browse/KAFKA-7718   &nbsp;Proposed Changes  Include a new type, to map value and headers.
   </div>
   
   <a href="https://jeqo.github.io/drafts/kip-634/" class="c-article__btn p-list-article__btn">Read more</a></li>
@@ -194,9 +198,10 @@ Link to this section    &nbsp;Related JIRA issues  https://issues.
     </p>
   </header>
   <div class="c-article__summary">
-    Link to this section    &nbsp;Motivation Fetching range of records from Kafka Streams state stores comes with an iterator to traverse elements from oldest to newest, e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions:
+    &nbsp;Motivation Fetching range of records from Kafka Streams state stores comes with an iterator to traverse elements from oldest to newest, e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions:
  For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&quot;
  Similar guarantees are provided on other fetch and range operations. But in the case of key ranges, there are some nuances regarding order:
+ The returned iterator must be safe from {@link java.
   </div>
   
   <a href="https://jeqo.github.io/drafts/kip-617/" class="c-article__btn p-list-article__btn">Read more</a></li>
@@ -224,6 +229,10 @@ Link to this section    &nbsp;Related JIRA issues  https://issues.
           
         <li class="p-menu__listitem">
             <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/projects">Projects</a>
         </li>
           
         <li class="p-menu__listitem">

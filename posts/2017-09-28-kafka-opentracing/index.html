@@ -151,6 +151,10 @@
         </li>
           
         <li class="p-menu__listitem">
+            <a href="/projects">Projects</a>
+        </li>
+          
+        <li class="p-menu__listitem">
             <a href="/about">About</a>
         </li>
           
@@ -194,11 +198,7 @@ vendor neutral API to be able to create <code>spans</code> that represent the me
 tasks that form part of a <code>trace</code>.</p>
 <h1 id="use-case">
     <a class="hash-link nohover" href="#use-case">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Use-Case
 </h1><p>In this post we will see how to instrument Java applications that communicates
 using Apache Kafka as Event Log, and how visualize traces and analyze latency.</p>
@@ -207,11 +207,7 @@ side will send a &ldquo;greeting&rdquo; event to &ldquo;greetings-topic&rdquo;, 
 side will poll events and print out to console.</p>
 <h1 id="technologies">
     <a class="hash-link nohover" href="#technologies">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Technologies
 </h1><ul>
 <li>
@@ -226,22 +222,14 @@ side will poll events and print out to console.</p>
 </ul>
 <h1 id="implementation">
     <a class="hash-link nohover" href="#implementation">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Implementation
 </h1><p>Let&rsquo;s assume we have a simple application that produce <code>greetings</code> events
 and another application that consumes and print those events.</p>
 <p>To execute this applications let&rsquo;s first start a local version of Kafka:</p>
 <h2 id="install-and-run-kafka">
     <a class="hash-link nohover" href="#install-and-run-kafka">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Install and Run Kafka
 </h2><p>First, execute the script to install Kafka:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#007020">cd</span> kafka/
@@ -260,19 +248,11 @@ and another application that consumes and print those events.</p>
 ...
 </code></pre></div><h2 id="run-applications">
     <a class="hash-link nohover" href="#run-applications">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Run Applications
 </h2><h3 id="start-producer-side">
     <a class="hash-link nohover" href="#start-producer-side">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Start Producer Side
 </h3><p>To get started, let&rsquo;s start the producer side and test it.</p>
 <p>Build the whole project: <code>./mvnw clean install</code></p>
@@ -288,11 +268,7 @@ that sends the record to Kafka.</p>
 <span style="color:#080;font-weight:bold">done</span>.
 </code></pre></div><h3 id="start-consumer-side">
     <a class="hash-link nohover" href="#start-consumer-side">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Start Consumer Side
 </h3><p>Once producer side is started and running, we can start consumer side
 to print out the events:</p>
@@ -306,11 +282,7 @@ Hi jeqo
 </blockquote>
 <h2 id="opentracing-instrumentation">
     <a class="hash-link nohover" href="#opentracing-instrumentation">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;OpenTracing Instrumentation
 </h2><p>OpenTracing has enrich its integration throw projects that we can
 contribute: <a href="https://github.com/opentracing-contrib/">https://github.com/opentracing-contrib/</a></p>
@@ -331,11 +303,7 @@ contribute: <a href="https://github.com/opentracing-contrib/">https://github.com
 </ol>
 <h3 id="instrument-dropwizard">
     <a class="hash-link nohover" href="#instrument-dropwizard">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Instrument Dropwizard
 </h3><p>We are following this step to have a complete view since request is
 received.</p>
@@ -412,11 +380,7 @@ We are configuring this integration to only trace operations with
 </blockquote>
 <h3 id="instrument-kafka-producer-api">
     <a class="hash-link nohover" href="#instrument-kafka-producer-api">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Instrument Kafka Producer API
 </h3><p>Cool! Now we have how long it takes to return a response on the
 producer side :)</p>
@@ -496,11 +460,7 @@ how the callback works on the producer side, processing the metadata
 asynchronously, and so on.</p>
 <h3 id="instrument-kafka-consumer-api">
     <a class="hash-link nohover" href="#instrument-kafka-consumer-api">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Instrument Kafka Consumer API
 </h3><p>Ok, so far so good. We have a complete visibility over the execution on
 the producer side. But what happen next? How the consumer side reacts?</p>
@@ -591,19 +551,11 @@ we can use <code>TracingKafkaUtils</code> to extract it, and reference it:</p>
 </blockquote>
 <h1 id="recommendations">
     <a class="hash-link nohover" href="#recommendations">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Recommendations
 </h1><h2 id="trace-tags">
     <a class="hash-link nohover" href="#trace-tags">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Trace Tags
 </h2><p>One important feature of OpenTracing API is supporting <code>tags</code>. These
 help to reference metadata that enables reference to business data
@@ -637,11 +589,7 @@ the transaction ID, the entity ID or user ID.</p>
 
 <h2 id="dropwizard-helpers">
     <a class="hash-link nohover" href="#dropwizard-helpers">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Dropwizard Helpers
 </h2><p>I have developed some Dropwizard modules to help to instantiate
 Kafka Clients, create Topics, instantiate Traces, and so on. I&rsquo;m working
@@ -743,6 +691,10 @@ on Documentation but you can find it on Maven Central already:</p>
           
         <li class="p-menu__listitem">
             <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/projects">Projects</a>
         </li>
           
         <li class="p-menu__listitem">

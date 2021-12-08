@@ -151,6 +151,10 @@
         </li>
           
         <li class="p-menu__listitem">
+            <a href="/projects">Proyectos</a>
+        </li>
+          
+        <li class="p-menu__listitem">
             <a href="/about">Acerca</a>
         </li>
           
@@ -192,11 +196,7 @@ Java EE y RxJava/Kafka/Avro, para publicar/subscribirse a &ldquo;topic messages&
 o revisar el enfoque que apliqué:</p>
 <h2 id="tldr">
     <a class="hash-link nohover" href="#tldr">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;TL;DR
 </h2><p>He estado realizando alguna pruebas de concepto con <a href="http://kafka.apache.org/">Kafka</a>
 seducido por los beneficios que propone (rapidez, escalabilidad, y funcionar como
@@ -227,11 +227,7 @@ que cubre mis requerimientos: cada Kafka topic será un stream &ldquo;observable
 cada Consumer se suscribirá a este &ldquo;observable&rdquo;. Revisemos el código:</p>
 <h2 id="sample-java-ee-app">
     <a class="hash-link nohover" href="#sample-java-ee-app">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Sample Java EE App
 </h2><p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.1">Tag: v0.0.1</a></p>
 <p>El primer paso fue tener un par de operaciones REST, implementados con JAX-RS:</p>
@@ -259,11 +255,7 @@ cada Consumer se suscribirá a este &ldquo;observable&rdquo;. Revisemos el códi
 propagar el evento &ldquo;ClientAddedEvent&rdquo; y listarlo en el recurso Events.</p>
 <h2 id="serialización-y-deserialización-de-eventos">
     <a class="hash-link nohover" href="#serializaci%c3%b3n-y-deserializaci%c3%b3n-de-eventos">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Serialización y Deserialización de Eventos
 </h2><p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.2">Tag: v0.0.2</a></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">test</span><span style="color:#333">()</span> <span style="color:#333">{</span>
@@ -345,11 +337,7 @@ creará cada vez que el proyecto sea construido:</p>
 <span style="color:#333">}</span>
 </code></pre></div><h2 id="publicando-y-consumiendo-eventos-desde-kafkarxjava">
     <a class="hash-link nohover" href="#publicando-y-consumiendo-eventos-desde-kafkarxjava">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Publicando y consumiendo eventos desde Kafka/RxJava
 </h2><p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.3">Tag: v0.0.3</a></p>
 <p>Primero, definamos un par de interfaces, EventServer:</p>
@@ -427,11 +415,7 @@ con Kafka, tanto para el Publisher como para el Subscriber.</p>
 para validar que el servidor Kafka esta trabajando correctamente.</p>
 <h2 id="uniendo-todo">
     <a class="hash-link nohover" href="#uniendo-todo">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Uniendo todo
 </h2><p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.1.0">Tag: v0.1.0</a></p>
 <p>Finalmente, vamos a integrar la aplicación Java EE interacción con la nuestra
@@ -572,6 +556,10 @@ como <strong>reaccionar</strong> a eventos? ):</p>
           
         <li class="p-menu__listitem">
             <a href="/es/talks">Presentaciones</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/projects">Proyectos</a>
         </li>
           
         <li class="p-menu__listitem">

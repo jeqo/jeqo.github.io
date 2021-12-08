@@ -151,6 +151,10 @@
         </li>
           
         <li class="p-menu__listitem">
+            <a href="/projects">Projects</a>
+        </li>
+          
+        <li class="p-menu__listitem">
             <a href="/about">About</a>
         </li>
           
@@ -193,19 +197,11 @@ the beginning of a <code>topic</code> and regenerate the current status of the s
 <hr>
 <h2 id="basic-concepts">
     <a class="hash-link nohover" href="#basic-concepts">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Basic Concepts
 </h2><h3 id="topics-and-offsets">
     <a class="hash-link nohover" href="#topics-and-offsets">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Topics and Offsets
 </h3><p>First thing to understand to achieve Consumer Rewind, is: rewind over what?
 Because <code>topics</code> are divided into <code>partitions</code>. Records sent from <code>Producers</code>
@@ -214,11 +210,7 @@ are balanced between them, so each partition has its own <code>offset</code> ind
 which messages has been consumed from the <strong>log</strong>.</p>
 <h3 id="consumers-and-consumer-groups">
     <a class="hash-link nohover" href="#consumers-and-consumer-groups">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Consumers and Consumer Groups
 </h3><p>Once we understand that <code>topics</code> have <code>partitions</code> and <code>offsets</code> by <code>partition</code>
 we can now understand how <code>consumers</code> and <code>consumer groups</code> work.</p>
@@ -251,11 +243,7 @@ can consume <code>records</code> from <code>partitions</code> independently, in 
 <p>This will create 100 <code>records</code> in topic <code>topic-1</code>, with <code>offsets</code> from 0-99</p>
 <h2 id="from-command-line">
     <a class="hash-link nohover" href="#from-command-line">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;From Command-Line
 </h2><p>In this first scenario, we will see how to manage offsets from <em>command-line</em>
 so it will give us an idea of how to implement it in our application.</p>
@@ -284,11 +272,7 @@ but <code>offset</code> gets commited to cluster:</p>
 </code></pre><!-- raw HTML omitted -->
 <h2 id="from-java-clients">
     <a class="hash-link nohover" href="#from-java-clients">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;From Java Clients
 </h2><p>So, from <code>command-line</code> is pretty easy to go back in time in the log. But
 how to do it from your application?</p>
@@ -346,11 +330,7 @@ add <code>#seek</code> operations to achieve this behavior. I will show a naive 
 these operations using flags but it shows the point:</p>
 <h3 id="rewind-to-earliest-offset">
     <a class="hash-link nohover" href="#rewind-to-earliest-offset">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Rewind to earliest <code>offset</code>
 </h3><p>The most common options is to go back to the beginning of the topic, that not
 always will be <code>offset=0</code>. This will depends on the <code>retention</code> policy
@@ -376,11 +356,7 @@ operation to go back to earliest offset:</p>
 <code>topic=topic-1</code> and <code>partition=0</code>.</p>
 <h3 id="rewind-to-specific-offset">
     <a class="hash-link nohover" href="#rewind-to-specific-offset">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Rewind to specific <code>offset</code>
 </h3><p>If we can recognized the specific <code>record</code> (by <code>partition</code>)
 from where we need to reprocess all the log,
@@ -406,11 +382,7 @@ several partitions. Thats why addition of timestamps helps a lot with this.</p>
 <hr>
 <h3 id="rewind-to-offset-by-timestamps">
     <a class="hash-link nohover" href="#rewind-to-offset-by-timestamps">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Rewind to offset by timestamps
 </h3><p>What if you don&rsquo;t know exactly the <code>offset id</code> to go back to, but you know
 you want to go back 1 hour or 10 min?</p>
@@ -547,6 +519,10 @@ help us to reproduce this steps when you have several topics.</p>
           
         <li class="p-menu__listitem">
             <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/projects">Projects</a>
         </li>
           
         <li class="p-menu__listitem">

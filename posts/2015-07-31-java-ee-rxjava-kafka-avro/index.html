@@ -151,6 +151,10 @@
         </li>
           
         <li class="p-menu__listitem">
+            <a href="/projects">Projects</a>
+        </li>
+          
+        <li class="p-menu__listitem">
             <a href="/about">About</a>
         </li>
           
@@ -191,11 +195,7 @@ RxJava/Kafka/Avro, to publish and subscribe to events.</p>
 <p>You can go directly to that <a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro">code</a>, or check my approach:</p>
 <h2 id="tldr">
     <a class="hash-link nohover" href="#tldr">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;TL;DR
 </h2><p>I have been playing with <a href="http://kafka.apache.org/">Kafka</a> recently, seduced by its benefits (fast, scalable,
 and durable event source) to spread event using Publish/Subscribe pattern.</p>
@@ -221,11 +221,7 @@ fits smoothly with my requirements: each Kafka topic will be &ldquo;observable&r
 Consumer will subscribe to that &ldquo;observable&rdquo;. Let&rsquo;s check the code:</p>
 <h2 id="sample-java-ee-app">
     <a class="hash-link nohover" href="#sample-java-ee-app">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Sample Java EE App
 </h2><p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.1">Tag: v0.0.1</a></p>
 <p>First step is just having a couple of RESTful services, implemented with JAX-RS:</p>
@@ -253,11 +249,7 @@ Consumer will subscribe to that &ldquo;observable&rdquo;. Let&rsquo;s check the 
 ClientAddedEvent and list them on Events resource?</p>
 <h2 id="serializing-and-deserializing-events">
     <a class="hash-link nohover" href="#serializing-and-deserializing-events">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Serializing and Deserializing Events
 </h2><p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.2">Tag: v0.0.2</a></p>
 <p>When I decided to use Kafka, I realized that I can only send String and Byte
@@ -341,11 +333,7 @@ your project:</p>
 <span style="color:#333">}</span></code></pre></div>
 <h2 id="publishing-and-consuming-events-from-kafkarxjava">
     <a class="hash-link nohover" href="#publishing-and-consuming-events-from-kafkarxjava">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Publishing and Consuming Events from Kafka/RxJava
 </h2><p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.3">Tag: v0.0.3</a></p>
 <p>Now that Event serialization is done with Avro, let&rsquo;s publish and subscribe
@@ -425,11 +413,7 @@ for both Publisher and Subscriber.</p>
 to check that it&rsquo;s working Ok with your Kafka server.</p>
 <h2 id="putting-all-together">
     <a class="hash-link nohover" href="#putting-all-together">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title>Link to this section</title>
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-        </svg>
+        <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Putting all together
 </h2><p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.1.0">Tag: v0.1.0</a></p>
 <p>Finally, let&rsquo;s integrate this Event Sourcing engine with our Java EE app:</p>
@@ -569,6 +553,10 @@ how we will <strong>react</strong> to events? ):</p>
           
         <li class="p-menu__listitem">
             <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/projects">Projects</a>
         </li>
           
         <li class="p-menu__listitem">
