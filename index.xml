@@ -9,6 +9,19 @@
     <copyright>&amp;copy; Copyright @jeqo</copyright>
     <lastBuildDate>Fri, 03 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Projects</title>
+      <link>https://jeqo.github.io/projects/</link>
+      <pubDate>Sat, 04 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/projects/</guid>
+      <description>Link to this section    &amp;nbsp;Open-source Link to this section    &amp;nbsp;Apache Kafka https://github.com/apache/kafka
+Main contributions:
+ Author of the following KIPs:  KIP-122: https://cwiki.apache.org/confluence/display/KAFKA/KIP-122%3A+Add+Reset+Consumer+Group+Offsets+tooling KIP-171: https://cwiki.apache.org/confluence/display/KAFKA/KIP-171+-+Extend+Consumer+Group+Reset+Offset+for+Stream+Application KIP-244: https://cwiki.apache.org/confluence/display/KAFKA/KIP-244%3A+Add+Record+Header+support+to+Kafka+Streams+Processor+API KIP-634: https://cwiki.apache.org/confluence/display/KAFKA/KIP-634%3A+Complementary+support+for+headers+and+record+metadata+in+Kafka+Streams+DSL KIP-666: https://cwiki.apache.org/confluence/display/KAFKA/KIP-666%3A+Add+Instant-based+methods+to+ReadOnlySessionStore KIP-667: https://cwiki.apache.org/confluence/display/KAFKA/KIP-667%3A+Remove+deprecated+methods+from+ReadOnlyWindowStore   Helped with the implementation of:  KIP-478:  https://cwiki.apache.org/confluence/display/KAFKA/KIP-478+-+Strongly+typed+Processor+API https://issues.apache.org/jira/browse/KAFKA-8410      Link to this section    &amp;nbsp;Zipkin https://github.com/openzipkin/zipkin
+Main contributions:
+ Zipkin storage based on Kafka Streams: https://github.</description>
+    </item>
+    
+    <item>
       <title>Cioran books</title>
       <link>https://jeqo.github.io/notes/cioran-books/</link>
       <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
