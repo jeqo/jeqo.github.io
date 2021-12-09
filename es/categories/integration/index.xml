@@ -52,8 +52,12 @@ clúster.&lt;/p&gt;</description>
       <guid>https://jeqo.github.io/es/posts/2015-07-31-java-ee-rxjava-kafka-avro/</guid>
       <description>Hace poco decidi probar una rápida implementación entre aplicaciones Java EE y RxJava/Kafka/Avro, para publicar/subscribirse a &amp;ldquo;topic messages&amp;rdquo;.
 Puedes ir directamente al código, o revisar el enfoque que apliqué:
+<<<<<<< HEAD
  &amp;nbsp;TL;DR He estado realizando alguna pruebas de concepto con Kafka seducido por los beneficios que propone (rapidez, escalabilidad, y funcionar como una fuente de eventos durable) para implementar una propagación de eventos usando el patrón &amp;ldquo;Publish/Subscribe&amp;rdquo;.
 En estos momentos que estoy escribiendo esta entrada del blog, me he dado cuenta que las APIs para acceder a Kafka están en constante evolución y volviéndose más simples de utilizar, y no ha sido fácil encontrar un ejemplo con la versión actual.</description>
+=======
+  .cls-1 { fill: none; }   hashtag  &amp;nbsp;TL;DR He estado realizando alguna pruebas de concepto con Kafka seducido por los beneficios que propone (rapidez, escalabilidad, y funcionar como una fuente de eventos durable) para implementar una propagación de eventos usando el patrón &amp;ldquo;Publish/Subscribe&amp;rdquo;.</description>
+>>>>>>> e31ee86 (rebuilding site)
     </item>
     
   </channel>

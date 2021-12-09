@@ -195,7 +195,22 @@
 </blockquote>
 <h2 id="create-a-vagrant-box">
     <a class="hash-link nohover" href="#create-a-vagrant-box">
+<<<<<<< HEAD
         <img src="/img/hashtag.svg" width="20" height="20"></img>
+=======
+        <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
+                <style>
+                    .cls-1 {
+                        fill: none;
+                    }
+                </style>
+            </defs>
+            <title>hashtag</title>
+            <path d="M28,12V10H22V4H20v6H12V4H10v6H4v2h6v8H4v2h6v6h2V22h8v6h2V22h6V20H22V12Zm-8,8H12V12h8Z" />
+            <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
+                height="32" />
+        </svg>
+>>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Create a Vagrant Box
 </h2><p>If you read Vagrant documentation, you will find everything is based in a <strong>box</strong>. What&rsquo;s a box? In my opinion, a box is an abstraction from a base virtual environment: It has an OS installed, some basic configuration, and packaged to be reused. And what&rsquo;s a <strong>base box</strong>? A base box is a template to create boxes. For instance: A VirtualBox <em>base box</em> is a VirtualBox VM with an OS installed, a disk space defined, and a basic configuration, and a <em>box</em> is a Virtual Machine up and running. An Amazon Web Service EC2 <em>box</em> is an instance and a <em>base box</em> is a <a href="https://github.com/mitchellh/vagrant-aws/tree/master/example_box">file containing an AMI id</a>, that is a Virtual Machine template from AWS.</p>
 <p>Now that I know what is a box, how can I created? You can created by yourself: creating a simple VM, installing a base OS, and running a Vagrant command to create a &ldquo;base box&rdquo;. The process to do this depends on what virtualization platform you are using, for example: on VirtualBox you can do <a href="https://docs.vagrantup.com/v2/virtualbox/boxes.html">this</a> (official documentation) or a <a href="http://www.skoblenick.com/vagrant/creating-a-custom-box-from-scratch/">more detailed way</a>.</p>
@@ -232,7 +247,22 @@ vagrant init</code></pre></div>
 <p>Great! so if you only want to clone your VM, this is enough.</p>
 <h2 id="customize-a-vagrant-box">
     <a class="hash-link nohover" href="#customize-a-vagrant-box">
+<<<<<<< HEAD
         <img src="/img/hashtag.svg" width="20" height="20"></img>
+=======
+        <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
+                <style>
+                    .cls-1 {
+                        fill: none;
+                    }
+                </style>
+            </defs>
+            <title>hashtag</title>
+            <path d="M28,12V10H22V4H20v6H12V4H10v6H4v2h6v8H4v2h6v6h2V22h8v6h2V22h6V20H22V12Zm-8,8H12V12h8Z" />
+            <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
+                height="32" />
+        </svg>
+>>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Customize a Vagrant Box
 </h2><p>What if I want to change my VM name? What if I want more memory? What if I want to create two instances?</p>
 <p>All these customizations are possible from <em>Vagrantfile</em>.</p>
@@ -281,14 +311,44 @@ recreate over and over again, fast and easy.</p>
 <p>For more information: <a href="https://docs.vagrantup.com/v2/vagrantfile/index.html">Vagrant Docs</a></p>
 <h2 id="resolving-some-common-issues">
     <a class="hash-link nohover" href="#resolving-some-common-issues">
+<<<<<<< HEAD
         <img src="/img/hashtag.svg" width="20" height="20"></img>
+=======
+        <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
+                <style>
+                    .cls-1 {
+                        fill: none;
+                    }
+                </style>
+            </defs>
+            <title>hashtag</title>
+            <path d="M28,12V10H22V4H20v6H12V4H10v6H4v2h6v8H4v2h6v6h2V22h8v6h2V22h6V20H22V12Zm-8,8H12V12h8Z" />
+            <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
+                height="32" />
+        </svg>
+>>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Resolving some common issues
 </h2><p>Excellent! you can create and parametrized Vagrant boxes. If your base box have enough disk and swap size, perfect!
 But, what if your base box have 10GB as disk space and your swap space is 512MB or less?</p>
 <p>Well these issues took me a couple of days to resolve, so this is how to handle it:</p>
 <h3 id="increase-disk-space">
     <a class="hash-link nohover" href="#increase-disk-space">
+<<<<<<< HEAD
         <img src="/img/hashtag.svg" width="20" height="20"></img>
+=======
+        <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
+                <style>
+                    .cls-1 {
+                        fill: none;
+                    }
+                </style>
+            </defs>
+            <title>hashtag</title>
+            <path d="M28,12V10H22V4H20v6H12V4H10v6H4v2h6v8H4v2h6v6h2V22h8v6h2V22h6V20H22V12Zm-8,8H12V12h8Z" />
+            <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
+                height="32" />
+        </svg>
+>>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Increase Disk space
 </h3><p>Normally (sadly), cloud base box comes with VMDK disks formats. If you are lucky and your disk format is VDI,
 you can solve this directly <a href="http://derekmolloy.ie/resize-a-virtualbox-disk/">like this</a>. But, VMDK can&rsquo;t be expanded,
@@ -340,7 +400,22 @@ resize2fs /dev/VolGroup/lv_root</code></pre></div>
 </blockquote>
 <h3 id="increase-swap-memory">
     <a class="hash-link nohover" href="#increase-swap-memory">
+<<<<<<< HEAD
         <img src="/img/hashtag.svg" width="20" height="20"></img>
+=======
+        <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
+                <style>
+                    .cls-1 {
+                        fill: none;
+                    }
+                </style>
+            </defs>
+            <title>hashtag</title>
+            <path d="M28,12V10H22V4H20v6H12V4H10v6H4v2h6v8H4v2h6v6h2V22h8v6h2V22h6V20H22V12Zm-8,8H12V12h8Z" />
+            <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
+                height="32" />
+        </svg>
+>>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Increase Swap Memory
 </h3><p>As I install Oracle Fusion Middleware products, they require some amount of swap memory, but <em>base box</em> comes with a small amount of swap.</p>
 <p>To resolve this, add this script called <em>&ldquo;increase_swap.sh&rdquo;</em> on your working directory:</p>
@@ -371,11 +446,41 @@ cat /proc/meminfo | grep Swap</code></pre></div>
 <p>If you destroy and up your box now, you will have a new box with 8GB of swap memory added and 100GB of additional disk space.</p>
 <h2 id="additional-tricks">
     <a class="hash-link nohover" href="#additional-tricks">
+<<<<<<< HEAD
         <img src="/img/hashtag.svg" width="20" height="20"></img>
     </a>&nbsp;Additional tricks
 </h2><h3 id="get-started-with-chef-provisioning">
     <a class="hash-link nohover" href="#get-started-with-chef-provisioning">
         <img src="/img/hashtag.svg" width="20" height="20"></img>
+=======
+        <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
+                <style>
+                    .cls-1 {
+                        fill: none;
+                    }
+                </style>
+            </defs>
+            <title>hashtag</title>
+            <path d="M28,12V10H22V4H20v6H12V4H10v6H4v2h6v8H4v2h6v6h2V22h8v6h2V22h6V20H22V12Zm-8,8H12V12h8Z" />
+            <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
+                height="32" />
+        </svg>
+    </a>&nbsp;Additional tricks
+</h2><h3 id="get-started-with-chef-provisioning">
+    <a class="hash-link nohover" href="#get-started-with-chef-provisioning">
+        <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
+                <style>
+                    .cls-1 {
+                        fill: none;
+                    }
+                </style>
+            </defs>
+            <title>hashtag</title>
+            <path d="M28,12V10H22V4H20v6H12V4H10v6H4v2h6v8H4v2h6v6h2V22h8v6h2V22h6V20H22V12Zm-8,8H12V12h8Z" />
+            <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
+                height="32" />
+        </svg>
+>>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Get Started with Chef (Provisioning!)
 </h3><p>What if you want to install some package or service? You can do this with a bash (as we increase memory and disk) but is not flexible and can take a lot of effort. At this days provisioning is a trend and products as Docker, Puppet and Chef are getting very popular, so I will use Chef to show you how to install Apache and start HTTP service:</p>
 <blockquote>
@@ -407,7 +512,22 @@ service <span style="background-color:#fff0f0">&#34;httpd&#34;</span> <span styl
 <p>[http://ip or hostname](http://ip or host)</p>
 <h3 id="properties-file">
     <a class="hash-link nohover" href="#properties-file">
+<<<<<<< HEAD
         <img src="/img/hashtag.svg" width="20" height="20"></img>
+=======
+        <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
+                <style>
+                    .cls-1 {
+                        fill: none;
+                    }
+                </style>
+            </defs>
+            <title>hashtag</title>
+            <path d="M28,12V10H22V4H20v6H12V4H10v6H4v2h6v8H4v2h6v6h2V22h8v6h2V22h6V20H22V12Zm-8,8H12V12h8Z" />
+            <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
+                height="32" />
+        </svg>
+>>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Properties file
 </h3><p>The last trick I want to share is how to create a properties file for your Vagrant configuration.</p>
 <p>What if you want to repeat this process to create another box? You can parametrized your Vagrantfile with a properties file.</p>
@@ -447,7 +567,22 @@ service <span style="background-color:#fff0f0">&#34;httpd&#34;</span> <span styl
 </blockquote>
 <h4 id="resources">
     <a class="hash-link nohover" href="#resources">
+<<<<<<< HEAD
         <img src="/img/hashtag.svg" width="20" height="20"></img>
+=======
+        <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
+                <style>
+                    .cls-1 {
+                        fill: none;
+                    }
+                </style>
+            </defs>
+            <title>hashtag</title>
+            <path d="M28,12V10H22V4H20v6H12V4H10v6H4v2h6v8H4v2h6v6h2V22h8v6h2V22h6V20H22V12Zm-8,8H12V12h8Z" />
+            <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
+                height="32" />
+        </svg>
+>>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Resources
 </h4><ul>
 <li>
