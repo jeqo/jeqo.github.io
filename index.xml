@@ -14,9 +14,11 @@
       <pubDate>Sat, 04 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/projects/</guid>
-      <description>.cls-1 { fill: none; }   hashtag  &amp;nbsp;Open-source   .cls-1 { fill: none; }   hashtag  &amp;nbsp;Apache Kafka https://github.com/apache/kafka
+      <description>hashtag-outline &amp;nbsp;Open-source hashtag-outline &amp;nbsp;Apache Kafka https://github.com/apache/kafka
 Main contributions:
- Author of the following improvement proposals (KIP):  KIP-122: https://cwiki.apache.org/confluence/display/KAFKA/KIP-122%3A+Add+Reset+Consumer+Group+Offsets+tooling KIP-171: https://cwiki.apache.org/confluence/display/KAFKA/KIP-171+-+Extend+Consumer+Group+Reset+Offset+for+Stream+Application KIP-244: https://cwiki.apache.org/confluence/display/KAFKA/KIP-244%3A+Add+Record+Header+support+to+Kafka+Streams+Processor+API KIP-634: https://cwiki.apache.org/confluence/display/KAFKA/KIP-634%3A+Complementary+support+for+headers+and+record+metadata+in+Kafka+Streams+DSL KIP-666: https://cwiki.apache.org/confluence/display/KAFKA/KIP-666%3A+Add+Instant-based+methods+to+ReadOnlySessionStore KIP-667: https://cwiki.apache.org/confluence/display/KAFKA/KIP-667%3A+Remove+deprecated+methods+from+ReadOnlyWindowStore   Helped with the implementation of:  KIP-478:  https://cwiki.apache.org/confluence/display/KAFKA/KIP-478+-+Strongly+typed+Processor+API https://issues.apache.org/jira/browse/KAFKA-8410        .cls-1 { fill: none; }   hashtag  &amp;nbsp;Zipkin https://github.</description>
+ Author of the following improvement proposals (KIP):  KIP-122: https://cwiki.apache.org/confluence/display/KAFKA/KIP-122%3A+Add+Reset+Consumer+Group+Offsets+tooling KIP-171: https://cwiki.apache.org/confluence/display/KAFKA/KIP-171+-+Extend+Consumer+Group+Reset+Offset+for+Stream+Application KIP-244: https://cwiki.apache.org/confluence/display/KAFKA/KIP-244%3A+Add+Record+Header+support+to+Kafka+Streams+Processor+API KIP-634: https://cwiki.apache.org/confluence/display/KAFKA/KIP-634%3A+Complementary+support+for+headers+and+record+metadata+in+Kafka+Streams+DSL KIP-666: https://cwiki.apache.org/confluence/display/KAFKA/KIP-666%3A+Add+Instant-based+methods+to+ReadOnlySessionStore KIP-667: https://cwiki.apache.org/confluence/display/KAFKA/KIP-667%3A+Remove+deprecated+methods+from+ReadOnlyWindowStore   Helped with the implementation of:  KIP-478:  https://cwiki.apache.org/confluence/display/KAFKA/KIP-478+-+Strongly+typed+Processor+API https://issues.apache.org/jira/browse/KAFKA-8410      hashtag-outline &amp;nbsp;Zipkin https://github.com/openzipkin/zipkin
+Main contributions:
+ Zipkin storage based on Kafka Streams: https://github.com/openzipkin-contrib/zipkin-storage-kafka Brave support for Kafka clients and streams: https://github.com/openzipkin/brave Maintaining Zipkin usage of Kafka as collector: https://github.</description>
     </item>
     
     <item>
@@ -80,8 +82,9 @@ Main contributions:
       <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/drafts/kip-634/</guid>
-      <description>.cls-1 { fill: none; }   hashtag  &amp;nbsp;Motivation Headers are transiently passed over a Kafka Streams topology. To act on them, Processor API has to be used since (KIP-244).
-Although current support is useful for instrumentations that need to access headers, it becomes cumbersome for users to access headers on common Kafka Streams DSL operations (e.g filtering based on header value) as requires using a Transformer/Processor implementation.</description>
+      <description>hashtag-outline &amp;nbsp;Motivation Headers are transiently passed over a Kafka Streams topology. To act on them, Processor API has to be used since (KIP-244).
+Although current support is useful for instrumentations that need to access headers, it becomes cumbersome for users to access headers on common Kafka Streams DSL operations (e.g filtering based on header value) as requires using a Transformer/Processor implementation.
+hashtag-outline &amp;nbsp;Related JIRA issues  https://issues.apache.org/jira/browse/KAFKA-7718  hashtag-outline &amp;nbsp;Proposed Changes  Include a new type, to map value and headers.</description>
     </item>
     
     <item>
@@ -90,9 +93,10 @@ Although current support is useful for instrumentations that need to access head
       <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/drafts/kip-617/</guid>
-      <description>.cls-1 { fill: none; }   hashtag  &amp;nbsp;Motivation Fetching range of records from Kafka Streams state stores comes with an iterator to traverse elements from oldest to newest, e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions:
+      <description>hashtag-outline &amp;nbsp;Motivation Fetching range of records from Kafka Streams state stores comes with an iterator to traverse elements from oldest to newest, e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions:
  For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&amp;quot;
- Similar guarantees are provided on other fetch and range operations. But in the case of key ranges, there are some nuances regarding order:</description>
+ Similar guarantees are provided on other fetch and range operations. But in the case of key ranges, there are some nuances regarding order:
+ The returned iterator must be safe from {@link java.</description>
     </item>
     
     <item>
@@ -101,11 +105,11 @@ Although current support is useful for instrumentations that need to access head
       <pubDate>Sat, 11 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/about/</guid>
-      <description>.cls-1 { fill: none; }   hashtag  &amp;nbsp;Jorge Esteban Quilcate Otoya Peruvian, husband, software engineer, and immigrant in Norway and the UK.
+      <description>hashtag-outline &amp;nbsp;Jorge Esteban Quilcate Otoya Peruvian, husband, software engineer, and immigrant in Norway and the UK.
 Enjoying my journey working on distributed systems.
 Started to contribute to Open-Source projects since 2016, including Apache Kafka and Zipkin.
 Current interests:
- Log-based streaming platform (Apache Kafka), Stream processing (Kafka Streams), Distributed Tracing (OpenTracing), Metrics (Micrometer, Prometheus), Cluster Scheduling (Nomad, Kubernetes), Automation (Docker, Ansible)    .</description>
+ Log-based streaming platform (Apache Kafka), Stream processing (Kafka Streams), Distributed Tracing (OpenTracing), Metrics (Micrometer, Prometheus), Cluster Scheduling (Nomad, Kubernetes), Automation (Docker, Ansible)  hashtag-outline &amp;nbsp;Open-Source contributions   KIP-122: Add Reset Consumer Group Offsets tooling https://cwiki.</description>
     </item>
     
     <item>

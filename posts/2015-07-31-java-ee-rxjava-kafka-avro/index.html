@@ -195,18 +195,7 @@ RxJava/Kafka/Avro, to publish and subscribe to events.</p>
 <p>You can go directly to that <a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro">code</a>, or check my approach:</p>
 <h2 id="tldr">
     <a class="hash-link nohover" href="#tldr">
-        <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
-                <style>
-                    .cls-1 {
-                        fill: none;
-                    }
-                </style>
-            </defs>
-            <title>hashtag</title>
-            <path d="M28,12V10H22V4H20v6H12V4H10v6H4v2h6v8H4v2h6v6h2V22h8v6h2V22h6V20H22V12Zm-8,8H12V12h8Z" />
-            <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
-                height="32" />
-        </svg>
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
     </a>&nbsp;TL;DR
 </h2><p>I have been playing with <a href="http://kafka.apache.org/">Kafka</a> recently, seduced by its benefits (fast, scalable,
 and durable event source) to spread event using Publish/Subscribe pattern.</p>
@@ -232,18 +221,7 @@ fits smoothly with my requirements: each Kafka topic will be &ldquo;observable&r
 Consumer will subscribe to that &ldquo;observable&rdquo;. Let&rsquo;s check the code:</p>
 <h2 id="sample-java-ee-app">
     <a class="hash-link nohover" href="#sample-java-ee-app">
-        <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
-                <style>
-                    .cls-1 {
-                        fill: none;
-                    }
-                </style>
-            </defs>
-            <title>hashtag</title>
-            <path d="M28,12V10H22V4H20v6H12V4H10v6H4v2h6v8H4v2h6v6h2V22h8v6h2V22h6V20H22V12Zm-8,8H12V12h8Z" />
-            <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
-                height="32" />
-        </svg>
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
     </a>&nbsp;Sample Java EE App
 </h2><p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.1">Tag: v0.0.1</a></p>
 <p>First step is just having a couple of RESTful services, implemented with JAX-RS:</p>
@@ -271,18 +249,7 @@ Consumer will subscribe to that &ldquo;observable&rdquo;. Let&rsquo;s check the 
 ClientAddedEvent and list them on Events resource?</p>
 <h2 id="serializing-and-deserializing-events">
     <a class="hash-link nohover" href="#serializing-and-deserializing-events">
-        <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
-                <style>
-                    .cls-1 {
-                        fill: none;
-                    }
-                </style>
-            </defs>
-            <title>hashtag</title>
-            <path d="M28,12V10H22V4H20v6H12V4H10v6H4v2h6v8H4v2h6v6h2V22h8v6h2V22h6V20H22V12Zm-8,8H12V12h8Z" />
-            <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
-                height="32" />
-        </svg>
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
     </a>&nbsp;Serializing and Deserializing Events
 </h2><p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.2">Tag: v0.0.2</a></p>
 <p>When I decided to use Kafka, I realized that I can only send String and Byte
@@ -366,18 +333,7 @@ your project:</p>
 <span style="color:#333">}</span></code></pre></div>
 <h2 id="publishing-and-consuming-events-from-kafkarxjava">
     <a class="hash-link nohover" href="#publishing-and-consuming-events-from-kafkarxjava">
-        <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
-                <style>
-                    .cls-1 {
-                        fill: none;
-                    }
-                </style>
-            </defs>
-            <title>hashtag</title>
-            <path d="M28,12V10H22V4H20v6H12V4H10v6H4v2h6v8H4v2h6v6h2V22h8v6h2V22h6V20H22V12Zm-8,8H12V12h8Z" />
-            <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
-                height="32" />
-        </svg>
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
     </a>&nbsp;Publishing and Consuming Events from Kafka/RxJava
 </h2><p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.3">Tag: v0.0.3</a></p>
 <p>Now that Event serialization is done with Avro, let&rsquo;s publish and subscribe
@@ -457,18 +413,7 @@ for both Publisher and Subscriber.</p>
 to check that it&rsquo;s working Ok with your Kafka server.</p>
 <h2 id="putting-all-together">
     <a class="hash-link nohover" href="#putting-all-together">
-        <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
-                <style>
-                    .cls-1 {
-                        fill: none;
-                    }
-                </style>
-            </defs>
-            <title>hashtag</title>
-            <path d="M28,12V10H22V4H20v6H12V4H10v6H4v2h6v8H4v2h6v6h2V22h8v6h2V22h6V20H22V12Zm-8,8H12V12h8Z" />
-            <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
-                height="32" />
-        </svg>
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
     </a>&nbsp;Putting all together
 </h2><p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.1.0">Tag: v0.1.0</a></p>
 <p>Finally, let&rsquo;s integrate this Event Sourcing engine with our Java EE app:</p>

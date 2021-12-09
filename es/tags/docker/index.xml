@@ -26,7 +26,8 @@ clúster.&lt;/p&gt;</description>
       
       <guid>https://jeqo.github.io/es/posts/2016-03-30-ansible-agentless-provisioning/</guid>
       <description>Ansible es una herramienta de automatización reconocida por ser sencilla y potente a la vez. Según mi experiencia, puedo decir que esto se debe principalmente al lenguaje que utiliza: YAML, y a tener una arquitectura sin agentes o &amp;ldquo;agentless&amp;rdquo;.
-  .cls-1 { fill: none; }   hashtag  &amp;nbsp;YAML y los componentes de Ansible  &amp;ldquo;YAML is a human friendly data serialization standard for all programming languages&amp;rdquo; (Source: http://yaml.</description>
+hashtag-outline &amp;nbsp;YAML y los componentes de Ansible  &amp;ldquo;YAML is a human friendly data serialization standard for all programming languages&amp;rdquo; (Source: http://yaml.org/)
+ Esto signifíca que es verdaderamente fácil de entender y comenzar a trabajar con YAML.</description>
     </item>
     
     <item>
