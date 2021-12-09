@@ -204,9 +204,6 @@ un dominio provisionado.</p>
 <p>GitHub: <a href="https://github.com/jeqo/oracle-bpm-12c-aws">https://github.com/jeqo/oracle-bpm-12c-aws</a></p>
 <h2 id="crear-una-instancia-en-aws-ec2">
     <a class="hash-link nohover" href="#crear-una-instancia-en-aws-ec2">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -219,7 +216,6 @@ un dominio provisionado.</p>
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Crear una instancia en AWS EC2
 </h2><p>He creado una instancia Red Hat usando Vagrant. Esta instancia debe estar conectada
 a una instancia NFS que tiene los instaladores de Oracle (esta fue creada
@@ -230,9 +226,6 @@ en esta <a href="http://jeqo.github.io/blog/devops/create-nfs-instance-aws-es/">
 <p><img src="images/posts/2014-12-11-run-bpm-12c-aws/2014-12-11_0841.png" alt="Directorios NFS" title="NFS directories"></p>
 <h3 id="configuración-en-vagrant">
     <a class="hash-link nohover" href="#configuraci%c3%b3n-en-vagrant">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -245,7 +238,6 @@ en esta <a href="http://jeqo.github.io/blog/devops/create-nfs-instance-aws-es/">
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Configuración en Vagrant
 </h3><p><a href="https://gist.github.com/jeqo/62b74a9ed65d575d91b4">Gist</a></p>
 <p>{% gist 62b74a9ed65d575d91b4 Vagrantfile &gt;}}</p>
@@ -253,9 +245,6 @@ en esta <a href="http://jeqo.github.io/blog/devops/create-nfs-instance-aws-es/">
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vagrant up --provider<span style="color:#333">=</span>aws
 </code></pre></div><h3 id="conectarse-a-la-instancia-nfs">
     <a class="hash-link nohover" href="#conectarse-a-la-instancia-nfs">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -268,7 +257,6 @@ en esta <a href="http://jeqo.github.io/blog/devops/create-nfs-instance-aws-es/">
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Conectarse a la instancia NFS
 </h3><p>Esta es la primera receta Chef que será ejecutada:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#333">...</span>
@@ -302,9 +290,6 @@ chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
 </code></pre></div><p>Y cuando la instancia sea creada, un nuevo directorio &ldquo;/data&rdquo; se sincronizará.</p>
 <h2 id="instalación-de-oracle-bpm-12c-quickstart">
     <a class="hash-link nohover" href="#instalaci%c3%b3n-de-oracle-bpm-12c-quickstart">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -317,7 +302,6 @@ chef<span style="color:#333">.</span>json <span style="color:#333">=</span> {
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Instalación de Oracle BPM 12c Quickstart
 </h2><p>Para instalar BPM, se debe utilizar el <a href="https://supermarket.chef.io/cookbooks/oracle-fmw">cookbook &ldquo;oracle-fmw&rdquo;</a>
 compartido en Chef Supermarket. Este esta explicador en <a href="http://jeqo.github.io/blog/devops/chef-cookbook-oracle-fmw-12c-es/">esta entrada</a>.</p>

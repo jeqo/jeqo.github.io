@@ -194,9 +194,6 @@ the cluster.</p>
 <hr>
 <h1 id="single-node-cluster">
     <a class="hash-link nohover" href="#single-node-cluster">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -209,7 +206,6 @@ the cluster.</p>
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Single-Node Cluster
 </h1><p>First of all, let&rsquo;s start with the most simple way to run Docker, that
 could be useful for some development scenarios: <strong>Single-Node Cluster</strong></p>
@@ -271,9 +267,6 @@ to the cluster with the following command:</p>
 topic1</code></pre></div>
 <h1 id="multi-node-cluster">
     <a class="hash-link nohover" href="#multi-node-cluster">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -286,7 +279,6 @@ topic1</code></pre></div>
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Multi-Node Cluster
 </h1><p>To scale a container using Docker Compose is as simple as using the <code>scale</code> command:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose scale <span style="color:#963">kafka</span><span style="color:#333">=</span><span style="color:#60e;font-weight:bold">3</span></code></pre></div>
@@ -306,9 +298,6 @@ ls /brokers/ids
 <span style="color:#333">[</span>1003, 1002, 1001<span style="color:#333">]</span></code></pre></div>
 <h1 id="scaling-topics">
     <a class="hash-link nohover" href="#scaling-topics">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -321,7 +310,6 @@ ls /brokers/ids
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Scaling Topics
 </h1><p>In Kafka, <code>Topics</code> are distributed in <code>Partitions</code>. <code>Partitions</code> allows <strong>scalability</strong>, enabling <code>Topics</code>
 to fit in several nodes, and <strong>parallelism</strong>, allowing different instances from the same <code>Consumer Group</code> to
@@ -332,9 +320,6 @@ be zero o more <code>followers</code> spread on different nodes.</p>
 <p>How do we configure this using this simple container configuration? Let&rsquo;s evaluate some scenarios:</p>
 <h2 id="adding-new-topics-to-the-cluster">
     <a class="hash-link nohover" href="#adding-new-topics-to-the-cluster">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -347,7 +332,6 @@ be zero o more <code>followers</code> spread on different nodes.</p>
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Adding new topics to the cluster
 </h2><p>Once you scale your cluster, Kafka won&rsquo;t use these new nodes unless new <code>topics</code> are created.</p>
 <p>Let&rsquo;s test it following these steps:</p>
@@ -374,9 +358,6 @@ be zero o more <code>followers</code> spread on different nodes.</p>
 on your use case. This deserves its own blog post.</p>
 <h2 id="expanding-topics-in-your-cluster">
     <a class="hash-link nohover" href="#expanding-topics-in-your-cluster">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -389,7 +370,6 @@ on your use case. This deserves its own blog post.</p>
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Expanding topics in your cluster
 </h2><p>Expanding topics in your cluster means move <code>topics</code> and <code>partitions</code> once
 you have more <code>brokers</code> in your <code>cluster</code>, because, as show before,
@@ -426,9 +406,6 @@ you can decide how to redistribute your topics.</p>
 <!-- raw HTML omitted -->
 <h1 id="confluent-platform-images">
     <a class="hash-link nohover" href="#confluent-platform-images">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -441,7 +418,6 @@ you can decide how to redistribute your topics.</p>
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Confluent Platform images
 </h1><p>All these could be done in the same way with <a href="https://www.confluent.io/">Confluent Platform</a>.</p>
 <p>There is a couple of directories <code>confluent-cluster</code> and <code>confluent-client</code> to test this out:</p>

@@ -180,9 +180,6 @@
   <section id="js-article" class="p-article__body">
     <h2 id="motivation">
     <a class="hash-link nohover" href="#motivation">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -195,15 +192,11 @@
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Motivation
 </h2><p>Headers are transiently passed over a Kafka Streams topology. To act on them, Processor API has to be used since (<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-244%3A+Add+Record+Header+support+to+Kafka+Streams+Processor+API">KIP-244</a>).</p>
 <p>Although current support is useful for instrumentations that need to access headers, it becomes cumbersome for users to access headers on common Kafka Streams DSL operations (e.g filtering based on header value) as requires using a <code>Transformer</code>/<code>Processor</code> implementation.</p>
 <h3 id="related-jira-issues">
     <a class="hash-link nohover" href="#related-jira-issues">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -216,16 +209,12 @@
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Related JIRA issues
 </h3><ul>
 <li><a href="https://issues.apache.org/jira/browse/KAFKA-7718">https://issues.apache.org/jira/browse/KAFKA-7718</a></li>
 </ul>
 <h2 id="proposed-changes">
     <a class="hash-link nohover" href="#proposed-changes">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -238,7 +227,6 @@
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Proposed Changes
 </h2><ol>
 <li>Include a new type, to map value and headers.</li>
@@ -262,9 +250,6 @@
 </ul>
 <h2 id="new-or-changed-public-interfaces">
     <a class="hash-link nohover" href="#new-or-changed-public-interfaces">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -277,7 +262,6 @@
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;New or Changed Public Interfaces
 </h2><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#888">// New type
 </span><span style="color:#888"></span><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ValueAndHeaders</span> <span style="color:#333">&lt;</span>V<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
@@ -339,9 +323,6 @@
 </span><span style="color:#888"></span>       <span style="color:#333">.</span><span style="color:#00c">to</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;output&#34;</span><span style="color:#333">)</span>
 </code></pre></div><h2 id="compatibilily-deprecation-and-migration-plan">
     <a class="hash-link nohover" href="#compatibilily-deprecation-and-migration-plan">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -354,7 +335,6 @@
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Compatibilily, Deprecation, and Migration Plan
 </h2><ul>
 <li>New functions will be supported since 2.0+, as KIP-244 adopted.</li>
@@ -362,9 +342,6 @@
 </ul>
 <h3 id="potential-next-steps">
     <a class="hash-link nohover" href="#potential-next-steps">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -377,7 +354,6 @@
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Potential next steps
 </h3><ul>
 <li>Use a similar approach for other record metadata (e.g. offset, topic, partition), though in this case only read-only operations are required.
@@ -385,9 +361,6 @@ Related KIP: <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-159%
 </ul>
 <h2 id="rejected-alternatives">
     <a class="hash-link nohover" href="#rejected-alternatives">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -400,7 +373,6 @@ Related KIP: <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-159%
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Rejected alternatives
 </h2><ol>
 <li>Expand <code>KeyValue</code> to support headers. This will affect all current APIs, from KStream/KTable to Stores.</li>

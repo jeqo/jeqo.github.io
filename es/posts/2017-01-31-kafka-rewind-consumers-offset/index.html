@@ -197,13 +197,6 @@ el inicio de un <code>topic</code> y regenerar el estado actual del sistema.</p>
 <hr>
 <h2 id="conceptos-básicos">
     <a class="hash-link nohover" href="#conceptos-b%c3%a1sicos">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-    </a>&nbsp;Conceptos Básicos
-</h2><h3 id="topics-y-offsets">
-    <a class="hash-link nohover" href="#topics-y-offsets">
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -231,7 +224,6 @@ el inicio de un <code>topic</code> y regenerar el estado actual del sistema.</p>
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Topics y Offsets
 </h3><p>Lo primero por entender para lograr retroceder los consumidores en Kafka es:
 retroceder sobre qué? Cada <code>topic</code> esta dividido en <code>partitions</code>. Los
@@ -241,9 +233,6 @@ así cada partición tiene su propio índice de <code>offsets</code>.</p>
 para definir qué mensajes han sido consumidos del <strong>log</strong>.</p>
 <h3 id="consumers-y-consumer-groups">
     <a class="hash-link nohover" href="#consumers-y-consumer-groups">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -256,7 +245,6 @@ para definir qué mensajes han sido consumidos del <strong>log</strong>.</p>
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Consumers y Consumer Groups
 </h3><p>Una vez entendido que los <code>topics</code> tienen <code>partitions</code> y <code>offsets</code> por <code>partition</code>
 podemos pasar a definir como trabajan los <code>consumers</code> y <code>consumer groups</code>.</p>
@@ -289,9 +277,6 @@ simple implementado en Java:</p>
 de <code>0</code> a <code>99</code>.</p>
 <h2 id="desde-línea-de-comandos">
     <a class="hash-link nohover" href="#desde-l%c3%adnea-de-comandos">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -304,7 +289,6 @@ de <code>0</code> a <code>99</code>.</p>
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Desde Línea de Comandos
 </h2><p>En este primer escenario revisaremos como manejar los offsets de <code>consumers</code>
 desde <em>línea de comandos</em>, para tener una idea de como implementarlo en
@@ -335,9 +319,6 @@ solo funcionaría la primera vez, ya que el <code>offset</code> sería registrad
 </code></pre><!-- raw HTML omitted -->
 <h2 id="desde-clientes-java">
     <a class="hash-link nohover" href="#desde-clientes-java">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -350,7 +331,6 @@ solo funcionaría la primera vez, ya que el <code>offset</code> sería registrad
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Desde Clientes Java
 </h2><p>Ahora, luego de ver que desde la línea de comandos en sencillo regresar en el
 tiempo sobre el log; pero, cómo hacer éstas operaciones desde una aplicación?</p>
@@ -409,9 +389,6 @@ tiene operaciones <code>#seek</code> que permiten estas funcionalidades. Mostrar
 forma sencilla de agregar estas operaciones utilizando <code>flags</code>:</p>
 <h3 id="regresar-al-offset-inicial">
     <a class="hash-link nohover" href="#regresar-al-offset-inicial">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -424,7 +401,6 @@ forma sencilla de agregar estas operaciones utilizando <code>flags</code>:</p>
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Regresar al <code>offset</code> inicial
 </h3><p>La opción más común es regresar al inicio del <code>topic</code>, que no siempre será
 <code>offset=0</code>. Esto dependerá de la política de <code>retention</code> que removerá los
@@ -449,9 +425,6 @@ merece su propio post.</p>
 en la <code>partition=0</code> se reprocesarán los <code>records</code> nuevamente.</p>
 <h3 id="regresar-a-un-offset-específico">
     <a class="hash-link nohover" href="#regresar-a-un-offset-espec%c3%adfico">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -464,7 +437,6 @@ en la <code>partition=0</code> se reprocesarán los <code>records</code> nuevame
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Regresar a un <code>offset</code> específico
 </h3><p>Si podemos reconocer los <code>records</code> específicos (por <code>partition</code>) a los que
 necesitamos regresar para reprocesar el log, podemos utilizar
@@ -492,9 +464,6 @@ a resolver este tema.</p>
 <hr>
 <h3 id="regrasar-a-un-offset-por-timestamp">
     <a class="hash-link nohover" href="#regrasar-a-un-offset-por-timestamp">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -507,7 +476,6 @@ a resolver este tema.</p>
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Regrasar a un <code>offset</code> por <code>timestamp</code>
 </h3><p>Si no conoces exactamente el <code>offset id</code> del <code>record</code> desde donde necesitar
 reprocesar el log, pero sabes si necesitas regresar 1 hora o 10 minutos atrás

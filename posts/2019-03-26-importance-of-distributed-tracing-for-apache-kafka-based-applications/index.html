@@ -194,9 +194,6 @@
 <p>This article describes how to instrument Kafka-based applications with distributed tracing capabilities in order to make dataflows between event-based components more visible. We will cover Kafka clients, Kafka Streams applications, Kafka Connect pipelines and KSQL.</p>
 <h2 id="distributed-tracing-with-zipkin">
     <a class="hash-link nohover" href="#distributed-tracing-with-zipkin">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -209,7 +206,6 @@
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Distributed tracing with Zipkin
 </h2><p>Distributed tracing is a method for recording, collecting and recreating execution traces from distributed components. These traces are represented as a set of recorded steps, where every step is known as a <em>span</em>.</p>
 <p>Each span contains information about the service and operations being traced, the latency (i.e., how long it takes to execute an operation) and additional metadata like annotations and tags.</p>
@@ -227,9 +223,6 @@
 <p>Up next, our focus will be on how to instrument Kafka-based applications using Zipkin as our distributed tracing infrastructure.</p>
 <h2 id="zipkin-distributed-tracing-infrastructure">
     <a class="hash-link nohover" href="#zipkin-distributed-tracing-infrastructure">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -242,7 +235,6 @@
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Zipkin: Distributed tracing infrastructure
 </h2><p>Zipkin is one of the <a href="https://cwiki.apache.org/confluence/display/ZIPKIN/Sites">most popular distributed tracing projects</a> available.</p>
 <p><a href="https://zipkin.io/pages/architecture.html">Zipkin’s architecture</a> consists of a client side, with applications reporting tracing data (lavender), and a server side, where traces are collected, aggregated, stored and made available for querying (green). The transport and database components are pluggable.</p>
@@ -252,9 +244,6 @@
 <p>There is a GUI for Zipkin, called Zipkin Lens, which will be shown later in this post.</p>
 <h2 id="an-example-of-tracing-for-kafka-based-applications">
     <a class="hash-link nohover" href="#an-example-of-tracing-for-kafka-based-applications">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -267,16 +256,12 @@
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;An example of tracing for Kafka-based applications
 </h2><p>Let’s use an example of a set of distributed applications designed to collect and process tweets published in real time.</p>
 <p>Initially, there will be a Kafka source connector for Twitter, collecting and producing messages from Twitter posts in real time. A stream processing application will parse the JSON messages, and filter and produce Avro-formatted records. On the other side, several consumers will subscribe to these events: A Kafka sink connector for JDBC will send tweets downstream to a Postgres database, and a KSQL application will process records further.</p>
 <p><img src="https://cdn.confluent.io/wp-content/uploads/Kafka_Twitter-e1553201592198.png" alt="use-case"></p>
 <h2 id="kafka-interceptors-for-zipkin">
     <a class="hash-link nohover" href="#kafka-interceptors-for-zipkin">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -289,15 +274,11 @@
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Kafka interceptors for Zipkin
 </h2><p><a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-42%3A+Add+Producer+and+Consumer+Interceptors">The interceptor API</a> is part of the Kafka clients library, allowing users to inject code around sending and receiving operations.</p>
 <p>At SYSCO AS, we have developed <a href="https://github.com/sysco-middleware/kafka-interceptor-zipkin">Kafka interceptors for Zipkin</a>, which create traces from every message produced and consumed by any application using the producer and consumer APIs.</p>
 <h2 id="tracing-kafka-connectors">
     <a class="hash-link nohover" href="#tracing-kafka-connectors">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -310,7 +291,6 @@
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Tracing Kafka connectors
 </h2><p>Kafka Connect is part of Apache Kafka and enables you to integrate Kafka with other systems using configuration files to define the integration. Numerous connectors are available from Confluent Hub, and there is an API for building your own if you can’t find what you need.</p>
 <p>Because Kafka Connect plugins are already packaged components, it’s not obvious at first glance how to implement tracing on them. This is where interceptors can be used to inject tracing capabilities. Let’s see how it works.</p>
@@ -320,9 +300,6 @@
 <p>Introducing tracing inevitably results in a performance impact, with applications carrying out additional operations, such as measuring latency, collecting traces and reporting to tracing infrastructure. In some scenarios where services are latency sensitive, recording and reporting every trace are not affordable. In such cases, sampling strategies (e.g., rate limit sampling: collecting a percentage of executions per second) can be applied to reduce performance impact.</p>
 <h2 id="zipkin-instrumentation-for-kafka-streams-and-clients">
     <a class="hash-link nohover" href="#zipkin-instrumentation-for-kafka-streams-and-clients">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -335,7 +312,6 @@
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Zipkin instrumentation for Kafka Streams and clients
 </h2><p>Continuing with our use case, in between Kafka connectors there is a <a href="https://github.com/jeqo/talk-kafka-zipkin#tracing-kafka-streams-applications">Kafka Streams application</a> that transforms JSON messages into Avro binary records.</p>
 <p>When you run the Kafka Streams application, the process will look like this:</p>
@@ -345,9 +321,6 @@
 <p>For further details, you can explore <a href="https://github.com/openzipkin/brave/tree/master/instrumentation/kafka-clients">Kafka consumer and producer instrumentation</a>.</p>
 <h2 id="tracing-for-ksql">
     <a class="hash-link nohover" href="#tracing-for-ksql">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -360,7 +333,6 @@
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Tracing for KSQL
 </h2><p>Similar to Kafka Connect, KSQL is also a packaged component based on standard Kafka APIs that enables the usage of Kafka interceptors. This can be a useful technique in addition to the concepts in <a href="https://www.confluent.io/blog/troubleshooting-ksql-part-1">this previous blog discussing how to gather metrics and monitor KSQL</a>.</p>
 <p>In KSQL, we’ll create a <code>STREAM</code> from the <code>tweets</code> topic:</p>
@@ -373,9 +345,6 @@ ksql&gt; SELECT username FROM twitter_avro_v1;
 <p>A span created by KSQL consumption of a message is added to the trace, along with metadata about the client as well as the topic being consumed. The complete trace—from the Twitter connector to the KSQL applications and all other consumers—is taking 108 ms to execute.</p>
 <h2 id="tracing-is-just-the-first-step">
     <a class="hash-link nohover" href="#tracing-is-just-the-first-step">
-<<<<<<< HEAD
-        <img src="/img/hashtag.svg" width="20" height="20"></img>
-=======
         <svg width="32px" height="32px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">            <defs>
                 <style>
                     .cls-1 {
@@ -388,7 +357,6 @@ ksql&gt; SELECT username FROM twitter_avro_v1;
             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32"
                 height="32" />
         </svg>
->>>>>>> e31ee86 (rebuilding site)
     </a>&nbsp;Tracing is just the first step
 </h2><p>Tracing is by no means the only way to increase understanding of distributed systems—logging and metrics are just as useful. At the end of the day, what matters is that you have enough information available to troubleshoot production problems as efficiently as possible.</p>
 <p>Beyond this, the data recorded from live execution of your applications using platforms like Zipkin can become the foundation for building models that enrich your understanding and operational capabilities.</p>
