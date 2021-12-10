@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>notes</title>
-    <meta property="og:title" content="Notes" />
-    <meta name="twitter:title" content="Notes" />  
+    <title>kafka data loss scenarios</title>
+    <meta property="og:title" content="Kafka data loss scenarios" />
+    <meta name="twitter:title" content="Kafka data loss scenarios" />  
     <meta name="description" content="data streaming, observability, automation, and random stuff">
     <meta property="og:description" content="data streaming, observability, automation, and random stuff">
     <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/notes/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
-    <meta property="og:type" content="website" /> 
+    <meta property="og:type" content="article" /> 
 
     <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
     <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
@@ -79,7 +79,7 @@
 </svg>
     <header class="l-header">
         
-        <h1 class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></h1>
+        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
          
         <p class="p-subtitle">
             data streaming, observability, automation, and random stuff
@@ -158,146 +158,180 @@
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/notes/">es</a></li>
-         
     </ul>
 </nav>
 
     <main id="main" class="l-main">
-<h2 class="c-title p-tag-title">notes</h2>
 
-  <h3>2021</h3>
-  
-    <article class="c-article p-list-article">
+<article class="p-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/the-age-of-surveillance-capitalism-book/">The Age Of Surveillance Capitalism book</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-03T00:00:00Z">
-        Dec 3, 2021
-      </time>
-    </p>
+    <h1>Kafka data loss scenarios</h1>
+    <div>
+      <div class="c-time">
+        Posted on
+        <time datetime="2021-12-10T00:00:00Z">
+          Dec 10, 2021
+        </time>
+      </div>
+      
+      <a href="https://jeqo.github.io/tags/kafka" class="c-tag">kafka</a>
+      
+      <a href="https://jeqo.github.io/tags/durability" class="c-tag">durability</a>
+      
+    </div>
   </header>
-  <div class="c-article__summary">
-    The Age Of Surveillance Capitalism by Shoshana Zuboff
+  
+  <section id="js-article" class="p-article__body">
+    <p>Kafka topic partitions are replicated across brokers.
+Data loss happens when the brokers where replicas are located are unavailable or have fully failed.
+The worst scenario — and where is no much to do — is when all the brokers fail; then no remediation is possible.
+Replication allows to increase redundancy so this scenarios is less likely to happen.</p>
+<p>The following scenarios show different trade-offs that could increase the risk of lossing data:</p>
+<h2 id="choose-reusing-infrastructure-cost-at-the-risk-of-impacting-multiple-components">
+    <a class="hash-link nohover" href="#choose-reusing-infrastructure-cost-at-the-risk-of-impacting-multiple-components">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;Choose reusing infrastructure (cost) at the risk of impacting multiple components
+</h2><p>For brokers to be less likely to fail together are usually placed in different locations, e.g. physical servers, racks, data-centers, availability zones, regions.</p>
+<p>If, for cost effectiveness, brokers end up in shared locations, then the chances to fail together may increase.</p>
+<p>For instance all brokers could end up in the same backing physical server.
+If the physical server fails, then all brokers will fail.</p>
+<p>Same happen with any other location (e.g. Availability zones), and this is what leads to <a href="https://docs.confluent.io/platform/current/multi-dc-deployments/multi-region.html">topologies across regions</a>.</p>
+<p>Be careful about shared resources.</p>
+<h2 id="choose-throughput-at-the-risk-of-lossing-data">
+    <a class="hash-link nohover" href="#choose-throughput-at-the-risk-of-lossing-data">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;Choose throughput at the risk of lossing data
+</h2><p>Replicas follow a 1-leader/many-followers model, where writes only happen at the leader, and the leader waits for the followers to be up-to-date before ack back to the producer — only when the producer is configured with <code>ack=all</code>.
+If the producer has a lower durability guaranty than <code>acks=all</code> — 1 or 0 —, then produce request&rsquo;s lifecycle will be much faster — no waiting for replicas.
+Latency and throughput — from producer&rsquo;s perspective — are heavely impacted when <code>acks</code> is reduced from <code>all</code> to <code>1</code> or <code>0</code>.</p>
+<p>If data is acknowledged only when written to 1 replica, then we risk lossing data as it is only confirmed to be in 1 node.</p>
+<p>One can even end up ack&rsquo;ng on 1 replica without <code>acks != all</code>:</p>
+<ul>
+<li>(Obviously) if partition only have 1 replica.</li>
+<li>If <a href="/til/2021-12-02-kafka-min-isr/"><code>min.insync.replicas</code></a> is equal to 1 and followers are unavailable — i.e. out of the ISR.</li>
+</ul>
+<p>Remember: <a href="/til/2021-12-09-kafka-reducing-acks-and-latency/">reducing <code>acks</code> doesn&rsquo;t really reduce the overall latency</a>, and <code>acks=all</code> <a href="/til/2021-12-09-kafka-v3-idempotent-acks-all/">is now the default</a>.</p>
+<h2 id="choose-availability-in-the-face-of-potential-data-loss">
+    <a class="hash-link nohover" href="#choose-availability-in-the-face-of-potential-data-loss">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;Choose availability in the face of potential data loss
+</h2><p>In the previous tradeoffs we are at the risk of data loss or data being unavailable — but you don&rsquo;t know unless you go to the broker and check :)</p>
+<img src="data-loss-1.png" alt="Kafka data loss scenarios data-loss-1.png" data-action="zoom">
 
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/the-age-of-surveillance-capitalism-book/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
+<blockquote>
+<p>Happy path, all replicas are in-sync</p>
+</blockquote>
+<img src="data-loss-2.png" alt="Kafka data loss scenarios data-loss-2.png" data-action="zoom">
 
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/scale-book/">Scale book</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-03T00:00:00Z">
-        Dec 3, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Scale: The Universal Laws of Growth, Innovation, Sustainability, and the Pace of Life in Organisms, Cities, Economies, and Companies by Geoffrey B. West
+<blockquote>
+<p>Some replicas are down, data is written on the replicas available&hellip;</p>
+</blockquote>
+<img src="data-loss-3.png" alt="Kafka data loss scenarios data-loss-3.png" data-action="zoom">
 
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/scale-book/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
+<blockquote>
+<p>Sudenly, the replicas with the latest data are not available any more&hellip;</p>
+</blockquote>
+<p>Under this scenario, there is a chance that non-insync replicas (i.e. not a member of the latest ISR set) are available then operators can choose: is it OK to stay unavailable until an insync replica is back? or should we choose to risk loosing data and allow the non-insync replicas to be the leader and accept writes?</p>
+<img src="data-loss-4.png" alt="Kafka data loss scenarios data-loss-4.png" data-action="zoom">
 
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/cioran-books/">Cioran books</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-03T00:00:00Z">
-        Dec 3, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Including pictures from books:
- The Trouble With Being Born A Short History Of Decay 
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/cioran-books/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
+<blockquote>
+<p>With some bad (or good?) luck, the replicas start to come back, but they include the replicas that do not contain the latest records&hellip;</p>
+</blockquote>
+<p><code>unclean.leader.election.enable</code> is the flag that enables non-insync replicas to be the leader.
+If a non-insync replica is taking leadership, then data that is not synchronized will be lost:
+when replicas are back and they have data that is not synchronized, then that data is truncated out down to the latest synchronized message (i.e. high watermark).</p>
+<img src="data-loss-5.png" alt="Kafka data loss scenarios data-loss-5.png" data-action="zoom">
 
-  
+<p>Make sure to balance these trade-offs according to your needs.</p>
 
-  <h3>2019</h3>
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/">Notes on Co-evolving Tracing and Fault Injection with Box of Pain</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-10-31T00:00:00Z">
-        Oct 31, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    This paper explores how related tracing and fault injection systems are, and if they should be part of the same thing.
- The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&hellip;]
-  [&hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.
- In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-
-  <h3>2018</h3>
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/">Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-07-27T00:00:00Z">
-        Jul 27, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
+  </section>
+  <footer>
     
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'jeqoblog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <nav class="p-pagination c-pagination">
+      <div class="c-pagination__ctrl">
+        <div class="c-pagination__newer">
+          
+          <a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/">Newer</a>
+          
+        </div>
+        <div class="c-pagination__older">
+          
+          
+        </div>
+      </div>
+    </nav>
+    
+
+<section class="p-related">
+  <h3>See Also</h3>
+  <ul id="slider" class="p-related__list">
+    
+    <li class="p-related__item js-related__item">
+      <a href="/til/2021-12-09-kafka-reducing-acks-and-latency/"
+        >
+        <span>Reducing `acks` doesn&#39;t help to reduce end-to-end latency</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/til/2021-12-09-kafka-v3-idempotent-acks-all/"
+        >
+        <span>Since v3.0 idempotency is enabled by default</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/til/2021-12-02-kafka-min-isr/"
+        >
+        <span>Use min.insync.replicas for fault-tolerance</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/talks/making-sense-event-driven-systems-codeone19/"
+        >
+        <span>Making sense of Event-Driven Systems @ Oracle Code One 2019</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/talks/making-sense-event-driven-dataflows-kafkasummitnyc19/"
+        >
+        <span>Making sense of Event-Driven Systems @ Kafka Summit 2019</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/"
+        >
+        <span>The Importance of Distributed Tracing for Apache Kafka Based Applications</span>
+      </a>
+    </li>
+    
+  </ul>
+</section>
+
+
+  </footer>
 </article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/">Data on the Outside vs Data on the Inside</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-01-08T00:00:00Z">
-        Jan 8, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    I found this paper as relevant and accurate today as it was in 2005, when it was published. It is fascinating how even 12 years later and with new technologies in vogue, same concepts keep applying.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-
   </main>
   
 <nav class="l-nav p-menu">
@@ -327,10 +361,6 @@
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/notes/">es</a></li>
-         
     </ul>
 </nav>
 
@@ -401,3 +431,4 @@
 
 </body>
 </html>
+

@@ -44,24 +44,24 @@
                 href="https://jeqo.github.io/tags/kafka/"
                 />
   </url><url>
-    <loc>https://jeqo.github.io/notes/2021-12-10-kafka-data-loss/</loc>
+    <loc>https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/</loc>
     <lastmod>2021-12-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/notes/</loc>
+    <loc>https://jeqo.github.io/categories/ops/</loc>
+    <lastmod>2021-12-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/posts/</loc>
     <lastmod>2021-12-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://jeqo.github.io/es/notes/"
+                href="https://jeqo.github.io/es/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://jeqo.github.io/notes/"
+                href="https://jeqo.github.io/posts/"
                 />
-  </url><url>
-    <loc>https://jeqo.github.io/categories/ops/</loc>
-    <lastmod>2021-12-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/</loc>
     <lastmod>2021-12-10T00:00:00+00:00</lastmod>
@@ -112,6 +112,19 @@
   </url><url>
     <loc>https://jeqo.github.io/tags/ideas/</loc>
     <lastmod>2021-12-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/notes/</loc>
+    <lastmod>2021-12-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/notes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/notes/"
+                />
   </url><url>
     <loc>https://jeqo.github.io/tags/philosophy/</loc>
     <lastmod>2021-12-03T00:00:00+00:00</lastmod>
@@ -240,19 +253,6 @@
   </url><url>
     <loc>https://jeqo.github.io/categories/event-driven/</loc>
     <lastmod>2019-03-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/posts/</loc>
-    <lastmod>2019-03-26T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/posts/"
-                />
   </url><url>
     <loc>https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/</loc>
     <lastmod>2019-03-26T00:00:00+00:00</lastmod>

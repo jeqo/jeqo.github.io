@@ -10,10 +10,10 @@
     <lastBuildDate>Fri, 10 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/durability/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kafka data loss scenarios</title>
-      <link>https://jeqo.github.io/notes/2021-12-10-kafka-data-loss/</link>
+      <link>https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/</link>
       <pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/notes/2021-12-10-kafka-data-loss/</guid>
+      <guid>https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/</guid>
       <description>Kafka topic partitions are replicated across brokers. Data loss happens when the brokers where replicas are located are unavailable or have fully failed. The worst scenario — and where is no much to do — is when all the brokers fail; then no remediation is possible. Replication allows to increase redundancy so this scenarios is less likely to happen.
 The following scenarios show different trade-offs that could increase the risk of lossing data:</description>
     </item>

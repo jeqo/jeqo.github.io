@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Tue, 26 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kafka data loss scenarios</title>
+      <link>https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/</link>
+      <pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/</guid>
+      <description>Kafka topic partitions are replicated across brokers. Data loss happens when the brokers where replicas are located are unavailable or have fully failed. The worst scenario — and where is no much to do — is when all the brokers fail; then no remediation is possible. Replication allows to increase redundancy so this scenarios is less likely to happen.
+The following scenarios show different trade-offs that could increase the risk of lossing data:</description>
+    </item>
+    
     <item>
       <title>The Importance of Distributed Tracing for Apache Kafka Based Applications</title>
       <link>https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/</link>
