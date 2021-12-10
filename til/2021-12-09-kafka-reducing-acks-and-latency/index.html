@@ -3,16 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>use min.insync.replicas for fault-tolerance</title>
-    <meta property="og:title" content="Use min.insync.replicas for fault-tolerance" />
-    <meta name="twitter:title" content="Use min.insync.replicas for fault-tolerance" />  
+    <title>reducing `acks` doesn&#39;t help to reduce end-to-end latency</title>
+    <meta property="og:title" content="Reducing `acks` doesn&#39;t help to reduce end-to-end latency" />
+    <meta name="twitter:title" content="Reducing `acks` doesn&#39;t help to reduce end-to-end latency" />  
     <meta name="description" content="data streaming, observability, automation, and random stuff">
     <meta property="og:description" content="data streaming, observability, automation, and random stuff">
     <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/til/2021-12-02-kafka-min-isr/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
@@ -165,104 +165,40 @@
 
 <article class="p-article">
   <header>
-    <h1>Use min.insync.replicas for fault-tolerance</h1>
+    <h1>Reducing `acks` doesn&#39;t help to reduce end-to-end latency</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2021-12-02T00:00:00Z">
-          Dec 2, 2021
+        <time datetime="2021-12-09T00:00:00Z">
+          Dec 9, 2021
         </time>
       </div>
       
       <a href="https://jeqo.github.io/tags/kafka" class="c-tag">kafka</a>
       
-      <a href="https://jeqo.github.io/tags/fault-tolerance" class="c-tag">fault-tolerance</a>
+      <a href="https://jeqo.github.io/tags/latency" class="c-tag">latency</a>
       
     </div>
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p>Things to remember:</p>
-<ul>
-<li>Topic replication factor is not enough to guarantee fault-tolerance. If <code>min.insync.replicas</code> is not defined i.e. 1, then data could potentially be lost.</li>
-<li><code>acks=all</code> will force replica leader to wait for <em>all</em> brokers in the ISR, not only the <code>min.insync.replicas</code>.</li>
-<li>If replicas available are equal to minimum ISR, then the topic partitions are at the edge of losing availability. If one broker becomes unavailable (e.g. restarting), then producers will fail to write data.</li>
-<li>Topic configuration is inherited from the server. If broker configuration changes, it affects the <em>existing</em> topics. Keep the topic defaults, unless it needs to be different than broker default for easier maintenance.</li>
+    <p>Kafka Producers enforce durability across replicas by setting <code>acks=all</code> (<a href="/til/kafka-v3-idea">default since v3.0</a>).
+As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.</p>
+<p>When looking at the end-to-end latency (including production and consumption) this ends up not being the case:</p>
+<p>Records are only available for consumption once the replicas have been updated and the leader can increase the high watermark.</p>
+<p>So, <code>acks</code> only affect the latency at the producer side.
+If the latency that matters to you is end-to-end, then reducing acks might not be the right trade-off.</p>
+<h2 id="references">
+    <a class="hash-link nohover" href="#references">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;References
+</h2><ul>
+<li>Tail latency at Scale: <a href="https://www.confluent.io/blog/configure-kafka-to-minimize-latency/">https://www.confluent.io/blog/configure-kafka-to-minimize-latency/</a></li>
+<li>Optimizing Kafka for Latency: <a href="https://docs.confluent.io/cloud/current/client-apps/optimizing/latency.html">https://docs.confluent.io/cloud/current/client-apps/optimizing/latency.html</a></li>
+<li>Kafka Internal <a href="https://developer.confluent.io/#kafka-internals,">https://developer.confluent.io/#kafka-internals,</a> with requests lifecycle</li>
 </ul>
-<p>When writing data on Kafka topics, it&rsquo;s often required for this data to be replicated across multiple brokers and enforce this replication as part of the writing process.
-This is enforced by the Producer when setting <code>acks=all</code>.
-<code>min.insync.replicas</code> define the minimum number of replicas required to acknowledge back to producers.</p>
-<img src="minisr2-1.png" alt="Use min.insync.replicas for fault-tolerance minisr2-1.png" data-action="zoom">
+<p><img src="request-lifecycle.png" alt="Screenshot from request lifecycle"></p>
 
-<blockquote>
-<p>When all replicas are in-sync:</p>
-<ol>
-<li>Producer sends a request and Broker stores locally.</li>
-<li>Replica followers fetch changes increasing high-watermark (last offset acked by all replicas)</li>
-<li>Broker sends response back with acknowledge to the Producer.</li>
-</ol>
-</blockquote>
-<img src="minisr2-2.png" alt="Use min.insync.replicas for fault-tolerance minisr2-2.png" data-action="zoom">
-
-<blockquote>
-<p>When 1 out of 3 replicas is out of sync or down, same procedure.</p>
-</blockquote>
-<img src="minisr2-3.png" alt="Use min.insync.replicas for fault-tolerance minisr2-3.png" data-action="zoom">
-
-<blockquote>
-<p>When 2 out of 3 replicas are out of sync or down, there are not enough replicas to ack Producer.
-Request fails.</p>
-</blockquote>
-<p>By default <code>min.insync.replicas</code> is 1, therefore if <em>only</em> 1 replica is part of the in-sync-replica (ISR) set, writing will be successful.
-This is usually considered a risky configuration as there could be failure scenarios where data is stored only in 1 broker and if that broker is lost (e.g. disk failure), then data is lost as it&rsquo;s not replicated yet.</p>
-<img src="minisr1-1.png" alt="Use min.insync.replicas for fault-tolerance minisr1-1.png" data-action="zoom">
-
-<blockquote>
-<p>Data will be written to only one partition</p>
-</blockquote>
-<img src="minisr1-2.png" alt="Use min.insync.replicas for fault-tolerance minisr1-2.png" data-action="zoom">
-
-<blockquote>
-<p>If data is not replicated yet, and broker fails, data will be lost.</p>
-</blockquote>
-<p>I used to confuse the purpose of this configuration as a way to minimize the number of replicas that need to acknowledge a message before replying to clients <em>in any scenario</em>.
-For instance, I thought that if replication factor (RF) is 4, and <code>min.isr</code> is 2, then <em>only 2 replicas are required to acknowledge messages back to clients at any time</em>.
-Similar confusion spotted <a href="https://stackoverflow.com/questions/45778455/kafka-rack-id-and-min-in-sync-replicas#comment93887479_45783921">here</a>.</p>
-<p>So, be mindful about the replication factor. All the replicas take part of the writing process when <code>acks=all</code>. The more replicas per topic partitions, the higher the changes for the replication to be slower — the more network and disk used as well.
-Choose a number of replicas that guarantee data is replicated across data centers (e.g. across racks, cloud availability zones, regions, etc.)
-For instance, Confluent Cloud uses <code>RF=3</code> and <code>min.isr=2</code>.</p>
-<p>This is the algorithm at <code>Partition.scala</code> class that implements this validation:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  def <span style="color:#06b;font-weight:bold">appendRecordsToLeader</span><span style="color:#333">(</span>records<span style="color:#333">:</span> MemoryRecords<span style="color:#333">,</span> origin<span style="color:#333">:</span> AppendOrigin<span style="color:#333">,</span> requiredAcks<span style="color:#333">:</span> Int<span style="color:#333">,</span>
-                            requestLocal<span style="color:#333">:</span> RequestLocal<span style="color:#333">):</span> LogAppendInfo <span style="color:#333">=</span> <span style="color:#333">{</span>
-    val <span style="color:#333">(</span>info<span style="color:#333">,</span> leaderHWIncremented<span style="color:#333">)</span> <span style="color:#333">=</span> inReadLock<span style="color:#333">(</span>leaderIsrUpdateLock<span style="color:#333">)</span> <span style="color:#333">{</span>
-      leaderLogIfLocal match <span style="color:#333">{</span>
-        <span style="color:#080;font-weight:bold">case</span> Some<span style="color:#333">(</span>leaderLog<span style="color:#333">)</span> <span style="color:#333">=&gt;</span>
-          val minIsr <span style="color:#333">=</span> leaderLog<span style="color:#333">.</span><span style="color:#00c">config</span><span style="color:#333">.</span><span style="color:#00c">minInSyncReplicas</span>
-          val inSyncSize <span style="color:#333">=</span> isrState<span style="color:#333">.</span><span style="color:#00c">isr</span><span style="color:#333">.</span><span style="color:#00c">size</span>
-
-          <span style="color:#888">// Avoid writing to leader if there are not enough insync replicas to make it safe
-</span><span style="color:#888"></span>          <span style="color:#080;font-weight:bold">if</span> <span style="color:#333">(</span>inSyncSize <span style="color:#333">&lt;</span> minIsr <span style="color:#333">&amp;&amp;</span> requiredAcks <span style="color:#333">==</span> <span style="color:#333">-</span>1<span style="color:#333">)</span> <span style="color:#333">{</span>
-            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> NotEnoughReplicasException<span style="color:#333">(</span>s<span style="background-color:#fff0f0">&#34;The size of the current ISR ${isrState.isr} &#34;</span> <span style="color:#333">+</span>
-              s<span style="background-color:#fff0f0">&#34;is insufficient to satisfy the min.isr requirement of $minIsr for partition $topicPartition&#34;</span><span style="color:#333">)</span>
-          <span style="color:#333">}</span>
-
-          val info <span style="color:#333">=</span> leaderLog<span style="color:#333">.</span><span style="color:#00c">appendAsLeader</span><span style="color:#333">(</span>records<span style="color:#333">,</span> leaderEpoch <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">this</span><span style="color:#333">.</span><span style="color:#00c">leaderEpoch</span><span style="color:#333">,</span> origin<span style="color:#333">,</span>
-            interBrokerProtocolVersion<span style="color:#333">,</span> requestLocal<span style="color:#333">)</span>
-
-          <span style="color:#888">// we may need to increment high watermark since ISR could be down to 1
-</span><span style="color:#888"></span>          <span style="color:#333">(</span>info<span style="color:#333">,</span> maybeIncrementLeaderHW<span style="color:#333">(</span>leaderLog<span style="color:#333">))</span>
-
-        <span style="color:#080;font-weight:bold">case</span> None <span style="color:#333">=&gt;</span>
-          <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> NotLeaderOrFollowerException<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;Leader not local for partition %s on broker %d&#34;</span>
-            <span style="color:#333">.</span><span style="color:#00c">format</span><span style="color:#333">(</span>topicPartition<span style="color:#333">,</span> localBrokerId<span style="color:#333">))</span>
-      <span style="color:#333">}</span>
-    <span style="color:#333">}</span>
-
-    info<span style="color:#333">.</span><span style="color:#00c">copy</span><span style="color:#333">(</span>leaderHwChange <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">if</span> <span style="color:#333">(</span>leaderHWIncremented<span style="color:#333">)</span> LeaderHwChange<span style="color:#333">.</span><span style="color:#00c">Increased</span> <span style="color:#080;font-weight:bold">else</span> LeaderHwChange<span style="color:#333">.</span><span style="color:#00c">Same</span><span style="color:#333">)</span>
-  <span style="color:#333">}</span>
-</code></pre></div><blockquote>
-<p>Source-code: <a href="https://github.com/apache/kafka/blob/965ec40c0a282bc311c702c6eb795689ec7ddfa5/core/src/main/scala/kafka/cluster/Partition.scala#L1042-L1069">https://github.com/apache/kafka/blob/965ec40c0a282bc311c702c6eb795689ec7ddfa5/core/src/main/scala/kafka/cluster/Partition.scala#L1042-L1069</a></p>
-</blockquote>
   </section>
   <footer>
     
@@ -288,12 +224,12 @@ For instance, Confluent Cloud uses <code>RF=3</code> and <code>min.isr=2</code>.
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/til/2021-12-01-about-til/">Newer</a>
+          <a href="https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/notes/the-age-of-surveillance-capitalism-book/">Older</a>
+          <a href="https://jeqo.github.io/notes/2021-12-10-kafka-data-loss/">Older</a>
           
         </div>
       </div>
@@ -303,6 +239,20 @@ For instance, Confluent Cloud uses <code>RF=3</code> and <code>min.isr=2</code>.
 <section class="p-related">
   <h3>See Also</h3>
   <ul id="slider" class="p-related__list">
+    
+    <li class="p-related__item js-related__item">
+      <a href="/til/2021-12-09-kafka-v3-idempotent-acks-all/"
+        >
+        <span>Since v3.0 idempotency is enabled by default</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/til/2021-12-02-kafka-min-isr/"
+        >
+        <span>Use min.insync.replicas for fault-tolerance</span>
+      </a>
+    </li>
     
     <li class="p-related__item js-related__item">
       <a href="/talks/making-sense-event-driven-systems-codeone19/"
@@ -329,20 +279,6 @@ For instance, Confluent Cloud uses <code>RF=3</code> and <code>min.isr=2</code>.
       <a href="/talks/the-importance-of-observability-kafkausergroupnorway18/"
         >
         <span>The Importance of Observability for Kafka-based applications with Zipkin @ Oslo Apache Kafka Meetup</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/"
-        >
-        <span>Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/posts/2017-09-28-kafka-opentracing/"
-        >
-        <span>Tracing Kafka applications</span>
       </a>
     </li>
     

@@ -732,12 +732,14 @@ img {
 }
 
 .c-article__meta {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 1
 }
 
 .c-article__summary {
     font-size: 1.4rem;
+    font-family: 'Spectral';
+    font-style: italic;
     color: #999;
     line-height: 1.57
 }
@@ -749,7 +751,7 @@ img {
 .c-article__btn {
     display: inline-block;
     padding-bottom: 4px;
-    font-size: 1.6rem
+    font-size: 1.2rem
 }
 
 .c-article__btn:after {

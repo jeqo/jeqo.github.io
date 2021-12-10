@@ -7,7 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 02 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/til/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/til/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reducing `acks` doesn&#39;t help to reduce end-to-end latency</title>
+      <link>https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/</guid>
+      <description>Kafka Producers enforce durability across replicas by setting acks=all (default since v3.0). As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.
+When looking at the end-to-end latency (including production and consumption) this ends up not being the case:
+Records are only available for consumption once the replicas have been updated and the leader can increase the high watermark.</description>
+    </item>
+    
+    <item>
+      <title>Since v3.0 idempotency is enabled by default</title>
+      <link>https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/</guid>
+      <description>Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.
+This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.</description>
+    </item>
+    
     <item>
       <title>Use min.insync.replicas for fault-tolerance</title>
       <link>https://jeqo.github.io/til/2021-12-02-kafka-min-isr/</link>

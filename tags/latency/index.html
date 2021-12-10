@@ -3,16 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>notes</title>
-    <meta property="og:title" content="Notes" />
-    <meta name="twitter:title" content="Notes" />  
+    <title>latency</title>
+    <meta property="og:title" content="latency" />
+    <meta name="twitter:title" content="latency" />  
     <meta name="description" content="data streaming, observability, automation, and random stuff">
     <meta property="og:description" content="data streaming, observability, automation, and random stuff">
     <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/notes/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/tags/latency/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
@@ -158,165 +158,50 @@
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/notes/">es</a></li>
-         
     </ul>
 </nav>
 
     <main id="main" class="l-main">
-<h2 class="c-title p-tag-title">notes</h2>
+<h2 class="c-title p-tag-title">latency</h2>
 
-  <h3>2021</h3>
-  
-    <article class="c-article p-list-article">
+<article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2021-12-10-kafka-data-loss/">Kafka data loss scenarios</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/">Reducing `acks` doesn&#39;t help to reduce end-to-end latency</a></h2>
     <p class="c-article__meta">
       Posted on
-      <time datetime="2021-12-10T00:00:00Z">
-        Dec 10, 2021
+      <time datetime="2021-12-09T00:00:00Z">
+        Dec 9, 2021
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-    Kafka topic partitions are replicated across brokers. Data loss happens when the brokers where replicas are located are unavailable or have fully failed. The worst scenario — and where is no much to do — is when all the brokers fail; then no remediation is possible. Replication allows to increase redundancy so this scenarios is less likely to happen.
-The following scenarios show different trade-offs that could increase the risk of lossing data:
+    Kafka Producers enforce durability across replicas by setting acks=all (default since v3.0). As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.
+When looking at the end-to-end latency (including production and consumption) this ends up not being the case:
+Records are only available for consumption once the replicas have been updated and the leader can increase the high watermark.
   </div>
   
-  <a href="https://jeqo.github.io/notes/2021-12-10-kafka-data-loss/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  <a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
 </article>
 
-  
-    <article class="c-article p-list-article">
+
+<article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/the-age-of-surveillance-capitalism-book/">The Age Of Surveillance Capitalism book</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/">Since v3.0 idempotency is enabled by default</a></h2>
     <p class="c-article__meta">
       Posted on
-      <time datetime="2021-12-03T00:00:00Z">
-        Dec 3, 2021
+      <time datetime="2021-12-09T00:00:00Z">
+        Dec 9, 2021
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-    The Age Of Surveillance Capitalism by Shoshana Zuboff
-
+    Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.
+This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.
   </div>
-  
-  <a href="https://jeqo.github.io/notes/the-age-of-surveillance-capitalism-book/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
 </article>
 
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/scale-book/">Scale book</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-03T00:00:00Z">
-        Dec 3, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Scale: The Universal Laws of Growth, Innovation, Sustainability, and the Pace of Life in Organisms, Cities, Economies, and Companies by Geoffrey B. West
-
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/scale-book/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/cioran-books/">Cioran books</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-03T00:00:00Z">
-        Dec 3, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Including pictures from books:
- The Trouble With Being Born A Short History Of Decay 
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/cioran-books/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-
-  <h3>2019</h3>
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/">Notes on Co-evolving Tracing and Fault Injection with Box of Pain</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-10-31T00:00:00Z">
-        Oct 31, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    This paper explores how related tracing and fault injection systems are, and if they should be part of the same thing.
- The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&hellip;]
-  [&hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.
- In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-
-  <h3>2018</h3>
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/">Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-07-27T00:00:00Z">
-        Jul 27, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
-    <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/">Data on the Outside vs Data on the Inside</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-01-08T00:00:00Z">
-        Jan 8, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    I found this paper as relevant and accurate today as it was in 2005, when it was published. It is fascinating how even 12 years later and with new technologies in vogue, same concepts keep applying.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-  
 
   </main>
   
@@ -347,10 +232,6 @@ The following scenarios show different trade-offs that could increase the risk o
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/notes/">es</a></li>
-         
     </ul>
 </nav>
 
@@ -421,3 +302,4 @@ The following scenarios show different trade-offs that could increase the risk o
 
 </body>
 </html>
+

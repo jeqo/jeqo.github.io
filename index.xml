@@ -7,7 +7,38 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Fri, 03 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kafka data loss scenarios</title>
+      <link>https://jeqo.github.io/notes/2021-12-10-kafka-data-loss/</link>
+      <pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/2021-12-10-kafka-data-loss/</guid>
+      <description>Kafka topic partitions are replicated across brokers. Data loss happens when the brokers where replicas are located are unavailable or have fully failed. The worst scenario — and where is no much to do — is when all the brokers fail; then no remediation is possible. Replication allows to increase redundancy so this scenarios is less likely to happen.
+The following scenarios show different trade-offs that could increase the risk of lossing data:</description>
+    </item>
+    
+    <item>
+      <title>Reducing `acks` doesn&#39;t help to reduce end-to-end latency</title>
+      <link>https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/</guid>
+      <description>Kafka Producers enforce durability across replicas by setting acks=all (default since v3.0). As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.
+When looking at the end-to-end latency (including production and consumption) this ends up not being the case:
+Records are only available for consumption once the replicas have been updated and the leader can increase the high watermark.</description>
+    </item>
+    
+    <item>
+      <title>Since v3.0 idempotency is enabled by default</title>
+      <link>https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/</guid>
+      <description>Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.
+This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.</description>
+    </item>
+    
     <item>
       <title>Projects</title>
       <link>https://jeqo.github.io/projects/</link>
