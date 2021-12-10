@@ -28,6 +28,12 @@
                 href="https://jeqo.github.io/categories/"
                 />
   </url><url>
+    <loc>https://jeqo.github.io/til/2021-12-10-kafka-change-rack/</loc>
+    <lastmod>2021-12-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/deployment/</loc>
+    <lastmod>2021-12-10T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jeqo.github.io/tags/durability/</loc>
     <lastmod>2021-12-10T00:00:00+00:00</lastmod>
   </url><url>
@@ -76,16 +82,16 @@
                 href="https://jeqo.github.io/tags/"
                 />
   </url><url>
-    <loc>https://jeqo.github.io/tags/latency/</loc>
-    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/</loc>
-    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+    <loc>https://jeqo.github.io/til/</loc>
+    <lastmod>2021-12-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/</loc>
     <lastmod>2021-12-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/til/</loc>
+    <loc>https://jeqo.github.io/tags/latency/</loc>
+    <lastmod>2021-12-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/</loc>
     <lastmod>2021-12-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/categories/tuning/</loc>

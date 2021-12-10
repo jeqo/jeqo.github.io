@@ -170,6 +170,27 @@
 
   <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/">Changing Kafka Broker&#39;s rack</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2021-12-10T00:00:00Z">
+        Dec 10, 2021
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Kafka broker configuration includes a rack label to define the location of the broker. This is useful when placing replicas across the cluster to ensure replicas are spread across locations as evenly as possible.
+This label may need to change for different reasons. One I found today is if you want to redefine locations to support Multi-Region clusters and Observers.
+If there are existing topics, and previous rack labels were already used when creating the topics, then the placement may not match the new topology.
+  </div>
+  
+  <a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+</article>
+
+
+  <article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/">Kafka data loss scenarios</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -184,6 +205,24 @@ The following scenarios show different trade-offs that could increase the risk o
   </div>
   
   <a href="https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+</article>
+
+
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/">Kafka Producer idempotency is enabled by default since 3.0</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2021-12-09T00:00:00Z">
+        Dec 9, 2021
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.
+This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.
+  </div>
   
 </article>
 
@@ -205,24 +244,6 @@ Records are only available for consumption once the replicas have been updated a
   </div>
   
   <a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/">Since v3.0 idempotency is enabled by default</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-09T00:00:00Z">
-        Dec 9, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.
-This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.
-  </div>
   
 </article>
 
@@ -342,26 +363,6 @@ This means by default Producers will be balanced between latency (no batching) a
   </div>
   
   <a href="https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/talks/making-sense-event-driven-systems-codeone19/">Making sense of Event-Driven Systems @ Oracle Code One 2019</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-09-19T00:00:00Z">
-        Sep 19, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Presented at Oracle Code One 2019
-
-  </div>
-  
-  <a href="https://jeqo.github.io/talks/making-sense-event-driven-systems-codeone19/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
 </article>
 

@@ -166,6 +166,24 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/">Kafka Producer idempotency is enabled by default since 3.0</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2021-12-09T00:00:00Z">
+        Dec 9, 2021
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.
+This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.
+  </div>
+  
+</article>
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/">Reducing `acks` doesn&#39;t help to reduce end-to-end latency</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -181,24 +199,6 @@ Records are only available for consumption once the replicas have been updated a
   </div>
   
   <a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/">Since v3.0 idempotency is enabled by default</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-09T00:00:00Z">
-        Dec 9, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.
-This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.
-  </div>
   
 </article>
 

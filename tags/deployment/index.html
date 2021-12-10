@@ -3,16 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>kafka</title>
-    <meta property="og:title" content="kafka" />
-    <meta name="twitter:title" content="kafka" />  
+    <title>deployment</title>
+    <meta property="og:title" content="deployment" />
+    <meta name="twitter:title" content="deployment" />  
     <meta name="description" content="data streaming, observability, automation, and random stuff">
     <meta property="og:description" content="data streaming, observability, automation, and random stuff">
     <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/tags/kafka/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/tags/deployment/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
@@ -158,15 +158,11 @@
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/tags/kafka/">es</a></li>
-         
     </ul>
 </nav>
 
     <main id="main" class="l-main">
-<h2 class="c-title p-tag-title">kafka</h2>
+<h2 class="c-title p-tag-title">deployment</h2>
 
 <article class="c-article p-list-article">
   <header>
@@ -185,291 +181,6 @@ If there are existing topics, and previous rack labels were already used when cr
   </div>
   
   <a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/">Kafka data loss scenarios</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-10T00:00:00Z">
-        Dec 10, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka topic partitions are replicated across brokers. Data loss happens when the brokers where replicas are located are unavailable or have fully failed. The worst scenario — and where is no much to do — is when all the brokers fail; then no remediation is possible. Replication allows to increase redundancy so this scenarios is less likely to happen.
-The following scenarios show different trade-offs that could increase the risk of lossing data:
-  </div>
-  
-  <a href="https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/">Kafka Producer idempotency is enabled by default since 3.0</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-09T00:00:00Z">
-        Dec 9, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.
-This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.
-  </div>
-  
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/">Reducing `acks` doesn&#39;t help to reduce end-to-end latency</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-09T00:00:00Z">
-        Dec 9, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka Producers enforce durability across replicas by setting acks=all (default since v3.0). As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.
-When looking at the end-to-end latency (including production and consumption) this ends up not being the case:
-Records are only available for consumption once the replicas have been updated and the leader can increase the high watermark.
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-02-kafka-min-isr/">Use min.insync.replicas for fault-tolerance</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-02T00:00:00Z">
-        Dec 2, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Things to remember:
- Topic replication factor is not enough to guarantee fault-tolerance. If min.insync.replicas is not defined i.e. 1, then data could potentially be lost. acks=all will force replica leader to wait for all brokers in the ISR, not only the min.insync.replicas. If replicas available are equal to minimum ISR, then the topic partitions are at the edge of losing availability. If one broker becomes unavailable (e.g. restarting), then producers will fail to write data. Topic configuration is inherited from the server. If broker configuration changes, it affects the existing topics. Keep the topic defaults, unless it needs to be different than broker default for easier maintenance. 
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2021-12-02-kafka-min-isr/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/talks/making-sense-event-driven-systems-codeone19/">Making sense of Event-Driven Systems @ Oracle Code One 2019</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-09-19T00:00:00Z">
-        Sep 19, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Presented at Oracle Code One 2019
-
-  </div>
-  
-  <a href="https://jeqo.github.io/talks/making-sense-event-driven-systems-codeone19/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/talks/making-sense-event-driven-dataflows-kafkasummitnyc19/">Making sense of Event-Driven Systems @ Kafka Summit 2019</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-04-02T00:00:00Z">
-        Apr 2, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Presented at Kafka Summit NYC 2019
-
-  </div>
-  
-  <a href="https://jeqo.github.io/talks/making-sense-event-driven-dataflows-kafkasummitnyc19/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/">The Importance of Distributed Tracing for Apache Kafka Based Applications</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-03-26T00:00:00Z">
-        Mar 26, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Originally posted in Confluent Blog
- Apache Kafka® based applications stand out for their ability to decouple producers and consumers using an event log as an intermediate layer.
-One result of this is that producers and consumers don’t know about each other, as there is no direct communication between them.
-This enables choreographed service collaborations, where many components can subscribe to events stored in the event log and react to them asynchronously.
-  </div>
-  
-  <a href="https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/talks/the-importance-of-observability-kafkausergroupnorway18/">The Importance of Observability for Kafka-based applications with Zipkin @ Oslo Apache Kafka Meetup</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-09-10T00:00:00Z">
-        Sep 10, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Presented at Oslo Apache Kafka Meetup
-
-  </div>
-  
-  <a href="https://jeqo.github.io/talks/the-importance-of-observability-kafkausergroupnorway18/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/">Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-07-27T00:00:00Z">
-        Jul 27, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2017-09-28-kafka-opentracing/">Tracing Kafka applications</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2017-09-28T00:00:00Z">
-        Sep 28, 2017
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    for a more updated version, check https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/
- Tracing is one of the hardest time in integration or microservice development: knowing how a request impact your different components, and if your components have behave as expected.
-This could be fairly easy if we have monolith where we have one database and with some queries or checking one log file you can validate everything went well.
-Once you introduce distributed components and asynchronous communication this starts to get more complex and tedious.
-  </div>
-  
-  <a href="https://jeqo.github.io/posts/2017-09-28-kafka-opentracing/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/">From Messaging to Logs with Apache Kafka @ OUGN 2017</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2017-03-10T00:00:00Z">
-        Mar 10, 2017
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Presented at OUGN 2017
-
-  </div>
-  
-  <a href="https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/">Rewind Kafka Consumer Offsets</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2017-01-31T00:00:00Z">
-        Jan 31, 2017
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    One of the most important features from Apache Kafka is how it manages Multiple Consumers. Each consumer group has a current offset, that determine at what point in a topic this consumer group has consume messages. So, each consumer group can manage its offset independently, by partition.
-This offers the possibility to rollback in time and reprocess messages from the beginning of a topic and regenerate the current status of the system.
-But how to do it (programmatically)?
-
-  </div>
-  
-  <a href="https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/">Scaling Kafka with Docker Containers</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2017-01-15T00:00:00Z">
-        Jan 15, 2017
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    In this post I will show how to use Docker containers to create and scale a Kafka cluster, and also how to create, scale and move topics inside the cluster.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/">Integrate Java EE 7 and Kafka using Avro and RxJava</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2015-07-31T00:00:00Z">
-        Jul 31, 2015
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    I decided to implement a naive integration between Java EE applications and RxJava/Kafka/Avro, to publish and subscribe to events.
-You can go directly to that code, or check my approach:
-
-  </div>
-  
-  <a href="https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
 </article>
 
@@ -503,10 +214,6 @@ You can go directly to that code, or check my approach:
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/tags/kafka/">es</a></li>
-         
     </ul>
 </nav>
 
