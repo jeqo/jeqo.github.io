@@ -738,7 +738,7 @@ img {
 
 .c-article__summary {
     font-size: 1.4rem;
-    font-family: 'Spectral';
+    font-family: 'Open Sans';
     font-style: italic;
     color: #999;
     line-height: 1.57
@@ -1058,7 +1058,7 @@ img {
 
 .p-article__body {
     margin: 40px 0 30px;
-    font-family: 'Spectral';
+    font-family: 'Open Sans';
     word-wrap: break-word
 }
 
