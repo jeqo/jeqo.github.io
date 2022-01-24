@@ -6,9 +6,9 @@
     <title>automation</title>
     <meta property="og:title" content="automation" />
     <meta name="twitter:title" content="automation" />  
-    <meta name="description" content="data streaming, observability, automation">
-    <meta property="og:description" content="data streaming, observability, automation">
-    <meta name="twitter:description" content="data streaming, observability, automation"> 
+    <meta name="description" content="data streaming, observability, automation, and random stuff">
+    <meta property="og:description" content="data streaming, observability, automation, and random stuff">
+    <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
@@ -18,7 +18,7 @@
     <meta name="twitter:creator" content="@jeqo89" />  
     <meta property="og:type" content="website" /> 
 
-    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
     <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
     <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -82,7 +82,7 @@
         <h1 class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></h1>
          
         <p class="p-subtitle">
-            data streaming, observability, automation
+            data streaming, observability, automation, and random stuff
         </p>
         
     </header>
@@ -151,6 +151,10 @@
         </li>
           
         <li class="p-menu__listitem">
+            <a href="/projects">Projects</a>
+        </li>
+          
+        <li class="p-menu__listitem">
             <a href="/about">About</a>
         </li>
           
@@ -162,17 +166,20 @@
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/cp-ansible/">Notes on cp-ansible</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-21-ansible-debug/">Ansible has a debug mode to pause and troubleshoot</a></h2>
     <p class="c-article__meta">
       Posted on
-      <time datetime="2020-06-17T00:00:00Z">
-        Jun 17, 2020
+      <time datetime="2022-01-21T00:00:00Z">
+        Jan 21, 2022
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-    
+    I have been running Ansible for a while now. My usual/naive way of debugging has always been adding a debug module[1], and get the execution running til that point.
+I figured that there are better ways to deal with this[2]. By using the debug mode, tasks will stop when failing (by default) and you&rsquo;ll be able to introspect into the task, variables, and context when things failed. Even better, you&rsquo;ll be able to re-execute if there was a transient error.
   </div>
+  
+  <a href="https://jeqo.github.io/til/2022-01-21-ansible-debug/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
 </article>
 
@@ -196,6 +203,10 @@
           
         <li class="p-menu__listitem">
             <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/projects">Projects</a>
         </li>
           
         <li class="p-menu__listitem">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.89.4" />
+	<meta name="generator" content="Hugo 0.92.0" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
     <title>@jeqo</title>
@@ -167,6 +167,26 @@
 </nav>
 
     <main id="main" class="l-main">
+
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-21-ansible-debug/">Ansible has a debug mode to pause and troubleshoot</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2022-01-21T00:00:00Z">
+        Jan 21, 2022
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    I have been running Ansible for a while now. My usual/naive way of debugging has always been adding a debug module[1], and get the execution running til that point.
+I figured that there are better ways to deal with this[2]. By using the debug mode, tasks will stop when failing (by default) and you&rsquo;ll be able to introspect into the task, variables, and context when things failed. Even better, you&rsquo;ll be able to re-execute if there was a transient error.
+  </div>
+  
+  <a href="https://jeqo.github.io/til/2022-01-21-ansible-debug/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+</article>
+
 
   <article class="c-article p-list-article">
   <header>
@@ -341,28 +361,6 @@ Records are only available for consumption once the replicas have been updated a
   <div class="c-article__summary">
     Today I learned about Today-I-Learned posts from Simon Willison: https://til.simonwillison.net/ and found it super cool, so I decided to try out, let&rsquo;s see how it goes.
   </div>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/">Notes on Co-evolving Tracing and Fault Injection with Box of Pain</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-10-31T00:00:00Z">
-        Oct 31, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    This paper explores how related tracing and fault injection systems are, and if they should be part of the same thing.
- The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&hellip;]
-  [&hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.
- In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
 </article>
 

@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.92.0" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>@jeqo</title>
-    <meta property="og:title" content="@jeqo" />
-    <meta name="twitter:title" content="@jeqo" />  
+    <title>ansible has a debug mode to pause and troubleshoot</title>
+    <meta property="og:title" content="Ansible has a debug mode to pause and troubleshoot" />
+    <meta name="twitter:title" content="Ansible has a debug mode to pause and troubleshoot" />  
     <meta name="description" content="data streaming, observability, automation, and random stuff">
     <meta property="og:description" content="data streaming, observability, automation, and random stuff">
     <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/es/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/til/2022-01-21-ansible-debug/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
-    <meta property="og:type" content="website" /> 
+    <meta property="og:type" content="article" /> 
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
@@ -80,7 +79,7 @@
 </svg>
     <header class="l-header">
         
-        <h1 class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></h1>
+        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
          
         <p class="p-subtitle">
             data streaming, observability, automation, and random stuff
@@ -136,7 +135,7 @@
     <ul class="p-menu__lists">
          
         <li class="p-menu__listitem">
-            <a href="/es/posts">Posts</a>
+            <a href="/posts">Posts</a>
         </li>
           
         <li class="p-menu__listitem">
@@ -144,243 +143,124 @@
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/es/notes">Notas</a>
+            <a href="/notes">Notes</a>
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/es/talks">Presentaciones</a>
+            <a href="/talks">Talks</a>
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/projects">Proyectos</a>
+            <a href="/projects">Projects</a>
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/about">Acerca</a>
+            <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/">en</a></li>
-         
     </ul>
 </nav>
 
     <main id="main" class="l-main">
 
-  <article class="c-article p-list-article">
+<article class="p-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2020-10-02-peru-congreso/">Cómo mejorar el sitio web del Congreso de Perú?</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-10-01T00:00:00Z">
-        Oct 1, 2020
-      </time>
-    </p>
+    <h1>Ansible has a debug mode to pause and troubleshoot</h1>
+    <div>
+      <div class="c-time">
+        Posted on
+        <time datetime="2022-01-21T00:00:00Z">
+          Jan 21, 2022
+        </time>
+      </div>
+      
+      <a href="https://jeqo.github.io/tags/ansible" class="c-tag">ansible</a>
+      
+      <a href="https://jeqo.github.io/tags/automation" class="c-tag">automation</a>
+      
+    </div>
   </header>
-  <div class="c-article__summary">
-    Si bien nos podemos seguir quejando (y con muchas razones) sobre las deficiencias del Congreso, no sirve de mucho si no va de la mano de con propuestas de como apoyar a solucionarlo.
-En teoría el Congreso literalmente trabaja para nosotros (los ciudadanos). Si como ciudadanos no somos capaces de entender y fiscalizar que es lo que el Congreso hace, no hay manera de controlarlos.
-hashtag-outline &nbsp;Sitio web del Congreso El actual sitio web si bien tiene una apariencia renovada, la información expuesta aún no es facilmente accessible, ni procesable.
-  </div>
   
-  <a href="https://jeqo.github.io/es/posts/2020-10-02-peru-congreso/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
+  <section id="js-article" class="p-article__body">
+    <p>I have been running Ansible for a while now.
+My usual/naive way of debugging has always been adding a <code>debug</code> module<a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html">[1]</a>, and get the execution running til that point.</p>
+<p>I figured that there are better ways to deal with this<a href="https://docs.ansible.com/ansible/2.9/user_guide/playbooks_debugger.html#examples">[2]</a>.
+By using the debug mode, tasks will stop when failing (by default) and you&rsquo;ll be able to introspect into the task, variables, and context when things failed.
+Even better, you&rsquo;ll be able to re-execute if there was a transient error.</p>
+<h2 id="references">
+    <a class="hash-link nohover" href="#references">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;References:
+</h2><p>[1] <a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html">https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html</a></p>
+<p>[2] <a href="https://docs.ansible.com/ansible/2.9/user_guide/playbooks_debugger.html#examples">https://docs.ansible.com/ansible/2.9/user_guide/playbooks_debugger.html#examples</a></p>
+
+  </section>
+  <footer>
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'jeqoblog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <nav class="p-pagination c-pagination">
+      <div class="c-pagination__ctrl">
+        <div class="c-pagination__newer">
+          
+          <a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/">Newer</a>
+          
+        </div>
+        <div class="c-pagination__older">
+          
+          
+        </div>
+      </div>
+    </nav>
+    
+
+<section class="p-related">
+  <h3>See Also</h3>
+  <ul id="slider" class="p-related__list">
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/"
+        >
+        <span>Speed up your Oracle Database provisioning with Docker and Ansible</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2016-03-30-ansible-agentless-provisioning/"
+        >
+        <span>Ansible - an agentless provisioning</span>
+      </a>
+    </li>
+    
+  </ul>
+</section>
+
+
+  </footer>
 </article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/">Data on the Outside vs Data on the Inside</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2018-01-08T00:00:00Z">
-        Jan 8, 2018
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Encuentro este paper tan relevante y preciso hoy como lo fue en 2005, cuando fue publicado. Es fascinante como luego de 12 años y con nuevas tecnologías en voga, los mismos conceptos siguen aplicando.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/es/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/talks/observando-sistemas-distribuidos-perujug/">Observando Sistemas Distribuidos @ OUGN 2017</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2017-12-18T00:00:00Z">
-        Dec 18, 2017
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Presentado en PeruJUG
-
-  </div>
-  
-  <a href="https://jeqo.github.io/es/talks/observando-sistemas-distribuidos-perujug/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/talks/de-mensajeria-a-log-de-eventos-perujug/">De Mensajería a Log de Eventos con Apache Kafka @ Perú JUG</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2017-02-16T00:00:00Z">
-        Feb 16, 2017
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Presentado al Perú JUG
-
-  </div>
-  
-  <a href="https://jeqo.github.io/es/talks/de-mensajeria-a-log-de-eventos-perujug/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2017-01-31-kafka-rewind-consumers-offset/">Retroceder Offsets de Consumidores de Kafka</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2017-01-31T00:00:00Z">
-        Jan 31, 2017
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Una de las características más importantes de Apache Kafka es el manejo de múltiples consumidores. Cada consumer group tiene un offset, que determina hasta que punto del topic se encuentra consumido por consumer group. Así, cada consumer group puede manejar los offset independientemente, por partición.
-Esto ofrece la posibilidad de retroceder en el tiempo y reprocesar mensaje desde el inicio de un topic y regenerar el estado actual del sistema.
-Pero, cómo realizar esto de forma programática?
-
-  </div>
-  
-  <a href="https://jeqo.github.io/es/posts/2017-01-31-kafka-rewind-consumers-offset/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/">Escalando Kafka con Docker Containers</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2017-01-15T00:00:00Z">
-        Jan 15, 2017
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    En este post mostraré como utilizar contenedores Docker para crear y escalar un clúster de Kafka, y también como crear, escalar y mover topics dentro del clúster.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2016-03-30-ansible-agentless-provisioning/">Ansible - Provisionamiento sin agentes</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2016-03-30T00:00:00Z">
-        Mar 30, 2016
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Ansible es una herramienta de automatización reconocida por ser sencilla y potente a la vez. Según mi experiencia, puedo decir que esto se debe principalmente al lenguaje que utiliza: YAML, y a tener una arquitectura sin agentes o &ldquo;agentless&rdquo;.
-hashtag-outline &nbsp;YAML y los componentes de Ansible  &ldquo;YAML is a human friendly data serialization standard for all programming languages&rdquo; (Source: http://yaml.org/)
- Esto signifíca que es verdaderamente fácil de entender y comenzar a trabajar con YAML.
-  </div>
-  
-  <a href="https://jeqo.github.io/es/posts/2016-03-30-ansible-agentless-provisioning/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/">Imagen de Oracle SOA Suite 12c en Docker</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2015-09-04T00:00:00Z">
-        Sep 4, 2015
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Luego de encontrar algunas limitaciones en la construcción de una imagen en Docker con Oracle SOA Suite 12c instalado usando Dockerfiles (como acceso a volumenes, tamaño de filesystem por defecto), he investigado como mejorar este proceso, y he encontrado Packer (del mismo equipo que creo Vagrant, Hashicorp).
-Para obtener mayor información sobre porqué utilizar Packer en vez de Dockerfiles, ir aquí.
-También he movido el directory OracleSOA que cree sobre el repositorio de Oracle Docker oracle-docker hacia un repositorio independiente: github.
-  </div>
-  
-  <a href="https://jeqo.github.io/es/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2015-07-31-java-ee-rxjava-kafka-avro/">Integrar Java EE 7 y Kafka usando Avro y RxJava</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2015-07-31T00:00:00Z">
-        Jul 31, 2015
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Hace poco decidi probar una rápida implementación entre aplicaciones Java EE y RxJava/Kafka/Avro, para publicar/subscribirse a &ldquo;topic messages&rdquo;.
-Puedes ir directamente al código, o revisar el enfoque que apliqué:
-hashtag-outline &nbsp;TL;DR He estado realizando alguna pruebas de concepto con Kafka seducido por los beneficios que propone (rapidez, escalabilidad, y funcionar como una fuente de eventos durable) para implementar una propagación de eventos usando el patrón &ldquo;Publish/Subscribe&rdquo;.
-En estos momentos que estoy escribiendo esta entrada del blog, me he dado cuenta que las APIs para acceder a Kafka están en constante evolución y volviéndose más simples de utilizar, y no ha sido fácil encontrar un ejemplo con la versión actual.
-  </div>
-  
-  <a href="https://jeqo.github.io/es/posts/2015-07-31-java-ee-rxjava-kafka-avro/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/es/posts/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/">Oracle Fusion Middleware Chef Cookbook - Nueva versión!</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2015-07-21T00:00:00Z">
-        Jul 21, 2015
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Ayer cargué una nueva versión (0.2.0) de mi Oracle Fusion Middleware Cookbook compartido en Chef Supermarket
-Este nuevo release incluye:
- Soporte para la instalación de Oracle SOA Suite 12c Quickstart Soporte para la instalación y creación de dominios con Oracle SOA/OSB Suite 11g  Pueden encontrar ejemplos de uso en este repositorio: https://github.com/jeqo/chef-repo
-  </div>
-  
-</article>
-
-
   </main>
   
 <nav class="l-nav p-menu">
     <ul class="p-menu__lists">
          
         <li class="p-menu__listitem">
-            <a href="/es/posts">Posts</a>
+            <a href="/posts">Posts</a>
         </li>
           
         <li class="p-menu__listitem">
@@ -388,25 +268,21 @@ Este nuevo release incluye:
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/es/notes">Notas</a>
+            <a href="/notes">Notes</a>
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/es/talks">Presentaciones</a>
+            <a href="/talks">Talks</a>
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/projects">Proyectos</a>
+            <a href="/projects">Projects</a>
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/about">Acerca</a>
+            <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/">en</a></li>
-         
     </ul>
 </nav>
 

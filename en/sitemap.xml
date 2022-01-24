@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jeqo.github.io/</loc>
-    <lastmod>2021-12-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -15,8 +15,27 @@
                 href="https://jeqo.github.io/"
                 />
   </url><url>
+    <loc>https://jeqo.github.io/tags/ansible/</loc>
+    <lastmod>2022-01-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/tags/ansible/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/tags/ansible/"
+                />
+  </url><url>
+    <loc>https://jeqo.github.io/til/2022-01-21-ansible-debug/</loc>
+    <lastmod>2022-01-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/automation/</loc>
+    <lastmod>2022-01-21T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jeqo.github.io/categories/</loc>
-    <lastmod>2021-12-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -27,6 +46,25 @@
                 hreflang="en"
                 href="https://jeqo.github.io/categories/"
                 />
+  </url><url>
+    <loc>https://jeqo.github.io/categories/ops/</loc>
+    <lastmod>2022-01-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/</loc>
+    <lastmod>2022-01-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/tags/"
+                />
+  </url><url>
+    <loc>https://jeqo.github.io/til/</loc>
+    <lastmod>2022-01-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/til/2021-12-10-kafka-change-rack/</loc>
     <lastmod>2021-12-10T00:00:00+00:00</lastmod>
@@ -53,9 +91,6 @@
     <loc>https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/</loc>
     <lastmod>2021-12-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/categories/ops/</loc>
-    <lastmod>2021-12-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jeqo.github.io/posts/</loc>
     <lastmod>2021-12-10T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -68,22 +103,6 @@
                 hreflang="en"
                 href="https://jeqo.github.io/posts/"
                 />
-  </url><url>
-    <loc>https://jeqo.github.io/tags/</loc>
-    <lastmod>2021-12-10T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/"
-                />
-  </url><url>
-    <loc>https://jeqo.github.io/til/</loc>
-    <lastmod>2021-12-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/</loc>
     <lastmod>2021-12-09T00:00:00+00:00</lastmod>
@@ -460,19 +479,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/"
-                />
-  </url><url>
-    <loc>https://jeqo.github.io/tags/ansible/</loc>
-    <lastmod>2016-05-26T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/ansible/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/ansible/"
                 />
   </url><url>
     <loc>https://jeqo.github.io/tags/database/</loc>
