@@ -6,9 +6,9 @@
     <title>java</title>
     <meta property="og:title" content="java" />
     <meta name="twitter:title" content="java" />  
-    <meta name="description" content="data streaming, observability, automation">
-    <meta property="og:description" content="data streaming, observability, automation">
-    <meta name="twitter:description" content="data streaming, observability, automation"> 
+    <meta name="description" content="data streaming, observability, automation, and random stuff">
+    <meta property="og:description" content="data streaming, observability, automation, and random stuff">
+    <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
@@ -18,7 +18,7 @@
     <meta name="twitter:creator" content="@jeqo89" />  
     <meta property="og:type" content="website" /> 
 
-    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
     <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
     <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -82,7 +82,7 @@
         <h1 class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></h1>
          
         <p class="p-subtitle">
-            data streaming, observability, automation
+            data streaming, observability, automation, and random stuff
         </p>
         
     </header>
@@ -151,6 +151,10 @@
         </li>
           
         <li class="p-menu__listitem">
+            <a href="/projects">Projects</a>
+        </li>
+          
+        <li class="p-menu__listitem">
             <a href="/about">About</a>
         </li>
           
@@ -162,25 +166,18 @@
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/security/">Notes on Java Security</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-25-reload4j/">reload4j as drop-in replacement for log4j 1.x</a></h2>
     <p class="c-article__meta">
       Posted on
-      <time datetime="2020-06-16T00:00:00Z">
-        Jun 16, 2020
+      <time datetime="2022-01-25T00:00:00Z">
+        Jan 25, 2022
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-    == Security Standards
-=== Hashing
-==== Hash Functions
-.Cryptographic Hash Functions What makes a hash function a Cryptographic Hash Function (CHF) is that is a one-way function: practically infeasible to invert.
-==== MD5
-From https://en.wikipedia.org/wiki/MD5[Wikipedia]:
- The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to be used as a cryptographic hash function, it has been found to suffer from extensive vulnerabilities.
+    TIL there is a drop-in replacement for log4j 1.x: Reload4j.
+It continues fixing security issues, and doesn&rsquo;t require changing application logic. Dropping JAR to the classpath, removing previous log4j-1.* JARs should be enough to get the latest patches.
   </div>
-  
-  <a href="https://jeqo.github.io/notes/security/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
 </article>
 
@@ -204,6 +201,10 @@ From https://en.wikipedia.org/wiki/MD5[Wikipedia]:
           
         <li class="p-menu__listitem">
             <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/projects">Projects</a>
         </li>
           
         <li class="p-menu__listitem">
