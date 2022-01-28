@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.92.0" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>@jeqo</title>
-    <meta property="og:title" content="@jeqo" />
-    <meta name="twitter:title" content="@jeqo" />  
+    <title>api</title>
+    <meta property="og:title" content="api" />
+    <meta name="twitter:title" content="api" />  
     <meta name="description" content="data streaming, observability, automation, and random stuff">
     <meta property="og:description" content="data streaming, observability, automation, and random stuff">
     <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/tags/api/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
@@ -159,16 +158,13 @@
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/">es</a></li>
-         
     </ul>
 </nav>
 
     <main id="main" class="l-main">
+<h2 class="c-title p-tag-title">api</h2>
 
-  <article class="c-article p-list-article">
+<article class="c-article p-list-article">
   <header>
     <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/">Kafka Streams abstracts access to multiple tasks state stores when reading</a></h2>
     <p class="c-article__meta">
@@ -184,184 +180,6 @@ The answer is yes, Kafka Streams abstracts away tasks and multiple stores. Inter
   </div>
   
   <a href="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-25-reload4j/">reload4j as drop-in replacement for log4j 1.x</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-25T00:00:00Z">
-        Jan 25, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    TIL there is a drop-in replacement for log4j 1.x: Reload4j.
-It continues fixing security issues, and doesn&rsquo;t require changing application logic. Dropping JAR to the classpath, removing previous log4j-1.* JARs should be enough to get the latest patches.
-  </div>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-21-ansible-debug/">Ansible has a debug mode to pause and troubleshoot</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-21T00:00:00Z">
-        Jan 21, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    I have been running Ansible for a while now. My usual/naive way of debugging has always been adding a debug module[1], and get the execution running til that point.
-I figured that there are better ways to deal with this[2]. By using the debug mode, tasks will stop when failing (by default) and you&rsquo;ll be able to introspect into the task, variables, and context when things failed. Even better, you&rsquo;ll be able to re-execute if there was a transient error.
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-01-21-ansible-debug/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/">Changing Kafka Broker&#39;s rack</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-10T00:00:00Z">
-        Dec 10, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka broker configuration includes a rack label to define the location of the broker. This is useful when placing replicas across the cluster to ensure replicas are spread across locations as evenly as possible.
-This label may need to change for different reasons. One I found today is if you want to redefine locations to support Multi-Region clusters and Observers.
-If there are existing topics, and previous rack labels were already used when creating the topics, then the placement may not match the new topology.
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/">Kafka data loss scenarios</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-10T00:00:00Z">
-        Dec 10, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka topic partitions are replicated across brokers. Data loss happens when the brokers where replicas are located are unavailable or have fully failed. The worst scenario — and where is no much to do — is when all the brokers fail; then no remediation is possible. Replication allows to increase redundancy so this scenarios is less likely to happen.
-The following scenarios show different trade-offs that could increase the risk of lossing data:
-  </div>
-  
-  <a href="https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/">Kafka Producer idempotency is enabled by default since 3.0</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-09T00:00:00Z">
-        Dec 9, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.
-This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.
-  </div>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/">Reducing `acks` doesn&#39;t help to reduce end-to-end latency</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-09T00:00:00Z">
-        Dec 9, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka Producers enforce durability across replicas by setting acks=all (default since v3.0). As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.
-When looking at the end-to-end latency (including production and consumption) this ends up not being the case:
-Records are only available for consumption once the replicas have been updated and the leader can increase the high watermark.
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/cioran-books/">Cioran books</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-03T00:00:00Z">
-        Dec 3, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Including pictures from books:
- The Trouble With Being Born A Short History Of Decay 
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/cioran-books/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/scale-book/">Scale book</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-03T00:00:00Z">
-        Dec 3, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Scale: The Universal Laws of Growth, Innovation, Sustainability, and the Pace of Life in Organisms, Cities, Economies, and Companies by Geoffrey B. West
-
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/scale-book/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/the-age-of-surveillance-capitalism-book/">The Age Of Surveillance Capitalism book</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-03T00:00:00Z">
-        Dec 3, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    The Age Of Surveillance Capitalism by Shoshana Zuboff
-
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/the-age-of-surveillance-capitalism-book/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
 </article>
 
@@ -395,10 +213,6 @@ Records are only available for consumption once the replicas have been updated a
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/">es</a></li>
-         
     </ul>
 </nav>
 

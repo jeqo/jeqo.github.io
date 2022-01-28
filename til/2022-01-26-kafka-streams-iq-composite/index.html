@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.92.0" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>@jeqo</title>
-    <meta property="og:title" content="@jeqo" />
-    <meta name="twitter:title" content="@jeqo" />  
+    <title>kafka streams abstracts access to multiple tasks state stores when reading</title>
+    <meta property="og:title" content="Kafka Streams abstracts access to multiple tasks state stores when reading" />
+    <meta name="twitter:title" content="Kafka Streams abstracts access to multiple tasks state stores when reading" />  
     <meta name="description" content="data streaming, observability, automation, and random stuff">
     <meta property="og:description" content="data streaming, observability, automation, and random stuff">
     <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
-    <meta property="og:type" content="website" /> 
+    <meta property="og:type" content="article" /> 
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
@@ -80,7 +79,7 @@
 </svg>
     <header class="l-header">
         
-        <h1 class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></h1>
+        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
          
         <p class="p-subtitle">
             data streaming, observability, automation, and random stuff
@@ -159,213 +158,103 @@
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/">es</a></li>
-         
     </ul>
 </nav>
 
     <main id="main" class="l-main">
 
-  <article class="c-article p-list-article">
+<article class="p-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/">Kafka Streams abstracts access to multiple tasks state stores when reading</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-26T00:00:00Z">
-        Jan 26, 2022
-      </time>
-    </p>
+    <h1>Kafka Streams abstracts access to multiple tasks state stores when reading</h1>
+    <div>
+      <div class="c-time">
+        Posted on
+        <time datetime="2022-01-26T00:00:00Z">
+          Jan 26, 2022
+        </time>
+      </div>
+      
+      <a href="https://jeqo.github.io/tags/kafka-streams" class="c-tag">kafka-streams</a>
+      
+      <a href="https://jeqo.github.io/tags/api" class="c-tag">api</a>
+      
+    </div>
   </header>
-  <div class="c-article__summary">
-    Kafka Streams applications could scale either horizontally (add more instances) or vertically (add more threads). When scaled vertically, multiple tasks store multiple partitions locally. An interesting question is whether Kafka Streams gives access when reading (i.e. Interactive Queries) to these stores, and how does it manage to abstract the access to different stores managed by multiple tasks.
-The answer is yes, Kafka Streams abstracts away tasks and multiple stores. Internally it&rsquo;s implemented by using CompositeReadOnly*Stores:
-  </div>
   
-  <a href="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
+  <section id="js-article" class="p-article__body">
+    <p>Kafka Streams applications could scale either horizontally (add more instances) or vertically (add more threads).
+When scaled vertically, multiple tasks store multiple partitions locally.
+An interesting question is whether Kafka Streams gives access when reading (i.e. <a href="https://docs.confluent.io/platform/current/streams/developer-guide/interactive-queries.html">Interactive Queries</a>) to these stores, and how does it manage to abstract the access to different stores managed by multiple tasks.</p>
+<p>The answer is yes, Kafka Streams abstracts away tasks and multiple stores.
+Internally it&rsquo;s implemented by using <code>CompositeReadOnly*Stores</code>:</p>
+<ul>
+<li><a href="https://github.com/apache/kafka/blob/trunk/streams/src/main/java/org/apache/kafka/streams/state/internals/CompositeReadOnlyKeyValueStore.java">https://github.com/apache/kafka/blob/trunk/streams/src/main/java/org/apache/kafka/streams/state/internals/CompositeReadOnlyKeyValueStore.java</a></li>
+<li><a href="https://github.com/apache/kafka/blob/trunk/streams/src/main/java/org/apache/kafka/streams/state/internals/CompositeReadOnlyWindowStore.java">https://github.com/apache/kafka/blob/trunk/streams/src/main/java/org/apache/kafka/streams/state/internals/CompositeReadOnlyWindowStore.java</a></li>
+<li><a href="https://github.com/apache/kafka/blob/trunk/streams/src/main/java/org/apache/kafka/streams/state/internals/CompositeReadOnlySessionStore.java">https://github.com/apache/kafka/blob/trunk/streams/src/main/java/org/apache/kafka/streams/state/internals/CompositeReadOnlySessionStore.java</a></li>
+</ul>
+<p>Where <code>StoreProvider</code> gives access to the internal stores managed by the Kafka Streams instance tasks:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">final</span> List<span style="color:#333">&lt;</span>ReadOnlySessionStore<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;&gt;</span> stores <span style="color:#333">=</span> storeProvider<span style="color:#333">.</span><span style="color:#00c">stores</span><span style="color:#333">(</span>storeName<span style="color:#333">,</span> queryableStoreType<span style="color:#333">);</span>
+<span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> ReadOnlySessionStore<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> store <span style="color:#333">:</span> stores<span style="color:#333">)</span> <span style="color:#333">{</span>
+    <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">{</span>
+        <span style="color:#080;font-weight:bold">final</span> KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> V<span style="color:#333">&gt;</span> result <span style="color:#333">=</span>
+            store<span style="color:#333">.</span><span style="color:#00c">findSessions</span><span style="color:#333">(</span>key<span style="color:#333">,</span> earliestSessionEndTime<span style="color:#333">,</span> latestSessionStartTime<span style="color:#333">);</span>
+
+        <span style="color:#080;font-weight:bold">if</span> <span style="color:#333">(!</span>result<span style="color:#333">.</span><span style="color:#00c">hasNext</span><span style="color:#333">())</span> <span style="color:#333">{</span>
+            result<span style="color:#333">.</span><span style="color:#00c">close</span><span style="color:#333">();</span>
+        <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">else</span> <span style="color:#333">{</span>
+            <span style="color:#080;font-weight:bold">return</span> result<span style="color:#333">;</span>
+        <span style="color:#333">}</span>
+    <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">catch</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> InvalidStateStoreException ise<span style="color:#333">)</span> <span style="color:#333">{</span>
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> InvalidStateStoreException<span style="color:#333">(</span>
+            <span style="background-color:#fff0f0">&#34;State store  [&#34;</span> <span style="color:#333">+</span> storeName <span style="color:#333">+</span> <span style="background-color:#fff0f0">&#34;] is not available anymore&#34;</span> <span style="color:#333">+</span>
+                <span style="background-color:#fff0f0">&#34; and may have been migrated to another instance; &#34;</span> <span style="color:#333">+</span>
+                <span style="background-color:#fff0f0">&#34;please re-discover its location from the state metadata.&#34;</span><span style="color:#333">,</span>
+            ise
+        <span style="color:#333">);</span>
+    <span style="color:#333">}</span>
+<span style="color:#333">}</span>
+<span style="color:#080;font-weight:bold">return</span> KeyValueIterators<span style="color:#333">.</span><span style="color:#00c">emptyIterator</span><span style="color:#333">();</span>
+</code></pre></div><p>I know about the abstraction, but was interesting to find out how it&rsquo;s actually implemented.</p>
+
+  </section>
+  <footer>
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'jeqoblog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <nav class="p-pagination c-pagination">
+      <div class="c-pagination__ctrl">
+        <div class="c-pagination__newer">
+          
+          <a href="https://jeqo.github.io/til/2022-01-25-reload4j/">Newer</a>
+          
+        </div>
+        <div class="c-pagination__older">
+          
+          
+        </div>
+      </div>
+    </nav>
+    
+
+
+  </footer>
 </article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-25-reload4j/">reload4j as drop-in replacement for log4j 1.x</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-25T00:00:00Z">
-        Jan 25, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    TIL there is a drop-in replacement for log4j 1.x: Reload4j.
-It continues fixing security issues, and doesn&rsquo;t require changing application logic. Dropping JAR to the classpath, removing previous log4j-1.* JARs should be enough to get the latest patches.
-  </div>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-21-ansible-debug/">Ansible has a debug mode to pause and troubleshoot</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-21T00:00:00Z">
-        Jan 21, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    I have been running Ansible for a while now. My usual/naive way of debugging has always been adding a debug module[1], and get the execution running til that point.
-I figured that there are better ways to deal with this[2]. By using the debug mode, tasks will stop when failing (by default) and you&rsquo;ll be able to introspect into the task, variables, and context when things failed. Even better, you&rsquo;ll be able to re-execute if there was a transient error.
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-01-21-ansible-debug/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/">Changing Kafka Broker&#39;s rack</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-10T00:00:00Z">
-        Dec 10, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka broker configuration includes a rack label to define the location of the broker. This is useful when placing replicas across the cluster to ensure replicas are spread across locations as evenly as possible.
-This label may need to change for different reasons. One I found today is if you want to redefine locations to support Multi-Region clusters and Observers.
-If there are existing topics, and previous rack labels were already used when creating the topics, then the placement may not match the new topology.
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/">Kafka data loss scenarios</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-10T00:00:00Z">
-        Dec 10, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka topic partitions are replicated across brokers. Data loss happens when the brokers where replicas are located are unavailable or have fully failed. The worst scenario — and where is no much to do — is when all the brokers fail; then no remediation is possible. Replication allows to increase redundancy so this scenarios is less likely to happen.
-The following scenarios show different trade-offs that could increase the risk of lossing data:
-  </div>
-  
-  <a href="https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/">Kafka Producer idempotency is enabled by default since 3.0</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-09T00:00:00Z">
-        Dec 9, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.
-This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.
-  </div>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/">Reducing `acks` doesn&#39;t help to reduce end-to-end latency</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-09T00:00:00Z">
-        Dec 9, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka Producers enforce durability across replicas by setting acks=all (default since v3.0). As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.
-When looking at the end-to-end latency (including production and consumption) this ends up not being the case:
-Records are only available for consumption once the replicas have been updated and the leader can increase the high watermark.
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/cioran-books/">Cioran books</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-03T00:00:00Z">
-        Dec 3, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Including pictures from books:
- The Trouble With Being Born A Short History Of Decay 
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/cioran-books/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/scale-book/">Scale book</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-03T00:00:00Z">
-        Dec 3, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Scale: The Universal Laws of Growth, Innovation, Sustainability, and the Pace of Life in Organisms, Cities, Economies, and Companies by Geoffrey B. West
-
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/scale-book/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/the-age-of-surveillance-capitalism-book/">The Age Of Surveillance Capitalism book</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-03T00:00:00Z">
-        Dec 3, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    The Age Of Surveillance Capitalism by Shoshana Zuboff
-
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/the-age-of-surveillance-capitalism-book/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
   </main>
   
 <nav class="l-nav p-menu">
@@ -395,10 +284,6 @@ Records are only available for consumption once the replicas have been updated a
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/">es</a></li>
-         
     </ul>
 </nav>
 
