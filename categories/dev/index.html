@@ -166,6 +166,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-29-kafka-streams-fk-join-same-table/">Kafka Streams FK-join within the same KTable</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2022-01-29T00:00:00Z">
+        Jan 29, 2022
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    KTable to KTable foreign-key joins is one of the coolest features in Kafka Streams.
+I was wondering whether this feature would handle FK-joins between values on the same table.
+Seems that the answer is yes:
+var ktable = builder.table(&#34;table&#34;, Consumed.with(Serdes.String(), Serdes.String())); ktable .join(ktable, s -&gt; s, (v1, v2) -&gt; v1 + &#34;-&#34; + v2) .toStream() .to(&#34;fkjoin_v1&#34;, Produced.with(Serdes.String(), Serdes.String())); Values will be used as keys. With the following inputs:
+p1:v1 v1:v2 The following output is expected:
+  </div>
+  
+  <a href="https://jeqo.github.io/til/2022-01-29-kafka-streams-fk-join-same-table/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+</article>
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/">Kafka Streams abstracts access to multiple tasks state stores when reading</a></h2>
     <p class="c-article__meta">
       Posted on

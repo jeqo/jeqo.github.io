@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 26 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kafka Streams FK-join within the same KTable</title>
+      <link>https://jeqo.github.io/til/2022-01-29-kafka-streams-fk-join-same-table/</link>
+      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/til/2022-01-29-kafka-streams-fk-join-same-table/</guid>
+      <description>KTable to KTable foreign-key joins is one of the coolest features in Kafka Streams.
+I was wondering whether this feature would handle FK-joins between values on the same table.
+Seems that the answer is yes:
+var ktable = builder.table(&amp;#34;table&amp;#34;, Consumed.with(Serdes.String(), Serdes.String())); ktable .join(ktable, s -&amp;gt; s, (v1, v2) -&amp;gt; v1 + &amp;#34;-&amp;#34; + v2) .toStream() .to(&amp;#34;fkjoin_v1&amp;#34;, Produced.with(Serdes.String(), Serdes.String())); Values will be used as keys. With the following inputs:
+p1:v1 v1:v2 The following output is expected:</description>
+    </item>
+    
     <item>
       <title>Kafka Streams abstracts access to multiple tasks state stores when reading</title>
       <link>https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/</link>
