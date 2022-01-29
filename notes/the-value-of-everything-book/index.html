@@ -3,16 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>kafka streams abstracts access to multiple tasks state stores when reading</title>
-    <meta property="og:title" content="Kafka Streams abstracts access to multiple tasks state stores when reading" />
-    <meta name="twitter:title" content="Kafka Streams abstracts access to multiple tasks state stores when reading" />  
+    <title>the value of everything book</title>
+    <meta property="og:title" content="The Value of Everything book" />
+    <meta name="twitter:title" content="The Value of Everything book" />  
     <meta name="description" content="data streaming, observability, automation, and random stuff">
     <meta property="og:description" content="data streaming, observability, automation, and random stuff">
     <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/notes/the-value-of-everything-book/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
@@ -165,56 +165,119 @@
 
 <article class="p-article">
   <header>
-    <h1>Kafka Streams abstracts access to multiple tasks state stores when reading</h1>
+    <h1>The Value of Everything book</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2022-01-26T00:00:00Z">
-          Jan 26, 2022
+        <time datetime="2022-01-29T00:00:00Z">
+          Jan 29, 2022
         </time>
       </div>
       
-      <a href="https://jeqo.github.io/tags/kafka-streams" class="c-tag">kafka-streams</a>
-      
-      <a href="https://jeqo.github.io/tags/api" class="c-tag">api</a>
+      <a href="https://jeqo.github.io/tags/ideas" class="c-tag">ideas</a>
       
     </div>
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p>Kafka Streams applications could scale either horizontally (add more instances) or vertically (add more threads).
-When scaled vertically, multiple tasks store multiple partitions locally.
-An interesting question is whether Kafka Streams gives access when reading (i.e. <a href="https://docs.confluent.io/platform/current/streams/developer-guide/interactive-queries.html">Interactive Queries</a>) to these stores, and how does it manage to abstract the access to different stores managed by multiple tasks.</p>
-<p>The answer is yes, Kafka Streams abstracts away tasks and multiple stores.
-Internally it&rsquo;s implemented by using <code>CompositeReadOnly*Stores</code>:</p>
-<ul>
-<li><a href="https://github.com/apache/kafka/blob/trunk/streams/src/main/java/org/apache/kafka/streams/state/internals/CompositeReadOnlyKeyValueStore.java">https://github.com/apache/kafka/blob/trunk/streams/src/main/java/org/apache/kafka/streams/state/internals/CompositeReadOnlyKeyValueStore.java</a></li>
-<li><a href="https://github.com/apache/kafka/blob/trunk/streams/src/main/java/org/apache/kafka/streams/state/internals/CompositeReadOnlyWindowStore.java">https://github.com/apache/kafka/blob/trunk/streams/src/main/java/org/apache/kafka/streams/state/internals/CompositeReadOnlyWindowStore.java</a></li>
-<li><a href="https://github.com/apache/kafka/blob/trunk/streams/src/main/java/org/apache/kafka/streams/state/internals/CompositeReadOnlySessionStore.java">https://github.com/apache/kafka/blob/trunk/streams/src/main/java/org/apache/kafka/streams/state/internals/CompositeReadOnlySessionStore.java</a></li>
-</ul>
-<p>Where <code>StoreProvider</code> gives access to the internal stores managed by the Kafka Streams instance tasks:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">final</span> List<span style="color:#333">&lt;</span>ReadOnlySessionStore<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;&gt;</span> stores <span style="color:#333">=</span> storeProvider<span style="color:#333">.</span><span style="color:#00c">stores</span><span style="color:#333">(</span>storeName<span style="color:#333">,</span> queryableStoreType<span style="color:#333">);</span>
-<span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> ReadOnlySessionStore<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> store <span style="color:#333">:</span> stores<span style="color:#333">)</span> <span style="color:#333">{</span>
-    <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">{</span>
-        <span style="color:#080;font-weight:bold">final</span> KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> V<span style="color:#333">&gt;</span> result <span style="color:#333">=</span>
-            store<span style="color:#333">.</span><span style="color:#00c">findSessions</span><span style="color:#333">(</span>key<span style="color:#333">,</span> earliestSessionEndTime<span style="color:#333">,</span> latestSessionStartTime<span style="color:#333">);</span>
-
-        <span style="color:#080;font-weight:bold">if</span> <span style="color:#333">(!</span>result<span style="color:#333">.</span><span style="color:#00c">hasNext</span><span style="color:#333">())</span> <span style="color:#333">{</span>
-            result<span style="color:#333">.</span><span style="color:#00c">close</span><span style="color:#333">();</span>
-        <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">else</span> <span style="color:#333">{</span>
-            <span style="color:#080;font-weight:bold">return</span> result<span style="color:#333">;</span>
-        <span style="color:#333">}</span>
-    <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">catch</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> InvalidStateStoreException ise<span style="color:#333">)</span> <span style="color:#333">{</span>
-        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> InvalidStateStoreException<span style="color:#333">(</span>
-            <span style="background-color:#fff0f0">&#34;State store  [&#34;</span> <span style="color:#333">+</span> storeName <span style="color:#333">+</span> <span style="background-color:#fff0f0">&#34;] is not available anymore&#34;</span> <span style="color:#333">+</span>
-                <span style="background-color:#fff0f0">&#34; and may have been migrated to another instance; &#34;</span> <span style="color:#333">+</span>
-                <span style="background-color:#fff0f0">&#34;please re-discover its location from the state metadata.&#34;</span><span style="color:#333">,</span>
-            ise
-        <span style="color:#333">);</span>
-    <span style="color:#333">}</span>
-<span style="color:#333">}</span>
-<span style="color:#080;font-weight:bold">return</span> KeyValueIterators<span style="color:#333">.</span><span style="color:#00c">emptyIterator</span><span style="color:#333">();</span>
-</code></pre></div><p>I know about the abstraction, but was interesting to find out how it&rsquo;s actually implemented.</p>
+    <p><a href="https://marianamazzucato.com/books/the-value-of-everything">The Value of Everything</a> by Mariana Mazzucato</p>
+  
+<h2 id="001">
+    <a class="hash-link nohover" href="#001">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;001
+</h2>
+<img src="photos/001.jpg" alt="Photo 001" data-action="zoom">   
+<h2 id="002">
+    <a class="hash-link nohover" href="#002">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;002
+</h2>
+<img src="photos/002.jpg" alt="Photo 002" data-action="zoom">   
+<h2 id="003">
+    <a class="hash-link nohover" href="#003">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;003
+</h2>
+<img src="photos/003.jpg" alt="Photo 003" data-action="zoom">   
+<h2 id="004">
+    <a class="hash-link nohover" href="#004">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;004
+</h2>
+<img src="photos/004.jpg" alt="Photo 004" data-action="zoom">   
+<h2 id="005">
+    <a class="hash-link nohover" href="#005">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;005
+</h2>
+<img src="photos/005.jpg" alt="Photo 005" data-action="zoom">   
+<h2 id="006">
+    <a class="hash-link nohover" href="#006">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;006
+</h2>
+<img src="photos/006.jpg" alt="Photo 006" data-action="zoom">   
+<h2 id="007">
+    <a class="hash-link nohover" href="#007">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;007
+</h2>
+<img src="photos/007.jpg" alt="Photo 007" data-action="zoom">   
+<h2 id="008">
+    <a class="hash-link nohover" href="#008">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;008
+</h2>
+<img src="photos/008.jpg" alt="Photo 008" data-action="zoom">   
+<h2 id="009">
+    <a class="hash-link nohover" href="#009">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;009
+</h2>
+<img src="photos/009.jpg" alt="Photo 009" data-action="zoom">   
+<h2 id="010">
+    <a class="hash-link nohover" href="#010">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;010
+</h2>
+<img src="photos/010.jpg" alt="Photo 010" data-action="zoom">   
+<h2 id="011">
+    <a class="hash-link nohover" href="#011">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;011
+</h2>
+<img src="photos/011.jpg" alt="Photo 011" data-action="zoom">   
+<h2 id="012">
+    <a class="hash-link nohover" href="#012">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;012
+</h2>
+<img src="photos/012.jpg" alt="Photo 012" data-action="zoom">   
+<h2 id="013">
+    <a class="hash-link nohover" href="#013">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;013
+</h2>
+<img src="photos/013.jpg" alt="Photo 013" data-action="zoom">   
+<h2 id="014">
+    <a class="hash-link nohover" href="#014">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;014
+</h2>
+<img src="photos/014.jpg" alt="Photo 014" data-action="zoom">   
+<h2 id="015">
+    <a class="hash-link nohover" href="#015">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;015
+</h2>
+<img src="photos/015.jpg" alt="Photo 015" data-action="zoom">   
+<h2 id="016">
+    <a class="hash-link nohover" href="#016">
+        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+    </a>&nbsp;016
+</h2>
+<img src="photos/016.jpg" alt="Photo 016" data-action="zoom">
   </section>
   <footer>
     
@@ -240,17 +303,38 @@ Internally it&rsquo;s implemented by using <code>CompositeReadOnly*Stores</code>
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/til/2022-01-25-reload4j/">Newer</a>
+          <a href="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://jeqo.github.io/notes/the-value-of-everything-book/">Older</a>
+          <a href="https://jeqo.github.io/til/2022-01-29-kafka-streams-fk-join-same-table/">Older</a>
           
         </div>
       </div>
     </nav>
     
+
+<section class="p-related">
+  <h3>See Also</h3>
+  <ul id="slider" class="p-related__list">
+    
+    <li class="p-related__item js-related__item">
+      <a href="/notes/scale-book/"
+        >
+        <span>Scale book</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/notes/the-age-of-surveillance-capitalism-book/"
+        >
+        <span>The Age Of Surveillance Capitalism book</span>
+      </a>
+    </li>
+    
+  </ul>
+</section>
 
 
   </footer>
