@@ -14,8 +14,7 @@
       <pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/til/2022-01-25-reload4j/</guid>
-      <description>TIL there is a drop-in replacement for log4j 1.x: Reload4j.
-It continues fixing security issues, and doesn&amp;rsquo;t require changing application logic. Dropping JAR to the classpath, removing previous log4j-1.* JARs should be enough to get the latest patches.</description>
+      <description>&lt;p&gt;TIL there is a drop-in replacement for log4j 1.x: &lt;a href=&#34;https://reload4j.qos.ch/&#34;&gt;Reload4j&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

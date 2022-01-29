@@ -14,9 +14,8 @@
       <pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/til/2021-12-10-kafka-change-rack/</guid>
-      <description>Kafka broker configuration includes a rack label to define the location of the broker. This is useful when placing replicas across the cluster to ensure replicas are spread across locations as evenly as possible.
-This label may need to change for different reasons. One I found today is if you want to redefine locations to support Multi-Region clusters and Observers.
-If there are existing topics, and previous rack labels were already used when creating the topics, then the placement may not match the new topology.</description>
+      <description>&lt;p&gt;Kafka broker configuration includes a &lt;code&gt;rack&lt;/code&gt; label to define the location of the broker.
+This is useful when placing replicas across the cluster to ensure replicas are spread across locations &lt;em&gt;as evenly as possible&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -45,9 +44,8 @@ This means by default Producers will be balanced between latency (no batching) a
       <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/</guid>
-      <description>Kafka Producers enforce durability across replicas by setting acks=all (default since v3.0). As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.
-When looking at the end-to-end latency (including production and consumption) this ends up not being the case:
-Records are only available for consumption once the replicas have been updated and the leader can increase the high watermark.</description>
+      <description>&lt;p&gt;Kafka Producers enforce durability across replicas by setting &lt;code&gt;acks=all&lt;/code&gt; (&lt;a href=&#34;https://jeqo.github.io/til/kafka-v3-idea&#34;&gt;default since v3.0&lt;/a&gt;).
+As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.&lt;/p&gt;</description>
     </item>
     
     <item>
