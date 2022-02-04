@@ -168,6 +168,38 @@
   
     <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-29-kafka-streams-fk-join-same-table/">Kafka Streams FK-join within the same KTable</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2022-01-29T00:00:00Z">
+        Jan 29, 2022
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    KTable to KTable foreign-key joins is one of the coolest features in Kafka Streams.
+I was wondering whether this feature would handle FK-joins between values on the same table.
+
+  </div>
+  
+  <a href="https://jeqo.github.io/til/2022-01-29-kafka-streams-fk-join-same-table/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+  <div>
+    <a href="/til" class="c-tag">til</a>
+    
+    <a href="/tags/dev/" class="c-tag">dev</a>
+    
+    
+    <a href="/tags/kafka-streams/" class="c-tag">kafka-streams</a>
+    
+    <a href="/tags/streaming-joins/" class="c-tag">streaming-joins</a>
+    
+  </div>
+</article>
+
+  
+    <article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/">Kafka Streams abstracts access to multiple tasks state stores when reading</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -178,7 +210,7 @@
   </header>
   <div class="c-article__summary">
     Kafka Streams applications could scale either horizontally (add more instances) or vertically (add more threads). When scaled vertically, multiple tasks store multiple partitions locally. An interesting question is whether Kafka Streams gives access when reading (i.e. Interactive Queries) to these stores, and how does it manage to abstract the access to different stores managed by multiple tasks.
-The answer is yes, Kafka Streams abstracts away tasks and multiple stores. Internally it&rsquo;s implemented by using CompositeReadOnly*Stores:
+
   </div>
   
   <a href="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/" class="c-article__btn p-list-article__btn">Read more</a></li>
@@ -209,8 +241,10 @@ The answer is yes, Kafka Streams abstracts away tasks and multiple stores. Inter
   </header>
   <div class="c-article__summary">
     TIL there is a drop-in replacement for log4j 1.x: Reload4j.
-It continues fixing security issues, and doesn&rsquo;t require changing application logic. Dropping JAR to the classpath, removing previous log4j-1.* JARs should be enough to get the latest patches.
+
   </div>
+  
+  <a href="https://jeqo.github.io/til/2022-01-25-reload4j/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
     <a href="/til" class="c-tag">til</a>
@@ -239,6 +273,7 @@ It continues fixing security issues, and doesn&rsquo;t require changing applicat
   <div class="c-article__summary">
     I have been running Ansible for a while now. My usual/naive way of debugging has always been adding a debug module[1], and get the execution running til that point.
 I figured that there are better ways to deal with this[2]. By using the debug mode, tasks will stop when failing (by default) and you&rsquo;ll be able to introspect into the task, variables, and context when things failed. Even better, you&rsquo;ll be able to re-execute if there was a transient error.
+
   </div>
   
   <a href="https://jeqo.github.io/til/2022-01-21-ansible-debug/" class="c-article__btn p-list-article__btn">Read more</a></li>
@@ -272,8 +307,7 @@ I figured that there are better ways to deal with this[2]. By using the debug mo
   </header>
   <div class="c-article__summary">
     Kafka broker configuration includes a rack label to define the location of the broker. This is useful when placing replicas across the cluster to ensure replicas are spread across locations as evenly as possible.
-This label may need to change for different reasons. One I found today is if you want to redefine locations to support Multi-Region clusters and Observers.
-If there are existing topics, and previous rack labels were already used when creating the topics, then the placement may not match the new topology.
+
   </div>
   
   <a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/" class="c-article__btn p-list-article__btn">Read more</a></li>
@@ -304,8 +338,7 @@ If there are existing topics, and previous rack labels were already used when cr
   </header>
   <div class="c-article__summary">
     Kafka Producers enforce durability across replicas by setting acks=all (default since v3.0). As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.
-When looking at the end-to-end latency (including production and consumption) this ends up not being the case:
-Records are only available for consumption once the replicas have been updated and the leader can increase the high watermark.
+
   </div>
   
   <a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/" class="c-article__btn p-list-article__btn">Read more</a></li>

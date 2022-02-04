@@ -7,22 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 26 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>api</title>
-      <link>https://jeqo.github.io/tags/api/</link>
-      <pubDate>Wed, 26 Jan 2022 00:00:00 +0000</pubDate>
+      <title>ideas</title>
+      <link>https://jeqo.github.io/tags/ideas/</link>
+      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/tags/api/</guid>
+      <guid>https://jeqo.github.io/tags/ideas/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kafka-streams</title>
       <link>https://jeqo.github.io/tags/kafka-streams/</link>
-      <pubDate>Wed, 26 Jan 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/kafka-streams/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>streaming-joins</title>
+      <link>https://jeqo.github.io/tags/streaming-joins/</link>
+      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/streaming-joins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>api</title>
+      <link>https://jeqo.github.io/tags/api/</link>
+      <pubDate>Wed, 26 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/api/</guid>
       <description></description>
     </item>
     
@@ -104,15 +122,6 @@
       <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/cioran/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ideas</title>
-      <link>https://jeqo.github.io/tags/ideas/</link>
-      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/ideas/</guid>
       <description></description>
     </item>
     
