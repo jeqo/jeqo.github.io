@@ -176,11 +176,23 @@
   </header>
   <div class="c-article__summary">
     Kafka broker configuration includes a rack label to define the location of the broker. This is useful when placing replicas across the cluster to ensure replicas are spread across locations as evenly as possible.
-
+This label may need to change for different reasons. One I found today is if you want to redefine locations to support Multi-Region clusters and Observers.
+If there are existing topics, and previous rack labels were already used when creating the topics, then the placement may not match the new topology.
   </div>
   
   <a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
+  <div>
+    <a href="/til" class="c-tag">til</a>
+    
+    <a href="/tags/ops/" class="c-tag">ops</a>
+    
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/deployment/" class="c-tag">deployment</a>
+    
+  </div>
 </article>
 
 

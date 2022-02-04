@@ -180,11 +180,23 @@
   </header>
   <div class="c-article__summary">
     Kafka broker configuration includes a rack label to define the location of the broker. This is useful when placing replicas across the cluster to ensure replicas are spread across locations as evenly as possible.
-
+This label may need to change for different reasons. One I found today is if you want to redefine locations to support Multi-Region clusters and Observers.
+If there are existing topics, and previous rack labels were already used when creating the topics, then the placement may not match the new topology.
   </div>
   
   <a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
+  <div>
+    <a href="/til" class="c-tag">til</a>
+    
+    <a href="/tags/ops/" class="c-tag">ops</a>
+    
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/deployment/" class="c-tag">deployment</a>
+    
+  </div>
 </article>
 
 
@@ -205,6 +217,17 @@ The following scenarios show different trade-offs that could increase the risk o
   
   <a href="https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
+  <div>
+    <a href="/posts" class="c-tag">posts</a>
+    
+    <a href="/tags/ops/" class="c-tag">ops</a>
+    
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/durability/" class="c-tag">durability</a>
+    
+  </div>
 </article>
 
 
@@ -223,6 +246,17 @@ The following scenarios show different trade-offs that could increase the risk o
 This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.
   </div>
   
+  <div>
+    <a href="/til" class="c-tag">til</a>
+    
+    <a href="/tags/tuning/" class="c-tag">tuning</a>
+    
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/latency/" class="c-tag">latency</a>
+    
+  </div>
 </article>
 
 
@@ -238,11 +272,23 @@ This means by default Producers will be balanced between latency (no batching) a
   </header>
   <div class="c-article__summary">
     Kafka Producers enforce durability across replicas by setting acks=all (default since v3.0). As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.
-
+When looking at the end-to-end latency (including production and consumption) this ends up not being the case:
+Records are only available for consumption once the replicas have been updated and the leader can increase the high watermark.
   </div>
   
   <a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
+  <div>
+    <a href="/til" class="c-tag">til</a>
+    
+    <a href="/tags/ops/" class="c-tag">ops</a>
+    
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/latency/" class="c-tag">latency</a>
+    
+  </div>
 </article>
 
 
@@ -263,6 +309,17 @@ This means by default Producers will be balanced between latency (no batching) a
   
   <a href="https://jeqo.github.io/til/2021-12-02-kafka-min-isr/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
+  <div>
+    <a href="/til" class="c-tag">til</a>
+    
+    <a href="/tags/ops/" class="c-tag">ops</a>
+    
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/fault-tolerance/" class="c-tag">fault-tolerance</a>
+    
+  </div>
 </article>
 
 
@@ -283,6 +340,19 @@ This means by default Producers will be balanced between latency (no batching) a
   
   <a href="https://jeqo.github.io/talks/making-sense-event-driven-systems-codeone19/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
+  <div>
+    <a href="/talks" class="c-tag">talks</a>
+    
+    <a href="/tags/observability/" class="c-tag">observability</a>
+    
+    
+    <a href="/tags/distributed-tracing/" class="c-tag">distributed-tracing</a>
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/zipkin/" class="c-tag">zipkin</a>
+    
+  </div>
 </article>
 
 
@@ -303,6 +373,19 @@ This means by default Producers will be balanced between latency (no batching) a
   
   <a href="https://jeqo.github.io/talks/making-sense-event-driven-dataflows-kafkasummitnyc19/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
+  <div>
+    <a href="/talks" class="c-tag">talks</a>
+    
+    <a href="/tags/observability/" class="c-tag">observability</a>
+    
+    
+    <a href="/tags/distributed-tracing/" class="c-tag">distributed-tracing</a>
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/zipkin/" class="c-tag">zipkin</a>
+    
+  </div>
 </article>
 
 
@@ -325,6 +408,21 @@ This enables choreographed service collaborations, where many components can sub
   
   <a href="https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
+  <div>
+    <a href="/posts" class="c-tag">posts</a>
+    
+    <a href="/tags/event-driven/" class="c-tag">event-driven</a>
+    
+    <a href="/tags/distributed-tracing/" class="c-tag">distributed-tracing</a>
+    
+    <a href="/tags/observability/" class="c-tag">observability</a>
+    
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/zipkin/" class="c-tag">zipkin</a>
+    
+  </div>
 </article>
 
 
@@ -345,6 +443,19 @@ This enables choreographed service collaborations, where many components can sub
   
   <a href="https://jeqo.github.io/talks/the-importance-of-observability-kafkausergroupnorway18/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
+  <div>
+    <a href="/talks" class="c-tag">talks</a>
+    
+    <a href="/tags/observability/" class="c-tag">observability</a>
+    
+    
+    <a href="/tags/distributed-tracing/" class="c-tag">distributed-tracing</a>
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/zipkin/" class="c-tag">zipkin</a>
+    
+  </div>
 </article>
 
 
@@ -364,6 +475,17 @@ This enables choreographed service collaborations, where many components can sub
   
   <a href="https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
+  <div>
+    <a href="/notes" class="c-tag">notes</a>
+    
+    <a href="/tags/notes/" class="c-tag">notes</a>
+    
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/samza/" class="c-tag">samza</a>
+    
+  </div>
 </article>
 
 
@@ -386,6 +508,19 @@ Once you introduce distributed components and asynchronous communication this st
   
   <a href="https://jeqo.github.io/posts/2017-09-28-kafka-opentracing/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
+  <div>
+    <a href="/posts" class="c-tag">posts</a>
+    
+    <a href="/tags/integration/" class="c-tag">integration</a>
+    
+    <a href="/tags/observability/" class="c-tag">observability</a>
+    
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/tracing/" class="c-tag">tracing</a>
+    
+  </div>
 </article>
 
 
@@ -406,6 +541,21 @@ Once you introduce distributed components and asynchronous communication this st
   
   <a href="https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
+  <div>
+    <a href="/talks" class="c-tag">talks</a>
+    
+    <a href="/tags/development/" class="c-tag">development</a>
+    
+    <a href="/tags/integration/" class="c-tag">integration</a>
+    
+    <a href="/tags/back-end/" class="c-tag">back-end</a>
+    
+    
+    <a href="/tags/integration/" class="c-tag">integration</a>
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+  </div>
 </article>
 
 
@@ -428,6 +578,15 @@ But how to do it (programmatically)?
   
   <a href="https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
+  <div>
+    <a href="/posts" class="c-tag">posts</a>
+    
+    <a href="/tags/integration/" class="c-tag">integration</a>
+    
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+  </div>
 </article>
 
 
@@ -448,6 +607,19 @@ But how to do it (programmatically)?
   
   <a href="https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
+  <div>
+    <a href="/posts" class="c-tag">posts</a>
+    
+    <a href="/tags/devops/" class="c-tag">devops</a>
+    
+    <a href="/tags/integration/" class="c-tag">integration</a>
+    
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/docker/" class="c-tag">docker</a>
+    
+  </div>
 </article>
 
 
@@ -469,6 +641,25 @@ You can go directly to that code, or check my approach:
   
   <a href="https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
+  <div>
+    <a href="/posts" class="c-tag">posts</a>
+    
+    <a href="/tags/development/" class="c-tag">development</a>
+    
+    <a href="/tags/integration/" class="c-tag">integration</a>
+    
+    <a href="/tags/back-end/" class="c-tag">back-end</a>
+    
+    
+    <a href="/tags/java-ee/" class="c-tag">java ee</a>
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/avro/" class="c-tag">avro</a>
+    
+    <a href="/tags/rx/" class="c-tag">rx</a>
+    
+  </div>
 </article>
 
 

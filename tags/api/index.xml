@@ -14,9 +14,8 @@
       <pubDate>Wed, 26 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/</guid>
-      <description>&lt;p&gt;Kafka Streams applications could scale either horizontally (add more instances) or vertically (add more threads).
-When scaled vertically, multiple tasks store multiple partitions locally.
-An interesting question is whether Kafka Streams gives access when reading (i.e. &lt;a href=&#34;https://docs.confluent.io/platform/current/streams/developer-guide/interactive-queries.html&#34;&gt;Interactive Queries&lt;/a&gt;) to these stores, and how does it manage to abstract the access to different stores managed by multiple tasks.&lt;/p&gt;</description>
+      <description>Kafka Streams applications could scale either horizontally (add more instances) or vertically (add more threads). When scaled vertically, multiple tasks store multiple partitions locally. An interesting question is whether Kafka Streams gives access when reading (i.e. Interactive Queries) to these stores, and how does it manage to abstract the access to different stores managed by multiple tasks.
+The answer is yes, Kafka Streams abstracts away tasks and multiple stores. Internally it&amp;rsquo;s implemented by using CompositeReadOnly*Stores:</description>
     </item>
     
   </channel>
