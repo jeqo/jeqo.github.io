@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Tue, 25 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/ops/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/ops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Enable Certificate Revocation on Kafka clusters</title>
+      <link>https://jeqo.github.io/til/2022-02-09-kafka-ssl-crl/</link>
+      <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/til/2022-02-09-kafka-ssl-crl/</guid>
+      <description>&lt;p&gt;Recently I got a question on how to manage revoked SSL certificates in Kafka clusters.
+With a proper Public Key Infrastructure, a Certificate Revocation List (CRL) can be available for clients to validate if a certificate is still valid regardless of its time-to-live.
+For instance, if a private key has been compromised, then a certificate can be revoked before it&amp;rsquo;s valid date.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>reload4j as drop-in replacement for log4j 1.x</title>
       <link>https://jeqo.github.io/til/2022-01-25-reload4j/</link>

@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jeqo.github.io/</loc>
-    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://jeqo.github.io/categories/</loc>
-    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
+    <lastmod>2022-02-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -27,6 +27,47 @@
                 hreflang="en"
                 href="https://jeqo.github.io/categories/"
                 />
+  </url><url>
+    <loc>https://jeqo.github.io/til/2022-02-09-kafka-ssl-crl/</loc>
+    <lastmod>2022-02-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/kafka/</loc>
+    <lastmod>2022-02-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/tags/kafka/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/tags/kafka/"
+                />
+  </url><url>
+    <loc>https://jeqo.github.io/categories/ops/</loc>
+    <lastmod>2022-02-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/categories/security/</loc>
+    <lastmod>2022-02-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/ssl/</loc>
+    <lastmod>2022-02-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/</loc>
+    <lastmod>2022-02-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/tags/"
+                />
+  </url><url>
+    <loc>https://jeqo.github.io/til/</loc>
+    <lastmod>2022-02-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/categories/dev/</loc>
     <lastmod>2022-01-29T00:00:00+00:00</lastmod>
@@ -56,23 +97,7 @@
     <loc>https://jeqo.github.io/tags/streaming-joins/</loc>
     <lastmod>2022-01-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/tags/</loc>
-    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/"
-                />
-  </url><url>
     <loc>https://jeqo.github.io/notes/the-value-of-everything-book/</loc>
-    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/til/</loc>
     <lastmod>2022-01-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/api/</loc>
@@ -85,9 +110,6 @@
     <lastmod>2022-01-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/logging/</loc>
-    <lastmod>2022-01-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/categories/ops/</loc>
     <lastmod>2022-01-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/til/2022-01-25-reload4j/</loc>
@@ -120,19 +142,6 @@
   </url><url>
     <loc>https://jeqo.github.io/tags/durability/</loc>
     <lastmod>2021-12-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/tags/kafka/</loc>
-    <lastmod>2021-12-10T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/kafka/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/kafka/"
-                />
   </url><url>
     <loc>https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/</loc>
     <lastmod>2021-12-10T00:00:00+00:00</lastmod>
