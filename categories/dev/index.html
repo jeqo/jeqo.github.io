@@ -166,6 +166,37 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/">Changing void returning type in Java methods breaks binary compatibility</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2022-02-16T00:00:00Z">
+        Feb 16, 2022
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    While proposing changes to Kafka Streams DSL, I propose changing the return type of one method from void to KStream&lt;KOut, VOut. I was under the (wrong) impression that this change wouldn&rsquo;t affect users. I was also not considering that applications might just drop a new library without recompiling their application.
+This change is what is known as source compatible but not binary compatible — meaning the user will need to recompile their application.
+  </div>
+  
+  <a href="https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+  <div>
+    <a href="/til" class="c-tag">til</a>
+    
+    <a href="/tags/dev/" class="c-tag">dev</a>
+    
+    
+    <a href="/tags/java/" class="c-tag">java</a>
+    
+    <a href="/tags/compatibility/" class="c-tag">compatibility</a>
+    
+  </div>
+</article>
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-29-kafka-streams-fk-join-same-table/">Kafka Streams FK-join within the same KTable</a></h2>
     <p class="c-article__meta">
       Posted on

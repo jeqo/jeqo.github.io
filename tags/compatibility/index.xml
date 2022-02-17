@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>java on @jeqo</title>
-    <link>https://jeqo.github.io/tags/java/</link>
-    <description>Recent content in java on @jeqo</description>
+    <title>compatibility on @jeqo</title>
+    <link>https://jeqo.github.io/tags/compatibility/</link>
+    <description>Recent content in compatibility on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 16 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/compatibility/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Changing void returning type in Java methods breaks binary compatibility</title>
       <link>https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/</link>
@@ -16,15 +16,6 @@
       <guid>https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/</guid>
       <description>While proposing changes to Kafka Streams DSL, I propose changing the return type of one method from void to KStream&amp;lt;KOut, VOut. I was under the (wrong) impression that this change wouldn&amp;rsquo;t affect users. I was also not considering that applications might just drop a new library without recompiling their application.
 This change is what is known as source compatible but not binary compatible — meaning the user will need to recompile their application.</description>
-    </item>
-    
-    <item>
-      <title>reload4j as drop-in replacement for log4j 1.x</title>
-      <link>https://jeqo.github.io/til/2022-01-25-reload4j/</link>
-      <pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/til/2022-01-25-reload4j/</guid>
-      <description>&lt;p&gt;TIL there is a drop-in replacement for log4j 1.x: &lt;a href=&#34;https://reload4j.qos.ch/&#34;&gt;Reload4j&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

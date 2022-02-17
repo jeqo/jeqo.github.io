@@ -170,6 +170,37 @@
 
   <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/">Changing void returning type in Java methods breaks binary compatibility</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2022-02-16T00:00:00Z">
+        Feb 16, 2022
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    While proposing changes to Kafka Streams DSL, I propose changing the return type of one method from void to KStream&lt;KOut, VOut. I was under the (wrong) impression that this change wouldn&rsquo;t affect users. I was also not considering that applications might just drop a new library without recompiling their application.
+This change is what is known as source compatible but not binary compatible — meaning the user will need to recompile their application.
+  </div>
+  
+  <a href="https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+  <div>
+    <a href="/til" class="c-tag">til</a>
+    
+    <a href="/tags/dev/" class="c-tag">dev</a>
+    
+    
+    <a href="/tags/java/" class="c-tag">java</a>
+    
+    <a href="/tags/compatibility/" class="c-tag">compatibility</a>
+    
+  </div>
+</article>
+
+
+  <article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-02-09-kafka-ssl-crl/">Enable Certificate Revocation on Kafka clusters</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -435,37 +466,6 @@ This means by default Producers will be balanced between latency (no batching) a
     <a href="/til" class="c-tag">til</a>
     
     <a href="/tags/tuning/" class="c-tag">tuning</a>
-    
-    
-    <a href="/tags/kafka/" class="c-tag">kafka</a>
-    
-    <a href="/tags/latency/" class="c-tag">latency</a>
-    
-  </div>
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/">Reducing `acks` doesn&#39;t help to reduce end-to-end latency</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-09T00:00:00Z">
-        Dec 9, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka Producers enforce durability across replicas by setting acks=all (default since v3.0). As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
