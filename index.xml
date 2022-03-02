@@ -14,9 +14,7 @@
       <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/</guid>
-      <description>Packaging and releasing Java applications (e.g. CLI) tend to be cumbersome, and the user-experience tended not to be the best as users have to download a valid version of JRE, etc.
-JReleaser is an awesome tool that takes most of the heavy-lifting — including, but not limited, to packaging, distribution, notifications, etc. — and let you focus on your application details.
-Today, I found a great example of how to use JReleaser and mixing it with GraalVM to package native-image applications and releasing them on GitHub: https://github.</description>
+      <description>&lt;p&gt;Packaging and releasing Java applications (e.g. CLI) tend to be cumbersome, and the user-experience tended not to be the best as users have to download a valid version of JRE, etc.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -25,8 +23,9 @@ Today, I found a great example of how to use JReleaser and mixing it with GraalV
       <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/</guid>
-      <description>While proposing changes to Kafka Streams DSL, I propose changing the return type of one method from void to KStream&amp;lt;KOut, VOut. I was under the (wrong) impression that this change wouldn&amp;rsquo;t affect users. I was also not considering that applications might just drop a new library without recompiling their application.
-This change is what is known as source compatible but not binary compatible — meaning the user will need to recompile their application.</description>
+      <description>&lt;p&gt;While &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-820%3A+Extend+KStream+process+with+new+Processor+API&#34;&gt;proposing changes to Kafka Streams DSL&lt;/a&gt;, I propose changing the return type of one method from &lt;code&gt;void&lt;/code&gt; to &lt;code&gt;KStream&amp;lt;KOut, VOut&lt;/code&gt;.
+I was under the (wrong) impression that this change wouldn&amp;rsquo;t affect users.
+I was also not considering that applications might just drop a new library without recompiling their application.&lt;/p&gt;</description>
     </item>
     
     <item>
