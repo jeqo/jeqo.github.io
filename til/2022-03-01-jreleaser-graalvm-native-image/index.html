@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>dev</title>
-    <meta property="og:title" content="dev" />
-    <meta name="twitter:title" content="dev" />  
+    <title>using jreleaser to release graalvm native images</title>
+    <meta property="og:title" content="Using JReleaser to release GraalVM native images" />
+    <meta name="twitter:title" content="Using JReleaser to release GraalVM native images" />  
     <meta name="description" content="data streaming, observability, automation, and random stuff">
     <meta property="og:description" content="data streaming, observability, automation, and random stuff">
     <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/categories/dev/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
-    <meta property="og:type" content="website" /> 
+    <meta property="og:type" content="article" /> 
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
@@ -79,7 +79,7 @@
 </svg>
     <header class="l-header">
         
-        <h1 class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></h1>
+        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
          
         <p class="p-subtitle">
             data streaming, observability, automation, and random stuff
@@ -162,134 +162,119 @@
 </nav>
 
     <main id="main" class="l-main">
-<h2 class="c-title p-tag-title">dev</h2>
 
-<article class="c-article p-list-article">
+<article class="p-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/">Using JReleaser to release GraalVM native images</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-03-01T00:00:00Z">
-        Mar 1, 2022
-      </time>
-    </p>
+    <h1>Using JReleaser to release GraalVM native images</h1>
+    <div>
+      <div class="c-time">
+        Posted on
+        <time datetime="2022-03-01T00:00:00Z">
+          Mar 1, 2022
+        </time>
+      </div>
+      
+      <a href="https://jeqo.github.io/tags/java" class="c-tag">java</a>
+      
+      <a href="https://jeqo.github.io/tags/graalvm" class="c-tag">graalvm</a>
+      
+      
+      <a href="https://jeqo.github.io/categories/dev" class="c-tag">dev</a>
+      
+    </div>
   </header>
-  <div class="c-article__summary">
-    Packaging and releasing Java applications (e.g. CLI) tend to be cumbersome, and the user-experience tended not to be the best as users have to download a valid version of JRE, etc.
-JReleaser is an awesome tool that takes most of the heavy-lifting — including, but not limited, to packaging, distribution, notifications, etc. — and let you focus on your application details.
-Today, I found a great example of how to use JReleaser and mixing it with GraalVM to package native-image applications and releasing them on GitHub: https://github.
-  </div>
   
-  <a href="https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
+  <section id="js-article" class="p-article__body">
+    <p>Packaging and releasing Java applications (e.g. CLI) tend to be cumbersome, and the user-experience tended not to be the best as users have to download a valid version of JRE, etc.</p>
+<p><a href="https://jreleaser.org/guide/latest/index.html">JReleaser</a> is an awesome tool that takes most of the heavy-lifting — including, but not limited, to packaging, distribution, notifications, etc. — and let you focus on your application details.</p>
+<p>Today, I found a great example of how to use JReleaser and mixing it with <a href="https://www.graalvm.org/">GraalVM</a> to package native-image applications and releasing them on GitHub: <a href="https://github.com/kcctl/kcctl">https://github.com/kcctl/kcctl</a> — which I haven&rsquo;t used in anger just yet.</p>
+<p>Some considerations when using Maven — but probably usable generally:</p>
+<ul>
+<li>Choose a way to package and distribute your application. JReleaser supports from executable JAR releases to <code>jlink</code>, GraalVM <code>native-image</code>, etc.: <a href="https://jreleaser.org/guide/latest/distributions/index.html">https://jreleaser.org/guide/latest/distributions/index.html</a></li>
+<li>For GraalVM <code>native-image</code> use a framework that plays well with it (Micronaut, Quarkus), or use the Maven plugin yourself: <a href="https://graalvm.github.io/native-build-tools/latest/index.html">https://graalvm.github.io/native-build-tools/latest/index.html</a></li>
+<li>Once your application is packaged, use <code>assembler</code> plugin to get the binary zipped:
+<ul>
+<li>Assembler configuration: <a href="https://github.com/kcctl/kcctl/blob/main/src/main/assembly/assembly.xml">https://github.com/kcctl/kcctl/blob/main/src/main/assembly/assembly.xml</a></li>
+<li>Maven plugin configuration: <a href="https://github.com/kcctl/kcctl/blob/00453ef43ac3feb94afd13a2eb82547a22e06d30/pom.xml#L353-L373">https://github.com/kcctl/kcctl/blob/00453ef43ac3feb94afd13a2eb82547a22e06d30/pom.xml#L353-L373</a></li>
+<li>Maven profile for distribution: <a href="https://github.com/kcctl/kcctl/blob/00453ef43ac3feb94afd13a2eb82547a22e06d30/pom.xml#L412-L433">https://github.com/kcctl/kcctl/blob/00453ef43ac3feb94afd13a2eb82547a22e06d30/pom.xml#L412-L433</a></li>
+</ul>
+</li>
+<li>GitHub Actions plays very well with JReleaser and building GraalVM binaries for different OS distributions:
+<ul>
+<li>OS matrix: <a href="https://github.com/kcctl/kcctl/blob/00453ef43ac3feb94afd13a2eb82547a22e06d30/.github/workflows/release.yml#L78-L85">https://github.com/kcctl/kcctl/blob/00453ef43ac3feb94afd13a2eb82547a22e06d30/.github/workflows/release.yml#L78-L85</a></li>
+</ul>
+</li>
+</ul>
+<p>I managed to take this inputs and apply it for a simple CLI to list Kafka topics with additional metadata:</p>
+<ul>
+<li>Maven project: <a href="https://github.com/jeqo/poc-apache-kafka/tree/main/cli/topic-list">https://github.com/jeqo/poc-apache-kafka/tree/main/cli/topic-list</a></li>
+<li>GitHub Actions to release: <a href="https://github.com/jeqo/poc-apache-kafka/blob/main/.github/workflows/cli-ktopiclist-release.yml">https://github.com/jeqo/poc-apache-kafka/blob/main/.github/workflows/cli-ktopiclist-release.yml</a></li>
+<li>First release: <a href="https://github.com/jeqo/poc-apache-kafka/releases/tag/cli-topic-list-v0.1.0">https://github.com/jeqo/poc-apache-kafka/releases/tag/cli-topic-list-v0.1.0</a></li>
+</ul>
+<p>Hope to share more details about building GraalVM images in another post.</p>
+<p>At the moment <code>JReleaser</code> seems to be focused on applications (e.g. CLI, executable JARs, etc.).
+If you are looking to publish a Java library, probably is enough using <code>mvn deploy</code> command.</p>
+
+  </section>
+  <footer>
     
-    <a href="/tags/dev/" class="c-tag">dev</a>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
     
     
-    <a href="/tags/java/" class="c-tag">java</a>
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'jeqoblog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <nav class="p-pagination c-pagination">
+      <div class="c-pagination__ctrl">
+        <div class="c-pagination__newer">
+          
+          <a href="https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/">Newer</a>
+          
+        </div>
+        <div class="c-pagination__older">
+          
+          
+        </div>
+      </div>
+    </nav>
     
-    <a href="/tags/graalvm/" class="c-tag">graalvm</a>
+
+<section class="p-related">
+  <h3>See Also</h3>
+  <ul id="slider" class="p-related__list">
     
-  </div>
+    <li class="p-related__item js-related__item">
+      <a href="/til/2022-02-16-java-void-binary-compatibility/"
+        >
+        <span>Changing void returning type in Java methods breaks binary compatibility</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/til/2022-01-25-reload4j/"
+        >
+        <span>reload4j as drop-in replacement for log4j 1.x</span>
+      </a>
+    </li>
+    
+  </ul>
+</section>
+
+
+  </footer>
 </article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/">Changing void returning type in Java methods breaks binary compatibility</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-02-16T00:00:00Z">
-        Feb 16, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    While proposing changes to Kafka Streams DSL, I propose changing the return type of one method from void to KStream&lt;KOut, VOut. I was under the (wrong) impression that this change wouldn&rsquo;t affect users. I was also not considering that applications might just drop a new library without recompiling their application.
-This change is what is known as source compatible but not binary compatible — meaning the user will need to recompile their application.
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/dev/" class="c-tag">dev</a>
-    
-    
-    <a href="/tags/java/" class="c-tag">java</a>
-    
-    <a href="/tags/compatibility/" class="c-tag">compatibility</a>
-    
-  </div>
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-29-kafka-streams-fk-join-same-table/">Kafka Streams FK-join within the same KTable</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-29T00:00:00Z">
-        Jan 29, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    KTable to KTable foreign-key joins is one of the coolest features in Kafka Streams.
-I was wondering whether this feature would handle FK-joins between values on the same table.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-01-29-kafka-streams-fk-join-same-table/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/dev/" class="c-tag">dev</a>
-    
-    
-    <a href="/tags/kafka-streams/" class="c-tag">kafka-streams</a>
-    
-    <a href="/tags/streaming-joins/" class="c-tag">streaming-joins</a>
-    
-  </div>
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/">Kafka Streams abstracts access to multiple tasks state stores when reading</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-26T00:00:00Z">
-        Jan 26, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka Streams applications could scale either horizontally (add more instances) or vertically (add more threads). When scaled vertically, multiple tasks store multiple partitions locally. An interesting question is whether Kafka Streams gives access when reading (i.e. Interactive Queries) to these stores, and how does it manage to abstract the access to different stores managed by multiple tasks.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/dev/" class="c-tag">dev</a>
-    
-    
-    <a href="/tags/kafka-streams/" class="c-tag">kafka-streams</a>
-    
-    <a href="/tags/api/" class="c-tag">api</a>
-    
-  </div>
-</article>
-
-
   </main>
   
 <nav class="l-nav p-menu">

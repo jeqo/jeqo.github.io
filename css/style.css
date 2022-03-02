@@ -344,7 +344,7 @@ code,
 kbd,
 samp {
     font-family: 'JetBrains Mono';
-    font-weight: bold;
+    font-weight: 400;
     font-style: italic;
     font-size: 1em;
     color: rgb(50, 50, 50);
@@ -559,7 +559,7 @@ h6 {
 }
 
 p {
-    font-size: 2.0rem
+    font-size: 1.8rem
 }
 
 a {
@@ -738,7 +738,8 @@ img {
 
 .c-article__summary {
     font-size: 1.4rem;
-    font-family: 'Open Sans';
+    font-family: 'Spectral';
+    font-weight: 400;
     font-style: italic;
     color: #999;
     line-height: 1.57
@@ -1058,7 +1059,8 @@ img {
 
 .p-article__body {
     margin: 40px 0 30px;
-    font-family: 'Open Sans';
+    font-family: 'Spectral';
+    font-weight: 400;
     word-wrap: break-word
 }
 

@@ -3,16 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>dev</title>
-    <meta property="og:title" content="dev" />
-    <meta name="twitter:title" content="dev" />  
+    <title>graalvm</title>
+    <meta property="og:title" content="graalvm" />
+    <meta name="twitter:title" content="graalvm" />  
     <meta name="description" content="data streaming, observability, automation, and random stuff">
     <meta property="og:description" content="data streaming, observability, automation, and random stuff">
     <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/categories/dev/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/tags/graalvm/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
@@ -162,7 +162,7 @@
 </nav>
 
     <main id="main" class="l-main">
-<h2 class="c-title p-tag-title">dev</h2>
+<h2 class="c-title p-tag-title">graalvm</h2>
 
 <article class="c-article p-list-article">
   <header>
@@ -191,100 +191,6 @@ Today, I found a great example of how to use JReleaser and mixing it with GraalV
     <a href="/tags/java/" class="c-tag">java</a>
     
     <a href="/tags/graalvm/" class="c-tag">graalvm</a>
-    
-  </div>
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/">Changing void returning type in Java methods breaks binary compatibility</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-02-16T00:00:00Z">
-        Feb 16, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    While proposing changes to Kafka Streams DSL, I propose changing the return type of one method from void to KStream&lt;KOut, VOut. I was under the (wrong) impression that this change wouldn&rsquo;t affect users. I was also not considering that applications might just drop a new library without recompiling their application.
-This change is what is known as source compatible but not binary compatible — meaning the user will need to recompile their application.
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/dev/" class="c-tag">dev</a>
-    
-    
-    <a href="/tags/java/" class="c-tag">java</a>
-    
-    <a href="/tags/compatibility/" class="c-tag">compatibility</a>
-    
-  </div>
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-29-kafka-streams-fk-join-same-table/">Kafka Streams FK-join within the same KTable</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-29T00:00:00Z">
-        Jan 29, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    KTable to KTable foreign-key joins is one of the coolest features in Kafka Streams.
-I was wondering whether this feature would handle FK-joins between values on the same table.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-01-29-kafka-streams-fk-join-same-table/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/dev/" class="c-tag">dev</a>
-    
-    
-    <a href="/tags/kafka-streams/" class="c-tag">kafka-streams</a>
-    
-    <a href="/tags/streaming-joins/" class="c-tag">streaming-joins</a>
-    
-  </div>
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/">Kafka Streams abstracts access to multiple tasks state stores when reading</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-26T00:00:00Z">
-        Jan 26, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka Streams applications could scale either horizontally (add more instances) or vertically (add more threads). When scaled vertically, multiple tasks store multiple partitions locally. An interesting question is whether Kafka Streams gives access when reading (i.e. Interactive Queries) to these stores, and how does it manage to abstract the access to different stores managed by multiple tasks.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/dev/" class="c-tag">dev</a>
-    
-    
-    <a href="/tags/kafka-streams/" class="c-tag">kafka-streams</a>
-    
-    <a href="/tags/api/" class="c-tag">api</a>
     
   </div>
 </article>

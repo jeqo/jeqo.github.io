@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 16 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using JReleaser to release GraalVM native images</title>
+      <link>https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/</guid>
+      <description>Packaging and releasing Java applications (e.g. CLI) tend to be cumbersome, and the user-experience tended not to be the best as users have to download a valid version of JRE, etc.
+JReleaser is an awesome tool that takes most of the heavy-lifting — including, but not limited, to packaging, distribution, notifications, etc. — and let you focus on your application details.
+Today, I found a great example of how to use JReleaser and mixing it with GraalVM to package native-image applications and releasing them on GitHub: https://github.</description>
+    </item>
+    
     <item>
       <title>Changing void returning type in Java methods breaks binary compatibility</title>
       <link>https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/</link>

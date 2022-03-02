@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jeqo.github.io/</loc>
-    <lastmod>2022-02-16T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://jeqo.github.io/categories/</loc>
-    <lastmod>2022-02-16T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -28,20 +28,17 @@
                 href="https://jeqo.github.io/categories/"
                 />
   </url><url>
-    <loc>https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/</loc>
-    <lastmod>2022-02-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/tags/compatibility/</loc>
-    <lastmod>2022-02-16T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jeqo.github.io/categories/dev/</loc>
-    <lastmod>2022-02-16T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/graalvm/</loc>
+    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/java/</loc>
-    <lastmod>2022-02-16T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/</loc>
-    <lastmod>2022-02-16T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -54,6 +51,15 @@
                 />
   </url><url>
     <loc>https://jeqo.github.io/til/</loc>
+    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/</loc>
+    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/</loc>
+    <lastmod>2022-02-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/compatibility/</loc>
     <lastmod>2022-02-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/til/2022-02-09-kafka-ssl-crl/</loc>
