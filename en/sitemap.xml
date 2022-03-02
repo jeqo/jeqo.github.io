@@ -37,6 +37,9 @@
     <loc>https://jeqo.github.io/tags/java/</loc>
     <lastmod>2022-03-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/</loc>
+    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jeqo.github.io/tags/</loc>
     <lastmod>2022-03-01T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -51,9 +54,6 @@
                 />
   </url><url>
     <loc>https://jeqo.github.io/til/</loc>
-    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/</loc>
     <lastmod>2022-03-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/</loc>
