@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.92.0" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>@jeqo</title>
-    <meta property="og:title" content="@jeqo" />
-    <meta name="twitter:title" content="@jeqo" />  
+    <title>data</title>
+    <meta property="og:title" content="data" />
+    <meta name="twitter:title" content="data" />  
     <meta name="description" content="data streaming, observability, automation, and random stuff">
     <meta property="og:description" content="data streaming, observability, automation, and random stuff">
     <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/categories/data/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
@@ -159,16 +158,13 @@
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/">es</a></li>
-         
     </ul>
 </nav>
 
     <main id="main" class="l-main">
+<h2 class="c-title p-tag-title">data</h2>
 
-  <article class="c-article p-list-article">
+<article class="c-article p-list-article">
   <header>
     <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-03-10-kcat-end-offset-and-datasette/">Explore Kafka data with kcat, sqlite, and Datasette</a></h2>
     <p class="c-article__meta">
@@ -205,285 +201,6 @@
 </article>
 
 
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/">Releasing OS-specific GraalVM native image binaries easier with JReleaser</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-03-01T00:00:00Z">
-        Mar 1, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Packaging and releasing Java applications (e.g. CLI) tend to be cumbersome, and the user-experience tended not to be the best as users have to download a valid version of JRE, etc.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/dev/" class="c-tag">dev</a>
-    
-    
-    <a href="/tags/java/" class="c-tag">java</a>
-    
-    <a href="/tags/graalvm/" class="c-tag">graalvm</a>
-    
-  </div>
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/">Changing void returning type in Java methods breaks binary compatibility</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-02-16T00:00:00Z">
-        Feb 16, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    While proposing changes to Kafka Streams DSL, I propose changing the return type of one method from void to KStream&lt;KOut, VOut. I was under the (wrong) impression that this change wouldn&rsquo;t affect users. I was also not considering that applications might just drop a new library without recompiling their application.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/dev/" class="c-tag">dev</a>
-    
-    
-    <a href="/tags/java/" class="c-tag">java</a>
-    
-    <a href="/tags/compatibility/" class="c-tag">compatibility</a>
-    
-  </div>
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-02-09-kafka-ssl-crl/">Enable Certificate Revocation on Kafka clusters</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-02-09T00:00:00Z">
-        Feb 9, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Recently I got a question on how to manage revoked SSL certificates in Kafka clusters. With a proper Public Key Infrastructure, a Certificate Revocation List (CRL) can be available for clients to validate if a certificate is still valid regardless of its time-to-live. For instance, if a private key has been compromised, then a certificate can be revoked before it&rsquo;s valid date.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-02-09-kafka-ssl-crl/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    <a href="/tags/security/" class="c-tag">security</a>
-    
-    
-    <a href="/tags/kafka/" class="c-tag">kafka</a>
-    
-    <a href="/tags/ssl/" class="c-tag">ssl</a>
-    
-  </div>
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-29-kafka-streams-fk-join-same-table/">Kafka Streams FK-join within the same KTable</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-29T00:00:00Z">
-        Jan 29, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    KTable to KTable foreign-key joins is one of the coolest features in Kafka Streams.
-I was wondering whether this feature would handle FK-joins between values on the same table.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-01-29-kafka-streams-fk-join-same-table/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/dev/" class="c-tag">dev</a>
-    
-    
-    <a href="/tags/kafka-streams/" class="c-tag">kafka-streams</a>
-    
-    <a href="/tags/streaming-joins/" class="c-tag">streaming-joins</a>
-    
-  </div>
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/the-value-of-everything-book/">The Value of Everything book</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-29T00:00:00Z">
-        Jan 29, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    The Value of Everything by Mariana Mazzucato
-
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/the-value-of-everything-book/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/notes" class="c-tag">notes</a>
-    
-    
-    <a href="/tags/ideas/" class="c-tag">ideas</a>
-    
-  </div>
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/">Kafka Streams abstracts access to multiple tasks state stores when reading</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-26T00:00:00Z">
-        Jan 26, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka Streams applications could scale either horizontally (add more instances) or vertically (add more threads). When scaled vertically, multiple tasks store multiple partitions locally. An interesting question is whether Kafka Streams gives access when reading (i.e. Interactive Queries) to these stores, and how does it manage to abstract the access to different stores managed by multiple tasks.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/dev/" class="c-tag">dev</a>
-    
-    
-    <a href="/tags/kafka-streams/" class="c-tag">kafka-streams</a>
-    
-    <a href="/tags/api/" class="c-tag">api</a>
-    
-  </div>
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-25-reload4j/">reload4j as drop-in replacement for log4j 1.x</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-25T00:00:00Z">
-        Jan 25, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    TIL there is a drop-in replacement for log4j 1.x: Reload4j.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-01-25-reload4j/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    
-    <a href="/tags/java/" class="c-tag">java</a>
-    
-    <a href="/tags/logging/" class="c-tag">logging</a>
-    
-  </div>
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-21-ansible-debug/">Ansible has a debug mode to pause and troubleshoot</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-21T00:00:00Z">
-        Jan 21, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    I have been running Ansible for a while now. My usual/naive way of debugging has always been adding a debug module[1], and get the execution running til that point.
-I figured that there are better ways to deal with this[2]. By using the debug mode, tasks will stop when failing (by default) and you&rsquo;ll be able to introspect into the task, variables, and context when things failed. Even better, you&rsquo;ll be able to re-execute if there was a transient error.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-01-21-ansible-debug/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    
-    <a href="/tags/ansible/" class="c-tag">ansible</a>
-    
-    <a href="/tags/automation/" class="c-tag">automation</a>
-    
-  </div>
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/">Changing Kafka Broker&#39;s rack</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-10T00:00:00Z">
-        Dec 10, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka broker configuration includes a rack label to define the location of the broker. This is useful when placing replicas across the cluster to ensure replicas are spread across locations as evenly as possible.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    
-    <a href="/tags/kafka/" class="c-tag">kafka</a>
-    
-    <a href="/tags/deployment/" class="c-tag">deployment</a>
-    
-  </div>
-</article>
-
-
   </main>
   
 <nav class="l-nav p-menu">
@@ -513,10 +230,6 @@ I figured that there are better ways to deal with this[2]. By using the debug mo
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/">es</a></li>
-         
     </ul>
 </nav>
 
