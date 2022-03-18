@@ -345,7 +345,7 @@ kbd,
 samp {
     font-family: 'JetBrains Mono';
     font-weight: 400;
-    font-style: italic;
+    font-style: normal;
     font-size: 1em;
     color: rgb(50, 50, 50);
 }
