@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Fri, 10 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kafka client applications with GraalVM</title>
+      <link>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</link>
+      <pubDate>Fri, 18 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</guid>
+      <description>&lt;p&gt;Shipping Kafka applications/CLIs with Java hasn&amp;rsquo;t been the most user-friendly experience.
+Java is required on the client-side, starting Java applications (e.g. executable JAR) tend to be slower than to binary applications.
+GraalVM, and specifically &lt;a href=&#34;https://www.graalvm.org/22.0/reference-manual/native-image/&#34;&gt;native-image&lt;/a&gt; tooling, are aimed to solve most of these issues with Java, and enable building native binaries from Java applications.&lt;/p&gt;
+&lt;p&gt;Even though this has been supported for a while now, reflection and other practices required additional features and configuration that make this unsupported or very cumbersome to implement.&lt;/p&gt;
+&lt;p&gt;With the arrival of new frameworks that were targeting the benefits of GraalVM, like &lt;a href=&#34;https://micronaut.io/&#34;&gt;Micronaut&lt;/a&gt; and &lt;a href=&#34;https://quarkus.io/&#34;&gt;Quarkus&lt;/a&gt;, it started to be possible and simpler to implement applications that included Kafka clients, and could be packaged as native binaries.&lt;/p&gt;
+&lt;p&gt;This post is going to explore how to be able to package &lt;em&gt;vanilla&lt;/em&gt; Kafka client applications —i.e. no framework— as native binaries.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Kafka data loss scenarios</title>
       <link>https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/</link>

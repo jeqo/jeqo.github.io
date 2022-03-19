@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>graalvm on @jeqo</title>
-    <link>https://jeqo.github.io/tags/graalvm/</link>
-    <description>Recent content in graalvm on @jeqo</description>
+    <title>cli on @jeqo</title>
+    <link>https://jeqo.github.io/tags/cli/</link>
+    <description>Recent content in cli on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Fri, 18 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/graalvm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/cli/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kafka client applications with GraalVM</title>
       <link>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</link>
@@ -20,15 +20,6 @@ GraalVM, and specifically &lt;a href=&#34;https://www.graalvm.org/22.0/reference
 &lt;p&gt;Even though this has been supported for a while now, reflection and other practices required additional features and configuration that make this unsupported or very cumbersome to implement.&lt;/p&gt;
 &lt;p&gt;With the arrival of new frameworks that were targeting the benefits of GraalVM, like &lt;a href=&#34;https://micronaut.io/&#34;&gt;Micronaut&lt;/a&gt; and &lt;a href=&#34;https://quarkus.io/&#34;&gt;Quarkus&lt;/a&gt;, it started to be possible and simpler to implement applications that included Kafka clients, and could be packaged as native binaries.&lt;/p&gt;
 &lt;p&gt;This post is going to explore how to be able to package &lt;em&gt;vanilla&lt;/em&gt; Kafka client applications —i.e. no framework— as native binaries.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Releasing OS-specific GraalVM native image binaries easier with JReleaser</title>
-      <link>https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/</link>
-      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/</guid>
-      <description>&lt;p&gt;Packaging and releasing Java applications (e.g. CLI) tend to be cumbersome, and the user-experience tended not to be the best as users have to download a valid version of JRE, etc.&lt;/p&gt;</description>
     </item>
     
   </channel>

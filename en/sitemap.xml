@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jeqo.github.io/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://jeqo.github.io/categories/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -26,6 +26,67 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jeqo.github.io/categories/"
+                />
+  </url><url>
+    <loc>https://jeqo.github.io/tags/cli/</loc>
+    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/categories/development/</loc>
+    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/categories/development/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/categories/development/"
+                />
+  </url><url>
+    <loc>https://jeqo.github.io/tags/graalvm/</loc>
+    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/kafka/</loc>
+    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/tags/kafka/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/tags/kafka/"
+                />
+  </url><url>
+    <loc>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</loc>
+    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/posts/</loc>
+    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/posts/"
+                />
+  </url><url>
+    <loc>https://jeqo.github.io/tags/</loc>
+    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/tags/"
                 />
   </url><url>
     <loc>https://jeqo.github.io/categories/data/</loc>
@@ -40,43 +101,14 @@
     <loc>https://jeqo.github.io/til/2022-03-10-kcat-end-offset-and-datasette/</loc>
     <lastmod>2022-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/tags/kafka/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/kafka/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/kafka/"
-                />
-  </url><url>
     <loc>https://jeqo.github.io/tags/kcat/</loc>
     <lastmod>2022-03-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/sqlite/</loc>
     <lastmod>2022-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/tags/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/"
-                />
-  </url><url>
     <loc>https://jeqo.github.io/til/</loc>
     <lastmod>2022-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/tags/graalvm/</loc>
-    <lastmod>2022-03-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/java/</loc>
     <lastmod>2022-03-01T00:00:00+00:00</lastmod>
@@ -172,19 +204,6 @@
   </url><url>
     <loc>https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/</loc>
     <lastmod>2021-12-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/posts/</loc>
-    <lastmod>2021-12-10T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/posts/"
-                />
   </url><url>
     <loc>https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/</loc>
     <lastmod>2021-12-09T00:00:00+00:00</lastmod>
@@ -455,19 +474,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jeqo.github.io/categories/back-end/"
-                />
-  </url><url>
-    <loc>https://jeqo.github.io/categories/development/</loc>
-    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/categories/development/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/categories/development/"
                 />
   </url><url>
     <loc>https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/</loc>

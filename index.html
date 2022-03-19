@@ -170,6 +170,42 @@
 
   <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/">Kafka client applications with GraalVM</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2022-03-18T00:00:00Z">
+        Mar 18, 2022
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Shipping Kafka applications/CLIs with Java hasn&rsquo;t been the most user-friendly experience. Java is required on the client-side, starting Java applications (e.g. executable JAR) tend to be slower than to binary applications. GraalVM, and specifically native-image tooling, are aimed to solve most of these issues with Java, and enable building native binaries from Java applications.
+Even though this has been supported for a while now, reflection and other practices required additional features and configuration that make this unsupported or very cumbersome to implement.
+With the arrival of new frameworks that were targeting the benefits of GraalVM, like Micronaut and Quarkus, it started to be possible and simpler to implement applications that included Kafka clients, and could be packaged as native binaries.
+This post is going to explore how to be able to package vanilla Kafka client applications —i.e. no framework— as native binaries.
+
+  </div>
+  
+  <a href="https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+  <div>
+    <a href="/posts" class="c-tag">posts</a>
+    
+    <a href="/tags/development/" class="c-tag">development</a>
+    
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/cli/" class="c-tag">cli</a>
+    
+    <a href="/tags/graalvm/" class="c-tag">graalvm</a>
+    
+  </div>
+</article>
+
+
+  <article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-03-10-kcat-end-offset-and-datasette/">Explore Kafka data with kcat, sqlite, and Datasette</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -448,37 +484,6 @@ I figured that there are better ways to deal with this[2]. By using the debug mo
     <a href="/tags/ansible/" class="c-tag">ansible</a>
     
     <a href="/tags/automation/" class="c-tag">automation</a>
-    
-  </div>
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/">Changing Kafka Broker&#39;s rack</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-10T00:00:00Z">
-        Dec 10, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka broker configuration includes a rack label to define the location of the broker. This is useful when placing replicas across the cluster to ensure replicas are spread across locations as evenly as possible.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    
-    <a href="/tags/kafka/" class="c-tag">kafka</a>
-    
-    <a href="/tags/deployment/" class="c-tag">deployment</a>
     
   </div>
 </article>
