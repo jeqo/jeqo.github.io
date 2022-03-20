@@ -187,13 +187,14 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p>Shipping Kafka applications/CLIs with Java hasn&rsquo;t been the most user-friendly experience.
-Java is required on the client-side, starting Java applications (e.g. executable JAR) tend to be slower than to binary applications.
-GraalVM, and specifically <a href="https://www.graalvm.org/22.0/reference-manual/native-image/">native-image</a> tooling, are aimed to solve most of these issues with Java, and enable building native binaries from Java applications.</p>
-<p>Even though this has been supported for a while now, reflection and other practices required additional features and configuration that make this unsupported or very cumbersome to implement.</p>
-<p>With the arrival of new frameworks that were targeting the benefits of GraalVM, like <a href="https://micronaut.io/">Micronaut</a> and <a href="https://quarkus.io/">Quarkus</a>, it started to be possible and simpler to implement applications that included Kafka clients, and could be packaged as native binaries.</p>
-<p>This post is going to explore how to be able to package <em>vanilla</em> Kafka client applications —i.e. no framework— as native binaries.</p>
-<p>NOTE: I still don&rsquo;t understand some details on how GraalVM work that I will try to make explicit along the post, so this will focus on how I manage on how to build Kafka client applications binaries with GraalVM.</p>
+    <p>Shipping CLI binaries with Java hasn&rsquo;t been the most user-friendly experience.
+Java is required to be installed on the client-side, starting Java applications (e.g. executable JAR) tend to be slower than to binary applications.</p>
+<p>GraalVM, and specifically <a href="https://www.graalvm.org/22.0/reference-manual/native-image/">native-image</a> tooling, is aimed to tackle most of these issues with Java by enable building native binaries from Java applications.</p>
+<p>Even though this has been supported for a while now, reflection and other practices require additional configurations that make this process either unsupported or very cumbersome to implement.</p>
+<p>With the arrival of new frameworks that target the benefits of GraalVM, like <a href="https://micronaut.io/">Micronaut</a> and <a href="https://quarkus.io/">Quarkus</a>, it started to be possible and simpler to implement applications that included Kafka clients, and package them as native binaries.</p>
+<p>This post is going to explore the steps to package <em>vanilla</em> Kafka client applications —i.e. no framework— as native binaries.</p>
+<p>NOTE: I still don&rsquo;t fully understand how some of the details on how GraalVM work.
+I will try to make explicit along the post, so I will focus on how to build Kafka client applications binaries with GraalVM.</p>
 <p>The CLIs built with these configurations have been tested against plaintext clusters and Confluent Cloud (TLS, SASL Plain authentication), and <em>haven&rsquo;t</em> been tested with Kerberos, SCRAM, or other authentication mechanisms.</p>
 <h2 id="common-configurations">
     <a class="hash-link nohover" href="#common-configurations">
