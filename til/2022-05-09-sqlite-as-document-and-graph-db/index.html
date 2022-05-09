@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>tags</title>
-    <meta property="og:title" content="Tags" />
-    <meta name="twitter:title" content="Tags" />  
+    <title>sqlite can be used document and graph database</title>
+    <meta property="og:title" content="sqlite can be used document and graph database" />
+    <meta name="twitter:title" content="sqlite can be used document and graph database" />  
     <meta name="description" content="data streaming, observability, automation, and random stuff">
     <meta property="og:description" content="data streaming, observability, automation, and random stuff">
     <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/tags/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/til/2022-05-09-sqlite-as-document-and-graph-db/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
-    <meta property="og:type" content="website" /> 
+    <meta property="og:type" content="article" /> 
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
@@ -79,7 +79,7 @@
 </svg>
     <header class="l-header">
         
-        <h1 class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></h1>
+        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
          
         <p class="p-subtitle">
             data streaming, observability, automation, and random stuff
@@ -158,130 +158,98 @@
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/tags/">es</a></li>
-         
     </ul>
 </nav>
 
     <main id="main" class="l-main">
 
-<section>
-  <h2>Tags</h2>
-  <ul>
+<article class="p-article">
+  <header>
+    <h1>sqlite can be used document and graph database</h1>
+    <div>
+      <div class="c-time">
+        Posted on
+        <time datetime="2022-05-09T00:00:00Z">
+          May 9, 2022
+        </time>
+      </div>
+      
+      <a href="https://jeqo.github.io/tags/sqlite" class="c-tag">sqlite</a>
+      
+      <a href="https://jeqo.github.io/tags/database" class="c-tag">database</a>
+      
+      
+      <a href="https://jeqo.github.io/categories/data" class="c-tag">data</a>
+      
+    </div>
+  </header>
+  
+  <section id="js-article" class="p-article__body">
+    <p>I found that the use-cases for sqlite keep increasing now the JSON is supported.</p>
+<p>This week I found the following presentation: <a href="https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need">https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need</a>
+Which makes the case for a simple graph <a href="https://github.com/dpapathanasiou/simple-graph/blob/main/sql/schema.sql">schema</a>, and using SQL out-of-the-box functionality to store graphs and execute traversal queries.</p>
+<p>This repository is actually based on this one focused on JSON support and document databases: <a href="https://dgl.cx/2020/06/sqlite-json-support">https://dgl.cx/2020/06/sqlite-json-support</a></p>
+
+  </section>
+  <footer>
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
     
     
-    <li><a href="https://jeqo.github.io/tags/ansible">ansible</a> (3)</li>
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'jeqoblog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    <nav class="p-pagination c-pagination">
+      <div class="c-pagination__ctrl">
+        <div class="c-pagination__newer">
+          
+          <a href="https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/">Newer</a>
+          
+        </div>
+        <div class="c-pagination__older">
+          
+          
+        </div>
+      </div>
+    </nav>
     
-    <li><a href="https://jeqo.github.io/tags/api">api</a> (1)</li>
+
+<section class="p-related">
+  <h3>See Also</h3>
+  <ul id="slider" class="p-related__list">
     
-    <li><a href="https://jeqo.github.io/tags/automation">automation</a> (1)</li>
+    <li class="p-related__item js-related__item">
+      <a href="/til/2022-03-10-kcat-end-offset-and-datasette/"
+        >
+        <span>Explore Kafka data with kcat, sqlite, and Datasette</span>
+      </a>
+    </li>
     
-    <li><a href="https://jeqo.github.io/tags/avro">avro</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/aws">aws</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/book">book</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/bpm">bpm</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/chef">chef</a> (4)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/cioran">cioran</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/cli">cli</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/compatibility">compatibility</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/daniel-bittman">daniel-bittman</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/database">database</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/datasette">datasette</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/deployment">deployment</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/devops-k8s-weblogic-ougn">devops-k8s-weblogic-ougn</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/devops-soa-oracle">devops-soa-oracle</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/distributed-systems">distributed-systems</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/distributed-tracing">distributed-tracing</a> (3)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/docker">docker</a> (5)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/durability">durability</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/ethan-l-miller">ethan-l-miller</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/fault-injection">fault-injection</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/fault-tolerance">fault-tolerance</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/fmw">fmw</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/graalvm">graalvm</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/ideas">ideas</a> (3)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/integration">integration</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/java">java</a> (3)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/java-ee">java-ee</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/kafka">kafka</a> (18)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/kafka-streams">kafka-streams</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/kcat">kcat</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/latency">latency</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/logging">logging</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/microservices">microservices</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/nfs">nfs</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/oracle">oracle</a> (7)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/packer">packer</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/pat-helland">pat-helland</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/peter-alvaro">peter-alvaro</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/philosophy">philosophy</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/review">review</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/rx">rx</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/samza">samza</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/soa">soa</a> (4)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/sqlite">sqlite</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/ssl">ssl</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/streaming-joins">streaming-joins</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/tracing">tracing</a> (3)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/transactions">transactions</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/vagrant">vagrant</a> (3)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/virtualbox">virtualbox</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/zipkin">zipkin</a> (4)</li>
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/"
+        >
+        <span>Speed up your Oracle Database provisioning with Docker and Ansible</span>
+      </a>
+    </li>
     
   </ul>
 </section>
+
+
+  </footer>
+</article>
   </main>
   
 <nav class="l-nav p-menu">
@@ -311,10 +279,6 @@
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/tags/">es</a></li>
-         
     </ul>
 </nav>
 

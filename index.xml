@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Fri, 18 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sqlite can be used document and graph database</title>
+      <link>https://jeqo.github.io/til/2022-05-09-sqlite-as-document-and-graph-db/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/til/2022-05-09-sqlite-as-document-and-graph-db/</guid>
+      <description>I found that the use-cases for sqlite keep increasing now the JSON is supported.
+This week I found the following presentation: https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need Which makes the case for a simple graph schema, and using SQL out-of-the-box functionality to store graphs and execute traversal queries.
+This repository is actually based on this one focused on JSON support and document databases: https://dgl.cx/2020/06/sqlite-json-support</description>
+    </item>
+    
     <item>
       <title>Kafka client applications with GraalVM</title>
       <link>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</link>

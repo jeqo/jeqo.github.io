@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.92.0" />
+	<meta name="generator" content="Hugo 0.89.4" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
     <title>@jeqo</title>
@@ -167,6 +167,36 @@
 </nav>
 
     <main id="main" class="l-main">
+
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-05-09-sqlite-as-document-and-graph-db/">sqlite can be used document and graph database</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2022-05-09T00:00:00Z">
+        May 9, 2022
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    I found that the use-cases for sqlite keep increasing now the JSON is supported.
+This week I found the following presentation: https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need Which makes the case for a simple graph schema, and using SQL out-of-the-box functionality to store graphs and execute traversal queries.
+This repository is actually based on this one focused on JSON support and document databases: https://dgl.cx/2020/06/sqlite-json-support
+  </div>
+  
+  <div>
+    <a href="/til" class="c-tag">til</a>
+    
+    <a href="/tags/data/" class="c-tag">data</a>
+    
+    
+    <a href="/tags/sqlite/" class="c-tag">sqlite</a>
+    
+    <a href="/tags/database/" class="c-tag">database</a>
+    
+  </div>
+</article>
+
 
   <article class="c-article p-list-article">
   <header>
@@ -453,38 +483,6 @@ I was wondering whether this feature would handle FK-joins between values on the
     <a href="/tags/java/" class="c-tag">java</a>
     
     <a href="/tags/logging/" class="c-tag">logging</a>
-    
-  </div>
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-21-ansible-debug/">Ansible has a debug mode to pause and troubleshoot</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-21T00:00:00Z">
-        Jan 21, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    I have been running Ansible for a while now. My usual/naive way of debugging has always been adding a debug module[1], and get the execution running til that point.
-I figured that there are better ways to deal with this[2]. By using the debug mode, tasks will stop when failing (by default) and you&rsquo;ll be able to introspect into the task, variables, and context when things failed. Even better, you&rsquo;ll be able to re-execute if there was a transient error.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-01-21-ansible-debug/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    
-    <a href="/tags/ansible/" class="c-tag">ansible</a>
-    
-    <a href="/tags/automation/" class="c-tag">automation</a>
     
   </div>
 </article>

@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jeqo.github.io/</loc>
-    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://jeqo.github.io/categories/</loc>
-    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -27,6 +27,34 @@
                 hreflang="en"
                 href="https://jeqo.github.io/categories/"
                 />
+  </url><url>
+    <loc>https://jeqo.github.io/categories/data/</loc>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/database/</loc>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/sqlite/</loc>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/til/2022-05-09-sqlite-as-document-and-graph-db/</loc>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/</loc>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/tags/"
+                />
+  </url><url>
+    <loc>https://jeqo.github.io/til/</loc>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/cli/</loc>
     <lastmod>2022-03-18T00:00:00+00:00</lastmod>
@@ -76,22 +104,6 @@
                 href="https://jeqo.github.io/posts/"
                 />
   </url><url>
-    <loc>https://jeqo.github.io/tags/</loc>
-    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/tags/"
-                />
-  </url><url>
-    <loc>https://jeqo.github.io/categories/data/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jeqo.github.io/tags/datasette/</loc>
     <lastmod>2022-03-10T00:00:00+00:00</lastmod>
   </url><url>
@@ -102,12 +114,6 @@
     <lastmod>2022-03-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/kcat/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/tags/sqlite/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/til/</loc>
     <lastmod>2022-03-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/java/</loc>
@@ -552,9 +558,6 @@
                 hreflang="en"
                 href="https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/"
                 />
-  </url><url>
-    <loc>https://jeqo.github.io/tags/database/</loc>
-    <lastmod>2016-05-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/oracle/</loc>
     <lastmod>2016-05-26T00:00:00+00:00</lastmod>
