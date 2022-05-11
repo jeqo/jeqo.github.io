@@ -216,8 +216,8 @@ This metric is driven by the amount of data moved, and it&rsquo;s the first, mos
 <p>This volume of data can be moved in many (potentially batched) requests.
 The number of requests impacts the processing load required on the brokers.
 Kafka brokers have 2 main thread pools to process requests: network threads and IO threads.
-These thread pools are the second resource to operate.</p>
-<p>Then, the connections created between clients and brokers is the third one.
+These <strong>thread pools</strong> are the second resource to operate.</p>
+<p>Then, the <strong>connections created</strong> between clients and brokers is the third one.
 Clients open connections with a certain frequency.
 Having an upper bound on the number of connections created helps to reduce the chances for denial-of-service attacks.</p>
 <p>Additionally, there are replication and controller mutation quotas that are for inter-broker communication.
