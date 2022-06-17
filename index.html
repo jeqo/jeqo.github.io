@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.89.4" />
+	<meta name="generator" content="Hugo 0.101.0" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
     <title>@jeqo</title>
@@ -167,6 +167,41 @@
 </nav>
 
     <main id="main" class="l-main">
+
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/kafka-producer-control-messages/">Kafka Streams: Tick stream-time with control messages</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2022-06-17T00:00:00Z">
+        Jun 17, 2022
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Kafka Streams is in many ways governed by the concept of time. For instance, as soon as stateful operations are used, the event-time drives how events are grouped, joined, and emitted.
+Stream-time is the concept within Kafka Streams representing the largest timestamp seen by the the stream application (per-partition). In comparison with wall-clock time (i.e. system time) — at the execution of an application — stream-time is driven by the data seen by the application. This ensures that the results produced by a Kafka Streams application are reproducible.
+One nuance of stream-time is that it needs incoming events to &ldquo;tick&rdquo;. This could represent an issue for events that are sparse in time, and we expect results to be produced more often (e.g. windows to be closed and emit, punctiation to be calculated).
+This is a known issue, and there are some proposals to overcome it in certain parts of the framework, e.g. KIP-424.
+This post covers a proof-of-concept instrumenting producers to emit contol messages to advance stream time.
+
+  </div>
+  
+  <a href="https://jeqo.github.io/posts/kafka-producer-control-messages/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+  <div>
+    <a href="/posts" class="c-tag">posts</a>
+    
+    <a href="/tags/dev/" class="c-tag">dev</a>
+    
+    <a href="/tags/poc/" class="c-tag">poc</a>
+    
+    
+    <a href="/tags/kafka-streams/" class="c-tag">kafka-streams</a>
+    
+  </div>
+</article>
+
 
   <article class="c-article p-list-article">
   <header>
@@ -451,37 +486,6 @@ I was wondering whether this feature would handle FK-joins between values on the
     
     
     <a href="/tags/ideas/" class="c-tag">ideas</a>
-    
-  </div>
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/">Kafka Streams abstracts access to multiple tasks state stores when reading</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-26T00:00:00Z">
-        Jan 26, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka Streams applications could scale either horizontally (add more instances) or vertically (add more threads). When scaled vertically, multiple tasks store multiple partitions locally. An interesting question is whether Kafka Streams gives access when reading (i.e. Interactive Queries) to these stores, and how does it manage to abstract the access to different stores managed by multiple tasks.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/dev/" class="c-tag">dev</a>
-    
-    
-    <a href="/tags/kafka-streams/" class="c-tag">kafka-streams</a>
-    
-    <a href="/tags/api/" class="c-tag">api</a>
     
   </div>
 </article>

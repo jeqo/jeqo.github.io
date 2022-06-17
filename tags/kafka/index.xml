@@ -134,7 +134,7 @@ As enforcing this guarantee requires waiting for replicas to sync, this increase
       
       <guid>https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/</guid>
       <description>Originally posted in Confluent Blog
- Apache Kafka® based applications stand out for their ability to decouple producers and consumers using an event log as an intermediate layer.
+Apache Kafka® based applications stand out for their ability to decouple producers and consumers using an event log as an intermediate layer.
 One result of this is that producers and consumers don’t know about each other, as there is no direct communication between them.
 This enables choreographed service collaborations, where many components can subscribe to events stored in the event log and react to them asynchronously.</description>
     </item>
@@ -164,7 +164,7 @@ This enables choreographed service collaborations, where many components can sub
       
       <guid>https://jeqo.github.io/posts/2017-09-28-kafka-opentracing/</guid>
       <description>for a more updated version, check https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/
- Tracing is one of the hardest time in integration or microservice development: knowing how a request impact your different components, and if your components have behave as expected.
+Tracing is one of the hardest time in integration or microservice development: knowing how a request impact your different components, and if your components have behave as expected.
 This could be fairly easy if we have monolith where we have one database and with some queries or checking one log file you can validate everything went well.
 Once you introduce distributed components and asynchronous communication this starts to get more complex and tedious.</description>
     </item>

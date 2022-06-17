@@ -164,7 +164,9 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
+  
   <header>
+    <a href="https://jeqo.github.io/" class="c-tag"></a>
     <h1>Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</h1>
     <div>
       <div class="c-time">
@@ -227,7 +229,7 @@ then cannot be repaired if one of the processes crashes and restarts (no fault r
 </h2><p>Kafka, on one side, is focused on making replicated logs as efficient and performant as possible.</p>
 <blockquote>
 <p>Kafka&rsquo;s focus on the log abstraction is reminiscent of the Unix philosophy: <strong>&ldquo;Make each program do one thing well. To do a new job, build
-afresh rather than complicated old programs by adding &lsquo;new features&rsquo;&quot;</strong></p>
+afresh rather than complicated old programs by adding &rsquo;new features&rsquo;&rdquo;</strong></p>
 </blockquote>
 <p>Samza on the other side, is focus on Stream processing:</p>
 <blockquote>
@@ -235,7 +237,7 @@ afresh rather than complicated old programs by adding &lsquo;new features&rsquo;
 like a streaming version of HDFS, then Samza is like a streaming version of MapReduce.</p>
 </blockquote>
 <blockquote>
-<p>This principle again evokes a Unix maxim: <strong>&ldquo;Expect the output of every program to become the unput to another, as yet unknown, program.&quot;</strong></p>
+<p>This principle again evokes a Unix maxim: <strong>&ldquo;Expect the output of every program to become the unput to another, as yet unknown, program.&rdquo;</strong></p>
 </blockquote>
 <blockquote>
 <p>Kafka topics deliberately do not provide backpressure: the on-disk log acts as an almost-unbounded buffer for messages.</p>

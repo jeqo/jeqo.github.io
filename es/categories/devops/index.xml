@@ -26,8 +26,8 @@ clúster.&lt;/p&gt;</description>
       
       <guid>https://jeqo.github.io/es/posts/2016-03-30-ansible-agentless-provisioning/</guid>
       <description>Ansible es una herramienta de automatización reconocida por ser sencilla y potente a la vez. Según mi experiencia, puedo decir que esto se debe principalmente al lenguaje que utiliza: YAML, y a tener una arquitectura sin agentes o &amp;ldquo;agentless&amp;rdquo;.
-hashtag-outline &amp;nbsp;YAML y los componentes de Ansible  &amp;ldquo;YAML is a human friendly data serialization standard for all programming languages&amp;rdquo; (Source: http://yaml.org/)
- Esto signifíca que es verdaderamente fácil de entender y comenzar a trabajar con YAML.</description>
+hashtag-outline &amp;nbsp;YAML y los componentes de Ansible &amp;ldquo;YAML is a human friendly data serialization standard for all programming languages&amp;rdquo; (Source: http://yaml.org/)
+Esto signifíca que es verdaderamente fácil de entender y comenzar a trabajar con YAML.</description>
     </item>
     
     <item>
@@ -49,7 +49,7 @@ También he movido el directory OracleSOA que cree sobre el repositorio de Oracl
       <guid>https://jeqo.github.io/es/posts/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</guid>
       <description>Ayer cargué una nueva versión (0.2.0) de mi Oracle Fusion Middleware Cookbook compartido en Chef Supermarket
 Este nuevo release incluye:
- Soporte para la instalación de Oracle SOA Suite 12c Quickstart Soporte para la instalación y creación de dominios con Oracle SOA/OSB Suite 11g  Pueden encontrar ejemplos de uso en este repositorio: https://github.com/jeqo/chef-repo</description>
+Soporte para la instalación de Oracle SOA Suite 12c Quickstart Soporte para la instalación y creación de dominios con Oracle SOA/OSB Suite 11g Pueden encontrar ejemplos de uso en este repositorio: https://github.com/jeqo/chef-repo</description>
     </item>
     
     <item>
@@ -71,7 +71,7 @@ Bueno, WebLogic sobre Docker es genial, pero me he propuesto ir unos pasos más 
       <guid>https://jeqo.github.io/es/posts/2014-12-11-run-bpm-12c-aws/</guid>
       <description>En esta entrada mostraré el procedimiento que utilicé para crear instancias en Amazon Web Service EC2, con Oracle BPM 12c instalado y un dominio provisionado.
 Este procedimiento se realizo en los siguientes pasos:
- Crear una instancia en AWS EC2 (con Vagrant) Conectarse a una instancia NFS para obtener instaladores (con Chef) Instalar Oracle BPM 12c Quickstart y crear Dominio (con Chef)  GitHub: https://github.com/jeqo/oracle-bpm-12c-aws
+Crear una instancia en AWS EC2 (con Vagrant) Conectarse a una instancia NFS para obtener instaladores (con Chef) Instalar Oracle BPM 12c Quickstart y crear Dominio (con Chef) GitHub: https://github.com/jeqo/oracle-bpm-12c-aws
 hashtag-outline &amp;nbsp;Crear una instancia en AWS EC2 He creado una instancia Red Hat usando Vagrant.</description>
     </item>
     

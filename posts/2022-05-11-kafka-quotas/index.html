@@ -164,7 +164,9 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
+  
   <header>
+    <a href="https://jeqo.github.io/posts" class="c-tag">posts</a>
     <h1>Getting started with Kafka quotas</h1>
     <div>
       <div class="c-time">
@@ -319,62 +321,62 @@ At the moment the CLI to manage quotas is included as part of <code>kafka-config
 <ol>
 <li>Create default quota:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ kfk-quotas create --kafka cp-demo <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>  --user-default <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>  --produce-rate <span style="color:#60e;font-weight:bold">5000000</span> --fetch-rate <span style="color:#60e;font-weight:bold">15000000</span>
-</code></pre></div><ol start="2">
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ kfk-quotas create --kafka cp-demo <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>  --user-default <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>  --produce-rate <span style="color:#60e;font-weight:bold">5000000</span> --fetch-rate <span style="color:#60e;font-weight:bold">15000000</span>
+</span></span></code></pre></div><ol start="2">
 <li>Get list of quotas:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ kfk-quotas query --kafka cp-demo 2&gt; /dev/null | jq .
-<span style="color:#333">[</span>
-  <span style="color:#333">{</span>
-    <span style="background-color:#fff0f0">&#34;clientEntity&#34;</span>: <span style="color:#333">{</span>
-      <span style="background-color:#fff0f0">&#34;user&#34;</span>: <span style="color:#333">{</span>
-        <span style="background-color:#fff0f0">&#34;default&#34;</span>: <span style="color:#007020">true</span>
-      <span style="color:#333">}</span>
-    <span style="color:#333">}</span>,
-    <span style="background-color:#fff0f0">&#34;constraints&#34;</span>: <span style="color:#333">{</span>
-      <span style="background-color:#fff0f0">&#34;producer_byte_rate&#34;</span>: 5000000,
-      <span style="background-color:#fff0f0">&#34;consumer_byte_rate&#34;</span>: <span style="color:#60e;font-weight:bold">15000000</span>
-    <span style="color:#333">}</span>
-  <span style="color:#333">}</span>
-<span style="color:#333">]</span>
-</code></pre></div><ol start="3">
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ kfk-quotas query --kafka cp-demo 2&gt; /dev/null | jq .
+</span></span><span style="display:flex;"><span><span style="color:#333">[</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>    <span style="background-color:#fff0f0">&#34;clientEntity&#34;</span>: <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>      <span style="background-color:#fff0f0">&#34;user&#34;</span>: <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        <span style="background-color:#fff0f0">&#34;default&#34;</span>: <span style="color:#007020">true</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>,
+</span></span><span style="display:flex;"><span>    <span style="background-color:#fff0f0">&#34;constraints&#34;</span>: <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>      <span style="background-color:#fff0f0">&#34;producer_byte_rate&#34;</span>: 5000000,
+</span></span><span style="display:flex;"><span>      <span style="background-color:#fff0f0">&#34;consumer_byte_rate&#34;</span>: <span style="color:#60e;font-weight:bold">15000000</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#333">]</span>
+</span></span></code></pre></div><ol start="3">
 <li>Check application quota metrics:</li>
 </ol>
 <p><img src="quotas_1.png" alt="Quota metrics"></p>
 <ol start="4">
 <li>Apply a specific metric for a user:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kfk-quotas create --kafka cp-demo <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>  --user controlcenterAdmin <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>  --produce-rate <span style="color:#60e;font-weight:bold">10000</span> --fetch-rate <span style="color:#60e;font-weight:bold">60000</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ kfk-quotas query --kafka cp-demo 2&gt; /dev/null | jq
-<span style="color:#333">[</span>
-  <span style="color:#333">{</span>
-    <span style="background-color:#fff0f0">&#34;clientEntity&#34;</span>: <span style="color:#333">{</span>
-      <span style="background-color:#fff0f0">&#34;user&#34;</span>: <span style="color:#333">{</span>
-        <span style="background-color:#fff0f0">&#34;default&#34;</span>: <span style="color:#007020">true</span>
-      <span style="color:#333">}</span>
-    <span style="color:#333">}</span>,
-    <span style="background-color:#fff0f0">&#34;constraints&#34;</span>: <span style="color:#333">{</span>
-      <span style="background-color:#fff0f0">&#34;producer_byte_rate&#34;</span>: 5000000,
-      <span style="background-color:#fff0f0">&#34;consumer_byte_rate&#34;</span>: <span style="color:#60e;font-weight:bold">15000000</span>
-    <span style="color:#333">}</span>
-  <span style="color:#333">}</span>,
-  <span style="color:#333">{</span>
-    <span style="background-color:#fff0f0">&#34;clientEntity&#34;</span>: <span style="color:#333">{</span>
-      <span style="background-color:#fff0f0">&#34;user&#34;</span>: <span style="color:#333">{</span>
-        <span style="background-color:#fff0f0">&#34;user&#34;</span>: <span style="background-color:#fff0f0">&#34;controlcenterAdmin&#34;</span>
-      <span style="color:#333">}</span>
-    <span style="color:#333">}</span>,
-    <span style="background-color:#fff0f0">&#34;constraints&#34;</span>: <span style="color:#333">{</span>
-      <span style="background-color:#fff0f0">&#34;producer_byte_rate&#34;</span>: 10000,
-      <span style="background-color:#fff0f0">&#34;consumer_byte_rate&#34;</span>: <span style="color:#60e;font-weight:bold">60000</span>
-    <span style="color:#333">}</span>
-  <span style="color:#333">}</span>
-<span style="color:#333">]</span>
-</code></pre></div><ol start="5">
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kfk-quotas create --kafka cp-demo <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>  --user controlcenterAdmin <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>  --produce-rate <span style="color:#60e;font-weight:bold">10000</span> --fetch-rate <span style="color:#60e;font-weight:bold">60000</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ kfk-quotas query --kafka cp-demo 2&gt; /dev/null | jq
+</span></span><span style="display:flex;"><span><span style="color:#333">[</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>    <span style="background-color:#fff0f0">&#34;clientEntity&#34;</span>: <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>      <span style="background-color:#fff0f0">&#34;user&#34;</span>: <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        <span style="background-color:#fff0f0">&#34;default&#34;</span>: <span style="color:#007020">true</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>,
+</span></span><span style="display:flex;"><span>    <span style="background-color:#fff0f0">&#34;constraints&#34;</span>: <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>      <span style="background-color:#fff0f0">&#34;producer_byte_rate&#34;</span>: 5000000,
+</span></span><span style="display:flex;"><span>      <span style="background-color:#fff0f0">&#34;consumer_byte_rate&#34;</span>: <span style="color:#60e;font-weight:bold">15000000</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#333">}</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>    <span style="background-color:#fff0f0">&#34;clientEntity&#34;</span>: <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>      <span style="background-color:#fff0f0">&#34;user&#34;</span>: <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        <span style="background-color:#fff0f0">&#34;user&#34;</span>: <span style="background-color:#fff0f0">&#34;controlcenterAdmin&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>,
+</span></span><span style="display:flex;"><span>    <span style="background-color:#fff0f0">&#34;constraints&#34;</span>: <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>      <span style="background-color:#fff0f0">&#34;producer_byte_rate&#34;</span>: 10000,
+</span></span><span style="display:flex;"><span>      <span style="background-color:#fff0f0">&#34;consumer_byte_rate&#34;</span>: <span style="color:#60e;font-weight:bold">60000</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#333">]</span>
+</span></span></code></pre></div><ol start="5">
 <li>And check that throttling starts to kick in:</li>
 </ol>
 <p><img src="quotas_2.png" alt="Quota metrics with throttling"></p>
@@ -443,6 +445,7 @@ It also defines the order of precedence that applies even today:</li>
         </div>
         <div class="c-pagination__older">
           
+          <a href="https://jeqo.github.io/posts/kafka-producer-control-messages/">Older</a>
           
         </div>
       </div>

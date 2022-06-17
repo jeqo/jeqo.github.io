@@ -164,7 +164,9 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
+  
   <header>
+    <a href="https://jeqo.github.io/til" class="c-tag">til</a>
     <h1>Enable Certificate Revocation on Kafka clusters</h1>
     <div>
       <div class="c-time">
@@ -191,9 +193,9 @@
 With a proper Public Key Infrastructure, a Certificate Revocation List (CRL) can be available for clients to validate if a certificate is still valid regardless of its time-to-live.
 For instance, if a private key has been compromised, then a certificate can be revoked before it&rsquo;s valid date.</p>
 <p>This is enforced at the JVM level, actually:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#bbb">      </span><span style="color:#888">## Here is where CRL validation for revoked certificates is enabled.</span><span style="color:#bbb">
-</span><span style="color:#bbb">      </span><span style="color:#070">KAFKA_OPTS</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;-Dcom.sun.security.enableCRLDP=true -Dcom.sun.net.ssl.checkRevocation=true&#34;</span><span style="color:#bbb">
-</span></code></pre></div><p>If Kafka brokers have these flags enabled, the brokers will check that the CRL endpoint is accessible at boot time.
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#888">## Here is where CRL validation for revoked certificates is enabled.</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#070">KAFKA_OPTS</span>:<span style="color:#bbb"> </span><span style="background-color:#fff0f0">&#34;-Dcom.sun.security.enableCRLDP=true -Dcom.sun.net.ssl.checkRevocation=true&#34;</span><span style="color:#bbb">
+</span></span></span></code></pre></div><p>If Kafka brokers have these flags enabled, the brokers will check that the CRL endpoint is accessible at boot time.
 If it isn&rsquo;t, then the startup it fails.</p>
 <p>Proof-of-concept to reproduce this configuration with Vault as a PKI: <a href="https://github.com/jeqo/docker-composes/tree/main/cp-vault-pki">https://github.com/jeqo/docker-composes/tree/main/cp-vault-pki</a></p>
   </section>

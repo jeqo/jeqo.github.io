@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>explore kafka data with kcat, sqlite, and datasette</title>
-    <meta property="og:title" content="Explore Kafka data with kcat, sqlite, and Datasette" />
-    <meta name="twitter:title" content="Explore Kafka data with kcat, sqlite, and Datasette" />  
+    <title>poc</title>
+    <meta property="og:title" content="poc" />
+    <meta name="twitter:title" content="poc" />  
     <meta name="description" content="data streaming, observability, automation, and random stuff">
     <meta property="og:description" content="data streaming, observability, automation, and random stuff">
     <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/til/2022-03-10-kcat-end-offset-and-datasette/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/categories/poc/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
-    <meta property="og:type" content="article" /> 
+    <meta property="og:type" content="website" /> 
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
@@ -79,7 +79,7 @@
 </svg>
     <header class="l-header">
         
-        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
+        <h1 class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></h1>
          
         <p class="p-subtitle">
             data streaming, observability, automation, and random stuff
@@ -162,150 +162,43 @@
 </nav>
 
     <main id="main" class="l-main">
+<h2 class="c-title p-tag-title">poc</h2>
 
-<article class="p-article">
-  
+<article class="c-article p-list-article">
   <header>
-    <a href="https://jeqo.github.io/til" class="c-tag">til</a>
-    <h1>Explore Kafka data with kcat, sqlite, and Datasette</h1>
-    <div>
-      <div class="c-time">
-        Posted on
-        <time datetime="2022-03-10T00:00:00Z">
-          Mar 10, 2022
-        </time>
-      </div>
-      
-      <a href="https://jeqo.github.io/tags/datasette" class="c-tag">datasette</a>
-      
-      <a href="https://jeqo.github.io/tags/sqlite" class="c-tag">sqlite</a>
-      
-      <a href="https://jeqo.github.io/tags/kcat" class="c-tag">kcat</a>
-      
-      <a href="https://jeqo.github.io/tags/kafka" class="c-tag">kafka</a>
-      
-      
-      <a href="https://jeqo.github.io/categories/dev" class="c-tag">dev</a>
-      
-      <a href="https://jeqo.github.io/categories/data" class="c-tag">data</a>
-      
-    </div>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/kafka-producer-control-messages/">Kafka Streams: Tick stream-time with control messages</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2022-06-17T00:00:00Z">
+        Jun 17, 2022
+      </time>
+    </p>
   </header>
+  <div class="c-article__summary">
+    Kafka Streams is in many ways governed by the concept of time. For instance, as soon as stateful operations are used, the event-time drives how events are grouped, joined, and emitted.
+Stream-time is the concept within Kafka Streams representing the largest timestamp seen by the the stream application (per-partition). In comparison with wall-clock time (i.e. system time) — at the execution of an application — stream-time is driven by the data seen by the application. This ensures that the results produced by a Kafka Streams application are reproducible.
+One nuance of stream-time is that it needs incoming events to &ldquo;tick&rdquo;. This could represent an issue for events that are sparse in time, and we expect results to be produced more often (e.g. windows to be closed and emit, punctiation to be calculated).
+This is a known issue, and there are some proposals to overcome it in certain parts of the framework, e.g. KIP-424.
+This post covers a proof-of-concept instrumenting producers to emit contol messages to advance stream time.
+
+  </div>
   
-  <section id="js-article" class="p-article__body">
-    <p>I have been playing with Datasette and sqlite for a bit, trying to collect and expose data efficiently for others to analyze.
-Recently started finding use-cases to get data from Apache Kafka, and expose it quickly to analyze it.
-Why not using Datasette?</p>
-<p><a href="https://stackoverflow.com/questions/60882882/how-to-consume-messages-between-two-timestamps-using-kafka-console-consumer">Today I learned</a> that <code>kcat</code> is able to consume a set of messages based on timestamp. This means, we can ask &ldquo;get me all the data produced til now&rdquo;:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kafkacat -b <span style="background-color:#eee">${</span><span style="color:#963">CCLOUD_BOOTSTRAP_SERVER</span><span style="background-color:#eee">}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>  -C -t confluent-audit-log-events <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>  -o e@<span style="color:#080;font-weight:bold">$(</span>date +%s000<span style="color:#080;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span>% Reached stop timestamp <span style="color:#080;font-weight:bold">for</span> topic confluent-audit-log-events <span style="color:#333">[</span>0<span style="color:#333">]</span> at offset <span style="color:#60e;font-weight:bold">80957</span>
-</span></span><span style="display:flex;"><span>% Reached stop timestamp <span style="color:#080;font-weight:bold">for</span> topic confluent-audit-log-events <span style="color:#333">[</span>1<span style="color:#333">]</span> at offset <span style="color:#60e;font-weight:bold">80407</span>
-</span></span><span style="display:flex;"><span>% Reached stop timestamp <span style="color:#080;font-weight:bold">for</span> topic confluent-audit-log-events <span style="color:#333">[</span>2<span style="color:#333">]</span> at offset 80810: exiting
-</span></span></code></pre></div><p><a href="https://datasette.io/">Datasette</a> has an awesome tool to turn JSON into sqlite table: <a href="https://sqlite-utils.datasette.io/en/stable/cli.html#inserting-newline-delimited-json">https://sqlite-utils.datasette.io/en/stable/cli.html#inserting-newline-delimited-json</a>.
-Then JSON outputs from <code>kcat</code> can be piped into <code>sqlite-utils</code> to produce a <code>sqlite</code> database, and complete when end timestamp is reached:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kafkacat -b <span style="background-color:#eee">${</span><span style="color:#963">CCLOUD_BOOTSTRAP_SERVER</span><span style="background-color:#eee">}</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>  -C -t confluent-audit-log-events <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>  -o e@<span style="color:#080;font-weight:bold">$(</span>date +%s000<span style="color:#080;font-weight:bold">)</span> | <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>  sqlite-utils insert auditlog-v1.db audit-log - --nl
-</span></span><span style="display:flex;"><span>% Reached stop timestamp <span style="color:#080;font-weight:bold">for</span> topic confluent-audit-log-events <span style="color:#333">[</span>0<span style="color:#333">]</span> at offset <span style="color:#60e;font-weight:bold">80957</span>
-</span></span><span style="display:flex;"><span>% Reached stop timestamp <span style="color:#080;font-weight:bold">for</span> topic confluent-audit-log-events <span style="color:#333">[</span>1<span style="color:#333">]</span> at offset <span style="color:#60e;font-weight:bold">80407</span>
-</span></span><span style="display:flex;"><span>% Reached stop timestamp <span style="color:#080;font-weight:bold">for</span> topic confluent-audit-log-events <span style="color:#333">[</span>2<span style="color:#333">]</span> at offset 80810: exiting
-</span></span></code></pre></div><p>Once data is available on your sqlite database file, use datasette to explore the data with SQL:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>datasette auditlog-v1.db
-</span></span></code></pre></div><p><a href="https://sqlite-utils.datasette.io"><code>sqlite-utils</code></a> has a bunch of commands to optimize and tweak the data structure to simplify querying.</p>
-<p>And remember sqlite already supports JSON expressions to query nested fields: <a href="https://www.sqlite.org/json1.html#jptr">https://www.sqlite.org/json1.html#jptr</a></p>
-  </section>
-  <footer>
+  <a href="https://jeqo.github.io/posts/kafka-producer-control-messages/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+  <div>
+    <a href="/posts" class="c-tag">posts</a>
     
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-
-(function() {
+    <a href="/tags/dev/" class="c-tag">dev</a>
+    
+    <a href="/tags/poc/" class="c-tag">poc</a>
     
     
-    if (window.location.hostname == "localhost")
-        return;
-
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = 'jeqoblog';
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-    <nav class="p-pagination c-pagination">
-      <div class="c-pagination__ctrl">
-        <div class="c-pagination__newer">
-          
-          <a href="https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/">Newer</a>
-          
-        </div>
-        <div class="c-pagination__older">
-          
-          <a href="https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/">Older</a>
-          
-        </div>
-      </div>
-    </nav>
+    <a href="/tags/kafka-streams/" class="c-tag">kafka-streams</a>
     
-
-<section class="p-related">
-  <h3>See Also</h3>
-  <ul id="slider" class="p-related__list">
-    
-    <li class="p-related__item js-related__item">
-      <a href="/talks/from-messaging-to-logs-ougn17/"
-        >
-        <span>From Messaging to Logs with Apache Kafka @ OUGN 2017</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/til/2022-02-09-kafka-ssl-crl/"
-        >
-        <span>Enable Certificate Revocation on Kafka clusters</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/til/2021-12-10-kafka-change-rack/"
-        >
-        <span>Changing Kafka Broker&#39;s rack</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/posts/2021-12-10-kafka-data-loss/"
-        >
-        <span>Kafka data loss scenarios</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/til/2021-12-09-kafka-v3-idempotent-acks-all/"
-        >
-        <span>Kafka Producer idempotency is enabled by default since 3.0</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/til/2021-12-09-kafka-reducing-acks-and-latency/"
-        >
-        <span>Reducing `acks` doesn&#39;t help to reduce end-to-end latency</span>
-      </a>
-    </li>
-    
-  </ul>
-</section>
-
-
-  </footer>
+  </div>
 </article>
+
+
   </main>
   
 <nav class="l-nav p-menu">

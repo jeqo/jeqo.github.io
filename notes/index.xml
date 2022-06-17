@@ -55,9 +55,9 @@
       
       <guid>https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/</guid>
       <description>This paper explores how related tracing and fault injection systems are, and if they should be part of the same thing.
- The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&amp;hellip;]
-  [&amp;hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.
- In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.</description>
+The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&amp;hellip;]
+[&amp;hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.
+In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.</description>
     </item>
     
     <item>

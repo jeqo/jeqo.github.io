@@ -166,6 +166,41 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/kafka-producer-control-messages/">Kafka Streams: Tick stream-time with control messages</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2022-06-17T00:00:00Z">
+        Jun 17, 2022
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Kafka Streams is in many ways governed by the concept of time. For instance, as soon as stateful operations are used, the event-time drives how events are grouped, joined, and emitted.
+Stream-time is the concept within Kafka Streams representing the largest timestamp seen by the the stream application (per-partition). In comparison with wall-clock time (i.e. system time) — at the execution of an application — stream-time is driven by the data seen by the application. This ensures that the results produced by a Kafka Streams application are reproducible.
+One nuance of stream-time is that it needs incoming events to &ldquo;tick&rdquo;. This could represent an issue for events that are sparse in time, and we expect results to be produced more often (e.g. windows to be closed and emit, punctiation to be calculated).
+This is a known issue, and there are some proposals to overcome it in certain parts of the framework, e.g. KIP-424.
+This post covers a proof-of-concept instrumenting producers to emit contol messages to advance stream time.
+
+  </div>
+  
+  <a href="https://jeqo.github.io/posts/kafka-producer-control-messages/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+  <div>
+    <a href="/posts" class="c-tag">posts</a>
+    
+    <a href="/tags/dev/" class="c-tag">dev</a>
+    
+    <a href="/tags/poc/" class="c-tag">poc</a>
+    
+    
+    <a href="/tags/kafka-streams/" class="c-tag">kafka-streams</a>
+    
+  </div>
+</article>
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-03-10-kcat-end-offset-and-datasette/">Explore Kafka data with kcat, sqlite, and Datasette</a></h2>
     <p class="c-article__meta">
       Posted on

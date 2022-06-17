@@ -7,7 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kafka Streams: Tick stream-time with control messages</title>
+      <link>https://jeqo.github.io/posts/kafka-producer-control-messages/</link>
+      <pubDate>Fri, 17 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/posts/kafka-producer-control-messages/</guid>
+      <description>&lt;p&gt;Kafka Streams is in many ways governed by the concept of time.
+For instance, as soon as stateful operations are used, the event-time drives how events are grouped, joined, and emitted.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.confluent.io/learn-kafka/kafka-streams/time-concepts/#stream-time&#34;&gt;Stream-time&lt;/a&gt;
+is the concept within Kafka Streams representing the largest timestamp seen by the the stream application (per-partition).
+In comparison with wall-clock time (i.e. system time) — at the execution of an application — stream-time is driven by the data seen by the application.
+This ensures that the results produced by a Kafka Streams application are reproducible.&lt;/p&gt;
+&lt;p&gt;One nuance of stream-time is that it &lt;em&gt;needs&lt;/em&gt; incoming events to &amp;ldquo;tick&amp;rdquo;.
+This could represent an issue for events that are sparse in time, and we expect results to be produced more often (e.g. windows to be closed and emit, punctiation to be calculated).&lt;/p&gt;
+&lt;p&gt;This is a known issue, and there are some proposals to overcome it in certain parts of the framework,
+e.g. &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-424%3A+Allow+suppression+of+intermediate+events+based+on+wall+clock+time&#34;&gt;KIP-424&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This post covers a proof-of-concept instrumenting producers to emit contol messages to advance stream time.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Explore Kafka data with kcat, sqlite, and Datasette</title>
       <link>https://jeqo.github.io/til/2022-03-10-kcat-end-offset-and-datasette/</link>

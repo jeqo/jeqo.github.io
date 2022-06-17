@@ -168,7 +168,9 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
+  
   <header>
+    <a href="https://jeqo.github.io/posts" class="c-tag">posts</a>
     <h1>Integrate Java EE 7 and Kafka using Avro and RxJava</h1>
     <div>
       <div class="c-time">
@@ -236,22 +238,22 @@ Consumer will subscribe to that &ldquo;observable&rdquo;. Let&rsquo;s check the 
 <li>Clients Resource: List (GET) and Add (POST) Clients</li>
 <li>Events Resource: List (GET) Client Added Events</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@Path</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;clients&#34;</span><span style="color:#333">)</span>
-<span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ClientsResource</span> <span style="color:#333">{</span>
-
-    <span style="color:#080;font-weight:bold">static</span> List<span style="color:#333">&lt;</span>String<span style="color:#333">&gt;</span> clients <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> ArrayList<span style="color:#333">&lt;&gt;();</span>
-
-    <span style="color:#555;font-weight:bold">@GET</span>
-    <span style="color:#555;font-weight:bold">@Produces</span><span style="color:#333">(</span>MediaType<span style="color:#333">.</span><span style="color:#00c">APPLICATION_JSON</span><span style="color:#333">)</span>
-    <span style="color:#080;font-weight:bold">public</span> List<span style="color:#333">&lt;</span>String<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">getClients</span><span style="color:#333">()</span> <span style="color:#333">{</span>
-        <span style="color:#080;font-weight:bold">return</span> clients<span style="color:#333">;</span>
-    <span style="color:#333">}</span>
-
-    <span style="color:#555;font-weight:bold">@POST</span>
-    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">addClient</span><span style="color:#333">(</span>String client<span style="color:#333">)</span> <span style="color:#333">{</span>
-        clients<span style="color:#333">.</span><span style="color:#00c">add</span><span style="color:#333">(</span>client<span style="color:#333">);</span>
-    <span style="color:#333">}</span>
-<span style="color:#333">}</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#555;font-weight:bold">@Path</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;clients&#34;</span><span style="color:#333">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ClientsResource</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">static</span> List<span style="color:#333">&lt;</span>String<span style="color:#333">&gt;</span> clients <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> ArrayList<span style="color:#333">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555;font-weight:bold">@GET</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555;font-weight:bold">@Produces</span><span style="color:#333">(</span>MediaType<span style="color:#333">.</span><span style="color:#00c">APPLICATION_JSON</span><span style="color:#333">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">public</span> List<span style="color:#333">&lt;</span>String<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">getClients</span><span style="color:#333">()</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">return</span> clients<span style="color:#333">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555;font-weight:bold">@POST</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">addClient</span><span style="color:#333">(</span>String client<span style="color:#333">)</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        clients<span style="color:#333">.</span><span style="color:#00c">add</span><span style="color:#333">(</span>client<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#333">}</span></span></span></code></pre></div>
 <p>At this point, Clients Resource is implemented. So, how can I do to propagate
 ClientAddedEvent and list them on Events resource?</p>
 <h2 id="serializing-and-deserializing-events">
@@ -261,83 +263,83 @@ ClientAddedEvent and list them on Events resource?</p>
 </h2><p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.0.2">Tag: v0.0.2</a></p>
 <p>When I decided to use Kafka, I realized that I can only send String and Byte
 Array messages, so Avro is able to serialize POJO into byte[] and vice versa:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">test</span><span style="color:#333">()</span> <span style="color:#333">{</span>
-    ClientAddedEvent event <span style="color:#333">=</span> ClientAddedEvent<span style="color:#333">.</span><span style="color:#00c">newBuilder</span><span style="color:#333">()</span>
-            <span style="color:#333">.</span><span style="color:#00c">setName</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;jeqo&#34;</span><span style="color:#333">)</span>
-            <span style="color:#333">.</span><span style="color:#00c">setCreated</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">new</span> Date<span style="color:#333">().</span><span style="color:#00c">getTime</span><span style="color:#333">())</span>
-            <span style="color:#333">.</span><span style="color:#00c">build</span><span style="color:#333">();</span>
-    <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]</span> eventSerialized <span style="color:#333">=</span> serializer<span style="color:#333">.</span><span style="color:#00c">serialize</span><span style="color:#333">(</span>event<span style="color:#333">);</span>
-    ClientAddedEvent eventDeserialized <span style="color:#333">=</span> deserializer<span style="color:#333">.</span><span style="color:#00c">deserialize</span><span style="color:#333">(</span>eventSerialized<span style="color:#333">);</span>
-    assertEquals<span style="color:#333">(</span>event<span style="color:#333">,</span> eventDeserialized<span style="color:#333">);</span>
-<span style="color:#333">}</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">test</span><span style="color:#333">()</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>    ClientAddedEvent event <span style="color:#333">=</span> ClientAddedEvent<span style="color:#333">.</span><span style="color:#00c">newBuilder</span><span style="color:#333">()</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#333">.</span><span style="color:#00c">setName</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;jeqo&#34;</span><span style="color:#333">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#333">.</span><span style="color:#00c">setCreated</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">new</span> Date<span style="color:#333">().</span><span style="color:#00c">getTime</span><span style="color:#333">())</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#333">.</span><span style="color:#00c">build</span><span style="color:#333">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]</span> eventSerialized <span style="color:#333">=</span> serializer<span style="color:#333">.</span><span style="color:#00c">serialize</span><span style="color:#333">(</span>event<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>    ClientAddedEvent eventDeserialized <span style="color:#333">=</span> deserializer<span style="color:#333">.</span><span style="color:#00c">deserialize</span><span style="color:#333">(</span>eventSerialized<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>    assertEquals<span style="color:#333">(</span>event<span style="color:#333">,</span> eventDeserialized<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#333">}</span></span></span></code></pre></div>
 <p>ClientAddedEvent event is defined using Avro JSON format:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#070">&#34;namespace&#34;</span>: <span style="background-color:#fff0f0">&#34;com.jeqo.samples.eventsource.event&#34;</span>,
-    <span style="color:#070">&#34;type&#34;</span>: <span style="background-color:#fff0f0">&#34;record&#34;</span>,
-    <span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;ClientAddedEvent&#34;</span>,
-    <span style="color:#070">&#34;fields&#34;</span>: [
-        {<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;name&#34;</span>, <span style="color:#070">&#34;type&#34;</span>: <span style="background-color:#fff0f0">&#34;string&#34;</span>},
-        {<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;created&#34;</span>, <span style="color:#070">&#34;type&#34;</span>: <span style="background-color:#fff0f0">&#34;long&#34;</span>}
-    ]
-}</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#070">&#34;namespace&#34;</span>: <span style="background-color:#fff0f0">&#34;com.jeqo.samples.eventsource.event&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#070">&#34;type&#34;</span>: <span style="background-color:#fff0f0">&#34;record&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;ClientAddedEvent&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#070">&#34;fields&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;name&#34;</span>, <span style="color:#070">&#34;type&#34;</span>: <span style="background-color:#fff0f0">&#34;string&#34;</span>},
+</span></span><span style="display:flex;"><span>        {<span style="color:#070">&#34;name&#34;</span>: <span style="background-color:#fff0f0">&#34;created&#34;</span>, <span style="color:#070">&#34;type&#34;</span>: <span style="background-color:#fff0f0">&#34;long&#34;</span>}
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
 <p>Adding a Maven Plugin, you will generate <em>ClientAddedEvent</em> each time you build
 your project:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#070">&lt;build&gt;</span>
-    <span style="color:#070">&lt;plugins&gt;</span>
-        <span style="color:#070">&lt;plugin&gt;</span>
-            <span style="color:#070">&lt;groupId&gt;</span>org.apache.avro<span style="color:#070">&lt;/groupId&gt;</span>
-            <span style="color:#070">&lt;artifactId&gt;</span>avro-maven-plugin<span style="color:#070">&lt;/artifactId&gt;</span>
-            <span style="color:#070">&lt;version&gt;</span>1.7.7<span style="color:#070">&lt;/version&gt;</span>
-            <span style="color:#070">&lt;executions&gt;</span>
-                <span style="color:#070">&lt;execution&gt;</span>
-                    <span style="color:#070">&lt;phase&gt;</span>generate-sources<span style="color:#070">&lt;/phase&gt;</span>
-                    <span style="color:#070">&lt;goals&gt;</span>
-                        <span style="color:#070">&lt;goal&gt;</span>schema<span style="color:#070">&lt;/goal&gt;</span>
-                    <span style="color:#070">&lt;/goals&gt;</span>
-                    <span style="color:#070">&lt;configuration&gt;</span>
-                        <span style="color:#070">&lt;sourceDirectory&gt;</span>${project.basedir}/src/main/avro/<span style="color:#070">&lt;/sourceDirectory&gt;</span>
-                        <span style="color:#070">&lt;outputDirectory&gt;</span>${project.basedir}/src/main/java/<span style="color:#070">&lt;/outputDirectory&gt;</span>
-                    <span style="color:#070">&lt;/configuration&gt;</span>
-                <span style="color:#070">&lt;/execution&gt;</span>
-            <span style="color:#070">&lt;/executions&gt;</span>
-        <span style="color:#070">&lt;/plugin&gt;</span>
-    <span style="color:#070">&lt;/plugins&gt;</span>
-<span style="color:#070">&lt;/build&gt;</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#070">&lt;build&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#070">&lt;plugins&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#070">&lt;plugin&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#070">&lt;groupId&gt;</span>org.apache.avro<span style="color:#070">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#070">&lt;artifactId&gt;</span>avro-maven-plugin<span style="color:#070">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#070">&lt;version&gt;</span>1.7.7<span style="color:#070">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#070">&lt;executions&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#070">&lt;execution&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#070">&lt;phase&gt;</span>generate-sources<span style="color:#070">&lt;/phase&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#070">&lt;goals&gt;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#070">&lt;goal&gt;</span>schema<span style="color:#070">&lt;/goal&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#070">&lt;/goals&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#070">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#070">&lt;sourceDirectory&gt;</span>${project.basedir}/src/main/avro/<span style="color:#070">&lt;/sourceDirectory&gt;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#070">&lt;outputDirectory&gt;</span>${project.basedir}/src/main/java/<span style="color:#070">&lt;/outputDirectory&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#070">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#070">&lt;/execution&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#070">&lt;/executions&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#070">&lt;/plugin&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#070">&lt;/plugins&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#070">&lt;/build&gt;</span></span></span></code></pre></div>
 <p>To serialize Avro records, from POJO to Byte Array:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">EventSerializer</span><span style="color:#333">&lt;</span>T <span style="color:#080;font-weight:bold">extends</span> SpecificRecordBase<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
-
-    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]</span> <span style="color:#06b;font-weight:bold">serialize</span><span style="color:#333">(</span>T record<span style="color:#333">)</span> <span style="color:#333">{</span>
-        <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">(</span>ByteArrayOutputStream out <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> ByteArrayOutputStream<span style="color:#333">())</span> <span style="color:#333">{</span>
-            Encoder encoder <span style="color:#333">=</span> EncoderFactory<span style="color:#333">.</span><span style="color:#00c">get</span><span style="color:#333">().</span><span style="color:#00c">binaryEncoder</span><span style="color:#333">(</span>out<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">null</span><span style="color:#333">);</span>
-            <span style="color:#080;font-weight:bold">new</span> SpecificDatumWriter<span style="color:#333">&lt;&gt;(</span>record<span style="color:#333">.</span><span style="color:#00c">getSchema</span><span style="color:#333">()).</span><span style="color:#00c">write</span><span style="color:#333">(</span>record<span style="color:#333">,</span> encoder<span style="color:#333">);</span>
-            encoder<span style="color:#333">.</span><span style="color:#00c">flush</span><span style="color:#333">();</span>
-            <span style="color:#080;font-weight:bold">return</span> out<span style="color:#333">.</span><span style="color:#00c">toByteArray</span><span style="color:#333">();</span>
-        <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">catch</span> <span style="color:#333">(</span>IOException ex<span style="color:#333">)</span> <span style="color:#333">{</span>
-            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RuntimeException<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;Error serializing event&#34;</span><span style="color:#333">,</span> ex<span style="color:#333">);</span>
-        <span style="color:#333">}</span>
-    <span style="color:#333">}</span>
-<span style="color:#333">}</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">EventSerializer</span><span style="color:#333">&lt;</span>T <span style="color:#080;font-weight:bold">extends</span> SpecificRecordBase<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]</span> <span style="color:#06b;font-weight:bold">serialize</span><span style="color:#333">(</span>T record<span style="color:#333">)</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">(</span>ByteArrayOutputStream out <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> ByteArrayOutputStream<span style="color:#333">())</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>            Encoder encoder <span style="color:#333">=</span> EncoderFactory<span style="color:#333">.</span><span style="color:#00c">get</span><span style="color:#333">().</span><span style="color:#00c">binaryEncoder</span><span style="color:#333">(</span>out<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">null</span><span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">new</span> SpecificDatumWriter<span style="color:#333">&lt;&gt;(</span>record<span style="color:#333">.</span><span style="color:#00c">getSchema</span><span style="color:#333">()).</span><span style="color:#00c">write</span><span style="color:#333">(</span>record<span style="color:#333">,</span> encoder<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>            encoder<span style="color:#333">.</span><span style="color:#00c">flush</span><span style="color:#333">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> out<span style="color:#333">.</span><span style="color:#00c">toByteArray</span><span style="color:#333">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">catch</span> <span style="color:#333">(</span>IOException ex<span style="color:#333">)</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RuntimeException<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;Error serializing event&#34;</span><span style="color:#333">,</span> ex<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#333">}</span></span></span></code></pre></div>
 <p>And to deserialize:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">EventDeserializer</span><span style="color:#333">&lt;</span>T <span style="color:#080;font-weight:bold">extends</span> SpecificRecordBase<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
-
-    <span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">final</span> Class<span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> type<span style="color:#333">;</span>
-
-    <span style="color:#080;font-weight:bold">public</span> <span style="color:#06b;font-weight:bold">EventDeserializer</span><span style="color:#333">(</span>Class<span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> type<span style="color:#333">)</span> <span style="color:#333">{</span>
-        <span style="color:#080;font-weight:bold">this</span><span style="color:#333">.</span><span style="color:#00c">type</span> <span style="color:#333">=</span> type<span style="color:#333">;</span>
-    <span style="color:#333">}</span>
-
-    <span style="color:#080;font-weight:bold">public</span> T <span style="color:#06b;font-weight:bold">deserialize</span><span style="color:#333">(</span><span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]</span> recordSerialized<span style="color:#333">)</span> <span style="color:#333">{</span>
-        <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">{</span>
-            <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">new</span> SpecificDatumReader<span style="color:#333">&lt;&gt;(</span>type<span style="color:#333">).</span><span style="color:#00c">read</span><span style="color:#333">(</span>
-                    <span style="color:#080;font-weight:bold">null</span><span style="color:#333">,</span>
-                    DecoderFactory<span style="color:#333">.</span><span style="color:#00c">get</span><span style="color:#333">()</span>
-                    <span style="color:#333">.</span><span style="color:#00c">binaryDecoder</span><span style="color:#333">(</span>recordSerialized<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">null</span><span style="color:#333">)</span>
-            <span style="color:#333">);</span>
-        <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">catch</span> <span style="color:#333">(</span>IOException ex<span style="color:#333">)</span> <span style="color:#333">{</span>
-            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RuntimeException<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;Error deserializing event&#34;</span><span style="color:#333">,</span> ex<span style="color:#333">);</span>
-        <span style="color:#333">}</span>
-    <span style="color:#333">}</span>
-<span style="color:#333">}</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">EventDeserializer</span><span style="color:#333">&lt;</span>T <span style="color:#080;font-weight:bold">extends</span> SpecificRecordBase<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">final</span> Class<span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> type<span style="color:#333">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">public</span> <span style="color:#06b;font-weight:bold">EventDeserializer</span><span style="color:#333">(</span>Class<span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> type<span style="color:#333">)</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">this</span><span style="color:#333">.</span><span style="color:#00c">type</span> <span style="color:#333">=</span> type<span style="color:#333">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">public</span> T <span style="color:#06b;font-weight:bold">deserialize</span><span style="color:#333">(</span><span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]</span> recordSerialized<span style="color:#333">)</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">new</span> SpecificDatumReader<span style="color:#333">&lt;&gt;(</span>type<span style="color:#333">).</span><span style="color:#00c">read</span><span style="color:#333">(</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#080;font-weight:bold">null</span><span style="color:#333">,</span>
+</span></span><span style="display:flex;"><span>                    DecoderFactory<span style="color:#333">.</span><span style="color:#00c">get</span><span style="color:#333">()</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#333">.</span><span style="color:#00c">binaryDecoder</span><span style="color:#333">(</span>recordSerialized<span style="color:#333">,</span> <span style="color:#080;font-weight:bold">null</span><span style="color:#333">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">catch</span> <span style="color:#333">(</span>IOException ex<span style="color:#333">)</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RuntimeException<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;Error deserializing event&#34;</span><span style="color:#333">,</span> ex<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#333">}</span></span></span></code></pre></div>
 <h2 id="publishing-and-consuming-events-from-kafkarxjava">
     <a class="hash-link nohover" href="#publishing-and-consuming-events-from-kafkarxjava">
         <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
@@ -346,74 +348,74 @@ your project:</p>
 <p>Now that Event serialization is done with Avro, let&rsquo;s publish and subscribe
 those events on Kafka:</p>
 <p>First, let&rsquo;s define a couple of interfaces, EventServer:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">EventServer</span><span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
-
-    <span style="color:#080;font-weight:bold">public</span> Observable<span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">consume</span><span style="color:#333">();</span>
-<span style="color:#333">}</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">EventServer</span><span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">public</span> Observable<span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">consume</span><span style="color:#333">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#333">}</span></span></span></code></pre></div>
 <p>and EventProducer:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">EventProducer</span><span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
-
-    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">publish</span><span style="color:#333">(</span>T message<span style="color:#333">);</span>
-<span style="color:#333">}</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">interface</span> <span style="color:#b06;font-weight:bold">EventProducer</span><span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">publish</span><span style="color:#333">(</span>T message<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#333">}</span></span></span></code></pre></div>
 <p>Then, let&rsquo;s implement them with Kafka. I will focus on main functionality first:</p>
 <p>To publish messages:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@Override</span>
-<span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">publish</span><span style="color:#333">(</span>T message<span style="color:#333">)</span> <span style="color:#333">{</span>
-    <span style="color:#888">// Produce a new Kafka record
-</span><span style="color:#888"></span>    ProducerRecord<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]&gt;</span> data <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> ProducerRecord<span style="color:#333">&lt;&gt;(</span>
-            message<span style="color:#333">.</span><span style="color:#00c">getClass</span><span style="color:#333">().</span><span style="color:#00c">getSimpleName</span><span style="color:#333">(),</span>
-            serializer<span style="color:#333">.</span><span style="color:#00c">serialize</span><span style="color:#333">(</span>message<span style="color:#333">)</span>
-    <span style="color:#333">);</span>
-
-    <span style="color:#888">// Publish this new record, waiting for acknowledge from Kafka
-</span><span style="color:#888"></span>    Future<span style="color:#333">&lt;</span>RecordMetadata<span style="color:#333">&gt;</span> rs <span style="color:#333">=</span> producerProvider<span style="color:#333">.</span><span style="color:#00c">producer</span><span style="color:#333">()</span>
-            <span style="color:#333">.</span><span style="color:#00c">send</span><span style="color:#333">(</span>data<span style="color:#333">,</span> <span style="color:#333">(</span>RecordMetadata recordMetadata<span style="color:#333">,</span> Exception e<span style="color:#333">)</span> <span style="color:#333">-&gt;</span> <span style="color:#333">{</span>
-                LOGGER<span style="color:#333">.</span><span style="color:#00c">log</span><span style="color:#333">(</span>Level<span style="color:#333">.</span><span style="color:#00c">INFO</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;Received ack for partition={0} offset = {1}&#34;</span><span style="color:#333">,</span> <span style="color:#080;font-weight:bold">new</span> Object<span style="color:#333">[]{</span>recordMetadata<span style="color:#333">.</span><span style="color:#00c">partition</span><span style="color:#333">(),</span> recordMetadata<span style="color:#333">.</span><span style="color:#00c">offset</span><span style="color:#333">()});</span>
-            <span style="color:#333">});</span>
-
-    <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">{</span>
-        RecordMetadata rm <span style="color:#333">=</span> rs<span style="color:#333">.</span><span style="color:#00c">get</span><span style="color:#333">();</span>
-
-        LOGGER<span style="color:#333">.</span><span style="color:#00c">log</span><span style="color:#333">(</span>Level<span style="color:#333">.</span><span style="color:#00c">INFO</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;Kafka Record Metadata: partition = {0} offset ={1}&#34;</span><span style="color:#333">,</span> <span style="color:#080;font-weight:bold">new</span> Object<span style="color:#333">[]{</span>rm<span style="color:#333">.</span><span style="color:#00c">partition</span><span style="color:#333">(),</span> rm<span style="color:#333">.</span><span style="color:#00c">offset</span><span style="color:#333">()});</span>
-
-    <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">catch</span> <span style="color:#333">(</span>InterruptedException <span style="color:#333">|</span> ExecutionException e<span style="color:#333">)</span> <span style="color:#333">{</span>
-        System<span style="color:#333">.</span><span style="color:#00c">out</span><span style="color:#333">.</span><span style="color:#00c">println</span><span style="color:#333">(</span>e<span style="color:#333">);</span>
-    <span style="color:#333">}</span>
-<span style="color:#333">}</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#555;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">publish</span><span style="color:#333">(</span>T message<span style="color:#333">)</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888">// Produce a new Kafka record
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>    ProducerRecord<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]&gt;</span> data <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> ProducerRecord<span style="color:#333">&lt;&gt;(</span>
+</span></span><span style="display:flex;"><span>            message<span style="color:#333">.</span><span style="color:#00c">getClass</span><span style="color:#333">().</span><span style="color:#00c">getSimpleName</span><span style="color:#333">(),</span>
+</span></span><span style="display:flex;"><span>            serializer<span style="color:#333">.</span><span style="color:#00c">serialize</span><span style="color:#333">(</span>message<span style="color:#333">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888">// Publish this new record, waiting for acknowledge from Kafka
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>    Future<span style="color:#333">&lt;</span>RecordMetadata<span style="color:#333">&gt;</span> rs <span style="color:#333">=</span> producerProvider<span style="color:#333">.</span><span style="color:#00c">producer</span><span style="color:#333">()</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#333">.</span><span style="color:#00c">send</span><span style="color:#333">(</span>data<span style="color:#333">,</span> <span style="color:#333">(</span>RecordMetadata recordMetadata<span style="color:#333">,</span> Exception e<span style="color:#333">)</span> <span style="color:#333">-&gt;</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>                LOGGER<span style="color:#333">.</span><span style="color:#00c">log</span><span style="color:#333">(</span>Level<span style="color:#333">.</span><span style="color:#00c">INFO</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;Received ack for partition={0} offset = {1}&#34;</span><span style="color:#333">,</span> <span style="color:#080;font-weight:bold">new</span> Object<span style="color:#333">[]{</span>recordMetadata<span style="color:#333">.</span><span style="color:#00c">partition</span><span style="color:#333">(),</span> recordMetadata<span style="color:#333">.</span><span style="color:#00c">offset</span><span style="color:#333">()});</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#333">});</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        RecordMetadata rm <span style="color:#333">=</span> rs<span style="color:#333">.</span><span style="color:#00c">get</span><span style="color:#333">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        LOGGER<span style="color:#333">.</span><span style="color:#00c">log</span><span style="color:#333">(</span>Level<span style="color:#333">.</span><span style="color:#00c">INFO</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;Kafka Record Metadata: partition = {0} offset ={1}&#34;</span><span style="color:#333">,</span> <span style="color:#080;font-weight:bold">new</span> Object<span style="color:#333">[]{</span>rm<span style="color:#333">.</span><span style="color:#00c">partition</span><span style="color:#333">(),</span> rm<span style="color:#333">.</span><span style="color:#00c">offset</span><span style="color:#333">()});</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">catch</span> <span style="color:#333">(</span>InterruptedException <span style="color:#333">|</span> ExecutionException e<span style="color:#333">)</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#333">.</span><span style="color:#00c">out</span><span style="color:#333">.</span><span style="color:#00c">println</span><span style="color:#333">(</span>e<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#333">}</span></span></span></code></pre></div>
 <p>And on KafkaEventServer, to instantiate an RxJava observable:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@Override</span>
-<span style="color:#080;font-weight:bold">public</span> Observable<span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">consume</span><span style="color:#333">()</span> <span style="color:#333">{</span>
-    <span style="color:#080;font-weight:bold">return</span> Observable<span style="color:#333">.</span><span style="color:#00c">create</span><span style="color:#333">(</span>subscriber <span style="color:#333">-&gt;</span> <span style="color:#333">{</span>
-        <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">{</span>
-            LOGGER<span style="color:#333">.</span><span style="color:#00c">log</span><span style="color:#333">(</span>Level<span style="color:#333">.</span><span style="color:#00c">INFO</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;Preparing Server for Event {0}&#34;</span><span style="color:#333">,</span> type<span style="color:#333">.</span><span style="color:#00c">getName</span><span style="color:#333">());</span>
-            <span style="color:#888">// It will observe one Topic
-</span><span style="color:#888"></span>            Map<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> Integer<span style="color:#333">&gt;</span> topicCountMap <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> HashMap<span style="color:#333">&lt;&gt;();</span>
-            topicCountMap<span style="color:#333">.</span><span style="color:#00c">put</span><span style="color:#333">(</span>type<span style="color:#333">.</span><span style="color:#00c">getSimpleName</span><span style="color:#333">(),</span> 1<span style="color:#333">);</span>
-
-            <span style="color:#888">// consumerProvider will instantiate a consumer that will create a KafkaStream
-</span><span style="color:#888"></span>            Map<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> List<span style="color:#333">&lt;</span>KafkaStream<span style="color:#333">&lt;</span><span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[],</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]&gt;&gt;&gt;</span> consumerMap
-                    <span style="color:#333">=</span> consumerProvider<span style="color:#333">.</span><span style="color:#00c">consumer</span><span style="color:#333">()</span>
-                    <span style="color:#333">.</span><span style="color:#00c">createMessageStreams</span><span style="color:#333">(</span>topicCountMap<span style="color:#333">);</span>
-
-            <span style="color:#888">// then I will ask for the Stream from my topic, defined by Avro Record Class name
-</span><span style="color:#888"></span>            List<span style="color:#333">&lt;</span>KafkaStream<span style="color:#333">&lt;</span><span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[],</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]&gt;&gt;</span> streams <span style="color:#333">=</span> consumerMap
-                    <span style="color:#333">.</span><span style="color:#00c">get</span><span style="color:#333">(</span>type<span style="color:#333">.</span><span style="color:#00c">getSimpleName</span><span style="color:#333">());</span>
-
-            KafkaStream<span style="color:#333">&lt;</span><span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[],</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]&gt;</span> stream <span style="color:#333">=</span> streams<span style="color:#333">.</span><span style="color:#00c">get</span><span style="color:#333">(</span>0<span style="color:#333">);</span>
-
-            ConsumerIterator<span style="color:#333">&lt;</span><span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[],</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]&gt;</span> it <span style="color:#333">=</span> stream<span style="color:#333">.</span><span style="color:#00c">iterator</span><span style="color:#333">();</span>
-
-            <span style="color:#888">// on each message published on topic, I will let the subscriber receive the new message
-</span><span style="color:#888"></span>            <span style="color:#080;font-weight:bold">while</span> <span style="color:#333">(</span>it<span style="color:#333">.</span><span style="color:#00c">hasNext</span><span style="color:#333">())</span> <span style="color:#333">{</span>
-                subscriber<span style="color:#333">.</span><span style="color:#00c">onNext</span><span style="color:#333">(</span>
-                        deserializer<span style="color:#333">.</span><span style="color:#00c">deserialize</span><span style="color:#333">(</span>it<span style="color:#333">.</span><span style="color:#00c">next</span><span style="color:#333">().</span><span style="color:#00c">message</span><span style="color:#333">())</span>
-                <span style="color:#333">);</span>
-            <span style="color:#333">}</span>
-        <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">catch</span> <span style="color:#333">(</span>Exception ex<span style="color:#333">)</span> <span style="color:#333">{</span>
-            subscriber<span style="color:#333">.</span><span style="color:#00c">onError</span><span style="color:#333">(</span>ex<span style="color:#333">);</span>
-        <span style="color:#333">}</span>
-    <span style="color:#333">});</span>
-<span style="color:#333">}</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#555;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">public</span> Observable<span style="color:#333">&lt;</span>T<span style="color:#333">&gt;</span> <span style="color:#06b;font-weight:bold">consume</span><span style="color:#333">()</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> Observable<span style="color:#333">.</span><span style="color:#00c">create</span><span style="color:#333">(</span>subscriber <span style="color:#333">-&gt;</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>            LOGGER<span style="color:#333">.</span><span style="color:#00c">log</span><span style="color:#333">(</span>Level<span style="color:#333">.</span><span style="color:#00c">INFO</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;Preparing Server for Event {0}&#34;</span><span style="color:#333">,</span> type<span style="color:#333">.</span><span style="color:#00c">getName</span><span style="color:#333">());</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#888">// It will observe one Topic
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>            Map<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> Integer<span style="color:#333">&gt;</span> topicCountMap <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> HashMap<span style="color:#333">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>            topicCountMap<span style="color:#333">.</span><span style="color:#00c">put</span><span style="color:#333">(</span>type<span style="color:#333">.</span><span style="color:#00c">getSimpleName</span><span style="color:#333">(),</span> 1<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#888">// consumerProvider will instantiate a consumer that will create a KafkaStream
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>            Map<span style="color:#333">&lt;</span>String<span style="color:#333">,</span> List<span style="color:#333">&lt;</span>KafkaStream<span style="color:#333">&lt;</span><span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[],</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]&gt;&gt;&gt;</span> consumerMap
+</span></span><span style="display:flex;"><span>                    <span style="color:#333">=</span> consumerProvider<span style="color:#333">.</span><span style="color:#00c">consumer</span><span style="color:#333">()</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#333">.</span><span style="color:#00c">createMessageStreams</span><span style="color:#333">(</span>topicCountMap<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#888">// then I will ask for the Stream from my topic, defined by Avro Record Class name
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>            List<span style="color:#333">&lt;</span>KafkaStream<span style="color:#333">&lt;</span><span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[],</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]&gt;&gt;</span> streams <span style="color:#333">=</span> consumerMap
+</span></span><span style="display:flex;"><span>                    <span style="color:#333">.</span><span style="color:#00c">get</span><span style="color:#333">(</span>type<span style="color:#333">.</span><span style="color:#00c">getSimpleName</span><span style="color:#333">());</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            KafkaStream<span style="color:#333">&lt;</span><span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[],</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]&gt;</span> stream <span style="color:#333">=</span> streams<span style="color:#333">.</span><span style="color:#00c">get</span><span style="color:#333">(</span>0<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            ConsumerIterator<span style="color:#333">&lt;</span><span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[],</span> <span style="color:#339;font-weight:bold">byte</span><span style="color:#333">[]&gt;</span> it <span style="color:#333">=</span> stream<span style="color:#333">.</span><span style="color:#00c">iterator</span><span style="color:#333">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#888">// on each message published on topic, I will let the subscriber receive the new message
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>            <span style="color:#080;font-weight:bold">while</span> <span style="color:#333">(</span>it<span style="color:#333">.</span><span style="color:#00c">hasNext</span><span style="color:#333">())</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>                subscriber<span style="color:#333">.</span><span style="color:#00c">onNext</span><span style="color:#333">(</span>
+</span></span><span style="display:flex;"><span>                        deserializer<span style="color:#333">.</span><span style="color:#00c">deserialize</span><span style="color:#333">(</span>it<span style="color:#333">.</span><span style="color:#00c">next</span><span style="color:#333">().</span><span style="color:#00c">message</span><span style="color:#333">())</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">catch</span> <span style="color:#333">(</span>Exception ex<span style="color:#333">)</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>            subscriber<span style="color:#333">.</span><span style="color:#00c">onError</span><span style="color:#333">(</span>ex<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">});</span>
+</span></span><span style="display:flex;"><span><span style="color:#333">}</span></span></span></code></pre></div>
 <p>You could check *Provider class to validate how to generate a connection to Kafka
 for both Publisher and Subscriber.</p>
 <p>On tag v0.0.3, you could run each class (KafkaEventServer and KafkaEventProducer)
@@ -425,82 +427,82 @@ to check that it&rsquo;s working Ok with your Kafka server.</p>
 </h2><p><a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro/releases/tag/v0.1.0">Tag: v0.1.0</a></p>
 <p>Finally, let&rsquo;s integrate this Event Sourcing engine with our Java EE app:</p>
 <p>First, create instantiate a publisher and a subscriber:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#555;font-weight:bold">@ApplicationScoped</span>
-<span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ClientAddedEventProducer</span> <span style="color:#080;font-weight:bold">extends</span> KafkaEventProducer<span style="color:#333">&lt;</span>ClientAddedEvent<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
-
-<span style="color:#333">}</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#555;font-weight:bold">@ApplicationScoped</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ClientAddedEventProducer</span> <span style="color:#080;font-weight:bold">extends</span> KafkaEventProducer<span style="color:#333">&lt;</span>ClientAddedEvent<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#333">}</span></span></span></code></pre></div>
 <p>This means that ClientAddedEventProducer will be a <em>&ldquo;singleton&rdquo;</em> and I could inject it
 on my service that generates events:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ClientsResource</span> <span style="color:#333">{</span>
-
-    <span style="color:#555;font-weight:bold">@Inject</span>
-    ClientAddedEventProducer eventProducer<span style="color:#333">;</span>
-
-    <span style="color:#888">//code
-</span><span style="color:#888"></span>
-    <span style="color:#555;font-weight:bold">@POST</span>
-    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">addClient</span><span style="color:#333">(</span>String client<span style="color:#333">)</span> <span style="color:#333">{</span>
-        clients<span style="color:#333">.</span><span style="color:#00c">add</span><span style="color:#333">(</span>client<span style="color:#333">);</span>
-        <span style="color:#888">//Publishing events
-</span><span style="color:#888"></span>        eventProducer<span style="color:#333">.</span><span style="color:#00c">publish</span><span style="color:#333">(</span>
-                ClientAddedEvent<span style="color:#333">.</span><span style="color:#00c">newBuilder</span><span style="color:#333">()</span>
-                <span style="color:#333">.</span><span style="color:#00c">setName</span><span style="color:#333">(</span>client<span style="color:#333">)</span>
-                <span style="color:#333">.</span><span style="color:#00c">setCreated</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">new</span> Date<span style="color:#333">().</span><span style="color:#00c">getTime</span><span style="color:#333">())</span>
-                <span style="color:#333">.</span><span style="color:#00c">build</span><span style="color:#333">()</span>
-        <span style="color:#333">);</span>
-    <span style="color:#333">}</span>
-<span style="color:#333">}</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ClientsResource</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555;font-weight:bold">@Inject</span>
+</span></span><span style="display:flex;"><span>    ClientAddedEventProducer eventProducer<span style="color:#333">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888">//code
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555;font-weight:bold">@POST</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">addClient</span><span style="color:#333">(</span>String client<span style="color:#333">)</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        clients<span style="color:#333">.</span><span style="color:#00c">add</span><span style="color:#333">(</span>client<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888">//Publishing events
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>        eventProducer<span style="color:#333">.</span><span style="color:#00c">publish</span><span style="color:#333">(</span>
+</span></span><span style="display:flex;"><span>                ClientAddedEvent<span style="color:#333">.</span><span style="color:#00c">newBuilder</span><span style="color:#333">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#333">.</span><span style="color:#00c">setName</span><span style="color:#333">(</span>client<span style="color:#333">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#333">.</span><span style="color:#00c">setCreated</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">new</span> Date<span style="color:#333">().</span><span style="color:#00c">getTime</span><span style="color:#333">())</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#333">.</span><span style="color:#00c">build</span><span style="color:#333">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#333">}</span></span></span></code></pre></div>
 <p>Then, instantiate a Subscriber (I think this is the most interesting part:
 how we will <strong>react</strong> to events? ):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#888">// Extending Subscriber RxJava class to listen Observables
-</span><span style="color:#888"></span><span style="color:#555;font-weight:bold">@ApplicationScoped</span>
-<span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ClientAddedEventSubscriber</span> <span style="color:#080;font-weight:bold">extends</span> Subscriber<span style="color:#333">&lt;</span>ClientAddedEvent<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
-
-    <span style="color:#080;font-weight:bold">static</span> <span style="color:#080;font-weight:bold">final</span> Logger LOGGER <span style="color:#333">=</span> Logger<span style="color:#333">.</span><span style="color:#00c">getLogger</span><span style="color:#333">(</span>ClientAddedEventSubscriber<span style="color:#333">.</span><span style="color:#00c">class</span><span style="color:#333">.</span><span style="color:#00c">getName</span><span style="color:#333">());</span>
-
-    <span style="color:#888">// This will add a new thread to our pool, to subscribe to our Observable
-</span><span style="color:#888"></span>    <span style="color:#555;font-weight:bold">@Resource</span><span style="color:#333">(</span>name <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;DefaultManagedExecutorService&#34;</span><span style="color:#333">)</span>
-    <span style="color:#080;font-weight:bold">private</span> ManagedExecutorService executor<span style="color:#333">;</span>
-
-    <span style="color:#555;font-weight:bold">@Inject</span>
-    <span style="color:#080;font-weight:bold">private</span> KafkaConsumerProvider consumerProvider<span style="color:#333">;</span>
-
-    <span style="color:#080;font-weight:bold">private</span> Subscription subscription<span style="color:#333">;</span>
-
-    <span style="color:#888">// Run this on server startup, using CDI annotations
-</span><span style="color:#888"></span>    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">init</span><span style="color:#333">(</span><span style="color:#555;font-weight:bold">@Observes</span> <span style="color:#555;font-weight:bold">@Initialized</span><span style="color:#333">(</span>ApplicationScoped<span style="color:#333">.</span><span style="color:#00c">class</span><span style="color:#333">)</span> Object init<span style="color:#333">)</span> <span style="color:#333">{</span>
-        LOGGER<span style="color:#333">.</span><span style="color:#00c">log</span><span style="color:#333">(</span>Level<span style="color:#333">.</span><span style="color:#00c">INFO</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;Starting subscription&#34;</span><span style="color:#333">);</span>
-        subscription <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> KafkaEventServer<span style="color:#333">&lt;&gt;(</span>
-                ClientAddedEvent<span style="color:#333">.</span><span style="color:#00c">class</span><span style="color:#333">,</span>
-                consumerProvider<span style="color:#333">,</span>
-                executor
-        <span style="color:#333">).</span><span style="color:#00c">consume</span><span style="color:#333">().</span><span style="color:#00c">subscribe</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">this</span><span style="color:#333">);</span>
-    <span style="color:#333">}</span>
-
-    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">destroy</span><span style="color:#333">(</span><span style="color:#555;font-weight:bold">@Observes</span> <span style="color:#555;font-weight:bold">@Destroyed</span><span style="color:#333">(</span>ApplicationScoped<span style="color:#333">.</span><span style="color:#00c">class</span><span style="color:#333">)</span> Object init<span style="color:#333">)</span> <span style="color:#333">{</span>
-        subscription<span style="color:#333">.</span><span style="color:#00c">unsubscribe</span><span style="color:#333">();</span>
-    <span style="color:#333">}</span>
-
-    <span style="color:#555;font-weight:bold">@Override</span>
-    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">onCompleted</span><span style="color:#333">()</span> <span style="color:#333">{</span>
-        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> UnsupportedOperationException<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;Not supported yet.&#34;</span><span style="color:#333">);</span>
-    <span style="color:#333">}</span>
-
-    <span style="color:#555;font-weight:bold">@Override</span>
-    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">onError</span><span style="color:#333">(</span>Throwable e<span style="color:#333">)</span> <span style="color:#333">{</span>
-        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> UnsupportedOperationException<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;Not supported yet.&#34;</span><span style="color:#333">);</span>
-    <span style="color:#333">}</span>
-
-    <span style="color:#555;font-weight:bold">@Override</span>
-    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">onNext</span><span style="color:#333">(</span>ClientAddedEvent t<span style="color:#333">)</span> <span style="color:#333">{</span>
-        LOGGER<span style="color:#333">.</span><span style="color:#00c">log</span><span style="color:#333">(</span>Level<span style="color:#333">.</span><span style="color:#00c">INFO</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;Event received {0}&#34;</span><span style="color:#333">,</span> t<span style="color:#333">);</span>
-        <span style="color:#888">// How we will react to events:
-</span><span style="color:#888"></span>        EventsResource<span style="color:#333">.</span><span style="color:#00c">events</span><span style="color:#333">.</span><span style="color:#00c">add</span><span style="color:#333">(</span>
-                <span style="background-color:#fff0f0">&#34;Client Added: &#34;</span> <span style="color:#333">+</span> t<span style="color:#333">.</span><span style="color:#00c">getName</span><span style="color:#333">()</span> <span style="color:#333">+</span> <span style="background-color:#fff0f0">&#34; at &#34;</span> <span style="color:#333">+</span> <span style="color:#080;font-weight:bold">new</span> Date<span style="color:#333">(</span>t<span style="color:#333">.</span><span style="color:#00c">getCreated</span><span style="color:#333">())</span>
-        <span style="color:#333">);</span>
-    <span style="color:#333">}</span>
-
-<span style="color:#333">}</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#888">// Extending Subscriber RxJava class to listen Observables
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#555;font-weight:bold">@ApplicationScoped</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">public</span> <span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ClientAddedEventSubscriber</span> <span style="color:#080;font-weight:bold">extends</span> Subscriber<span style="color:#333">&lt;</span>ClientAddedEvent<span style="color:#333">&gt;</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">static</span> <span style="color:#080;font-weight:bold">final</span> Logger LOGGER <span style="color:#333">=</span> Logger<span style="color:#333">.</span><span style="color:#00c">getLogger</span><span style="color:#333">(</span>ClientAddedEventSubscriber<span style="color:#333">.</span><span style="color:#00c">class</span><span style="color:#333">.</span><span style="color:#00c">getName</span><span style="color:#333">());</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888">// This will add a new thread to our pool, to subscribe to our Observable
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>    <span style="color:#555;font-weight:bold">@Resource</span><span style="color:#333">(</span>name <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;DefaultManagedExecutorService&#34;</span><span style="color:#333">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">private</span> ManagedExecutorService executor<span style="color:#333">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555;font-weight:bold">@Inject</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">private</span> KafkaConsumerProvider consumerProvider<span style="color:#333">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">private</span> Subscription subscription<span style="color:#333">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#888">// Run this on server startup, using CDI annotations
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">init</span><span style="color:#333">(</span><span style="color:#555;font-weight:bold">@Observes</span> <span style="color:#555;font-weight:bold">@Initialized</span><span style="color:#333">(</span>ApplicationScoped<span style="color:#333">.</span><span style="color:#00c">class</span><span style="color:#333">)</span> Object init<span style="color:#333">)</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        LOGGER<span style="color:#333">.</span><span style="color:#00c">log</span><span style="color:#333">(</span>Level<span style="color:#333">.</span><span style="color:#00c">INFO</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;Starting subscription&#34;</span><span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>        subscription <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> KafkaEventServer<span style="color:#333">&lt;&gt;(</span>
+</span></span><span style="display:flex;"><span>                ClientAddedEvent<span style="color:#333">.</span><span style="color:#00c">class</span><span style="color:#333">,</span>
+</span></span><span style="display:flex;"><span>                consumerProvider<span style="color:#333">,</span>
+</span></span><span style="display:flex;"><span>                executor
+</span></span><span style="display:flex;"><span>        <span style="color:#333">).</span><span style="color:#00c">consume</span><span style="color:#333">().</span><span style="color:#00c">subscribe</span><span style="color:#333">(</span><span style="color:#080;font-weight:bold">this</span><span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">destroy</span><span style="color:#333">(</span><span style="color:#555;font-weight:bold">@Observes</span> <span style="color:#555;font-weight:bold">@Destroyed</span><span style="color:#333">(</span>ApplicationScoped<span style="color:#333">.</span><span style="color:#00c">class</span><span style="color:#333">)</span> Object init<span style="color:#333">)</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        subscription<span style="color:#333">.</span><span style="color:#00c">unsubscribe</span><span style="color:#333">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">onCompleted</span><span style="color:#333">()</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> UnsupportedOperationException<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;Not supported yet.&#34;</span><span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">onError</span><span style="color:#333">(</span>Throwable e<span style="color:#333">)</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> UnsupportedOperationException<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;Not supported yet.&#34;</span><span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#555;font-weight:bold">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> <span style="color:#06b;font-weight:bold">onNext</span><span style="color:#333">(</span>ClientAddedEvent t<span style="color:#333">)</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        LOGGER<span style="color:#333">.</span><span style="color:#00c">log</span><span style="color:#333">(</span>Level<span style="color:#333">.</span><span style="color:#00c">INFO</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;Event received {0}&#34;</span><span style="color:#333">,</span> t<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888">// How we will react to events:
+</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>        EventsResource<span style="color:#333">.</span><span style="color:#00c">events</span><span style="color:#333">.</span><span style="color:#00c">add</span><span style="color:#333">(</span>
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;Client Added: &#34;</span> <span style="color:#333">+</span> t<span style="color:#333">.</span><span style="color:#00c">getName</span><span style="color:#333">()</span> <span style="color:#333">+</span> <span style="background-color:#fff0f0">&#34; at &#34;</span> <span style="color:#333">+</span> <span style="color:#080;font-weight:bold">new</span> Date<span style="color:#333">(</span>t<span style="color:#333">.</span><span style="color:#00c">getCreated</span><span style="color:#333">())</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#333">}</span></span></span></code></pre></div>
   </section>
   <footer>
     

@@ -164,7 +164,9 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
+  
   <header>
+    <a href="https://jeqo.github.io/posts" class="c-tag">posts</a>
     <h1>The Importance of Distributed Tracing for Apache Kafka Based Applications</h1>
     <div>
       <div class="c-time">
@@ -266,12 +268,12 @@
     </a>&nbsp;Tracing for KSQL
 </h2><p>Similar to Kafka Connect, KSQL is also a packaged component based on standard Kafka APIs that enables the usage of Kafka interceptors. This can be a useful technique in addition to the concepts in <a href="https://www.confluent.io/blog/troubleshooting-ksql-part-1">this previous blog discussing how to gather metrics and monitor KSQL</a>.</p>
 <p>In KSQL, we’ll create a <code>STREAM</code> from the <code>tweets</code> topic:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ksql http://localhost:8088
-
-ksql&gt; CREATE STREAM twitter_avro_v1 WITH <span style="color:#333">(</span><span style="color:#963">KAFKA_TOPIC</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;twitter_avro_v1&#39;</span>, <span style="color:#963">VALUE_FORMAT</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;AVRO&#39;</span><span style="color:#333">)</span>;
-
-ksql&gt; SELECT username FROM twitter_avro_v1;
-</code></pre></div><p><img src="https://cdn.confluent.io/wp-content/uploads/KSQL_On_Consume.png" alt="ksql"></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ksql http://localhost:8088
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ksql&gt; CREATE STREAM twitter_avro_v1 WITH <span style="color:#333">(</span><span style="color:#963">KAFKA_TOPIC</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;twitter_avro_v1&#39;</span>, <span style="color:#963">VALUE_FORMAT</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#39;AVRO&#39;</span><span style="color:#333">)</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ksql&gt; SELECT username FROM twitter_avro_v1;
+</span></span></code></pre></div><p><img src="https://cdn.confluent.io/wp-content/uploads/KSQL_On_Consume.png" alt="ksql"></p>
 <p>A span created by KSQL consumption of a message is added to the trace, along with metadata about the client as well as the topic being consumed. The complete trace—from the Twitter connector to the KSQL applications and all other consumers—is taking 108 ms to execute.</p>
 <h2 id="tracing-is-just-the-first-step">
     <a class="hash-link nohover" href="#tracing-is-just-the-first-step">

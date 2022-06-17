@@ -7,7 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kafka Streams: Tick stream-time with control messages</title>
+      <link>https://jeqo.github.io/posts/kafka-producer-control-messages/</link>
+      <pubDate>Fri, 17 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/posts/kafka-producer-control-messages/</guid>
+      <description>&lt;p&gt;Kafka Streams is in many ways governed by the concept of time.
+For instance, as soon as stateful operations are used, the event-time drives how events are grouped, joined, and emitted.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.confluent.io/learn-kafka/kafka-streams/time-concepts/#stream-time&#34;&gt;Stream-time&lt;/a&gt;
+is the concept within Kafka Streams representing the largest timestamp seen by the the stream application (per-partition).
+In comparison with wall-clock time (i.e. system time) — at the execution of an application — stream-time is driven by the data seen by the application.
+This ensures that the results produced by a Kafka Streams application are reproducible.&lt;/p&gt;
+&lt;p&gt;One nuance of stream-time is that it &lt;em&gt;needs&lt;/em&gt; incoming events to &amp;ldquo;tick&amp;rdquo;.
+This could represent an issue for events that are sparse in time, and we expect results to be produced more often (e.g. windows to be closed and emit, punctiation to be calculated).&lt;/p&gt;
+&lt;p&gt;This is a known issue, and there are some proposals to overcome it in certain parts of the framework,
+e.g. &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-424%3A+Allow+suppression+of+intermediate+events+based+on+wall+clock+time&#34;&gt;KIP-424&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This post covers a proof-of-concept instrumenting producers to emit contol messages to advance stream time.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Getting started with Kafka quotas</title>
       <link>https://jeqo.github.io/posts/2022-05-11-kafka-quotas/</link>
@@ -185,9 +204,9 @@ As enforcing this guarantee requires waiting for replicas to sync, this increase
       <guid>https://jeqo.github.io/projects/</guid>
       <description>hashtag-outline &amp;nbsp;Open-source hashtag-outline &amp;nbsp;Apache Kafka https://github.com/apache/kafka
 Main contributions:
- Author of the following improvement proposals (KIP):  KIP-122: https://cwiki.apache.org/confluence/display/KAFKA/KIP-122%3A+Add+Reset+Consumer+Group+Offsets+tooling KIP-171: https://cwiki.apache.org/confluence/display/KAFKA/KIP-171+-+Extend+Consumer+Group+Reset+Offset+for+Stream+Application KIP-244: https://cwiki.apache.org/confluence/display/KAFKA/KIP-244%3A+Add+Record+Header+support+to+Kafka+Streams+Processor+API KIP-634: https://cwiki.apache.org/confluence/display/KAFKA/KIP-634%3A+Complementary+support+for+headers+and+record+metadata+in+Kafka+Streams+DSL KIP-666: https://cwiki.apache.org/confluence/display/KAFKA/KIP-666%3A+Add+Instant-based+methods+to+ReadOnlySessionStore KIP-667: https://cwiki.apache.org/confluence/display/KAFKA/KIP-667%3A+Remove+deprecated+methods+from+ReadOnlyWindowStore   Helped with the implementation of:  KIP-478:  https://cwiki.apache.org/confluence/display/KAFKA/KIP-478+-+Strongly+typed+Processor+API https://issues.apache.org/jira/browse/KAFKA-8410      hashtag-outline &amp;nbsp;Zipkin https://github.com/openzipkin/zipkin
+Author of the following improvement proposals (KIP): KIP-122: https://cwiki.apache.org/confluence/display/KAFKA/KIP-122%3A+Add+Reset+Consumer+Group+Offsets+tooling KIP-171: https://cwiki.apache.org/confluence/display/KAFKA/KIP-171+-+Extend+Consumer+Group+Reset+Offset+for+Stream+Application KIP-244: https://cwiki.apache.org/confluence/display/KAFKA/KIP-244%3A+Add+Record+Header+support+to+Kafka+Streams+Processor+API KIP-634: https://cwiki.apache.org/confluence/display/KAFKA/KIP-634%3A+Complementary+support+for+headers+and+record+metadata+in+Kafka+Streams+DSL KIP-666: https://cwiki.apache.org/confluence/display/KAFKA/KIP-666%3A+Add+Instant-based+methods+to+ReadOnlySessionStore KIP-667: https://cwiki.apache.org/confluence/display/KAFKA/KIP-667%3A+Remove+deprecated+methods+from+ReadOnlyWindowStore Helped with the implementation of: KIP-478: https://cwiki.apache.org/confluence/display/KAFKA/KIP-478+-+Strongly+typed+Processor+API https://issues.apache.org/jira/browse/KAFKA-8410 hashtag-outline &amp;nbsp;Zipkin https://github.com/openzipkin/zipkin
 Main contributions:
- Zipkin storage based on Kafka Streams: https://github.com/openzipkin-contrib/zipkin-storage-kafka Brave support for Kafka clients and streams: https://github.com/openzipkin/brave Maintaining Zipkin usage of Kafka as collector: https://github.</description>
+Zipkin storage based on Kafka Streams: https://github.com/openzipkin-contrib/zipkin-storage-kafka Brave support for Kafka clients and streams: https://github.com/openzipkin/brave Maintaining Zipkin usage of Kafka as collector: https://github.com/openzipkin/zipkin-reporter-java Kafka interceptors for Zipkin tracing: https://github.com/openzipkin-contrib/brave-kafka-interceptor hashtag-outline &amp;nbsp;Open Politica https://github.</description>
     </item>
     
     <item>
@@ -253,7 +272,7 @@ Main contributions:
       <guid>https://jeqo.github.io/drafts/kip-634/</guid>
       <description>hashtag-outline &amp;nbsp;Motivation Headers are transiently passed over a Kafka Streams topology. To act on them, Processor API has to be used since (KIP-244).
 Although current support is useful for instrumentations that need to access headers, it becomes cumbersome for users to access headers on common Kafka Streams DSL operations (e.g filtering based on header value) as requires using a Transformer/Processor implementation.
-hashtag-outline &amp;nbsp;Related JIRA issues  https://issues.apache.org/jira/browse/KAFKA-7718  hashtag-outline &amp;nbsp;Proposed Changes  Include a new type, to map value and headers.</description>
+hashtag-outline &amp;nbsp;Related JIRA issues https://issues.apache.org/jira/browse/KAFKA-7718 hashtag-outline &amp;nbsp;Proposed Changes Include a new type, to map value and headers.</description>
     </item>
     
     <item>
@@ -263,9 +282,9 @@ hashtag-outline &amp;nbsp;Related JIRA issues  https://issues.apache.org/jira/br
       
       <guid>https://jeqo.github.io/drafts/kip-617/</guid>
       <description>hashtag-outline &amp;nbsp;Motivation Fetching range of records from Kafka Streams state stores comes with an iterator to traverse elements from oldest to newest, e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions:
- For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&amp;quot;
- Similar guarantees are provided on other fetch and range operations. But in the case of key ranges, there are some nuances regarding order:
- The returned iterator must be safe from {@link java.</description>
+For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&amp;quot;
+Similar guarantees are provided on other fetch and range operations. But in the case of key ranges, there are some nuances regarding order:
+The returned iterator must be safe from {@link java.</description>
     </item>
     
     <item>
@@ -278,7 +297,7 @@ hashtag-outline &amp;nbsp;Related JIRA issues  https://issues.apache.org/jira/br
 Enjoying my journey working on distributed systems.
 Started to contribute to Open-Source projects since 2016, including Apache Kafka and Zipkin.
 Current interests:
- Log-based streaming platform (Apache Kafka), Stream processing (Kafka Streams), Distributed Tracing (OpenTracing), Metrics (Micrometer, Prometheus), Cluster Scheduling (Nomad, Kubernetes), Automation (Docker, Ansible)  hashtag-outline &amp;nbsp;Open-Source contributions   KIP-122: Add Reset Consumer Group Offsets tooling https://cwiki.</description>
+Log-based streaming platform (Apache Kafka), Stream processing (Kafka Streams), Distributed Tracing (OpenTracing), Metrics (Micrometer, Prometheus), Cluster Scheduling (Nomad, Kubernetes), Automation (Docker, Ansible) hashtag-outline &amp;nbsp;Open-Source contributions KIP-122: Add Reset Consumer Group Offsets tooling https://cwiki.</description>
     </item>
     
     <item>
@@ -288,9 +307,9 @@ Current interests:
       
       <guid>https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/</guid>
       <description>This paper explores how related tracing and fault injection systems are, and if they should be part of the same thing.
- The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&amp;hellip;]
-  [&amp;hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.
- In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.</description>
+The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&amp;hellip;]
+[&amp;hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.
+In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.</description>
     </item>
     
     <item>
@@ -318,7 +337,7 @@ Current interests:
       
       <guid>https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/</guid>
       <description>Originally posted in Confluent Blog
- Apache Kafka® based applications stand out for their ability to decouple producers and consumers using an event log as an intermediate layer.
+Apache Kafka® based applications stand out for their ability to decouple producers and consumers using an event log as an intermediate layer.
 One result of this is that producers and consumers don’t know about each other, as there is no direct communication between them.
 This enables choreographed service collaborations, where many components can subscribe to events stored in the event log and react to them asynchronously.</description>
     </item>
@@ -368,7 +387,7 @@ same concepts keep applying.&lt;/p&gt;</description>
       
       <guid>https://jeqo.github.io/posts/2017-09-28-kafka-opentracing/</guid>
       <description>for a more updated version, check https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/
- Tracing is one of the hardest time in integration or microservice development: knowing how a request impact your different components, and if your components have behave as expected.
+Tracing is one of the hardest time in integration or microservice development: knowing how a request impact your different components, and if your components have behave as expected.
 This could be fairly easy if we have monolith where we have one database and with some queries or checking one log file you can validate everything went well.
 Once you introduce distributed components and asynchronous communication this starts to get more complex and tedious.</description>
     </item>

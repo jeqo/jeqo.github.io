@@ -27,7 +27,7 @@ También he movido el directory OracleSOA que cree sobre el repositorio de Oracl
       <guid>https://jeqo.github.io/es/posts/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</guid>
       <description>Ayer cargué una nueva versión (0.2.0) de mi Oracle Fusion Middleware Cookbook compartido en Chef Supermarket
 Este nuevo release incluye:
- Soporte para la instalación de Oracle SOA Suite 12c Quickstart Soporte para la instalación y creación de dominios con Oracle SOA/OSB Suite 11g  Pueden encontrar ejemplos de uso en este repositorio: https://github.com/jeqo/chef-repo</description>
+Soporte para la instalación de Oracle SOA Suite 12c Quickstart Soporte para la instalación y creación de dominios con Oracle SOA/OSB Suite 11g Pueden encontrar ejemplos de uso en este repositorio: https://github.com/jeqo/chef-repo</description>
     </item>
     
     <item>

@@ -164,7 +164,9 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
+  
   <header>
+    <a href="https://jeqo.github.io/til" class="c-tag">til</a>
     <h1>Kafka Streams abstracts access to multiple tasks state stores when reading</h1>
     <div>
       <div class="c-time">
@@ -196,28 +198,28 @@ Internally it&rsquo;s implemented by using <code>CompositeReadOnly*Stores</code>
 <li><a href="https://github.com/apache/kafka/blob/trunk/streams/src/main/java/org/apache/kafka/streams/state/internals/CompositeReadOnlySessionStore.java">https://github.com/apache/kafka/blob/trunk/streams/src/main/java/org/apache/kafka/streams/state/internals/CompositeReadOnlySessionStore.java</a></li>
 </ul>
 <p>Where <code>StoreProvider</code> gives access to the internal stores managed by the Kafka Streams instance tasks:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">final</span> List<span style="color:#333">&lt;</span>ReadOnlySessionStore<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;&gt;</span> stores <span style="color:#333">=</span> storeProvider<span style="color:#333">.</span><span style="color:#00c">stores</span><span style="color:#333">(</span>storeName<span style="color:#333">,</span> queryableStoreType<span style="color:#333">);</span>
-<span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> ReadOnlySessionStore<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> store <span style="color:#333">:</span> stores<span style="color:#333">)</span> <span style="color:#333">{</span>
-    <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">{</span>
-        <span style="color:#080;font-weight:bold">final</span> KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> V<span style="color:#333">&gt;</span> result <span style="color:#333">=</span>
-            store<span style="color:#333">.</span><span style="color:#00c">findSessions</span><span style="color:#333">(</span>key<span style="color:#333">,</span> earliestSessionEndTime<span style="color:#333">,</span> latestSessionStartTime<span style="color:#333">);</span>
-
-        <span style="color:#080;font-weight:bold">if</span> <span style="color:#333">(!</span>result<span style="color:#333">.</span><span style="color:#00c">hasNext</span><span style="color:#333">())</span> <span style="color:#333">{</span>
-            result<span style="color:#333">.</span><span style="color:#00c">close</span><span style="color:#333">();</span>
-        <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">else</span> <span style="color:#333">{</span>
-            <span style="color:#080;font-weight:bold">return</span> result<span style="color:#333">;</span>
-        <span style="color:#333">}</span>
-    <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">catch</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> InvalidStateStoreException ise<span style="color:#333">)</span> <span style="color:#333">{</span>
-        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> InvalidStateStoreException<span style="color:#333">(</span>
-            <span style="background-color:#fff0f0">&#34;State store  [&#34;</span> <span style="color:#333">+</span> storeName <span style="color:#333">+</span> <span style="background-color:#fff0f0">&#34;] is not available anymore&#34;</span> <span style="color:#333">+</span>
-                <span style="background-color:#fff0f0">&#34; and may have been migrated to another instance; &#34;</span> <span style="color:#333">+</span>
-                <span style="background-color:#fff0f0">&#34;please re-discover its location from the state metadata.&#34;</span><span style="color:#333">,</span>
-            ise
-        <span style="color:#333">);</span>
-    <span style="color:#333">}</span>
-<span style="color:#333">}</span>
-<span style="color:#080;font-weight:bold">return</span> KeyValueIterators<span style="color:#333">.</span><span style="color:#00c">emptyIterator</span><span style="color:#333">();</span>
-</code></pre></div><p>I know about the abstraction, but was interesting to find out how it&rsquo;s actually implemented.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">final</span> List<span style="color:#333">&lt;</span>ReadOnlySessionStore<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;&gt;</span> stores <span style="color:#333">=</span> storeProvider<span style="color:#333">.</span><span style="color:#00c">stores</span><span style="color:#333">(</span>storeName<span style="color:#333">,</span> queryableStoreType<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> ReadOnlySessionStore<span style="color:#333">&lt;</span>K<span style="color:#333">,</span> V<span style="color:#333">&gt;</span> store <span style="color:#333">:</span> stores<span style="color:#333">)</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">try</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">final</span> KeyValueIterator<span style="color:#333">&lt;</span>Windowed<span style="color:#333">&lt;</span>K<span style="color:#333">&gt;,</span> V<span style="color:#333">&gt;</span> result <span style="color:#333">=</span>
+</span></span><span style="display:flex;"><span>            store<span style="color:#333">.</span><span style="color:#00c">findSessions</span><span style="color:#333">(</span>key<span style="color:#333">,</span> earliestSessionEndTime<span style="color:#333">,</span> latestSessionStartTime<span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">if</span> <span style="color:#333">(!</span>result<span style="color:#333">.</span><span style="color:#00c">hasNext</span><span style="color:#333">())</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>            result<span style="color:#333">.</span><span style="color:#00c">close</span><span style="color:#333">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">else</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#080;font-weight:bold">return</span> result<span style="color:#333">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span> <span style="color:#080;font-weight:bold">catch</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">final</span> InvalidStateStoreException ise<span style="color:#333">)</span> <span style="color:#333">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> InvalidStateStoreException<span style="color:#333">(</span>
+</span></span><span style="display:flex;"><span>            <span style="background-color:#fff0f0">&#34;State store  [&#34;</span> <span style="color:#333">+</span> storeName <span style="color:#333">+</span> <span style="background-color:#fff0f0">&#34;] is not available anymore&#34;</span> <span style="color:#333">+</span>
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34; and may have been migrated to another instance; &#34;</span> <span style="color:#333">+</span>
+</span></span><span style="display:flex;"><span>                <span style="background-color:#fff0f0">&#34;please re-discover its location from the state metadata.&#34;</span><span style="color:#333">,</span>
+</span></span><span style="display:flex;"><span>            ise
+</span></span><span style="display:flex;"><span>        <span style="color:#333">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#333">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">return</span> KeyValueIterators<span style="color:#333">.</span><span style="color:#00c">emptyIterator</span><span style="color:#333">();</span>
+</span></span></code></pre></div><p>I know about the abstraction, but was interesting to find out how it&rsquo;s actually implemented.</p>
   </section>
   <footer>
     
