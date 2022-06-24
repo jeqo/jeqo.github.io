@@ -10,10 +10,10 @@
     <lastBuildDate>Fri, 17 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kafka Streams: Tick stream-time with control messages</title>
-      <link>https://jeqo.github.io/posts/kafka-producer-control-messages/</link>
+      <link>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</link>
       <pubDate>Fri, 17 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/posts/kafka-producer-control-messages/</guid>
+      <guid>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</guid>
       <description>&lt;p&gt;Kafka Streams is in many ways governed by the concept of time.
 For instance, as soon as stateful operations are used, the event-time drives how events are grouped, joined, and emitted.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://developer.confluent.io/learn-kafka/kafka-streams/time-concepts/#stream-time&#34;&gt;Stream-time&lt;/a&gt;
