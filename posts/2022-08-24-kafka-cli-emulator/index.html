@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
-    <title>tags</title>
-    <meta property="og:title" content="Tags" />
-    <meta name="twitter:title" content="Tags" />  
+    <title>kafka emulator cli: record and reply records considering time-distance</title>
+    <meta property="og:title" content="Kafka Emulator CLI: Record and Reply Records considering time-distance" />
+    <meta name="twitter:title" content="Kafka Emulator CLI: Record and Reply Records considering time-distance" />  
     <meta name="description" content="data streaming, observability, automation, and random stuff">
     <meta property="og:description" content="data streaming, observability, automation, and random stuff">
     <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/tags/" /> 
+    <meta property="og:url" content="https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/" /> 
     <meta name="twitter:card" content="summary" /> 
     <meta name="twitter:site" content="@jeqo89" />
     <meta name="twitter:creator" content="@jeqo89" />  
-    <meta property="og:type" content="website" /> 
+    <meta property="og:type" content="article" /> 
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
@@ -79,7 +79,7 @@
 </svg>
     <header class="l-header">
         
-        <h1 class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></h1>
+        <p class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></p>
          
         <p class="p-subtitle">
             data streaming, observability, automation, and random stuff
@@ -158,132 +158,139 @@
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/tags/">es</a></li>
-         
     </ul>
 </nav>
 
     <main id="main" class="l-main">
 
-<section>
-  <h2>Tags</h2>
-  <ul>
+<article class="p-article">
+  
+  <header>
     
+    <a href="https://jeqo.github.io/posts" class="c-tag">posts</a>
     
-    <li><a href="https://jeqo.github.io/tags/ansible">ansible</a> (3)</li>
+    <h1>Kafka Emulator CLI: Record and Reply Records considering time-distance</h1>
+    <div>
+      <div class="c-time">
+        Posted on
+        <time datetime="2022-08-24T00:00:00Z">
+          Aug 24, 2022
+        </time>
+      </div>
+      
+      <a href="https://jeqo.github.io/tags/kafka" class="c-tag">kafka</a>
+      
+      <a href="https://jeqo.github.io/tags/cli" class="c-tag">cli</a>
+      
+      
+      <a href="https://jeqo.github.io/categories/dev" class="c-tag">dev</a>
+      
+      <a href="https://jeqo.github.io/categories/ops" class="c-tag">ops</a>
+      
+      <a href="https://jeqo.github.io/categories/poc" class="c-tag">poc</a>
+      
+    </div>
+  </header>
+  
+  <section id="js-article" class="p-article__body">
+    <p>Looking into ways to make it possible to reproduce time-based conditions in Kafka applications
+—e.g. if you&rsquo;re doing some sort of join or windowing based on time—
+I created a <a href="https://github.com/jeqo/kafka-cli/tree/main/emulator">CLI tool</a> to do 2 things:</p>
+<ul>
+<li>Record events from topics, including their timestamps and gap</li>
+<li>Replay events, including waiting periods between them</li>
+</ul>
+<p>SQLite is used a storage for recorded events, so events can be generated, updated, tweaked using SQL.</p>
+<p>For more information: <a href="https://github.com/jeqo/kafka-cli/tree/main/emulator">https://github.com/jeqo/kafka-cli/tree/main/emulator</a></p>
+
+  </section>
+  <footer>
     
-    <li><a href="https://jeqo.github.io/tags/api">api</a> (1)</li>
+<div id="disqus_thread"></div>
+
+<script src="https://giscus.app/client.js"
+        data-repo="jeqo/jeqo.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnk3ODM0ODMyMQ=="
+        data-category="Announcements"
+        data-category-id="DIC_kwDOBKuAIc4CP1oE"
+        data-mapping="title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+    <nav class="p-pagination c-pagination">
+      <div class="c-pagination__ctrl">
+        <div class="c-pagination__newer">
+          
+          <a href="https://jeqo.github.io/til/2022-08-24-kafka-connect-schema-serde/">Newer</a>
+          
+        </div>
+        <div class="c-pagination__older">
+          
+          
+        </div>
+      </div>
+    </nav>
     
-    <li><a href="https://jeqo.github.io/tags/automation">automation</a> (1)</li>
+
+<section class="p-related">
+  <h3>See Also</h3>
+  <ul id="slider" class="p-related__list">
     
-    <li><a href="https://jeqo.github.io/tags/avro">avro</a> (1)</li>
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2022-03-18-kafka-clients-graalvm/"
+        >
+        <span>Kafka client applications with GraalVM</span>
+      </a>
+    </li>
     
-    <li><a href="https://jeqo.github.io/tags/aws">aws</a> (1)</li>
+    <li class="p-related__item js-related__item">
+      <a href="/til/2022-08-24-kafka-connect-schema-serde/"
+        >
+        <span>Piggyback on Kafka Connect Schemas to process Kafka records in a generic way</span>
+      </a>
+    </li>
     
-    <li><a href="https://jeqo.github.io/tags/book">book</a> (1)</li>
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2022-05-11-kafka-quotas/"
+        >
+        <span>Getting started with Kafka quotas</span>
+      </a>
+    </li>
     
-    <li><a href="https://jeqo.github.io/tags/bpm">bpm</a> (2)</li>
+    <li class="p-related__item js-related__item">
+      <a href="/til/2022-03-10-kcat-end-offset-and-datasette/"
+        >
+        <span>Explore Kafka data with kcat, sqlite, and Datasette</span>
+      </a>
+    </li>
     
-    <li><a href="https://jeqo.github.io/tags/chef">chef</a> (4)</li>
+    <li class="p-related__item js-related__item">
+      <a href="/til/2022-02-09-kafka-ssl-crl/"
+        >
+        <span>Enable Certificate Revocation on Kafka clusters</span>
+      </a>
+    </li>
     
-    <li><a href="https://jeqo.github.io/tags/cioran">cioran</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/cli">cli</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/compatibility">compatibility</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/connect">connect</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/daniel-bittman">daniel-bittman</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/database">database</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/datasette">datasette</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/deployment">deployment</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/devops-k8s-weblogic-ougn">devops-k8s-weblogic-ougn</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/devops-soa-oracle">devops-soa-oracle</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/distributed-systems">distributed-systems</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/distributed-tracing">distributed-tracing</a> (3)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/docker">docker</a> (5)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/durability">durability</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/ethan-l-miller">ethan-l-miller</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/fault-injection">fault-injection</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/fault-tolerance">fault-tolerance</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/fmw">fmw</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/graalvm">graalvm</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/ideas">ideas</a> (3)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/integration">integration</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/java">java</a> (3)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/java-ee">java-ee</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/kafka">kafka</a> (21)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/kafka-streams">kafka-streams</a> (3)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/kcat">kcat</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/latency">latency</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/logging">logging</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/microservices">microservices</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/nfs">nfs</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/oracle">oracle</a> (7)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/packer">packer</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/pat-helland">pat-helland</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/peter-alvaro">peter-alvaro</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/philosophy">philosophy</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/review">review</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/rx">rx</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/samza">samza</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/soa">soa</a> (4)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/sqlite">sqlite</a> (2)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/ssl">ssl</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/streaming-joins">streaming-joins</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/tracing">tracing</a> (3)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/transactions">transactions</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/vagrant">vagrant</a> (3)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/virtualbox">virtualbox</a> (1)</li>
-    
-    <li><a href="https://jeqo.github.io/tags/zipkin">zipkin</a> (4)</li>
+    <li class="p-related__item js-related__item">
+      <a href="/til/2021-12-10-kafka-change-rack/"
+        >
+        <span>Changing Kafka Broker&#39;s rack</span>
+      </a>
+    </li>
     
   </ul>
 </section>
+
+
+  </footer>
+</article>
   </main>
   
 <nav class="l-nav p-menu">
@@ -313,10 +320,6 @@
             <a href="/about">About</a>
         </li>
           
-        <li class="p-menu__listitem"><a>|</a></li>
-        
-        <li class="p-menu__listitem"><a href="https://jeqo.github.io/es/tags/">es</a></li>
-         
     </ul>
 </nav>
 

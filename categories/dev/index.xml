@@ -9,6 +9,17 @@
     <copyright>&amp;copy; Copyright @jeqo</copyright>
     <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Kafka Emulator CLI: Record and Reply Records considering time-distance</title>
+      <link>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</link>
+      <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</guid>
+      <description>Looking into ways to make it possible to reproduce time-based conditions in Kafka applications —e.g. if you&amp;rsquo;re doing some sort of join or windowing based on time— I created a CLI tool to do 2 things:
+Record events from topics, including their timestamps and gap Replay events, including waiting periods between them SQLite is used a storage for recorded events, so events can be generated, updated, tweaked using SQL.
+For more information: https://github.</description>
+    </item>
+    
+    <item>
       <title>Piggyback on Kafka Connect Schemas to process Kafka records in a generic way</title>
       <link>https://jeqo.github.io/til/2022-08-24-kafka-connect-schema-serde/</link>
       <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>

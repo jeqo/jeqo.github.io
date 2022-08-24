@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Fri, 17 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kafka Emulator CLI: Record and Reply Records considering time-distance</title>
+      <link>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</link>
+      <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</guid>
+      <description>Looking into ways to make it possible to reproduce time-based conditions in Kafka applications —e.g. if you&amp;rsquo;re doing some sort of join or windowing based on time— I created a CLI tool to do 2 things:
+Record events from topics, including their timestamps and gap Replay events, including waiting periods between them SQLite is used a storage for recorded events, so events can be generated, updated, tweaked using SQL.
+For more information: https://github.</description>
+    </item>
+    
     <item>
       <title>Kafka Streams: Tick stream-time with control messages</title>
       <link>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</link>
