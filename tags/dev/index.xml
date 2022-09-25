@@ -19,6 +19,39 @@ Kafka Connect has to deal with generic structures to apply message transformatio
     </item>
     
     <item>
+      <title>Kafka Streams: Tick stream-time with control messages</title>
+      <link>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</link>
+      <pubDate>Fri, 17 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</guid>
+      <description>&lt;p&gt;Kafka Streams is in many ways governed by the concept of time.
+For instance, as soon as stateful operations are used, the event-time drives how events are grouped, joined, and emitted.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.confluent.io/learn-kafka/kafka-streams/time-concepts/#stream-time&#34;&gt;Stream-time&lt;/a&gt;
+is the concept within Kafka Streams representing the largest timestamp seen by the the stream application (per-partition).
+In comparison with wall-clock time (i.e. system time) — at the execution of an application — stream-time is driven by the data seen by the application.
+This ensures that the results produced by a Kafka Streams application are reproducible.&lt;/p&gt;
+&lt;p&gt;One nuance of stream-time is that it &lt;em&gt;needs&lt;/em&gt; incoming events to &amp;ldquo;tick&amp;rdquo;.
+This could represent an issue for events that are sparse in time, and we expect results to be produced more often (e.g. windows to be closed and emit, punctiation to be calculated).&lt;/p&gt;
+&lt;p&gt;This is a known issue, and there are some proposals to overcome it in certain parts of the framework,
+e.g. &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-424%3A+Allow+suppression+of+intermediate+events+based+on+wall+clock+time&#34;&gt;KIP-424&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This post covers a proof-of-concept instrumenting producers to emit contol messages to advance stream time.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Kafka client applications with GraalVM</title>
+      <link>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</link>
+      <pubDate>Fri, 18 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</guid>
+      <description>&lt;p&gt;Shipping CLI binaries with Java hasn&amp;rsquo;t been the most user-friendly experience.
+Java is required to be installed on the client-side, starting Java applications (e.g. executable JAR) tend to be slower than to binary applications.&lt;/p&gt;
+&lt;p&gt;GraalVM, and specifically &lt;a href=&#34;https://www.graalvm.org/22.0/reference-manual/native-image/&#34;&gt;native-image&lt;/a&gt; tooling, is aimed to tackle most of these issues with Java by enable building native binaries from Java applications.&lt;/p&gt;
+&lt;p&gt;Even though this has been supported for a while now, reflection and other practices require additional configurations that make this process either unsupported or very cumbersome to implement.&lt;/p&gt;
+&lt;p&gt;With the arrival of new frameworks that target the benefits of GraalVM, like &lt;a href=&#34;https://micronaut.io/&#34;&gt;Micronaut&lt;/a&gt; and &lt;a href=&#34;https://quarkus.io/&#34;&gt;Quarkus&lt;/a&gt;, it started to be possible and simpler to implement applications that included Kafka clients, and package them as native binaries.&lt;/p&gt;
+&lt;p&gt;This post is going to explore the steps to package &lt;em&gt;vanilla&lt;/em&gt; Kafka client applications —i.e. no framework— as native binaries.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Explore Kafka data with kcat, sqlite, and Datasette</title>
       <link>https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/</link>
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>

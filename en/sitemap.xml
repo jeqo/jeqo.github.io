@@ -104,9 +104,6 @@
     <loc>https://jeqo.github.io/tags/tools/</loc>
     <lastmod>2022-08-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/categories/dev/</loc>
-    <lastmod>2022-06-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</loc>
     <lastmod>2022-06-17T00:00:00+00:00</lastmod>
   </url><url>
@@ -116,7 +113,7 @@
     <loc>https://jeqo.github.io/posts/2022-05-11-kafka-quotas/</loc>
     <lastmod>2022-05-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/categories/ops/</loc>
+    <loc>https://jeqo.github.io/tags/ops/</loc>
     <lastmod>2022-05-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/database/</loc>
@@ -127,19 +124,6 @@
   </url><url>
     <loc>https://jeqo.github.io/notes/2022-05-09-sqlite-as-document-and-graph-db/</loc>
     <lastmod>2022-05-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/categories/development/</loc>
-    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/categories/development/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/categories/development/"
-                />
   </url><url>
     <loc>https://jeqo.github.io/tags/graalvm/</loc>
     <lastmod>2022-03-18T00:00:00+00:00</lastmod>
@@ -172,9 +156,6 @@
     <lastmod>2022-02-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/notes/2022-02-09-kafka-ssl-crl/</loc>
-    <lastmod>2022-02-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/tags/ops/</loc>
     <lastmod>2022-02-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/security/</loc>
@@ -507,6 +488,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jeqo.github.io/categories/back-end/"
+                />
+  </url><url>
+    <loc>https://jeqo.github.io/categories/development/</loc>
+    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/categories/development/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/categories/development/"
                 />
   </url><url>
     <loc>https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/</loc>
