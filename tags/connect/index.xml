@@ -10,10 +10,10 @@
     <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/connect/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Piggyback on Kafka Connect Schemas to process Kafka records in a generic way</title>
-      <link>https://jeqo.github.io/til/2022-08-24-kafka-connect-schema-serde/</link>
+      <link>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</link>
       <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/til/2022-08-24-kafka-connect-schema-serde/</guid>
+      <guid>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</guid>
       <description>When reading from/writing to Kafka topics, a serializer/deserializer (a.k.a SerDes) is needed to process record key and value bytes. Specific SerDes that turn bytes into specific objects (e.g. POJO) are used, unless a generic JSON object or Avro structure is used.
 Kafka Connect has to deal with generic structures to apply message transformations and convert messages from external sources into Kafka records and vice-versa. It has a SchemaAndValue composed type that includes a Connect Schema type derived from Schema Registry or JSON Schema included in the payload, and a value object.</description>
     </item>

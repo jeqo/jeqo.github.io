@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>data on @jeqo</title>
+    <link>https://jeqo.github.io/tags/data/</link>
+    <description>Recent content in data on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright @jeqo</copyright>
+    <lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/data/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Explore Kafka data with kcat, sqlite, and Datasette</title>
+      <link>https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/</guid>
+      <description>&lt;p&gt;I have been playing with Datasette and sqlite for a bit, trying to collect and expose data efficiently for others to analyze.
+Recently started finding use-cases to get data from Apache Kafka, and expose it quickly to analyze it.
+Why not using Datasette?&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

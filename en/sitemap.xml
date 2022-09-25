@@ -34,7 +34,7 @@
     <loc>https://jeqo.github.io/tags/connect/</loc>
     <lastmod>2022-08-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/categories/dev/</loc>
+    <loc>https://jeqo.github.io/tags/dev/</loc>
     <lastmod>2022-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/kafka/</loc>
@@ -53,10 +53,20 @@
     <loc>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</loc>
     <lastmod>2022-08-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/categories/ops/</loc>
+    <loc>https://jeqo.github.io/notes/</loc>
     <lastmod>2022-08-24T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/notes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/notes/"
+                />
   </url><url>
-    <loc>https://jeqo.github.io/til/2022-08-24-kafka-connect-schema-serde/</loc>
+    <loc>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</loc>
     <lastmod>2022-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/categories/poc/</loc>
@@ -88,8 +98,14 @@
                 href="https://jeqo.github.io/tags/"
                 />
   </url><url>
-    <loc>https://jeqo.github.io/til/</loc>
+    <loc>https://jeqo.github.io/categories/til/</loc>
     <lastmod>2022-08-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/tools/</loc>
+    <lastmod>2022-08-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/categories/dev/</loc>
+    <lastmod>2022-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</loc>
     <lastmod>2022-06-17T00:00:00+00:00</lastmod>
@@ -100,8 +116,8 @@
     <loc>https://jeqo.github.io/posts/2022-05-11-kafka-quotas/</loc>
     <lastmod>2022-05-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/categories/data/</loc>
-    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+    <loc>https://jeqo.github.io/categories/ops/</loc>
+    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/database/</loc>
     <lastmod>2022-05-09T00:00:00+00:00</lastmod>
@@ -109,7 +125,7 @@
     <loc>https://jeqo.github.io/tags/sqlite/</loc>
     <lastmod>2022-05-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/til/2022-05-09-sqlite-as-document-and-graph-db/</loc>
+    <loc>https://jeqo.github.io/notes/2022-05-09-sqlite-as-document-and-graph-db/</loc>
     <lastmod>2022-05-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/categories/development/</loc>
@@ -131,10 +147,13 @@
     <loc>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</loc>
     <lastmod>2022-03-18T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://jeqo.github.io/tags/data/</loc>
+    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jeqo.github.io/tags/datasette/</loc>
     <lastmod>2022-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/til/2022-03-10-kcat-end-offset-and-datasette/</loc>
+    <loc>https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/</loc>
     <lastmod>2022-03-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/kcat/</loc>
@@ -143,19 +162,22 @@
     <loc>https://jeqo.github.io/tags/java/</loc>
     <lastmod>2022-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/</loc>
+    <loc>https://jeqo.github.io/notes/2022-03-01-jreleaser-graalvm-native-image/</loc>
     <lastmod>2022-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/</loc>
+    <loc>https://jeqo.github.io/notes/2022-02-16-java-void-binary-compatibility/</loc>
     <lastmod>2022-02-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/compatibility/</loc>
     <lastmod>2022-02-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/til/2022-02-09-kafka-ssl-crl/</loc>
+    <loc>https://jeqo.github.io/notes/2022-02-09-kafka-ssl-crl/</loc>
     <lastmod>2022-02-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/categories/security/</loc>
+    <loc>https://jeqo.github.io/tags/ops/</loc>
+    <lastmod>2022-02-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/security/</loc>
     <lastmod>2022-02-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/ssl/</loc>
@@ -164,21 +186,8 @@
     <loc>https://jeqo.github.io/tags/ideas/</loc>
     <lastmod>2022-01-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/til/2022-01-29-kafka-streams-fk-join-same-table/</loc>
+    <loc>https://jeqo.github.io/notes/2022-01-29-kafka-streams-fk-join-same-table/</loc>
     <lastmod>2022-01-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/notes/</loc>
-    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/notes/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/notes/"
-                />
   </url><url>
     <loc>https://jeqo.github.io/tags/streaming-joins/</loc>
     <lastmod>2022-01-29T00:00:00+00:00</lastmod>
@@ -189,13 +198,13 @@
     <loc>https://jeqo.github.io/tags/api/</loc>
     <lastmod>2022-01-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/til/2022-01-26-kafka-streams-iq-composite/</loc>
+    <loc>https://jeqo.github.io/notes/2022-01-26-kafka-streams-iq-composite/</loc>
     <lastmod>2022-01-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/logging/</loc>
     <lastmod>2022-01-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/til/2022-01-25-reload4j/</loc>
+    <loc>https://jeqo.github.io/notes/2022-01-25-reload4j/</loc>
     <lastmod>2022-01-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/ansible/</loc>
@@ -211,13 +220,13 @@
                 href="https://jeqo.github.io/tags/ansible/"
                 />
   </url><url>
-    <loc>https://jeqo.github.io/til/2022-01-21-ansible-debug/</loc>
+    <loc>https://jeqo.github.io/notes/2022-01-21-ansible-debug/</loc>
     <lastmod>2022-01-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/automation/</loc>
     <lastmod>2022-01-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/til/2021-12-10-kafka-change-rack/</loc>
+    <loc>https://jeqo.github.io/notes/2021-12-10-kafka-change-rack/</loc>
     <lastmod>2021-12-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/deployment/</loc>
@@ -229,16 +238,16 @@
     <loc>https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/</loc>
     <lastmod>2021-12-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/</loc>
+    <loc>https://jeqo.github.io/notes/2021-12-09-kafka-v3-idempotent-acks-all/</loc>
     <lastmod>2021-12-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/latency/</loc>
     <lastmod>2021-12-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/</loc>
+    <loc>https://jeqo.github.io/tags/performance-tuning/</loc>
     <lastmod>2021-12-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/categories/tuning/</loc>
+    <loc>https://jeqo.github.io/notes/2021-12-09-kafka-reducing-acks-and-latency/</loc>
     <lastmod>2021-12-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/projects/</loc>
@@ -272,10 +281,10 @@
     <loc>https://jeqo.github.io/tags/fault-tolerance/</loc>
     <lastmod>2021-12-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/til/2021-12-02-kafka-min-isr/</loc>
+    <loc>https://jeqo.github.io/notes/2021-12-02-kafka-min-isr/</loc>
     <lastmod>2021-12-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jeqo.github.io/til/2021-12-01-about-til/</loc>
+    <loc>https://jeqo.github.io/notes/2021-12-01-about-til/</loc>
     <lastmod>2021-12-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/drafts/</loc>

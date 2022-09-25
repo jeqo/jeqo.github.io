@@ -139,10 +139,6 @@
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/til">TIL</a>
-        </li>
-          
-        <li class="p-menu__listitem">
             <a href="/notes">Notes</a>
         </li>
           
@@ -166,42 +162,6 @@
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/">Kafka Emulator CLI: Record and Reply Records considering time-distance</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-08-24T00:00:00Z">
-        Aug 24, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Looking into ways to make it possible to reproduce time-based conditions in Kafka applications —e.g. if you&rsquo;re doing some sort of join or windowing based on time— I created a CLI tool to do 2 things:
-Record events from topics, including their timestamps and gap Replay events, including waiting periods between them SQLite is used a storage for recorded events, so events can be generated, updated, tweaked using SQL.
-For more information: https://github.
-  </div>
-  
-  <a href="https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/posts" class="c-tag">posts</a>
-    
-    <a href="/tags/dev/" class="c-tag">dev</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    <a href="/tags/poc/" class="c-tag">poc</a>
-    
-    
-    <a href="/tags/kafka/" class="c-tag">kafka</a>
-    
-    <a href="/tags/cli/" class="c-tag">cli</a>
-    
-  </div>
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
     <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/posts/2022-05-11-kafka-quotas/">Getting started with Kafka quotas</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -219,139 +179,11 @@ This post shares some thoughts on how to start adopting quotas and gives some pr
   <a href="https://jeqo.github.io/posts/2022-05-11-kafka-quotas/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/posts" class="c-tag">posts</a>
     
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    
-    <a href="/tags/kafka/" class="c-tag">kafka</a>
-    
-  </div>
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-02-09-kafka-ssl-crl/">Enable Certificate Revocation on Kafka clusters</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-02-09T00:00:00Z">
-        Feb 9, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Recently I got a question on how to manage revoked SSL certificates in Kafka clusters. With a proper Public Key Infrastructure, a Certificate Revocation List (CRL) can be available for clients to validate if a certificate is still valid regardless of its time-to-live. For instance, if a private key has been compromised, then a certificate can be revoked before it&rsquo;s valid date.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-02-09-kafka-ssl-crl/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    <a href="/tags/security/" class="c-tag">security</a>
+    <a href="/categories/ops/" class="c-tag">ops</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
-    
-    <a href="/tags/ssl/" class="c-tag">ssl</a>
-    
-  </div>
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-25-reload4j/">reload4j as drop-in replacement for log4j 1.x</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-25T00:00:00Z">
-        Jan 25, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    TIL there is a drop-in replacement for log4j 1.x: Reload4j.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-01-25-reload4j/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    
-    <a href="/tags/java/" class="c-tag">java</a>
-    
-    <a href="/tags/logging/" class="c-tag">logging</a>
-    
-  </div>
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-01-21-ansible-debug/">Ansible has a debug mode to pause and troubleshoot</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-01-21T00:00:00Z">
-        Jan 21, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    I have been running Ansible for a while now. My usual/naive way of debugging has always been adding a debug module[1], and get the execution running til that point.
-I figured that there are better ways to deal with this[2]. By using the debug mode, tasks will stop when failing (by default) and you&rsquo;ll be able to introspect into the task, variables, and context when things failed. Even better, you&rsquo;ll be able to re-execute if there was a transient error.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2022-01-21-ansible-debug/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    
-    <a href="/tags/ansible/" class="c-tag">ansible</a>
-    
-    <a href="/tags/automation/" class="c-tag">automation</a>
-    
-  </div>
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/">Changing Kafka Broker&#39;s rack</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-10T00:00:00Z">
-        Dec 10, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka broker configuration includes a rack label to define the location of the broker. This is useful when placing replicas across the cluster to ensure replicas are spread across locations as evenly as possible.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    
-    <a href="/tags/kafka/" class="c-tag">kafka</a>
-    
-    <a href="/tags/deployment/" class="c-tag">deployment</a>
     
   </div>
 </article>
@@ -375,76 +207,13 @@ The following scenarios show different trade-offs that could increase the risk o
   <a href="https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/posts" class="c-tag">posts</a>
     
-    <a href="/tags/ops/" class="c-tag">ops</a>
+    <a href="/categories/ops/" class="c-tag">ops</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
     
     <a href="/tags/durability/" class="c-tag">durability</a>
-    
-  </div>
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/">Reducing `acks` doesn&#39;t help to reduce end-to-end latency</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-09T00:00:00Z">
-        Dec 9, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Kafka Producers enforce durability across replicas by setting acks=all (default since v3.0). As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    
-    <a href="/tags/kafka/" class="c-tag">kafka</a>
-    
-    <a href="/tags/latency/" class="c-tag">latency</a>
-    
-  </div>
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-02-kafka-min-isr/">Use min.insync.replicas for fault-tolerance</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-12-02T00:00:00Z">
-        Dec 2, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Things to remember:
-Topic replication factor is not enough to guarantee fault-tolerance. If min.insync.replicas is not defined i.e. 1, then data could potentially be lost. acks=all will force replica leader to wait for all brokers in the ISR, not only the min.insync.replicas. If replicas available are equal to minimum ISR, then the topic partitions are at the edge of losing availability. If one broker becomes unavailable (e.g. restarting), then producers will fail to write data. Topic configuration is inherited from the server. If broker configuration changes, it affects the existing topics. Keep the topic defaults, unless it needs to be different than broker default for easier maintenance. 
-  </div>
-  
-  <a href="https://jeqo.github.io/til/2021-12-02-kafka-min-isr/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    <a href="/til" class="c-tag">til</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    
-    <a href="/tags/kafka/" class="c-tag">kafka</a>
-    
-    <a href="/tags/fault-tolerance/" class="c-tag">fault-tolerance</a>
     
   </div>
 </article>
@@ -457,10 +226,6 @@ Topic replication factor is not enough to guarantee fault-tolerance. If min.insy
          
         <li class="p-menu__listitem">
             <a href="/posts">Posts</a>
-        </li>
-          
-        <li class="p-menu__listitem">
-            <a href="/til">TIL</a>
         </li>
           
         <li class="p-menu__listitem">

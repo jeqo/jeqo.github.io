@@ -10,19 +10,19 @@
     <lastBuildDate>Tue, 01 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Releasing OS-specific GraalVM native image binaries easier with JReleaser</title>
-      <link>https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/</link>
+      <link>https://jeqo.github.io/notes/2022-03-01-jreleaser-graalvm-native-image/</link>
       <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/</guid>
+      <guid>https://jeqo.github.io/notes/2022-03-01-jreleaser-graalvm-native-image/</guid>
       <description>&lt;p&gt;Packaging and releasing Java applications (e.g. CLI) tend to be cumbersome, and the user-experience tended not to be the best as users have to download a valid version of JRE, etc.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Changing void returning type in Java methods breaks binary compatibility</title>
-      <link>https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/</link>
+      <link>https://jeqo.github.io/notes/2022-02-16-java-void-binary-compatibility/</link>
       <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/</guid>
+      <guid>https://jeqo.github.io/notes/2022-02-16-java-void-binary-compatibility/</guid>
       <description>&lt;p&gt;While &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-820%3A+Extend+KStream+process+with+new+Processor+API&#34;&gt;proposing changes to Kafka Streams DSL&lt;/a&gt;, I propose changing the return type of one method from &lt;code&gt;void&lt;/code&gt; to &lt;code&gt;KStream&amp;lt;KOut, VOut&lt;/code&gt;.
 I was under the (wrong) impression that this change wouldn&amp;rsquo;t affect users.
 I was also not considering that applications might just drop a new library without recompiling their application.&lt;/p&gt;</description>
@@ -30,10 +30,10 @@ I was also not considering that applications might just drop a new library witho
     
     <item>
       <title>reload4j as drop-in replacement for log4j 1.x</title>
-      <link>https://jeqo.github.io/til/2022-01-25-reload4j/</link>
+      <link>https://jeqo.github.io/notes/2022-01-25-reload4j/</link>
       <pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/til/2022-01-25-reload4j/</guid>
+      <guid>https://jeqo.github.io/notes/2022-01-25-reload4j/</guid>
       <description>&lt;p&gt;TIL there is a drop-in replacement for log4j 1.x: &lt;a href=&#34;https://reload4j.qos.ch/&#34;&gt;Reload4j&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     

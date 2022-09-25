@@ -6,9 +6,9 @@
     <title>security</title>
     <meta property="og:title" content="security" />
     <meta name="twitter:title" content="security" />  
-    <meta name="description" content="data streaming, observability, automation">
-    <meta property="og:description" content="data streaming, observability, automation">
-    <meta name="twitter:description" content="data streaming, observability, automation"> 
+    <meta name="description" content="data streaming, observability, automation, and random stuff">
+    <meta property="og:description" content="data streaming, observability, automation, and random stuff">
+    <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
@@ -18,7 +18,7 @@
     <meta name="twitter:creator" content="@jeqo89" />  
     <meta property="og:type" content="website" /> 
 
-    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
     <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
     <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
@@ -82,7 +82,7 @@
         <h1 class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></h1>
          
         <p class="p-subtitle">
-            data streaming, observability, automation
+            data streaming, observability, automation, and random stuff
         </p>
         
     </header>
@@ -139,15 +139,15 @@
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/til">TIL</a>
-        </li>
-          
-        <li class="p-menu__listitem">
             <a href="/notes">Notes</a>
         </li>
           
         <li class="p-menu__listitem">
             <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/projects">Projects</a>
         </li>
           
         <li class="p-menu__listitem">
@@ -162,81 +162,35 @@
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/kafka-security/">Notes on Apache Kafka and Confluent Platform Security</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2022-02-09-kafka-ssl-crl/">Enable Certificate Revocation on Kafka clusters</a></h2>
     <p class="c-article__meta">
       Posted on
-      <time datetime="2020-06-16T00:00:00Z">
-        Jun 16, 2020
+      <time datetime="2022-02-09T00:00:00Z">
+        Feb 9, 2022
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-    == Authentication
-=== SASL/PLAIN
-.Further reading
- Kafka docs: https://kafka.apache.org/documentation/#security_sasl_plain  === SASL/SCRAM
-Support:
- https://tools.ietf.org/html/rfc7677[SCRAM-SHA-256] SCRAM-SHA-512  ==== Considerations
- For each SCRAM mechanism enabled, credentials must be created by adding a config with the mechanism name. Credentials for inter-broker communication must be created before Kafka brokers are started.
- .Further reading
- Kafka docs: https://kafka.apache.org/documentation/#security_sasl_scram  == Authentication
-== Authorization
-=== Apache Kafka Access Control Lists
+    Recently I got a question on how to manage revoked SSL certificates in Kafka clusters. With a proper Public Key Infrastructure, a Certificate Revocation List (CRL) can be available for clients to validate if a certificate is still valid regardless of its time-to-live. For instance, if a private key has been compromised, then a certificate can be revoked before it&rsquo;s valid date.
+
   </div>
   
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/zookeeper-security/">Notes on Apache Zookeeper Security</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-06-16T00:00:00Z">
-        Jun 16, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    == Authentication
-.Examples
- https://github.com/jeqo/docker-composes/tree/master/zookeeper-security  === Client/Server Authentication
-==== SASL Authentication
-SASL Authentication alone does not deny access to anonymous users. Beware of this as it gives a false sense of security, and can take some time to realize. Reference: https://issues.apache.org/jira/browse/ZOOKEEPER-1736
-This can be solved by forcing an Authentication Scheme:
-requireClientAuthScheme=sasl  .Futher reading
- https://cwiki.apache.org/confluence/display/ZOOKEEPER/Client-Server+mutual+authentication   === Server/Server Authentication
- .Futher reading
- https://cwiki.apache.org/confluence/display/ZOOKEEPER/Server-Server+mutual+authentication   == Authorization
+  <a href="https://jeqo.github.io/notes/2022-02-09-kafka-ssl-crl/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+  <div>
+    
+    <a href="/categories/til/" class="c-tag">til</a>
+    
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/ssl/" class="c-tag">ssl</a>
+    
+    <a href="/tags/ops/" class="c-tag">ops</a>
+    
+    <a href="/tags/security/" class="c-tag">security</a>
+    
   </div>
-  
-  <a href="https://jeqo.github.io/notes/zookeeper-security/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-</article>
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/security/">Notes on Java Security</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-06-16T00:00:00Z">
-        Jun 16, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    == Security Standards
-=== Hashing
-==== Hash Functions
-.Cryptographic Hash Functions What makes a hash function a Cryptographic Hash Function (CHF) is that is a one-way function: practically infeasible to invert.
-==== MD5
-From https://en.wikipedia.org/wiki/MD5[Wikipedia]:
- The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. Although MD5 was initially designed to be used as a cryptographic hash function, it has been found to suffer from extensive vulnerabilities.
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/security/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
 </article>
 
 
@@ -250,15 +204,15 @@ From https://en.wikipedia.org/wiki/MD5[Wikipedia]:
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/til">TIL</a>
-        </li>
-          
-        <li class="p-menu__listitem">
             <a href="/notes">Notes</a>
         </li>
           
         <li class="p-menu__listitem">
             <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/projects">Projects</a>
         </li>
           
         <li class="p-menu__listitem">

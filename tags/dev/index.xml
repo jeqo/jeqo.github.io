@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dev on @jeqo</title>
+    <link>https://jeqo.github.io/tags/dev/</link>
+    <description>Recent content in dev on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright @jeqo</copyright>
+    <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Piggyback on Kafka Connect Schemas to process Kafka records in a generic way</title>
+      <link>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</link>
+      <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</guid>
+      <description>When reading from/writing to Kafka topics, a serializer/deserializer (a.k.a SerDes) is needed to process record key and value bytes. Specific SerDes that turn bytes into specific objects (e.g. POJO) are used, unless a generic JSON object or Avro structure is used.
+Kafka Connect has to deal with generic structures to apply message transformations and convert messages from external sources into Kafka records and vice-versa. It has a SchemaAndValue composed type that includes a Connect Schema type derived from Schema Registry or JSON Schema included in the payload, and a value object.</description>
+    </item>
+    
+    <item>
+      <title>Explore Kafka data with kcat, sqlite, and Datasette</title>
+      <link>https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/</guid>
+      <description>&lt;p&gt;I have been playing with Datasette and sqlite for a bit, trying to collect and expose data efficiently for others to analyze.
+Recently started finding use-cases to get data from Apache Kafka, and expose it quickly to analyze it.
+Why not using Datasette?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Releasing OS-specific GraalVM native image binaries easier with JReleaser</title>
+      <link>https://jeqo.github.io/notes/2022-03-01-jreleaser-graalvm-native-image/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/2022-03-01-jreleaser-graalvm-native-image/</guid>
+      <description>&lt;p&gt;Packaging and releasing Java applications (e.g. CLI) tend to be cumbersome, and the user-experience tended not to be the best as users have to download a valid version of JRE, etc.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Changing void returning type in Java methods breaks binary compatibility</title>
+      <link>https://jeqo.github.io/notes/2022-02-16-java-void-binary-compatibility/</link>
+      <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/2022-02-16-java-void-binary-compatibility/</guid>
+      <description>&lt;p&gt;While &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-820%3A+Extend+KStream+process+with+new+Processor+API&#34;&gt;proposing changes to Kafka Streams DSL&lt;/a&gt;, I propose changing the return type of one method from &lt;code&gt;void&lt;/code&gt; to &lt;code&gt;KStream&amp;lt;KOut, VOut&lt;/code&gt;.
+I was under the (wrong) impression that this change wouldn&amp;rsquo;t affect users.
+I was also not considering that applications might just drop a new library without recompiling their application.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Kafka Streams FK-join within the same KTable</title>
+      <link>https://jeqo.github.io/notes/2022-01-29-kafka-streams-fk-join-same-table/</link>
+      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/2022-01-29-kafka-streams-fk-join-same-table/</guid>
+      <description>&lt;p&gt;KTable to KTable foreign-key joins is one of the coolest features in Kafka Streams.&lt;/p&gt;
+&lt;p&gt;I was wondering whether this feature would handle FK-joins between values on the same table.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Kafka Streams abstracts access to multiple tasks state stores when reading</title>
+      <link>https://jeqo.github.io/notes/2022-01-26-kafka-streams-iq-composite/</link>
+      <pubDate>Wed, 26 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/2022-01-26-kafka-streams-iq-composite/</guid>
+      <description>&lt;p&gt;Kafka Streams applications could scale either horizontally (add more instances) or vertically (add more threads).
+When scaled vertically, multiple tasks store multiple partitions locally.
+An interesting question is whether Kafka Streams gives access when reading (i.e. &lt;a href=&#34;https://docs.confluent.io/platform/current/streams/developer-guide/interactive-queries.html&#34;&gt;Interactive Queries&lt;/a&gt;) to these stores, and how does it manage to abstract the access to different stores managed by multiple tasks.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

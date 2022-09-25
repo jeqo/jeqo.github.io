@@ -27,11 +27,29 @@
     </item>
     
     <item>
+      <title>dev</title>
+      <link>https://jeqo.github.io/tags/dev/</link>
+      <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/dev/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>kafka</title>
       <link>https://jeqo.github.io/tags/kafka/</link>
       <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/kafka/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>https://jeqo.github.io/tags/tools/</link>
+      <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/tools/</guid>
       <description></description>
     </item>
     
@@ -72,6 +90,15 @@
     </item>
     
     <item>
+      <title>data</title>
+      <link>https://jeqo.github.io/tags/data/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>datasette</title>
       <link>https://jeqo.github.io/tags/datasette/</link>
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
@@ -104,6 +131,24 @@
       <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/compatibility/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ops</title>
+      <link>https://jeqo.github.io/tags/ops/</link>
+      <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/ops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://jeqo.github.io/tags/security/</link>
+      <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/security/</guid>
       <description></description>
     </item>
     
@@ -194,6 +239,15 @@
       <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/latency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>performance-tuning</title>
+      <link>https://jeqo.github.io/tags/performance-tuning/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/performance-tuning/</guid>
       <description></description>
     </item>
     

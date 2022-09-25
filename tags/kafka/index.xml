@@ -14,17 +14,16 @@
       <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</guid>
-      <description>Looking into ways to make it possible to reproduce time-based conditions in Kafka applications —e.g. if you&amp;rsquo;re doing some sort of join or windowing based on time— I created a CLI tool to do 2 things:
-Record events from topics, including their timestamps and gap Replay events, including waiting periods between them SQLite is used a storage for recorded events, so events can be generated, updated, tweaked using SQL.
-For more information: https://github.</description>
+      <description>Looking for alternative ways to reproduce time-based conditions in Kafka Streams applications —e.g. if you&amp;rsquo;re doing some sort of join or windowing based on time— I ended up creating a CLI tool to support a couple of features:
+Record events from topics, including their timestamps and gap Replay events, including waiting periods between them SQLite is used a storage for recorded events, so events can be generated, updated, tweaked using SQL.</description>
     </item>
     
     <item>
       <title>Piggyback on Kafka Connect Schemas to process Kafka records in a generic way</title>
-      <link>https://jeqo.github.io/til/2022-08-24-kafka-connect-schema-serde/</link>
+      <link>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</link>
       <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/til/2022-08-24-kafka-connect-schema-serde/</guid>
+      <guid>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</guid>
       <description>When reading from/writing to Kafka topics, a serializer/deserializer (a.k.a SerDes) is needed to process record key and value bytes. Specific SerDes that turn bytes into specific objects (e.g. POJO) are used, unless a generic JSON object or Avro structure is used.
 Kafka Connect has to deal with generic structures to apply message transformations and convert messages from external sources into Kafka records and vice-versa. It has a SchemaAndValue composed type that includes a Connect Schema type derived from Schema Registry or JSON Schema included in the payload, and a value object.</description>
     </item>
@@ -55,10 +54,10 @@ Java is required to be installed on the client-side, starting Java applications 
     
     <item>
       <title>Explore Kafka data with kcat, sqlite, and Datasette</title>
-      <link>https://jeqo.github.io/til/2022-03-10-kcat-end-offset-and-datasette/</link>
+      <link>https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/</link>
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/til/2022-03-10-kcat-end-offset-and-datasette/</guid>
+      <guid>https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/</guid>
       <description>&lt;p&gt;I have been playing with Datasette and sqlite for a bit, trying to collect and expose data efficiently for others to analyze.
 Recently started finding use-cases to get data from Apache Kafka, and expose it quickly to analyze it.
 Why not using Datasette?&lt;/p&gt;</description>
@@ -66,10 +65,10 @@ Why not using Datasette?&lt;/p&gt;</description>
     
     <item>
       <title>Enable Certificate Revocation on Kafka clusters</title>
-      <link>https://jeqo.github.io/til/2022-02-09-kafka-ssl-crl/</link>
+      <link>https://jeqo.github.io/notes/2022-02-09-kafka-ssl-crl/</link>
       <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/til/2022-02-09-kafka-ssl-crl/</guid>
+      <guid>https://jeqo.github.io/notes/2022-02-09-kafka-ssl-crl/</guid>
       <description>&lt;p&gt;Recently I got a question on how to manage revoked SSL certificates in Kafka clusters.
 With a proper Public Key Infrastructure, a Certificate Revocation List (CRL) can be available for clients to validate if a certificate is still valid regardless of its time-to-live.
 For instance, if a private key has been compromised, then a certificate can be revoked before it&amp;rsquo;s valid date.&lt;/p&gt;</description>
@@ -77,10 +76,10 @@ For instance, if a private key has been compromised, then a certificate can be r
     
     <item>
       <title>Changing Kafka Broker&#39;s rack</title>
-      <link>https://jeqo.github.io/til/2021-12-10-kafka-change-rack/</link>
+      <link>https://jeqo.github.io/notes/2021-12-10-kafka-change-rack/</link>
       <pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/til/2021-12-10-kafka-change-rack/</guid>
+      <guid>https://jeqo.github.io/notes/2021-12-10-kafka-change-rack/</guid>
       <description>&lt;p&gt;Kafka broker configuration includes a &lt;code&gt;rack&lt;/code&gt; label to define the location of the broker.
 This is useful when placing replicas across the cluster to ensure replicas are spread across locations &lt;em&gt;as evenly as possible&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
@@ -97,30 +96,30 @@ The following scenarios show different trade-offs that could increase the risk o
     
     <item>
       <title>Kafka Producer idempotency is enabled by default since 3.0</title>
-      <link>https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/</link>
+      <link>https://jeqo.github.io/notes/2021-12-09-kafka-v3-idempotent-acks-all/</link>
       <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/</guid>
+      <guid>https://jeqo.github.io/notes/2021-12-09-kafka-v3-idempotent-acks-all/</guid>
       <description>Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.
 This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.</description>
     </item>
     
     <item>
       <title>Reducing `acks` doesn&#39;t help to reduce end-to-end latency</title>
-      <link>https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/</link>
+      <link>https://jeqo.github.io/notes/2021-12-09-kafka-reducing-acks-and-latency/</link>
       <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/</guid>
+      <guid>https://jeqo.github.io/notes/2021-12-09-kafka-reducing-acks-and-latency/</guid>
       <description>&lt;p&gt;Kafka Producers enforce durability across replicas by setting &lt;code&gt;acks=all&lt;/code&gt; (&lt;a href=&#34;https://jeqo.github.io/til/kafka-v3-idea&#34;&gt;default since v3.0&lt;/a&gt;).
 As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Use min.insync.replicas for fault-tolerance</title>
-      <link>https://jeqo.github.io/til/2021-12-02-kafka-min-isr/</link>
+      <link>https://jeqo.github.io/notes/2021-12-02-kafka-min-isr/</link>
       <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/til/2021-12-02-kafka-min-isr/</guid>
+      <guid>https://jeqo.github.io/notes/2021-12-02-kafka-min-isr/</guid>
       <description>&lt;p&gt;Things to remember:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Topic replication factor is not enough to guarantee fault-tolerance. If &lt;code&gt;min.insync.replicas&lt;/code&gt; is not defined i.e. 1, then data could potentially be lost.&lt;/li&gt;

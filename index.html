@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.101.0" />
+	<meta name="generator" content="Hugo 0.104.0" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
     <title>@jeqo</title>
@@ -140,10 +140,6 @@
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/til">TIL</a>
-        </li>
-          
-        <li class="p-menu__listitem">
             <a href="/notes">Notes</a>
         </li>
           
@@ -179,26 +175,22 @@
     </p>
   </header>
   <div class="c-article__summary">
-    Looking into ways to make it possible to reproduce time-based conditions in Kafka applications —e.g. if you&rsquo;re doing some sort of join or windowing based on time— I created a CLI tool to do 2 things:
+    Looking for alternative ways to reproduce time-based conditions in Kafka Streams applications —e.g. if you&rsquo;re doing some sort of join or windowing based on time— I ended up creating a CLI tool to support a couple of features:
 Record events from topics, including their timestamps and gap Replay events, including waiting periods between them SQLite is used a storage for recorded events, so events can be generated, updated, tweaked using SQL.
-For more information: https://github.
   </div>
   
   <a href="https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/posts" class="c-tag">posts</a>
     
-    <a href="/tags/dev/" class="c-tag">dev</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    <a href="/tags/poc/" class="c-tag">poc</a>
+    <a href="/categories/poc/" class="c-tag">poc</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
     
     <a href="/tags/cli/" class="c-tag">cli</a>
+    
+    <a href="/tags/tools/" class="c-tag">tools</a>
     
   </div>
 </article>
@@ -206,7 +198,7 @@ For more information: https://github.
 
   <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-08-24-kafka-connect-schema-serde/">Piggyback on Kafka Connect Schemas to process Kafka records in a generic way</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/">Piggyback on Kafka Connect Schemas to process Kafka records in a generic way</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2022-08-24T00:00:00Z">
@@ -219,17 +211,18 @@ For more information: https://github.
 Kafka Connect has to deal with generic structures to apply message transformations and convert messages from external sources into Kafka records and vice-versa. It has a SchemaAndValue composed type that includes a Connect Schema type derived from Schema Registry or JSON Schema included in the payload, and a value object.
   </div>
   
-  <a href="https://jeqo.github.io/til/2022-08-24-kafka-connect-schema-serde/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  <a href="https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/til" class="c-tag">til</a>
     
-    <a href="/tags/dev/" class="c-tag">dev</a>
+    <a href="/categories/til/" class="c-tag">til</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
     
     <a href="/tags/connect/" class="c-tag">connect</a>
+    
+    <a href="/tags/dev/" class="c-tag">dev</a>
     
   </div>
 </article>
@@ -257,11 +250,10 @@ This post covers a proof-of-concept instrumenting producers to emit contol messa
   <a href="https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/posts" class="c-tag">posts</a>
     
-    <a href="/tags/dev/" class="c-tag">dev</a>
+    <a href="/categories/dev/" class="c-tag">dev</a>
     
-    <a href="/tags/poc/" class="c-tag">poc</a>
+    <a href="/categories/poc/" class="c-tag">poc</a>
     
     
     <a href="/tags/kafka-streams/" class="c-tag">kafka-streams</a>
@@ -289,9 +281,8 @@ This post shares some thoughts on how to start adopting quotas and gives some pr
   <a href="https://jeqo.github.io/posts/2022-05-11-kafka-quotas/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/posts" class="c-tag">posts</a>
     
-    <a href="/tags/ops/" class="c-tag">ops</a>
+    <a href="/categories/ops/" class="c-tag">ops</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
@@ -302,7 +293,7 @@ This post shares some thoughts on how to start adopting quotas and gives some pr
 
   <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-05-09-sqlite-as-document-and-graph-db/">sqlite can be used document and graph database</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2022-05-09-sqlite-as-document-and-graph-db/">sqlite can be used document and graph database</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2022-05-09T00:00:00Z">
@@ -317,9 +308,8 @@ This repository is actually based on this one focused on JSON support and docume
   </div>
   
   <div>
-    <a href="/til" class="c-tag">til</a>
     
-    <a href="/tags/data/" class="c-tag">data</a>
+    <a href="/categories/til/" class="c-tag">til</a>
     
     
     <a href="/tags/sqlite/" class="c-tag">sqlite</a>
@@ -352,9 +342,8 @@ This post is going to explore the steps to package vanilla Kafka client applicat
   <a href="https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/posts" class="c-tag">posts</a>
     
-    <a href="/tags/development/" class="c-tag">development</a>
+    <a href="/categories/development/" class="c-tag">development</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
@@ -369,7 +358,7 @@ This post is going to explore the steps to package vanilla Kafka client applicat
 
   <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-03-10-kcat-end-offset-and-datasette/">Explore Kafka data with kcat, sqlite, and Datasette</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/">Explore Kafka data with kcat, sqlite, and Datasette</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2022-03-10T00:00:00Z">
@@ -382,14 +371,11 @@ This post is going to explore the steps to package vanilla Kafka client applicat
 
   </div>
   
-  <a href="https://jeqo.github.io/til/2022-03-10-kcat-end-offset-and-datasette/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  <a href="https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/til" class="c-tag">til</a>
     
-    <a href="/tags/dev/" class="c-tag">dev</a>
-    
-    <a href="/tags/data/" class="c-tag">data</a>
+    <a href="/categories/til/" class="c-tag">til</a>
     
     
     <a href="/tags/datasette/" class="c-tag">datasette</a>
@@ -400,13 +386,17 @@ This post is going to explore the steps to package vanilla Kafka client applicat
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
     
+    <a href="/tags/dev/" class="c-tag">dev</a>
+    
+    <a href="/tags/data/" class="c-tag">data</a>
+    
   </div>
 </article>
 
 
   <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/">Releasing OS-specific GraalVM native image binaries easier with JReleaser</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2022-03-01-jreleaser-graalvm-native-image/">Releasing OS-specific GraalVM native image binaries easier with JReleaser</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2022-03-01T00:00:00Z">
@@ -419,17 +409,18 @@ This post is going to explore the steps to package vanilla Kafka client applicat
 
   </div>
   
-  <a href="https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  <a href="https://jeqo.github.io/notes/2022-03-01-jreleaser-graalvm-native-image/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/til" class="c-tag">til</a>
     
-    <a href="/tags/dev/" class="c-tag">dev</a>
+    <a href="/categories/til/" class="c-tag">til</a>
     
     
     <a href="/tags/java/" class="c-tag">java</a>
     
     <a href="/tags/graalvm/" class="c-tag">graalvm</a>
+    
+    <a href="/tags/dev/" class="c-tag">dev</a>
     
   </div>
 </article>
@@ -437,7 +428,7 @@ This post is going to explore the steps to package vanilla Kafka client applicat
 
   <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/">Changing void returning type in Java methods breaks binary compatibility</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2022-02-16-java-void-binary-compatibility/">Changing void returning type in Java methods breaks binary compatibility</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2022-02-16T00:00:00Z">
@@ -450,17 +441,18 @@ This post is going to explore the steps to package vanilla Kafka client applicat
 
   </div>
   
-  <a href="https://jeqo.github.io/til/2022-02-16-java-void-binary-compatibility/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  <a href="https://jeqo.github.io/notes/2022-02-16-java-void-binary-compatibility/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/til" class="c-tag">til</a>
     
-    <a href="/tags/dev/" class="c-tag">dev</a>
+    <a href="/categories/til/" class="c-tag">til</a>
     
     
     <a href="/tags/java/" class="c-tag">java</a>
     
     <a href="/tags/compatibility/" class="c-tag">compatibility</a>
+    
+    <a href="/tags/dev/" class="c-tag">dev</a>
     
   </div>
 </article>
@@ -468,7 +460,7 @@ This post is going to explore the steps to package vanilla Kafka client applicat
 
   <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-02-09-kafka-ssl-crl/">Enable Certificate Revocation on Kafka clusters</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2022-02-09-kafka-ssl-crl/">Enable Certificate Revocation on Kafka clusters</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2022-02-09T00:00:00Z">
@@ -481,19 +473,20 @@ This post is going to explore the steps to package vanilla Kafka client applicat
 
   </div>
   
-  <a href="https://jeqo.github.io/til/2022-02-09-kafka-ssl-crl/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  <a href="https://jeqo.github.io/notes/2022-02-09-kafka-ssl-crl/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/til" class="c-tag">til</a>
     
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    <a href="/tags/security/" class="c-tag">security</a>
+    <a href="/categories/til/" class="c-tag">til</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
     
     <a href="/tags/ssl/" class="c-tag">ssl</a>
+    
+    <a href="/tags/ops/" class="c-tag">ops</a>
+    
+    <a href="/tags/security/" class="c-tag">security</a>
     
   </div>
 </article>
@@ -506,10 +499,6 @@ This post is going to explore the steps to package vanilla Kafka client applicat
          
         <li class="p-menu__listitem">
             <a href="/posts">Posts</a>
-        </li>
-          
-        <li class="p-menu__listitem">
-            <a href="/til">TIL</a>
         </li>
           
         <li class="p-menu__listitem">

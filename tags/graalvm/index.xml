@@ -24,10 +24,10 @@ Java is required to be installed on the client-side, starting Java applications 
     
     <item>
       <title>Releasing OS-specific GraalVM native image binaries easier with JReleaser</title>
-      <link>https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/</link>
+      <link>https://jeqo.github.io/notes/2022-03-01-jreleaser-graalvm-native-image/</link>
       <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/til/2022-03-01-jreleaser-graalvm-native-image/</guid>
+      <guid>https://jeqo.github.io/notes/2022-03-01-jreleaser-graalvm-native-image/</guid>
       <description>&lt;p&gt;Packaging and releasing Java applications (e.g. CLI) tend to be cumbersome, and the user-experience tended not to be the best as users have to download a valid version of JRE, etc.&lt;/p&gt;</description>
     </item>
     

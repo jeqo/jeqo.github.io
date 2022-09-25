@@ -139,10 +139,6 @@
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/til">TIL</a>
-        </li>
-          
-        <li class="p-menu__listitem">
             <a href="/notes">Notes</a>
         </li>
           
@@ -179,26 +175,22 @@
     </p>
   </header>
   <div class="c-article__summary">
-    Looking into ways to make it possible to reproduce time-based conditions in Kafka applications —e.g. if you&rsquo;re doing some sort of join or windowing based on time— I created a CLI tool to do 2 things:
+    Looking for alternative ways to reproduce time-based conditions in Kafka Streams applications —e.g. if you&rsquo;re doing some sort of join or windowing based on time— I ended up creating a CLI tool to support a couple of features:
 Record events from topics, including their timestamps and gap Replay events, including waiting periods between them SQLite is used a storage for recorded events, so events can be generated, updated, tweaked using SQL.
-For more information: https://github.
   </div>
   
   <a href="https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/posts" class="c-tag">posts</a>
     
-    <a href="/tags/dev/" class="c-tag">dev</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    <a href="/tags/poc/" class="c-tag">poc</a>
+    <a href="/categories/poc/" class="c-tag">poc</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
     
     <a href="/tags/cli/" class="c-tag">cli</a>
+    
+    <a href="/tags/tools/" class="c-tag">tools</a>
     
   </div>
 </article>
@@ -206,7 +198,7 @@ For more information: https://github.
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-08-24-kafka-connect-schema-serde/">Piggyback on Kafka Connect Schemas to process Kafka records in a generic way</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/">Piggyback on Kafka Connect Schemas to process Kafka records in a generic way</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2022-08-24T00:00:00Z">
@@ -219,17 +211,18 @@ For more information: https://github.
 Kafka Connect has to deal with generic structures to apply message transformations and convert messages from external sources into Kafka records and vice-versa. It has a SchemaAndValue composed type that includes a Connect Schema type derived from Schema Registry or JSON Schema included in the payload, and a value object.
   </div>
   
-  <a href="https://jeqo.github.io/til/2022-08-24-kafka-connect-schema-serde/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  <a href="https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/til" class="c-tag">til</a>
     
-    <a href="/tags/dev/" class="c-tag">dev</a>
+    <a href="/categories/til/" class="c-tag">til</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
     
     <a href="/tags/connect/" class="c-tag">connect</a>
+    
+    <a href="/tags/dev/" class="c-tag">dev</a>
     
   </div>
 </article>
@@ -254,9 +247,8 @@ This post shares some thoughts on how to start adopting quotas and gives some pr
   <a href="https://jeqo.github.io/posts/2022-05-11-kafka-quotas/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/posts" class="c-tag">posts</a>
     
-    <a href="/tags/ops/" class="c-tag">ops</a>
+    <a href="/categories/ops/" class="c-tag">ops</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
@@ -287,9 +279,8 @@ This post is going to explore the steps to package vanilla Kafka client applicat
   <a href="https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/posts" class="c-tag">posts</a>
     
-    <a href="/tags/development/" class="c-tag">development</a>
+    <a href="/categories/development/" class="c-tag">development</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
@@ -304,7 +295,7 @@ This post is going to explore the steps to package vanilla Kafka client applicat
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-03-10-kcat-end-offset-and-datasette/">Explore Kafka data with kcat, sqlite, and Datasette</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/">Explore Kafka data with kcat, sqlite, and Datasette</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2022-03-10T00:00:00Z">
@@ -317,14 +308,11 @@ This post is going to explore the steps to package vanilla Kafka client applicat
 
   </div>
   
-  <a href="https://jeqo.github.io/til/2022-03-10-kcat-end-offset-and-datasette/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  <a href="https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/til" class="c-tag">til</a>
     
-    <a href="/tags/dev/" class="c-tag">dev</a>
-    
-    <a href="/tags/data/" class="c-tag">data</a>
+    <a href="/categories/til/" class="c-tag">til</a>
     
     
     <a href="/tags/datasette/" class="c-tag">datasette</a>
@@ -335,13 +323,17 @@ This post is going to explore the steps to package vanilla Kafka client applicat
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
     
+    <a href="/tags/dev/" class="c-tag">dev</a>
+    
+    <a href="/tags/data/" class="c-tag">data</a>
+    
   </div>
 </article>
 
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2022-02-09-kafka-ssl-crl/">Enable Certificate Revocation on Kafka clusters</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2022-02-09-kafka-ssl-crl/">Enable Certificate Revocation on Kafka clusters</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2022-02-09T00:00:00Z">
@@ -354,19 +346,20 @@ This post is going to explore the steps to package vanilla Kafka client applicat
 
   </div>
   
-  <a href="https://jeqo.github.io/til/2022-02-09-kafka-ssl-crl/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  <a href="https://jeqo.github.io/notes/2022-02-09-kafka-ssl-crl/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/til" class="c-tag">til</a>
     
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    <a href="/tags/security/" class="c-tag">security</a>
+    <a href="/categories/til/" class="c-tag">til</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
     
     <a href="/tags/ssl/" class="c-tag">ssl</a>
+    
+    <a href="/tags/ops/" class="c-tag">ops</a>
+    
+    <a href="/tags/security/" class="c-tag">security</a>
     
   </div>
 </article>
@@ -374,7 +367,7 @@ This post is going to explore the steps to package vanilla Kafka client applicat
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/">Changing Kafka Broker&#39;s rack</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2021-12-10-kafka-change-rack/">Changing Kafka Broker&#39;s rack</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2021-12-10T00:00:00Z">
@@ -387,17 +380,18 @@ This post is going to explore the steps to package vanilla Kafka client applicat
 
   </div>
   
-  <a href="https://jeqo.github.io/til/2021-12-10-kafka-change-rack/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  <a href="https://jeqo.github.io/notes/2021-12-10-kafka-change-rack/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/til" class="c-tag">til</a>
     
-    <a href="/tags/ops/" class="c-tag">ops</a>
+    <a href="/categories/til/" class="c-tag">til</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
     
     <a href="/tags/deployment/" class="c-tag">deployment</a>
+    
+    <a href="/tags/ops/" class="c-tag">ops</a>
     
   </div>
 </article>
@@ -421,9 +415,8 @@ The following scenarios show different trade-offs that could increase the risk o
   <a href="https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/posts" class="c-tag">posts</a>
     
-    <a href="/tags/ops/" class="c-tag">ops</a>
+    <a href="/categories/ops/" class="c-tag">ops</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
@@ -436,7 +429,7 @@ The following scenarios show different trade-offs that could increase the risk o
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-v3-idempotent-acks-all/">Kafka Producer idempotency is enabled by default since 3.0</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2021-12-09-kafka-v3-idempotent-acks-all/">Kafka Producer idempotency is enabled by default since 3.0</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2021-12-09T00:00:00Z">
@@ -450,14 +443,15 @@ This means by default Producers will be balanced between latency (no batching) a
   </div>
   
   <div>
-    <a href="/til" class="c-tag">til</a>
     
-    <a href="/tags/tuning/" class="c-tag">tuning</a>
+    <a href="/categories/til/" class="c-tag">til</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
     
     <a href="/tags/latency/" class="c-tag">latency</a>
+    
+    <a href="/tags/performance-tuning/" class="c-tag">performance-tuning</a>
     
   </div>
 </article>
@@ -465,7 +459,7 @@ This means by default Producers will be balanced between latency (no batching) a
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/">Reducing `acks` doesn&#39;t help to reduce end-to-end latency</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2021-12-09-kafka-reducing-acks-and-latency/">Reducing `acks` doesn&#39;t help to reduce end-to-end latency</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2021-12-09T00:00:00Z">
@@ -478,17 +472,18 @@ This means by default Producers will be balanced between latency (no batching) a
 
   </div>
   
-  <a href="https://jeqo.github.io/til/2021-12-09-kafka-reducing-acks-and-latency/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  <a href="https://jeqo.github.io/notes/2021-12-09-kafka-reducing-acks-and-latency/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/til" class="c-tag">til</a>
     
-    <a href="/tags/ops/" class="c-tag">ops</a>
+    <a href="/categories/til/" class="c-tag">til</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
     
     <a href="/tags/latency/" class="c-tag">latency</a>
+    
+    <a href="/tags/ops/" class="c-tag">ops</a>
     
   </div>
 </article>
@@ -496,7 +491,7 @@ This means by default Producers will be balanced between latency (no batching) a
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-02-kafka-min-isr/">Use min.insync.replicas for fault-tolerance</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2021-12-02-kafka-min-isr/">Use min.insync.replicas for fault-tolerance</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2021-12-02T00:00:00Z">
@@ -509,17 +504,18 @@ This means by default Producers will be balanced between latency (no batching) a
 Topic replication factor is not enough to guarantee fault-tolerance. If min.insync.replicas is not defined i.e. 1, then data could potentially be lost. acks=all will force replica leader to wait for all brokers in the ISR, not only the min.insync.replicas. If replicas available are equal to minimum ISR, then the topic partitions are at the edge of losing availability. If one broker becomes unavailable (e.g. restarting), then producers will fail to write data. Topic configuration is inherited from the server. If broker configuration changes, it affects the existing topics. Keep the topic defaults, unless it needs to be different than broker default for easier maintenance. 
   </div>
   
-  <a href="https://jeqo.github.io/til/2021-12-02-kafka-min-isr/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  <a href="https://jeqo.github.io/notes/2021-12-02-kafka-min-isr/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/til" class="c-tag">til</a>
     
-    <a href="/tags/ops/" class="c-tag">ops</a>
+    <a href="/categories/til/" class="c-tag">til</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
     
     <a href="/tags/fault-tolerance/" class="c-tag">fault-tolerance</a>
+    
+    <a href="/tags/ops/" class="c-tag">ops</a>
     
   </div>
 </article>
@@ -543,9 +539,8 @@ Topic replication factor is not enough to guarantee fault-tolerance. If min.insy
   <a href="https://jeqo.github.io/talks/making-sense-event-driven-systems-codeone19/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/talks" class="c-tag">talks</a>
     
-    <a href="/tags/observability/" class="c-tag">observability</a>
+    <a href="/categories/observability/" class="c-tag">observability</a>
     
     
     <a href="/tags/distributed-tracing/" class="c-tag">distributed-tracing</a>
@@ -576,9 +571,8 @@ Topic replication factor is not enough to guarantee fault-tolerance. If min.insy
   <a href="https://jeqo.github.io/talks/making-sense-event-driven-dataflows-kafkasummitnyc19/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/talks" class="c-tag">talks</a>
     
-    <a href="/tags/observability/" class="c-tag">observability</a>
+    <a href="/categories/observability/" class="c-tag">observability</a>
     
     
     <a href="/tags/distributed-tracing/" class="c-tag">distributed-tracing</a>
@@ -611,13 +605,12 @@ This enables choreographed service collaborations, where many components can sub
   <a href="https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/posts" class="c-tag">posts</a>
     
-    <a href="/tags/event-driven/" class="c-tag">event-driven</a>
+    <a href="/categories/event-driven/" class="c-tag">event-driven</a>
     
-    <a href="/tags/distributed-tracing/" class="c-tag">distributed-tracing</a>
+    <a href="/categories/distributed-tracing/" class="c-tag">distributed-tracing</a>
     
-    <a href="/tags/observability/" class="c-tag">observability</a>
+    <a href="/categories/observability/" class="c-tag">observability</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
@@ -646,9 +639,8 @@ This enables choreographed service collaborations, where many components can sub
   <a href="https://jeqo.github.io/talks/the-importance-of-observability-kafkausergroupnorway18/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/talks" class="c-tag">talks</a>
     
-    <a href="/tags/observability/" class="c-tag">observability</a>
+    <a href="/categories/observability/" class="c-tag">observability</a>
     
     
     <a href="/tags/distributed-tracing/" class="c-tag">distributed-tracing</a>
@@ -678,9 +670,8 @@ This enables choreographed service collaborations, where many components can sub
   <a href="https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/notes" class="c-tag">notes</a>
     
-    <a href="/tags/notes/" class="c-tag">notes</a>
+    <a href="/categories/notes/" class="c-tag">notes</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
@@ -711,11 +702,10 @@ Once you introduce distributed components and asynchronous communication this st
   <a href="https://jeqo.github.io/posts/2017-09-28-kafka-opentracing/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/posts" class="c-tag">posts</a>
     
-    <a href="/tags/integration/" class="c-tag">integration</a>
+    <a href="/categories/integration/" class="c-tag">integration</a>
     
-    <a href="/tags/observability/" class="c-tag">observability</a>
+    <a href="/categories/observability/" class="c-tag">observability</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
@@ -744,13 +734,12 @@ Once you introduce distributed components and asynchronous communication this st
   <a href="https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/talks" class="c-tag">talks</a>
     
-    <a href="/tags/development/" class="c-tag">development</a>
+    <a href="/categories/development/" class="c-tag">development</a>
     
-    <a href="/tags/integration/" class="c-tag">integration</a>
+    <a href="/categories/integration/" class="c-tag">integration</a>
     
-    <a href="/tags/back-end/" class="c-tag">back-end</a>
+    <a href="/categories/back-end/" class="c-tag">back-end</a>
     
     
     <a href="/tags/integration/" class="c-tag">integration</a>
@@ -781,9 +770,8 @@ But how to do it (programmatically)?
   <a href="https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/posts" class="c-tag">posts</a>
     
-    <a href="/tags/integration/" class="c-tag">integration</a>
+    <a href="/categories/integration/" class="c-tag">integration</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
@@ -810,11 +798,10 @@ But how to do it (programmatically)?
   <a href="https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/posts" class="c-tag">posts</a>
     
-    <a href="/tags/devops/" class="c-tag">devops</a>
+    <a href="/categories/devops/" class="c-tag">devops</a>
     
-    <a href="/tags/integration/" class="c-tag">integration</a>
+    <a href="/categories/integration/" class="c-tag">integration</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
@@ -844,13 +831,12 @@ You can go directly to that code, or check my approach:
   <a href="https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/posts" class="c-tag">posts</a>
     
-    <a href="/tags/development/" class="c-tag">development</a>
+    <a href="/categories/development/" class="c-tag">development</a>
     
-    <a href="/tags/integration/" class="c-tag">integration</a>
+    <a href="/categories/integration/" class="c-tag">integration</a>
     
-    <a href="/tags/back-end/" class="c-tag">back-end</a>
+    <a href="/categories/back-end/" class="c-tag">back-end</a>
     
     
     <a href="/tags/java-ee/" class="c-tag">java ee</a>
@@ -872,10 +858,6 @@ You can go directly to that code, or check my approach:
          
         <li class="p-menu__listitem">
             <a href="/posts">Posts</a>
-        </li>
-          
-        <li class="p-menu__listitem">
-            <a href="/til">TIL</a>
         </li>
           
         <li class="p-menu__listitem">

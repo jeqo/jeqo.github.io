@@ -139,10 +139,6 @@
         </li>
           
         <li class="p-menu__listitem">
-            <a href="/til">TIL</a>
-        </li>
-          
-        <li class="p-menu__listitem">
             <a href="/notes">Notes</a>
         </li>
           
@@ -166,7 +162,7 @@
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/til/2021-12-02-kafka-min-isr/">Use min.insync.replicas for fault-tolerance</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2021-12-02-kafka-min-isr/">Use min.insync.replicas for fault-tolerance</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2021-12-02T00:00:00Z">
@@ -179,17 +175,18 @@
 Topic replication factor is not enough to guarantee fault-tolerance. If min.insync.replicas is not defined i.e. 1, then data could potentially be lost. acks=all will force replica leader to wait for all brokers in the ISR, not only the min.insync.replicas. If replicas available are equal to minimum ISR, then the topic partitions are at the edge of losing availability. If one broker becomes unavailable (e.g. restarting), then producers will fail to write data. Topic configuration is inherited from the server. If broker configuration changes, it affects the existing topics. Keep the topic defaults, unless it needs to be different than broker default for easier maintenance. 
   </div>
   
-  <a href="https://jeqo.github.io/til/2021-12-02-kafka-min-isr/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  <a href="https://jeqo.github.io/notes/2021-12-02-kafka-min-isr/" class="c-article__btn p-list-article__btn">Read more</a></li>
   
   <div>
-    <a href="/til" class="c-tag">til</a>
     
-    <a href="/tags/ops/" class="c-tag">ops</a>
+    <a href="/categories/til/" class="c-tag">til</a>
     
     
     <a href="/tags/kafka/" class="c-tag">kafka</a>
     
     <a href="/tags/fault-tolerance/" class="c-tag">fault-tolerance</a>
+    
+    <a href="/tags/ops/" class="c-tag">ops</a>
     
   </div>
 </article>
@@ -202,10 +199,6 @@ Topic replication factor is not enough to guarantee fault-tolerance. If min.insy
          
         <li class="p-menu__listitem">
             <a href="/posts">Posts</a>
-        </li>
-          
-        <li class="p-menu__listitem">
-            <a href="/til">TIL</a>
         </li>
           
         <li class="p-menu__listitem">

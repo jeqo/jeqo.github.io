@@ -10,10 +10,10 @@
     <lastBuildDate>Fri, 10 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/deployment/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Changing Kafka Broker&#39;s rack</title>
-      <link>https://jeqo.github.io/til/2021-12-10-kafka-change-rack/</link>
+      <link>https://jeqo.github.io/notes/2021-12-10-kafka-change-rack/</link>
       <pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/til/2021-12-10-kafka-change-rack/</guid>
+      <guid>https://jeqo.github.io/notes/2021-12-10-kafka-change-rack/</guid>
       <description>&lt;p&gt;Kafka broker configuration includes a &lt;code&gt;rack&lt;/code&gt; label to define the location of the broker.
 This is useful when placing replicas across the cluster to ensure replicas are spread across locations &lt;em&gt;as evenly as possible&lt;/em&gt;.&lt;/p&gt;</description>
     </item>

@@ -10,10 +10,10 @@
     <lastBuildDate>Fri, 21 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ansible has a debug mode to pause and troubleshoot</title>
-      <link>https://jeqo.github.io/til/2022-01-21-ansible-debug/</link>
+      <link>https://jeqo.github.io/notes/2022-01-21-ansible-debug/</link>
       <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://jeqo.github.io/til/2022-01-21-ansible-debug/</guid>
+      <guid>https://jeqo.github.io/notes/2022-01-21-ansible-debug/</guid>
       <description>&lt;p&gt;I have been running Ansible for a while now.
 My usual/naive way of debugging has always been adding a &lt;code&gt;debug&lt;/code&gt; module&lt;a href=&#34;https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html&#34;&gt;[1]&lt;/a&gt;, and get the execution running til that point.&lt;/p&gt;
 &lt;p&gt;I figured that there are better ways to deal with this&lt;a href=&#34;https://docs.ansible.com/ansible/2.9/user_guide/playbooks_debugger.html#examples&#34;&gt;[2]&lt;/a&gt;.
