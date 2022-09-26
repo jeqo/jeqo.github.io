@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/til/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/til/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ingesting log files to sqlite</title>
+      <link>https://jeqo.github.io/notes/2022-09-24-ingest-logs-sqlite/</link>
+      <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/notes/2022-09-24-ingest-logs-sqlite/</guid>
+      <description>I recently was looking into how to analyze multiple related log files (e.g. application log from multiple instances), and found that sqlite may be enough :)
+The first step is ingesting content from log files into sqlite tables. sqlite-utils to the rescue! I was initially happy with having each line as a row and adding full-text support to the log column to query events. However, Java log may span across multiple lines and the results may not be ideal — timestamps could be in 1 line, and the root cause in another.</description>
+    </item>
+    
     <item>
       <title>Piggyback on Kafka Connect Schemas to process Kafka records in a generic way</title>
       <link>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</link>

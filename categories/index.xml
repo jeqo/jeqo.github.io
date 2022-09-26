@@ -7,22 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>til</title>
+      <link>https://jeqo.github.io/categories/til/</link>
+      <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/categories/til/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>poc</title>
       <link>https://jeqo.github.io/categories/poc/</link>
       <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/categories/poc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>til</title>
-      <link>https://jeqo.github.io/categories/til/</link>
-      <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/categories/til/</guid>
       <description></description>
     </item>
     

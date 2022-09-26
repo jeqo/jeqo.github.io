@@ -3,21 +3,34 @@
 <head>
 	<meta name="generator" content="Hugo 0.104.0" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    
+    
     <title>@jeqo</title>
+    
+    
+    
     <meta property="og:title" content="@jeqo" />
-    <meta name="twitter:title" content="@jeqo" />  
+    <meta name="twitter:title" content="@jeqo" />
+    
+    
     <meta name="description" content="data streaming, observability, automation, and random stuff">
     <meta property="og:description" content="data streaming, observability, automation, and random stuff">
-    <meta name="twitter:description" content="data streaming, observability, automation, and random stuff"> 
+    <meta name="twitter:description" content="data streaming, observability, automation, and random stuff">
+    
 
     <meta name="author" content="Jorge Esteban Quilcate Otoya" />
     <meta property="og:site_name" content="@jeqo" />
-    <meta property="og:url" content="https://jeqo.github.io/" /> 
-    <meta name="twitter:card" content="summary" /> 
+    <meta property="og:url" content="https://jeqo.github.io/" />
+    
+    <meta name="twitter:card" content="summary" />
+    
     <meta name="twitter:site" content="@jeqo89" />
-    <meta name="twitter:creator" content="@jeqo89" />  
-    <meta property="og:type" content="website" /> 
+    <meta name="twitter:creator" content="@jeqo89" />
+    
+    
+    <meta property="og:type" content="website" />
+    
 
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
@@ -26,6 +39,7 @@
     
 
 </head>
+
 
 <body>
     <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
@@ -163,6 +177,40 @@
 </nav>
 
     <main id="main" class="l-main">
+
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2022-09-24-ingest-logs-sqlite/">Ingesting log files to sqlite</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2022-09-24T00:00:00Z">
+        Sep 24, 2022
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    I recently was looking into how to analyze multiple related log files (e.g. application log from multiple instances), and found that sqlite may be enough :)
+The first step is ingesting content from log files into sqlite tables. sqlite-utils to the rescue! I was initially happy with having each line as a row and adding full-text support to the log column to query events. However, Java log may span across multiple lines and the results may not be ideal — timestamps could be in 1 line, and the root cause in another.
+  </div>
+  
+  <a href="https://jeqo.github.io/notes/2022-09-24-ingest-logs-sqlite/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+  <div>
+    
+    <a href="/categories/til/" class="c-tag">til</a>
+    
+    
+    <a href="/tags/sqlite/" class="c-tag">sqlite</a>
+    
+    <a href="/tags/datasette/" class="c-tag">datasette</a>
+    
+    <a href="/tags/ops/" class="c-tag">ops</a>
+    
+    <a href="/tags/troubleshooting/" class="c-tag">troubleshooting</a>
+    
+  </div>
+</article>
+
 
   <article class="c-article p-list-article">
   <header>
@@ -453,40 +501,6 @@ This post is going to explore the steps to package vanilla Kafka client applicat
     <a href="/tags/compatibility/" class="c-tag">compatibility</a>
     
     <a href="/tags/dev/" class="c-tag">dev</a>
-    
-  </div>
-</article>
-
-
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2022-02-09-kafka-ssl-crl/">Enable Certificate Revocation on Kafka clusters</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2022-02-09T00:00:00Z">
-        Feb 9, 2022
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Recently I got a question on how to manage revoked SSL certificates in Kafka clusters. With a proper Public Key Infrastructure, a Certificate Revocation List (CRL) can be available for clients to validate if a certificate is still valid regardless of its time-to-live. For instance, if a private key has been compromised, then a certificate can be revoked before it&rsquo;s valid date.
-
-  </div>
-  
-  <a href="https://jeqo.github.io/notes/2022-02-09-kafka-ssl-crl/" class="c-article__btn p-list-article__btn">Read more</a></li>
-  
-  <div>
-    
-    <a href="/categories/til/" class="c-tag">til</a>
-    
-    
-    <a href="/tags/kafka/" class="c-tag">kafka</a>
-    
-    <a href="/tags/ssl/" class="c-tag">ssl</a>
-    
-    <a href="/tags/ops/" class="c-tag">ops</a>
-    
-    <a href="/tags/security/" class="c-tag">security</a>
     
   </div>
 </article>
