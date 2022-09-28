@@ -216,32 +216,32 @@ Still, I will try to make explicit along the post, so I will focus on how to bui
     </a>&nbsp;Common configurations
 </h2><p>I will be using GraalVM native-image Maven plugin to create a Java binary.
 Most of the configurations are supposed to go as part of the plugin definition:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#070">&lt;plugin&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#070">&lt;groupId&gt;</span>org.graalvm.buildtools<span style="color:#070">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#070">&lt;artifactId&gt;</span>native-maven-plugin<span style="color:#070">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#070">&lt;version&gt;</span>0.9.7.1<span style="color:#070">&lt;/version&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#070">&lt;extensions&gt;</span>true<span style="color:#070">&lt;/extensions&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#070">&lt;executions&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#070">&lt;execution&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#070">&lt;id&gt;</span>build-native<span style="color:#070">&lt;/id&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#070">&lt;goals&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#070">&lt;goal&gt;</span>build<span style="color:#070">&lt;/goal&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#070">&lt;/goals&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#070">&lt;phase&gt;</span>package<span style="color:#070">&lt;/phase&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#070">&lt;/execution&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#070">&lt;/executions&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#070">&lt;configuration&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#070">&lt;buildDirectory&gt;</span>bin/<span style="color:#070">&lt;/buildDirectory&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#070">&lt;imageName&gt;</span>kproducerdatagen-${project.version}<span style="color:#070">&lt;/imageName&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#070">&lt;mainClass&gt;</span>kafka.cli.producer.datagen.ProducerDatagenCli<span style="color:#070">&lt;/mainClass&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#070">&lt;buildArgs&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#888">&lt;!-- HERE --&gt;</span>  
-</span></span><span style="display:flex;"><span>    <span style="color:#070">&lt;/buildArgs&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#070">&lt;/configuration&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#070">&lt;/plugin&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;plugin&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;groupId&gt;</span>org.graalvm.buildtools<span style="color:#008000;font-weight:bold">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;artifactId&gt;</span>native-maven-plugin<span style="color:#008000;font-weight:bold">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;version&gt;</span>0.9.7.1<span style="color:#008000;font-weight:bold">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;extensions&gt;</span>true<span style="color:#008000;font-weight:bold">&lt;/extensions&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;executions&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;execution&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;id&gt;</span>build-native<span style="color:#008000;font-weight:bold">&lt;/id&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;goals&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;goal&gt;</span>build<span style="color:#008000;font-weight:bold">&lt;/goal&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/goals&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;phase&gt;</span>package<span style="color:#008000;font-weight:bold">&lt;/phase&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/execution&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/executions&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;buildDirectory&gt;</span>bin/<span style="color:#008000;font-weight:bold">&lt;/buildDirectory&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;imageName&gt;</span>kproducerdatagen-${project.version}<span style="color:#008000;font-weight:bold">&lt;/imageName&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;mainClass&gt;</span>kafka.cli.producer.datagen.ProducerDatagenCli<span style="color:#008000;font-weight:bold">&lt;/mainClass&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;buildArgs&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#080;font-style:italic">&lt;!-- HERE --&gt;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/buildArgs&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/plugin&gt;</span>
 </span></span></code></pre></div><p>The first build arguments to consider are:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#070">&lt;buildArg&gt;</span>--no-fallback<span style="color:#070">&lt;/buildArg&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#070">&lt;buildArg&gt;</span>--allow-incomplete-classpath<span style="color:#070">&lt;/buildArg&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;buildArg&gt;</span>--no-fallback<span style="color:#008000;font-weight:bold">&lt;/buildArg&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;buildArg&gt;</span>--allow-incomplete-classpath<span style="color:#008000;font-weight:bold">&lt;/buildArg&gt;</span>
 </span></span></code></pre></div><p>To avoid getting a half-built image that still depends on the JDK, and to allow incomplete class paths.</p>
 <h2 id="graalvm-substitutions">
     <a class="hash-link nohover" href="#graalvm-substitutions">
@@ -264,8 +264,8 @@ I have collected some substitutions from Micronaut and Oracle Helidon here: <a h
         <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
     </a>&nbsp;SASL authentication
 </h2><p>For SASL authentication the following configurations are required:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#070">&lt;buildArg&gt;</span>-H:AdditionalSecurityProviders=com.sun.security.sasl.Provider<span style="color:#070">&lt;/buildArg&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#070">&lt;buildArg&gt;</span>--initialize-at-run-time=org.apache.kafka.common.security.authenticator.SaslClientAuthenticator<span style="color:#070">&lt;/buildArg&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;buildArg&gt;</span>-H:AdditionalSecurityProviders=com.sun.security.sasl.Provider<span style="color:#008000;font-weight:bold">&lt;/buildArg&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;buildArg&gt;</span>--initialize-at-run-time=org.apache.kafka.common.security.authenticator.SaslClientAuthenticator<span style="color:#008000;font-weight:bold">&lt;/buildArg&gt;</span>
 </span></span></code></pre></div><p>Adding the SASL security provider, and flagging the <code>SaslClientAuthenticator</code> to be initialized at run-time, with the Substitution class.</p>
 <h2 id="initializations">
     <a class="hash-link nohover" href="#initializations">
@@ -273,20 +273,20 @@ I have collected some substitutions from Micronaut and Oracle Helidon here: <a h
     </a>&nbsp;Initializations
 </h2><p>The next configuration is to force initialization of certain class paths at build time to get them in the binary:</p>
 <p>Kafka clients:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#070">&lt;buildArg&gt;</span>--initialize-at-build-time=[...]org.apache.kafka,kafka[...]<span style="color:#070">&lt;/buildArg&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;buildArg&gt;</span>--initialize-at-build-time=[...]org.apache.kafka,kafka[...]<span style="color:#008000;font-weight:bold">&lt;/buildArg&gt;</span>
 </span></span></code></pre></div><p>Log4j logging:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#070">&lt;buildArg&gt;</span>--initialize-at-build-time=org.slf4j.LoggerFactory,org.slf4j.impl.StaticLoggerBinder,org.slf4j.impl.SimpleLogger,[...]<span style="color:#070">&lt;/buildArg&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;buildArg&gt;</span>--initialize-at-build-time=org.slf4j.LoggerFactory,org.slf4j.impl.StaticLoggerBinder,org.slf4j.impl.SimpleLogger,[...]<span style="color:#008000;font-weight:bold">&lt;/buildArg&gt;</span>
 </span></span></code></pre></div><p>This will change depending on the SLF4J implementation used.</p>
 <p>If Jackson is used, then the following set of classes were required on my implementation:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#070">&lt;buildArg&gt;</span>--initialize-at-build-time=[...],com.fasterxml.jackson,jdk.xml,javax.xml,com.sun.org.apache.xerces,org.yaml.snakeyaml<span style="color:#070">&lt;/buildArg&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;buildArg&gt;</span>--initialize-at-build-time=[...],com.fasterxml.jackson,jdk.xml,javax.xml,com.sun.org.apache.xerces,org.yaml.snakeyaml<span style="color:#008000;font-weight:bold">&lt;/buildArg&gt;</span>
 </span></span></code></pre></div><p>Identifying these clases is an iterative process.
 Exceptions like the following will appear if the right classes are not defined to initialize at build time:</p>
-<pre tabindex="0"><code>Error: Classes that should be initialized at run time got initialized during image building:
- org.yaml.snakeyaml.external.com.google.gdata.util.common.base.PercentEscaper was unintentionally initialized at build time. To see why org.yaml.snakeyaml.external.com.google.gdata.util.common.base.PercentEscaper got initialized use --trace-class-initialization=org.yaml.snakeyaml.external.com.google.gdata.util.common.base.PercentEscaper
-org.yaml.snakeyaml.nodes.Tag was unintentionally initialized at build time. To see why org.yaml.snakeyaml.nodes.Tag got initialized use --trace-class-initialization=org.yaml.snakeyaml.nodes.Tag
-org.yaml.snakeyaml.util.UriEncoder was unintentionally initialized at build time. To see why org.yaml.snakeyaml.util.UriEncoder got initialized use --trace-class-initialization=org.yaml.snakeyaml.util.UriEncoder
-org.yaml.snakeyaml.external.com.google.gdata.util.common.base.UnicodeEscaper was unintentionally initialized at build time. To see why org.yaml.snakeyaml.external.com.google.gdata.util.common.base.UnicodeEscaper got initialized use --trace-class-initialization=org.yaml.snakeyaml.external.com.google.gdata.util.common.base.UnicodeEscaper
-</code></pre><h2 id="kafka-client-reflection-configurations">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Error: Classes that should be initialized at run time got initialized during image building:
+</span></span><span style="display:flex;"><span> org.yaml.snakeyaml.external.com.google.gdata.util.common.base.PercentEscaper was unintentionally initialized at build time. To see why org.yaml.snakeyaml.external.com.google.gdata.util.common.base.PercentEscaper got initialized use --trace-class-initialization=org.yaml.snakeyaml.external.com.google.gdata.util.common.base.PercentEscaper
+</span></span><span style="display:flex;"><span>org.yaml.snakeyaml.nodes.Tag was unintentionally initialized at build time. To see why org.yaml.snakeyaml.nodes.Tag got initialized use --trace-class-initialization=org.yaml.snakeyaml.nodes.Tag
+</span></span><span style="display:flex;"><span>org.yaml.snakeyaml.util.UriEncoder was unintentionally initialized at build time. To see why org.yaml.snakeyaml.util.UriEncoder got initialized use --trace-class-initialization=org.yaml.snakeyaml.util.UriEncoder
+</span></span><span style="display:flex;"><span>org.yaml.snakeyaml.external.com.google.gdata.util.common.base.UnicodeEscaper was unintentionally initialized at build time. To see why org.yaml.snakeyaml.external.com.google.gdata.util.common.base.UnicodeEscaper got initialized use --trace-class-initialization=org.yaml.snakeyaml.external.com.google.gdata.util.common.base.UnicodeEscaper
+</span></span></code></pre></div><h2 id="kafka-client-reflection-configurations">
     <a class="hash-link nohover" href="#kafka-client-reflection-configurations">
         <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
     </a>&nbsp;Kafka client reflection configurations
@@ -294,14 +294,14 @@ org.yaml.snakeyaml.external.com.google.gdata.util.common.base.UnicodeEscaper was
 <script type="application/javascript" src="https://gist.github.com/jeqo/44db9e27048ae3c4bcc9bb49ead7df22.js?file=kafka-client-reflection.json"></script>
 
 <p>Then, adding this configuration file to the build arguments:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#070">&lt;buildArg&gt;</span>-H:ReflectionConfigurationFiles=../src/main/resources/META-INF/native-image/io.github.jeqo.kafka/kafka-clis/reflect-kafka-client.json,[...]<span style="color:#070">&lt;/buildArg&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;buildArg&gt;</span>-H:ReflectionConfigurationFiles=../src/main/resources/META-INF/native-image/io.github.jeqo.kafka/kafka-clis/reflect-kafka-client.json,[...]<span style="color:#008000;font-weight:bold">&lt;/buildArg&gt;</span>
 </span></span></code></pre></div><h2 id="optional-enabling-httphttps-protocols">
     <a class="hash-link nohover" href="#optional-enabling-httphttps-protocols">
         <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
     </a>&nbsp;(Optional) Enabling HTTP/HTTPS protocols
 </h2><p>If your application requires access to HTTP/HTTPS as client or server, then these protocols should be enabled:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#070">&lt;buildArg&gt;</span>--enable-url-protocols=http<span style="color:#070">&lt;/buildArg&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#070">&lt;buildArg&gt;</span>--enable-url-protocols=https<span style="color:#070">&lt;/buildArg&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;buildArg&gt;</span>--enable-url-protocols=http<span style="color:#008000;font-weight:bold">&lt;/buildArg&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;buildArg&gt;</span>--enable-url-protocols=https<span style="color:#008000;font-weight:bold">&lt;/buildArg&gt;</span>
 </span></span></code></pre></div><h2 id="optional-include-resources">
     <a class="hash-link nohover" href="#optional-include-resources">
         <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
@@ -312,33 +312,33 @@ org.yaml.snakeyaml.external.com.google.gdata.util.common.base.UnicodeEscaper was
 
 <p>In this case, Avro schemas are loaded.</p>
 <p>Adding the following arguments should help to add these files as part of the building process, and log them for debugging:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#070">&lt;buildArg&gt;</span>-H:Log=registerResource:3<span style="color:#070">&lt;/buildArg&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#070">&lt;buildArg&gt;</span>-H:ResourceConfigurationFiles=../src/main/resources/META-INF/native-image/io.github.jeqo.kafka/kafka-clis/resource-config.json<span style="color:#070">&lt;/buildArg&gt;</span>
-</span></span></code></pre></div><pre tabindex="0"><code>[1/7] Initializing...                                                                                   (11.9s @ 0.20GB)
- Version info: &#39;GraalVM 22.0.0.2 Java 17 CE&#39;
-[Use -Dgraal.LogFile=&lt;path&gt; to redirect Graal log output to a file.]
-[thread:1] scope: main
-  # ...
-  ResourcesFeature: registerResource: credit_cards.avro
-  [thread:1] scope: main.registerResource
-  ResourcesFeature: registerResource: orders_schema.avro
-  [thread:1] scope: main.registerResource
-  ResourcesFeature: registerResource: users_array_map_schema.avro
-  [thread:1] scope: main.registerResource
-  ResourcesFeature: registerResource: pageviews_schema.avro
-  [thread:1] scope: main.registerResource
-  ResourcesFeature: registerResource: users_schema.avro
-  [thread:1] scope: main.registerResource
-  ResourcesFeature: registerResource: ratings_schema.avro
-  [thread:1] scope: main.registerResource
-  ResourcesFeature: registerResource: stores.avro
-  [thread:1] scope: main.registerResource
-  ResourcesFeature: registerResource: transactions.avro
-  [thread:1] scope: main.registerResource
-  ResourcesFeature: registerResource: cli.properties
-  [thread:1] scope: main.registerResource
-  # ...
-</code></pre><h2 id="optional-confluent-schema-registry-reflection-configuration">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;buildArg&gt;</span>-H:Log=registerResource:3<span style="color:#008000;font-weight:bold">&lt;/buildArg&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;buildArg&gt;</span>-H:ResourceConfigurationFiles=../src/main/resources/META-INF/native-image/io.github.jeqo.kafka/kafka-clis/resource-config.json<span style="color:#008000;font-weight:bold">&lt;/buildArg&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[1/7] Initializing...                                                                                   (11.9s @ 0.20GB)
+</span></span><span style="display:flex;"><span> Version info: &#39;GraalVM 22.0.0.2 Java 17 CE&#39;
+</span></span><span style="display:flex;"><span>[Use -Dgraal.LogFile=&lt;path&gt; to redirect Graal log output to a file.]
+</span></span><span style="display:flex;"><span>[thread:1] scope: main
+</span></span><span style="display:flex;"><span>  # ...
+</span></span><span style="display:flex;"><span>  ResourcesFeature: registerResource: credit_cards.avro
+</span></span><span style="display:flex;"><span>  [thread:1] scope: main.registerResource
+</span></span><span style="display:flex;"><span>  ResourcesFeature: registerResource: orders_schema.avro
+</span></span><span style="display:flex;"><span>  [thread:1] scope: main.registerResource
+</span></span><span style="display:flex;"><span>  ResourcesFeature: registerResource: users_array_map_schema.avro
+</span></span><span style="display:flex;"><span>  [thread:1] scope: main.registerResource
+</span></span><span style="display:flex;"><span>  ResourcesFeature: registerResource: pageviews_schema.avro
+</span></span><span style="display:flex;"><span>  [thread:1] scope: main.registerResource
+</span></span><span style="display:flex;"><span>  ResourcesFeature: registerResource: users_schema.avro
+</span></span><span style="display:flex;"><span>  [thread:1] scope: main.registerResource
+</span></span><span style="display:flex;"><span>  ResourcesFeature: registerResource: ratings_schema.avro
+</span></span><span style="display:flex;"><span>  [thread:1] scope: main.registerResource
+</span></span><span style="display:flex;"><span>  ResourcesFeature: registerResource: stores.avro
+</span></span><span style="display:flex;"><span>  [thread:1] scope: main.registerResource
+</span></span><span style="display:flex;"><span>  ResourcesFeature: registerResource: transactions.avro
+</span></span><span style="display:flex;"><span>  [thread:1] scope: main.registerResource
+</span></span><span style="display:flex;"><span>  ResourcesFeature: registerResource: cli.properties
+</span></span><span style="display:flex;"><span>  [thread:1] scope: main.registerResource
+</span></span><span style="display:flex;"><span>  # ...
+</span></span></code></pre></div><h2 id="optional-confluent-schema-registry-reflection-configuration">
     <a class="hash-link nohover" href="#optional-confluent-schema-registry-reflection-configuration">
         <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
     </a>&nbsp;(Optional) Confluent Schema Registry reflection configuration
@@ -346,7 +346,7 @@ org.yaml.snakeyaml.external.com.google.gdata.util.common.base.UnicodeEscaper was
 <script type="application/javascript" src="https://gist.github.com/jeqo/44db9e27048ae3c4bcc9bb49ead7df22.js?file=schema-registry-client-reflection.json"></script>
 
 <p>And concat the reflection configuration as an argument:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#070">&lt;buildArg&gt;</span>-H:ReflectionConfigurationFiles=[...],../src/main/resources/META-INF/native-image/io.github.jeqo.kafka/kafka-clis/reflect-schema-registry.json<span style="color:#070">&lt;/buildArg&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;buildArg&gt;</span>-H:ReflectionConfigurationFiles=[...],../src/main/resources/META-INF/native-image/io.github.jeqo.kafka/kafka-clis/reflect-schema-registry.json<span style="color:#008000;font-weight:bold">&lt;/buildArg&gt;</span>
 </span></span></code></pre></div><p>Additional resources: <a href="https://quarkus.io/guides/kafka-schema-registry-avro">https://quarkus.io/guides/kafka-schema-registry-avro</a></p>
 <h2 id="additional-open-issues-with-jackson">
     <a class="hash-link nohover" href="#additional-open-issues-with-jackson">

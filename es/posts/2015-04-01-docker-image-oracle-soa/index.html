@@ -227,7 +227,7 @@ y colocarlos en la carpeta OracleSOA/dockerfiles/12.1.3. De la misma forma
 <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">descargar Java Development Kit 7</a>,
 y colocarlo en el mismo folder.</p>
 <p>Abrir un terminal en el directorio <em>OracleSOA</em>, ir a dockerfiles, y ejecutar el script <em>buildDockerImage.sh</em> con el argumento <em>-d</em> que indica que es la versión de desarrollo:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh buildDockerImage.sh -d
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh buildDockerImage.sh -d
 </span></span></code></pre></div><p>Esta ejecución crear una imagen llamada: <strong>oracle/soa:12.1.3-dev</strong></p>
 <h2 id="dockerize-un-dominio-con-soa-suite">
     <a class="hash-link nohover" href="#dockerize-un-dominio-con-soa-suite">
@@ -237,10 +237,10 @@ y colocarlo en el mismo folder.</p>
 crear dominios con WLST.</p>
 <p>Existe un ejemplo de este procedimiento en <em>OracleSOA/samples</em>.</p>
 <p>Para ejecutarlo, ir a <em>OracleSOA/samples/12c-domain</em> y correr el siguiente comando:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker build -t mysoa .
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker build -t mysoa .
 </span></span></code></pre></div><p>Esto debe crear un imagen <em>mysoa</em> que contiene un Compact Domain instalado en: <em>/u01/oracle/work/domains/soa-domain</em></p>
 <p>Eso es todo! Para crear un contenedor desde la imagen, ejecutar:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -i -t mysoa
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -i -t mysoa
 </span></span></code></pre></div><h3 id="siguientes-pasos">
     <a class="hash-link nohover" href="#siguientes-pasos">
         <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>

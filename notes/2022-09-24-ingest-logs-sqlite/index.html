@@ -217,19 +217,19 @@ I got to learn about regex <em>negative (and positive) lookahead (or behind!)</e
 <p><code>(?!...)</code>: Starting at the current position in the expression, ensures that the given pattern will not match. Does not consume characters.</p>
 </blockquote>
 <p>So, in ended up with the following expression:</p>
-<pre tabindex="0"><code>(?m)^\[(?P&lt;datetime&gt;\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3})\] (?P&lt;level&gt;\w+) (?P&lt;log&gt;(.+$(\n(?!\[).+|)+))
-</code></pre><p>Explanation: <a href="https://regex101.com/r/2AxwfE/1">https://regex101.com/r/2AxwfE/1</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>(?m)^\[(?P&lt;datetime&gt;\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3})\] (?P&lt;level&gt;\w+) (?P&lt;log&gt;(.+$(\n(?!\[).+|)+))
+</span></span></code></pre></div><p>Explanation: <a href="https://regex101.com/r/2AxwfE/1">https://regex101.com/r/2AxwfE/1</a></p>
 <p>And the final script to ingest log files into sqlite database looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sqlite-utils insert /tmp/kafka-logs.db logs server.log.2022-09-24-21 --text --convert <span style="background-color:#fff0f0">&#34;
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">import re
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">r = re.compile(r&#39;^\[(?P&lt;datetime&gt;\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3})\] (?P&lt;level&gt;\w+) (?P&lt;log&gt;(.+(\n(?\!\[).+|)+))&#39;, re.MULTILINE)
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">def convert(text):
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">    rows = [m.groupdict() for m in r.finditer(text)]
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">    for row in rows:
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">        row.update({&#39;server&#39;: &#39;localhost&#39;})
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">        row.update({&#39;component&#39;: &#39;broker&#39;})
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">    return rows
-</span></span></span><span style="display:flex;"><span><span style="background-color:#fff0f0">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sqlite-utils insert /tmp/kafka-logs.db logs server.log.2022-09-24-21 --text --convert <span style="color:#b44">&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#b44">import re
+</span></span></span><span style="display:flex;"><span><span style="color:#b44">r = re.compile(r&#39;^\[(?P&lt;datetime&gt;\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3})\] (?P&lt;level&gt;\w+) (?P&lt;log&gt;(.+(\n(?\!\[).+|)+))&#39;, re.MULTILINE)
+</span></span></span><span style="display:flex;"><span><span style="color:#b44">def convert(text):
+</span></span></span><span style="display:flex;"><span><span style="color:#b44">    rows = [m.groupdict() for m in r.finditer(text)]
+</span></span></span><span style="display:flex;"><span><span style="color:#b44">    for row in rows:
+</span></span></span><span style="display:flex;"><span><span style="color:#b44">        row.update({&#39;server&#39;: &#39;localhost&#39;})
+</span></span></span><span style="display:flex;"><span><span style="color:#b44">        row.update({&#39;component&#39;: &#39;broker&#39;})
+</span></span></span><span style="display:flex;"><span><span style="color:#b44">    return rows
+</span></span></span><span style="display:flex;"><span><span style="color:#b44">&#34;</span>
 </span></span></code></pre></div><p>The <code>row.update</code> allows to label rows as I&rsquo;m planning to ingest logs from different hosts and potentially different components.</p>
 
   </section>

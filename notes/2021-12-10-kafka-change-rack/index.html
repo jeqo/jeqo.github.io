@@ -207,11 +207,11 @@ One I found today is if you want to redefine locations <a href="https://docs.con
 
 <p>If there are existing topics, and previous rack labels were already used when creating the topics, then the placement may not match the new topology.</p>
 <p>Looks like <code>confluent-balancer</code> covers this as one of the criterias to move partition replicas across the cluster, so after re-labeling the brokers with the new <code>broker.rack</code> configurations, applying the change to existing topics is as easy as:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>confluent-rebalancer execute <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>    --bootstrap-server localhost:9092 <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>    --metrics-bootstrap-server localhost:9092 <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>    --throttle <span style="color:#60e;font-weight:bold">10000000</span> <span style="color:#666;background-color:#fff0f0;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#666;background-color:#fff0f0;font-weight:bold"></span>    --verbose
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>confluent-rebalancer execute <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>    --bootstrap-server localhost:9092 <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>    --metrics-bootstrap-server localhost:9092 <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>    --throttle <span style="color:#666">10000000</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>    --verbose
 </span></span></code></pre></div><p>Docs: <a href="https://docs.confluent.io/platform/current/kafka/rebalancer/index.html#execute-the-rebalancer">https://docs.confluent.io/platform/current/kafka/rebalancer/index.html#execute-the-rebalancer</a></p>
   </section>
   <footer>

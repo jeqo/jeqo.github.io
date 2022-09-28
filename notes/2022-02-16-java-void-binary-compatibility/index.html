@@ -206,10 +206,10 @@ I was under the (wrong) impression that this change wouldn&rsquo;t affect users.
 I was also not considering that applications might just drop a new library without recompiling their application.</p>
 <p>This change is what is known as <em>source compatible</em> but not <em>binary compatible</em> — meaning the user will need to recompile their application.</p>
 <p>If you drop a newer version into your application expecting a void method would case this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>java -jar kafka-streams-poc-new-transformer-1.0-SNAPSHOT.jar
-</span></span><span style="display:flex;"><span>Exception in thread <span style="background-color:#fff0f0">&#34;main&#34;</span> java.lang.NoSuchMethodError: <span style="background-color:#fff0f0">&#39;void org.apache.kafka.streams.kstream.KStream.process(org.apache.kafka.streams.processor.api.ProcessorSupplier, java.lang.String[])&#39;</span>
-</span></span><span style="display:flex;"><span>        at poc.App.topology<span style="color:#333">(</span>App.java:41<span style="color:#333">)</span>
-</span></span><span style="display:flex;"><span>        at poc.App.main<span style="color:#333">(</span>App.java:22<span style="color:#333">)</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>java -jar kafka-streams-poc-new-transformer-1.0-SNAPSHOT.jar
+</span></span><span style="display:flex;"><span>Exception in thread <span style="color:#b44">&#34;main&#34;</span> java.lang.NoSuchMethodError: <span style="color:#b44">&#39;void org.apache.kafka.streams.kstream.KStream.process(org.apache.kafka.streams.processor.api.ProcessorSupplier, java.lang.String[])&#39;</span>
+</span></span><span style="display:flex;"><span>        at poc.App.topology<span style="color:#666">(</span>App.java:41<span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span>        at poc.App.main<span style="color:#666">(</span>App.java:22<span style="color:#666">)</span>
 </span></span></code></pre></div>
   </section>
   <footer>
