@@ -207,11 +207,11 @@
 <a href="https://sqlite-utils.datasette.io/en/stable/">sqlite-utils</a> to the rescue!
 I was initially happy with having each line as a row
 and adding <a href="https://sqlite-utils.datasette.io/en/stable/cli.html#configuring-full-text-search">full-text support to the log column</a> to query events.
-However, Java log may span across multiple lines and the results may not be ideal — timestamps could be in 1 line, and the root cause in another.</p>
-<p><a href="https://github.com/simonw/sqlite-utils/issues/490">I found</a> (thanks @simonw!) that <code>sqlite-utils</code> supports adding &ldquo;convert&rdquo; functions when inserting data from a file, allowing to apply custom parsing to lines or to the whole file text: <a href="https://sqlite-utils.datasette.io/en/stable/cli.html#applying-conversions-while-inserting-data">https://sqlite-utils.datasette.io/en/stable/cli.html#applying-conversions-while-inserting-data</a></p>
+However, a Java log may span across multiple lines and the outputs may not be ideal — timestamps could be in 1 line, and the stack trace root cause in another one.</p>
+<p><a href="https://github.com/simonw/sqlite-utils/issues/490">I found</a> (thanks @simonw!) that <code>sqlite-utils</code> supports adding &ldquo;convert&rdquo; functions when inserting data from a file into sqlite, allowing to apply custom parsing to either lines or the whole text file: <a href="https://sqlite-utils.datasette.io/en/stable/cli.html#applying-conversions-while-inserting-data">https://sqlite-utils.datasette.io/en/stable/cli.html#applying-conversions-while-inserting-data</a></p>
 <p>The next challenge was: how to parse log files content with regular expressions?
-After some try and error, I got into the problem to apply certain expression <em>if</em> the next line starts with some character, but without &ldquo;consuming&rdquo; the next line.
-I learn about regex <em>negative (and positive) lookahead (or behind!)</em> that does just that!</p>
+After some try and error, I got into the problem of how to apply certain expression only <em>if</em> the next line starts with some character, but without &ldquo;consuming&rdquo; the next character/line.
+I got to learn about regex <em>negative (and positive) lookahead (or behind!)</em> expressions that do just that!</p>
 <p>From <a href="https://regex101.com">regex101.com</a>:</p>
 <blockquote>
 <p><code>(?!...)</code>: Starting at the current position in the expression, ensures that the given pattern will not match. Does not consume characters.</p>
