@@ -8,6 +8,7 @@
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <lastBuildDate>Sat, 24 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ingesting log files to sqlite</title>
@@ -29,6 +30,9 @@ The first step is ingesting content from log files into sqlite tables. sqlite-ut
 >>>>>>> e4753a1 (rebuilding site)
     </item>
     
+=======
+    <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/index.xml" rel="self" type="application/rss+xml" />
+>>>>>>> 17fe1b7 (Revert "rebuilding site")
     <item>
       <title>Kafka Emulator CLI: Record and Reply Records considering time-distance</title>
       <link>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</link>

@@ -8,6 +8,7 @@
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <lastBuildDate>Sat, 24 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>datasette</title>
@@ -62,6 +63,9 @@
       <description></description>
     </item>
     
+=======
+    <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+>>>>>>> 17fe1b7 (Revert "rebuilding site")
     <item>
       <title>cli</title>
       <link>https://jeqo.github.io/tags/cli/</link>
@@ -185,6 +189,15 @@
       <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/ssl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ideas</title>
+      <link>https://jeqo.github.io/tags/ideas/</link>
+      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/ideas/</guid>
       <description></description>
     </item>
     
