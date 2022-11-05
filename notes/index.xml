@@ -7,21 +7,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <lastBuildDate>Sat, 24 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Ingesting log files to sqlite</title>
-      <link>https://jeqo.github.io/notes/2022-09-24-ingest-logs-sqlite/</link>
-      <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/notes/2022-09-24-ingest-logs-sqlite/</guid>
-      <description>I recently was looking into how to analyze multiple related log files (e.g. application log from multiple instances), and found that sqlite may be enough :)
-The first step is ingesting content from log files into sqlite tables. sqlite-utils to the rescue! I was initially happy with having each line as a row and adding full-text support to the log column to query events. However, a Java log may span across multiple lines and the outputs may not be ideal — timestamps could be in 1 line, and the stack trace root cause in another one.</description>
-=======
-=======
->>>>>>> f2734dc (rebuilding site)
     <lastBuildDate>Sat, 05 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>On Anarchism book</title>
@@ -30,14 +15,6 @@ The first step is ingesting content from log files into sqlite tables. sqlite-ut
       
       <guid>https://jeqo.github.io/notes/on-anarchism-book/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/22558046-on-anarchism&#34;&gt;On Anarchism&lt;/a&gt; by Noam Chomsky&lt;/p&gt;</description>
-<<<<<<< HEAD
->>>>>>> e4753a1 (rebuilding site)
-    </item>
-    
-=======
-    <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
->>>>>>> 17fe1b7 (Revert "rebuilding site")
-=======
     </item>
     
     <item>
@@ -50,7 +27,6 @@ The first step is ingesting content from log files into sqlite tables. sqlite-ut
 The first step is ingesting content from log files into sqlite tables. sqlite-utils to the rescue! I was initially happy with having each line as a row and adding full-text support to the log column to query events. However, a Java log may span across multiple lines and the outputs may not be ideal — timestamps could be in 1 line, and the stack trace root cause in another one.</description>
     </item>
     
->>>>>>> f2734dc (rebuilding site)
     <item>
       <title>Piggyback on Kafka Connect Schemas to process Kafka records in a generic way</title>
       <link>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</link>
