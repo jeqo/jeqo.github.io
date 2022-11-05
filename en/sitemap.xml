@@ -3,7 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jeqo.github.io/</loc>
+<<<<<<< HEAD
     <lastmod>2022-09-24T00:00:00+00:00</lastmod>
+=======
+    <lastmod>2022-11-05T00:00:00+00:00</lastmod>
+>>>>>>> e4753a1 (rebuilding site)
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -13,6 +17,41 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jeqo.github.io/"
+                />
+  </url><url>
+    <loc>https://jeqo.github.io/tags/chomsky/</loc>
+    <lastmod>2022-11-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/ideas/</loc>
+    <lastmod>2022-11-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/notes/</loc>
+    <lastmod>2022-11-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/notes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/notes/"
+                />
+  </url><url>
+    <loc>https://jeqo.github.io/notes/on-anarchism-book/</loc>
+    <lastmod>2022-11-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/</loc>
+    <lastmod>2022-11-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/tags/"
                 />
   </url><url>
     <loc>https://jeqo.github.io/categories/</loc>
@@ -116,6 +155,12 @@
                 href="https://jeqo.github.io/posts/"
                 />
   </url><url>
+<<<<<<< HEAD
+=======
+    <loc>https://jeqo.github.io/categories/til/</loc>
+    <lastmod>2022-08-24T00:00:00+00:00</lastmod>
+  </url><url>
+>>>>>>> e4753a1 (rebuilding site)
     <loc>https://jeqo.github.io/tags/tools/</loc>
     <lastmod>2022-08-24T00:00:00+00:00</lastmod>
   </url><url>
@@ -169,9 +214,6 @@
   </url><url>
     <loc>https://jeqo.github.io/tags/ssl/</loc>
     <lastmod>2022-02-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/tags/ideas/</loc>
-    <lastmod>2022-01-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/notes/2022-01-29-kafka-streams-fk-join-same-table/</loc>
     <lastmod>2022-01-29T00:00:00+00:00</lastmod>
