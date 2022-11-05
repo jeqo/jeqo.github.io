@@ -9,6 +9,7 @@
     <copyright>&amp;copy; Copyright @jeqo</copyright>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <lastBuildDate>Sat, 24 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>datasette</title>
@@ -17,6 +18,8 @@
       
       <guid>https://jeqo.github.io/tags/datasette/</guid>
 =======
+=======
+>>>>>>> f2734dc (rebuilding site)
     <lastBuildDate>Sat, 05 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>chomsky</title>
@@ -24,12 +27,36 @@
       <pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/chomsky/</guid>
+<<<<<<< HEAD
 >>>>>>> e4753a1 (rebuilding site)
+=======
+>>>>>>> f2734dc (rebuilding site)
       <description></description>
     </item>
     
     <item>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+      <title>ideas</title>
+      <link>https://jeqo.github.io/tags/ideas/</link>
+      <pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/ideas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>datasette</title>
+      <link>https://jeqo.github.io/tags/datasette/</link>
+      <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jeqo.github.io/tags/datasette/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+>>>>>>> f2734dc (rebuilding site)
       <title>ops</title>
       <link>https://jeqo.github.io/tags/ops/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
@@ -53,6 +80,7 @@
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/troubleshooting/</guid>
+<<<<<<< HEAD
 =======
       <title>ideas</title>
       <link>https://jeqo.github.io/tags/ideas/</link>
@@ -66,6 +94,11 @@
 =======
     <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
 >>>>>>> 17fe1b7 (Revert "rebuilding site")
+=======
+      <description></description>
+    </item>
+    
+>>>>>>> f2734dc (rebuilding site)
     <item>
       <title>cli</title>
       <link>https://jeqo.github.io/tags/cli/</link>
@@ -189,15 +222,6 @@
       <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://jeqo.github.io/tags/ssl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ideas</title>
-      <link>https://jeqo.github.io/tags/ideas/</link>
-      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://jeqo.github.io/tags/ideas/</guid>
       <description></description>
     </item>
     
