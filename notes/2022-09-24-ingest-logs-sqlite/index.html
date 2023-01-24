@@ -231,7 +231,9 @@ I got to learn about regex <em>negative (and positive) lookahead (or behind!)</e
 </span></span></span><span style="display:flex;"><span><span style="color:#b44">    return rows
 </span></span></span><span style="display:flex;"><span><span style="color:#b44">&#34;</span>
 </span></span></code></pre></div><p>The <code>row.update</code> allows to label rows as I&rsquo;m planning to ingest logs from different hosts and potentially different components.</p>
-
+<p>Additionally, full-text search support can be added to the log column to allow custom searches:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sqlite-utils enable-fts /tmp/kafka-logs.db logs log
+</span></span></code></pre></div>
   </section>
   <footer>
     
