@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
@@ -258,7 +258,7 @@ For instance, Confluent Cloud uses <code>RF=3</code> and <code>min.isr=2</code>.
 </span></span><span style="display:flex;"><span>          val inSyncSize <span style="color:#666">=</span> isrState<span style="color:#666">.</span><span style="color:#b44">isr</span><span style="color:#666">.</span><span style="color:#b44">size</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>          <span style="color:#080;font-style:italic">// Avoid writing to leader if there are not enough insync replicas to make it safe
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>          <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span>inSyncSize <span style="color:#666">&lt;</span> minIsr <span style="color:#666">&amp;&amp;</span> requiredAcks <span style="color:#666">==</span> <span style="color:#666">-</span><span style="color:#666">1</span><span style="color:#666">)</span> <span style="color:#666">{</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>          <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">(</span>inSyncSize <span style="color:#666">&lt;</span> minIsr <span style="color:#666">&amp;&amp;</span> requiredAcks <span style="color:#666">==</span> <span style="color:#666">-</span>1<span style="color:#666">)</span> <span style="color:#666">{</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">throw</span> <span style="color:#a2f;font-weight:bold">new</span> NotEnoughReplicasException<span style="color:#666">(</span>s<span style="color:#b44">&#34;The size of the current ISR ${isrState.isr} &#34;</span> <span style="color:#666">+</span>
 </span></span><span style="display:flex;"><span>              s<span style="color:#b44">&#34;is insufficient to satisfy the min.isr requirement of $minIsr for partition $topicPartition&#34;</span><span style="color:#666">)</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#666">}</span>
@@ -444,10 +444,23 @@ For instance, Confluent Cloud uses <code>RF=3</code> and <code>min.isr=2</code>.
 
 
 
-    <p class="p-copyright">
+    <p class="p-copyright">This work is licensed under <a
+        href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank"
+        rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img
+        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img
+        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a>
+
+      &nbsp;&bull;&nbsp;
+      2022
+
       
-        &copy; Copyright @jeqo
+        &nbsp;&bull;&nbsp;
+        <a href="https://jeqo.github.io/">@jeqo</a>
       
+      &nbsp;&bull;&nbsp;
+      <a href="https://github.com/jeqo/jeqo.github.io-src">[source code]</a>
     </p>
   </footer>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
@@ -257,13 +257,13 @@ and that can apply generic transformations to the <code>Map</code> or <code>Stru
 </span></span><span style="display:flex;"><span>    var data <span style="color:#666">=</span> ksql<span style="color:#666">.</span><span style="color:#b44">StockTrade</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#666">.</span><span style="color:#b44">newBuilder</span><span style="color:#666">()</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#666">.</span><span style="color:#b44">setAccount</span><span style="color:#666">(</span><span style="color:#b44">&#34;123&#34;</span><span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#666">.</span><span style="color:#b44">setPrice</span><span style="color:#666">(</span><span style="color:#666">100</span><span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#666">.</span><span style="color:#b44">setQuantity</span><span style="color:#666">(</span><span style="color:#666">1</span><span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#666">.</span><span style="color:#b44">setPrice</span><span style="color:#666">(</span>100<span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#666">.</span><span style="color:#b44">setQuantity</span><span style="color:#666">(</span>1<span style="color:#666">)</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#666">.</span><span style="color:#b44">setSymbol</span><span style="color:#666">(</span><span style="color:#b44">&#34;USD&#34;</span><span style="color:#666">)</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#666">.</span><span style="color:#b44">setSide</span><span style="color:#666">(</span><span style="color:#b44">&#34;A&#34;</span><span style="color:#666">)</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#666">.</span><span style="color:#b44">setUserid</span><span style="color:#666">(</span><span style="color:#b44">&#34;U001&#34;</span><span style="color:#666">)</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#666">.</span><span style="color:#b44">build</span><span style="color:#666">();</span>
-</span></span><span style="display:flex;"><span>    var avro <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> AvroData<span style="color:#666">(</span><span style="color:#666">10</span><span style="color:#666">);</span>
+</span></span><span style="display:flex;"><span>    var avro <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> AvroData<span style="color:#666">(</span>10<span style="color:#666">);</span>
 </span></span><span style="display:flex;"><span>    var schemaAndValue <span style="color:#666">=</span> avro<span style="color:#666">.</span><span style="color:#b44">toConnectData</span><span style="color:#666">(</span>data<span style="color:#666">.</span><span style="color:#b44">getSchema</span><span style="color:#666">(),</span> data<span style="color:#666">);</span>
 </span></span><span style="display:flex;"><span>    var converter <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> AvroConverter<span style="color:#666">();</span>
 </span></span><span style="display:flex;"><span>    converter<span style="color:#666">.</span><span style="color:#b44">configure</span><span style="color:#666">(</span>Map<span style="color:#666">.</span><span style="color:#b44">of</span><span style="color:#666">(</span><span style="color:#b44">&#34;schema.registry.url&#34;</span><span style="color:#666">,</span> <span style="color:#b44">&#34;http://localhost:8081&#34;</span><span style="color:#666">),</span> <span style="color:#a2f;font-weight:bold">false</span><span style="color:#666">);</span>
@@ -475,10 +475,23 @@ and that can apply generic transformations to the <code>Map</code> or <code>Stru
 
 
 
-    <p class="p-copyright">
+    <p class="p-copyright">This work is licensed under <a
+        href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank"
+        rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img
+        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img
+        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a>
+
+      &nbsp;&bull;&nbsp;
+      2022
+
       
-        &copy; Copyright @jeqo
+        &nbsp;&bull;&nbsp;
+        <a href="https://jeqo.github.io/">@jeqo</a>
       
+      &nbsp;&bull;&nbsp;
+      <a href="https://github.com/jeqo/jeqo.github.io-src">[source code]</a>
     </p>
   </footer>
 
