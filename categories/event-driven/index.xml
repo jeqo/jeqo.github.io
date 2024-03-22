@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>event-driven on @jeqo</title>
+    <title>Event-Driven on @jeqo</title>
     <link>https://jeqo.github.io/categories/event-driven/</link>
-    <description>Recent content in event-driven on @jeqo</description>
+    <description>Recent content in Event-Driven on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Tue, 26 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/event-driven/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/categories/event-driven/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Importance of Distributed Tracing for Apache Kafka Based Applications</title>
       <link>https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/</link>
       <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/</guid>
-      <description>Originally posted in Confluent Blog
-Apache Kafka® based applications stand out for their ability to decouple producers and consumers using an event log as an intermediate layer.
-One result of this is that producers and consumers don’t know about each other, as there is no direct communication between them.
-This enables choreographed service collaborations, where many components can subscribe to events stored in the event log and react to them asynchronously.</description>
+      <description>Originally posted in Confluent Blog&#xA;Apache Kafka® based applications stand out for their ability to decouple producers and consumers using an event log as an intermediate layer.&#xA;One result of this is that producers and consumers don’t know about each other, as there is no direct communication between them.&#xA;This enables choreographed service collaborations, where many components can subscribe to events stored in the event log and react to them asynchronously.</description>
     </item>
-    
   </channel>
 </rss>

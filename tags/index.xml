@@ -7,573 +7,448 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Sat, 05 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>chomsky</title>
+      <title>Chomsky</title>
       <link>https://jeqo.github.io/tags/chomsky/</link>
       <pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/chomsky/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>ideas</title>
+      <title>Ideas</title>
       <link>https://jeqo.github.io/tags/ideas/</link>
       <pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/ideas/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>datasette</title>
+      <title>Datasette</title>
       <link>https://jeqo.github.io/tags/datasette/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/datasette/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>ops</title>
+      <title>Ops</title>
       <link>https://jeqo.github.io/tags/ops/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/ops/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>sqlite</title>
+      <title>Sqlite</title>
       <link>https://jeqo.github.io/tags/sqlite/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/sqlite/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>troubleshooting</title>
+      <title>Troubleshooting</title>
       <link>https://jeqo.github.io/tags/troubleshooting/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/troubleshooting/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>cli</title>
+      <title>Cli</title>
       <link>https://jeqo.github.io/tags/cli/</link>
       <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/cli/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>connect</title>
+      <title>Connect</title>
       <link>https://jeqo.github.io/tags/connect/</link>
       <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/connect/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>dev</title>
+      <title>Dev</title>
       <link>https://jeqo.github.io/tags/dev/</link>
       <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/dev/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>kafka</title>
+      <title>Kafka</title>
       <link>https://jeqo.github.io/tags/kafka/</link>
       <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/kafka/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>tools</title>
+      <title>Tools</title>
       <link>https://jeqo.github.io/tags/tools/</link>
       <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/tools/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>kafka-streams</title>
+      <title>Kafka-Streams</title>
       <link>https://jeqo.github.io/tags/kafka-streams/</link>
       <pubDate>Fri, 17 Jun 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/kafka-streams/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>database</title>
+      <title>Database</title>
       <link>https://jeqo.github.io/tags/database/</link>
       <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/database/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>graalvm</title>
+      <title>Graalvm</title>
       <link>https://jeqo.github.io/tags/graalvm/</link>
       <pubDate>Fri, 18 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/graalvm/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>data</title>
+      <title>Data</title>
       <link>https://jeqo.github.io/tags/data/</link>
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/data/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>kcat</title>
+      <title>Kcat</title>
       <link>https://jeqo.github.io/tags/kcat/</link>
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/kcat/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>java</title>
+      <title>Java</title>
       <link>https://jeqo.github.io/tags/java/</link>
       <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/java/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>compatibility</title>
+      <title>Compatibility</title>
       <link>https://jeqo.github.io/tags/compatibility/</link>
       <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/compatibility/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>security</title>
+      <title>Security</title>
       <link>https://jeqo.github.io/tags/security/</link>
       <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/security/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>ssl</title>
+      <title>Ssl</title>
       <link>https://jeqo.github.io/tags/ssl/</link>
       <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/ssl/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>streaming-joins</title>
+      <title>Streaming-Joins</title>
       <link>https://jeqo.github.io/tags/streaming-joins/</link>
       <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/streaming-joins/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>api</title>
+      <title>Api</title>
       <link>https://jeqo.github.io/tags/api/</link>
       <pubDate>Wed, 26 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/api/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>logging</title>
+      <title>Logging</title>
       <link>https://jeqo.github.io/tags/logging/</link>
       <pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/logging/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>ansible</title>
+      <title>Ansible</title>
       <link>https://jeqo.github.io/tags/ansible/</link>
       <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/ansible/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>automation</title>
+      <title>Automation</title>
       <link>https://jeqo.github.io/tags/automation/</link>
       <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/automation/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>deployment</title>
+      <title>Deployment</title>
       <link>https://jeqo.github.io/tags/deployment/</link>
       <pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/deployment/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>durability</title>
+      <title>Durability</title>
       <link>https://jeqo.github.io/tags/durability/</link>
       <pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/durability/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>latency</title>
+      <title>Latency</title>
       <link>https://jeqo.github.io/tags/latency/</link>
       <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/latency/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>performance-tuning</title>
+      <title>Performance-Tuning</title>
       <link>https://jeqo.github.io/tags/performance-tuning/</link>
       <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/performance-tuning/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>cioran</title>
+      <title>Cioran</title>
       <link>https://jeqo.github.io/tags/cioran/</link>
       <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/cioran/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>philosophy</title>
+      <title>Philosophy</title>
       <link>https://jeqo.github.io/tags/philosophy/</link>
       <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/philosophy/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>fault-tolerance</title>
+      <title>Fault-Tolerance</title>
       <link>https://jeqo.github.io/tags/fault-tolerance/</link>
       <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/fault-tolerance/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>daniel bittman</title>
+      <title>Daniel Bittman</title>
       <link>https://jeqo.github.io/tags/daniel-bittman/</link>
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/daniel-bittman/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>distributed systems</title>
+      <title>Distributed Systems</title>
       <link>https://jeqo.github.io/tags/distributed-systems/</link>
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/distributed-systems/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>ethan l miller</title>
+      <title>Ethan L Miller</title>
       <link>https://jeqo.github.io/tags/ethan-l-miller/</link>
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/ethan-l-miller/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>fault injection</title>
+      <title>Fault Injection</title>
       <link>https://jeqo.github.io/tags/fault-injection/</link>
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/fault-injection/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>peter alvaro</title>
+      <title>Peter Alvaro</title>
       <link>https://jeqo.github.io/tags/peter-alvaro/</link>
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/peter-alvaro/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>tracing</title>
+      <title>Tracing</title>
       <link>https://jeqo.github.io/tags/tracing/</link>
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/tracing/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>distributed-tracing</title>
+      <title>Distributed-Tracing</title>
       <link>https://jeqo.github.io/tags/distributed-tracing/</link>
       <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/distributed-tracing/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>zipkin</title>
+      <title>Zipkin</title>
       <link>https://jeqo.github.io/tags/zipkin/</link>
       <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/zipkin/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>samza</title>
+      <title>Samza</title>
       <link>https://jeqo.github.io/tags/samza/</link>
       <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/samza/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>microservices</title>
+      <title>Microservices</title>
       <link>https://jeqo.github.io/tags/microservices/</link>
       <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/microservices/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>pat helland</title>
+      <title>Pat Helland</title>
       <link>https://jeqo.github.io/tags/pat-helland/</link>
       <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/pat-helland/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>transactions</title>
+      <title>Transactions</title>
       <link>https://jeqo.github.io/tags/transactions/</link>
       <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/transactions/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>integration</title>
+      <title>Integration</title>
       <link>https://jeqo.github.io/tags/integration/</link>
       <pubDate>Fri, 10 Mar 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/integration/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>devops, k8s, weblogic, ougn</title>
+      <title>Devops, K8s, Weblogic, Ougn</title>
       <link>https://jeqo.github.io/tags/devops-k8s-weblogic-ougn/</link>
       <pubDate>Thu, 09 Mar 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/devops-k8s-weblogic-ougn/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>docker</title>
+      <title>Docker</title>
       <link>https://jeqo.github.io/tags/docker/</link>
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/docker/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>oracle</title>
+      <title>Oracle</title>
       <link>https://jeqo.github.io/tags/oracle/</link>
       <pubDate>Thu, 26 May 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/oracle/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>devops, soa, oracle</title>
+      <title>Devops, Soa, Oracle</title>
       <link>https://jeqo.github.io/tags/devops-soa-oracle/</link>
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/devops-soa-oracle/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>packer</title>
+      <title>Packer</title>
       <link>https://jeqo.github.io/tags/packer/</link>
       <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/packer/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>soa</title>
+      <title>Soa</title>
       <link>https://jeqo.github.io/tags/soa/</link>
       <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/soa/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>avro</title>
+      <title>Avro</title>
       <link>https://jeqo.github.io/tags/avro/</link>
       <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/avro/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>java ee</title>
+      <title>Java Ee</title>
       <link>https://jeqo.github.io/tags/java-ee/</link>
       <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/java-ee/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>rx</title>
+      <title>Rx</title>
       <link>https://jeqo.github.io/tags/rx/</link>
       <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/rx/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>chef</title>
+      <title>Chef</title>
       <link>https://jeqo.github.io/tags/chef/</link>
       <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/chef/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>bpm</title>
+      <title>Bpm</title>
       <link>https://jeqo.github.io/tags/bpm/</link>
       <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/bpm/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>fmw</title>
+      <title>Fmw</title>
       <link>https://jeqo.github.io/tags/fmw/</link>
       <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/fmw/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>vagrant</title>
+      <title>Vagrant</title>
       <link>https://jeqo.github.io/tags/vagrant/</link>
       <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/vagrant/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>aws</title>
+      <title>Aws</title>
       <link>https://jeqo.github.io/tags/aws/</link>
       <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/aws/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>nfs</title>
+      <title>Nfs</title>
       <link>https://jeqo.github.io/tags/nfs/</link>
       <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/nfs/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>book</title>
+      <title>Book</title>
       <link>https://jeqo.github.io/tags/book/</link>
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/book/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>review</title>
+      <title>Review</title>
       <link>https://jeqo.github.io/tags/review/</link>
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/review/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>virtualbox</title>
+      <title>Virtualbox</title>
       <link>https://jeqo.github.io/tags/virtualbox/</link>
       <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/tags/virtualbox/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

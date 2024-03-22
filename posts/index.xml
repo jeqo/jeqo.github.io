@@ -7,232 +7,147 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kafka Emulator CLI: Record and Reply Records considering time-distance</title>
       <link>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</link>
       <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</guid>
-      <description>Looking for alternative ways to reproduce time-based conditions in Kafka Streams applications —e.g. if you&amp;rsquo;re doing some sort of join or windowing based on time— I ended up creating a CLI tool to support a couple of features:
-Record events from topics, including their timestamps and gap Replay events, including waiting periods between them SQLite is used a storage for recorded events, so events can be generated, updated, tweaked using SQL.</description>
+      <description>Looking for alternative ways to reproduce time-based conditions in Kafka Streams applications —e.g. if you&amp;rsquo;re doing some sort of join or windowing based on time— I ended up creating a CLI tool to support a couple of features:&#xA;Record events from topics, including their timestamps and gap Replay events, including waiting periods between them SQLite is used a storage for recorded events, so events can be generated, updated, tweaked using SQL.</description>
     </item>
-    
     <item>
       <title>Kafka Streams: Tick stream-time with control messages</title>
       <link>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</link>
       <pubDate>Fri, 17 Jun 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</guid>
-      <description>&lt;p&gt;Kafka Streams is in many ways governed by the concept of time.
-For instance, as soon as stateful operations are used, the event-time drives how events are grouped, joined, and emitted.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://developer.confluent.io/learn-kafka/kafka-streams/time-concepts/#stream-time&#34;&gt;Stream-time&lt;/a&gt;
-is the concept within Kafka Streams representing the largest timestamp seen by the the stream application (per-partition).
-In comparison with wall-clock time (i.e. system time) — at the execution of an application — stream-time is driven by the data seen by the application.
-This ensures that the results produced by a Kafka Streams application are reproducible.&lt;/p&gt;
-&lt;p&gt;One nuance of stream-time is that it &lt;em&gt;needs&lt;/em&gt; incoming events to &amp;ldquo;tick&amp;rdquo;.
-This could represent an issue for events that are sparse in time, and we expect results to be produced more often (e.g. windows to be closed and emit, punctiation to be calculated).&lt;/p&gt;
-&lt;p&gt;This is a known issue, and there are some proposals to overcome it in certain parts of the framework,
-e.g. &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-424%3A+Allow+suppression+of+intermediate+events+based+on+wall+clock+time&#34;&gt;KIP-424&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This post covers a proof-of-concept instrumenting producers to emit contol messages to advance stream time.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Kafka Streams is in many ways governed by the concept of time.&#xA;For instance, as soon as stateful operations are used, the event-time drives how events are grouped, joined, and emitted.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://developer.confluent.io/learn-kafka/kafka-streams/time-concepts/#stream-time&#34;&gt;Stream-time&lt;/a&gt;&#xA;is the concept within Kafka Streams representing the largest timestamp seen by the the stream application (per-partition).&#xA;In comparison with wall-clock time (i.e. system time) — at the execution of an application — stream-time is driven by the data seen by the application.&#xA;This ensures that the results produced by a Kafka Streams application are reproducible.&lt;/p&gt;&#xA;&lt;p&gt;One nuance of stream-time is that it &lt;em&gt;needs&lt;/em&gt; incoming events to &amp;ldquo;tick&amp;rdquo;.&#xA;This could represent an issue for events that are sparse in time, and we expect results to be produced more often (e.g. windows to be closed and emit, punctiation to be calculated).&lt;/p&gt;&#xA;&lt;p&gt;This is a known issue, and there are some proposals to overcome it in certain parts of the framework,&#xA;e.g. &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-424%3A+Allow+suppression+of+intermediate+events+based+on+wall+clock+time&#34;&gt;KIP-424&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This post covers a proof-of-concept instrumenting producers to emit contol messages to advance stream time.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Getting started with Kafka quotas</title>
       <link>https://jeqo.github.io/posts/2022-05-11-kafka-quotas/</link>
       <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2022-05-11-kafka-quotas/</guid>
-      <description>&lt;p&gt;Kafka quotas have been around for a while since initial versions of the project — though not necessarily being enabled in most deployments that I have seen.&lt;/p&gt;
-&lt;p&gt;This post shares some thoughts on how to start adopting quotas and gives some practical advice, and a bit of the history of quotas in the Kafka project.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Kafka quotas have been around for a while since initial versions of the project — though not necessarily being enabled in most deployments that I have seen.&lt;/p&gt;&#xA;&lt;p&gt;This post shares some thoughts on how to start adopting quotas and gives some practical advice, and a bit of the history of quotas in the Kafka project.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Kafka client applications with GraalVM</title>
       <link>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</link>
       <pubDate>Fri, 18 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</guid>
-      <description>&lt;p&gt;Shipping CLI binaries with Java hasn&amp;rsquo;t been the most user-friendly experience.
-Java is required to be installed on the client-side, starting Java applications (e.g. executable JAR) tend to be slower than to binary applications.&lt;/p&gt;
-&lt;p&gt;GraalVM, and specifically &lt;a href=&#34;https://www.graalvm.org/22.0/reference-manual/native-image/&#34;&gt;native-image&lt;/a&gt; tooling, is aimed to tackle most of these issues with Java by enable building native binaries from Java applications.&lt;/p&gt;
-&lt;p&gt;Even though this has been supported for a while now, reflection and other practices require additional configurations that make this process either unsupported or very cumbersome to implement.&lt;/p&gt;
-&lt;p&gt;With the arrival of new frameworks that target the benefits of GraalVM, like &lt;a href=&#34;https://micronaut.io/&#34;&gt;Micronaut&lt;/a&gt; and &lt;a href=&#34;https://quarkus.io/&#34;&gt;Quarkus&lt;/a&gt;, it started to be possible and simpler to implement applications that included Kafka clients, and package them as native binaries.&lt;/p&gt;
-&lt;p&gt;This post is going to explore the steps to package &lt;em&gt;vanilla&lt;/em&gt; Kafka client applications —i.e. no framework— as native binaries.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Shipping CLI binaries with Java hasn&amp;rsquo;t been the most user-friendly experience.&#xA;Java is required to be installed on the client-side, starting Java applications (e.g. executable JAR) tend to be slower than to binary applications.&lt;/p&gt;&#xA;&lt;p&gt;GraalVM, and specifically &lt;a href=&#34;https://www.graalvm.org/22.0/reference-manual/native-image/&#34;&gt;native-image&lt;/a&gt; tooling, is aimed to tackle most of these issues with Java by enable building native binaries from Java applications.&lt;/p&gt;&#xA;&lt;p&gt;Even though this has been supported for a while now, reflection and other practices require additional configurations that make this process either unsupported or very cumbersome to implement.&lt;/p&gt;&#xA;&lt;p&gt;With the arrival of new frameworks that target the benefits of GraalVM, like &lt;a href=&#34;https://micronaut.io/&#34;&gt;Micronaut&lt;/a&gt; and &lt;a href=&#34;https://quarkus.io/&#34;&gt;Quarkus&lt;/a&gt;, it started to be possible and simpler to implement applications that included Kafka clients, and package them as native binaries.&lt;/p&gt;&#xA;&lt;p&gt;This post is going to explore the steps to package &lt;em&gt;vanilla&lt;/em&gt; Kafka client applications —i.e. no framework— as native binaries.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Kafka data loss scenarios</title>
       <link>https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/</link>
       <pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/</guid>
-      <description>Kafka topic partitions are replicated across brokers. Data loss happens when the brokers where replicas are located are unavailable or have fully failed. The worst scenario — and where is no much to do — is when all the brokers fail; then no remediation is possible. Replication allows to increase redundancy so this scenarios is less likely to happen.
-The following scenarios show different trade-offs that could increase the risk of lossing data:</description>
+      <description>Kafka topic partitions are replicated across brokers. Data loss happens when the brokers where replicas are located are unavailable or have fully failed. The worst scenario — and where is no much to do — is when all the brokers fail; then no remediation is possible. Replication allows to increase redundancy so this scenarios is less likely to happen.&#xA;The following scenarios show different trade-offs that could increase the risk of lossing data:</description>
     </item>
-    
     <item>
       <title>The Importance of Distributed Tracing for Apache Kafka Based Applications</title>
       <link>https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/</link>
       <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/</guid>
-      <description>Originally posted in Confluent Blog
-Apache Kafka® based applications stand out for their ability to decouple producers and consumers using an event log as an intermediate layer.
-One result of this is that producers and consumers don’t know about each other, as there is no direct communication between them.
-This enables choreographed service collaborations, where many components can subscribe to events stored in the event log and react to them asynchronously.</description>
+      <description>Originally posted in Confluent Blog&#xA;Apache Kafka® based applications stand out for their ability to decouple producers and consumers using an event log as an intermediate layer.&#xA;One result of this is that producers and consumers don’t know about each other, as there is no direct communication between them.&#xA;This enables choreographed service collaborations, where many components can subscribe to events stored in the event log and react to them asynchronously.</description>
     </item>
-    
     <item>
       <title>Tracing Kafka applications</title>
       <link>https://jeqo.github.io/posts/2017-09-28-kafka-opentracing/</link>
       <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2017-09-28-kafka-opentracing/</guid>
-      <description>for a more updated version, check https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/
-Tracing is one of the hardest time in integration or microservice development: knowing how a request impact your different components, and if your components have behave as expected.
-This could be fairly easy if we have monolith where we have one database and with some queries or checking one log file you can validate everything went well.
-Once you introduce distributed components and asynchronous communication this starts to get more complex and tedious.</description>
+      <description>for a more updated version, check https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/&#xA;Tracing is one of the hardest time in integration or microservice development: knowing how a request impact your different components, and if your components have behave as expected.&#xA;This could be fairly easy if we have monolith where we have one database and with some queries or checking one log file you can validate everything went well.&#xA;Once you introduce distributed components and asynchronous communication this starts to get more complex and tedious.</description>
     </item>
-    
     <item>
       <title>Rewind Kafka Consumer Offsets</title>
       <link>https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/</link>
       <pubDate>Tue, 31 Jan 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/</guid>
-      <description>&lt;p&gt;One of the most important features from &lt;em&gt;Apache Kafka&lt;/em&gt; is how it manages
-Multiple Consumers. Each &lt;code&gt;consumer group&lt;/code&gt; has a current &lt;code&gt;offset&lt;/code&gt;, that
-determine at what point in a &lt;code&gt;topic&lt;/code&gt; this &lt;code&gt;consumer group&lt;/code&gt; has consume
-messages. So, each &lt;code&gt;consumer group&lt;/code&gt; can manage its &lt;code&gt;offset&lt;/code&gt; independently,
-by &lt;code&gt;partition&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;This offers the possibility to rollback in time and reprocess messages from
-the beginning of a &lt;code&gt;topic&lt;/code&gt; and regenerate the current status of the system.&lt;/p&gt;
-&lt;p&gt;But how to do it (programmatically)?&lt;/p&gt;</description>
+      <description>&lt;p&gt;One of the most important features from &lt;em&gt;Apache Kafka&lt;/em&gt; is how it manages&#xA;Multiple Consumers. Each &lt;code&gt;consumer group&lt;/code&gt; has a current &lt;code&gt;offset&lt;/code&gt;, that&#xA;determine at what point in a &lt;code&gt;topic&lt;/code&gt; this &lt;code&gt;consumer group&lt;/code&gt; has consume&#xA;messages. So, each &lt;code&gt;consumer group&lt;/code&gt; can manage its &lt;code&gt;offset&lt;/code&gt; independently,&#xA;by &lt;code&gt;partition&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This offers the possibility to rollback in time and reprocess messages from&#xA;the beginning of a &lt;code&gt;topic&lt;/code&gt; and regenerate the current status of the system.&lt;/p&gt;&#xA;&lt;p&gt;But how to do it (programmatically)?&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Scaling Kafka with Docker Containers</title>
       <link>https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/</link>
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/</guid>
-      <description>&lt;p&gt;In this post I will show how to use Docker containers to create and scale
-a Kafka cluster, and also how to create, scale and move &lt;code&gt;topics&lt;/code&gt; inside
-the cluster.&lt;/p&gt;</description>
+      <description>&lt;p&gt;In this post I will show how to use Docker containers to create and scale&#xA;a Kafka cluster, and also how to create, scale and move &lt;code&gt;topics&lt;/code&gt; inside&#xA;the cluster.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Speed up your Oracle Database provisioning with Docker and Ansible</title>
       <link>https://jeqo.github.io/posts/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</link>
       <pubDate>Thu, 26 May 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</guid>
-      <description>&lt;p&gt;Warming up before &lt;a href=&#34;http://www.amis-conference.com/Program&#34;&gt;AMIS 25th Conference&lt;/a&gt;
-event where I will be presenting with my friend
-and colleague Arturo Viveros (@gugalnikov)
-&lt;a href=&#34;http://www.amis-conference.com/Session-Catalog#session1168&#34;&gt;about Oracle SOA Suite provisioning&lt;/a&gt;,
-I want to share some practices that help us to provide Oracle Database instances
-between developers and improve our productivity.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Warming up before &lt;a href=&#34;http://www.amis-conference.com/Program&#34;&gt;AMIS 25th Conference&lt;/a&gt;&#xA;event where I will be presenting with my friend&#xA;and colleague Arturo Viveros (@gugalnikov)&#xA;&lt;a href=&#34;http://www.amis-conference.com/Session-Catalog#session1168&#34;&gt;about Oracle SOA Suite provisioning&lt;/a&gt;,&#xA;I want to share some practices that help us to provide Oracle Database instances&#xA;between developers and improve our productivity.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Ansible - an agentless provisioning</title>
       <link>https://jeqo.github.io/posts/2016-03-30-ansible-agentless-provisioning/</link>
       <pubDate>Wed, 30 Mar 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2016-03-30-ansible-agentless-provisioning/</guid>
-      <description>&lt;p&gt;Ansible is an automation tool that is recognized for be simple and
-powerful at the same time. From my experience, I can say this is mainly
-because of its scripting language: YAML, and its agentless architecture.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Ansible is an automation tool that is recognized for be simple and&#xA;powerful at the same time. From my experience, I can say this is mainly&#xA;because of its scripting language: YAML, and its agentless architecture.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Oracle SOA Suite 12c Docker Image</title>
       <link>https://jeqo.github.io/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/</link>
       <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/</guid>
-      <description>&lt;p&gt;After find some limitations on building SOA Docker image using Dockerfile
-(as volume access, default size image) I researched on how to improve
-building process and I found &lt;a href=&#34;https://packer.io/&#34;&gt;Packer&lt;/a&gt;
-(from the same guy that creates Vagrant).&lt;/p&gt;</description>
+      <description>&lt;p&gt;After find some limitations on building SOA Docker image using Dockerfile&#xA;(as volume access, default size image) I researched on how to improve&#xA;building process and I found &lt;a href=&#34;https://packer.io/&#34;&gt;Packer&lt;/a&gt;&#xA;(from the same guy that creates Vagrant).&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Integrate Java EE 7 and Kafka using Avro and RxJava</title>
       <link>https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/</link>
       <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/</guid>
-      <description>&lt;p&gt;I decided to implement a naive integration between Java EE applications and
-RxJava/Kafka/Avro, to publish and subscribe to events.&lt;/p&gt;
-&lt;p&gt;You can go directly to that &lt;a href=&#34;https://github.com/jeqo/java-ee-rxjava-kafka-avro&#34;&gt;code&lt;/a&gt;, or check my approach:&lt;/p&gt;</description>
+      <description>&lt;p&gt;I decided to implement a naive integration between Java EE applications and&#xA;RxJava/Kafka/Avro, to publish and subscribe to events.&lt;/p&gt;&#xA;&lt;p&gt;You can go directly to that &lt;a href=&#34;https://github.com/jeqo/java-ee-rxjava-kafka-avro&#34;&gt;code&lt;/a&gt;, or check my approach:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Oracle Fusion Middleware Chef Cookbook - New Release!</title>
       <link>https://jeqo.github.io/posts/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</link>
       <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</guid>
-      <description>&lt;p&gt;Yesterday, I released a new version (0.2.0) of my Oracle Fusion Middleware Cookbook
-hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;Chef Supermarket&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Yesterday, I released a new version (0.2.0) of my Oracle Fusion Middleware Cookbook&#xA;hosted on &lt;a href=&#34;https://supermarket.chef.io/cookbooks/oracle-fmw&#34;&gt;Chef Supermarket&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Docker image for Oracle SOA Suite 12c</title>
       <link>https://jeqo.github.io/posts/2015-04-01-docker-image-oracle-soa/</link>
       <pubDate>Wed, 01 Apr 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2015-04-01-docker-image-oracle-soa/</guid>
       <description>&lt;p&gt;Cool news came from Oracle a couple of weeks ago: &lt;a href=&#34;https://blogs.oracle.com/WebLogicServer/entry/oracle_weblogic_server_now_running&#34;&gt;Oracle WebLogic Server is now supported on Docker!&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Running Oracle BPM 12c on AWS using Vagrant and Chef</title>
       <link>https://jeqo.github.io/posts/2014-12-11-run-bpm-12c-aws/</link>
       <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2014-12-11-run-bpm-12c-aws/</guid>
       <description>&lt;p&gt;In this post, I will show how to create an AWS EC2 Instance with an Oracle BPM 12c Quickstart Domain created. And I will use previous post for related tasks.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Chef Cookbook for Oracle Fusion Middleware 12c</title>
       <link>https://jeqo.github.io/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/</link>
       <pubDate>Tue, 09 Dec 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/</guid>
       <description>&lt;p&gt;Provisioning tools have change the way we create software environments: How much time we spend installing OS, databases, configuring platforms, applications? Now you can translate this steps into code, getting the software development benefits and challenges into infrastructure: versioning, reuse, continuous improvement.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Create a NFS instance on AWS using Vagrant and Chef</title>
       <link>https://jeqo.github.io/posts/2014-11-30-create-nfs-instance-aws/</link>
       <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2014-11-30-create-nfs-instance-aws/</guid>
       <description>&lt;p&gt;I was creating AWS EC2 instances to install Oracle Fusion Middleware products, and I found an issue: How to download Oracle&amp;rsquo;s installers if I want to use installers on several instances? This could consume a lot of network bandwith and I want to make this process repeatable, so I don&amp;rsquo;t want to wait 1 hour each installation only downloading files.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Book Review - Applied SOA Patterns on the Oracle Platform</title>
       <link>https://jeqo.github.io/posts/2014-11-28-review-soa-patterns-oracle-platform/</link>
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2014-11-28-review-soa-patterns-oracle-platform/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve had the opportunity to present a review of this book &lt;a href=&#34;https://www.packtpub.com/application-development/applied-soa-patterns-oracle-platform&#34;&gt;Applied SOA Patterns on the Oracle Platform&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Vagrant and Chef Quickstart</title>
       <link>https://jeqo.github.io/posts/2014-11-26-vagrant-quickstart/</link>
       <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2014-11-26-vagrant-quickstart/</guid>
       <description>&lt;p&gt;I have some months working with Vagrant and I think it&amp;rsquo;s owesome! Integration with almost all kind of virtualization platforms: VirtalBox, VMware, Docker, AWS EC2, Hyper-V and so on. Also it&amp;rsquo;s able to use differente Provisioners: Chef, Puppet, bash, Docker, Ansible. I really like it.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

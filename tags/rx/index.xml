@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>rx on @jeqo</title>
+    <title>Rx on @jeqo</title>
     <link>https://jeqo.github.io/tags/rx/</link>
-    <description>Recent content in rx on @jeqo</description>
+    <description>Recent content in Rx on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Fri, 31 Jul 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/rx/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/tags/rx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Integrate Java EE 7 and Kafka using Avro and RxJava</title>
       <link>https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/</link>
       <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/</guid>
-      <description>&lt;p&gt;I decided to implement a naive integration between Java EE applications and
-RxJava/Kafka/Avro, to publish and subscribe to events.&lt;/p&gt;
-&lt;p&gt;You can go directly to that &lt;a href=&#34;https://github.com/jeqo/java-ee-rxjava-kafka-avro&#34;&gt;code&lt;/a&gt;, or check my approach:&lt;/p&gt;</description>
+      <description>&lt;p&gt;I decided to implement a naive integration between Java EE applications and&#xA;RxJava/Kafka/Avro, to publish and subscribe to events.&lt;/p&gt;&#xA;&lt;p&gt;You can go directly to that &lt;a href=&#34;https://github.com/jeqo/java-ee-rxjava-kafka-avro&#34;&gt;code&lt;/a&gt;, or check my approach:&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

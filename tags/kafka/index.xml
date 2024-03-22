@@ -1,240 +1,160 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kafka on @jeqo</title>
+    <title>Kafka on @jeqo</title>
     <link>https://jeqo.github.io/tags/kafka/</link>
-    <description>Recent content in kafka on @jeqo</description>
+    <description>Recent content in Kafka on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kafka Emulator CLI: Record and Reply Records considering time-distance</title>
       <link>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</link>
       <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</guid>
-      <description>Looking for alternative ways to reproduce time-based conditions in Kafka Streams applications —e.g. if you&amp;rsquo;re doing some sort of join or windowing based on time— I ended up creating a CLI tool to support a couple of features:
-Record events from topics, including their timestamps and gap Replay events, including waiting periods between them SQLite is used a storage for recorded events, so events can be generated, updated, tweaked using SQL.</description>
+      <description>Looking for alternative ways to reproduce time-based conditions in Kafka Streams applications —e.g. if you&amp;rsquo;re doing some sort of join or windowing based on time— I ended up creating a CLI tool to support a couple of features:&#xA;Record events from topics, including their timestamps and gap Replay events, including waiting periods between them SQLite is used a storage for recorded events, so events can be generated, updated, tweaked using SQL.</description>
     </item>
-    
     <item>
       <title>Piggyback on Kafka Connect Schemas to process Kafka records in a generic way</title>
       <link>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</link>
       <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</guid>
-      <description>When reading from/writing to Kafka topics, a serializer/deserializer (a.k.a SerDes) is needed to process record key and value bytes. Specific SerDes that turn bytes into specific objects (e.g. POJO) are used, unless a generic JSON object or Avro structure is used.
-Kafka Connect has to deal with generic structures to apply message transformations and convert messages from external sources into Kafka records and vice-versa. It has a SchemaAndValue composed type that includes a Connect Schema type derived from Schema Registry or JSON Schema included in the payload, and a value object.</description>
+      <description>When reading from/writing to Kafka topics, a serializer/deserializer (a.k.a SerDes) is needed to process record key and value bytes. Specific SerDes that turn bytes into specific objects (e.g. POJO) are used, unless a generic JSON object or Avro structure is used.&#xA;Kafka Connect has to deal with generic structures to apply message transformations and convert messages from external sources into Kafka records and vice-versa. It has a SchemaAndValue composed type that includes a Connect Schema type derived from Schema Registry or JSON Schema included in the payload, and a value object.</description>
     </item>
-    
     <item>
       <title>Getting started with Kafka quotas</title>
       <link>https://jeqo.github.io/posts/2022-05-11-kafka-quotas/</link>
       <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2022-05-11-kafka-quotas/</guid>
-      <description>&lt;p&gt;Kafka quotas have been around for a while since initial versions of the project — though not necessarily being enabled in most deployments that I have seen.&lt;/p&gt;
-&lt;p&gt;This post shares some thoughts on how to start adopting quotas and gives some practical advice, and a bit of the history of quotas in the Kafka project.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Kafka quotas have been around for a while since initial versions of the project — though not necessarily being enabled in most deployments that I have seen.&lt;/p&gt;&#xA;&lt;p&gt;This post shares some thoughts on how to start adopting quotas and gives some practical advice, and a bit of the history of quotas in the Kafka project.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Kafka client applications with GraalVM</title>
       <link>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</link>
       <pubDate>Fri, 18 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</guid>
-      <description>&lt;p&gt;Shipping CLI binaries with Java hasn&amp;rsquo;t been the most user-friendly experience.
-Java is required to be installed on the client-side, starting Java applications (e.g. executable JAR) tend to be slower than to binary applications.&lt;/p&gt;
-&lt;p&gt;GraalVM, and specifically &lt;a href=&#34;https://www.graalvm.org/22.0/reference-manual/native-image/&#34;&gt;native-image&lt;/a&gt; tooling, is aimed to tackle most of these issues with Java by enable building native binaries from Java applications.&lt;/p&gt;
-&lt;p&gt;Even though this has been supported for a while now, reflection and other practices require additional configurations that make this process either unsupported or very cumbersome to implement.&lt;/p&gt;
-&lt;p&gt;With the arrival of new frameworks that target the benefits of GraalVM, like &lt;a href=&#34;https://micronaut.io/&#34;&gt;Micronaut&lt;/a&gt; and &lt;a href=&#34;https://quarkus.io/&#34;&gt;Quarkus&lt;/a&gt;, it started to be possible and simpler to implement applications that included Kafka clients, and package them as native binaries.&lt;/p&gt;
-&lt;p&gt;This post is going to explore the steps to package &lt;em&gt;vanilla&lt;/em&gt; Kafka client applications —i.e. no framework— as native binaries.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Shipping CLI binaries with Java hasn&amp;rsquo;t been the most user-friendly experience.&#xA;Java is required to be installed on the client-side, starting Java applications (e.g. executable JAR) tend to be slower than to binary applications.&lt;/p&gt;&#xA;&lt;p&gt;GraalVM, and specifically &lt;a href=&#34;https://www.graalvm.org/22.0/reference-manual/native-image/&#34;&gt;native-image&lt;/a&gt; tooling, is aimed to tackle most of these issues with Java by enable building native binaries from Java applications.&lt;/p&gt;&#xA;&lt;p&gt;Even though this has been supported for a while now, reflection and other practices require additional configurations that make this process either unsupported or very cumbersome to implement.&lt;/p&gt;&#xA;&lt;p&gt;With the arrival of new frameworks that target the benefits of GraalVM, like &lt;a href=&#34;https://micronaut.io/&#34;&gt;Micronaut&lt;/a&gt; and &lt;a href=&#34;https://quarkus.io/&#34;&gt;Quarkus&lt;/a&gt;, it started to be possible and simpler to implement applications that included Kafka clients, and package them as native binaries.&lt;/p&gt;&#xA;&lt;p&gt;This post is going to explore the steps to package &lt;em&gt;vanilla&lt;/em&gt; Kafka client applications —i.e. no framework— as native binaries.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Explore Kafka data with kcat, sqlite, and Datasette</title>
       <link>https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/</link>
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/</guid>
-      <description>&lt;p&gt;I have been playing with Datasette and sqlite for a bit, trying to collect and expose data efficiently for others to analyze.
-Recently started finding use-cases to get data from Apache Kafka, and expose it quickly to analyze it.
-Why not using Datasette?&lt;/p&gt;</description>
+      <description>&lt;p&gt;I have been playing with Datasette and sqlite for a bit, trying to collect and expose data efficiently for others to analyze.&#xA;Recently started finding use-cases to get data from Apache Kafka, and expose it quickly to analyze it.&#xA;Why not using Datasette?&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Enable Certificate Revocation on Kafka clusters</title>
       <link>https://jeqo.github.io/notes/2022-02-09-kafka-ssl-crl/</link>
       <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2022-02-09-kafka-ssl-crl/</guid>
-      <description>&lt;p&gt;Recently I got a question on how to manage revoked SSL certificates in Kafka clusters.
-With a proper Public Key Infrastructure, a Certificate Revocation List (CRL) can be available for clients to validate if a certificate is still valid regardless of its time-to-live.
-For instance, if a private key has been compromised, then a certificate can be revoked before it&amp;rsquo;s valid date.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Recently I got a question on how to manage revoked SSL certificates in Kafka clusters.&#xA;With a proper Public Key Infrastructure, a Certificate Revocation List (CRL) can be available for clients to validate if a certificate is still valid regardless of its time-to-live.&#xA;For instance, if a private key has been compromised, then a certificate can be revoked before it&amp;rsquo;s valid date.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Changing Kafka Broker&#39;s rack</title>
       <link>https://jeqo.github.io/notes/2021-12-10-kafka-change-rack/</link>
       <pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2021-12-10-kafka-change-rack/</guid>
-      <description>&lt;p&gt;Kafka broker configuration includes a &lt;code&gt;rack&lt;/code&gt; label to define the location of the broker.
-This is useful when placing replicas across the cluster to ensure replicas are spread across locations &lt;em&gt;as evenly as possible&lt;/em&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Kafka broker configuration includes a &lt;code&gt;rack&lt;/code&gt; label to define the location of the broker.&#xA;This is useful when placing replicas across the cluster to ensure replicas are spread across locations &lt;em&gt;as evenly as possible&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Kafka data loss scenarios</title>
       <link>https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/</link>
       <pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/</guid>
-      <description>Kafka topic partitions are replicated across brokers. Data loss happens when the brokers where replicas are located are unavailable or have fully failed. The worst scenario — and where is no much to do — is when all the brokers fail; then no remediation is possible. Replication allows to increase redundancy so this scenarios is less likely to happen.
-The following scenarios show different trade-offs that could increase the risk of lossing data:</description>
+      <description>Kafka topic partitions are replicated across brokers. Data loss happens when the brokers where replicas are located are unavailable or have fully failed. The worst scenario — and where is no much to do — is when all the brokers fail; then no remediation is possible. Replication allows to increase redundancy so this scenarios is less likely to happen.&#xA;The following scenarios show different trade-offs that could increase the risk of lossing data:</description>
     </item>
-    
     <item>
       <title>Kafka Producer idempotency is enabled by default since 3.0</title>
       <link>https://jeqo.github.io/notes/2021-12-09-kafka-v3-idempotent-acks-all/</link>
       <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2021-12-09-kafka-v3-idempotent-acks-all/</guid>
-      <description>Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.
-This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.</description>
+      <description>Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.&#xA;This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.</description>
     </item>
-    
     <item>
       <title>Reducing `acks` doesn&#39;t help to reduce end-to-end latency</title>
       <link>https://jeqo.github.io/notes/2021-12-09-kafka-reducing-acks-and-latency/</link>
       <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2021-12-09-kafka-reducing-acks-and-latency/</guid>
-      <description>&lt;p&gt;Kafka Producers enforce durability across replicas by setting &lt;code&gt;acks=all&lt;/code&gt; (&lt;a href=&#34;https://jeqo.github.io/til/kafka-v3-idea&#34;&gt;default since v3.0&lt;/a&gt;).
-As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Kafka Producers enforce durability across replicas by setting &lt;code&gt;acks=all&lt;/code&gt; (&lt;a href=&#34;https://jeqo.github.io/til/kafka-v3-idea&#34;&gt;default since v3.0&lt;/a&gt;).&#xA;As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Use min.insync.replicas for fault-tolerance</title>
       <link>https://jeqo.github.io/notes/2021-12-02-kafka-min-isr/</link>
       <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2021-12-02-kafka-min-isr/</guid>
-      <description>&lt;p&gt;Things to remember:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Topic replication factor is not enough to guarantee fault-tolerance. If &lt;code&gt;min.insync.replicas&lt;/code&gt; is not defined i.e. 1, then data could potentially be lost.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;acks=all&lt;/code&gt; will force replica leader to wait for &lt;em&gt;all&lt;/em&gt; brokers in the ISR, not only the &lt;code&gt;min.insync.replicas&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;If replicas available are equal to minimum ISR, then the topic partitions are at the edge of losing availability. If one broker becomes unavailable (e.g. restarting), then producers will fail to write data.&lt;/li&gt;
-&lt;li&gt;Topic configuration is inherited from the server. If broker configuration changes, it affects the &lt;em&gt;existing&lt;/em&gt; topics. Keep the topic defaults, unless it needs to be different than broker default for easier maintenance.&lt;/li&gt;
-&lt;/ul&gt;</description>
+      <description>&lt;p&gt;Things to remember:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Topic replication factor is not enough to guarantee fault-tolerance. If &lt;code&gt;min.insync.replicas&lt;/code&gt; is not defined i.e. 1, then data could potentially be lost.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;acks=all&lt;/code&gt; will force replica leader to wait for &lt;em&gt;all&lt;/em&gt; brokers in the ISR, not only the &lt;code&gt;min.insync.replicas&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;If replicas available are equal to minimum ISR, then the topic partitions are at the edge of losing availability. If one broker becomes unavailable (e.g. restarting), then producers will fail to write data.&lt;/li&gt;&#xA;&lt;li&gt;Topic configuration is inherited from the server. If broker configuration changes, it affects the &lt;em&gt;existing&lt;/em&gt; topics. Keep the topic defaults, unless it needs to be different than broker default for easier maintenance.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>Making sense of Event-Driven Systems @ Oracle Code One 2019</title>
       <link>https://jeqo.github.io/talks/making-sense-event-driven-systems-codeone19/</link>
       <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/talks/making-sense-event-driven-systems-codeone19/</guid>
-      <description>&lt;p&gt;Presented at &lt;a href=&#34;https://events.rainfocus.com/widget/oracle/oow19/catalogcodeone19?search=jorge&amp;amp;search.codeonetracks=15560568230440086BEm&#34;&gt;Oracle Code One 2019&lt;/a&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Presented at &lt;a href=&#34;https://events.rainfocus.com/widget/oracle/oow19/catalogcodeone19?search=jorge&amp;search.codeonetracks=15560568230440086BEm&#34;&gt;Oracle Code One 2019&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Making sense of Event-Driven Systems @ Kafka Summit 2019</title>
       <link>https://jeqo.github.io/talks/making-sense-event-driven-dataflows-kafkasummitnyc19/</link>
       <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/talks/making-sense-event-driven-dataflows-kafkasummitnyc19/</guid>
       <description>&lt;p&gt;Presented at &lt;a href=&#34;https://kafka-summit.org/sessions/tracing-kafka-based-applications-making-sense-event-driven-dataflows/&#34;&gt;Kafka Summit NYC 2019&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>The Importance of Distributed Tracing for Apache Kafka Based Applications</title>
       <link>https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/</link>
       <pubDate>Tue, 26 Mar 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/</guid>
-      <description>Originally posted in Confluent Blog
-Apache Kafka® based applications stand out for their ability to decouple producers and consumers using an event log as an intermediate layer.
-One result of this is that producers and consumers don’t know about each other, as there is no direct communication between them.
-This enables choreographed service collaborations, where many components can subscribe to events stored in the event log and react to them asynchronously.</description>
+      <description>Originally posted in Confluent Blog&#xA;Apache Kafka® based applications stand out for their ability to decouple producers and consumers using an event log as an intermediate layer.&#xA;One result of this is that producers and consumers don’t know about each other, as there is no direct communication between them.&#xA;This enables choreographed service collaborations, where many components can subscribe to events stored in the event log and react to them asynchronously.</description>
     </item>
-    
     <item>
       <title>The Importance of Observability for Kafka-based applications with Zipkin @ Oslo Apache Kafka Meetup</title>
       <link>https://jeqo.github.io/talks/the-importance-of-observability-kafkausergroupnorway18/</link>
       <pubDate>Mon, 10 Sep 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/talks/the-importance-of-observability-kafkausergroupnorway18/</guid>
       <description>&lt;p&gt;Presented at &lt;a href=&#34;https://www.meetup.com/en-AU/Oslo-Kafka/events/254039906/&#34;&gt;Oslo Apache Kafka Meetup&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</title>
       <link>https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</link>
       <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</guid>
-      <description></description>
+      <description>&amp;nbsp;From Batch to Streaming workflows Key properties for large-scale systems:&#xA;[Large-Scale Personalized Services] should have the following properties:&#xA;System scalability Organizational scalability Operational robustness Where Batch jobs have been successfully used, and represent a reference model to improve from:&#xA;[Batch, Map-Reduce jobs] has been remarkably successful tool for implementing recommendation systems.&#xA;[Batch important benefits:]&#xA;Multi-consumer: several jobs reading input directories without affecting each others. Visibility: job&amp;rsquo;s input and output can be inspected for tracking down the cause of an error.</description>
     </item>
-    
     <item>
       <title>Tracing Kafka applications</title>
       <link>https://jeqo.github.io/posts/2017-09-28-kafka-opentracing/</link>
       <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2017-09-28-kafka-opentracing/</guid>
-      <description>for a more updated version, check https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/
-Tracing is one of the hardest time in integration or microservice development: knowing how a request impact your different components, and if your components have behave as expected.
-This could be fairly easy if we have monolith where we have one database and with some queries or checking one log file you can validate everything went well.
-Once you introduce distributed components and asynchronous communication this starts to get more complex and tedious.</description>
+      <description>for a more updated version, check https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/&#xA;Tracing is one of the hardest time in integration or microservice development: knowing how a request impact your different components, and if your components have behave as expected.&#xA;This could be fairly easy if we have monolith where we have one database and with some queries or checking one log file you can validate everything went well.&#xA;Once you introduce distributed components and asynchronous communication this starts to get more complex and tedious.</description>
     </item>
-    
     <item>
       <title>From Messaging to Logs with Apache Kafka @ OUGN 2017</title>
       <link>https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/</link>
       <pubDate>Fri, 10 Mar 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/</guid>
       <description>&lt;p&gt;Presented at &lt;a href=&#34;http://ougn.no/varseminar-2017/&#34;&gt;OUGN 2017&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Rewind Kafka Consumer Offsets</title>
       <link>https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/</link>
       <pubDate>Tue, 31 Jan 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/</guid>
-      <description>&lt;p&gt;One of the most important features from &lt;em&gt;Apache Kafka&lt;/em&gt; is how it manages
-Multiple Consumers. Each &lt;code&gt;consumer group&lt;/code&gt; has a current &lt;code&gt;offset&lt;/code&gt;, that
-determine at what point in a &lt;code&gt;topic&lt;/code&gt; this &lt;code&gt;consumer group&lt;/code&gt; has consume
-messages. So, each &lt;code&gt;consumer group&lt;/code&gt; can manage its &lt;code&gt;offset&lt;/code&gt; independently,
-by &lt;code&gt;partition&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;This offers the possibility to rollback in time and reprocess messages from
-the beginning of a &lt;code&gt;topic&lt;/code&gt; and regenerate the current status of the system.&lt;/p&gt;
-&lt;p&gt;But how to do it (programmatically)?&lt;/p&gt;</description>
+      <description>&lt;p&gt;One of the most important features from &lt;em&gt;Apache Kafka&lt;/em&gt; is how it manages&#xA;Multiple Consumers. Each &lt;code&gt;consumer group&lt;/code&gt; has a current &lt;code&gt;offset&lt;/code&gt;, that&#xA;determine at what point in a &lt;code&gt;topic&lt;/code&gt; this &lt;code&gt;consumer group&lt;/code&gt; has consume&#xA;messages. So, each &lt;code&gt;consumer group&lt;/code&gt; can manage its &lt;code&gt;offset&lt;/code&gt; independently,&#xA;by &lt;code&gt;partition&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This offers the possibility to rollback in time and reprocess messages from&#xA;the beginning of a &lt;code&gt;topic&lt;/code&gt; and regenerate the current status of the system.&lt;/p&gt;&#xA;&lt;p&gt;But how to do it (programmatically)?&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Scaling Kafka with Docker Containers</title>
       <link>https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/</link>
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/</guid>
-      <description>&lt;p&gt;In this post I will show how to use Docker containers to create and scale
-a Kafka cluster, and also how to create, scale and move &lt;code&gt;topics&lt;/code&gt; inside
-the cluster.&lt;/p&gt;</description>
+      <description>&lt;p&gt;In this post I will show how to use Docker containers to create and scale&#xA;a Kafka cluster, and also how to create, scale and move &lt;code&gt;topics&lt;/code&gt; inside&#xA;the cluster.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Integrate Java EE 7 and Kafka using Avro and RxJava</title>
       <link>https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/</link>
       <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/</guid>
-      <description>&lt;p&gt;I decided to implement a naive integration between Java EE applications and
-RxJava/Kafka/Avro, to publish and subscribe to events.&lt;/p&gt;
-&lt;p&gt;You can go directly to that &lt;a href=&#34;https://github.com/jeqo/java-ee-rxjava-kafka-avro&#34;&gt;code&lt;/a&gt;, or check my approach:&lt;/p&gt;</description>
+      <description>&lt;p&gt;I decided to implement a naive integration between Java EE applications and&#xA;RxJava/Kafka/Avro, to publish and subscribe to events.&lt;/p&gt;&#xA;&lt;p&gt;You can go directly to that &lt;a href=&#34;https://github.com/jeqo/java-ee-rxjava-kafka-avro&#34;&gt;code&lt;/a&gt;, or check my approach:&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

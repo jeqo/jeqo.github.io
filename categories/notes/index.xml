@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>notes on @jeqo</title>
+    <title>Notes on @jeqo</title>
     <link>https://jeqo.github.io/categories/notes/</link>
-    <description>Recent content in notes on @jeqo</description>
+    <description>Recent content in Notes on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Fri, 27 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</title>
       <link>https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</link>
       <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</guid>
-      <description></description>
+      <description>&amp;nbsp;From Batch to Streaming workflows Key properties for large-scale systems:&#xA;[Large-Scale Personalized Services] should have the following properties:&#xA;System scalability Organizational scalability Operational robustness Where Batch jobs have been successfully used, and represent a reference model to improve from:&#xA;[Batch, Map-Reduce jobs] has been remarkably successful tool for implementing recommendation systems.&#xA;[Batch important benefits:]&#xA;Multi-consumer: several jobs reading input directories without affecting each others. Visibility: job&amp;rsquo;s input and output can be inspected for tracking down the cause of an error.</description>
     </item>
-    
   </channel>
 </rss>

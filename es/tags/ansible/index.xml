@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ansible on @jeqo</title>
+    <title>Ansible on @jeqo</title>
     <link>https://jeqo.github.io/es/tags/ansible/</link>
-    <description>Recent content in ansible on @jeqo</description>
+    <description>Recent content in Ansible on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 30 Mar 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/es/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Mar 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/es/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ansible - Provisionamiento sin agentes</title>
       <link>https://jeqo.github.io/es/posts/2016-03-30-ansible-agentless-provisioning/</link>
       <pubDate>Wed, 30 Mar 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/posts/2016-03-30-ansible-agentless-provisioning/</guid>
-      <description>Ansible es una herramienta de automatización reconocida por ser sencilla y potente a la vez. Según mi experiencia, puedo decir que esto se debe principalmente al lenguaje que utiliza: YAML, y a tener una arquitectura sin agentes o &amp;ldquo;agentless&amp;rdquo;.
-hashtag-outline &amp;nbsp;YAML y los componentes de Ansible &amp;ldquo;YAML is a human friendly data serialization standard for all programming languages&amp;rdquo; (Source: http://yaml.org/)
-Esto signifíca que es verdaderamente fácil de entender y comenzar a trabajar con YAML.</description>
+      <description>Ansible es una herramienta de automatización reconocida por ser sencilla y potente a la vez. Según mi experiencia, puedo decir que esto se debe principalmente al lenguaje que utiliza: YAML, y a tener una arquitectura sin agentes o &amp;ldquo;agentless&amp;rdquo;.&#xA;&amp;nbsp;YAML y los componentes de Ansible &amp;ldquo;YAML is a human friendly data serialization standard for all programming languages&amp;rdquo; (Source: http://yaml.org/)&#xA;Esto signifíca que es verdaderamente fácil de entender y comenzar a trabajar con YAML.</description>
     </item>
-    
   </channel>
 </rss>

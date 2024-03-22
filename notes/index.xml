@@ -7,257 +7,175 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Sat, 05 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>On Anarchism book</title>
       <link>https://jeqo.github.io/notes/on-anarchism-book/</link>
       <pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/on-anarchism-book/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/22558046-on-anarchism&#34;&gt;On Anarchism&lt;/a&gt; by Noam Chomsky&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Ingesting log files to sqlite</title>
       <link>https://jeqo.github.io/notes/2022-09-24-ingest-logs-sqlite/</link>
       <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2022-09-24-ingest-logs-sqlite/</guid>
-      <description>I recently was looking into how to analyze multiple related log files (e.g. application log from multiple instances), and found that sqlite may be enough :)
-The first step is ingesting content from log files into sqlite tables. sqlite-utils to the rescue! I was initially happy with having each line as a row and adding full-text support to the log column to query events. However, a Java log may span across multiple lines and the outputs may not be ideal — timestamps could be in 1 line, and the stack trace root cause in another one.</description>
+      <description>I recently was looking into how to analyze multiple related log files (e.g. application log from multiple instances), and found that sqlite may be enough :)&#xA;The first step is ingesting content from log files into sqlite tables. sqlite-utils to the rescue! I was initially happy with having each line as a row and adding full-text support to the log column to query events. However, a Java log may span across multiple lines and the outputs may not be ideal — timestamps could be in 1 line, and the stack trace root cause in another one.</description>
     </item>
-    
     <item>
       <title>Piggyback on Kafka Connect Schemas to process Kafka records in a generic way</title>
       <link>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</link>
       <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</guid>
-      <description>When reading from/writing to Kafka topics, a serializer/deserializer (a.k.a SerDes) is needed to process record key and value bytes. Specific SerDes that turn bytes into specific objects (e.g. POJO) are used, unless a generic JSON object or Avro structure is used.
-Kafka Connect has to deal with generic structures to apply message transformations and convert messages from external sources into Kafka records and vice-versa. It has a SchemaAndValue composed type that includes a Connect Schema type derived from Schema Registry or JSON Schema included in the payload, and a value object.</description>
+      <description>When reading from/writing to Kafka topics, a serializer/deserializer (a.k.a SerDes) is needed to process record key and value bytes. Specific SerDes that turn bytes into specific objects (e.g. POJO) are used, unless a generic JSON object or Avro structure is used.&#xA;Kafka Connect has to deal with generic structures to apply message transformations and convert messages from external sources into Kafka records and vice-versa. It has a SchemaAndValue composed type that includes a Connect Schema type derived from Schema Registry or JSON Schema included in the payload, and a value object.</description>
     </item>
-    
     <item>
       <title>sqlite can be used document and graph database</title>
       <link>https://jeqo.github.io/notes/2022-05-09-sqlite-as-document-and-graph-db/</link>
       <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2022-05-09-sqlite-as-document-and-graph-db/</guid>
-      <description>I found that the use-cases for sqlite keep increasing now the JSON is supported.
-This week I found the following presentation: https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need Which makes the case for a simple graph schema, and using SQL out-of-the-box functionality to store graphs and execute traversal queries.
-This repository is actually based on this one focused on JSON support and document databases: https://dgl.cx/2020/06/sqlite-json-support</description>
+      <description>I found that the use-cases for sqlite keep increasing now the JSON is supported.&#xA;This week I found the following presentation: https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need Which makes the case for a simple graph schema, and using SQL out-of-the-box functionality to store graphs and execute traversal queries.&#xA;This repository is actually based on this one focused on JSON support and document databases: https://dgl.cx/2020/06/sqlite-json-support</description>
     </item>
-    
     <item>
       <title>Explore Kafka data with kcat, sqlite, and Datasette</title>
       <link>https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/</link>
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/</guid>
-      <description>&lt;p&gt;I have been playing with Datasette and sqlite for a bit, trying to collect and expose data efficiently for others to analyze.
-Recently started finding use-cases to get data from Apache Kafka, and expose it quickly to analyze it.
-Why not using Datasette?&lt;/p&gt;</description>
+      <description>&lt;p&gt;I have been playing with Datasette and sqlite for a bit, trying to collect and expose data efficiently for others to analyze.&#xA;Recently started finding use-cases to get data from Apache Kafka, and expose it quickly to analyze it.&#xA;Why not using Datasette?&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Releasing OS-specific GraalVM native image binaries easier with JReleaser</title>
       <link>https://jeqo.github.io/notes/2022-03-01-jreleaser-graalvm-native-image/</link>
       <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2022-03-01-jreleaser-graalvm-native-image/</guid>
       <description>&lt;p&gt;Packaging and releasing Java applications (e.g. CLI) tend to be cumbersome, and the user-experience tended not to be the best as users have to download a valid version of JRE, etc.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Changing void returning type in Java methods breaks binary compatibility</title>
       <link>https://jeqo.github.io/notes/2022-02-16-java-void-binary-compatibility/</link>
       <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2022-02-16-java-void-binary-compatibility/</guid>
-      <description>&lt;p&gt;While &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-820%3A+Extend+KStream+process+with+new+Processor+API&#34;&gt;proposing changes to Kafka Streams DSL&lt;/a&gt;, I propose changing the return type of one method from &lt;code&gt;void&lt;/code&gt; to &lt;code&gt;KStream&amp;lt;KOut, VOut&lt;/code&gt;.
-I was under the (wrong) impression that this change wouldn&amp;rsquo;t affect users.
-I was also not considering that applications might just drop a new library without recompiling their application.&lt;/p&gt;</description>
+      <description>&lt;p&gt;While &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-820%3A+Extend+KStream+process+with+new+Processor+API&#34;&gt;proposing changes to Kafka Streams DSL&lt;/a&gt;, I propose changing the return type of one method from &lt;code&gt;void&lt;/code&gt; to &lt;code&gt;KStream&amp;lt;KOut, VOut&lt;/code&gt;.&#xA;I was under the (wrong) impression that this change wouldn&amp;rsquo;t affect users.&#xA;I was also not considering that applications might just drop a new library without recompiling their application.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Enable Certificate Revocation on Kafka clusters</title>
       <link>https://jeqo.github.io/notes/2022-02-09-kafka-ssl-crl/</link>
       <pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2022-02-09-kafka-ssl-crl/</guid>
-      <description>&lt;p&gt;Recently I got a question on how to manage revoked SSL certificates in Kafka clusters.
-With a proper Public Key Infrastructure, a Certificate Revocation List (CRL) can be available for clients to validate if a certificate is still valid regardless of its time-to-live.
-For instance, if a private key has been compromised, then a certificate can be revoked before it&amp;rsquo;s valid date.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Recently I got a question on how to manage revoked SSL certificates in Kafka clusters.&#xA;With a proper Public Key Infrastructure, a Certificate Revocation List (CRL) can be available for clients to validate if a certificate is still valid regardless of its time-to-live.&#xA;For instance, if a private key has been compromised, then a certificate can be revoked before it&amp;rsquo;s valid date.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Kafka Streams FK-join within the same KTable</title>
       <link>https://jeqo.github.io/notes/2022-01-29-kafka-streams-fk-join-same-table/</link>
       <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2022-01-29-kafka-streams-fk-join-same-table/</guid>
-      <description>&lt;p&gt;KTable to KTable foreign-key joins is one of the coolest features in Kafka Streams.&lt;/p&gt;
-&lt;p&gt;I was wondering whether this feature would handle FK-joins between values on the same table.&lt;/p&gt;</description>
+      <description>&lt;p&gt;KTable to KTable foreign-key joins is one of the coolest features in Kafka Streams.&lt;/p&gt;&#xA;&lt;p&gt;I was wondering whether this feature would handle FK-joins between values on the same table.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>The Value of Everything book</title>
       <link>https://jeqo.github.io/notes/the-value-of-everything-book/</link>
       <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/the-value-of-everything-book/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://marianamazzucato.com/books/the-value-of-everything&#34;&gt;The Value of Everything&lt;/a&gt; by Mariana Mazzucato&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Kafka Streams abstracts access to multiple tasks state stores when reading</title>
       <link>https://jeqo.github.io/notes/2022-01-26-kafka-streams-iq-composite/</link>
       <pubDate>Wed, 26 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2022-01-26-kafka-streams-iq-composite/</guid>
-      <description>&lt;p&gt;Kafka Streams applications could scale either horizontally (add more instances) or vertically (add more threads).
-When scaled vertically, multiple tasks store multiple partitions locally.
-An interesting question is whether Kafka Streams gives access when reading (i.e. &lt;a href=&#34;https://docs.confluent.io/platform/current/streams/developer-guide/interactive-queries.html&#34;&gt;Interactive Queries&lt;/a&gt;) to these stores, and how does it manage to abstract the access to different stores managed by multiple tasks.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Kafka Streams applications could scale either horizontally (add more instances) or vertically (add more threads).&#xA;When scaled vertically, multiple tasks store multiple partitions locally.&#xA;An interesting question is whether Kafka Streams gives access when reading (i.e. &lt;a href=&#34;https://docs.confluent.io/platform/current/streams/developer-guide/interactive-queries.html&#34;&gt;Interactive Queries&lt;/a&gt;) to these stores, and how does it manage to abstract the access to different stores managed by multiple tasks.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>reload4j as drop-in replacement for log4j 1.x</title>
       <link>https://jeqo.github.io/notes/2022-01-25-reload4j/</link>
       <pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2022-01-25-reload4j/</guid>
       <description>&lt;p&gt;TIL there is a drop-in replacement for log4j 1.x: &lt;a href=&#34;https://reload4j.qos.ch/&#34;&gt;Reload4j&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Ansible has a debug mode to pause and troubleshoot</title>
       <link>https://jeqo.github.io/notes/2022-01-21-ansible-debug/</link>
       <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2022-01-21-ansible-debug/</guid>
-      <description>&lt;p&gt;I have been running Ansible for a while now.
-My usual/naive way of debugging has always been adding a &lt;code&gt;debug&lt;/code&gt; module&lt;a href=&#34;https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html&#34;&gt;[1]&lt;/a&gt;, and get the execution running til that point.&lt;/p&gt;
-&lt;p&gt;I figured that there are better ways to deal with this&lt;a href=&#34;https://docs.ansible.com/ansible/2.9/user_guide/playbooks_debugger.html#examples&#34;&gt;[2]&lt;/a&gt;.
-By using the debug mode, tasks will stop when failing (by default) and you&amp;rsquo;ll be able to introspect into the task, variables, and context when things failed.
-Even better, you&amp;rsquo;ll be able to re-execute if there was a transient error.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I have been running Ansible for a while now.&#xA;My usual/naive way of debugging has always been adding a &lt;code&gt;debug&lt;/code&gt; module&lt;a href=&#34;https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html&#34;&gt;[1]&lt;/a&gt;, and get the execution running til that point.&lt;/p&gt;&#xA;&lt;p&gt;I figured that there are better ways to deal with this&lt;a href=&#34;https://docs.ansible.com/ansible/2.9/user_guide/playbooks_debugger.html#examples&#34;&gt;[2]&lt;/a&gt;.&#xA;By using the debug mode, tasks will stop when failing (by default) and you&amp;rsquo;ll be able to introspect into the task, variables, and context when things failed.&#xA;Even better, you&amp;rsquo;ll be able to re-execute if there was a transient error.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Changing Kafka Broker&#39;s rack</title>
       <link>https://jeqo.github.io/notes/2021-12-10-kafka-change-rack/</link>
       <pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2021-12-10-kafka-change-rack/</guid>
-      <description>&lt;p&gt;Kafka broker configuration includes a &lt;code&gt;rack&lt;/code&gt; label to define the location of the broker.
-This is useful when placing replicas across the cluster to ensure replicas are spread across locations &lt;em&gt;as evenly as possible&lt;/em&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Kafka broker configuration includes a &lt;code&gt;rack&lt;/code&gt; label to define the location of the broker.&#xA;This is useful when placing replicas across the cluster to ensure replicas are spread across locations &lt;em&gt;as evenly as possible&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Kafka Producer idempotency is enabled by default since 3.0</title>
       <link>https://jeqo.github.io/notes/2021-12-09-kafka-v3-idempotent-acks-all/</link>
       <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2021-12-09-kafka-v3-idempotent-acks-all/</guid>
-      <description>Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.
-This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.</description>
+      <description>Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.&#xA;This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.</description>
     </item>
-    
     <item>
       <title>Reducing `acks` doesn&#39;t help to reduce end-to-end latency</title>
       <link>https://jeqo.github.io/notes/2021-12-09-kafka-reducing-acks-and-latency/</link>
       <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2021-12-09-kafka-reducing-acks-and-latency/</guid>
-      <description>&lt;p&gt;Kafka Producers enforce durability across replicas by setting &lt;code&gt;acks=all&lt;/code&gt; (&lt;a href=&#34;https://jeqo.github.io/til/kafka-v3-idea&#34;&gt;default since v3.0&lt;/a&gt;).
-As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Kafka Producers enforce durability across replicas by setting &lt;code&gt;acks=all&lt;/code&gt; (&lt;a href=&#34;https://jeqo.github.io/til/kafka-v3-idea&#34;&gt;default since v3.0&lt;/a&gt;).&#xA;As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Cioran books</title>
       <link>https://jeqo.github.io/notes/cioran-books/</link>
       <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/cioran-books/</guid>
-      <description>&lt;p&gt;Including pictures from books:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The Trouble With Being Born&lt;/li&gt;
-&lt;li&gt;A Short History Of Decay&lt;/li&gt;
-&lt;/ul&gt;</description>
+      <description>&lt;p&gt;Including pictures from books:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The Trouble With Being Born&lt;/li&gt;&#xA;&lt;li&gt;A Short History Of Decay&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>Scale book</title>
       <link>https://jeqo.github.io/notes/scale-book/</link>
       <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/scale-book/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/31670196-scale&#34;&gt;Scale: The Universal Laws of Growth, Innovation, Sustainability, and the Pace of Life in Organisms, Cities, Economies, and Companies&lt;/a&gt; by Geoffrey B. West&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>The Age Of Surveillance Capitalism book</title>
       <link>https://jeqo.github.io/notes/the-age-of-surveillance-capitalism-book/</link>
       <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/the-age-of-surveillance-capitalism-book/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.goodreads.com/book/show/26195941-the-age-of-surveillance-capitalism&#34;&gt;The Age Of Surveillance Capitalism&lt;/a&gt; by Shoshana Zuboff&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Use min.insync.replicas for fault-tolerance</title>
       <link>https://jeqo.github.io/notes/2021-12-02-kafka-min-isr/</link>
       <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2021-12-02-kafka-min-isr/</guid>
-      <description>&lt;p&gt;Things to remember:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Topic replication factor is not enough to guarantee fault-tolerance. If &lt;code&gt;min.insync.replicas&lt;/code&gt; is not defined i.e. 1, then data could potentially be lost.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;acks=all&lt;/code&gt; will force replica leader to wait for &lt;em&gt;all&lt;/em&gt; brokers in the ISR, not only the &lt;code&gt;min.insync.replicas&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;If replicas available are equal to minimum ISR, then the topic partitions are at the edge of losing availability. If one broker becomes unavailable (e.g. restarting), then producers will fail to write data.&lt;/li&gt;
-&lt;li&gt;Topic configuration is inherited from the server. If broker configuration changes, it affects the &lt;em&gt;existing&lt;/em&gt; topics. Keep the topic defaults, unless it needs to be different than broker default for easier maintenance.&lt;/li&gt;
-&lt;/ul&gt;</description>
+      <description>&lt;p&gt;Things to remember:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Topic replication factor is not enough to guarantee fault-tolerance. If &lt;code&gt;min.insync.replicas&lt;/code&gt; is not defined i.e. 1, then data could potentially be lost.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;acks=all&lt;/code&gt; will force replica leader to wait for &lt;em&gt;all&lt;/em&gt; brokers in the ISR, not only the &lt;code&gt;min.insync.replicas&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;If replicas available are equal to minimum ISR, then the topic partitions are at the edge of losing availability. If one broker becomes unavailable (e.g. restarting), then producers will fail to write data.&lt;/li&gt;&#xA;&lt;li&gt;Topic configuration is inherited from the server. If broker configuration changes, it affects the &lt;em&gt;existing&lt;/em&gt; topics. Keep the topic defaults, unless it needs to be different than broker default for easier maintenance.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>About TILs</title>
       <link>https://jeqo.github.io/notes/2021-12-01-about-til/</link>
       <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2021-12-01-about-til/</guid>
       <description>Today I learned about Today-I-Learned posts from Simon Willison: https://til.simonwillison.net/ and found it super cool, so I decided to try out, let&amp;rsquo;s see how it goes.</description>
     </item>
-    
     <item>
       <title>Notes on Co-evolving Tracing and Fault Injection with Box of Pain</title>
       <link>https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/</link>
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/</guid>
-      <description>This paper explores how related tracing and fault injection systems are, and if they should be part of the same thing.
-The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&amp;hellip;]
-[&amp;hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.
-In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.</description>
+      <description>This paper explores how related tracing and fault injection systems are, and if they should be part of the same thing.&#xA;The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&amp;hellip;]&#xA;[&amp;hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.&#xA;In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.</description>
     </item>
-    
     <item>
       <title>Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</title>
       <link>https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</link>
       <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/</guid>
-      <description></description>
+      <description>&amp;nbsp;From Batch to Streaming workflows Key properties for large-scale systems:&#xA;[Large-Scale Personalized Services] should have the following properties:&#xA;System scalability Organizational scalability Operational robustness Where Batch jobs have been successfully used, and represent a reference model to improve from:&#xA;[Batch, Map-Reduce jobs] has been remarkably successful tool for implementing recommendation systems.&#xA;[Batch important benefits:]&#xA;Multi-consumer: several jobs reading input directories without affecting each others. Visibility: job&amp;rsquo;s input and output can be inspected for tracking down the cause of an error.</description>
     </item>
-    
     <item>
       <title>Data on the Outside vs Data on the Inside</title>
       <link>https://jeqo.github.io/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/</link>
       <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2018-01-08-data-on-the-outside-vs-data-on-the-inside/</guid>
-      <description>&lt;p&gt;I found this paper as relevant and accurate today as it was in 2005, when it was published.
-It is fascinating how even 12 years later and with new technologies in vogue,
-same concepts keep applying.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I found this paper as relevant and accurate today as it was in 2005, when it was published.&#xA;It is fascinating how even 12 years later and with new technologies in vogue,&#xA;same concepts keep applying.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

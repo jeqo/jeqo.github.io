@@ -1,34 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>bpm on @jeqo</title>
+    <title>Bpm on @jeqo</title>
     <link>https://jeqo.github.io/es/tags/bpm/</link>
-    <description>Recent content in bpm on @jeqo</description>
+    <description>Recent content in Bpm on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 11 Dec 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/es/tags/bpm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Dec 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/es/tags/bpm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Oracle BPM 12c sobre AWS EC2 usando Vagrant y Chef</title>
       <link>https://jeqo.github.io/es/posts/2014-12-11-run-bpm-12c-aws/</link>
       <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/posts/2014-12-11-run-bpm-12c-aws/</guid>
-      <description>En esta entrada mostraré el procedimiento que utilicé para crear instancias en Amazon Web Service EC2, con Oracle BPM 12c instalado y un dominio provisionado.
-Este procedimiento se realizo en los siguientes pasos:
-Crear una instancia en AWS EC2 (con Vagrant) Conectarse a una instancia NFS para obtener instaladores (con Chef) Instalar Oracle BPM 12c Quickstart y crear Dominio (con Chef) GitHub: https://github.com/jeqo/oracle-bpm-12c-aws
-hashtag-outline &amp;nbsp;Crear una instancia en AWS EC2 He creado una instancia Red Hat usando Vagrant.</description>
+      <description>En esta entrada mostraré el procedimiento que utilicé para crear instancias en Amazon Web Service EC2, con Oracle BPM 12c instalado y un dominio provisionado.&#xA;Este procedimiento se realizo en los siguientes pasos:&#xA;Crear una instancia en AWS EC2 (con Vagrant) Conectarse a una instancia NFS para obtener instaladores (con Chef) Instalar Oracle BPM 12c Quickstart y crear Dominio (con Chef) GitHub: https://github.com/jeqo/oracle-bpm-12c-aws&#xA;&amp;nbsp;Crear una instancia en AWS EC2 He creado una instancia Red Hat usando Vagrant.</description>
     </item>
-    
     <item>
       <title>Chef Cookbook para Oracle Fusion Middleware 12c</title>
       <link>https://jeqo.github.io/es/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/</link>
       <pubDate>Tue, 09 Dec 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/posts/2014-12-09-chef-cookbook-oracle-fmw-12c/</guid>
-      <description>Las herramientas de provisionamiento de software han cambiado la forma de crear ambientes: Cuánto tiempo que se toma para instalar Sistema Operativo, base de datos, configurar la plataforma, desplegar aplicaciones? Pueden ser días, hasta semanas. Ahora que se pueden transladar estos pasos en código, este proceso se ve transformado en horas, hasta minutos.
-En esta entrada voy a mostrar como provisionar un Dominio WebLogic con Oracle SOA Suite 12c, utilizando un Chef cookbook que he compartido en Chef Supermarket.</description>
+      <description>Las herramientas de provisionamiento de software han cambiado la forma de crear ambientes: Cuánto tiempo que se toma para instalar Sistema Operativo, base de datos, configurar la plataforma, desplegar aplicaciones? Pueden ser días, hasta semanas. Ahora que se pueden transladar estos pasos en código, este proceso se ve transformado en horas, hasta minutos.&#xA;En esta entrada voy a mostrar como provisionar un Dominio WebLogic con Oracle SOA Suite 12c, utilizando un Chef cookbook que he compartido en Chef Supermarket.</description>
     </item>
-    
   </channel>
 </rss>

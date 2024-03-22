@@ -207,14 +207,19 @@ As enforcing this guarantee requires waiting for replicas to sync, this increase
 If the latency that matters to you is end-to-end, then reducing acks might not be the right trade-off.</p>
 <h2 id="references">
     <a class="hash-link nohover" href="#references">
-        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
     </a>&nbsp;References
-</h2><ul>
+</h2>
+<ul>
 <li>Tail latency at Scale: <a href="https://www.confluent.io/blog/configure-kafka-to-minimize-latency/">https://www.confluent.io/blog/configure-kafka-to-minimize-latency/</a></li>
 <li>Optimizing Kafka for Latency: <a href="https://docs.confluent.io/cloud/current/client-apps/optimizing/latency.html">https://docs.confluent.io/cloud/current/client-apps/optimizing/latency.html</a></li>
 <li>Kafka Internal <a href="https://developer.confluent.io/#kafka-internals">https://developer.confluent.io/#kafka-internals</a>, with requests lifecycle</li>
 </ul>
-<p><img src="request-lifecycle.png" alt="Screenshot from request lifecycle"></p>
+<p><img alt="Screenshot from request lifecycle" src="/notes/2021-12-09-kafka-reducing-acks-and-latency/request-lifecycle.png"></p>
   </section>
   <footer>
     
@@ -388,7 +393,7 @@ If the latency that matters to you is end-to-end, then reducing acks might not b
         src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a>
 
       &nbsp;&bull;&nbsp;
-      2022
+      2024
 
       
         &nbsp;&bull;&nbsp;

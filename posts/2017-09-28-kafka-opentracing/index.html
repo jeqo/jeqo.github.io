@@ -217,18 +217,24 @@ vendor neutral API to be able to create <code>spans</code> that represent the me
 tasks that form part of a <code>trace</code>.</p>
 <h1 id="use-case">
     <a class="hash-link nohover" href="#use-case">
-        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
     </a>&nbsp;Use-Case
-</h1><p>In this post we will see how to instrument Java applications that communicates
+</h1>
+<p>In this post we will see how to instrument Java applications that communicates
 using Apache Kafka as Event Log, and how visualize traces and analyze latency.</p>
 <p>The scenario will be a simple Hello World Producer/Consumer. The producer
 side will send a &ldquo;greeting&rdquo; event to &ldquo;greetings-topic&rdquo;, and the consumer
 side will poll events and print out to console.</p>
 <h1 id="technologies">
     <a class="hash-link nohover" href="#technologies">
-        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
     </a>&nbsp;Technologies
-</h1><ul>
+</h1>
+<ul>
 <li>
 <p><strong>Dropwizard</strong>: Framework to run Web Services.</p>
 </li>
@@ -241,16 +247,24 @@ side will poll events and print out to console.</p>
 </ul>
 <h1 id="implementation">
     <a class="hash-link nohover" href="#implementation">
-        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
     </a>&nbsp;Implementation
-</h1><p>Let&rsquo;s assume we have a simple application that produce <code>greetings</code> events
+</h1>
+<p>Let&rsquo;s assume we have a simple application that produce <code>greetings</code> events
 and another application that consumes and print those events.</p>
 <p>To execute this applications let&rsquo;s first start a local version of Kafka:</p>
 <h2 id="install-and-run-kafka">
     <a class="hash-link nohover" href="#install-and-run-kafka">
-        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
     </a>&nbsp;Install and Run Kafka
-</h2><p>First, execute the script to install Kafka:</p>
+</h2>
+<p>First, execute the script to install Kafka:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#a2f">cd</span> kafka/
 </span></span><span style="display:flex;"><span>./install-kafka.sh
 </span></span></code></pre></div><p>Once it is installed, start Zookeeper and then one Kafka broker:</p>
@@ -266,13 +280,25 @@ and another application that consumes and print those events.</p>
 </span></span><span style="display:flex;"><span>...
 </span></span></code></pre></div><h2 id="run-applications">
     <a class="hash-link nohover" href="#run-applications">
-        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
     </a>&nbsp;Run Applications
-</h2><h3 id="start-producer-side">
+</h2>
+<h3 id="start-producer-side">
     <a class="hash-link nohover" href="#start-producer-side">
-        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
     </a>&nbsp;Start Producer Side
-</h3><p>To get started, let&rsquo;s start the producer side and test it.</p>
+</h3>
+<p>To get started, let&rsquo;s start the producer side and test it.</p>
 <p>Build the whole project: <code>./mvnw clean install</code></p>
 <p>And start the producer application:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#a2f">cd</span> hello-world-producer/
@@ -286,9 +312,16 @@ that sends the record to Kafka.</p>
 </span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">done</span>.
 </span></span></code></pre></div><h3 id="start-consumer-side">
     <a class="hash-link nohover" href="#start-consumer-side">
-        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
     </a>&nbsp;Start Consumer Side
-</h3><p>Once producer side is started and running, we can start consumer side
+</h3>
+<p>Once producer side is started and running, we can start consumer side
 to print out the events:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>java -jar target/hello-world-consumer.jar server config.yml
 </span></span><span style="display:flex;"><span>...
@@ -300,9 +333,14 @@ to print out the events:</p>
 </blockquote>
 <h2 id="opentracing-instrumentation">
     <a class="hash-link nohover" href="#opentracing-instrumentation">
-        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
     </a>&nbsp;OpenTracing Instrumentation
-</h2><p>OpenTracing has enrich its integration throw projects that we can
+</h2>
+<p>OpenTracing has enrich its integration throw projects that we can
 contribute: <a href="https://github.com/opentracing-contrib/">https://github.com/opentracing-contrib/</a></p>
 <p>We will follow the next steps:</p>
 <ol>
@@ -321,9 +359,16 @@ contribute: <a href="https://github.com/opentracing-contrib/">https://github.com
 </ol>
 <h3 id="instrument-dropwizard">
     <a class="hash-link nohover" href="#instrument-dropwizard">
-        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
     </a>&nbsp;Instrument Dropwizard
-</h3><p>We are following this step to have a complete view since request is
+</h3>
+<p>We are following this step to have a complete view since request is
 received.</p>
 <p>Firsts let&rsquo;s add Maven dependencies:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;dependency&gt;</span>
@@ -348,25 +393,25 @@ that handles traces for all of your JAX-RS resource&rsquo;s operations by defaul
 adds the Jaeger Java Client to connect to Jaeger Agent.</p>
 <p>Then, we need to instantiate and register the Tracer on the Application
 class:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">final</span> Tracer tracer <span style="color:#666">=</span> <span style="color:#080;font-style:italic">//(1)
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">new</span> com<span style="color:#666">.</span><span style="color:#b44">uber</span><span style="color:#666">.</span><span style="color:#b44">jaeger</span><span style="color:#666">.</span><span style="color:#b44">Configuration</span><span style="color:#666">(</span>
-</span></span><span style="display:flex;"><span>            getName<span style="color:#666">(),</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">new</span> com<span style="color:#666">.</span><span style="color:#b44">uber</span><span style="color:#666">.</span><span style="color:#b44">jaeger</span><span style="color:#666">.</span><span style="color:#b44">Configuration</span><span style="color:#666">.</span><span style="color:#b44">SamplerConfiguration</span><span style="color:#666">(</span><span style="color:#b44">&#34;const&#34;</span><span style="color:#666">,</span> 1<span style="color:#666">),</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">new</span> com<span style="color:#666">.</span><span style="color:#b44">uber</span><span style="color:#666">.</span><span style="color:#b44">jaeger</span><span style="color:#666">.</span><span style="color:#b44">Configuration</span><span style="color:#666">.</span><span style="color:#b44">ReporterConfiguration</span><span style="color:#666">(</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#a2f;font-weight:bold">true</span><span style="color:#666">,</span>  <span style="color:#080;font-style:italic">// logSpans
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>                <span style="color:#b44">&#34;localhost&#34;</span><span style="color:#666">,</span>
-</span></span><span style="display:flex;"><span>                6831<span style="color:#666">,</span>
-</span></span><span style="display:flex;"><span>                1000<span style="color:#666">,</span>   <span style="color:#080;font-style:italic">// flush interval in milliseconds
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>                10000<span style="color:#666">)</span>  <span style="color:#080;font-style:italic">/*max buffered Spans*/</span><span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#666">.</span><span style="color:#b44">getTracer</span><span style="color:#666">();</span>
-</span></span><span style="display:flex;"><span>    GlobalTracer<span style="color:#666">.</span><span style="color:#b44">register</span><span style="color:#666">(</span>tracer<span style="color:#666">);</span> <span style="color:#080;font-style:italic">//(2)
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">final</span> DropWizardTracer dropWizardTracer <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> DropWizardTracer<span style="color:#666">(</span>tracer<span style="color:#666">);</span> <span style="color:#080;font-style:italic">//(3)
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    environment<span style="color:#666">.</span><span style="color:#b44">jersey</span><span style="color:#666">()</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#666">.</span><span style="color:#b44">register</span><span style="color:#666">(</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">new</span> ServerTracingFeature<span style="color:#666">.</span><span style="color:#b44">Builder</span><span style="color:#666">(</span>dropWizardTracer<span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#666">.</span><span style="color:#b44">withTraceAnnotations</span><span style="color:#666">()</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#666">.</span><span style="color:#b44">build</span><span style="color:#666">());</span>
-</span></span></code></pre></div><p>In the first operation, we are instantiating a <code>Tracer</code> object with
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>Tracer<span style="color:#bbb"> </span>tracer<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#080;font-style:italic">//(1)</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>com.<span style="color:#b44">uber</span>.<span style="color:#b44">jaeger</span>.<span style="color:#b44">Configuration</span>(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>getName(),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>com.<span style="color:#b44">uber</span>.<span style="color:#b44">jaeger</span>.<span style="color:#b44">Configuration</span>.<span style="color:#b44">SamplerConfiguration</span>(<span style="color:#b44">&#34;const&#34;</span>,<span style="color:#bbb"> </span>1),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>com.<span style="color:#b44">uber</span>.<span style="color:#b44">jaeger</span>.<span style="color:#b44">Configuration</span>.<span style="color:#b44">ReporterConfiguration</span>(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#a2f;font-weight:bold">true</span>,<span style="color:#bbb">  </span><span style="color:#080;font-style:italic">// logSpans</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#b44">&#34;localhost&#34;</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>6831,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>1000,<span style="color:#bbb">   </span><span style="color:#080;font-style:italic">// flush interval in milliseconds</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>10000)<span style="color:#bbb">  </span><span style="color:#080;font-style:italic">/*max buffered Spans*/</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>.<span style="color:#b44">getTracer</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>GlobalTracer.<span style="color:#b44">register</span>(tracer);<span style="color:#bbb"> </span><span style="color:#080;font-style:italic">//(2)</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>DropWizardTracer<span style="color:#bbb"> </span>dropWizardTracer<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>DropWizardTracer(tracer);<span style="color:#bbb"> </span><span style="color:#080;font-style:italic">//(3)</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>environment.<span style="color:#b44">jersey</span>()<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>.<span style="color:#b44">register</span>(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>ServerTracingFeature.<span style="color:#b44">Builder</span>(dropWizardTracer)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>.<span style="color:#b44">withTraceAnnotations</span>()<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>.<span style="color:#b44">build</span>());<span style="color:#bbb">
+</span></span></span></code></pre></div><p>In the first operation, we are instantiating a <code>Tracer</code> object with
 Jaeger. Jaeger Agent should be running on port <code>localhost:6831</code>.</p>
 <p>Then we are registering the <code>tracer</code> on the <code>GlobalTracer</code> helper, to
 reference it from other layers.</p>
@@ -374,14 +419,14 @@ reference it from other layers.</p>
 We are configuring this integration to only trace operations with
 <code>@Trace</code> annotation: <code>.withTraceAnnotations()</code></p>
 <p>So, your resource class, should looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#a2f">@GET</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f">@Path</span><span style="color:#666">(</span><span style="color:#b44">&#34;{name}&#34;</span><span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f">@Trace</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">public</span> Response <span style="color:#00a000">sayHi</span><span style="color:#666">(</span><span style="color:#a2f">@PathParam</span><span style="color:#666">(</span><span style="color:#b44">&#34;name&#34;</span><span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">final</span> String name<span style="color:#666">)</span> <span style="color:#666">{</span>
-</span></span><span style="display:flex;"><span>    producer<span style="color:#666">.</span><span style="color:#b44">send</span><span style="color:#666">(</span>name<span style="color:#666">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> Response<span style="color:#666">.</span><span style="color:#b44">accepted</span><span style="color:#666">(</span><span style="color:#b44">&#34;done.&#34;</span><span style="color:#666">).</span><span style="color:#b44">build</span><span style="color:#666">();</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#666">}</span>
-</span></span></code></pre></div><p>Let&rsquo;s install and start Jaeger, in its standalone version:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#a2f">@GET</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#a2f">@Path</span>(<span style="color:#b44">&#34;{name}&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#a2f">@Trace</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span>Response<span style="color:#bbb"> </span><span style="color:#00a000">sayHi</span>(<span style="color:#a2f">@PathParam</span>(<span style="color:#b44">&#34;name&#34;</span>)<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>name)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>producer.<span style="color:#b44">send</span>(name);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">return</span><span style="color:#bbb"> </span>Response.<span style="color:#b44">accepted</span>(<span style="color:#b44">&#34;done.&#34;</span>).<span style="color:#b44">build</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Let&rsquo;s install and start Jaeger, in its standalone version:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cd jaeger/
 </span></span><span style="display:flex;"><span>./install-jaeger.sh
 </span></span></code></pre></div><p>And then:</p>
@@ -398,9 +443,16 @@ We are configuring this integration to only trace operations with
 </blockquote>
 <h3 id="instrument-kafka-producer-api">
     <a class="hash-link nohover" href="#instrument-kafka-producer-api">
-        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
     </a>&nbsp;Instrument Kafka Producer API
-</h3><p>Cool! Now we have how long it takes to return a response on the
+</h3>
+<p>Cool! Now we have how long it takes to return a response on the
 producer side :)</p>
 <p>From here we can start asking:</p>
 <p>How long it takes to execute the <code>send</code> operation by the Kafka
@@ -417,11 +469,11 @@ Did the consumer side receive the message?</p>
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/dependency&gt;</span>
 </span></span></code></pre></div><p><a href="https://github.com/opentracing-contrib/java-kafka-client">https://github.com/opentracing-contrib/java-kafka-client</a></p>
 <p>And let&rsquo;s wrap the tracer on a <code>TracingKafkaProducer</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">final</span> KafkaProducer<span style="color:#666">&lt;</span>String<span style="color:#666">,</span> String<span style="color:#666">&gt;</span> kafkaProducer <span style="color:#666">=</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">new</span> KafkaProducer<span style="color:#666">&lt;&gt;(</span>producerProperties<span style="color:#666">,</span> <span style="color:#a2f;font-weight:bold">new</span> StringSerializer<span style="color:#666">(),</span> <span style="color:#a2f;font-weight:bold">new</span> StringSerializer<span style="color:#666">());</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">final</span> TracingKafkaProducer<span style="color:#666">&lt;</span>String<span style="color:#666">,</span> String<span style="color:#666">&gt;</span> tracingKafkaProducer <span style="color:#666">=</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">new</span> TracingKafkaProducer<span style="color:#666">&lt;&gt;(</span>kafkaProducer<span style="color:#666">,</span> tracer<span style="color:#666">);</span>
-</span></span></code></pre></div><p>The main difference, is that <code>TracingKafkaProducer</code> will inject
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>KafkaProducer<span style="color:#666">&lt;</span>String,<span style="color:#bbb"> </span>String<span style="color:#666">&gt;</span><span style="color:#bbb"> </span>kafkaProducer<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>KafkaProducer<span style="color:#666">&lt;&gt;</span>(producerProperties,<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>StringSerializer(),<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>StringSerializer());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>TracingKafkaProducer<span style="color:#666">&lt;</span>String,<span style="color:#bbb"> </span>String<span style="color:#666">&gt;</span><span style="color:#bbb"> </span>tracingKafkaProducer<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>TracingKafkaProducer<span style="color:#666">&lt;&gt;</span>(kafkaProducer,<span style="color:#bbb"> </span>tracer);<span style="color:#bbb">
+</span></span></span></code></pre></div><p>The main difference, is that <code>TracingKafkaProducer</code> will inject
 tracing context on Kafka Headers (supported since v0.11.0).</p>
 <p>That&rsquo;s it, let&rsquo;s redeploy and test again.</p>
 <img src="/images/posts/2017-09-28-kafka-opentracing/second-traces-not-linked.png" alt="Tracing Kafka applications /images/posts/2017-09-28-kafka-opentracing/second-traces-not-linked.png" data-action="zoom">
@@ -434,38 +486,38 @@ a reference.</p>
 <code>ActiveSpan</code> that will wrap the execution of Kafka Client. Let&rsquo;s see
 how this looks:</p>
 <p>Let&rsquo;s go to the resource operation and add a parameter:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">public</span> Response <span style="color:#00a000">sayHi</span><span style="color:#666">(</span><span style="color:#a2f">@Context</span> <span style="color:#a2f;font-weight:bold">final</span> Request request<span style="color:#666">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#a2f">@PathParam</span><span style="color:#666">(</span><span style="color:#b44">&#34;name&#34;</span><span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">final</span> String name<span style="color:#666">)</span> <span style="color:#666">{</span>
-</span></span></code></pre></div><p>Then we can use it to get the span using the DropwizardTracer:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f">@Path</span><span style="color:#666">(</span><span style="color:#b44">&#34;hello&#34;</span><span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span> <span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">HelloWorldResource</span> <span style="color:#666">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">final</span> DropWizardTracer dropWizardTracer<span style="color:#666">;</span> <span style="color:#080;font-style:italic">//(1)
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  <span style="color:#a2f;font-weight:bold">private</span> <span style="color:#a2f;font-weight:bold">final</span> KafkaHelloWorldProducer producer<span style="color:#666">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">public</span> <span style="color:#00a000">HelloWorldResource</span><span style="color:#666">(</span><span style="color:#a2f;font-weight:bold">final</span> DropWizardTracer dropWizardTracer<span style="color:#666">,</span>
-</span></span><span style="display:flex;"><span>                            <span style="color:#a2f;font-weight:bold">final</span> KafkaHelloWorldProducer producer<span style="color:#666">)</span> <span style="color:#666">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">this</span><span style="color:#666">.</span><span style="color:#b44">dropWizardTracer</span> <span style="color:#666">=</span> dropWizardTracer<span style="color:#666">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">this</span><span style="color:#666">.</span><span style="color:#b44">producer</span> <span style="color:#666">=</span> producer<span style="color:#666">;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#666">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f">@GET</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f">@Path</span><span style="color:#666">(</span><span style="color:#b44">&#34;{name}&#34;</span><span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f">@Trace</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">public</span> Response <span style="color:#00a000">sayHi</span><span style="color:#666">(</span><span style="color:#a2f">@Context</span> <span style="color:#a2f;font-weight:bold">final</span> Request request<span style="color:#666">,</span>  <span style="color:#080;font-style:italic">//(2)
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>                        <span style="color:#a2f">@PathParam</span><span style="color:#666">(</span><span style="color:#b44">&#34;name&#34;</span><span style="color:#666">)</span> <span style="color:#a2f;font-weight:bold">final</span> String name<span style="color:#666">)</span> <span style="color:#666">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">final</span> Span span <span style="color:#666">=</span> dropWizardTracer<span style="color:#666">.</span><span style="color:#b44">getSpan</span><span style="color:#666">(</span>request<span style="color:#666">);</span>  <span style="color:#080;font-style:italic">//(3)
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">try</span> <span style="color:#666">(</span>ActiveSpan activeSpan <span style="color:#666">=</span>
-</span></span><span style="display:flex;"><span>             dropWizardTracer<span style="color:#666">.</span><span style="color:#b44">getTracer</span><span style="color:#666">()</span>
-</span></span><span style="display:flex;"><span>                 <span style="color:#666">.</span><span style="color:#b44">buildSpan</span><span style="color:#666">(</span><span style="color:#b44">&#34;sayHi&#34;</span><span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>                 <span style="color:#666">.</span><span style="color:#b44">asChildOf</span><span style="color:#666">(</span>span<span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>                 <span style="color:#666">.</span><span style="color:#b44">startActive</span><span style="color:#666">())</span> <span style="color:#666">{</span>  <span style="color:#080;font-style:italic">//(4)
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>      producer<span style="color:#666">.</span><span style="color:#b44">send</span><span style="color:#666">(</span>name<span style="color:#666">);</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#a2f;font-weight:bold">return</span> Response<span style="color:#666">.</span><span style="color:#b44">accepted</span><span style="color:#666">(</span><span style="color:#b44">&#34;done.&#34;</span><span style="color:#666">).</span><span style="color:#b44">build</span><span style="color:#666">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#666">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#666">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#666">}</span>
-</span></span></code></pre></div><p>First we inject the Tracer, then we get the span from Request,
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span>Response<span style="color:#bbb"> </span><span style="color:#00a000">sayHi</span>(<span style="color:#a2f">@Context</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>Request<span style="color:#bbb"> </span>request,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                        </span><span style="color:#a2f">@PathParam</span>(<span style="color:#b44">&#34;name&#34;</span>)<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>name)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Then we can use it to get the span using the DropwizardTracer:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f">@Path</span>(<span style="color:#b44">&#34;hello&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">HelloWorldResource</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#a2f;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>DropWizardTracer<span style="color:#bbb"> </span>dropWizardTracer;<span style="color:#bbb"> </span><span style="color:#080;font-style:italic">//(1)</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#a2f;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>KafkaHelloWorldProducer<span style="color:#bbb"> </span>producer;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00a000">HelloWorldResource</span>(<span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>DropWizardTracer<span style="color:#bbb"> </span>dropWizardTracer,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                            </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>KafkaHelloWorldProducer<span style="color:#bbb"> </span>producer)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">this</span>.<span style="color:#b44">dropWizardTracer</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>dropWizardTracer;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">this</span>.<span style="color:#b44">producer</span><span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>producer;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#a2f">@GET</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#a2f">@Path</span>(<span style="color:#b44">&#34;{name}&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#a2f">@Trace</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#bbb"> </span>Response<span style="color:#bbb"> </span><span style="color:#00a000">sayHi</span>(<span style="color:#a2f">@Context</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>Request<span style="color:#bbb"> </span>request,<span style="color:#bbb">  </span><span style="color:#080;font-style:italic">//(2)</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                        </span><span style="color:#a2f">@PathParam</span>(<span style="color:#b44">&#34;name&#34;</span>)<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>name)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>Span<span style="color:#bbb"> </span>span<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>dropWizardTracer.<span style="color:#b44">getSpan</span>(request);<span style="color:#bbb">  </span><span style="color:#080;font-style:italic">//(3)</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">try</span><span style="color:#bbb"> </span>(ActiveSpan<span style="color:#bbb"> </span>activeSpan<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">             </span>dropWizardTracer.<span style="color:#b44">getTracer</span>()<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                 </span>.<span style="color:#b44">buildSpan</span>(<span style="color:#b44">&#34;sayHi&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                 </span>.<span style="color:#b44">asChildOf</span>(span)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                 </span>.<span style="color:#b44">startActive</span>())<span style="color:#bbb"> </span>{<span style="color:#bbb">  </span><span style="color:#080;font-style:italic">//(4)</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>producer.<span style="color:#b44">send</span>(name);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#a2f;font-weight:bold">return</span><span style="color:#bbb"> </span>Response.<span style="color:#b44">accepted</span>(<span style="color:#b44">&#34;done.&#34;</span>).<span style="color:#b44">build</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>First we inject the Tracer, then we get the span from Request,
 and finally we create an ActiveSpan that wraps the producer.</p>
 <img src="/images/posts/2017-09-28-kafka-opentracing/third-traces-together.png" alt="Tracing Kafka applications /images/posts/2017-09-28-kafka-opentracing/third-traces-together.png" data-action="zoom">
 
@@ -477,9 +529,16 @@ how the callback works on the producer side, processing the metadata
 asynchronously, and so on.</p>
 <h3 id="instrument-kafka-consumer-api">
     <a class="hash-link nohover" href="#instrument-kafka-consumer-api">
-        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
     </a>&nbsp;Instrument Kafka Consumer API
-</h3><p>Ok, so far so good. We have a complete visibility over the execution on
+</h3>
+<p>Ok, so far so good. We have a complete visibility over the execution on
 the producer side. But what happen next? How the consumer side reacts?</p>
 <p>To know that using OpenTracing instrumentation we will using the same
 integration of OpenTracing with Kafka, but it is a bit different.</p>
@@ -503,27 +562,27 @@ integration of OpenTracing with Kafka, but it is a bit different.</p>
 for integration with Kafka Clients.</p>
 <p>Then, we need to instantiate the <code>Tracer</code>, but without the <code>DropwizardTracer</code>
 given that we don&rsquo;t need to trace HTTP endpoints:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">//Instantiate and register Tracer
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">final</span> Tracer tracer <span style="color:#666">=</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">new</span> com<span style="color:#666">.</span><span style="color:#b44">uber</span><span style="color:#666">.</span><span style="color:#b44">jaeger</span><span style="color:#666">.</span><span style="color:#b44">Configuration</span><span style="color:#666">(</span>
-</span></span><span style="display:flex;"><span>            getName<span style="color:#666">(),</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">new</span> com<span style="color:#666">.</span><span style="color:#b44">uber</span><span style="color:#666">.</span><span style="color:#b44">jaeger</span><span style="color:#666">.</span><span style="color:#b44">Configuration</span><span style="color:#666">.</span><span style="color:#b44">SamplerConfiguration</span><span style="color:#666">(</span><span style="color:#b44">&#34;const&#34;</span><span style="color:#666">,</span> 1<span style="color:#666">),</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">new</span> com<span style="color:#666">.</span><span style="color:#b44">uber</span><span style="color:#666">.</span><span style="color:#b44">jaeger</span><span style="color:#666">.</span><span style="color:#b44">Configuration</span><span style="color:#666">.</span><span style="color:#b44">ReporterConfiguration</span><span style="color:#666">(</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#a2f;font-weight:bold">true</span><span style="color:#666">,</span>  <span style="color:#080;font-style:italic">// logSpans
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>                <span style="color:#b44">&#34;localhost&#34;</span><span style="color:#666">,</span>
-</span></span><span style="display:flex;"><span>                6831<span style="color:#666">,</span>
-</span></span><span style="display:flex;"><span>                1000<span style="color:#666">,</span>   <span style="color:#080;font-style:italic">// flush interval in milliseconds
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>                10000<span style="color:#666">)</span>  <span style="color:#080;font-style:italic">/*max buffered Spans*/</span><span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#666">.</span><span style="color:#b44">getTracer</span><span style="color:#666">();</span>
-</span></span><span style="display:flex;"><span>    GlobalTracer<span style="color:#666">.</span><span style="color:#b44">register</span><span style="color:#666">(</span>tracer<span style="color:#666">);</span>
-</span></span></code></pre></div><p>And then, instantiate the <code>TracingKafkaConsumer</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">final</span> TracingKafkaConsumer<span style="color:#666">&lt;</span>String<span style="color:#666">,</span> String<span style="color:#666">&gt;</span> tracingKafkaConsumer <span style="color:#666">=</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">new</span> TracingKafkaConsumer<span style="color:#666">&lt;&gt;(</span>kafkaConsumer<span style="color:#666">,</span> tracer<span style="color:#666">);</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">//Define Runnable Handler
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">final</span> KafkaGreetingsHandler greetingsHandler <span style="color:#666">=</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">new</span> KafkaGreetingsHandler<span style="color:#666">(</span>tracingKafkaConsumer<span style="color:#666">)</span>
-</span></span></code></pre></div><p>Should be enough. Let&rsquo;s try it out:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#080;font-style:italic">//Instantiate and register Tracer</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>Tracer<span style="color:#bbb"> </span>tracer<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>com.<span style="color:#b44">uber</span>.<span style="color:#b44">jaeger</span>.<span style="color:#b44">Configuration</span>(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>getName(),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>com.<span style="color:#b44">uber</span>.<span style="color:#b44">jaeger</span>.<span style="color:#b44">Configuration</span>.<span style="color:#b44">SamplerConfiguration</span>(<span style="color:#b44">&#34;const&#34;</span>,<span style="color:#bbb"> </span>1),<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>com.<span style="color:#b44">uber</span>.<span style="color:#b44">jaeger</span>.<span style="color:#b44">Configuration</span>.<span style="color:#b44">ReporterConfiguration</span>(<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#a2f;font-weight:bold">true</span>,<span style="color:#bbb">  </span><span style="color:#080;font-style:italic">// logSpans</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#b44">&#34;localhost&#34;</span>,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>6831,<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>1000,<span style="color:#bbb">   </span><span style="color:#080;font-style:italic">// flush interval in milliseconds</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>10000)<span style="color:#bbb">  </span><span style="color:#080;font-style:italic">/*max buffered Spans*/</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>.<span style="color:#b44">getTracer</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>GlobalTracer.<span style="color:#b44">register</span>(tracer);<span style="color:#bbb">
+</span></span></span></code></pre></div><p>And then, instantiate the <code>TracingKafkaConsumer</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>TracingKafkaConsumer<span style="color:#666">&lt;</span>String,<span style="color:#bbb"> </span>String<span style="color:#666">&gt;</span><span style="color:#bbb"> </span>tracingKafkaConsumer<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>TracingKafkaConsumer<span style="color:#666">&lt;&gt;</span>(kafkaConsumer,<span style="color:#bbb"> </span>tracer);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#080;font-style:italic">//Define Runnable Handler</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>KafkaGreetingsHandler<span style="color:#bbb"> </span>greetingsHandler<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">new</span><span style="color:#bbb"> </span>KafkaGreetingsHandler(tracingKafkaConsumer)<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Should be enough. Let&rsquo;s try it out:</p>
 <p>(build and run your consumer side)</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>./mvnw clean install
 </span></span><span style="display:flex;"><span> java -jar target/hello-world-consumer.jar server config.yml
@@ -535,46 +594,54 @@ consumer side.</p>
 <p>But, what if we want to measure the complete execution, since we get
 the message until we commit it?</p>
 <p>To do this, we can add an <code>ActiveSpan</code> on the consumption side:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">for</span> <span style="color:#666">(</span>ConsumerRecord<span style="color:#666">&lt;</span>String<span style="color:#666">,</span> String<span style="color:#666">&gt;</span> consumerRecord <span style="color:#666">:</span> consumerRecords<span style="color:#666">)</span> <span style="color:#666">{</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a2f;font-weight:bold">try</span> <span style="color:#666">(</span>ActiveSpan activeSpan <span style="color:#666">=</span>
-</span></span><span style="display:flex;"><span>                   GlobalTracer<span style="color:#666">.</span><span style="color:#b44">get</span><span style="color:#666">()</span>
-</span></span><span style="display:flex;"><span>                       <span style="color:#666">.</span><span style="color:#b44">buildSpan</span><span style="color:#666">(</span><span style="color:#b44">&#34;consumption&#34;</span><span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>                       <span style="color:#080;font-style:italic">//.asChildOf(context)
-</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>                       <span style="color:#666">.</span><span style="color:#b44">startActive</span><span style="color:#666">())</span> <span style="color:#666">{</span>
-</span></span><span style="display:flex;"><span>            System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>consumerRecord<span style="color:#666">.</span><span style="color:#b44">value</span><span style="color:#666">());</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            kafkaConsumer<span style="color:#666">.</span><span style="color:#b44">commitSync</span><span style="color:#666">();</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#666">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#666">}</span>
-</span></span></code></pre></div><p>But where is the context coming from?</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">for</span><span style="color:#bbb"> </span>(ConsumerRecord<span style="color:#666">&lt;</span>String,<span style="color:#bbb"> </span>String<span style="color:#666">&gt;</span><span style="color:#bbb"> </span>consumerRecord<span style="color:#bbb"> </span>:<span style="color:#bbb"> </span>consumerRecords)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#a2f;font-weight:bold">try</span><span style="color:#bbb"> </span>(ActiveSpan<span style="color:#bbb"> </span>activeSpan<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                   </span>GlobalTracer.<span style="color:#b44">get</span>()<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                       </span>.<span style="color:#b44">buildSpan</span>(<span style="color:#b44">&#34;consumption&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                       </span><span style="color:#080;font-style:italic">//.asChildOf(context)</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                       </span>.<span style="color:#b44">startActive</span>())<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(consumerRecord.<span style="color:#b44">value</span>());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>kafkaConsumer.<span style="color:#b44">commitSync</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>But where is the context coming from?</p>
 <p>Well, as <code>TracingKafkaProducer</code> inject tracing contexts on Headers,
 we can use <code>TracingKafkaUtils</code> to extract it, and reference it:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">for</span> <span style="color:#666">(</span>ConsumerRecord<span style="color:#666">&lt;</span>String<span style="color:#666">,</span> String<span style="color:#666">&gt;</span> consumerRecord <span style="color:#666">:</span> consumerRecords<span style="color:#666">)</span> <span style="color:#666">{</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a2f;font-weight:bold">final</span> SpanContext context <span style="color:#666">=</span>
-</span></span><span style="display:flex;"><span>              TracingKafkaUtils<span style="color:#666">.</span><span style="color:#b44">extractSpanContext</span><span style="color:#666">(</span>consumerRecord<span style="color:#666">.</span><span style="color:#b44">headers</span><span style="color:#666">(),</span> tracer<span style="color:#666">);</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a2f;font-weight:bold">try</span> <span style="color:#666">(</span>ActiveSpan activeSpan <span style="color:#666">=</span>
-</span></span><span style="display:flex;"><span>                   tracer<span style="color:#666">.</span><span style="color:#b44">buildSpan</span><span style="color:#666">(</span><span style="color:#b44">&#34;consumption&#34;</span><span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>                       <span style="color:#666">.</span><span style="color:#b44">asChildOf</span><span style="color:#666">(</span>context<span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>                       <span style="color:#666">.</span><span style="color:#b44">startActive</span><span style="color:#666">())</span> <span style="color:#666">{</span>
-</span></span><span style="display:flex;"><span>            System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>consumerRecord<span style="color:#666">.</span><span style="color:#b44">value</span><span style="color:#666">());</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            kafkaConsumer<span style="color:#666">.</span><span style="color:#b44">commitSync</span><span style="color:#666">();</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#666">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#666">}</span>
-</span></span></code></pre></div><img src="/images/posts/2017-09-28-kafka-opentracing/complete-trace.png" alt="Tracing Kafka applications /images/posts/2017-09-28-kafka-opentracing/complete-trace.png" data-action="zoom">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#a2f;font-weight:bold">for</span><span style="color:#bbb"> </span>(ConsumerRecord<span style="color:#666">&lt;</span>String,<span style="color:#bbb"> </span>String<span style="color:#666">&gt;</span><span style="color:#bbb"> </span>consumerRecord<span style="color:#bbb"> </span>:<span style="color:#bbb"> </span>consumerRecords)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#a2f;font-weight:bold">final</span><span style="color:#bbb"> </span>SpanContext<span style="color:#bbb"> </span>context<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">              </span>TracingKafkaUtils.<span style="color:#b44">extractSpanContext</span>(consumerRecord.<span style="color:#b44">headers</span>(),<span style="color:#bbb"> </span>tracer);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#a2f;font-weight:bold">try</span><span style="color:#bbb"> </span>(ActiveSpan<span style="color:#bbb"> </span>activeSpan<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                   </span>tracer.<span style="color:#b44">buildSpan</span>(<span style="color:#b44">&#34;consumption&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                       </span>.<span style="color:#b44">asChildOf</span>(context)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                       </span>.<span style="color:#b44">startActive</span>())<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(consumerRecord.<span style="color:#b44">value</span>());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>kafkaConsumer.<span style="color:#b44">commitSync</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><img src="/images/posts/2017-09-28-kafka-opentracing/complete-trace.png" alt="Tracing Kafka applications /images/posts/2017-09-28-kafka-opentracing/complete-trace.png" data-action="zoom">
 
 <blockquote>
 <p>Source code on branch: steps/step-03</p>
 </blockquote>
 <h1 id="recommendations">
     <a class="hash-link nohover" href="#recommendations">
-        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
     </a>&nbsp;Recommendations
-</h1><h2 id="trace-tags">
+</h1>
+<h2 id="trace-tags">
     <a class="hash-link nohover" href="#trace-tags">
-        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
     </a>&nbsp;Trace Tags
-</h2><p>One important feature of OpenTracing API is supporting <code>tags</code>. These
+</h2>
+<p>One important feature of OpenTracing API is supporting <code>tags</code>. These
 help to reference metadata that enables reference to business data
 that can be use to map your trace with a transaction.</p>
 <p>Also don&rsquo;t try to overuse <code>tags</code> and use something like the Elastic Stack
@@ -582,33 +649,38 @@ or Splunk to store your logging messages, and use <code>tags</code> just to refe
 the transaction ID, the entity ID or user ID.</p>
 <p>For instance, in this case, we can add a tag to track the name:</p>
 <p>On the producer side:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">try</span> <span style="color:#666">(</span>ActiveSpan ignored <span style="color:#666">=</span>
-</span></span><span style="display:flex;"><span>             dropWizardTracer<span style="color:#666">.</span><span style="color:#b44">getTracer</span><span style="color:#666">()</span>
-</span></span><span style="display:flex;"><span>                 <span style="color:#666">.</span><span style="color:#b44">buildSpan</span><span style="color:#666">(</span><span style="color:#b44">&#34;sayHi&#34;</span><span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>                 <span style="color:#666">.</span><span style="color:#b44">asChildOf</span><span style="color:#666">(</span>span<span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>                 <span style="color:#666">.</span><span style="color:#b44">withTag</span><span style="color:#666">(</span><span style="color:#b44">&#34;user&#34;</span><span style="color:#666">,</span> name<span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>                 <span style="color:#666">.</span><span style="color:#b44">startActive</span><span style="color:#666">())</span> <span style="color:#666">{</span>
-</span></span><span style="display:flex;"><span>      producer<span style="color:#666">.</span><span style="color:#b44">send</span><span style="color:#666">(</span>name<span style="color:#666">);</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#a2f;font-weight:bold">return</span> Response<span style="color:#666">.</span><span style="color:#b44">accepted</span><span style="color:#666">(</span><span style="color:#b44">&#34;done.&#34;</span><span style="color:#666">).</span><span style="color:#b44">build</span><span style="color:#666">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#666">}</span>
-</span></span></code></pre></div><p>And in the consumer side, the same story:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>          <span style="color:#a2f;font-weight:bold">try</span> <span style="color:#666">(</span>ActiveSpan ignored <span style="color:#666">=</span>
-</span></span><span style="display:flex;"><span>                   tracer<span style="color:#666">.</span><span style="color:#b44">buildSpan</span><span style="color:#666">(</span><span style="color:#b44">&#34;consumption&#34;</span><span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>                       <span style="color:#666">.</span><span style="color:#b44">withTag</span><span style="color:#666">(</span><span style="color:#b44">&#34;user&#34;</span><span style="color:#666">,</span> consumerRecord<span style="color:#666">.</span><span style="color:#b44">key</span><span style="color:#666">())</span>
-</span></span><span style="display:flex;"><span>                       <span style="color:#666">.</span><span style="color:#b44">asChildOf</span><span style="color:#666">(</span>context<span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>                       <span style="color:#666">.</span><span style="color:#b44">startActive</span><span style="color:#666">())</span> <span style="color:#666">{</span>
-</span></span><span style="display:flex;"><span>            System<span style="color:#666">.</span><span style="color:#b44">out</span><span style="color:#666">.</span><span style="color:#b44">println</span><span style="color:#666">(</span>consumerRecord<span style="color:#666">.</span><span style="color:#b44">value</span><span style="color:#666">());</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            kafkaConsumer<span style="color:#666">.</span><span style="color:#b44">commitSync</span><span style="color:#666">();</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#666">}</span>
-</span></span></code></pre></div><p>And you can filter now from the UI:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">try</span><span style="color:#bbb"> </span>(ActiveSpan<span style="color:#bbb"> </span>ignored<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">             </span>dropWizardTracer.<span style="color:#b44">getTracer</span>()<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                 </span>.<span style="color:#b44">buildSpan</span>(<span style="color:#b44">&#34;sayHi&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                 </span>.<span style="color:#b44">asChildOf</span>(span)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                 </span>.<span style="color:#b44">withTag</span>(<span style="color:#b44">&#34;user&#34;</span>,<span style="color:#bbb"> </span>name)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                 </span>.<span style="color:#b44">startActive</span>())<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span>producer.<span style="color:#b44">send</span>(name);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#a2f;font-weight:bold">return</span><span style="color:#bbb"> </span>Response.<span style="color:#b44">accepted</span>(<span style="color:#b44">&#34;done.&#34;</span>).<span style="color:#b44">build</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>And in the consumer side, the same story:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">          </span><span style="color:#a2f;font-weight:bold">try</span><span style="color:#bbb"> </span>(ActiveSpan<span style="color:#bbb"> </span>ignored<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                   </span>tracer.<span style="color:#b44">buildSpan</span>(<span style="color:#b44">&#34;consumption&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                       </span>.<span style="color:#b44">withTag</span>(<span style="color:#b44">&#34;user&#34;</span>,<span style="color:#bbb"> </span>consumerRecord.<span style="color:#b44">key</span>())<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                       </span>.<span style="color:#b44">asChildOf</span>(context)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                       </span>.<span style="color:#b44">startActive</span>())<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>System.<span style="color:#b44">out</span>.<span style="color:#b44">println</span>(consumerRecord.<span style="color:#b44">value</span>());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>kafkaConsumer.<span style="color:#b44">commitSync</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">          </span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>And you can filter now from the UI:</p>
 <img src="/images/posts/2017-09-28-kafka-opentracing/tags.png" alt="Tracing Kafka applications /images/posts/2017-09-28-kafka-opentracing/tags.png" data-action="zoom">
 
 <h2 id="dropwizard-helpers">
     <a class="hash-link nohover" href="#dropwizard-helpers">
-        <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><title>hashtag-outline</title><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
+	<svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><g id="bb4ed7a9-727c-433e-a92a-fb7b8fd366b0" data-name="Layer 3"><path d="M32,12H25.34l1.55-7.74a1,1,0,0,0-2-.39L23.3,12H15.11l1.55-7.74a1,1,0,0,0-2-.39L13.07,12H6a1,1,0,0,0,0,2h6.67l-1.6,8H4a1,1,0,0,0,0,2h6.66L9.11,31.74a1,1,0,0,0,.79,1.17.68.68,0,0,0,.2,0,1,1,0,0,0,1-.8L12.7,24h8.19l-1.55,7.74a1,1,0,0,0,.79,1.17.62.62,0,0,0,.19,0,1,1,0,0,0,1-.8L22.93,24H30a1,1,0,0,0,0-2H23.33l1.61-8H32a1,1,0,0,0,0-2ZM21.29,22H13.1l1.61-8H22.9Z"/></g></svg>
+	
     </a>&nbsp;Dropwizard Helpers
-</h2><p>I have developed some Dropwizard modules to help to instantiate
+</h2>
+<p>I have developed some Dropwizard modules to help to instantiate
 Kafka Clients, create Topics, instantiate Traces, and so on. I&rsquo;m working
 on Documentation but you can find it on Maven Central already:</p>
 <p><a href="https://github.com/jeqo/dropwizard-modules/">https://github.com/jeqo/dropwizard-modules/</a></p>
@@ -773,7 +845,7 @@ on Documentation but you can find it on Maven Central already:</p>
         src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a>
 
       &nbsp;&bull;&nbsp;
-      2022
+      2024
 
       
         &nbsp;&bull;&nbsp;

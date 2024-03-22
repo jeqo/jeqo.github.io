@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>durability on @jeqo</title>
+    <title>Durability on @jeqo</title>
     <link>https://jeqo.github.io/tags/durability/</link>
-    <description>Recent content in durability on @jeqo</description>
+    <description>Recent content in Durability on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Fri, 10 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/durability/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/tags/durability/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kafka data loss scenarios</title>
       <link>https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/</link>
       <pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2021-12-10-kafka-data-loss/</guid>
-      <description>Kafka topic partitions are replicated across brokers. Data loss happens when the brokers where replicas are located are unavailable or have fully failed. The worst scenario — and where is no much to do — is when all the brokers fail; then no remediation is possible. Replication allows to increase redundancy so this scenarios is less likely to happen.
-The following scenarios show different trade-offs that could increase the risk of lossing data:</description>
+      <description>Kafka topic partitions are replicated across brokers. Data loss happens when the brokers where replicas are located are unavailable or have fully failed. The worst scenario — and where is no much to do — is when all the brokers fail; then no remediation is possible. Replication allows to increase redundancy so this scenarios is less likely to happen.&#xA;The following scenarios show different trade-offs that could increase the risk of lossing data:</description>
     </item>
-    
   </channel>
 </rss>

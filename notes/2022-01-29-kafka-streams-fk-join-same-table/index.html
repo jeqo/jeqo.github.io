@@ -202,19 +202,19 @@
     <p>KTable to KTable foreign-key joins is one of the coolest features in Kafka Streams.</p>
 <p>I was wondering whether this feature would handle FK-joins between values on the same table.</p>
 <p>Seems that the answer is yes:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>var ktable <span style="color:#666">=</span> builder<span style="color:#666">.</span><span style="color:#b44">table</span><span style="color:#666">(</span><span style="color:#b44">&#34;table&#34;</span><span style="color:#666">,</span> Consumed<span style="color:#666">.</span><span style="color:#b44">with</span><span style="color:#666">(</span>Serdes<span style="color:#666">.</span><span style="color:#b44">String</span><span style="color:#666">(),</span> Serdes<span style="color:#666">.</span><span style="color:#b44">String</span><span style="color:#666">()));</span>
-</span></span><span style="display:flex;"><span>ktable
-</span></span><span style="display:flex;"><span>    <span style="color:#666">.</span><span style="color:#b44">join</span><span style="color:#666">(</span>ktable<span style="color:#666">,</span> s <span style="color:#666">-&gt;</span> s<span style="color:#666">,</span> <span style="color:#666">(</span>v1<span style="color:#666">,</span> v2<span style="color:#666">)</span> <span style="color:#666">-&gt;</span> v1 <span style="color:#666">+</span> <span style="color:#b44">&#34;-&#34;</span> <span style="color:#666">+</span> v2<span style="color:#666">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#666">.</span><span style="color:#b44">toStream</span><span style="color:#666">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#666">.</span><span style="color:#b44">to</span><span style="color:#666">(</span><span style="color:#b44">&#34;fkjoin_v1&#34;</span><span style="color:#666">,</span> Produced<span style="color:#666">.</span><span style="color:#b44">with</span><span style="color:#666">(</span>Serdes<span style="color:#666">.</span><span style="color:#b44">String</span><span style="color:#666">(),</span> Serdes<span style="color:#666">.</span><span style="color:#b44">String</span><span style="color:#666">()));</span>
-</span></span></code></pre></div><p>Values will be used as keys.
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span><span style="color:#bbb"> </span>ktable<span style="color:#bbb"> </span><span style="color:#666">=</span><span style="color:#bbb"> </span>builder.<span style="color:#b44">table</span>(<span style="color:#b44">&#34;table&#34;</span>,<span style="color:#bbb"> </span>Consumed.<span style="color:#b44">with</span>(Serdes.<span style="color:#b44">String</span>(),<span style="color:#bbb"> </span>Serdes.<span style="color:#b44">String</span>()));<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>ktable<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>.<span style="color:#b44">join</span>(ktable,<span style="color:#bbb"> </span>s<span style="color:#bbb"> </span><span style="color:#666">-&gt;</span><span style="color:#bbb"> </span>s,<span style="color:#bbb"> </span>(v1,<span style="color:#bbb"> </span>v2)<span style="color:#bbb"> </span><span style="color:#666">-&gt;</span><span style="color:#bbb"> </span>v1<span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;-&#34;</span><span style="color:#bbb"> </span><span style="color:#666">+</span><span style="color:#bbb"> </span>v2)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>.<span style="color:#b44">toStream</span>()<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>.<span style="color:#b44">to</span>(<span style="color:#b44">&#34;fkjoin_v1&#34;</span>,<span style="color:#bbb"> </span>Produced.<span style="color:#b44">with</span>(Serdes.<span style="color:#b44">String</span>(),<span style="color:#bbb"> </span>Serdes.<span style="color:#b44">String</span>()));<span style="color:#bbb">
+</span></span></span></code></pre></div><p>Values will be used as keys.
 With the following inputs:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>p1:v1
 </span></span><span style="display:flex;"><span>v1:v2
 </span></span></code></pre></div><p>The following output is expected:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>p1:v1-v2
 </span></span></code></pre></div><p>For reference this is the topology graph:</p>
-<p><img src="topology.png" alt="Kafka Streams topology"></p>
+<p><img alt="Kafka Streams topology" src="/notes/2022-01-29-kafka-streams-fk-join-same-table/topology.png"></p>
   </section>
   <footer>
     
@@ -353,7 +353,7 @@ With the following inputs:</p>
         src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a>
 
       &nbsp;&bull;&nbsp;
-      2022
+      2024
 
       
         &nbsp;&bull;&nbsp;

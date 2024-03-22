@@ -1,56 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>docker on @jeqo</title>
+    <title>Docker on @jeqo</title>
     <link>https://jeqo.github.io/es/tags/docker/</link>
-    <description>Recent content in docker on @jeqo</description>
+    <description>Recent content in Docker on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Sun, 15 Jan 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/es/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/es/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Escalando Kafka con Docker Containers</title>
       <link>https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/</link>
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/</guid>
-      <description>&lt;p&gt;En este post mostraré como utilizar contenedores Docker para crear y escalar
-un clúster de Kafka, y también como crear, escalar y mover &lt;code&gt;topics&lt;/code&gt; dentro del
-clúster.&lt;/p&gt;</description>
+      <description>&lt;p&gt;En este post mostraré como utilizar contenedores Docker para crear y escalar&#xA;un clúster de Kafka, y también como crear, escalar y mover &lt;code&gt;topics&lt;/code&gt; dentro del&#xA;clúster.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Ansible - Provisionamiento sin agentes</title>
       <link>https://jeqo.github.io/es/posts/2016-03-30-ansible-agentless-provisioning/</link>
       <pubDate>Wed, 30 Mar 2016 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/posts/2016-03-30-ansible-agentless-provisioning/</guid>
-      <description>Ansible es una herramienta de automatización reconocida por ser sencilla y potente a la vez. Según mi experiencia, puedo decir que esto se debe principalmente al lenguaje que utiliza: YAML, y a tener una arquitectura sin agentes o &amp;ldquo;agentless&amp;rdquo;.
-hashtag-outline &amp;nbsp;YAML y los componentes de Ansible &amp;ldquo;YAML is a human friendly data serialization standard for all programming languages&amp;rdquo; (Source: http://yaml.org/)
-Esto signifíca que es verdaderamente fácil de entender y comenzar a trabajar con YAML.</description>
+      <description>Ansible es una herramienta de automatización reconocida por ser sencilla y potente a la vez. Según mi experiencia, puedo decir que esto se debe principalmente al lenguaje que utiliza: YAML, y a tener una arquitectura sin agentes o &amp;ldquo;agentless&amp;rdquo;.&#xA;&amp;nbsp;YAML y los componentes de Ansible &amp;ldquo;YAML is a human friendly data serialization standard for all programming languages&amp;rdquo; (Source: http://yaml.org/)&#xA;Esto signifíca que es verdaderamente fácil de entender y comenzar a trabajar con YAML.</description>
     </item>
-    
     <item>
       <title>Imagen de Oracle SOA Suite 12c en Docker</title>
       <link>https://jeqo.github.io/es/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/</link>
       <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/</guid>
-      <description>Luego de encontrar algunas limitaciones en la construcción de una imagen en Docker con Oracle SOA Suite 12c instalado usando Dockerfiles (como acceso a volumenes, tamaño de filesystem por defecto), he investigado como mejorar este proceso, y he encontrado Packer (del mismo equipo que creo Vagrant, Hashicorp).
-Para obtener mayor información sobre porqué utilizar Packer en vez de Dockerfiles, ir aquí.
-También he movido el directory OracleSOA que cree sobre el repositorio de Oracle Docker oracle-docker hacia un repositorio independiente: github.</description>
+      <description>Luego de encontrar algunas limitaciones en la construcción de una imagen en Docker con Oracle SOA Suite 12c instalado usando Dockerfiles (como acceso a volumenes, tamaño de filesystem por defecto), he investigado como mejorar este proceso, y he encontrado Packer (del mismo equipo que creo Vagrant, Hashicorp).&#xA;Para obtener mayor información sobre porqué utilizar Packer en vez de Dockerfiles, ir aquí.&#xA;También he movido el directory OracleSOA que cree sobre el repositorio de Oracle Docker oracle-docker hacia un repositorio independiente: github.</description>
     </item>
-    
     <item>
       <title>Oracle SOA Suite 12c sobre Docker</title>
       <link>https://jeqo.github.io/es/posts/2015-04-01-docker-image-oracle-soa/</link>
       <pubDate>Wed, 01 Apr 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/posts/2015-04-01-docker-image-oracle-soa/</guid>
-      <description>Buenas noticias llegaron desde Oracle hace un par de semanas: Oracle WebLogic Server es ahora soportado en Docker!.
-Esto es muy emocionante. Docker es una nueva tecnología que propone una nueva forma de virtualización a través de contenedores (OS, Configurations, Platform, Application) Para más información acerca de Docker
-Bueno, WebLogic sobre Docker es genial, pero me he propuesto ir unos pasos más adelante y Dockerize los productos de SOA y BPM (como Guido Schmitz hizo con Oracle Stream Explorer)</description>
+      <description>Buenas noticias llegaron desde Oracle hace un par de semanas: Oracle WebLogic Server es ahora soportado en Docker!.&#xA;Esto es muy emocionante. Docker es una nueva tecnología que propone una nueva forma de virtualización a través de contenedores (OS, Configurations, Platform, Application) Para más información acerca de Docker&#xA;Bueno, WebLogic sobre Docker es genial, pero me he propuesto ir unos pasos más adelante y Dockerize los productos de SOA y BPM (como Guido Schmitz hizo con Oracle Stream Explorer)</description>
     </item>
-    
   </channel>
 </rss>

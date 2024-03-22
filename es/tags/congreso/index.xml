@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>congreso on @jeqo</title>
+    <title>Congreso on @jeqo</title>
     <link>https://jeqo.github.io/es/tags/congreso/</link>
-    <description>Recent content in congreso on @jeqo</description>
+    <description>Recent content in Congreso on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/es/tags/congreso/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/es/tags/congreso/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cómo mejorar el sitio web del Congreso de Perú?</title>
       <link>https://jeqo.github.io/es/posts/2020-10-02-peru-congreso/</link>
       <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/posts/2020-10-02-peru-congreso/</guid>
-      <description>Si bien nos podemos seguir quejando (y con muchas razones) sobre las deficiencias del Congreso, no sirve de mucho si no va de la mano de con propuestas de como apoyar a solucionarlo.
-En teoría el Congreso literalmente trabaja para nosotros (los ciudadanos). Si como ciudadanos no somos capaces de entender y fiscalizar que es lo que el Congreso hace, no hay manera de controlarlos.
-hashtag-outline &amp;nbsp;Sitio web del Congreso El actual sitio web si bien tiene una apariencia renovada, la información expuesta aún no es facilmente accessible, ni procesable.</description>
+      <description>Si bien nos podemos seguir quejando (y con muchas razones) sobre las deficiencias del Congreso, no sirve de mucho si no va de la mano de con propuestas de como apoyar a solucionarlo.&#xA;En teoría el Congreso literalmente trabaja para nosotros (los ciudadanos). Si como ciudadanos no somos capaces de entender y fiscalizar que es lo que el Congreso hace, no hay manera de controlarlos.&#xA;&amp;nbsp;Sitio web del Congreso El actual sitio web si bien tiene una apariencia renovada, la información expuesta aún no es facilmente accessible, ni procesable.</description>
     </item>
-    
   </channel>
 </rss>

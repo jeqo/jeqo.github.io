@@ -1,45 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>soa on @jeqo</title>
+    <title>Soa on @jeqo</title>
     <link>https://jeqo.github.io/es/tags/soa/</link>
-    <description>Recent content in soa on @jeqo</description>
+    <description>Recent content in Soa on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Fri, 04 Sep 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/es/tags/soa/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Sep 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/es/tags/soa/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Imagen de Oracle SOA Suite 12c en Docker</title>
       <link>https://jeqo.github.io/es/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/</link>
       <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/posts/2015-09-04-oracle-soa-12c-packer-docker-hub/</guid>
-      <description>Luego de encontrar algunas limitaciones en la construcción de una imagen en Docker con Oracle SOA Suite 12c instalado usando Dockerfiles (como acceso a volumenes, tamaño de filesystem por defecto), he investigado como mejorar este proceso, y he encontrado Packer (del mismo equipo que creo Vagrant, Hashicorp).
-Para obtener mayor información sobre porqué utilizar Packer en vez de Dockerfiles, ir aquí.
-También he movido el directory OracleSOA que cree sobre el repositorio de Oracle Docker oracle-docker hacia un repositorio independiente: github.</description>
+      <description>Luego de encontrar algunas limitaciones en la construcción de una imagen en Docker con Oracle SOA Suite 12c instalado usando Dockerfiles (como acceso a volumenes, tamaño de filesystem por defecto), he investigado como mejorar este proceso, y he encontrado Packer (del mismo equipo que creo Vagrant, Hashicorp).&#xA;Para obtener mayor información sobre porqué utilizar Packer en vez de Dockerfiles, ir aquí.&#xA;También he movido el directory OracleSOA que cree sobre el repositorio de Oracle Docker oracle-docker hacia un repositorio independiente: github.</description>
     </item>
-    
     <item>
       <title>Oracle Fusion Middleware Chef Cookbook - Nueva versión!</title>
       <link>https://jeqo.github.io/es/posts/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</link>
       <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/posts/2015-07-21-chef-cookbook-oracle-fmw-0-2-0/</guid>
-      <description>Ayer cargué una nueva versión (0.2.0) de mi Oracle Fusion Middleware Cookbook compartido en Chef Supermarket
-Este nuevo release incluye:
-Soporte para la instalación de Oracle SOA Suite 12c Quickstart Soporte para la instalación y creación de dominios con Oracle SOA/OSB Suite 11g Pueden encontrar ejemplos de uso en este repositorio: https://github.com/jeqo/chef-repo</description>
+      <description>Ayer cargué una nueva versión (0.2.0) de mi Oracle Fusion Middleware Cookbook compartido en Chef Supermarket&#xA;Este nuevo release incluye:&#xA;Soporte para la instalación de Oracle SOA Suite 12c Quickstart Soporte para la instalación y creación de dominios con Oracle SOA/OSB Suite 11g Pueden encontrar ejemplos de uso en este repositorio: https://github.com/jeqo/chef-repo</description>
     </item>
-    
     <item>
       <title>Oracle SOA Suite 12c sobre Docker</title>
       <link>https://jeqo.github.io/es/posts/2015-04-01-docker-image-oracle-soa/</link>
       <pubDate>Wed, 01 Apr 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/posts/2015-04-01-docker-image-oracle-soa/</guid>
-      <description>Buenas noticias llegaron desde Oracle hace un par de semanas: Oracle WebLogic Server es ahora soportado en Docker!.
-Esto es muy emocionante. Docker es una nueva tecnología que propone una nueva forma de virtualización a través de contenedores (OS, Configurations, Platform, Application) Para más información acerca de Docker
-Bueno, WebLogic sobre Docker es genial, pero me he propuesto ir unos pasos más adelante y Dockerize los productos de SOA y BPM (como Guido Schmitz hizo con Oracle Stream Explorer)</description>
+      <description>Buenas noticias llegaron desde Oracle hace un par de semanas: Oracle WebLogic Server es ahora soportado en Docker!.&#xA;Esto es muy emocionante. Docker es una nueva tecnología que propone una nueva forma de virtualización a través de contenedores (OS, Configurations, Platform, Application) Para más información acerca de Docker&#xA;Bueno, WebLogic sobre Docker es genial, pero me he propuesto ir unos pasos más adelante y Dockerize los productos de SOA y BPM (como Guido Schmitz hizo con Oracle Stream Explorer)</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,45 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tracing on @jeqo</title>
+    <title>Tracing on @jeqo</title>
     <link>https://jeqo.github.io/tags/tracing/</link>
-    <description>Recent content in tracing on @jeqo</description>
+    <description>Recent content in Tracing on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/tracing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/tags/tracing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Notes on Co-evolving Tracing and Fault Injection with Box of Pain</title>
       <link>https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/</link>
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/</guid>
-      <description>This paper explores how related tracing and fault injection systems are, and if they should be part of the same thing.
-The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&amp;hellip;]
-[&amp;hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.
-In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.</description>
+      <description>This paper explores how related tracing and fault injection systems are, and if they should be part of the same thing.&#xA;The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&amp;hellip;]&#xA;[&amp;hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.&#xA;In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.</description>
     </item>
-    
     <item>
       <title>Distributed Tracing with OpenTracing @ NoSlidesConf 2017</title>
       <link>https://jeqo.github.io/talks/distributed-tracing-with-opentracing-noslides18/</link>
       <pubDate>Sat, 25 Nov 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/talks/distributed-tracing-with-opentracing-noslides18/</guid>
       <description>&lt;p&gt;Presented at &lt;a href=&#34;http://www.noslidesconf.net/&#34;&gt;NoSlidesConf 2017&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Tracing Kafka applications</title>
       <link>https://jeqo.github.io/posts/2017-09-28-kafka-opentracing/</link>
       <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2017-09-28-kafka-opentracing/</guid>
-      <description>for a more updated version, check https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/
-Tracing is one of the hardest time in integration or microservice development: knowing how a request impact your different components, and if your components have behave as expected.
-This could be fairly easy if we have monolith where we have one database and with some queries or checking one log file you can validate everything went well.
-Once you introduce distributed components and asynchronous communication this starts to get more complex and tedious.</description>
+      <description>for a more updated version, check https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/&#xA;Tracing is one of the hardest time in integration or microservice development: knowing how a request impact your different components, and if your components have behave as expected.&#xA;This could be fairly easy if we have monolith where we have one database and with some queries or checking one log file you can validate everything went well.&#xA;Once you introduce distributed components and asynchronous communication this starts to get more complex and tedious.</description>
     </item>
-    
   </channel>
 </rss>

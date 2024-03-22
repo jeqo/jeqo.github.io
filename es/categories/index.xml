@@ -7,60 +7,49 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Mon, 08 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/es/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/es/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>papers</title>
+      <title>Papers</title>
       <link>https://jeqo.github.io/es/categories/papers/</link>
       <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/categories/papers/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>operations</title>
+      <title>Operations</title>
       <link>https://jeqo.github.io/es/categories/operations/</link>
       <pubDate>Mon, 18 Dec 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/categories/operations/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>back-end</title>
+      <title>Back-End</title>
       <link>https://jeqo.github.io/es/categories/back-end/</link>
       <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/categories/back-end/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>development</title>
+      <title>Development</title>
       <link>https://jeqo.github.io/es/categories/development/</link>
       <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/categories/development/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>integration</title>
+      <title>Integration</title>
       <link>https://jeqo.github.io/es/categories/integration/</link>
       <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/categories/integration/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>devops</title>
+      <title>Devops</title>
       <link>https://jeqo.github.io/es/categories/devops/</link>
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/es/categories/devops/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

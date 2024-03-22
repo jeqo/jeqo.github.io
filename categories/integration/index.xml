@@ -1,80 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>integration on @jeqo</title>
+    <title>Integration on @jeqo</title>
     <link>https://jeqo.github.io/categories/integration/</link>
-    <description>Recent content in integration on @jeqo</description>
+    <description>Recent content in Integration on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 28 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/integration/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/categories/integration/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tracing Kafka applications</title>
       <link>https://jeqo.github.io/posts/2017-09-28-kafka-opentracing/</link>
       <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2017-09-28-kafka-opentracing/</guid>
-      <description>for a more updated version, check https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/
-Tracing is one of the hardest time in integration or microservice development: knowing how a request impact your different components, and if your components have behave as expected.
-This could be fairly easy if we have monolith where we have one database and with some queries or checking one log file you can validate everything went well.
-Once you introduce distributed components and asynchronous communication this starts to get more complex and tedious.</description>
+      <description>for a more updated version, check https://jeqo.github.io/posts/2019-03-26-importance-of-distributed-tracing-for-apache-kafka-based-applications/&#xA;Tracing is one of the hardest time in integration or microservice development: knowing how a request impact your different components, and if your components have behave as expected.&#xA;This could be fairly easy if we have monolith where we have one database and with some queries or checking one log file you can validate everything went well.&#xA;Once you introduce distributed components and asynchronous communication this starts to get more complex and tedious.</description>
     </item>
-    
     <item>
       <title>From Messaging to Logs with Apache Kafka @ OUGN 2017</title>
       <link>https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/</link>
       <pubDate>Fri, 10 Mar 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/</guid>
       <description>&lt;p&gt;Presented at &lt;a href=&#34;http://ougn.no/varseminar-2017/&#34;&gt;OUGN 2017&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Rewind Kafka Consumer Offsets</title>
       <link>https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/</link>
       <pubDate>Tue, 31 Jan 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2017-01-31-kafka-rewind-consumers-offset/</guid>
-      <description>&lt;p&gt;One of the most important features from &lt;em&gt;Apache Kafka&lt;/em&gt; is how it manages
-Multiple Consumers. Each &lt;code&gt;consumer group&lt;/code&gt; has a current &lt;code&gt;offset&lt;/code&gt;, that
-determine at what point in a &lt;code&gt;topic&lt;/code&gt; this &lt;code&gt;consumer group&lt;/code&gt; has consume
-messages. So, each &lt;code&gt;consumer group&lt;/code&gt; can manage its &lt;code&gt;offset&lt;/code&gt; independently,
-by &lt;code&gt;partition&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;This offers the possibility to rollback in time and reprocess messages from
-the beginning of a &lt;code&gt;topic&lt;/code&gt; and regenerate the current status of the system.&lt;/p&gt;
-&lt;p&gt;But how to do it (programmatically)?&lt;/p&gt;</description>
+      <description>&lt;p&gt;One of the most important features from &lt;em&gt;Apache Kafka&lt;/em&gt; is how it manages&#xA;Multiple Consumers. Each &lt;code&gt;consumer group&lt;/code&gt; has a current &lt;code&gt;offset&lt;/code&gt;, that&#xA;determine at what point in a &lt;code&gt;topic&lt;/code&gt; this &lt;code&gt;consumer group&lt;/code&gt; has consume&#xA;messages. So, each &lt;code&gt;consumer group&lt;/code&gt; can manage its &lt;code&gt;offset&lt;/code&gt; independently,&#xA;by &lt;code&gt;partition&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This offers the possibility to rollback in time and reprocess messages from&#xA;the beginning of a &lt;code&gt;topic&lt;/code&gt; and regenerate the current status of the system.&lt;/p&gt;&#xA;&lt;p&gt;But how to do it (programmatically)?&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Scaling Kafka with Docker Containers</title>
       <link>https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/</link>
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2017-01-15-scale-kafka-containers/</guid>
-      <description>&lt;p&gt;In this post I will show how to use Docker containers to create and scale
-a Kafka cluster, and also how to create, scale and move &lt;code&gt;topics&lt;/code&gt; inside
-the cluster.&lt;/p&gt;</description>
+      <description>&lt;p&gt;In this post I will show how to use Docker containers to create and scale&#xA;a Kafka cluster, and also how to create, scale and move &lt;code&gt;topics&lt;/code&gt; inside&#xA;the cluster.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Integrate Java EE 7 and Kafka using Avro and RxJava</title>
       <link>https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/</link>
       <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/</guid>
-      <description>&lt;p&gt;I decided to implement a naive integration between Java EE applications and
-RxJava/Kafka/Avro, to publish and subscribe to events.&lt;/p&gt;
-&lt;p&gt;You can go directly to that &lt;a href=&#34;https://github.com/jeqo/java-ee-rxjava-kafka-avro&#34;&gt;code&lt;/a&gt;, or check my approach:&lt;/p&gt;</description>
+      <description>&lt;p&gt;I decided to implement a naive integration between Java EE applications and&#xA;RxJava/Kafka/Avro, to publish and subscribe to events.&lt;/p&gt;&#xA;&lt;p&gt;You can go directly to that &lt;a href=&#34;https://github.com/jeqo/java-ee-rxjava-kafka-avro&#34;&gt;code&lt;/a&gt;, or check my approach:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Book Review - Applied SOA Patterns on the Oracle Platform</title>
       <link>https://jeqo.github.io/posts/2014-11-28-review-soa-patterns-oracle-platform/</link>
       <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
-      
       <guid>https://jeqo.github.io/posts/2014-11-28-review-soa-patterns-oracle-platform/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve had the opportunity to present a review of this book &lt;a href=&#34;https://www.packtpub.com/application-development/applied-soa-patterns-oracle-platform&#34;&gt;Applied SOA Patterns on the Oracle Platform&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
