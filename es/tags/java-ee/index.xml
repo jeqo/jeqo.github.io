@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Java Ee on @jeqo</title><link>https://jeqo.github.io/es/tags/java-ee/</link><description>Recent content in Java Ee on @jeqo</description><generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Fri, 31 Jul 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/es/tags/java-ee/index.xml" rel="self" type="application/rss+xml"/><item><title>Integrar Java EE 7 y Kafka usando Avro y RxJava</title><link>https://jeqo.github.io/es/posts/2015-07-31-java-ee-rxjava-kafka-avro/</link><pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/es/posts/2015-07-31-java-ee-rxjava-kafka-avro/</guid><description>Hace poco decidi probar una rápida implementación entre aplicaciones Java EE y RxJava/Kafka/Avro, para publicar/subscribirse a &amp;ldquo;topic messages&amp;rdquo;.
-Puedes ir directamente al código, o revisar el enfoque que apliqué:
-&amp;nbsp;TL;DR He estado realizando alguna pruebas de concepto con Kafka seducido por los beneficios que propone (rapidez, escalabilidad, y funcionar como una fuente de eventos durable) para implementar una propagación de eventos usando el patrón &amp;ldquo;Publish/Subscribe&amp;rdquo;.
-En estos momentos que estoy escribiendo esta entrada del blog, me he dado cuenta que las APIs para acceder a Kafka están en constante evolución y volviéndose más simples de utilizar, y no ha sido fácil encontrar un ejemplo con la versión actual.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java Ee on @jeqo</title>
+    <link>https://jeqo.github.io/es/tags/java-ee/</link>
+    <description>Recent content in Java Ee on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Fri, 31 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/es/tags/java-ee/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Integrar Java EE 7 y Kafka usando Avro y RxJava</title>
+      <link>https://jeqo.github.io/es/posts/2015-07-31-java-ee-rxjava-kafka-avro/</link>
+      <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
+      <guid>https://jeqo.github.io/es/posts/2015-07-31-java-ee-rxjava-kafka-avro/</guid>
+      <description>Hace poco decidi probar una rápida implementación entre aplicaciones Java EE y RxJava/Kafka/Avro, para publicar/subscribirse a &amp;ldquo;topic messages&amp;rdquo;.&#xA;Puedes ir directamente al código, o revisar el enfoque que apliqué:&#xA;&amp;nbsp;TL;DR He estado realizando alguna pruebas de concepto con Kafka seducido por los beneficios que propone (rapidez, escalabilidad, y funcionar como una fuente de eventos durable) para implementar una propagación de eventos usando el patrón &amp;ldquo;Publish/Subscribe&amp;rdquo;.&#xA;En estos momentos que estoy escribiendo esta entrada del blog, me he dado cuenta que las APIs para acceder a Kafka están en constante evolución y volviéndose más simples de utilizar, y no ha sido fácil encontrar un ejemplo con la versión actual.</description>
+    </item>
+  </channel>
+</rss>

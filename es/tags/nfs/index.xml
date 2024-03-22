@@ -1,2 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nfs on @jeqo</title><link>https://jeqo.github.io/es/tags/nfs/</link><description>Recent content in Nfs on @jeqo</description><generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Sun, 30 Nov 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/es/tags/nfs/index.xml" rel="self" type="application/rss+xml"/><item><title>Crear una instancia NFS en AWS usando Vagrant y Chef</title><link>https://jeqo.github.io/es/posts/2014-11-30-create-nfs-instance-aws/</link><pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/es/posts/2014-11-30-create-nfs-instance-aws/</guid><description>Estuve probando la creación de instancias en AWS EC2 para instalar productos de Oracle Fusion Middleware, y encontré una restricción: Cómo descargar los instaladores si quiero reutilizarlos en varias instancias? Cómo evitar un consumo alto de ancho de banda? Y cómo hacer este procedimiento repetitivo?
-Entre varias soluciones, en este momento decidi aplicar : How to setup an Amazon AWS EC2 NFS Share. Pero para hacerla reutilizable cree una configuración en Vagrant y Chef para provisionar una instancia en AWS con NFS configurado: Git repository</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nfs on @jeqo</title>
+    <link>https://jeqo.github.io/es/tags/nfs/</link>
+    <description>Recent content in Nfs on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Sun, 30 Nov 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/es/tags/nfs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Crear una instancia NFS en AWS usando Vagrant y Chef</title>
+      <link>https://jeqo.github.io/es/posts/2014-11-30-create-nfs-instance-aws/</link>
+      <pubDate>Sun, 30 Nov 2014 00:00:00 +0000</pubDate>
+      <guid>https://jeqo.github.io/es/posts/2014-11-30-create-nfs-instance-aws/</guid>
+      <description>Estuve probando la creación de instancias en AWS EC2 para instalar productos de Oracle Fusion Middleware, y encontré una restricción: Cómo descargar los instaladores si quiero reutilizarlos en varias instancias? Cómo evitar un consumo alto de ancho de banda? Y cómo hacer este procedimiento repetitivo?&#xA;Entre varias soluciones, en este momento decidi aplicar : How to setup an Amazon AWS EC2 NFS Share. Pero para hacerla reutilizable cree una configuración en Vagrant y Chef para provisionar una instancia en AWS con NFS configurado: Git repository</description>
+    </item>
+  </channel>
+</rss>

@@ -1,8 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Database on @jeqo</title><link>https://jeqo.github.io/tags/database/</link><description>Recent content in Database on @jeqo</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/database/index.xml" rel="self" type="application/rss+xml"/><item><title>sqlite can be used document and graph database</title><link>https://jeqo.github.io/notes/2022-05-09-sqlite-as-document-and-graph-db/</link><pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/notes/2022-05-09-sqlite-as-document-and-graph-db/</guid><description>I found that the use-cases for sqlite keep increasing now the JSON is supported.
-This week I found the following presentation: https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need Which makes the case for a simple graph schema, and using SQL out-of-the-box functionality to store graphs and execute traversal queries.
-This repository is actually based on this one focused on JSON support and document databases: https://dgl.cx/2020/06/sqlite-json-support</description></item><item><title>Speed up your Oracle Database provisioning with Docker and Ansible</title><link>https://jeqo.github.io/posts/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</link><pubDate>Thu, 26 May 2016 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/posts/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</guid><description>&lt;p>Warming up before &lt;a href="http://www.amis-conference.com/Program">AMIS 25th Conference&lt;/a>
-event where I will be presenting with my friend
-and colleague Arturo Viveros (@gugalnikov)
-&lt;a href="http://www.amis-conference.com/Session-Catalog#session1168">about Oracle SOA Suite provisioning&lt;/a>,
-I want to share some practices that help us to provide Oracle Database instances
-between developers and improve our productivity.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Database on @jeqo</title>
+    <link>https://jeqo.github.io/tags/database/</link>
+    <description>Recent content in Database on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sqlite can be used document and graph database</title>
+      <link>https://jeqo.github.io/notes/2022-05-09-sqlite-as-document-and-graph-db/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://jeqo.github.io/notes/2022-05-09-sqlite-as-document-and-graph-db/</guid>
+      <description>I found that the use-cases for sqlite keep increasing now the JSON is supported.&#xA;This week I found the following presentation: https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need Which makes the case for a simple graph schema, and using SQL out-of-the-box functionality to store graphs and execute traversal queries.&#xA;This repository is actually based on this one focused on JSON support and document databases: https://dgl.cx/2020/06/sqlite-json-support</description>
+    </item>
+    <item>
+      <title>Speed up your Oracle Database provisioning with Docker and Ansible</title>
+      <link>https://jeqo.github.io/posts/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</link>
+      <pubDate>Thu, 26 May 2016 00:00:00 +0000</pubDate>
+      <guid>https://jeqo.github.io/posts/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</guid>
+      <description>&lt;p&gt;Warming up before &lt;a href=&#34;http://www.amis-conference.com/Program&#34;&gt;AMIS 25th Conference&lt;/a&gt;&#xA;event where I will be presenting with my friend&#xA;and colleague Arturo Viveros (@gugalnikov)&#xA;&lt;a href=&#34;http://www.amis-conference.com/Session-Catalog#session1168&#34;&gt;about Oracle SOA Suite provisioning&lt;/a&gt;,&#xA;I want to share some practices that help us to provide Oracle Database instances&#xA;between developers and improve our productivity.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

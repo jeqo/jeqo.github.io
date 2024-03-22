@@ -1,16 +1,319 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>notes</title>
-<meta property="og:title" content="Notes"><meta name=twitter:title content="Notes"><meta name=description content="data streaming, observability, automation, and random stuff"><meta property="og:description" content="data streaming, observability, automation, and random stuff"><meta name=twitter:description content="data streaming, observability, automation, and random stuff"><meta name=author content="Jorge Esteban Quilcate Otoya"><meta property="og:site_name" content="@jeqo"><meta property="og:url" content="https://jeqo.github.io/categories/notes/"><meta name=twitter:card content="summary"><meta name=twitter:site content="@jeqo89"><meta name=twitter:creator content="@jeqo89"><meta property="og:type" content="website"><link rel=stylesheet type=text/css href="//fonts.googleapis.com/css?family=Open+Sans"><link rel=stylesheet href=https://jeqo.github.io/css/style.css><link rel=icon type=image/x-icon href=https://jeqo.github.io/images/favicon.ico><script type=text/javascript src=https://jeqo.github.io/js/bundle.js></script></head><body><a href=#main class="skip-link p-screen-reader-text">Skip to content</a><svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><symbol id="icon-feed" viewBox="0 0 16 16"><g><path d="M2.13 11.733c-1.175.0-2.13.958-2.13 2.126.0 1.174.955 2.122 2.13 2.122a2.126 2.126.0 002.133-2.122A2.133 2.133.0 002.13 11.733zM.002 5.436v3.067c1.997.0 3.874.781 5.288 2.196a7.45 7.45.0 012.192 5.302h3.08c0-5.825-4.739-10.564-10.56-10.564zM.006.0v3.068C7.128 3.068 12.924 8.87 12.924 16H16C16 7.18 8.824.0.006.0z"/></g></symbol><symbol id="icon-github" viewBox="0 0 16 16"><g><path d="M8 .198A8 8 0 005.471 15.789c.4.074.547-.174.547-.385.0-.191-.008-.821-.011-1.489-2.226.484-2.695-.944-2.695-.944-.364-.925-.888-1.171-.888-1.171-.726-.497.055-.486.055-.486.803.056 1.226.824 1.226.824.714 1.223 1.872.869 2.328.665.072-.517.279-.87.508-1.07-1.777-.202-3.645-.888-3.645-3.954.0-.873.313-1.587.824-2.147-.083-.202-.357-1.015.077-2.117.0.0.672-.215 2.201.82A7.672 7.672.0 018 4.066c.68.003 1.365.092 2.004.269 1.527-1.035 2.198-.82 2.198-.82.435 1.102.162 1.916.079 2.117.513.56.823 1.274.823 2.147.0 3.073-1.872 3.749-3.653 3.947.287.248.543.735.543 1.481.0 1.07-.009 1.932-.009 2.195.0.213.144.462.55.384A8 8 0 008.001.196z"/></g></symbol><symbol id="icon-linkedin" viewBox="0 0 16 16"><g><path d="M6 6h2.767v1.418h.04C9.192 6.727 10.134 6 11.539 6 14.46 6 15 7.818 15 10.183V15h-2.885v-4.27c0-1.018-.021-2.329-1.5-2.329-1.502.0-1.732 1.109-1.732 2.255V15H6V6zM1 6h3v9H1V6zM4 3.5A1.5 1.5.0 11.999 3.499 1.5 1.5.0 014 3.5z"/></g></symbol><symbol id="icon-mail" viewBox="0 0 22 18"><g><path fill="#000" d="M0 17.225V.776h22v16.447H0v.002zm3.011-1.815h15.978l-5.111-5.115L11 13.179l-2.877-2.883-5.112 5.114zm-1.216-1.275 5.077-5.09L1.795 3.98v10.155zm13.332-5.09 5.079 5.09V3.979l-5.079 5.066zm-4.126 1.588 8.022-8.027-16.045-.001 8.023 8.028z"/></g></symbol><symbol id="icon-search" viewBox="0 0 16 16"><g><path d="M15.504 13.616l-3.79-3.223c-.392-.353-.811-.514-1.149-.499a6 6 0 10-.672.672c-.016.338.146.757.499 1.149l3.223 3.79c.552.613 1.453.665 2.003.115s.498-1.452-.115-2.003zM6 10a4 4 0 110-8 4 4 0 010 8z"/></g></symbol><symbol id="icon-twitter" viewBox="0 0 16 16"><g><path d="M16 3.538a6.461 6.461.0 01-1.884.516 3.301 3.301.0 001.444-1.816 6.607 6.607.0 01-2.084.797 3.28 3.28.0 00-2.397-1.034A3.28 3.28.0 007.882 6.029 9.321 9.321.0 011.116 2.598a3.284 3.284.0 001.015 4.381A3.301 3.301.0 01.643 6.57v.041A3.283 3.283.0 003.277 9.83a3.291 3.291.0 01-1.485.057 3.293 3.293.0 003.066 2.281 6.586 6.586.0 01-4.862 1.359 9.286 9.286.0 005.034 1.475c6.037.0 9.341-5.003 9.341-9.341.0-.144-.003-.284-.009-.425a6.59 6.59.0 001.637-1.697z"/></g></symbol><symbol id="icon-keybase" viewBox="0 0 50 50"><g><path d="M24.433594 3.0019531C24.214219 3.0163281 23.998672 3.1032656 23.826172 3.2597656 23.70669 3.369165 22.227427 4.7384267 20.789062 6.9453125 20.493313 6.3897739 19.914285 6 19.25 6h-4.5C13.794937 6 13 6.7949372 13 7.75v4.5C13 13.205063 13.794937 14 14.75 14h3.345703C18.038214 14.490889 18 14.988881 18 15.5c0 4.136 3.364 7.5 7.5 7.5S33 19.636 33 15.5 29.636 8 25.5 8C25.122 8 25.041812 7.8810781 25.007812 7.8300781 24.614813 7.2520781 24.999734 5.4491406 25.427734 4.3691406 25.599734 3.9371406 25.451359 3.4427344 25.068359 3.1777344 24.876359 3.0457344 24.652969 2.9875781 24.433594 3.0019531zM15 8h4v2.417969C18.803248 10.926943 18.627384 11.452559 18.480469 12H15V8zm1.646484 10.917969C9.2184844 22.402969 5 30.302 5 41v3l1.7246094-2.298828c.3669173 1.31275.8508989 2.574948 1.4648437 3.759766A1.0002334 1.0002334.0 009.9648438 44.539062C9.1849975 43.034082 8.6252974 41.406022 8.3066406 39.693359c1.5091213-1.819833 3.1658064-3.570822 4.7597654-5.042968C12.538406 36.060391 12.183812 37.471953 12.007812 38.876953l-.314453 2.513672 1.947266-1.623047C13.696625 39.720578 19.437 35 26 35 29.219 35 30.97925 35.2985 32.53125 35.5625 33.86125 35.7875 35.118 36 37 36c3.1.0 4.797109-1.584375 5.537109-3.484375C42.734109 33.359625 42.872359 34.222563 42.943359 35.101562 42.979359 35.564563 43 36.03 43 36.5 43 39.318 42.33725 42.021062 41.03125 44.539062 40.77725 45.029063 40.968984 45.634672 41.458984 45.888672 41.605984 45.964672 41.764922 46 41.919922 46 42.280922 46 42.630594 45.804937 42.808594 45.460938 44.263594 42.656937 45 39.642 45 36.5 45 35.977 44.9785 35.456406 44.9375 34.941406 44.4555 28.783406 41.127547 23.350469 36.060547 20.105469 36.019547 20.079469 35.9785 20.051391 35.9375 20.025391 35.6015 19.814391 35.25625 19.615828 34.90625 19.423828 34.78325 19.355828 34.662109 19.285703 34.537109 19.220703 34.455109 19.177703 34.370109 19.140609 34.287109 19.099609c-.630000000000003 1.531-1.64864 2.862094-2.93164 3.871094l3.351562 3.351563C35.098031 26.713266 35.098031 27.345328 34.707031 27.736328 34.512031 27.931328 34.256 28.029297 34 28.029297S33.487969 27.931328 33.292969 27.736328L32.455078 26.900391l-1.80664 1.80664C30.453437 28.901031 30.197406 29 29.941406 29S29.429375 28.902031 29.234375 28.707031C28.843375 28.316031 28.843375 27.683969 29.234375 27.292969l1.808594-1.808594L30 24.443359l-1.292969 1.292969C28.512031 25.931328 28.256 26.029297 28 26.029297S27.487969 25.931328 27.292969 25.736328C27.056969 25.500328 26.981297 25.178047 27.029297 24.873047 26.531297 24.954047 26.021 25 25.5 25c-4.033.0-7.477516-2.529031-8.853516-6.082031zM20.5 40A1.5 1.5.0 0019 41.5 1.5 1.5.0 0020.5 43 1.5 1.5.0 0022 41.5 1.5 1.5.0 0020.5 40zm11 0A1.5 1.5.0 0030 41.5 1.5 1.5.0 0031.5 43 1.5 1.5.0 0033 41.5 1.5 1.5.0 0031.5 40z"/></g></symbol><symbol id="icon-youtube" viewBox="0 0 16 16"><g><path d="M15.841 4.8s-.156-1.103-.637-1.587c-.609-.637-1.291-.641-1.603-.678-2.237-.163-5.597-.163-5.597-.163h-.006s-3.359.0-5.597.163c-.313.038-.994.041-1.603.678C.317 3.697.164 4.8.164 4.8S.005 6.094.005 7.391v1.213c0 1.294.159 2.591.159 2.591s.156 1.103.634 1.588c.609.637 1.409.616 1.766.684 1.281.122 5.441.159 5.441.159s3.363-.006 5.6-.166c.313-.037.994-.041 1.603-.678.481-.484.637-1.588.637-1.588s.159-1.294.159-2.591V7.39c-.003-1.294-.162-2.591-.162-2.591zm-9.494 5.275V5.578l4.322 2.256-4.322 2.241z"/></g></symbol></svg><header class=l-header><h1 class="c-title p-title"><a href=https://jeqo.github.io/ class=p-title__link>@jeqo</a></h1><p class=p-subtitle>data streaming, observability, automation, and random stuff</p></header><ul class=c-links><li class=c-links__item><a href=https://twitter.com/jeqo89 target=_blank><svg viewBox="0 0 64 64" class="c-links__icon"><title>twitter</title><use xlink:href="#icon-twitter"/></svg></a></li><li class=c-links__item><a href=https://github.com/jeqo target=_blank><svg viewBox="0 0 64 64" class="c-links__icon"><title>github</title><use xlink:href="#icon-github"/></svg></a></li><li class=c-links__item><a href=https://keybase.io/jeqo target=_blank><svg viewBox="0 0 64 64" class="c-links__icon"><title>linkedin</title><use xlink:href="#icon-keybase"/></svg></a></li><li class=c-links__item><a href=https://linkedin.com/in/jeqo89 target=_blank><svg viewBox="0 0 64 64" class="c-links__icon"><title>linkedin</title><use xlink:href="#icon-linkedin"/></svg></a></li></ul><nav class="l-nav p-menu"><ul class=p-menu__lists><li class=p-menu__listitem><a href=/posts>Posts</a></li><li class=p-menu__listitem><a href=/notes>Notes</a></li><li class=p-menu__listitem><a href=/talks>Talks</a></li><li class=p-menu__listitem><a href=/projects>Projects</a></li><li class=p-menu__listitem><a href=/about>About</a></li></ul></nav><main id=main class=l-main><h2 class="c-title p-tag-title">Notes</h2><article class="c-article p-list-article"><header><h2 class="c-title c-article__title"><a href=https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/>Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</a></h2><p class=c-article__meta>Posted on
-<time datetime=2018-07-27T00:00:00Z>Jul 27, 2018</time></p></header><div class=c-article__summary>&nbsp;From Batch to Streaming workflows Key properties for large-scale systems:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    
+    
+    <title>notes</title>
+    
+    
+    
+    <meta property="og:title" content="Notes" />
+    <meta name="twitter:title" content="Notes" />
+    
+    
+    <meta name="description" content="data streaming, observability, automation, and random stuff">
+    <meta property="og:description" content="data streaming, observability, automation, and random stuff">
+    <meta name="twitter:description" content="data streaming, observability, automation, and random stuff">
+    
+
+    <meta name="author" content="Jorge Esteban Quilcate Otoya" />
+    <meta property="og:site_name" content="@jeqo" />
+    <meta property="og:url" content="https://jeqo.github.io/categories/notes/" />
+    
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:site" content="@jeqo89" />
+    <meta name="twitter:creator" content="@jeqo89" />
+    
+    
+    <meta property="og:type" content="website" />
+    
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <link rel="stylesheet" href="https://jeqo.github.io/css/style.css" />
+    <link rel='icon' type='image/x-icon' href="https://jeqo.github.io/images/favicon.ico" />
+    <script type="text/javascript" src="https://jeqo.github.io/js/bundle.js"></script>
+    
+
+</head>
+
+
+<body>
+    <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
+    <symbol id="icon-feed" viewBox="0 0 16 16">
+        <g>
+            <path
+                d="M2.13 11.733c-1.175 0-2.13.958-2.13 2.126 0 1.174.955 2.122 2.13 2.122a2.126 2.126 0 0 0 2.133-2.122 2.133 2.133 0 0 0-2.133-2.126zM.002 5.436v3.067c1.997 0 3.874.781 5.288 2.196a7.45 7.45 0 0 1 2.192 5.302h3.08c0-5.825-4.739-10.564-10.56-10.564zM.006 0v3.068C7.128 3.068 12.924 8.87 12.924 16H16C16 7.18 8.824 0 .006 0z" />
+        </g>
+    </symbol>
+    <symbol id="icon-github" viewBox="0 0 16 16">
+        <g>
+            <path
+                d="M8 .198a8 8 0 0 0-2.529 15.591c.4.074.547-.174.547-.385 0-.191-.008-.821-.011-1.489-2.226.484-2.695-.944-2.695-.944-.364-.925-.888-1.171-.888-1.171-.726-.497.055-.486.055-.486.803.056 1.226.824 1.226.824.714 1.223 1.872.869 2.328.665.072-.517.279-.87.508-1.07-1.777-.202-3.645-.888-3.645-3.954 0-.873.313-1.587.824-2.147-.083-.202-.357-1.015.077-2.117 0 0 .672-.215 2.201.82A7.672 7.672 0 0 1 8 4.066c.68.003 1.365.092 2.004.269 1.527-1.035 2.198-.82 2.198-.82.435 1.102.162 1.916.079 2.117.513.56.823 1.274.823 2.147 0 3.073-1.872 3.749-3.653 3.947.287.248.543.735.543 1.481 0 1.07-.009 1.932-.009 2.195 0 .213.144.462.55.384A8 8 0 0 0 8.001.196z" />
+        </g>
+    </symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 16 16">
+        <g>
+            <path
+                d="M6 6h2.767v1.418h.04C9.192 6.727 10.134 6 11.539 6 14.46 6 15 7.818 15 10.183V15h-2.885v-4.27c0-1.018-.021-2.329-1.5-2.329-1.502 0-1.732 1.109-1.732 2.255V15H6V6zM1 6h3v9H1V6zM4 3.5a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 4 3.5z" />
+        </g>
+    </symbol>
+    <symbol id="icon-mail" viewBox="0 0 22 18">
+        <g>
+            <path fill="#000"
+                d="M0 17.225V.776h22v16.447H0v.002zm3.011-1.815h15.978l-5.111-5.115L11 13.179l-2.877-2.883-5.112 5.114zm-1.216-1.275l5.077-5.09L1.795 3.98v10.155zm13.332-5.09l5.079 5.09V3.979l-5.079 5.066zm-4.126 1.588l8.022-8.027-16.045-.001 8.023 8.028z" />
+        </g>
+    </symbol>
+    <symbol id="icon-search" viewBox="0 0 16 16">
+        <g>
+            <path
+                d="M15.504 13.616l-3.79-3.223c-.392-.353-.811-.514-1.149-.499a6 6 0 1 0-.672.672c-.016.338.146.757.499 1.149l3.223 3.79c.552.613 1.453.665 2.003.115s.498-1.452-.115-2.003zM6 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" />
+        </g>
+    </symbol>
+    <symbol id="icon-twitter" viewBox="0 0 16 16">
+        <g>
+            <path
+                d="M16 3.538a6.461 6.461 0 0 1-1.884.516 3.301 3.301 0 0 0 1.444-1.816 6.607 6.607 0 0 1-2.084.797 3.28 3.28 0 0 0-2.397-1.034 3.28 3.28 0 0 0-3.197 4.028 9.321 9.321 0 0 1-6.766-3.431 3.284 3.284 0 0 0 1.015 4.381A3.301 3.301 0 0 1 .643 6.57v.041A3.283 3.283 0 0 0 3.277 9.83a3.291 3.291 0 0 1-1.485.057 3.293 3.293 0 0 0 3.066 2.281 6.586 6.586 0 0 1-4.862 1.359 9.286 9.286 0 0 0 5.034 1.475c6.037 0 9.341-5.003 9.341-9.341 0-.144-.003-.284-.009-.425a6.59 6.59 0 0 0 1.637-1.697z" />
+        </g>
+    </symbol>
+    <symbol id="icon-keybase" viewBox="0 0 50 50">
+        <g>
+            <path
+                d="M 24.433594 3.0019531 C 24.214219 3.0163281 23.998672 3.1032656 23.826172 3.2597656 C 23.70669 3.369165 22.227427 4.7384267 20.789062 6.9453125 C 20.493313 6.3897739 19.914285 6 19.25 6 L 14.75 6 C 13.794937 6 13 6.7949372 13 7.75 L 13 12.25 C 13 13.205063 13.794937 14 14.75 14 L 18.095703 14 C 18.038214 14.490889 18 14.988881 18 15.5 C 18 19.636 21.364 23 25.5 23 C 29.636 23 33 19.636 33 15.5 C 33 11.364 29.636 8 25.5 8 C 25.122 8 25.041812 7.8810781 25.007812 7.8300781 C 24.614813 7.2520781 24.999734 5.4491406 25.427734 4.3691406 C 25.599734 3.9371406 25.451359 3.4427344 25.068359 3.1777344 C 24.876359 3.0457344 24.652969 2.9875781 24.433594 3.0019531 z M 15 8 L 19 8 L 19 10.417969 C 18.803248 10.926943 18.627384 11.452559 18.480469 12 L 15 12 L 15 8 z M 16.646484 18.917969 C 9.2184844 22.402969 5 30.302 5 41 L 5 44 L 6.7246094 41.701172 C 7.0915267 43.013922 7.5755083 44.27612 8.1894531 45.460938 A 1.0002334 1.0002334 0 0 0 9.9648438 44.539062 C 9.1849975 43.034082 8.6252974 41.406022 8.3066406 39.693359 C 9.8157619 37.873526 11.472447 36.122537 13.066406 34.650391 C 12.538406 36.060391 12.183812 37.471953 12.007812 38.876953 L 11.693359 41.390625 L 13.640625 39.767578 C 13.696625 39.720578 19.437 35 26 35 C 29.219 35 30.97925 35.2985 32.53125 35.5625 C 33.86125 35.7875 35.118 36 37 36 C 40.1 36 41.797109 34.415625 42.537109 32.515625 C 42.734109 33.359625 42.872359 34.222563 42.943359 35.101562 C 42.979359 35.564563 43 36.03 43 36.5 C 43 39.318 42.33725 42.021062 41.03125 44.539062 C 40.77725 45.029063 40.968984 45.634672 41.458984 45.888672 C 41.605984 45.964672 41.764922 46 41.919922 46 C 42.280922 46 42.630594 45.804937 42.808594 45.460938 C 44.263594 42.656937 45 39.642 45 36.5 C 45 35.977 44.9785 35.456406 44.9375 34.941406 C 44.4555 28.783406 41.127547 23.350469 36.060547 20.105469 C 36.019547 20.079469 35.9785 20.051391 35.9375 20.025391 C 35.6015 19.814391 35.25625 19.615828 34.90625 19.423828 C 34.78325 19.355828 34.662109 19.285703 34.537109 19.220703 C 34.455109 19.177703 34.370109 19.140609 34.287109 19.099609 C 33.657109 20.630609 32.638469 21.961703 31.355469 22.970703 L 34.707031 26.322266 C 35.098031 26.713266 35.098031 27.345328 34.707031 27.736328 C 34.512031 27.931328 34.256 28.029297 34 28.029297 C 33.744 28.029297 33.487969 27.931328 33.292969 27.736328 L 32.455078 26.900391 L 30.648438 28.707031 C 30.453437 28.901031 30.197406 29 29.941406 29 C 29.685406 29 29.429375 28.902031 29.234375 28.707031 C 28.843375 28.316031 28.843375 27.683969 29.234375 27.292969 L 31.042969 25.484375 L 30 24.443359 L 28.707031 25.736328 C 28.512031 25.931328 28.256 26.029297 28 26.029297 C 27.744 26.029297 27.487969 25.931328 27.292969 25.736328 C 27.056969 25.500328 26.981297 25.178047 27.029297 24.873047 C 26.531297 24.954047 26.021 25 25.5 25 C 21.467 25 18.022484 22.470969 16.646484 18.917969 z M 20.5 40 A 1.5 1.5 0 0 0 19 41.5 A 1.5 1.5 0 0 0 20.5 43 A 1.5 1.5 0 0 0 22 41.5 A 1.5 1.5 0 0 0 20.5 40 z M 31.5 40 A 1.5 1.5 0 0 0 30 41.5 A 1.5 1.5 0 0 0 31.5 43 A 1.5 1.5 0 0 0 33 41.5 A 1.5 1.5 0 0 0 31.5 40 z" />
+        </g>
+    </symbol>
+    <symbol id="icon-youtube" viewBox="0 0 16 16">
+        <g>
+            <path
+                d="M15.841 4.8s-.156-1.103-.637-1.587c-.609-.637-1.291-.641-1.603-.678-2.237-.163-5.597-.163-5.597-.163h-.006s-3.359 0-5.597.163c-.313.038-.994.041-1.603.678C.317 3.697.164 4.8.164 4.8S.005 6.094.005 7.391v1.213c0 1.294.159 2.591.159 2.591s.156 1.103.634 1.588c.609.637 1.409.616 1.766.684 1.281.122 5.441.159 5.441.159s3.363-.006 5.6-.166c.313-.037.994-.041 1.603-.678.481-.484.637-1.588.637-1.588s.159-1.294.159-2.591V7.39c-.003-1.294-.162-2.591-.162-2.591zm-9.494 5.275V5.578l4.322 2.256-4.322 2.241z" />
+        </g>
+    </symbol>
+</svg>
+    <header class="l-header">
+        
+        <h1 class="c-title p-title"><a href="https://jeqo.github.io/" class="p-title__link">@jeqo</a></h1>
+         
+        <p class="p-subtitle">
+            data streaming, observability, automation, and random stuff
+        </p>
+        
+    </header>
+    
+<ul class="c-links">
+  
+  <li class="c-links__item">
+    <a href="https://twitter.com/jeqo89" target="_blank">
+      <svg viewBox="0 0 64 64" class="c-links__icon">
+        <title>twitter</title>
+        <use xlink:href="#icon-twitter"></use>
+      </svg>
+    </a>
+  </li>
+  
+  
+  <li class="c-links__item">
+    <a href="https://github.com/jeqo" target="_blank">
+      <svg viewBox="0 0 64 64" class="c-links__icon">
+        <title>github</title>
+        <use xlink:href="#icon-github"></use>
+      </svg>
+    </a>
+  </li>
+  
+  
+  <li class="c-links__item">
+    <a href="https://keybase.io/jeqo" target="_blank">
+      <svg viewBox="0 0 64 64" class="c-links__icon">
+        <title>linkedin</title>
+        <use xlink:href="#icon-keybase"></use>
+      </svg>
+    </a>
+  </li>
+  
+  
+  <li class="c-links__item">
+    <a href="https://linkedin.com/in/jeqo89" target="_blank">
+      <svg viewBox="0 0 64 64" class="c-links__icon">
+        <title>linkedin</title>
+        <use xlink:href="#icon-linkedin"></use>
+      </svg>
+    </a>
+  </li>
+  
+</ul>
+
+ 
+<nav class="l-nav p-menu">
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/notes">Notes</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/projects">Projects</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">About</a>
+        </li>
+          
+    </ul>
+</nav>
+
+    <main id="main" class="l-main">
+<h2 class="c-title p-tag-title">Notes</h2>
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/">Notes on Kafka, Samza and the Unix Philosophy of Distributed Data</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2018-07-27T00:00:00Z">
+        Jul 27, 2018
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    &nbsp;From Batch to Streaming workflows Key properties for large-scale systems:
 [Large-Scale Personalized Services] should have the following properties:
 System scalability Organizational scalability Operational robustness Where Batch jobs have been successfully used, and represent a reference model to improve from:
 [Batch, Map-Reduce jobs] has been remarkably successful tool for implementing recommendation systems.
 [Batch important benefits:]
-Multi-consumer: several jobs reading input directories without affecting each others. Visibility: job&rsquo;s input and output can be inspected for tracking down the cause of an error.</div><a href=https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/ class="c-article__btn p-list-article__btn">Read more</a></li><div><a href=/categories/notes/ class=c-tag>notes</a>
-<a href=/tags/kafka/ class=c-tag>kafka</a>
-<a href=/tags/samza/ class=c-tag>samza</a></div></article></main><nav class="l-nav p-menu"><ul class=p-menu__lists><li class=p-menu__listitem><a href=/posts>Posts</a></li><li class=p-menu__listitem><a href=/notes>Notes</a></li><li class=p-menu__listitem><a href=/talks>Talks</a></li><li class=p-menu__listitem><a href=/projects>Projects</a></li><li class=p-menu__listitem><a href=/about>About</a></li></ul></nav><footer class=l-footer><ul class=c-links><li class=c-links__item><a href=https://twitter.com/jeqo89 target=_blank><svg viewBox="0 0 64 64" class="c-links__icon"><title>twitter</title><use xlink:href="#icon-twitter"/></svg></a></li><li class=c-links__item><a href=https://github.com/jeqo target=_blank><svg viewBox="0 0 64 64" class="c-links__icon"><title>github</title><use xlink:href="#icon-github"/></svg></a></li><li class=c-links__item><a href=https://keybase.io/jeqo target=_blank><svg viewBox="0 0 64 64" class="c-links__icon"><title>linkedin</title><use xlink:href="#icon-keybase"/></svg></a></li><li class=c-links__item><a href=https://linkedin.com/in/jeqo89 target=_blank><svg viewBox="0 0 64 64" class="c-links__icon"><title>linkedin</title><use xlink:href="#icon-linkedin"/></svg></a></li></ul><p class=p-copyright>This work is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target=_blank rel="license noopener noreferrer" style=display:inline-block>CC BY 4.0<img style=height:22px!important;margin-left:3px;vertical-align:text-bottom src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style=height:22px!important;margin-left:3px;vertical-align:text-bottom src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a>
-&nbsp;&bull;&nbsp;
-2024
-&nbsp;&bull;&nbsp;
-<a href=https://jeqo.github.io/>@jeqo</a>
-&nbsp;&bull;&nbsp;
-<a href=https://github.com/jeqo/jeqo.github.io-src>[source code]</a></p></footer><script>(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)})(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-49047812-3","auto"),ga("send","pageview")</script></body></html>
+Multi-consumer: several jobs reading input directories without affecting each others. Visibility: job&rsquo;s input and output can be inspected for tracking down the cause of an error.
+  </div>
+  
+  <a href="https://jeqo.github.io/notes/2018-07-27-kafka-samza-and-the-unix-philosophy-of-distributed-data/" class="c-article__btn p-list-article__btn">Read more</a></li>
+  
+  <div>
+    
+    <a href="/categories/notes/" class="c-tag">notes</a>
+    
+    
+    <a href="/tags/kafka/" class="c-tag">kafka</a>
+    
+    <a href="/tags/samza/" class="c-tag">samza</a>
+    
+  </div>
+</article>
+
+
+  </main>
+  
+<nav class="l-nav p-menu">
+    <ul class="p-menu__lists">
+         
+        <li class="p-menu__listitem">
+            <a href="/posts">Posts</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/notes">Notes</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/talks">Talks</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/projects">Projects</a>
+        </li>
+          
+        <li class="p-menu__listitem">
+            <a href="/about">About</a>
+        </li>
+          
+    </ul>
+</nav>
+
+  <footer class="l-footer">
+    
+<ul class="c-links">
+  
+  <li class="c-links__item">
+    <a href="https://twitter.com/jeqo89" target="_blank">
+      <svg viewBox="0 0 64 64" class="c-links__icon">
+        <title>twitter</title>
+        <use xlink:href="#icon-twitter"></use>
+      </svg>
+    </a>
+  </li>
+  
+  
+  <li class="c-links__item">
+    <a href="https://github.com/jeqo" target="_blank">
+      <svg viewBox="0 0 64 64" class="c-links__icon">
+        <title>github</title>
+        <use xlink:href="#icon-github"></use>
+      </svg>
+    </a>
+  </li>
+  
+  
+  <li class="c-links__item">
+    <a href="https://keybase.io/jeqo" target="_blank">
+      <svg viewBox="0 0 64 64" class="c-links__icon">
+        <title>linkedin</title>
+        <use xlink:href="#icon-keybase"></use>
+      </svg>
+    </a>
+  </li>
+  
+  
+  <li class="c-links__item">
+    <a href="https://linkedin.com/in/jeqo89" target="_blank">
+      <svg viewBox="0 0 64 64" class="c-links__icon">
+        <title>linkedin</title>
+        <use xlink:href="#icon-linkedin"></use>
+      </svg>
+    </a>
+  </li>
+  
+</ul>
+
+
+
+    <p class="p-copyright">This work is licensed under <a
+        href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank"
+        rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img
+        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img
+        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a>
+
+      &nbsp;&bull;&nbsp;
+      2024
+
+      
+        &nbsp;&bull;&nbsp;
+        <a href="https://jeqo.github.io/">@jeqo</a>
+      
+      &nbsp;&bull;&nbsp;
+      <a href="https://github.com/jeqo/jeqo.github.io-src">[source code]</a>
+    </p>
+  </footer>
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-49047812-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+  
+
+</body>
+</html>
+

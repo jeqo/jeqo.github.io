@@ -1,3 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Back-End on @jeqo</title><link>https://jeqo.github.io/categories/back-end/</link><description>Recent content in Back-End on @jeqo</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 10 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/back-end/index.xml" rel="self" type="application/rss+xml"/><item><title>From Messaging to Logs with Apache Kafka @ OUGN 2017</title><link>https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/</link><pubDate>Fri, 10 Mar 2017 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/</guid><description>&lt;p>Presented at &lt;a href="http://ougn.no/varseminar-2017/">OUGN 2017&lt;/a>&lt;/p></description></item><item><title>Integrate Java EE 7 and Kafka using Avro and RxJava</title><link>https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/</link><pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/</guid><description>&lt;p>I decided to implement a naive integration between Java EE applications and
-RxJava/Kafka/Avro, to publish and subscribe to events.&lt;/p>
-&lt;p>You can go directly to that &lt;a href="https://github.com/jeqo/java-ee-rxjava-kafka-avro">code&lt;/a>, or check my approach:&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Back-End on @jeqo</title>
+    <link>https://jeqo.github.io/categories/back-end/</link>
+    <description>Recent content in Back-End on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 10 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/categories/back-end/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From Messaging to Logs with Apache Kafka @ OUGN 2017</title>
+      <link>https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/</link>
+      <pubDate>Fri, 10 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>https://jeqo.github.io/talks/from-messaging-to-logs-ougn17/</guid>
+      <description>&lt;p&gt;Presented at &lt;a href=&#34;http://ougn.no/varseminar-2017/&#34;&gt;OUGN 2017&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Integrate Java EE 7 and Kafka using Avro and RxJava</title>
+      <link>https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/</link>
+      <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
+      <guid>https://jeqo.github.io/posts/2015-07-31-java-ee-rxjava-kafka-avro/</guid>
+      <description>&lt;p&gt;I decided to implement a naive integration between Java EE applications and&#xA;RxJava/Kafka/Avro, to publish and subscribe to events.&lt;/p&gt;&#xA;&lt;p&gt;You can go directly to that &lt;a href=&#34;https://github.com/jeqo/java-ee-rxjava-kafka-avro&#34;&gt;code&lt;/a&gt;, or check my approach:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

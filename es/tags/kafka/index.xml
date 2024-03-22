@@ -1,13 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kafka on @jeqo</title><link>https://jeqo.github.io/es/tags/kafka/</link><description>Recent content in Kafka on @jeqo</description><generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Thu, 16 Feb 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/es/tags/kafka/index.xml" rel="self" type="application/rss+xml"/><item><title>De Mensajería a Log de Eventos con Apache Kafka @ Perú JUG</title><link>https://jeqo.github.io/es/talks/de-mensajeria-a-log-de-eventos-perujug/</link><pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/es/talks/de-mensajeria-a-log-de-eventos-perujug/</guid><description>&lt;p>Presentado al &lt;a href="https://twitter.com/perujug/">Perú JUG&lt;/a>&lt;/p></description></item><item><title>Retroceder Offsets de Consumidores de Kafka</title><link>https://jeqo.github.io/es/posts/2017-01-31-kafka-rewind-consumers-offset/</link><pubDate>Tue, 31 Jan 2017 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/es/posts/2017-01-31-kafka-rewind-consumers-offset/</guid><description>&lt;p>Una de las características más importantes de &lt;em>Apache Kafka&lt;/em> es el manejo
-de múltiples consumidores. Cada &lt;code>consumer group&lt;/code> tiene un &lt;code>offset&lt;/code>, que
-determina hasta que punto del &lt;code>topic&lt;/code> se encuentra consumido por &lt;code>consumer group&lt;/code>.
-Así, cada &lt;code>consumer group&lt;/code> puede manejar los &lt;code>offset&lt;/code> independientemente, por
-partición.&lt;/p>
-&lt;p>Esto ofrece la posibilidad de retroceder en el tiempo y reprocesar mensaje desde
-el inicio de un &lt;code>topic&lt;/code> y regenerar el estado actual del sistema.&lt;/p>
-&lt;p>Pero, cómo realizar esto de forma programática?&lt;/p></description></item><item><title>Escalando Kafka con Docker Containers</title><link>https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/</link><pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/</guid><description>&lt;p>En este post mostraré como utilizar contenedores Docker para crear y escalar
-un clúster de Kafka, y también como crear, escalar y mover &lt;code>topics&lt;/code> dentro del
-clúster.&lt;/p></description></item><item><title>Integrar Java EE 7 y Kafka usando Avro y RxJava</title><link>https://jeqo.github.io/es/posts/2015-07-31-java-ee-rxjava-kafka-avro/</link><pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/es/posts/2015-07-31-java-ee-rxjava-kafka-avro/</guid><description>Hace poco decidi probar una rápida implementación entre aplicaciones Java EE y RxJava/Kafka/Avro, para publicar/subscribirse a &amp;ldquo;topic messages&amp;rdquo;.
-Puedes ir directamente al código, o revisar el enfoque que apliqué:
-&amp;nbsp;TL;DR He estado realizando alguna pruebas de concepto con Kafka seducido por los beneficios que propone (rapidez, escalabilidad, y funcionar como una fuente de eventos durable) para implementar una propagación de eventos usando el patrón &amp;ldquo;Publish/Subscribe&amp;rdquo;.
-En estos momentos que estoy escribiendo esta entrada del blog, me he dado cuenta que las APIs para acceder a Kafka están en constante evolución y volviéndose más simples de utilizar, y no ha sido fácil encontrar un ejemplo con la versión actual.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kafka on @jeqo</title>
+    <link>https://jeqo.github.io/es/tags/kafka/</link>
+    <description>Recent content in Kafka on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Thu, 16 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/es/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>De Mensajería a Log de Eventos con Apache Kafka @ Perú JUG</title>
+      <link>https://jeqo.github.io/es/talks/de-mensajeria-a-log-de-eventos-perujug/</link>
+      <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
+      <guid>https://jeqo.github.io/es/talks/de-mensajeria-a-log-de-eventos-perujug/</guid>
+      <description>&lt;p&gt;Presentado al &lt;a href=&#34;https://twitter.com/perujug/&#34;&gt;Perú JUG&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Retroceder Offsets de Consumidores de Kafka</title>
+      <link>https://jeqo.github.io/es/posts/2017-01-31-kafka-rewind-consumers-offset/</link>
+      <pubDate>Tue, 31 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://jeqo.github.io/es/posts/2017-01-31-kafka-rewind-consumers-offset/</guid>
+      <description>&lt;p&gt;Una de las características más importantes de &lt;em&gt;Apache Kafka&lt;/em&gt; es el manejo&#xA;de múltiples consumidores. Cada &lt;code&gt;consumer group&lt;/code&gt; tiene un &lt;code&gt;offset&lt;/code&gt;, que&#xA;determina hasta que punto del &lt;code&gt;topic&lt;/code&gt; se encuentra consumido por &lt;code&gt;consumer group&lt;/code&gt;.&#xA;Así, cada &lt;code&gt;consumer group&lt;/code&gt; puede manejar los &lt;code&gt;offset&lt;/code&gt; independientemente, por&#xA;partición.&lt;/p&gt;&#xA;&lt;p&gt;Esto ofrece la posibilidad de retroceder en el tiempo y reprocesar mensaje desde&#xA;el inicio de un &lt;code&gt;topic&lt;/code&gt; y regenerar el estado actual del sistema.&lt;/p&gt;&#xA;&lt;p&gt;Pero, cómo realizar esto de forma programática?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Escalando Kafka con Docker Containers</title>
+      <link>https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/</link>
+      <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://jeqo.github.io/es/posts/2017-01-15-scale-kafka-containers/</guid>
+      <description>&lt;p&gt;En este post mostraré como utilizar contenedores Docker para crear y escalar&#xA;un clúster de Kafka, y también como crear, escalar y mover &lt;code&gt;topics&lt;/code&gt; dentro del&#xA;clúster.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Integrar Java EE 7 y Kafka usando Avro y RxJava</title>
+      <link>https://jeqo.github.io/es/posts/2015-07-31-java-ee-rxjava-kafka-avro/</link>
+      <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
+      <guid>https://jeqo.github.io/es/posts/2015-07-31-java-ee-rxjava-kafka-avro/</guid>
+      <description>Hace poco decidi probar una rápida implementación entre aplicaciones Java EE y RxJava/Kafka/Avro, para publicar/subscribirse a &amp;ldquo;topic messages&amp;rdquo;.&#xA;Puedes ir directamente al código, o revisar el enfoque que apliqué:&#xA;&amp;nbsp;TL;DR He estado realizando alguna pruebas de concepto con Kafka seducido por los beneficios que propone (rapidez, escalabilidad, y funcionar como una fuente de eventos durable) para implementar una propagación de eventos usando el patrón &amp;ldquo;Publish/Subscribe&amp;rdquo;.&#xA;En estos momentos que estoy escribiendo esta entrada del blog, me he dado cuenta que las APIs para acceder a Kafka están en constante evolución y volviéndose más simples de utilizar, y no ha sido fácil encontrar un ejemplo con la versión actual.</description>
+    </item>
+  </channel>
+</rss>

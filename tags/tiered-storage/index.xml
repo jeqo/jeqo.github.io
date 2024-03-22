@@ -1,8 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tiered-Storage on @jeqo</title><link>http://localhost:1313/tags/tiered-storage/</link><description>Recent content in Tiered-Storage on @jeqo</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 07 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/tiered-storage/index.xml" rel="self" type="application/rss+xml"/><item><title>Kafka Tiered Storage: Archival and fetching dataflows</title><link>http://localhost:1313/posts/kafka-tiered-storage-framework/</link><pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/posts/kafka-tiered-storage-framework/</guid><description>&lt;p>On &lt;a href="https://kafka.apache.org/blog#apache_kafka_360_release_announcement">version 3.6&lt;/a> Apache Kafka has released an &lt;a href="https://cwiki.apache.org/confluence/display/KAFKA/Kafka+Tiered+Storage+Early+Access+Release+Notes">early-access&lt;/a> version of&amp;ndash;the long-awaited&amp;ndash;Tiered Storage feature
-(proposed as &lt;a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-405%3A+Kafka+Tiered+Storage">KIP-405&lt;/a>)
-extending its storage layer from the comforting local file-system
-to a retention based setup between local and a pluggable remote storage (e.g. AWS S3).&lt;/p>
-&lt;p>Within Tiered Storage, the concept of retention has been extended to specify when data is tiered:
-Topic retention settings (&lt;code>retention.ms|bytes&lt;/code>) keeps representing the retention per partition for all tiers,
-but a new configuration for &lt;em>local&lt;/em> retention (&lt;code>local.retention.ms|bytes&lt;/code>) sets how much data to keep on broker&amp;rsquo;s file system.&lt;/p>
-&lt;p>Let&amp;rsquo;s explore how these retention concepts enable the archival and fetching dataflows.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tiered-Storage on @jeqo</title>
+    <link>http://localhost:1313/tags/tiered-storage/</link>
+    <description>Recent content in Tiered-Storage on @jeqo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 07 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tiered-storage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kafka Tiered Storage: Archival and fetching dataflows</title>
+      <link>http://localhost:1313/posts/kafka-tiered-storage-framework/</link>
+      <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kafka-tiered-storage-framework/</guid>
+      <description>&lt;p&gt;On &lt;a href=&#34;https://kafka.apache.org/blog#apache_kafka_360_release_announcement&#34;&gt;version 3.6&lt;/a&gt; Apache Kafka has released an &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/Kafka+Tiered+Storage+Early+Access+Release+Notes&#34;&gt;early-access&lt;/a&gt; version of&amp;ndash;the long-awaited&amp;ndash;Tiered Storage feature&#xA;(proposed as &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-405%3A+Kafka+Tiered+Storage&#34;&gt;KIP-405&lt;/a&gt;)&#xA;extending its storage layer from the comforting local file-system&#xA;to a retention based setup between local and a pluggable remote storage (e.g. AWS S3).&lt;/p&gt;&#xA;&lt;p&gt;Within Tiered Storage, the concept of retention has been extended to specify when data is tiered:&#xA;Topic retention settings (&lt;code&gt;retention.ms|bytes&lt;/code&gt;) keeps representing the retention per partition for all tiers,&#xA;but a new configuration for &lt;em&gt;local&lt;/em&gt; retention (&lt;code&gt;local.retention.ms|bytes&lt;/code&gt;) sets how much data to keep on broker&amp;rsquo;s file system.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s explore how these retention concepts enable the archival and fetching dataflows.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
