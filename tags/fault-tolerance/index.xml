@@ -1,20 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Fault-Tolerance on @jeqo</title>
-    <link>https://jeqo.github.io/tags/fault-tolerance/</link>
-    <description>Recent content in Fault-Tolerance on @jeqo</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 02 Dec 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jeqo.github.io/tags/fault-tolerance/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Use min.insync.replicas for fault-tolerance</title>
-      <link>https://jeqo.github.io/notes/2021-12-02-kafka-min-isr/</link>
-      <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/notes/2021-12-02-kafka-min-isr/</guid>
-      <description>&lt;p&gt;Things to remember:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Topic replication factor is not enough to guarantee fault-tolerance. If &lt;code&gt;min.insync.replicas&lt;/code&gt; is not defined i.e. 1, then data could potentially be lost.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;acks=all&lt;/code&gt; will force replica leader to wait for &lt;em&gt;all&lt;/em&gt; brokers in the ISR, not only the &lt;code&gt;min.insync.replicas&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;If replicas available are equal to minimum ISR, then the topic partitions are at the edge of losing availability. If one broker becomes unavailable (e.g. restarting), then producers will fail to write data.&lt;/li&gt;&#xA;&lt;li&gt;Topic configuration is inherited from the server. If broker configuration changes, it affects the &lt;em&gt;existing&lt;/em&gt; topics. Keep the topic defaults, unless it needs to be different than broker default for easier maintenance.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fault-Tolerance on @jeqo</title><link>https://jeqo.github.io/tags/fault-tolerance/</link><description>Recent content in Fault-Tolerance on @jeqo</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 02 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/fault-tolerance/index.xml" rel="self" type="application/rss+xml"/><item><title>Use min.insync.replicas for fault-tolerance</title><link>https://jeqo.github.io/notes/2021-12-02-kafka-min-isr/</link><pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/notes/2021-12-02-kafka-min-isr/</guid><description>&lt;p>Things to remember:&lt;/p>
+&lt;ul>
+&lt;li>Topic replication factor is not enough to guarantee fault-tolerance. If &lt;code>min.insync.replicas&lt;/code> is not defined i.e. 1, then data could potentially be lost.&lt;/li>
+&lt;li>&lt;code>acks=all&lt;/code> will force replica leader to wait for &lt;em>all&lt;/em> brokers in the ISR, not only the &lt;code>min.insync.replicas&lt;/code>.&lt;/li>
+&lt;li>If replicas available are equal to minimum ISR, then the topic partitions are at the edge of losing availability. If one broker becomes unavailable (e.g. restarting), then producers will fail to write data.&lt;/li>
+&lt;li>Topic configuration is inherited from the server. If broker configuration changes, it affects the &lt;em>existing&lt;/em> topics. Keep the topic defaults, unless it needs to be different than broker default for easier maintenance.&lt;/li>
+&lt;/ul></description></item></channel></rss>

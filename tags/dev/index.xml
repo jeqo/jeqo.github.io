@@ -1,69 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Dev on @jeqo</title>
-    <link>https://jeqo.github.io/tags/dev/</link>
-    <description>Recent content in Dev on @jeqo</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jeqo.github.io/tags/dev/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Piggyback on Kafka Connect Schemas to process Kafka records in a generic way</title>
-      <link>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</link>
-      <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</guid>
-      <description>When reading from/writing to Kafka topics, a serializer/deserializer (a.k.a SerDes) is needed to process record key and value bytes. Specific SerDes that turn bytes into specific objects (e.g. POJO) are used, unless a generic JSON object or Avro structure is used.&#xA;Kafka Connect has to deal with generic structures to apply message transformations and convert messages from external sources into Kafka records and vice-versa. It has a SchemaAndValue composed type that includes a Connect Schema type derived from Schema Registry or JSON Schema included in the payload, and a value object.</description>
-    </item>
-    <item>
-      <title>Kafka Streams: Tick stream-time with control messages</title>
-      <link>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</link>
-      <pubDate>Fri, 17 Jun 2022 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</guid>
-      <description>&lt;p&gt;Kafka Streams is in many ways governed by the concept of time.&#xA;For instance, as soon as stateful operations are used, the event-time drives how events are grouped, joined, and emitted.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://developer.confluent.io/learn-kafka/kafka-streams/time-concepts/#stream-time&#34;&gt;Stream-time&lt;/a&gt;&#xA;is the concept within Kafka Streams representing the largest timestamp seen by the the stream application (per-partition).&#xA;In comparison with wall-clock time (i.e. system time) — at the execution of an application — stream-time is driven by the data seen by the application.&#xA;This ensures that the results produced by a Kafka Streams application are reproducible.&lt;/p&gt;&#xA;&lt;p&gt;One nuance of stream-time is that it &lt;em&gt;needs&lt;/em&gt; incoming events to &amp;ldquo;tick&amp;rdquo;.&#xA;This could represent an issue for events that are sparse in time, and we expect results to be produced more often (e.g. windows to be closed and emit, punctiation to be calculated).&lt;/p&gt;&#xA;&lt;p&gt;This is a known issue, and there are some proposals to overcome it in certain parts of the framework,&#xA;e.g. &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-424%3A+Allow+suppression+of+intermediate+events+based+on+wall+clock+time&#34;&gt;KIP-424&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This post covers a proof-of-concept instrumenting producers to emit contol messages to advance stream time.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Kafka client applications with GraalVM</title>
-      <link>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</link>
-      <pubDate>Fri, 18 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</guid>
-      <description>&lt;p&gt;Shipping CLI binaries with Java hasn&amp;rsquo;t been the most user-friendly experience.&#xA;Java is required to be installed on the client-side, starting Java applications (e.g. executable JAR) tend to be slower than to binary applications.&lt;/p&gt;&#xA;&lt;p&gt;GraalVM, and specifically &lt;a href=&#34;https://www.graalvm.org/22.0/reference-manual/native-image/&#34;&gt;native-image&lt;/a&gt; tooling, is aimed to tackle most of these issues with Java by enable building native binaries from Java applications.&lt;/p&gt;&#xA;&lt;p&gt;Even though this has been supported for a while now, reflection and other practices require additional configurations that make this process either unsupported or very cumbersome to implement.&lt;/p&gt;&#xA;&lt;p&gt;With the arrival of new frameworks that target the benefits of GraalVM, like &lt;a href=&#34;https://micronaut.io/&#34;&gt;Micronaut&lt;/a&gt; and &lt;a href=&#34;https://quarkus.io/&#34;&gt;Quarkus&lt;/a&gt;, it started to be possible and simpler to implement applications that included Kafka clients, and package them as native binaries.&lt;/p&gt;&#xA;&lt;p&gt;This post is going to explore the steps to package &lt;em&gt;vanilla&lt;/em&gt; Kafka client applications —i.e. no framework— as native binaries.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Explore Kafka data with kcat, sqlite, and Datasette</title>
-      <link>https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/</link>
-      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/</guid>
-      <description>&lt;p&gt;I have been playing with Datasette and sqlite for a bit, trying to collect and expose data efficiently for others to analyze.&#xA;Recently started finding use-cases to get data from Apache Kafka, and expose it quickly to analyze it.&#xA;Why not using Datasette?&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Releasing OS-specific GraalVM native image binaries easier with JReleaser</title>
-      <link>https://jeqo.github.io/notes/2022-03-01-jreleaser-graalvm-native-image/</link>
-      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/notes/2022-03-01-jreleaser-graalvm-native-image/</guid>
-      <description>&lt;p&gt;Packaging and releasing Java applications (e.g. CLI) tend to be cumbersome, and the user-experience tended not to be the best as users have to download a valid version of JRE, etc.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Changing void returning type in Java methods breaks binary compatibility</title>
-      <link>https://jeqo.github.io/notes/2022-02-16-java-void-binary-compatibility/</link>
-      <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/notes/2022-02-16-java-void-binary-compatibility/</guid>
-      <description>&lt;p&gt;While &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-820%3A+Extend+KStream+process+with+new+Processor+API&#34;&gt;proposing changes to Kafka Streams DSL&lt;/a&gt;, I propose changing the return type of one method from &lt;code&gt;void&lt;/code&gt; to &lt;code&gt;KStream&amp;lt;KOut, VOut&lt;/code&gt;.&#xA;I was under the (wrong) impression that this change wouldn&amp;rsquo;t affect users.&#xA;I was also not considering that applications might just drop a new library without recompiling their application.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Kafka Streams FK-join within the same KTable</title>
-      <link>https://jeqo.github.io/notes/2022-01-29-kafka-streams-fk-join-same-table/</link>
-      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/notes/2022-01-29-kafka-streams-fk-join-same-table/</guid>
-      <description>&lt;p&gt;KTable to KTable foreign-key joins is one of the coolest features in Kafka Streams.&lt;/p&gt;&#xA;&lt;p&gt;I was wondering whether this feature would handle FK-joins between values on the same table.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Kafka Streams abstracts access to multiple tasks state stores when reading</title>
-      <link>https://jeqo.github.io/notes/2022-01-26-kafka-streams-iq-composite/</link>
-      <pubDate>Wed, 26 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/notes/2022-01-26-kafka-streams-iq-composite/</guid>
-      <description>&lt;p&gt;Kafka Streams applications could scale either horizontally (add more instances) or vertically (add more threads).&#xA;When scaled vertically, multiple tasks store multiple partitions locally.&#xA;An interesting question is whether Kafka Streams gives access when reading (i.e. &lt;a href=&#34;https://docs.confluent.io/platform/current/streams/developer-guide/interactive-queries.html&#34;&gt;Interactive Queries&lt;/a&gt;) to these stores, and how does it manage to abstract the access to different stores managed by multiple tasks.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dev on @jeqo</title><link>https://jeqo.github.io/tags/dev/</link><description>Recent content in Dev on @jeqo</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Piggyback on Kafka Connect Schemas to process Kafka records in a generic way</title><link>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</link><pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/notes/2022-08-24-kafka-connect-schema-serde/</guid><description>When reading from/writing to Kafka topics, a serializer/deserializer (a.k.a SerDes) is needed to process record key and value bytes. Specific SerDes that turn bytes into specific objects (e.g. POJO) are used, unless a generic JSON object or Avro structure is used.
+Kafka Connect has to deal with generic structures to apply message transformations and convert messages from external sources into Kafka records and vice-versa. It has a SchemaAndValue composed type that includes a Connect Schema type derived from Schema Registry or JSON Schema included in the payload, and a value object.</description></item><item><title>Kafka Streams: Tick stream-time with control messages</title><link>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</link><pubDate>Fri, 17 Jun 2022 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</guid><description>&lt;p>Kafka Streams is in many ways governed by the concept of time.
+For instance, as soon as stateful operations are used, the event-time drives how events are grouped, joined, and emitted.&lt;/p>
+&lt;p>&lt;a href="https://developer.confluent.io/learn-kafka/kafka-streams/time-concepts/#stream-time">Stream-time&lt;/a>
+is the concept within Kafka Streams representing the largest timestamp seen by the the stream application (per-partition).
+In comparison with wall-clock time (i.e. system time) — at the execution of an application — stream-time is driven by the data seen by the application.
+This ensures that the results produced by a Kafka Streams application are reproducible.&lt;/p>
+&lt;p>One nuance of stream-time is that it &lt;em>needs&lt;/em> incoming events to &amp;ldquo;tick&amp;rdquo;.
+This could represent an issue for events that are sparse in time, and we expect results to be produced more often (e.g. windows to be closed and emit, punctiation to be calculated).&lt;/p>
+&lt;p>This is a known issue, and there are some proposals to overcome it in certain parts of the framework,
+e.g. &lt;a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-424%3A+Allow+suppression+of+intermediate+events+based+on+wall+clock+time">KIP-424&lt;/a>.&lt;/p>
+&lt;p>This post covers a proof-of-concept instrumenting producers to emit contol messages to advance stream time.&lt;/p></description></item><item><title>Kafka client applications with GraalVM</title><link>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</link><pubDate>Fri, 18 Mar 2022 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</guid><description>&lt;p>Shipping CLI binaries with Java hasn&amp;rsquo;t been the most user-friendly experience.
+Java is required to be installed on the client-side, starting Java applications (e.g. executable JAR) tend to be slower than to binary applications.&lt;/p>
+&lt;p>GraalVM, and specifically &lt;a href="https://www.graalvm.org/22.0/reference-manual/native-image/">native-image&lt;/a> tooling, is aimed to tackle most of these issues with Java by enable building native binaries from Java applications.&lt;/p>
+&lt;p>Even though this has been supported for a while now, reflection and other practices require additional configurations that make this process either unsupported or very cumbersome to implement.&lt;/p>
+&lt;p>With the arrival of new frameworks that target the benefits of GraalVM, like &lt;a href="https://micronaut.io/">Micronaut&lt;/a> and &lt;a href="https://quarkus.io/">Quarkus&lt;/a>, it started to be possible and simpler to implement applications that included Kafka clients, and package them as native binaries.&lt;/p>
+&lt;p>This post is going to explore the steps to package &lt;em>vanilla&lt;/em> Kafka client applications —i.e. no framework— as native binaries.&lt;/p></description></item><item><title>Explore Kafka data with kcat, sqlite, and Datasette</title><link>https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/</link><pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/notes/2022-03-10-kcat-end-offset-and-datasette/</guid><description>&lt;p>I have been playing with Datasette and sqlite for a bit, trying to collect and expose data efficiently for others to analyze.
+Recently started finding use-cases to get data from Apache Kafka, and expose it quickly to analyze it.
+Why not using Datasette?&lt;/p></description></item><item><title>Releasing OS-specific GraalVM native image binaries easier with JReleaser</title><link>https://jeqo.github.io/notes/2022-03-01-jreleaser-graalvm-native-image/</link><pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/notes/2022-03-01-jreleaser-graalvm-native-image/</guid><description>&lt;p>Packaging and releasing Java applications (e.g. CLI) tend to be cumbersome, and the user-experience tended not to be the best as users have to download a valid version of JRE, etc.&lt;/p></description></item><item><title>Changing void returning type in Java methods breaks binary compatibility</title><link>https://jeqo.github.io/notes/2022-02-16-java-void-binary-compatibility/</link><pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/notes/2022-02-16-java-void-binary-compatibility/</guid><description>&lt;p>While &lt;a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-820%3A+Extend+KStream+process+with+new+Processor+API">proposing changes to Kafka Streams DSL&lt;/a>, I propose changing the return type of one method from &lt;code>void&lt;/code> to &lt;code>KStream&amp;lt;KOut, VOut&lt;/code>.
+I was under the (wrong) impression that this change wouldn&amp;rsquo;t affect users.
+I was also not considering that applications might just drop a new library without recompiling their application.&lt;/p></description></item><item><title>Kafka Streams FK-join within the same KTable</title><link>https://jeqo.github.io/notes/2022-01-29-kafka-streams-fk-join-same-table/</link><pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/notes/2022-01-29-kafka-streams-fk-join-same-table/</guid><description>&lt;p>KTable to KTable foreign-key joins is one of the coolest features in Kafka Streams.&lt;/p>
+&lt;p>I was wondering whether this feature would handle FK-joins between values on the same table.&lt;/p></description></item><item><title>Kafka Streams abstracts access to multiple tasks state stores when reading</title><link>https://jeqo.github.io/notes/2022-01-26-kafka-streams-iq-composite/</link><pubDate>Wed, 26 Jan 2022 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/notes/2022-01-26-kafka-streams-iq-composite/</guid><description>&lt;p>Kafka Streams applications could scale either horizontally (add more instances) or vertically (add more threads).
+When scaled vertically, multiple tasks store multiple partitions locally.
+An interesting question is whether Kafka Streams gives access when reading (i.e. &lt;a href="https://docs.confluent.io/platform/current/streams/developer-guide/interactive-queries.html">Interactive Queries&lt;/a>) to these stores, and how does it manage to abstract the access to different stores managed by multiple tasks.&lt;/p></description></item></channel></rss>

@@ -1,27 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Cli on @jeqo</title>
-    <link>https://jeqo.github.io/tags/cli/</link>
-    <description>Recent content in Cli on @jeqo</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jeqo.github.io/tags/cli/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Kafka Emulator CLI: Record and Reply Records considering time-distance</title>
-      <link>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</link>
-      <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</guid>
-      <description>Looking for alternative ways to reproduce time-based conditions in Kafka Streams applications —e.g. if you&amp;rsquo;re doing some sort of join or windowing based on time— I ended up creating a CLI tool to support a couple of features:&#xA;Record events from topics, including their timestamps and gap Replay events, including waiting periods between them SQLite is used a storage for recorded events, so events can be generated, updated, tweaked using SQL.</description>
-    </item>
-    <item>
-      <title>Kafka client applications with GraalVM</title>
-      <link>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</link>
-      <pubDate>Fri, 18 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</guid>
-      <description>&lt;p&gt;Shipping CLI binaries with Java hasn&amp;rsquo;t been the most user-friendly experience.&#xA;Java is required to be installed on the client-side, starting Java applications (e.g. executable JAR) tend to be slower than to binary applications.&lt;/p&gt;&#xA;&lt;p&gt;GraalVM, and specifically &lt;a href=&#34;https://www.graalvm.org/22.0/reference-manual/native-image/&#34;&gt;native-image&lt;/a&gt; tooling, is aimed to tackle most of these issues with Java by enable building native binaries from Java applications.&lt;/p&gt;&#xA;&lt;p&gt;Even though this has been supported for a while now, reflection and other practices require additional configurations that make this process either unsupported or very cumbersome to implement.&lt;/p&gt;&#xA;&lt;p&gt;With the arrival of new frameworks that target the benefits of GraalVM, like &lt;a href=&#34;https://micronaut.io/&#34;&gt;Micronaut&lt;/a&gt; and &lt;a href=&#34;https://quarkus.io/&#34;&gt;Quarkus&lt;/a&gt;, it started to be possible and simpler to implement applications that included Kafka clients, and package them as native binaries.&lt;/p&gt;&#xA;&lt;p&gt;This post is going to explore the steps to package &lt;em&gt;vanilla&lt;/em&gt; Kafka client applications —i.e. no framework— as native binaries.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cli on @jeqo</title><link>https://jeqo.github.io/tags/cli/</link><description>Recent content in Cli on @jeqo</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/cli/index.xml" rel="self" type="application/rss+xml"/><item><title>Kafka Emulator CLI: Record and Reply Records considering time-distance</title><link>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</link><pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</guid><description>Looking for alternative ways to reproduce time-based conditions in Kafka Streams applications —e.g. if you&amp;rsquo;re doing some sort of join or windowing based on time— I ended up creating a CLI tool to support a couple of features:
+Record events from topics, including their timestamps and gap Replay events, including waiting periods between them SQLite is used a storage for recorded events, so events can be generated, updated, tweaked using SQL.</description></item><item><title>Kafka client applications with GraalVM</title><link>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</link><pubDate>Fri, 18 Mar 2022 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/posts/2022-03-18-kafka-clients-graalvm/</guid><description>&lt;p>Shipping CLI binaries with Java hasn&amp;rsquo;t been the most user-friendly experience.
+Java is required to be installed on the client-side, starting Java applications (e.g. executable JAR) tend to be slower than to binary applications.&lt;/p>
+&lt;p>GraalVM, and specifically &lt;a href="https://www.graalvm.org/22.0/reference-manual/native-image/">native-image&lt;/a> tooling, is aimed to tackle most of these issues with Java by enable building native binaries from Java applications.&lt;/p>
+&lt;p>Even though this has been supported for a while now, reflection and other practices require additional configurations that make this process either unsupported or very cumbersome to implement.&lt;/p>
+&lt;p>With the arrival of new frameworks that target the benefits of GraalVM, like &lt;a href="https://micronaut.io/">Micronaut&lt;/a> and &lt;a href="https://quarkus.io/">Quarkus&lt;/a>, it started to be possible and simpler to implement applications that included Kafka clients, and package them as native binaries.&lt;/p>
+&lt;p>This post is going to explore the steps to package &lt;em>vanilla&lt;/em> Kafka client applications —i.e. no framework— as native binaries.&lt;/p></description></item></channel></rss>

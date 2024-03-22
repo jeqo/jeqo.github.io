@@ -1,20 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Streaming-Joins on @jeqo</title>
-    <link>https://jeqo.github.io/tags/streaming-joins/</link>
-    <description>Recent content in Streaming-Joins on @jeqo</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Sat, 29 Jan 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jeqo.github.io/tags/streaming-joins/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Kafka Streams FK-join within the same KTable</title>
-      <link>https://jeqo.github.io/notes/2022-01-29-kafka-streams-fk-join-same-table/</link>
-      <pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/notes/2022-01-29-kafka-streams-fk-join-same-table/</guid>
-      <description>&lt;p&gt;KTable to KTable foreign-key joins is one of the coolest features in Kafka Streams.&lt;/p&gt;&#xA;&lt;p&gt;I was wondering whether this feature would handle FK-joins between values on the same table.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Streaming-Joins on @jeqo</title><link>https://jeqo.github.io/tags/streaming-joins/</link><description>Recent content in Streaming-Joins on @jeqo</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 29 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/streaming-joins/index.xml" rel="self" type="application/rss+xml"/><item><title>Kafka Streams FK-join within the same KTable</title><link>https://jeqo.github.io/notes/2022-01-29-kafka-streams-fk-join-same-table/</link><pubDate>Sat, 29 Jan 2022 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/notes/2022-01-29-kafka-streams-fk-join-same-table/</guid><description>&lt;p>KTable to KTable foreign-key joins is one of the coolest features in Kafka Streams.&lt;/p>
+&lt;p>I was wondering whether this feature would handle FK-joins between values on the same table.&lt;/p></description></item></channel></rss>

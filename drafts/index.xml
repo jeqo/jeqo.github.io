@@ -1,27 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Drafts on @jeqo</title>
-    <link>https://jeqo.github.io/drafts/</link>
-    <description>Recent content in Drafts on @jeqo</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Sun, 31 May 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jeqo.github.io/drafts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>KIP-634: Complementary support for headers in Kafka Streams</title>
-      <link>https://jeqo.github.io/drafts/kip-634/</link>
-      <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/drafts/kip-634/</guid>
-      <description>&amp;nbsp;Motivation Headers are transiently passed over a Kafka Streams topology. To act on them, Processor API has to be used since (KIP-244).&#xA;Although current support is useful for instrumentations that need to access headers, it becomes cumbersome for users to access headers on common Kafka Streams DSL operations (e.g filtering based on header value) as requires using a Transformer/Processor implementation.&#xA;&amp;nbsp;Related JIRA issues https://issues.apache.org/jira/browse/KAFKA-7718 &amp;nbsp;Proposed Changes Include a new type, to map value and headers.</description>
-    </item>
-    <item>
-      <title>KIP-617: Allow Kafka Streams State Stores to be iterated backwards</title>
-      <link>https://jeqo.github.io/drafts/kip-617/</link>
-      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/drafts/kip-617/</guid>
-      <description>&amp;nbsp;Motivation Fetching range of records from Kafka Streams state stores comes with an iterator to traverse elements from oldest to newest, e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions:&#xA;For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&amp;quot;&#xA;Similar guarantees are provided on other fetch and range operations. But in the case of key ranges, there are some nuances regarding order:&#xA;The returned iterator must be safe from {@link java.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Drafts on @jeqo</title><link>https://jeqo.github.io/drafts/</link><description>Recent content in Drafts on @jeqo</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 31 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/drafts/index.xml" rel="self" type="application/rss+xml"/><item><title>KIP-634: Complementary support for headers in Kafka Streams</title><link>https://jeqo.github.io/drafts/kip-634/</link><pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/drafts/kip-634/</guid><description>&amp;nbsp;Motivation Headers are transiently passed over a Kafka Streams topology. To act on them, Processor API has to be used since (KIP-244).
+Although current support is useful for instrumentations that need to access headers, it becomes cumbersome for users to access headers on common Kafka Streams DSL operations (e.g filtering based on header value) as requires using a Transformer/Processor implementation.
+&amp;nbsp;Related JIRA issues https://issues.apache.org/jira/browse/KAFKA-7718 &amp;nbsp;Proposed Changes Include a new type, to map value and headers.</description></item><item><title>KIP-617: Allow Kafka Streams State Stores to be iterated backwards</title><link>https://jeqo.github.io/drafts/kip-617/</link><pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/drafts/kip-617/</guid><description>&amp;nbsp;Motivation Fetching range of records from Kafka Streams state stores comes with an iterator to traverse elements from oldest to newest, e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions:
+For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&amp;quot;
+Similar guarantees are provided on other fetch and range operations. But in the case of key ranges, there are some nuances regarding order:
+The returned iterator must be safe from {@link java.</description></item></channel></rss>

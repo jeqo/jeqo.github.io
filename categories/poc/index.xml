@@ -1,27 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Poc on @jeqo</title>
-    <link>https://jeqo.github.io/categories/poc/</link>
-    <description>Recent content in Poc on @jeqo</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jeqo.github.io/categories/poc/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Kafka Emulator CLI: Record and Reply Records considering time-distance</title>
-      <link>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</link>
-      <pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</guid>
-      <description>Looking for alternative ways to reproduce time-based conditions in Kafka Streams applications —e.g. if you&amp;rsquo;re doing some sort of join or windowing based on time— I ended up creating a CLI tool to support a couple of features:&#xA;Record events from topics, including their timestamps and gap Replay events, including waiting periods between them SQLite is used a storage for recorded events, so events can be generated, updated, tweaked using SQL.</description>
-    </item>
-    <item>
-      <title>Kafka Streams: Tick stream-time with control messages</title>
-      <link>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</link>
-      <pubDate>Fri, 17 Jun 2022 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</guid>
-      <description>&lt;p&gt;Kafka Streams is in many ways governed by the concept of time.&#xA;For instance, as soon as stateful operations are used, the event-time drives how events are grouped, joined, and emitted.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://developer.confluent.io/learn-kafka/kafka-streams/time-concepts/#stream-time&#34;&gt;Stream-time&lt;/a&gt;&#xA;is the concept within Kafka Streams representing the largest timestamp seen by the the stream application (per-partition).&#xA;In comparison with wall-clock time (i.e. system time) — at the execution of an application — stream-time is driven by the data seen by the application.&#xA;This ensures that the results produced by a Kafka Streams application are reproducible.&lt;/p&gt;&#xA;&lt;p&gt;One nuance of stream-time is that it &lt;em&gt;needs&lt;/em&gt; incoming events to &amp;ldquo;tick&amp;rdquo;.&#xA;This could represent an issue for events that are sparse in time, and we expect results to be produced more often (e.g. windows to be closed and emit, punctiation to be calculated).&lt;/p&gt;&#xA;&lt;p&gt;This is a known issue, and there are some proposals to overcome it in certain parts of the framework,&#xA;e.g. &lt;a href=&#34;https://cwiki.apache.org/confluence/display/KAFKA/KIP-424%3A+Allow+suppression+of+intermediate+events+based+on+wall+clock+time&#34;&gt;KIP-424&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This post covers a proof-of-concept instrumenting producers to emit contol messages to advance stream time.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Poc on @jeqo</title><link>https://jeqo.github.io/categories/poc/</link><description>Recent content in Poc on @jeqo</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 24 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/categories/poc/index.xml" rel="self" type="application/rss+xml"/><item><title>Kafka Emulator CLI: Record and Reply Records considering time-distance</title><link>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</link><pubDate>Wed, 24 Aug 2022 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/posts/2022-08-24-kafka-cli-emulator/</guid><description>Looking for alternative ways to reproduce time-based conditions in Kafka Streams applications —e.g. if you&amp;rsquo;re doing some sort of join or windowing based on time— I ended up creating a CLI tool to support a couple of features:
+Record events from topics, including their timestamps and gap Replay events, including waiting periods between them SQLite is used a storage for recorded events, so events can be generated, updated, tweaked using SQL.</description></item><item><title>Kafka Streams: Tick stream-time with control messages</title><link>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</link><pubDate>Fri, 17 Jun 2022 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/posts/2022-06-17-kafka-streams-tick-event-time-with-control-messages/</guid><description>&lt;p>Kafka Streams is in many ways governed by the concept of time.
+For instance, as soon as stateful operations are used, the event-time drives how events are grouped, joined, and emitted.&lt;/p>
+&lt;p>&lt;a href="https://developer.confluent.io/learn-kafka/kafka-streams/time-concepts/#stream-time">Stream-time&lt;/a>
+is the concept within Kafka Streams representing the largest timestamp seen by the the stream application (per-partition).
+In comparison with wall-clock time (i.e. system time) — at the execution of an application — stream-time is driven by the data seen by the application.
+This ensures that the results produced by a Kafka Streams application are reproducible.&lt;/p>
+&lt;p>One nuance of stream-time is that it &lt;em>needs&lt;/em> incoming events to &amp;ldquo;tick&amp;rdquo;.
+This could represent an issue for events that are sparse in time, and we expect results to be produced more often (e.g. windows to be closed and emit, punctiation to be calculated).&lt;/p>
+&lt;p>This is a known issue, and there are some proposals to overcome it in certain parts of the framework,
+e.g. &lt;a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-424%3A+Allow+suppression+of+intermediate+events+based+on+wall+clock+time">KIP-424&lt;/a>.&lt;/p>
+&lt;p>This post covers a proof-of-concept instrumenting producers to emit contol messages to advance stream time.&lt;/p></description></item></channel></rss>

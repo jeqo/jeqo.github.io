@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Peter Alvaro on @jeqo</title>
-    <link>https://jeqo.github.io/tags/peter-alvaro/</link>
-    <description>Recent content in Peter Alvaro on @jeqo</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jeqo.github.io/tags/peter-alvaro/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Notes on Co-evolving Tracing and Fault Injection with Box of Pain</title>
-      <link>https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/</link>
-      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/</guid>
-      <description>This paper explores how related tracing and fault injection systems are, and if they should be part of the same thing.&#xA;The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&amp;hellip;]&#xA;[&amp;hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.&#xA;In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Peter Alvaro on @jeqo</title><link>https://jeqo.github.io/tags/peter-alvaro/</link><description>Recent content in Peter Alvaro on @jeqo</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/peter-alvaro/index.xml" rel="self" type="application/rss+xml"/><item><title>Notes on Co-evolving Tracing and Fault Injection with Box of Pain</title><link>https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/</link><pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/</guid><description>This paper explores how related tracing and fault injection systems are, and if they should be part of the same thing.
+The space of possible executions of a distributed system is exponential in the number of communicating precesses and the number of messages, [&amp;hellip;]
+[&amp;hellip;] some of the most pernicious bugs in distributed programs involve mistakes on how programs handle partial failure of remote components.
+In order to expose this failures, fault injection mechanisms are used to cause network partitions, or machine crashes.</description></item></channel></rss>

@@ -1,20 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Performance-Tuning on @jeqo</title>
-    <link>https://jeqo.github.io/tags/performance-tuning/</link>
-    <description>Recent content in Performance-Tuning on @jeqo</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Thu, 09 Dec 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jeqo.github.io/tags/performance-tuning/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Kafka Producer idempotency is enabled by default since 3.0</title>
-      <link>https://jeqo.github.io/notes/2021-12-09-kafka-v3-idempotent-acks-all/</link>
-      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/notes/2021-12-09-kafka-v3-idempotent-acks-all/</guid>
-      <description>Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.&#xA;This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Performance-Tuning on @jeqo</title><link>https://jeqo.github.io/tags/performance-tuning/</link><description>Recent content in Performance-Tuning on @jeqo</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 09 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/performance-tuning/index.xml" rel="self" type="application/rss+xml"/><item><title>Kafka Producer idempotency is enabled by default since 3.0</title><link>https://jeqo.github.io/notes/2021-12-09-kafka-v3-idempotent-acks-all/</link><pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/notes/2021-12-09-kafka-v3-idempotent-acks-all/</guid><description>Since Apache Kafka 3.0, Producers come with enable.idempotency=true which leads to acks=all, along with other changes enforced by idempotency.
+This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with acks=1.</description></item></channel></rss>

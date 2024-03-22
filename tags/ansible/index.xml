@@ -1,34 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Ansible on @jeqo</title>
-    <link>https://jeqo.github.io/tags/ansible/</link>
-    <description>Recent content in Ansible on @jeqo</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Fri, 21 Jan 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jeqo.github.io/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Ansible has a debug mode to pause and troubleshoot</title>
-      <link>https://jeqo.github.io/notes/2022-01-21-ansible-debug/</link>
-      <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/notes/2022-01-21-ansible-debug/</guid>
-      <description>&lt;p&gt;I have been running Ansible for a while now.&#xA;My usual/naive way of debugging has always been adding a &lt;code&gt;debug&lt;/code&gt; module&lt;a href=&#34;https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html&#34;&gt;[1]&lt;/a&gt;, and get the execution running til that point.&lt;/p&gt;&#xA;&lt;p&gt;I figured that there are better ways to deal with this&lt;a href=&#34;https://docs.ansible.com/ansible/2.9/user_guide/playbooks_debugger.html#examples&#34;&gt;[2]&lt;/a&gt;.&#xA;By using the debug mode, tasks will stop when failing (by default) and you&amp;rsquo;ll be able to introspect into the task, variables, and context when things failed.&#xA;Even better, you&amp;rsquo;ll be able to re-execute if there was a transient error.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Speed up your Oracle Database provisioning with Docker and Ansible</title>
-      <link>https://jeqo.github.io/posts/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</link>
-      <pubDate>Thu, 26 May 2016 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/posts/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</guid>
-      <description>&lt;p&gt;Warming up before &lt;a href=&#34;http://www.amis-conference.com/Program&#34;&gt;AMIS 25th Conference&lt;/a&gt;&#xA;event where I will be presenting with my friend&#xA;and colleague Arturo Viveros (@gugalnikov)&#xA;&lt;a href=&#34;http://www.amis-conference.com/Session-Catalog#session1168&#34;&gt;about Oracle SOA Suite provisioning&lt;/a&gt;,&#xA;I want to share some practices that help us to provide Oracle Database instances&#xA;between developers and improve our productivity.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Ansible - an agentless provisioning</title>
-      <link>https://jeqo.github.io/posts/2016-03-30-ansible-agentless-provisioning/</link>
-      <pubDate>Wed, 30 Mar 2016 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/posts/2016-03-30-ansible-agentless-provisioning/</guid>
-      <description>&lt;p&gt;Ansible is an automation tool that is recognized for be simple and&#xA;powerful at the same time. From my experience, I can say this is mainly&#xA;because of its scripting language: YAML, and its agentless architecture.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ansible on @jeqo</title><link>https://jeqo.github.io/tags/ansible/</link><description>Recent content in Ansible on @jeqo</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 21 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/ansible/index.xml" rel="self" type="application/rss+xml"/><item><title>Ansible has a debug mode to pause and troubleshoot</title><link>https://jeqo.github.io/notes/2022-01-21-ansible-debug/</link><pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/notes/2022-01-21-ansible-debug/</guid><description>&lt;p>I have been running Ansible for a while now.
+My usual/naive way of debugging has always been adding a &lt;code>debug&lt;/code> module&lt;a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html">[1]&lt;/a>, and get the execution running til that point.&lt;/p>
+&lt;p>I figured that there are better ways to deal with this&lt;a href="https://docs.ansible.com/ansible/2.9/user_guide/playbooks_debugger.html#examples">[2]&lt;/a>.
+By using the debug mode, tasks will stop when failing (by default) and you&amp;rsquo;ll be able to introspect into the task, variables, and context when things failed.
+Even better, you&amp;rsquo;ll be able to re-execute if there was a transient error.&lt;/p></description></item><item><title>Speed up your Oracle Database provisioning with Docker and Ansible</title><link>https://jeqo.github.io/posts/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</link><pubDate>Thu, 26 May 2016 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/posts/2016-05-26-speed-up-oracle-database-provisioning-ansible-docker/</guid><description>&lt;p>Warming up before &lt;a href="http://www.amis-conference.com/Program">AMIS 25th Conference&lt;/a>
+event where I will be presenting with my friend
+and colleague Arturo Viveros (@gugalnikov)
+&lt;a href="http://www.amis-conference.com/Session-Catalog#session1168">about Oracle SOA Suite provisioning&lt;/a>,
+I want to share some practices that help us to provide Oracle Database instances
+between developers and improve our productivity.&lt;/p></description></item><item><title>Ansible - an agentless provisioning</title><link>https://jeqo.github.io/posts/2016-03-30-ansible-agentless-provisioning/</link><pubDate>Wed, 30 Mar 2016 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/posts/2016-03-30-ansible-agentless-provisioning/</guid><description>&lt;p>Ansible is an automation tool that is recognized for be simple and
+powerful at the same time. From my experience, I can say this is mainly
+because of its scripting language: YAML, and its agentless architecture.&lt;/p></description></item></channel></rss>

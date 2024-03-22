@@ -1,20 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Automation on @jeqo</title>
-    <link>https://jeqo.github.io/tags/automation/</link>
-    <description>Recent content in Automation on @jeqo</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright @jeqo</copyright>
-    <lastBuildDate>Fri, 21 Jan 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jeqo.github.io/tags/automation/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Ansible has a debug mode to pause and troubleshoot</title>
-      <link>https://jeqo.github.io/notes/2022-01-21-ansible-debug/</link>
-      <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/notes/2022-01-21-ansible-debug/</guid>
-      <description>&lt;p&gt;I have been running Ansible for a while now.&#xA;My usual/naive way of debugging has always been adding a &lt;code&gt;debug&lt;/code&gt; module&lt;a href=&#34;https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html&#34;&gt;[1]&lt;/a&gt;, and get the execution running til that point.&lt;/p&gt;&#xA;&lt;p&gt;I figured that there are better ways to deal with this&lt;a href=&#34;https://docs.ansible.com/ansible/2.9/user_guide/playbooks_debugger.html#examples&#34;&gt;[2]&lt;/a&gt;.&#xA;By using the debug mode, tasks will stop when failing (by default) and you&amp;rsquo;ll be able to introspect into the task, variables, and context when things failed.&#xA;Even better, you&amp;rsquo;ll be able to re-execute if there was a transient error.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Automation on @jeqo</title><link>https://jeqo.github.io/tags/automation/</link><description>Recent content in Automation on @jeqo</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 21 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jeqo.github.io/tags/automation/index.xml" rel="self" type="application/rss+xml"/><item><title>Ansible has a debug mode to pause and troubleshoot</title><link>https://jeqo.github.io/notes/2022-01-21-ansible-debug/</link><pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate><guid>https://jeqo.github.io/notes/2022-01-21-ansible-debug/</guid><description>&lt;p>I have been running Ansible for a while now.
+My usual/naive way of debugging has always been adding a &lt;code>debug&lt;/code> module&lt;a href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/debug_module.html">[1]&lt;/a>, and get the execution running til that point.&lt;/p>
+&lt;p>I figured that there are better ways to deal with this&lt;a href="https://docs.ansible.com/ansible/2.9/user_guide/playbooks_debugger.html#examples">[2]&lt;/a>.
+By using the debug mode, tasks will stop when failing (by default) and you&amp;rsquo;ll be able to introspect into the task, variables, and context when things failed.
+Even better, you&amp;rsquo;ll be able to re-execute if there was a transient error.&lt;/p></description></item></channel></rss>
