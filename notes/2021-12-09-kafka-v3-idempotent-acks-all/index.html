@@ -174,7 +174,6 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
-  
   <header>
     
     <h1>Kafka Producer idempotency is enabled by default since 3.0</h1>
@@ -198,6 +197,9 @@
     </div>
   </header>
   
+  <aside class="p-toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
   <section id="js-article" class="p-article__body">
     <p>Since <a href="https://blogs.apache.org/kafka/entry/what-s-new-in-apache6">Apache Kafka 3.0</a>, Producers come with <a href="https://kafka.apache.org/30/documentation.html#producerconfigs_enable.idempotence"><code>enable.idempotency=true</code></a> which leads to <code>acks=all</code>, along with other changes enforced by idempotency.</p>
 <p>This means by default Producers will be balanced between latency (no batching) and durability — different from previous versions where the main goal was to reduce latency even by risking durability with <code>acks=1</code>.</p>

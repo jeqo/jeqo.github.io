@@ -174,7 +174,6 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
-  
   <header>
     
     <h1>KIP-617: Allow Kafka Streams State Stores to be iterated backwards</h1>
@@ -190,6 +189,25 @@
     </div>
   </header>
   
+  <aside class="p-toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#motivation">Motivation</a>
+      <ul>
+        <li><a href="#reference-issues">Reference issues</a></li>
+      </ul>
+    </li>
+    <li><a href="#proposed-changes">Proposed Changes</a>
+      <ul>
+        <li><a href="#reverse-key-ranges">Reverse Key Ranges</a></li>
+        <li><a href="#backward-time-ranges">Backward Time Ranges</a></li>
+      </ul>
+    </li>
+    <li><a href="#compatibilily-deprecation-and-migration-plan">Compatibilily, Deprecation, and Migration Plan</a></li>
+    <li><a href="#rejected-alternatives">Rejected Alternatives</a></li>
+  </ul>
+</nav>
+  </aside>
   <section id="js-article" class="p-article__body">
     <h2 id="motivation">
     <a class="hash-link nohover" href="#motivation">
@@ -339,7 +357,7 @@ Therefore, for these stores time-range is more important than key-range to looku
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://jeqo.github.io/about/">Newer</a>
+          <a href="https://jeqo.github.io/notes/2019-10-31-co-evolving-tracing-and-fault-injection/">Newer</a>
           
         </div>
         <div class="c-pagination__older">

@@ -178,7 +178,6 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
-  
   <header>
     
     <a href="https://jeqo.github.io/posts" class="c-tag">posts</a>
@@ -206,6 +205,13 @@
     </div>
   </header>
   
+  <aside class="p-toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-are-the-steps">What are the steps?</a></li>
+  </ul>
+</nav>
+  </aside>
   <section id="js-article" class="p-article__body">
     <p>I was creating AWS EC2 instances to install Oracle Fusion Middleware products, and I found an issue: How to download Oracle&rsquo;s installers if I want to use installers on several instances? This could consume a lot of network bandwith and I want to make this process repeatable, so I don&rsquo;t want to wait 1 hour each installation only downloading files.</p>
 <p>So, I found this solution: <a href="https://theredblacktree.wordpress.com/2013/05/23/how-to-setup-a-amazon-aws-ec2-nfs-share/">How to setup an Amazon AWS EC2 NFS Share</a>. But to make it more reusable, I create a Vagrant &amp; Chef configuration to replicate and share this method here: <a href="https://github.com/jeqo/vagrant-aws-chef-nfs">Git repository</a></p>

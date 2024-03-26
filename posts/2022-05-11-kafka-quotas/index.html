@@ -174,7 +174,6 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
-  
   <header>
     
     <a href="https://jeqo.github.io/posts" class="c-tag">posts</a>
@@ -196,6 +195,24 @@
     </div>
   </header>
   
+  <aside class="p-toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-quotas-are-important">Why quotas are important?</a></li>
+    <li><a href="#how-do-start-adopting-the-usage-of-quotas">How do start adopting the usage of quotas?</a>
+      <ul>
+        <li><a href="#identify-broker-resources-to-constraint">Identify broker resources to constraint</a></li>
+        <li><a href="#identify-applications">Identify applications</a></li>
+        <li><a href="#define-_good_-defaults">Define <em>good</em> defaults</a></li>
+        <li><a href="#monitor-application-quotas">Monitor application quotas</a></li>
+        <li><a href="#adjust-quotas--scale-cluster">Adjust quotas / Scale cluster</a></li>
+      </ul>
+    </li>
+    <li><a href="#bonus-kfk-quotas-a-cli-to-manage-quotas">Bonus: `kfk-quotas`, a CLI to manage quotas</a></li>
+    <li><a href="#appendix-quotas-history">Appendix: Quotas history</a></li>
+  </ul>
+</nav>
+  </aside>
   <section id="js-article" class="p-article__body">
     <p>Kafka quotas have been around for a while since initial versions of the project — though not necessarily being enabled in most deployments that I have seen.</p>
 <p>This post shares some thoughts on how to start adopting quotas and gives some practical advice, and a bit of the history of quotas in the Kafka project.</p>

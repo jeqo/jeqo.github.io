@@ -174,7 +174,6 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
-  
   <header>
     
     <h1>Reducing `acks` doesn&#39;t help to reduce end-to-end latency</h1>
@@ -198,6 +197,13 @@
     </div>
   </header>
   
+  <aside class="p-toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </aside>
   <section id="js-article" class="p-article__body">
     <p>Kafka Producers enforce durability across replicas by setting <code>acks=all</code> (<a href="/til/kafka-v3-idea">default since v3.0</a>).
 As enforcing this guarantee requires waiting for replicas to sync, this increases latency; and reducing it tends to give the impression that latency gets reduced overall.</p>

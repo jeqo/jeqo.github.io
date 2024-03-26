@@ -27,7 +27,7 @@
       <link>https://jeqo.github.io/es/about/</link>
       <pubDate>Sat, 11 Apr 2020 00:00:00 +0000</pubDate>
       <guid>https://jeqo.github.io/es/about/</guid>
-      <description>&amp;nbsp;Jorge Esteban Quilcate Otoya Peruano, casado, ingeniero de software, e inmigrante en Noruega y el Reino Unido.&#xA;Disfrutando mi carrera trabajando en sistemas distribuidos.&#xA;Empecé a contribuir en proyectos Open-Source desde 2016, incluyendo Apache Kafka y Zipkin.&#xA;Intereses actuales:&#xA;Log-based streaming platform (Apache Kafka), Stream processing (Kafka Streams), Distributed Tracing (OpenTracing), Metrics (Micrometer, Prometheus), Cluster Scheduling (Nomad, Kubernetes), Automation (Docker, Ansible) &amp;nbsp;Contribuciones de Codigo Abierto KIP-122: Add Reset Consumer Group Offsets tooling https://cwiki.</description>
+      <description>&amp;nbsp;Jorge Esteban Quilcate Otoya Peruano, padre, esposo, e ingeniero de software; disfrutando mi carrera en sistemas distribuidos.&#xA;Intereses actuales:&#xA;Tiered Storage Log-based streaming platform (Apache Kafka), Stream processing (Kafka Streams), &amp;nbsp;Contribuciones de Codigo Abierto Empecé a contribuir en proyectos Open-Source desde 2016, incluyendo Apache Kafka y Zipkin.&#xA;Algunas Kafka Improvement Proposals, incluyendo:&#xA;KIP-122: Add Reset Consumer Group Offsets tooling https://cwiki.apache.org/confluence/display/KAFKA/KIP-122%3A+Add+Reset+Consumer+Group+Offsets+tooling&#xA;KIP-171 - Extend Consumer Group Reset Offset for Stream Application https://cwiki.</description>
     </item>
     <item>
       <title>Data on the Outside vs Data on the Inside</title>

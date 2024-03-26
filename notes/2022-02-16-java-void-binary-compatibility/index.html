@@ -174,7 +174,6 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
-  
   <header>
     
     <a href="https://jeqo.github.io/til" class="c-tag">til</a>
@@ -200,6 +199,9 @@
     </div>
   </header>
   
+  <aside class="p-toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
   <section id="js-article" class="p-article__body">
     <p>While <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-820%3A+Extend+KStream+process+with+new+Processor+API">proposing changes to Kafka Streams DSL</a>, I propose changing the return type of one method from <code>void</code> to <code>KStream&lt;KOut, VOut</code>.
 I was under the (wrong) impression that this change wouldn&rsquo;t affect users.

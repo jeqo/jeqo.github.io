@@ -174,7 +174,6 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
-  
   <header>
     
     <h1>Piggyback on Kafka Connect Schemas to process Kafka records in a generic way</h1>
@@ -198,6 +197,9 @@
     </div>
   </header>
   
+  <aside class="p-toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
   <section id="js-article" class="p-article__body">
     <p>When reading from/writing to Kafka topics, a serializer/deserializer (a.k.a <code>SerDe</code>s) is needed to process record key and value bytes.
 Specific <code>SerDe</code>s that turn bytes into specific objects (e.g. POJO) are used, unless a generic JSON object or Avro structure is used.</p>

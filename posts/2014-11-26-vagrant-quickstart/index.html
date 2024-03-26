@@ -174,7 +174,6 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
-  
   <header>
     
     <a href="https://jeqo.github.io/posts" class="c-tag">posts</a>
@@ -198,6 +197,26 @@
     </div>
   </header>
   
+  <aside class="p-toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#create-a-vagrant-box">Create a Vagrant Box</a></li>
+    <li><a href="#customize-a-vagrant-box">Customize a Vagrant Box</a></li>
+    <li><a href="#resolving-some-common-issues">Resolving some common issues</a>
+      <ul>
+        <li><a href="#increase-disk-space">Increase Disk space</a></li>
+        <li><a href="#increase-swap-memory">Increase Swap Memory</a></li>
+      </ul>
+    </li>
+    <li><a href="#additional-tricks">Additional tricks</a>
+      <ul>
+        <li><a href="#get-started-with-chef-provisioning">Get Started with Chef (Provisioning!)</a></li>
+        <li><a href="#properties-file">Properties file</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
   <section id="js-article" class="p-article__body">
     <p>I have some months working with Vagrant and I think it&rsquo;s owesome! Integration with almost all kind of virtualization platforms: VirtalBox, VMware, Docker, AWS EC2, Hyper-V and so on. Also it&rsquo;s able to use differente Provisioners: Chef, Puppet, bash, Docker, Ansible. I really like it.</p>
 <p>So, when I start working with Vagrant I choose VirtualBox as my virtualization platform and Chef as my provisioner, and when trying different configurations I start finding some tips to share:</p>

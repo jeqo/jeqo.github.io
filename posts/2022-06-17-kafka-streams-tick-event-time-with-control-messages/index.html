@@ -174,7 +174,6 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
-  
   <header>
     
     <a href="https://jeqo.github.io/posts" class="c-tag">posts</a>
@@ -198,6 +197,14 @@
     </div>
   </header>
   
+  <aside class="p-toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#scenario-emit-window-closed-events">Scenario: Emit window closed events</a></li>
+    <li><a href="#proof-of-concept">Proof-of-concept</a></li>
+  </ul>
+</nav>
+  </aside>
   <section id="js-article" class="p-article__body">
     <p>Kafka Streams is in many ways governed by the concept of time.
 For instance, as soon as stateful operations are used, the event-time drives how events are grouped, joined, and emitted.</p>

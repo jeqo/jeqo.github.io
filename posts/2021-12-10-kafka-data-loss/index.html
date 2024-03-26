@@ -174,7 +174,6 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
-  
   <header>
     
     <a href="https://jeqo.github.io/posts" class="c-tag">posts</a>
@@ -198,6 +197,15 @@
     </div>
   </header>
   
+  <aside class="p-toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#choose-reusing-infrastructure-cost-at-the-risk-of-impacting-multiple-components">Choose reusing infrastructure (cost) at the risk of impacting multiple components</a></li>
+    <li><a href="#choose-throughput-at-the-risk-of-lossing-data">Choose throughput at the risk of lossing data</a></li>
+    <li><a href="#choose-availability-in-the-face-of-potential-data-loss">Choose availability in the face of potential data loss</a></li>
+  </ul>
+</nav>
+  </aside>
   <section id="js-article" class="p-article__body">
     <p>Kafka topic partitions are replicated across brokers.
 Data loss happens when the brokers where replicas are located are unavailable or have fully failed.

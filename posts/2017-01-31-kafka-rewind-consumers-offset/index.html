@@ -178,7 +178,6 @@
     <main id="main" class="l-main">
 
 <article class="p-article">
-  
   <header>
     
     <a href="https://jeqo.github.io/posts" class="c-tag">posts</a>
@@ -200,6 +199,26 @@
     </div>
   </header>
   
+  <aside class="p-toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#basic-concepts">Basic Concepts</a>
+      <ul>
+        <li><a href="#topics-and-offsets">Topics and Offsets</a></li>
+        <li><a href="#consumers-and-consumer-groups">Consumers and Consumer Groups</a></li>
+      </ul>
+    </li>
+    <li><a href="#from-command-line">From Command-Line</a></li>
+    <li><a href="#from-java-clients">From Java Clients</a>
+      <ul>
+        <li><a href="#rewind-to-earliest-offset">Rewind to earliest <code>offset</code></a></li>
+        <li><a href="#rewind-to-specific-offset">Rewind to specific <code>offset</code></a></li>
+        <li><a href="#rewind-to-offset-by-timestamps">Rewind to offset by timestamps</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
   <section id="js-article" class="p-article__body">
     <p>One of the most important features from <em>Apache Kafka</em> is how it manages
 Multiple Consumers. Each <code>consumer group</code> has a current <code>offset</code>, that

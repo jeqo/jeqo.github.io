@@ -6,8 +6,15 @@
     <description>Recent content on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 23 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jeqo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://jeqo.github.io/about/</link>
+      <pubDate>Sat, 23 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jeqo.github.io/about/</guid>
+      <description>&amp;nbsp;Jorge Esteban Quilcate Otoya Peruvian, father, husband, and software engineer; enjoying my journey working on distributed systems.&#xA;Current interests:&#xA;Tiered Storage Log-based streaming platform (Kafka), Stream processing (Kafka Streams, Flink), &amp;nbsp;Open-Source contributions Started to contribute to Open-Source projects in 2016, including projects like Apache Kafka and Zipkin.&#xA;A few Kafka Improvement Proposals, including:&#xA;KIP-122: Add Reset Consumer Group Offsets tooling https://cwiki.apache.org/confluence/display/KAFKA/KIP-122%3A+Add+Reset+Consumer+Group+Offsets+tooling&#xA;KIP-171 - Extend Consumer Group Reset Offset for Stream Application https://cwiki.</description>
+    </item>
     <item>
       <title>On Anarchism book</title>
       <link>https://jeqo.github.io/notes/on-anarchism-book/</link>
@@ -210,13 +217,6 @@
       <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       <guid>https://jeqo.github.io/drafts/kip-617/</guid>
       <description>&amp;nbsp;Motivation Fetching range of records from Kafka Streams state stores comes with an iterator to traverse elements from oldest to newest, e.g ReadOnlyWindowStore#fetch(K key, long fromTime, long toTime) mentions:&#xA;For each key, the iterator guarantees ordering of windows, starting from the oldest/earliest&amp;quot;&#xA;Similar guarantees are provided on other fetch and range operations. But in the case of key ranges, there are some nuances regarding order:&#xA;The returned iterator must be safe from {@link java.</description>
-    </item>
-    <item>
-      <title>About</title>
-      <link>https://jeqo.github.io/about/</link>
-      <pubDate>Sat, 11 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>https://jeqo.github.io/about/</guid>
-      <description>&amp;nbsp;Jorge Esteban Quilcate Otoya Peruvian, husband, software engineer, and immigrant in Norway and the UK.&#xA;Enjoying my journey working on distributed systems.&#xA;Started to contribute to Open-Source projects since 2016, including Apache Kafka and Zipkin.&#xA;Current interests:&#xA;Log-based streaming platform (Apache Kafka), Stream processing (Kafka Streams), Distributed Tracing (OpenTracing), Metrics (Micrometer, Prometheus), Cluster Scheduling (Nomad, Kubernetes), Automation (Docker, Ansible) &amp;nbsp;Open-Source contributions KIP-122: Add Reset Consumer Group Offsets tooling https://cwiki.apache.org/confluence/display/KAFKA/KIP-122%3A+Add+Reset+Consumer+Group+Offsets+tooling</description>
     </item>
     <item>
       <title>Notes on Co-evolving Tracing and Fault Injection with Box of Pain</title>
