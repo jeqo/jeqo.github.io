@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kafka-Summit on @jeqo</title>
-    <link>http://localhost:1313/tags/kafka-summit/</link>
+    <link>https://jeqo.github.io/tags/kafka-summit/</link>
     <description>Recent content in Kafka-Summit on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 24 Mar 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/kafka-summit/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeqo.github.io/tags/kafka-summit/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Impressions from Kafka Summit London 2024</title>
-      <link>http://localhost:1313/notes/kafka-summit-london-2024/</link>
-      <pubDate>Sun, 24 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/kafka-summit-london-2024/</guid>
+      <link>https://jeqo.github.io/notes/2024-03-27-kafka-summit-london-2024/</link>
+      <pubDate>Wed, 27 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jeqo.github.io/notes/2024-03-27-kafka-summit-london-2024/</guid>
       <description>&lt;p&gt;I have been lucky to attend Kafka Summit London this year (thanks, Aiven!)&#xA;and wanted to share some notes on topics that caught my attention from the sessions I was able to attend:&lt;/p&gt;</description>
     </item>
   </channel>

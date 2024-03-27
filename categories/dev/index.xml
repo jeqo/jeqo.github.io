@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dev on @jeqo</title>
-    <link>http://localhost:1313/categories/dev/</link>
+    <link>http://localhost:60266/categories/dev/</link>
     <description>Recent content in Dev on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 28 Jul 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/dev/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:60266/categories/dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kafka Context: Connection and Authentication properties as Named Contexts</title>
-      <link>http://localhost:1313/posts/kafka-context/</link>
+      <link>http://localhost:60266/posts/kafka-context/</link>
       <pubDate>Thu, 28 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/kafka-context/</guid>
+      <guid>http://localhost:60266/posts/kafka-context/</guid>
       <description>&lt;p&gt;Once you have to work with more than one Kafka cluster (e.g. multiple environments or clusters per domain),&#xA;and/or multiple credentials (e.g. API keys, user principal per component),&#xA;there is a routine task to set/update the right client connection properties&#xA;to point to the right bootstrap-servers,&#xA;use the right authentication credetials and encryption,&#xA;and do it in all the places you&amp;rsquo;re supposed to.&lt;/p&gt;&#xA;&lt;p&gt;Hopefully there&amp;rsquo;s some automation helping to define these properties&#xA;— e.g. Confluent for Kubernetes or cp-ansible do this on the Confluent Platform deployment —&#xA;though on the client side this can become tedious and error-prone to set this connection properties.&lt;/p&gt;&#xA;&lt;p&gt;This post proposes a new abstraction to deal with connection to Kafka clusters.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kafka Performance Producer &#43; Datagen</title>
-      <link>http://localhost:1313/posts/2022-02-18-kafka-producer-perf-test-datagen/</link>
+      <link>http://localhost:60266/posts/2022-02-18-kafka-producer-perf-test-datagen/</link>
       <pubDate>Fri, 18 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2022-02-18-kafka-producer-perf-test-datagen/</guid>
+      <guid>http://localhost:60266/posts/2022-02-18-kafka-producer-perf-test-datagen/</guid>
       <description></description>
     </item>
   </channel>

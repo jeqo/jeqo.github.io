@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ops on @jeqo</title>
-    <link>http://localhost:1313/categories/ops/</link>
+    <link>http://localhost:60266/categories/ops/</link>
     <description>Recent content in Ops on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 13 Jan 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/ops/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:60266/categories/ops/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kafka partitioning</title>
-      <link>http://localhost:1313/posts/kafka-partitioning/</link>
+      <link>http://localhost:60266/posts/kafka-partitioning/</link>
       <pubDate>Thu, 13 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/kafka-partitioning/</guid>
+      <guid>http://localhost:60266/posts/kafka-partitioning/</guid>
       <description>&amp;nbsp;Capacity planning eventsizer.io main factor: consumer throughput assuming traditional consumption pattern workarounds: parallel consumer other factors: key cardinality &amp;nbsp;Changing number of partitions Considerations:&#xA;Reprocessing: could the producer reproduce events (e.g. CDC)? Consumer starting offsets Consumer state management Retention and Consumer reprocessing &amp;nbsp;YOLO: Increasing number of partitions Btw, not possible to decrease number of partitions, maybe because it could lead to data loss (?)&#xA;&amp;nbsp;Versioned topics &amp;nbsp;Ideas If versioned topics end up being the right answer from a producer point-of-view, wouldn&amp;rsquo;t be nice to have a consumer capability to continue the processing from v2 without requiring changes?</description>
     </item>
   </channel>

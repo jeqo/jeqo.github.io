@@ -6,8 +6,15 @@
     <description>Recent content in Notes on @jeqo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 27 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jeqo.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Impressions from Kafka Summit London 2024</title>
+      <link>https://jeqo.github.io/notes/2024-03-27-kafka-summit-london-2024/</link>
+      <pubDate>Wed, 27 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jeqo.github.io/notes/2024-03-27-kafka-summit-london-2024/</guid>
+      <description>&lt;p&gt;I have been lucky to attend Kafka Summit London this year (thanks, Aiven!)&#xA;and wanted to share some notes on topics that caught my attention from the sessions I was able to attend:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>On Anarchism book</title>
       <link>https://jeqo.github.io/notes/on-anarchism-book/</link>
