@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jeqo.github.io/</loc>
-    <lastmod>2024-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2024-04-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -15,14 +15,21 @@
                 href="https://jeqo.github.io/"
                 />
   </url><url>
-    <loc>https://jeqo.github.io/notes/2024-03-27-kafka-summit-london-2024/</loc>
-    <lastmod>2024-03-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jeqo.github.io/tags/kafka-summit/</loc>
-    <lastmod>2024-03-27T00:00:00+00:00</lastmod>
+    <loc>https://jeqo.github.io/posts/</loc>
+    <lastmod>2024-04-30T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://jeqo.github.io/es/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jeqo.github.io/posts/"
+                />
   </url><url>
     <loc>https://jeqo.github.io/notes/</loc>
-    <lastmod>2024-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -33,6 +40,12 @@
                 hreflang="en"
                 href="https://jeqo.github.io/notes/"
                 />
+  </url><url>
+    <loc>https://jeqo.github.io/notes/2024-03-27-kafka-summit-london-2024/</loc>
+    <lastmod>2024-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jeqo.github.io/tags/kafka-summit/</loc>
+    <lastmod>2024-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jeqo.github.io/tags/</loc>
     <lastmod>2024-03-27T00:00:00+00:00</lastmod>
@@ -58,19 +71,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://jeqo.github.io/about/"
-                />
-  </url><url>
-    <loc>https://jeqo.github.io/posts/</loc>
-    <lastmod>2024-02-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://jeqo.github.io/es/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://jeqo.github.io/posts/"
                 />
   </url><url>
     <loc>https://jeqo.github.io/tags/chomsky/</loc>
